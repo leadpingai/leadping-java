@@ -16,7 +16,7 @@ With Maven:
 
 <dependency>
   <groupId>ai.leadping</groupId>
-  <artifactId>leadping-java</artifactId>
+  <artifactId>leadping</artifactId>
   <version>VERSION</version>
 </dependency>
 ```
@@ -30,7 +30,7 @@ repositories {
     }
 }
 
-implementation "ai.leadping:leadping-java:VERSION"
+implementation "ai.leadping:leadping:VERSION"
 ```
 
 The generated client uses a Kiota request adapter. Install the Kiota bundle in the application that will call Leadping:
