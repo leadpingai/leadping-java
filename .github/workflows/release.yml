@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   release:
@@ -75,6 +76,30 @@ jobs:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: mvn -B -Prelease -Drevision="${{ steps.version.outputs.version }}" deploy -DskipTests
 
+      - name: Set up GitHub Packages publishing
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          mvn -B org.apache.maven.plugins:maven-deploy-plugin:3.1.4:deploy-file \
+            -DrepositoryId=github \
+            -Durl="https://maven.pkg.github.com/${{ github.repository }}" \
+            -DpomFile=.flattened-pom.xml \
+            -Dfile="target/leadping-${VERSION}.jar" \
+            -Dsources="target/leadping-${VERSION}-sources.jar" \
+            -Djavadoc="target/leadping-${VERSION}-javadoc.jar"
+
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
@@ -93,4 +118,4 @@ jobs:
 
           gh release create "${TAG}" artifacts/* \
             --title "${TAG}" \
-            --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from Maven Central with ai.leadping:leadping:${{ steps.version.outputs.version }}."
+            --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from Maven Central or GitHub Packages with ai.leadping:leadping:${{ steps.version.outputs.version }}."

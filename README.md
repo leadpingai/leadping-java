@@ -20,6 +20,17 @@ With Gradle:
 implementation "ai.leadping:leadping:VERSION"
 ```
 
+For GitHub Packages, add the GitHub Maven repository and authenticate with a token that can read packages:
+
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/leadpingai/leadping-java</url>
+  </repository>
+</repositories>
+```
+
 The generated client uses a Kiota request adapter. Install the Kiota bundle in the application that will call Leadping:
 
 ```gradle
@@ -51,5 +62,6 @@ The client defaults to `https://api.leadping.ai` when the adapter does not alrea
 
 ## Links
 
+- [Documentation](https://leadping.ai/docs)
 - [API reference](https://leadping.ai/docs/api-reference)
 - [License](LICENSE)
