@@ -3,7 +3,7 @@
 [![](https://img.shields.io/github/downloads/leadpingai/leadping-java/total?style=for-the-badge)](https://github.com/leadpingai/leadping-java/releases)
 [![](https://img.shields.io/github/actions/workflow/status/leadpingai/leadping-java/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/leadpingai/leadping-java/actions/workflows/codeql.yml)
 
-# Leadping Java SDK
+# ![Leadping](https://leadping.ai/favicon.ico) Leadping Java SDK
 
 Type-safe Java client for the Leadping API.
 
