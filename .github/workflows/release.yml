@@ -1,0 +1,93 @@
+name: Release Java SDK
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GIT__TOKEN || secrets.GH__TOKEN || github.token }}
+
+      - name: Prepare version
+        id: version
+        run: |
+          set -euo pipefail
+
+          git fetch --tags --force
+          latest_tag="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | awk '/^v[0-9]+\.[0-9]+\.[0-9]+$/ { print; exit }')"
+
+          if [ -z "${latest_tag}" ]; then
+            version="1.0.0"
+          else
+            base="${latest_tag#v}"
+            IFS='.' read -r major minor patch <<< "${base}"
+            version="${major}.${minor}.$((patch + 1))"
+          fi
+
+          if [[ ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Version must look like 1.2.3."
+            exit 1
+          fi
+
+          tag="v${version}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
+            echo "::error::Tag ${tag} already exists."
+            exit 1
+          fi
+
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+
+      - name: Build package
+        run: mvn -B -Drevision="${{ steps.version.outputs.version }}" verify
+
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
+        run: mvn -B -Drevision="${{ steps.version.outputs.version }}" deploy -DskipTests
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          GIT_EMAIL: ${{ secrets.GIT__EMAIL || 'support@leadping.ai' }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p artifacts
+          cp target/*.jar artifacts/
+
+          git config user.name "leadpingai-bot"
+          git config user.email "${GIT_EMAIL}"
+          git tag "${TAG}"
+          git push origin "${TAG}"
+
+          gh release create "${TAG}" artifacts/* \
+            --title "${TAG}" \
+            --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from GitHub Packages."

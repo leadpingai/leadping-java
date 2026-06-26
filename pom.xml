@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ai.leadping</groupId>
+  <artifactId>leadping-java</artifactId>
+  <version>${revision}</version>
+  <packaging>jar</packaging>
+
+  <name>Leadping Java SDK</name>
+  <description>Typed Java client for the Leadping API, generated from the Leadping OpenAPI document with Microsoft Kiota.</description>
+  <url>https://leadping.ai</url>
+
+  <licenses>
+    <license>
+      <name>Proprietary</name>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Leadping</name>
+      <email>support@leadping.ai</email>
+      <organization>Leadping</organization>
+      <organizationUrl>https://leadping.ai</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/leadpingai/leadping-java.git</connection>
+    <developerConnection>scm:git:https://github.com/leadpingai/leadping-java.git</developerConnection>
+    <url>https://github.com/leadpingai/leadping-java</url>
+  </scm>
+
+  <properties>
+    <revision>0.0.0-SNAPSHOT</revision>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>11</maven.compiler.release>
+    <kiota.version>1.9.3</kiota.version>
+    <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.microsoft.kiota</groupId>
+      <artifactId>microsoft-kiota-bundle</artifactId>
+      <version>${kiota.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>${jakarta.annotation.version}</version>
+    </dependency>
+  </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/leadpingai/leadping-java</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <sourceDirectory>${project.basedir}</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>README.md</include>
+          <include>LICENSE</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
