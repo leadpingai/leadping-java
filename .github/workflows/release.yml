@@ -12,7 +12,6 @@ on:
 
 permissions:
   contents: write
-  packages: write
 
 jobs:
   release:
@@ -60,17 +59,21 @@ jobs:
           distribution: temurin
           java-version: "21"
           cache: maven
-          server-id: github
-          server-username: GITHUB_ACTOR
-          server-password: GITHUB_TOKEN
+          server-id: central
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Build package
         run: mvn -B -Drevision="${{ steps.version.outputs.version }}" verify
 
-      - name: Publish to GitHub Packages
+      - name: Publish to Maven Central
         env:
-          GITHUB_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
-        run: mvn -B -Drevision="${{ steps.version.outputs.version }}" deploy -DskipTests
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: mvn -B -Prelease -Drevision="${{ steps.version.outputs.version }}" deploy -DskipTests
 
       - name: Create GitHub release
         env:
@@ -90,4 +93,4 @@ jobs:
 
           gh release create "${TAG}" artifacts/* \
             --title "${TAG}" \
-            --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from GitHub Packages."
+            --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from Maven Central with ai.leadping:leadping:${{ steps.version.outputs.version }}."

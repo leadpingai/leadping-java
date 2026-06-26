@@ -7,13 +7,6 @@ Type-safe Java client for the Leadping API.
 With Maven:
 
 ```xml
-<repositories>
-  <repository>
-    <id>github</id>
-    <url>https://maven.pkg.github.com/leadpingai/leadping-java</url>
-  </repository>
-</repositories>
-
 <dependency>
   <groupId>ai.leadping</groupId>
   <artifactId>leadping</artifactId>
@@ -24,12 +17,6 @@ With Maven:
 With Gradle:
 
 ```gradle
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/leadpingai/leadping-java")
-    }
-}
-
 implementation "ai.leadping:leadping:VERSION"
 ```
 
