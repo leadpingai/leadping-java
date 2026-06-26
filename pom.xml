@@ -101,6 +101,11 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <version>3.3.1</version>
+        <configuration>
+          <excludes>
+            <exclude>target/**</exclude>
+          </excludes>
+        </configuration>
         <executions>
           <execution>
             <id>attach-sources</id>
