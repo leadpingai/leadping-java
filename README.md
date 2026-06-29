@@ -5,7 +5,7 @@
 
 # ![Leadping](https://leadping.ai/favicon.ico) Leadping Java SDK
 
-Type-safe Java client for the Leadping API.
+Official Java SDK for the Leadping API.
 
 ## Install
 

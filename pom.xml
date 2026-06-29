@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <name>Leadping Java SDK</name>
-  <description>Typed Java client for the Leadping API, generated from the Leadping OpenAPI document with Microsoft Kiota.</description>
+  <description>Official Java SDK for the Leadping API.</description>
   <url>https://leadping.ai</url>
 
   <licenses>
