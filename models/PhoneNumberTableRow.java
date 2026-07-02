@@ -29,6 +29,22 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String business;
     /**
+     * Unique Leadping business identifier connected to this phone number table row.
+     */
+    private String businessId;
+    /**
+     * Indicates whether controlled voice call warmup is enabled for this phone number.
+     */
+    private Boolean callWarmupEnabled;
+    /**
+     * Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     */
+    private PhoneNumberTableRowCallWarmupStage callWarmupStage;
+    /**
+     * Defines the supported health states for controlled internal voice call warmup.
+     */
+    private PhoneNumberTableRowCallWarmupState callWarmupState;
+    /**
      * SMS and voice capabilities available on this phone number.
      */
     private String capabilities;
@@ -181,6 +197,38 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.business;
     }
     /**
+     * Gets the businessId property value. Unique Leadping business identifier connected to this phone number table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBusinessId() {
+        return this.businessId;
+    }
+    /**
+     * Gets the callWarmupEnabled property value. Indicates whether controlled voice call warmup is enabled for this phone number.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCallWarmupEnabled() {
+        return this.callWarmupEnabled;
+    }
+    /**
+     * Gets the callWarmupStage property value. Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * @return a {@link PhoneNumberTableRowCallWarmupStage}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberTableRowCallWarmupStage getCallWarmupStage() {
+        return this.callWarmupStage;
+    }
+    /**
+     * Gets the callWarmupState property value. Defines the supported health states for controlled internal voice call warmup.
+     * @return a {@link PhoneNumberTableRowCallWarmupState}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberTableRowCallWarmupState getCallWarmupState() {
+        return this.callWarmupState;
+    }
+    /**
      * Gets the capabilities property value. SMS and voice capabilities available on this phone number.
      * @return a {@link String}
      */
@@ -202,10 +250,14 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(33);
         deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(PhoneNumberTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("billingAttribution", (n) -> { this.setBillingAttribution(n.getStringValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
+        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
+        deserializerMap.put("callWarmupEnabled", (n) -> { this.setCallWarmupEnabled(n.getBooleanValue()); });
+        deserializerMap.put("callWarmupStage", (n) -> { this.setCallWarmupStage(n.getEnumValue(PhoneNumberTableRowCallWarmupStage::forValue)); });
+        deserializerMap.put("callWarmupState", (n) -> { this.setCallWarmupState(n.getEnumValue(PhoneNumberTableRowCallWarmupState::forValue)); });
         deserializerMap.put("capabilities", (n) -> { this.setCapabilities(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberTableRowHealthStatus::forValue)); });
@@ -435,6 +487,10 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeStringValue("billingAttribution", this.getBillingAttribution());
         writer.writeStringValue("business", this.getBusiness());
+        writer.writeStringValue("businessId", this.getBusinessId());
+        writer.writeBooleanValue("callWarmupEnabled", this.getCallWarmupEnabled());
+        writer.writeEnumValue("callWarmupStage", this.getCallWarmupStage());
+        writer.writeEnumValue("callWarmupState", this.getCallWarmupState());
         writer.writeStringValue("capabilities", this.getCapabilities());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
@@ -490,6 +546,34 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setBusiness(@jakarta.annotation.Nullable final String value) {
         this.business = value;
+    }
+    /**
+     * Sets the businessId property value. Unique Leadping business identifier connected to this phone number table row.
+     * @param value Value to set for the businessId property.
+     */
+    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
+        this.businessId = value;
+    }
+    /**
+     * Sets the callWarmupEnabled property value. Indicates whether controlled voice call warmup is enabled for this phone number.
+     * @param value Value to set for the callWarmupEnabled property.
+     */
+    public void setCallWarmupEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.callWarmupEnabled = value;
+    }
+    /**
+     * Sets the callWarmupStage property value. Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * @param value Value to set for the callWarmupStage property.
+     */
+    public void setCallWarmupStage(@jakarta.annotation.Nullable final PhoneNumberTableRowCallWarmupStage value) {
+        this.callWarmupStage = value;
+    }
+    /**
+     * Sets the callWarmupState property value. Defines the supported health states for controlled internal voice call warmup.
+     * @param value Value to set for the callWarmupState property.
+     */
+    public void setCallWarmupState(@jakarta.annotation.Nullable final PhoneNumberTableRowCallWarmupState value) {
+        this.callWarmupState = value;
     }
     /**
      * Sets the capabilities property value. SMS and voice capabilities available on this phone number.

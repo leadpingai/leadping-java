@@ -31,10 +31,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * UTC timestamp when Leadping issued the source API key.
-     */
-    private OffsetDateTime apiKeyIssuedAt;
-    /**
      * UTC timestamp when the source API key was last used.
      */
     private OffsetDateTime apiKeyLastUsedAt;
@@ -167,14 +163,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKeyIssuedAt property value. UTC timestamp when Leadping issued the source API key.
-     * @return a {@link OffsetDateTime}
-     */
-    @jakarta.annotation.Nullable
-    public OffsetDateTime getApiKeyIssuedAt() {
-        return this.apiKeyIssuedAt;
-    }
-    /**
      * Gets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.
      * @return a {@link OffsetDateTime}
      */
@@ -284,11 +272,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(SourceTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("apiKeyIssuedAt", (n) -> { this.setApiKeyIssuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
@@ -385,7 +372,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
-        writer.writeOffsetDateTimeValue("apiKeyIssuedAt", this.getApiKeyIssuedAt());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
@@ -436,13 +422,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.allowedStates = value;
-    }
-    /**
-     * Sets the apiKeyIssuedAt property value. UTC timestamp when Leadping issued the source API key.
-     * @param value Value to set for the apiKeyIssuedAt property.
-     */
-    public void setApiKeyIssuedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
-        this.apiKeyIssuedAt = value;
     }
     /**
      * Sets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.

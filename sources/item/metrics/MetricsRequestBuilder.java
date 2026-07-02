@@ -38,7 +38,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sources/{id}/metrics{?days*,endAt*,startAt*}", rawUrl);
     }
     /**
-     * The source lead creation metrics.
+     * Returns lead creation metrics for one business intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
      * @return a {@link SourceMetricsResponse}
      * @throws ProblemDetails When receiving a 404 status code
      */
@@ -47,7 +47,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * The source lead creation metrics.
+     * Returns lead creation metrics for one business intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SourceMetricsResponse}
      * @throws ProblemDetails When receiving a 404 status code
@@ -60,7 +60,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SourceMetricsResponse::createFromDiscriminatorValue);
     }
     /**
-     * The source lead creation metrics.
+     * Returns lead creation metrics for one business intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -68,7 +68,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * The source lead creation metrics.
+     * Returns lead creation metrics for one business intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -90,7 +90,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return new MetricsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * The source lead creation metrics.
+     * Returns lead creation metrics for one business intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

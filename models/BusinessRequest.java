@@ -42,6 +42,14 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     private UntypedNode autoRefillTrigger;
     /**
+     * Postal address used for invoices, receipts, and payment processor billing records.
+     */
+    private BusinessRequestBillingAddress billingAddress;
+    /**
+     * Name used for invoices, receipts, and payment processor billing records.
+     */
+    private String billingName;
+    /**
      * Defines the supported Billing Plan values.
      */
     private BusinessRequestBillingPlan billingPlan;
@@ -186,6 +194,22 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         return this.autoRefillTrigger;
     }
     /**
+     * Gets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
+     * @return a {@link BusinessRequestBillingAddress}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessRequestBillingAddress getBillingAddress() {
+        return this.billingAddress;
+    }
+    /**
+     * Gets the billingName property value. Name used for invoices, receipts, and payment processor billing records.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBillingName() {
+        return this.billingName;
+    }
+    /**
      * Gets the billingPlan property value. Defines the supported Billing Plan values.
      * @return a {@link BusinessRequestBillingPlan}
      */
@@ -239,13 +263,15 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(BusinessRequestActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessRequestAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(BusinessRequestAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(BusinessRequestBillingAddress::createFromDiscriminatorValue)); });
+        deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessRequestBillingPlan::forValue)); });
         deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(BusinessRequestCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -374,6 +400,8 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
         writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
+        writer.writeObjectValue("billingAddress", this.getBillingAddress());
+        writer.writeStringValue("billingName", this.getBillingName());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeStringValue("description", this.getDescription());
@@ -442,6 +470,20 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAutoRefillTrigger(@jakarta.annotation.Nullable final UntypedNode value) {
         this.autoRefillTrigger = value;
+    }
+    /**
+     * Sets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
+     * @param value Value to set for the billingAddress property.
+     */
+    public void setBillingAddress(@jakarta.annotation.Nullable final BusinessRequestBillingAddress value) {
+        this.billingAddress = value;
+    }
+    /**
+     * Sets the billingName property value. Name used for invoices, receipts, and payment processor billing records.
+     * @param value Value to set for the billingName property.
+     */
+    public void setBillingName(@jakarta.annotation.Nullable final String value) {
+        this.billingName = value;
     }
     /**
      * Sets the billingPlan property value. Defines the supported Billing Plan values.

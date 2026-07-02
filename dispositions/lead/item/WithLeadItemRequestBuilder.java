@@ -45,7 +45,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/dispositions/lead/{leadId}", rawUrl);
     }
     /**
-     * Lists disposition history for one lead so users can review outcomes, notes, and follow-up context.
+     * Lists disposition outcome history for one lead, including prior outcomes, notes, follow-up context, timestamps, and actor details used for audit review.
      * @return a {@link java.util.List<DispositionResponse>}
      * @throws ProblemDetails When receiving a 404 status code
      */
@@ -54,7 +54,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Lists disposition history for one lead so users can review outcomes, notes, and follow-up context.
+     * Lists disposition outcome history for one lead, including prior outcomes, notes, follow-up context, timestamps, and actor details used for audit review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<DispositionResponse>}
      * @throws ProblemDetails When receiving a 404 status code
@@ -67,7 +67,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, DispositionResponse::createFromDiscriminatorValue);
     }
     /**
-     * Lists disposition history for one lead so users can review outcomes, notes, and follow-up context.
+     * Lists disposition outcome history for one lead, including prior outcomes, notes, follow-up context, timestamps, and actor details used for audit review.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Lists disposition history for one lead so users can review outcomes, notes, and follow-up context.
+     * Lists disposition outcome history for one lead, including prior outcomes, notes, follow-up context, timestamps, and actor details used for audit review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -26,13 +26,53 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private String phoneNumberId;
     /**
+     * The smsLimitThisHour property
+     */
+    private Integer smsLimitThisHour;
+    /**
+     * The smsLimitToday property
+     */
+    private Integer smsLimitToday;
+    /**
+     * The smsRemainingThisHour property
+     */
+    private Integer smsRemainingThisHour;
+    /**
      * The smsRemainingToday property
      */
     private Integer smsRemainingToday;
     /**
+     * The smsUsedThisHour property
+     */
+    private Integer smsUsedThisHour;
+    /**
+     * The smsUsedToday property
+     */
+    private Integer smsUsedToday;
+    /**
+     * The voiceLimitThisHour property
+     */
+    private Integer voiceLimitThisHour;
+    /**
+     * The voiceLimitToday property
+     */
+    private Integer voiceLimitToday;
+    /**
+     * The voiceRemainingThisHour property
+     */
+    private Integer voiceRemainingThisHour;
+    /**
      * The voiceRemainingToday property
      */
     private Integer voiceRemainingToday;
+    /**
+     * The voiceUsedThisHour property
+     */
+    private Integer voiceUsedThisHour;
+    /**
+     * The voiceUsedToday property
+     */
+    private Integer voiceUsedToday;
     /**
      * Instantiates a new {@link OutboundPhoneNumberCapacity} and sets the default values.
      */
@@ -63,12 +103,22 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberOutboundHealthStatus::forValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
+        deserializerMap.put("smsLimitThisHour", (n) -> { this.setSmsLimitThisHour(n.getIntegerValue()); });
+        deserializerMap.put("smsLimitToday", (n) -> { this.setSmsLimitToday(n.getIntegerValue()); });
+        deserializerMap.put("smsRemainingThisHour", (n) -> { this.setSmsRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsRemainingToday", (n) -> { this.setSmsRemainingToday(n.getIntegerValue()); });
+        deserializerMap.put("smsUsedThisHour", (n) -> { this.setSmsUsedThisHour(n.getIntegerValue()); });
+        deserializerMap.put("smsUsedToday", (n) -> { this.setSmsUsedToday(n.getIntegerValue()); });
+        deserializerMap.put("voiceLimitThisHour", (n) -> { this.setVoiceLimitThisHour(n.getIntegerValue()); });
+        deserializerMap.put("voiceLimitToday", (n) -> { this.setVoiceLimitToday(n.getIntegerValue()); });
+        deserializerMap.put("voiceRemainingThisHour", (n) -> { this.setVoiceRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("voiceRemainingToday", (n) -> { this.setVoiceRemainingToday(n.getIntegerValue()); });
+        deserializerMap.put("voiceUsedThisHour", (n) -> { this.setVoiceUsedThisHour(n.getIntegerValue()); });
+        deserializerMap.put("voiceUsedToday", (n) -> { this.setVoiceUsedToday(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -96,12 +146,76 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.phoneNumberId;
     }
     /**
+     * Gets the smsLimitThisHour property value. The smsLimitThisHour property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsLimitThisHour() {
+        return this.smsLimitThisHour;
+    }
+    /**
+     * Gets the smsLimitToday property value. The smsLimitToday property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsLimitToday() {
+        return this.smsLimitToday;
+    }
+    /**
+     * Gets the smsRemainingThisHour property value. The smsRemainingThisHour property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsRemainingThisHour() {
+        return this.smsRemainingThisHour;
+    }
+    /**
      * Gets the smsRemainingToday property value. The smsRemainingToday property
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
     public Integer getSmsRemainingToday() {
         return this.smsRemainingToday;
+    }
+    /**
+     * Gets the smsUsedThisHour property value. The smsUsedThisHour property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsUsedThisHour() {
+        return this.smsUsedThisHour;
+    }
+    /**
+     * Gets the smsUsedToday property value. The smsUsedToday property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsUsedToday() {
+        return this.smsUsedToday;
+    }
+    /**
+     * Gets the voiceLimitThisHour property value. The voiceLimitThisHour property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getVoiceLimitThisHour() {
+        return this.voiceLimitThisHour;
+    }
+    /**
+     * Gets the voiceLimitToday property value. The voiceLimitToday property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getVoiceLimitToday() {
+        return this.voiceLimitToday;
+    }
+    /**
+     * Gets the voiceRemainingThisHour property value. The voiceRemainingThisHour property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getVoiceRemainingThisHour() {
+        return this.voiceRemainingThisHour;
     }
     /**
      * Gets the voiceRemainingToday property value. The voiceRemainingToday property
@@ -112,6 +226,22 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceRemainingToday;
     }
     /**
+     * Gets the voiceUsedThisHour property value. The voiceUsedThisHour property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getVoiceUsedThisHour() {
+        return this.voiceUsedThisHour;
+    }
+    /**
+     * Gets the voiceUsedToday property value. The voiceUsedToday property
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getVoiceUsedToday() {
+        return this.voiceUsedToday;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -120,8 +250,18 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
+        writer.writeIntegerValue("smsLimitThisHour", this.getSmsLimitThisHour());
+        writer.writeIntegerValue("smsLimitToday", this.getSmsLimitToday());
+        writer.writeIntegerValue("smsRemainingThisHour", this.getSmsRemainingThisHour());
         writer.writeIntegerValue("smsRemainingToday", this.getSmsRemainingToday());
+        writer.writeIntegerValue("smsUsedThisHour", this.getSmsUsedThisHour());
+        writer.writeIntegerValue("smsUsedToday", this.getSmsUsedToday());
+        writer.writeIntegerValue("voiceLimitThisHour", this.getVoiceLimitThisHour());
+        writer.writeIntegerValue("voiceLimitToday", this.getVoiceLimitToday());
+        writer.writeIntegerValue("voiceRemainingThisHour", this.getVoiceRemainingThisHour());
         writer.writeIntegerValue("voiceRemainingToday", this.getVoiceRemainingToday());
+        writer.writeIntegerValue("voiceUsedThisHour", this.getVoiceUsedThisHour());
+        writer.writeIntegerValue("voiceUsedToday", this.getVoiceUsedToday());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -153,6 +293,27 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.phoneNumberId = value;
     }
     /**
+     * Sets the smsLimitThisHour property value. The smsLimitThisHour property
+     * @param value Value to set for the smsLimitThisHour property.
+     */
+    public void setSmsLimitThisHour(@jakarta.annotation.Nullable final Integer value) {
+        this.smsLimitThisHour = value;
+    }
+    /**
+     * Sets the smsLimitToday property value. The smsLimitToday property
+     * @param value Value to set for the smsLimitToday property.
+     */
+    public void setSmsLimitToday(@jakarta.annotation.Nullable final Integer value) {
+        this.smsLimitToday = value;
+    }
+    /**
+     * Sets the smsRemainingThisHour property value. The smsRemainingThisHour property
+     * @param value Value to set for the smsRemainingThisHour property.
+     */
+    public void setSmsRemainingThisHour(@jakarta.annotation.Nullable final Integer value) {
+        this.smsRemainingThisHour = value;
+    }
+    /**
      * Sets the smsRemainingToday property value. The smsRemainingToday property
      * @param value Value to set for the smsRemainingToday property.
      */
@@ -160,10 +321,59 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.smsRemainingToday = value;
     }
     /**
+     * Sets the smsUsedThisHour property value. The smsUsedThisHour property
+     * @param value Value to set for the smsUsedThisHour property.
+     */
+    public void setSmsUsedThisHour(@jakarta.annotation.Nullable final Integer value) {
+        this.smsUsedThisHour = value;
+    }
+    /**
+     * Sets the smsUsedToday property value. The smsUsedToday property
+     * @param value Value to set for the smsUsedToday property.
+     */
+    public void setSmsUsedToday(@jakarta.annotation.Nullable final Integer value) {
+        this.smsUsedToday = value;
+    }
+    /**
+     * Sets the voiceLimitThisHour property value. The voiceLimitThisHour property
+     * @param value Value to set for the voiceLimitThisHour property.
+     */
+    public void setVoiceLimitThisHour(@jakarta.annotation.Nullable final Integer value) {
+        this.voiceLimitThisHour = value;
+    }
+    /**
+     * Sets the voiceLimitToday property value. The voiceLimitToday property
+     * @param value Value to set for the voiceLimitToday property.
+     */
+    public void setVoiceLimitToday(@jakarta.annotation.Nullable final Integer value) {
+        this.voiceLimitToday = value;
+    }
+    /**
+     * Sets the voiceRemainingThisHour property value. The voiceRemainingThisHour property
+     * @param value Value to set for the voiceRemainingThisHour property.
+     */
+    public void setVoiceRemainingThisHour(@jakarta.annotation.Nullable final Integer value) {
+        this.voiceRemainingThisHour = value;
+    }
+    /**
      * Sets the voiceRemainingToday property value. The voiceRemainingToday property
      * @param value Value to set for the voiceRemainingToday property.
      */
     public void setVoiceRemainingToday(@jakarta.annotation.Nullable final Integer value) {
         this.voiceRemainingToday = value;
+    }
+    /**
+     * Sets the voiceUsedThisHour property value. The voiceUsedThisHour property
+     * @param value Value to set for the voiceUsedThisHour property.
+     */
+    public void setVoiceUsedThisHour(@jakarta.annotation.Nullable final Integer value) {
+        this.voiceUsedThisHour = value;
+    }
+    /**
+     * Sets the voiceUsedToday property value. The voiceUsedToday property
+     * @param value Value to set for the voiceUsedToday property.
+     */
+    public void setVoiceUsedToday(@jakarta.annotation.Nullable final Integer value) {
+        this.voiceUsedToday = value;
     }
 }

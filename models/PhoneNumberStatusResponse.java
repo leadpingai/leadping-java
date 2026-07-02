@@ -41,6 +41,10 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private PhoneNumberOptOutMetricsResponse optOutMetrics;
     /**
+     * Current outbound SMS and voice capacity for this phone number.
+     */
+    private PhoneNumberStatusResponseOutboundCapacity outboundCapacity;
+    /**
      * Recent workflow events returned for timeline and troubleshooting.
      */
     private java.util.List<PhoneNumberMessagingEventResponse> recentEvents;
@@ -102,13 +106,14 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("callsPossible", (n) -> { this.setCallsPossible(n.getIntegerValue()); });
         deserializerMap.put("callWarmup", (n) -> { this.setCallWarmup(n.getObjectValue(PhoneNumberStatusResponseCallWarmup::createFromDiscriminatorValue)); });
         deserializerMap.put("messagesPossible", (n) -> { this.setMessagesPossible(n.getIntegerValue()); });
         deserializerMap.put("messagesWarmed", (n) -> { this.setMessagesWarmed(n.getIntegerValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("optOutMetrics", (n) -> { this.setOptOutMetrics(n.getObjectValue(PhoneNumberOptOutMetricsResponse::createFromDiscriminatorValue)); });
+        deserializerMap.put("outboundCapacity", (n) -> { this.setOutboundCapacity(n.getObjectValue(PhoneNumberStatusResponseOutboundCapacity::createFromDiscriminatorValue)); });
         deserializerMap.put("recentEvents", (n) -> { this.setRecentEvents(n.getCollectionOfObjectValues(PhoneNumberMessagingEventResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("smsWarmup", (n) -> { this.setSmsWarmup(n.getObjectValue(PhoneNumberStatusResponseSmsWarmup::createFromDiscriminatorValue)); });
         deserializerMap.put("trafficMetrics", (n) -> { this.setTrafficMetrics(n.getObjectValue(PhoneNumberTrafficMetricsResponse::createFromDiscriminatorValue)); });
@@ -146,6 +151,14 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public PhoneNumberOptOutMetricsResponse getOptOutMetrics() {
         return this.optOutMetrics;
+    }
+    /**
+     * Gets the outboundCapacity property value. Current outbound SMS and voice capacity for this phone number.
+     * @return a {@link PhoneNumberStatusResponseOutboundCapacity}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberStatusResponseOutboundCapacity getOutboundCapacity() {
+        return this.outboundCapacity;
     }
     /**
      * Gets the recentEvents property value. Recent workflow events returned for timeline and troubleshooting.
@@ -191,6 +204,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         writer.writeIntegerValue("messagesWarmed", this.getMessagesWarmed());
         writer.writeStringValue("number", this.getNumber());
         writer.writeObjectValue("optOutMetrics", this.getOptOutMetrics());
+        writer.writeObjectValue("outboundCapacity", this.getOutboundCapacity());
         writer.writeCollectionOfObjectValues("recentEvents", this.getRecentEvents());
         writer.writeObjectValue("smsWarmup", this.getSmsWarmup());
         writer.writeObjectValue("trafficMetrics", this.getTrafficMetrics());
@@ -245,6 +259,13 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     public void setOptOutMetrics(@jakarta.annotation.Nullable final PhoneNumberOptOutMetricsResponse value) {
         this.optOutMetrics = value;
+    }
+    /**
+     * Sets the outboundCapacity property value. Current outbound SMS and voice capacity for this phone number.
+     * @param value Value to set for the outboundCapacity property.
+     */
+    public void setOutboundCapacity(@jakarta.annotation.Nullable final PhoneNumberStatusResponseOutboundCapacity value) {
+        this.outboundCapacity = value;
     }
     /**
      * Sets the recentEvents property value. Recent workflow events returned for timeline and troubleshooting.

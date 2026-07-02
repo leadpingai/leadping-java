@@ -1,4 +1,4 @@
-package ai.leadping.openapi.phonenumbers.all.my;
+package ai.leadping.openapi.phonenumbers.all.business;
 
 import ai.leadping.openapi.models.PagedResultOfPhoneNumberTableRow;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -16,28 +16,28 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /phone-numbers/all/my
+ * Builds and executes requests for operations under /phone-numbers/all/business
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class MyRequestBuilder extends BaseRequestBuilder {
+public class BusinessRequestBuilder extends BaseRequestBuilder {
     /**
-     * Instantiates a new {@link MyRequestBuilder} and sets the default values.
+     * Instantiates a new {@link BusinessRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public MyRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/phone-numbers/all/my", pathParameters);
+    public BusinessRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/phone-numbers/all/business", pathParameters);
     }
     /**
-     * Instantiates a new {@link MyRequestBuilder} and sets the default values.
+     * Instantiates a new {@link BusinessRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public MyRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/phone-numbers/all/my", rawUrl);
+    public BusinessRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/phone-numbers/all/business", rawUrl);
     }
     /**
-     * Lists phone numbers visible to the current user with paging, sorting, and filters for messaging, calling, and warmup management.
+     * Lists phone numbers visible to the current business with paging, sorting, and filters for messaging, calling, and warmup management.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfPhoneNumberTableRow}
      * @throws ProblemDetails When receiving a 400 status code
@@ -47,7 +47,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Lists phone numbers visible to the current user with paging, sorting, and filters for messaging, calling, and warmup management.
+     * Lists phone numbers visible to the current business with paging, sorting, and filters for messaging, calling, and warmup management.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfPhoneNumberTableRow}
@@ -62,7 +62,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfPhoneNumberTableRow::createFromDiscriminatorValue);
     }
     /**
-     * Lists phone numbers visible to the current user with paging, sorting, and filters for messaging, calling, and warmup management.
+     * Lists phone numbers visible to the current business with paging, sorting, and filters for messaging, calling, and warmup management.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link RequestInformation}
      */
@@ -71,7 +71,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Lists phone numbers visible to the current user with paging, sorting, and filters for messaging, calling, and warmup management.
+     * Lists phone numbers visible to the current business with paging, sorting, and filters for messaging, calling, and warmup management.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
@@ -88,12 +88,12 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a {@link MyRequestBuilder}
+     * @return a {@link BusinessRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public MyRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+    public BusinessRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
         Objects.requireNonNull(rawUrl);
-        return new MyRequestBuilder(rawUrl, requestAdapter);
+        return new BusinessRequestBuilder(rawUrl, requestAdapter);
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

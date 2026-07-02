@@ -31,10 +31,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * UTC timestamp when Leadping issued the source API key.
-     */
-    private OffsetDateTime apiKeyIssuedAt;
-    /**
      * Masked preview of the source API key for display without exposing the secret.
      */
     private String apiKeyPreview;
@@ -159,14 +155,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKeyIssuedAt property value. UTC timestamp when Leadping issued the source API key.
-     * @return a {@link OffsetDateTime}
-     */
-    @jakarta.annotation.Nullable
-    public OffsetDateTime getApiKeyIssuedAt() {
-        return this.apiKeyIssuedAt;
-    }
-    /**
      * Gets the apiKeyPreview property value. Masked preview of the source API key for display without exposing the secret.
      * @return a {@link String}
      */
@@ -260,11 +248,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(SourceResponseAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("apiKeyIssuedAt", (n) -> { this.setApiKeyIssuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(SourceResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
@@ -359,7 +346,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
-        writer.writeOffsetDateTimeValue("apiKeyIssuedAt", this.getApiKeyIssuedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
@@ -408,13 +394,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.allowedStates = value;
-    }
-    /**
-     * Sets the apiKeyIssuedAt property value. UTC timestamp when Leadping issued the source API key.
-     * @param value Value to set for the apiKeyIssuedAt property.
-     */
-    public void setApiKeyIssuedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
-        this.apiKeyIssuedAt = value;
     }
     /**
      * Sets the apiKeyPreview property value. Masked preview of the source API key for display without exposing the secret.
