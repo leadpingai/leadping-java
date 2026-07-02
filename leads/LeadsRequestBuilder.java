@@ -142,7 +142,7 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {
         /**
-         * The Leadping source key supplied as a query string parameter.
+         * The Leadping source key supplied as a query string parameter, or omitted when supplied as Authorization: Bearer lp_src_...
          */
         @jakarta.annotation.Nullable
         public String sourceKey;
