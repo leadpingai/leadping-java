@@ -6,11 +6,13 @@ import ai.leadping.openapi.models.RequestDataOptions;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
+import com.microsoft.kiota.QueryParameters;
 import com.microsoft.kiota.RequestAdapter;
 import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
+import java.time.OffsetDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +28,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/transactions/all/my", pathParameters);
+        super(requestAdapter, "{+baseurl}/transactions/all/my{?endAt*,startAt*}", pathParameters);
     }
     /**
      * Instantiates a new {@link MyRequestBuilder} and sets the default values.
@@ -34,7 +36,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/transactions/all/my", rawUrl);
+        super(requestAdapter, "{+baseurl}/transactions/all/my{?endAt*,startAt*}", rawUrl);
     }
     /**
      * Lists current-user transactions with paging, sorting, and filters for wallet events, billing history, and reconciliation.
@@ -80,7 +82,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
-        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
+        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new, x -> x.queryParameters);
         requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
@@ -96,9 +98,35 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return new MyRequestBuilder(rawUrl, requestAdapter);
     }
     /**
+     * Lists current-user transactions with paging, sorting, and filters for wallet events, billing history, and reconciliation.
+     */
+    @jakarta.annotation.Generated("com.microsoft.kiota")
+    public class PostQueryParameters implements QueryParameters {
+        @jakarta.annotation.Nullable
+        public OffsetDateTime endAt;
+        @jakarta.annotation.Nullable
+        public OffsetDateTime startAt;
+        /**
+         * Extracts the query parameters into a map for the URI template parsing.
+         * @return a {@link Map<String, Object>}
+         */
+        @jakarta.annotation.Nonnull
+        public Map<String, Object> toQueryParameters() {
+            final Map<String, Object> allQueryParams = new HashMap();
+            allQueryParams.put("endAt", endAt);
+            allQueryParams.put("startAt", startAt);
+            return allQueryParams;
+        }
+    }
+    /**
      * Configuration for the request such as headers, query parameters, and middleware options.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostRequestConfiguration extends BaseRequestConfiguration {
+        /**
+         * Request query parameters
+         */
+        @jakarta.annotation.Nullable
+        public PostQueryParameters queryParameters = new PostQueryParameters();
     }
 }

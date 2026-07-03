@@ -12,11 +12,14 @@ import ai.leadping.openapi.leads.LeadsRequestBuilder;
 import ai.leadping.openapi.notifications.NotificationsRequestBuilder;
 import ai.leadping.openapi.outbound.OutboundRequestBuilder;
 import ai.leadping.openapi.paymentmethods.PaymentMethodsRequestBuilder;
+import ai.leadping.openapi.phonecall.PhoneCallRequestBuilder;
 import ai.leadping.openapi.phonenumbers.PhoneNumbersRequestBuilder;
 import ai.leadping.openapi.reports.ReportsRequestBuilder;
 import ai.leadping.openapi.sms.SmsRequestBuilder;
 import ai.leadping.openapi.sources.SourcesRequestBuilder;
+import ai.leadping.openapi.suppressions.SuppressionsRequestBuilder;
 import ai.leadping.openapi.tags.TagsRequestBuilder;
+import ai.leadping.openapi.telephony.TelephonyRequestBuilder;
 import ai.leadping.openapi.transactions.TransactionsRequestBuilder;
 import ai.leadping.openapi.usage.UsageRequestBuilder;
 import ai.leadping.openapi.users.UsersRequestBuilder;
@@ -137,6 +140,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
         return new PaymentMethodsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
+     * The phoneCall property
+     * @return a {@link PhoneCallRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public PhoneCallRequestBuilder phoneCall() {
+        return new PhoneCallRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The phoneNumbers property
      * @return a {@link PhoneNumbersRequestBuilder}
      */
@@ -169,12 +180,28 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
         return new SourcesRequestBuilder(pathParameters, requestAdapter);
     }
     /**
+     * The suppressions property
+     * @return a {@link SuppressionsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public SuppressionsRequestBuilder suppressions() {
+        return new SuppressionsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The tags property
      * @return a {@link TagsRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public TagsRequestBuilder tags() {
         return new TagsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The telephony property
+     * @return a {@link TelephonyRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public TelephonyRequestBuilder telephony() {
+        return new TelephonyRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The transactions property
