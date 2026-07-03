@@ -1,6 +1,7 @@
 package ai.leadping.openapi.outbound.overview;
 
 import ai.leadping.openapi.models.OutboundCapacityOverview;
+import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -37,6 +38,7 @@ public class OverviewRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
      * @return a {@link OutboundCapacityOverview}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public OutboundCapacityOverview get() {
@@ -46,11 +48,14 @@ public class OverviewRequestBuilder extends BaseRequestBuilder {
      * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OutboundCapacityOverview}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public OutboundCapacityOverview get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, OutboundCapacityOverview::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, OutboundCapacityOverview::createFromDiscriminatorValue);
     }
     /**
      * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.

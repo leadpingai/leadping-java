@@ -41,6 +41,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
      * @param body Request schema for the Leadping API automation preview request, including the fields clients can send.
      * @return a {@link AutomationPreviewResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public AutomationPreviewResponse post(@jakarta.annotation.Nonnull final AutomationPreviewRequest body) {
@@ -52,6 +53,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationPreviewResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public AutomationPreviewResponse post(@jakarta.annotation.Nonnull final AutomationPreviewRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -59,6 +61,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationPreviewResponse::createFromDiscriminatorValue);
     }
     /**

@@ -39,6 +39,7 @@ public class AdminItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns one feedback item for admin triage, including business context, submitted details, status, and review fields.
      * @return a {@link FeedbackResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -49,12 +50,14 @@ public class AdminItemRequestBuilder extends BaseRequestBuilder {
      * Returns one feedback item for admin triage, including business context, submitted details, status, and review fields.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link FeedbackResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public FeedbackResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, FeedbackResponse::createFromDiscriminatorValue);
     }
@@ -63,6 +66,7 @@ public class AdminItemRequestBuilder extends BaseRequestBuilder {
      * @param body Request schema for the Leadping API feedback admin update request, including the fields clients can send.
      * @return a {@link FeedbackResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -75,6 +79,7 @@ public class AdminItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link FeedbackResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -83,6 +88,7 @@ public class AdminItemRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, FeedbackResponse::createFromDiscriminatorValue);
     }

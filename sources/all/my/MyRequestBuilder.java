@@ -1,6 +1,7 @@
 package ai.leadping.openapi.sources.all.my;
 
 import ai.leadping.openapi.models.PagedResultOfSourceTableRow;
+import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.RequestDataOptions;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -39,6 +40,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * Lists current-user lead sources with paging, sorting, and filters for intake configuration and routing review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfSourceTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfSourceTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
@@ -49,12 +51,15 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfSourceTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfSourceTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, PagedResultOfSourceTableRow::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfSourceTableRow::createFromDiscriminatorValue);
     }
     /**
      * Lists current-user lead sources with paging, sorting, and filters for intake configuration and routing review.

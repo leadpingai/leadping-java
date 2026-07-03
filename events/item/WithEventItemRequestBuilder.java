@@ -47,6 +47,7 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns one event record by ID, including event type, timestamps, related entities, and summary payload data.
      * @return a {@link EventTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -57,12 +58,14 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
      * Returns one event record by ID, including event type, timestamps, related entities, and summary payload data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link EventTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public EventTableRow get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, EventTableRow::createFromDiscriminatorValue);
     }

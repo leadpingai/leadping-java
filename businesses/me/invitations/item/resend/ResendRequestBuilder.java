@@ -39,6 +39,7 @@ public class ResendRequestBuilder extends BaseRequestBuilder {
      * Resends a pending current-business invitation, refreshing delivery while preserving recipient, role, and acceptance token.
      * @return a {@link BusinessInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public BusinessInvitationResponse post() {
@@ -49,12 +50,14 @@ public class ResendRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public BusinessInvitationResponse post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toPostRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessInvitationResponse::createFromDiscriminatorValue);
     }
     /**

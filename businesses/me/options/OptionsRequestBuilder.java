@@ -1,6 +1,7 @@
 package ai.leadping.openapi.businesses.me.options;
 
 import ai.leadping.openapi.models.BusinessSwitchOption;
+import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -37,6 +38,7 @@ public class OptionsRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists businesses the authenticated user can switch into, including membership role and current-business selection data.
      * @return a {@link java.util.List<BusinessSwitchOption>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<BusinessSwitchOption> get() {
@@ -46,11 +48,14 @@ public class OptionsRequestBuilder extends BaseRequestBuilder {
      * Lists businesses the authenticated user can switch into, including membership role and current-business selection data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<BusinessSwitchOption>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<BusinessSwitchOption> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.sendCollection(requestInfo, null, BusinessSwitchOption::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendCollection(requestInfo, errorMapping, BusinessSwitchOption::createFromDiscriminatorValue);
     }
     /**
      * Lists businesses the authenticated user can switch into, including membership role and current-business selection data.

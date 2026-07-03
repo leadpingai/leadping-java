@@ -41,6 +41,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfCallEventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfCallEventTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
@@ -52,6 +53,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfCallEventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfCallEventTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -59,6 +61,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfCallEventTableRow::createFromDiscriminatorValue);
     }
     /**

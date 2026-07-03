@@ -1,5 +1,6 @@
 package ai.leadping.openapi.reports.exports.item;
 
+import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.UserDataExportResponse;
 import ai.leadping.openapi.reports.exports.item.download.DownloadRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -46,6 +47,7 @@ public class WithExportItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns the status and metadata for one current-user data export, including readiness, expiration, and download availability.
      * @return a {@link UserDataExportResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportResponse get() {
@@ -55,11 +57,14 @@ public class WithExportItemRequestBuilder extends BaseRequestBuilder {
      * Returns the status and metadata for one current-user data export, including readiness, expiration, and download availability.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserDataExportResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, UserDataExportResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, UserDataExportResponse::createFromDiscriminatorValue);
     }
     /**
      * Returns the status and metadata for one current-user data export, including readiness, expiration, and download availability.

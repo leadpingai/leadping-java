@@ -1,6 +1,7 @@
 package ai.leadping.openapi.leads.all.my;
 
 import ai.leadping.openapi.models.PagedResultOfLeadTableRow;
+import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.RequestDataOptions;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -40,6 +41,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * Lists leads visible to the current user with paging, sorting, filters, tags, and archive status for pipeline review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfLeadTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfLeadTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
@@ -50,12 +52,15 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfLeadTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfLeadTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, PagedResultOfLeadTableRow::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfLeadTableRow::createFromDiscriminatorValue);
     }
     /**
      * Lists leads visible to the current user with paging, sorting, filters, tags, and archive status for pipeline review.

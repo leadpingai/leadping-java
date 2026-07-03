@@ -38,6 +38,7 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Removes one current-business tag from a lead while leaving the lead record, other tags, and communication history intact.
      * @return a {@link LeadResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -48,12 +49,14 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
      * Removes one current-business tag from a lead while leaving the lead record, other tags, and communication history intact.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }

@@ -47,6 +47,7 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists disposition outcome history for one lead, including prior outcomes, notes, follow-up context, timestamps, and actor details used for audit review.
      * @return a {@link java.util.List<DispositionResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -57,12 +58,14 @@ public class WithLeadItemRequestBuilder extends BaseRequestBuilder {
      * Lists disposition outcome history for one lead, including prior outcomes, notes, follow-up context, timestamps, and actor details used for audit review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<DispositionResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<DispositionResponse> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, DispositionResponse::createFromDiscriminatorValue);
     }

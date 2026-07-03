@@ -41,6 +41,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * Returns current-business analytics for lead communication, including event volume, response metrics, and date-range filtering.
      * @return a {@link CustomerAnalyticsResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      */
     @jakarta.annotation.Nullable
@@ -52,6 +53,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link CustomerAnalyticsResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      */
     @jakarta.annotation.Nullable
@@ -59,6 +61,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, CustomerAnalyticsResponse::createFromDiscriminatorValue);
     }

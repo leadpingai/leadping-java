@@ -15,6 +15,14 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class EventTableRow implements AdditionalDataHolder, Parsable {
     /**
+     * Display name for the person or system that created this event timeline table row.
+     */
+    private String actorDisplayName;
+    /**
+     * User ID for the person or system that created this event timeline table row.
+     */
+    private String actorUserId;
+    /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
@@ -223,6 +231,22 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return new EventTableRow();
     }
     /**
+     * Gets the actorDisplayName property value. Display name for the person or system that created this event timeline table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorDisplayName() {
+        return this.actorDisplayName;
+    }
+    /**
+     * Gets the actorUserId property value. User ID for the person or system that created this event timeline table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorUserId() {
+        return this.actorUserId;
+    }
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return a {@link Map<String, Object>}
      */
@@ -372,7 +396,9 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(47);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(49);
+        deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
+        deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
@@ -668,6 +694,8 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
+        writer.writeStringValue("actorUserId", this.getActorUserId());
         writer.writeObjectValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
@@ -716,6 +744,20 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("undeliverableAt", this.getUndeliverableAt());
         writer.writeBooleanValue("wasManuallyOverridden", this.getWasManuallyOverridden());
         writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the actorDisplayName property value. Display name for the person or system that created this event timeline table row.
+     * @param value Value to set for the actorDisplayName property.
+     */
+    public void setActorDisplayName(@jakarta.annotation.Nullable final String value) {
+        this.actorDisplayName = value;
+    }
+    /**
+     * Sets the actorUserId property value. User ID for the person or system that created this event timeline table row.
+     * @param value Value to set for the actorUserId property.
+     */
+    public void setActorUserId(@jakarta.annotation.Nullable final String value) {
+        this.actorUserId = value;
     }
     /**
      * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -38,6 +38,7 @@ public class ExportRequestBuilder extends BaseRequestBuilder {
     /**
      * Exports disposition data for one lead, packaging outcome history for reporting, audit review, or handoff workflows.
      * @return a {@link DispositionExportResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -48,12 +49,14 @@ public class ExportRequestBuilder extends BaseRequestBuilder {
      * Exports disposition data for one lead, packaging outcome history for reporting, audit review, or handoff workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link DispositionExportResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public DispositionExportResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, DispositionExportResponse::createFromDiscriminatorValue);
     }

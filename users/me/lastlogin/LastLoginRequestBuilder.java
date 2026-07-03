@@ -38,6 +38,7 @@ public class LastLoginRequestBuilder extends BaseRequestBuilder {
     /**
      * Records a successful sign-in for the current user, updating login metadata used for auditing and account events.
      * @return a {@link UserResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -48,12 +49,14 @@ public class LastLoginRequestBuilder extends BaseRequestBuilder {
      * Records a successful sign-in for the current user, updating login metadata used for auditing and account events.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toPostRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }

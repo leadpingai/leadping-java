@@ -38,6 +38,7 @@ public class WithCallEventItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns one call event, including call metadata, provider status, related lead, and communication context.
      * @return a {@link CallEventTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -48,12 +49,14 @@ public class WithCallEventItemRequestBuilder extends BaseRequestBuilder {
      * Returns one call event, including call metadata, provider status, related lead, and communication context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link CallEventTableRow}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public CallEventTableRow get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, CallEventTableRow::createFromDiscriminatorValue);
     }

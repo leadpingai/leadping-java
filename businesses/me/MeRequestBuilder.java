@@ -75,6 +75,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns the authenticated user&apos;s current business profile, including account settings, billing context, and communication configuration.
      * @return a {@link BusinessResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
@@ -85,12 +86,14 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * Returns the authenticated user&apos;s current business profile, including account settings, billing context, and communication configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
     @jakarta.annotation.Nullable
     public BusinessResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
     }
@@ -99,6 +102,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @return a {@link BusinessResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public BusinessResponse put(@jakarta.annotation.Nonnull final BusinessRequest body) {
@@ -110,6 +114,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public BusinessResponse put(@jakarta.annotation.Nonnull final BusinessRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -117,6 +122,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
     }
     /**

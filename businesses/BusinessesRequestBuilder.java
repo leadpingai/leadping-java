@@ -1,5 +1,6 @@
 package ai.leadping.openapi.businesses;
 
+import ai.leadping.openapi.businesses.apikeys.ApiKeysRequestBuilder;
 import ai.leadping.openapi.businesses.invitations.InvitationsRequestBuilder;
 import ai.leadping.openapi.businesses.me.MeRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -11,6 +12,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BusinessesRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The apiKeys property
+     * @return a {@link ApiKeysRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public ApiKeysRequestBuilder apiKeys() {
+        return new ApiKeysRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The invitations property
      * @return a {@link InvitationsRequestBuilder}

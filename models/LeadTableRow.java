@@ -103,6 +103,10 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<TagSummary> tags;
     /**
+     * UTC timestamp when this lead table row was last updated.
+     */
+    private OffsetDateTime updatedAt;
+    /**
      * Instantiates a new {@link LeadTableRow} and sets the default values.
      */
     public LeadTableRow() {
@@ -212,7 +216,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(LeadTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
@@ -234,6 +238,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("statusTone", (n) -> { this.setStatusTone(n.getStringValue()); });
         deserializerMap.put("tags", (n) -> { this.setTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
+        deserializerMap.put("updatedAt", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
     }
     /**
@@ -325,6 +330,14 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.tags;
     }
     /**
+     * Gets the updatedAt property value. UTC timestamp when this lead table row was last updated.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getUpdatedAt() {
+        return this.updatedAt;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -351,6 +364,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("statusTone", this.getStatusTone());
         writer.writeCollectionOfObjectValues("tags", this.getTags());
+        writer.writeOffsetDateTimeValue("updatedAt", this.getUpdatedAt());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -506,5 +520,12 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setTags(@jakarta.annotation.Nullable final java.util.List<TagSummary> value) {
         this.tags = value;
+    }
+    /**
+     * Sets the updatedAt property value. UTC timestamp when this lead table row was last updated.
+     * @param value Value to set for the updatedAt property.
+     */
+    public void setUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.updatedAt = value;
     }
 }

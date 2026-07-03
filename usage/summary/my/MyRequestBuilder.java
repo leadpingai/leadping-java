@@ -1,5 +1,6 @@
 package ai.leadping.openapi.usage.summary.my;
 
+import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.UsageSummaryResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -39,6 +40,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
      * @return a {@link UsageSummaryResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public UsageSummaryResponse get() {
@@ -48,11 +50,14 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UsageSummaryResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public UsageSummaryResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, UsageSummaryResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, UsageSummaryResponse::createFromDiscriminatorValue);
     }
     /**
      * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.

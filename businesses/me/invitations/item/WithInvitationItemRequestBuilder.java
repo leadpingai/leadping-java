@@ -46,6 +46,7 @@ public class WithInvitationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Revokes a pending current-business invitation so the recipient can no longer use it to join the business.
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     public void delete() {
         delete(null);
@@ -54,11 +55,13 @@ public class WithInvitationItemRequestBuilder extends BaseRequestBuilder {
      * Revokes a pending current-business invitation so the recipient can no longer use it to join the business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     public void delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**

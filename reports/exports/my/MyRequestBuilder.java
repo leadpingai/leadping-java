@@ -1,5 +1,6 @@
 package ai.leadping.openapi.reports.exports.my;
 
+import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.UserDataExportResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -37,6 +38,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     /**
      * Requests a data export for the current user, starting asynchronous report generation for account, lead, and event records.
      * @return a {@link UserDataExportResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportResponse post() {
@@ -46,11 +48,14 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * Requests a data export for the current user, starting asynchronous report generation for account, lead, and event records.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserDataExportResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportResponse post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toPostRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, UserDataExportResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, UserDataExportResponse::createFromDiscriminatorValue);
     }
     /**
      * Requests a data export for the current user, starting asynchronous report generation for account, lead, and event records.

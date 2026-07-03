@@ -53,6 +53,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists pending and historical invitations for the current business, including recipient, role, status, and expiration.
      * @return a {@link java.util.List<BusinessInvitationTableRow>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<BusinessInvitationTableRow> get() {
@@ -62,17 +63,21 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
      * Lists pending and historical invitations for the current business, including recipient, role, status, and expiration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<BusinessInvitationTableRow>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<BusinessInvitationTableRow> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.sendCollection(requestInfo, null, BusinessInvitationTableRow::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendCollection(requestInfo, errorMapping, BusinessInvitationTableRow::createFromDiscriminatorValue);
     }
     /**
      * Creates an invitation for the current business so another user can join with the requested role and account access.
      * @param body Request payload for business invitation.
      * @return a {@link BusinessInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public BusinessInvitationResponse post(@jakarta.annotation.Nonnull final BusinessInvitationRequest body) {
@@ -84,6 +89,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public BusinessInvitationResponse post(@jakarta.annotation.Nonnull final BusinessInvitationRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -91,6 +97,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessInvitationResponse::createFromDiscriminatorValue);
     }
     /**

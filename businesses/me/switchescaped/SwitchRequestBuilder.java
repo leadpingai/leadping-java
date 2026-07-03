@@ -40,6 +40,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
      * Switches the authenticated user&apos;s active business context so subsequent lead, billing, and communication requests target that business.
      * @param body Request schema for the Leadping API business switch request, including the fields clients can send.
      * @return a {@link BusinessResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      */
     @jakarta.annotation.Nullable
@@ -51,6 +52,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
      * @param body Request schema for the Leadping API business switch request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      */
     @jakarta.annotation.Nullable
@@ -58,6 +60,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
     }

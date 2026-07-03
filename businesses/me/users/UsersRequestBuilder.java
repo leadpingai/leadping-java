@@ -53,6 +53,7 @@ public class UsersRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists users assigned to the current business, including roles and membership details for access management.
      * @return a {@link java.util.List<BusinessUserTableRow>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<BusinessUserTableRow> get() {
@@ -62,17 +63,21 @@ public class UsersRequestBuilder extends BaseRequestBuilder {
      * Lists users assigned to the current business, including roles and membership details for access management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<BusinessUserTableRow>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<BusinessUserTableRow> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.sendCollection(requestInfo, null, BusinessUserTableRow::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendCollection(requestInfo, errorMapping, BusinessUserTableRow::createFromDiscriminatorValue);
     }
     /**
      * Adds an existing user to the current business with the requested role for shared lead communication and account access.
      * @param body Request schema for the Leadping API business user request, including the fields clients can send.
      * @return a {@link BusinessUserResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      */
     @jakarta.annotation.Nullable
@@ -85,6 +90,7 @@ public class UsersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessUserResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      */
     @jakarta.annotation.Nullable
@@ -93,6 +99,7 @@ public class UsersRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessUserResponse::createFromDiscriminatorValue);
     }

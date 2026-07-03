@@ -53,6 +53,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
      * @return a {@link java.util.List<TagResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<TagResponse> get() {
@@ -62,17 +63,21 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<TagResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<TagResponse> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.sendCollection(requestInfo, null, TagResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendCollection(requestInfo, errorMapping, TagResponse::createFromDiscriminatorValue);
     }
     /**
      * Creates a tag for the current business so leads can be segmented, filtered, routed, and reviewed by label.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @return a {@link TagResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public TagResponse post(@jakarta.annotation.Nonnull final TagRequest body) {
@@ -84,6 +89,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TagResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public TagResponse post(@jakarta.annotation.Nonnull final TagRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -91,6 +97,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, TagResponse::createFromDiscriminatorValue);
     }
     /**

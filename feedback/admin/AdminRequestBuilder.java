@@ -1,7 +1,9 @@
 package ai.leadping.openapi.feedback.admin;
 
+import ai.leadping.openapi.feedback.admin.all.AllRequestBuilder;
 import ai.leadping.openapi.feedback.admin.item.AdminItemRequestBuilder;
 import ai.leadping.openapi.models.PagedResultOfFeedbackResponse;
+import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -21,6 +23,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AdminRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The all property
+     * @return a {@link AllRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public AllRequestBuilder all() {
+        return new AllRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Gets an item from the ai.leadping.openapi.feedback.admin.item collection
      * @param id Unique identifier of the item
@@ -52,6 +62,7 @@ public class AdminRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists submitted feedback for admin triage with query filters, paging, status, and category review fields.
      * @return a {@link PagedResultOfFeedbackResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfFeedbackResponse get() {
@@ -61,11 +72,14 @@ public class AdminRequestBuilder extends BaseRequestBuilder {
      * Lists submitted feedback for admin triage with query filters, paging, status, and category review fields.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfFeedbackResponse}
+     * @throws ProblemDetails When receiving a 401 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfFeedbackResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, PagedResultOfFeedbackResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfFeedbackResponse::createFromDiscriminatorValue);
     }
     /**
      * Lists submitted feedback for admin triage with query filters, paging, status, and category review fields.
