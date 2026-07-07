@@ -37,7 +37,7 @@ public class LoginRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/telephony/login", rawUrl);
     }
     /**
-     * Returns the telephony login response with a 200 status code.
+     * Generates a Leadping WebRTC login token so authenticated agents can connect to telephony services and place or receive browser-based calls.
      * @param body Request model for telephony login token generation.
      * @return a {@link TelephonyLoginResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class LoginRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Returns the telephony login response with a 200 status code.
+     * Generates a Leadping WebRTC login token so authenticated agents can connect to telephony services and place or receive browser-based calls.
      * @param body Request model for telephony login token generation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TelephonyLoginResponse}
@@ -65,7 +65,7 @@ public class LoginRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, TelephonyLoginResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the telephony login response with a 200 status code.
+     * Generates a Leadping WebRTC login token so authenticated agents can connect to telephony services and place or receive browser-based calls.
      * @param body Request model for telephony login token generation.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class LoginRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Returns the telephony login response with a 200 status code.
+     * Generates a Leadping WebRTC login token so authenticated agents can connect to telephony services and place or receive browser-based calls.
      * @param body Request model for telephony login token generation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

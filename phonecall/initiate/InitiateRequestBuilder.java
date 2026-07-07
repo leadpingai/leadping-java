@@ -37,7 +37,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/initiate", rawUrl);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
      * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
      * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
@@ -65,7 +65,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
      * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
      * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -37,7 +37,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/{callId}/transfer{?newPhoneNumber*}", rawUrl);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -48,7 +48,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -65,7 +65,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -73,7 +73,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -95,7 +95,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         return new TransferRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {

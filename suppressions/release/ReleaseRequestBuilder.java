@@ -37,7 +37,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/release", rawUrl);
     }
     /**
-     * Returns the suppression entry response.
+     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
      * @param body Request payload for suppression entry.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Returns the suppression entry response.
+     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
      * @param body Request payload for suppression entry.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionEntryResponse}
@@ -65,7 +65,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionEntryResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the suppression entry response.
+     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
      * @param body Request payload for suppression entry.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Returns the suppression entry response.
+     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
      * @param body Request payload for suppression entry.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

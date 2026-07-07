@@ -55,7 +55,7 @@ public class SuppressionsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions", rawUrl);
     }
     /**
-     * The suppression entry response was created successfully.
+     * Creates or reactivates a Leadping suppression entry that blocks future outreach to a recipient across the selected communication channel.
      * @param body Request payload for suppression entry.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class SuppressionsRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * The suppression entry response was created successfully.
+     * Creates or reactivates a Leadping suppression entry that blocks future outreach to a recipient across the selected communication channel.
      * @param body Request payload for suppression entry.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionEntryResponse}
@@ -83,7 +83,7 @@ public class SuppressionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionEntryResponse::createFromDiscriminatorValue);
     }
     /**
-     * The suppression entry response was created successfully.
+     * Creates or reactivates a Leadping suppression entry that blocks future outreach to a recipient across the selected communication channel.
      * @param body Request payload for suppression entry.
      * @return a {@link RequestInformation}
      */
@@ -92,7 +92,7 @@ public class SuppressionsRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * The suppression entry response was created successfully.
+     * Creates or reactivates a Leadping suppression entry that blocks future outreach to a recipient across the selected communication channel.
      * @param body Request payload for suppression entry.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

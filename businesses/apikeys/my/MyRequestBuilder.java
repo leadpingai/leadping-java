@@ -37,7 +37,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/businesses/api-keys/my", rawUrl);
     }
     /**
-     * Returns a paged result of current-business API keys.
+     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping business, with support for filtering, sorting, and pagination.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfBusinessTableRow}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Returns a paged result of current-business API keys.
+     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping business, with support for filtering, sorting, and pagination.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfBusinessTableRow}
@@ -65,7 +65,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfBusinessTableRow::createFromDiscriminatorValue);
     }
     /**
-     * Returns a paged result of current-business API keys.
+     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping business, with support for filtering, sorting, and pagination.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Returns a paged result of current-business API keys.
+     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping business, with support for filtering, sorting, and pagination.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

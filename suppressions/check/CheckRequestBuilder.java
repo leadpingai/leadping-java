@@ -37,7 +37,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/check", rawUrl);
     }
     /**
-     * Returns the suppression check result.
+     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
      * @param body Request payload for suppression entry.
      * @return a {@link SuppressionCheckResult}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Returns the suppression check result.
+     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
      * @param body Request payload for suppression entry.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionCheckResult}
@@ -65,7 +65,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionCheckResult::createFromDiscriminatorValue);
     }
     /**
-     * Returns the suppression check result.
+     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
      * @param body Request payload for suppression entry.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Returns the suppression check result.
+     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
      * @param body Request payload for suppression entry.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -36,7 +36,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/{callId}/status", rawUrl);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -46,7 +46,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -61,7 +61,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +69,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the call details with a 200 status code.
+     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
