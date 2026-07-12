@@ -55,6 +55,10 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private Long apiKeyTotalUses;
     /**
+     * Defines the supported Billing Plan values.
+     */
+    private BusinessTableRowBillingPlan billingPlan;
+    /**
      * The business ID that owns this row when the row represents a child business resource.
      */
     private String businessId;
@@ -75,6 +79,10 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private String industry;
     /**
+     * The lastSubscriptionEventAt property
+     */
+    private OffsetDateTime lastSubscriptionEventAt;
+    /**
      * The date and time for the modified at value on this business.
      */
     private OffsetDateTime modifiedAt;
@@ -87,6 +95,10 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean needsAdminReview;
     /**
+     * The paymentFailedAt property
+     */
+    private OffsetDateTime paymentFailedAt;
+    /**
      * The phone number associated with this business.
      */
     private String phone;
@@ -98,6 +110,14 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      * Defines the supported Business Status values.
      */
     private BusinessTableRowStatus status;
+    /**
+     * The subscriptionCancelAt property
+     */
+    private OffsetDateTime subscriptionCancelAt;
+    /**
+     * Defines the supported Subscription Status values.
+     */
+    private BusinessTableRowSubscriptionStatus subscriptionStatus;
     /**
      * Defines the supported 10DLC Application Status values.
      */
@@ -219,6 +239,14 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.apiKeyTotalUses;
     }
     /**
+     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * @return a {@link BusinessTableRowBillingPlan}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessTableRowBillingPlan getBillingPlan() {
+        return this.billingPlan;
+    }
+    /**
      * Gets the businessId property value. The business ID that owns this row when the row represents a child business resource.
      * @return a {@link String}
      */
@@ -248,7 +276,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(BusinessTableRowActivationStatus::forValue)); });
         deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(BusinessTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
@@ -258,17 +286,22 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
+        deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessTableRowBillingPlan::forValue)); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
+        deserializerMap.put("lastSubscriptionEventAt", (n) -> { this.setLastSubscriptionEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("needsAdminReview", (n) -> { this.setNeedsAdminReview(n.getBooleanValue()); });
+        deserializerMap.put("paymentFailedAt", (n) -> { this.setPaymentFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("setupStep", (n) -> { this.setSetupStep(n.getEnumValue(BusinessTableRowSetupStep::forValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(BusinessTableRowStatus::forValue)); });
+        deserializerMap.put("subscriptionCancelAt", (n) -> { this.setSubscriptionCancelAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(BusinessTableRowSubscriptionStatus::forValue)); });
         deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(BusinessTableRowTenDlcStatus::forValue)); });
         deserializerMap.put("userCount", (n) -> { this.setUserCount(n.getIntegerValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
@@ -292,6 +325,14 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getIndustry() {
         return this.industry;
+    }
+    /**
+     * Gets the lastSubscriptionEventAt property value. The lastSubscriptionEventAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastSubscriptionEventAt() {
+        return this.lastSubscriptionEventAt;
     }
     /**
      * Gets the modifiedAt property value. The date and time for the modified at value on this business.
@@ -318,6 +359,14 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.needsAdminReview;
     }
     /**
+     * Gets the paymentFailedAt property value. The paymentFailedAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getPaymentFailedAt() {
+        return this.paymentFailedAt;
+    }
+    /**
      * Gets the phone property value. The phone number associated with this business.
      * @return a {@link String}
      */
@@ -340,6 +389,22 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public BusinessTableRowStatus getStatus() {
         return this.status;
+    }
+    /**
+     * Gets the subscriptionCancelAt property value. The subscriptionCancelAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getSubscriptionCancelAt() {
+        return this.subscriptionCancelAt;
+    }
+    /**
+     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * @return a {@link BusinessTableRowSubscriptionStatus}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessTableRowSubscriptionStatus getSubscriptionStatus() {
+        return this.subscriptionStatus;
     }
     /**
      * Gets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
@@ -404,17 +469,22 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
+        writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("businessName", this.getBusinessName());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("industry", this.getIndustry());
+        writer.writeOffsetDateTimeValue("lastSubscriptionEventAt", this.getLastSubscriptionEventAt());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeBooleanValue("needsAdminReview", this.getNeedsAdminReview());
+        writer.writeOffsetDateTimeValue("paymentFailedAt", this.getPaymentFailedAt());
         writer.writeStringValue("phone", this.getPhone());
         writer.writeEnumValue("setupStep", this.getSetupStep());
         writer.writeEnumValue("status", this.getStatus());
+        writer.writeOffsetDateTimeValue("subscriptionCancelAt", this.getSubscriptionCancelAt());
+        writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
         writer.writeIntegerValue("userCount", this.getUserCount());
         writer.writeStringValue("userId", this.getUserId());
@@ -494,6 +564,13 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.apiKeyTotalUses = value;
     }
     /**
+     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * @param value Value to set for the billingPlan property.
+     */
+    public void setBillingPlan(@jakarta.annotation.Nullable final BusinessTableRowBillingPlan value) {
+        this.billingPlan = value;
+    }
+    /**
      * Sets the businessId property value. The business ID that owns this row when the row represents a child business resource.
      * @param value Value to set for the businessId property.
      */
@@ -529,6 +606,13 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.industry = value;
     }
     /**
+     * Sets the lastSubscriptionEventAt property value. The lastSubscriptionEventAt property
+     * @param value Value to set for the lastSubscriptionEventAt property.
+     */
+    public void setLastSubscriptionEventAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastSubscriptionEventAt = value;
+    }
+    /**
      * Sets the modifiedAt property value. The date and time for the modified at value on this business.
      * @param value Value to set for the modifiedAt property.
      */
@@ -550,6 +634,13 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.needsAdminReview = value;
     }
     /**
+     * Sets the paymentFailedAt property value. The paymentFailedAt property
+     * @param value Value to set for the paymentFailedAt property.
+     */
+    public void setPaymentFailedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.paymentFailedAt = value;
+    }
+    /**
      * Sets the phone property value. The phone number associated with this business.
      * @param value Value to set for the phone property.
      */
@@ -569,6 +660,20 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setStatus(@jakarta.annotation.Nullable final BusinessTableRowStatus value) {
         this.status = value;
+    }
+    /**
+     * Sets the subscriptionCancelAt property value. The subscriptionCancelAt property
+     * @param value Value to set for the subscriptionCancelAt property.
+     */
+    public void setSubscriptionCancelAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.subscriptionCancelAt = value;
+    }
+    /**
+     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * @param value Value to set for the subscriptionStatus property.
+     */
+    public void setSubscriptionStatus(@jakarta.annotation.Nullable final BusinessTableRowSubscriptionStatus value) {
+        this.subscriptionStatus = value;
     }
     /**
      * Sets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.

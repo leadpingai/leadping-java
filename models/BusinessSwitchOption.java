@@ -30,6 +30,10 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
      */
     private BusinessSwitchOptionBusinessStatus businessStatus;
     /**
+     * Whether the business has a default billing payment method.
+     */
+    private Boolean hasPaymentMethod;
+    /**
      * The unique ID for this business switch option.
      */
     private String id;
@@ -111,10 +115,11 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(BusinessSwitchOptionActivationStatus::forValue)); });
         deserializerMap.put("activationSummary", (n) -> { this.setActivationSummary(n.getStringValue()); });
         deserializerMap.put("businessStatus", (n) -> { this.setBusinessStatus(n.getEnumValue(BusinessSwitchOptionBusinessStatus::forValue)); });
+        deserializerMap.put("hasPaymentMethod", (n) -> { this.setHasPaymentMethod(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isCurrent", (n) -> { this.setIsCurrent(n.getBooleanValue()); });
         deserializerMap.put("lastUsedAt", (n) -> { this.setLastUsedAt(n.getOffsetDateTimeValue()); });
@@ -123,6 +128,14 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
         deserializerMap.put("readyForCustomerTraffic", (n) -> { this.setReadyForCustomerTraffic(n.getBooleanValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(BusinessUserRole::forValue)); });
         return deserializerMap;
+    }
+    /**
+     * Gets the hasPaymentMethod property value. Whether the business has a default billing payment method.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getHasPaymentMethod() {
+        return this.hasPaymentMethod;
     }
     /**
      * Gets the id property value. The unique ID for this business switch option.
@@ -189,6 +202,7 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("activationStatus", this.getActivationStatus());
         writer.writeStringValue("activationSummary", this.getActivationSummary());
         writer.writeEnumValue("businessStatus", this.getBusinessStatus());
+        writer.writeBooleanValue("hasPaymentMethod", this.getHasPaymentMethod());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isCurrent", this.getIsCurrent());
         writer.writeOffsetDateTimeValue("lastUsedAt", this.getLastUsedAt());
@@ -225,6 +239,13 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
      */
     public void setBusinessStatus(@jakarta.annotation.Nullable final BusinessSwitchOptionBusinessStatus value) {
         this.businessStatus = value;
+    }
+    /**
+     * Sets the hasPaymentMethod property value. Whether the business has a default billing payment method.
+     * @param value Value to set for the hasPaymentMethod property.
+     */
+    public void setHasPaymentMethod(@jakarta.annotation.Nullable final Boolean value) {
+        this.hasPaymentMethod = value;
     }
     /**
      * Sets the id property value. The unique ID for this business switch option.

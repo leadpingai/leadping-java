@@ -10,7 +10,7 @@ import java.util.Objects;
  * Captured subscription cancellation feedback for retention and churn analysis.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class BusinessStripeInfoCancellation extends UserSubscriptionCancellationInfo implements Parsable {
+public class BusinessStripeInfoCancellation extends BusinessSubscriptionCancellationInfo implements Parsable {
     /**
      * Instantiates a new {@link BusinessStripeInfoCancellation} and sets the default values.
      */

@@ -21,10 +21,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private UserRequestBillingPlan billingPlan;
     /**
-     * Business summary connected to this user profile request.
-     */
-    private UserRequestBusiness business;
-    /**
      * User compliance settings and attestations captured for Leadping account review.
      */
     private UserRequestCompliance compliance;
@@ -65,10 +61,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private String phone;
     /**
-     * Defines the supported Subscription Status values.
-     */
-    private UserRequestSubscriptionStatus subscriptionStatus;
-    /**
      * Instantiates a new {@link UserRequest} and sets the default values.
      */
     public UserRequest() {
@@ -101,14 +93,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the business property value. Business summary connected to this user profile request.
-     * @return a {@link UserRequestBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public UserRequestBusiness getBusiness() {
-        return this.business;
-    }
-    /**
      * Gets the compliance property value. User compliance settings and attestations captured for Leadping account review.
      * @return a {@link UserRequestCompliance}
      */
@@ -138,9 +122,8 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserRequestBillingPlan::forValue)); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(UserRequestBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserRequestCompliance::createFromDiscriminatorValue)); });
         deserializerMap.put("currentBusiness", (n) -> { this.setCurrentBusiness(n.getObjectValue(UserRequestCurrentBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
@@ -151,7 +134,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("notificationPreferences", (n) -> { this.setNotificationPreferences(n.getObjectValue(UserRequestNotificationPreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(UserRequestSubscriptionStatus::forValue)); });
         return deserializerMap;
     }
     /**
@@ -211,21 +193,12 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.phone;
     }
     /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
-     * @return a {@link UserRequestSubscriptionStatus}
-     */
-    @jakarta.annotation.Nullable
-    public UserRequestSubscriptionStatus getSubscriptionStatus() {
-        return this.subscriptionStatus;
-    }
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
-        writer.writeObjectValue("business", this.getBusiness());
         writer.writeObjectValue("compliance", this.getCompliance());
         writer.writeObjectValue("currentBusiness", this.getCurrentBusiness());
         writer.writeStringValue("email", this.getEmail());
@@ -236,7 +209,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeObjectValue("notificationPreferences", this.getNotificationPreferences());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -252,13 +224,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final UserRequestBillingPlan value) {
         this.billingPlan = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this user profile request.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final UserRequestBusiness value) {
-        this.business = value;
     }
     /**
      * Sets the compliance property value. User compliance settings and attestations captured for Leadping account review.
@@ -329,12 +294,5 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     public void setPhone(@jakarta.annotation.Nullable final String value) {
         this.phone = value;
-    }
-    /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
-     * @param value Value to set for the subscriptionStatus property.
-     */
-    public void setSubscriptionStatus(@jakarta.annotation.Nullable final UserRequestSubscriptionStatus value) {
-        this.subscriptionStatus = value;
     }
 }

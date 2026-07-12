@@ -31,7 +31,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * Masked preview of the source API key for display without exposing the secret.
+     * Masked preview of the source API key for compact display.
      */
     private String apiKeyPreview;
     /**
@@ -155,7 +155,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKeyPreview property value. Masked preview of the source API key for display without exposing the secret.
+     * Gets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -396,7 +396,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.allowedStates = value;
     }
     /**
-     * Sets the apiKeyPreview property value. Masked preview of the source API key for display without exposing the secret.
+     * Sets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @param value Value to set for the apiKeyPreview property.
      */
     public void setApiKeyPreview(@jakarta.annotation.Nullable final String value) {

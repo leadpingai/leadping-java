@@ -25,6 +25,10 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
+     * Identifier of the canonical phone identity stored by Leadping.
+     */
+    private String phoneIdentityId;
+    /**
      * Type classification used to route and interpret this lead phone number in the Leadping API.
      */
     private String type;
@@ -58,9 +62,10 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
         deserializerMap.put("lookup", (n) -> { this.setLookup(n.getObjectValue(Phone_lookup::createFromDiscriminatorValue)); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         return deserializerMap;
     }
@@ -81,6 +86,14 @@ public class Phone implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the phoneIdentityId property value. Identifier of the canonical phone identity stored by Leadping.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getPhoneIdentityId() {
+        return this.phoneIdentityId;
+    }
+    /**
      * Gets the type property value. Type classification used to route and interpret this lead phone number in the Leadping API.
      * @return a {@link String}
      */
@@ -96,6 +109,7 @@ public class Phone implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("lookup", this.getLookup());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeStringValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -119,6 +133,13 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the phoneIdentityId property value. Identifier of the canonical phone identity stored by Leadping.
+     * @param value Value to set for the phoneIdentityId property.
+     */
+    public void setPhoneIdentityId(@jakarta.annotation.Nullable final String value) {
+        this.phoneIdentityId = value;
     }
     /**
      * Sets the type property value. Type classification used to route and interpret this lead phone number in the Leadping API.

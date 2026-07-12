@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The Stripe info value for this user.
+ * Stripe state for the user&apos;s currently selected business.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class UserResponseStripeInfo extends UserStripeInfo implements Parsable {
+public class UserResponseStripeInfo extends BusinessStripeInfo implements Parsable {
     /**
      * Instantiates a new {@link UserResponseStripeInfo} and sets the default values.
      */

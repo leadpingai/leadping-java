@@ -23,10 +23,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UserResponseBillingPlan billingPlan;
     /**
-     * The business value for this user.
-     */
-    private UserResponseBusiness business;
-    /**
      * The compliance value for this user.
      */
     private UserResponseCompliance compliance;
@@ -103,7 +99,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UntypedNode roles;
     /**
-     * The Stripe info value for this user.
+     * Stripe state for the user&apos;s currently selected business.
      */
     private UserResponseStripeInfo stripeInfo;
     /**
@@ -143,14 +139,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the business property value. The business value for this user.
-     * @return a {@link UserResponseBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public UserResponseBusiness getBusiness() {
-        return this.business;
-    }
-    /**
      * Gets the compliance property value. The compliance value for this user.
      * @return a {@link UserResponseCompliance}
      */
@@ -188,9 +176,8 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(UserResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentBusiness", (n) -> { this.setCurrentBusiness(n.getObjectValue(UserResponseCurrentBusiness::createFromDiscriminatorValue)); });
@@ -335,7 +322,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.roles;
     }
     /**
-     * Gets the stripeInfo property value. The Stripe info value for this user.
+     * Gets the stripeInfo property value. Stripe state for the user&apos;s currently selected business.
      * @return a {@link UserResponseStripeInfo}
      */
     @jakarta.annotation.Nullable
@@ -357,7 +344,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
-        writer.writeObjectValue("business", this.getBusiness());
         writer.writeObjectValue("compliance", this.getCompliance());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentBusiness", this.getCurrentBusiness());
@@ -394,13 +380,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final UserResponseBillingPlan value) {
         this.billingPlan = value;
-    }
-    /**
-     * Sets the business property value. The business value for this user.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final UserResponseBusiness value) {
-        this.business = value;
     }
     /**
      * Sets the compliance property value. The compliance value for this user.
@@ -536,7 +515,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.roles = value;
     }
     /**
-     * Sets the stripeInfo property value. The Stripe info value for this user.
+     * Sets the stripeInfo property value. Stripe state for the user&apos;s currently selected business.
      * @param value Value to set for the stripeInfo property.
      */
     public void setStripeInfo(@jakarta.annotation.Nullable final UserResponseStripeInfo value) {

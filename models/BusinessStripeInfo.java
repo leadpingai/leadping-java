@@ -19,6 +19,10 @@ public class BusinessStripeInfo implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Number of paid business-user seats currently assigned to a member or open invitation.This can be lower than long? BusinessStripeInfo.BusinessUserQuantity while an annual seat isavailable for reassignment during its paid term.
+     */
+    private UntypedNode businessUserAssignedQuantity;
+    /**
      * The businessUserQuantity property
      */
     private UntypedNode businessUserQuantity;
@@ -103,6 +107,14 @@ public class BusinessStripeInfo implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the businessUserAssignedQuantity property value. Number of paid business-user seats currently assigned to a member or open invitation.This can be lower than long? BusinessStripeInfo.BusinessUserQuantity while an annual seat isavailable for reassignment during its paid term.
+     * @return a {@link UntypedNode}
+     */
+    @jakarta.annotation.Nullable
+    public UntypedNode getBusinessUserAssignedQuantity() {
+        return this.businessUserAssignedQuantity;
+    }
+    /**
      * Gets the businessUserQuantity property value. The businessUserQuantity property
      * @return a {@link UntypedNode}
      */
@@ -164,7 +176,8 @@ public class BusinessStripeInfo implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
+        deserializerMap.put("businessUserAssignedQuantity", (n) -> { this.setBusinessUserAssignedQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("businessUserQuantity", (n) -> { this.setBusinessUserQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("businessUserSubscriptionItemId", (n) -> { this.setBusinessUserSubscriptionItemId(n.getStringValue()); });
         deserializerMap.put("cancelAt", (n) -> { this.setCancelAt(n.getOffsetDateTimeValue()); });
@@ -252,6 +265,7 @@ public class BusinessStripeInfo implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeObjectValue("businessUserAssignedQuantity", this.getBusinessUserAssignedQuantity());
         writer.writeObjectValue("businessUserQuantity", this.getBusinessUserQuantity());
         writer.writeStringValue("businessUserSubscriptionItemId", this.getBusinessUserSubscriptionItemId());
         writer.writeOffsetDateTimeValue("cancelAt", this.getCancelAt());
@@ -275,6 +289,13 @@ public class BusinessStripeInfo implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the businessUserAssignedQuantity property value. Number of paid business-user seats currently assigned to a member or open invitation.This can be lower than long? BusinessStripeInfo.BusinessUserQuantity while an annual seat isavailable for reassignment during its paid term.
+     * @param value Value to set for the businessUserAssignedQuantity property.
+     */
+    public void setBusinessUserAssignedQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+        this.businessUserAssignedQuantity = value;
     }
     /**
      * Sets the businessUserQuantity property value. The businessUserQuantity property

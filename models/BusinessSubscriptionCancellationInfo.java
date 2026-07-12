@@ -12,7 +12,7 @@ import java.util.Objects;
  * Captured subscription cancellation feedback for retention and churn analysis.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class UserSubscriptionCancellationInfo implements AdditionalDataHolder, Parsable {
+public class BusinessSubscriptionCancellationInfo implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -54,20 +54,20 @@ public class UserSubscriptionCancellationInfo implements AdditionalDataHolder, P
      */
     private String technicalIssues;
     /**
-     * Instantiates a new {@link UserSubscriptionCancellationInfo} and sets the default values.
+     * Instantiates a new {@link BusinessSubscriptionCancellationInfo} and sets the default values.
      */
-    public UserSubscriptionCancellationInfo() {
+    public BusinessSubscriptionCancellationInfo() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link UserSubscriptionCancellationInfo}
+     * @return a {@link BusinessSubscriptionCancellationInfo}
      */
     @jakarta.annotation.Nonnull
-    public static UserSubscriptionCancellationInfo createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static BusinessSubscriptionCancellationInfo createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new UserSubscriptionCancellationInfo();
+        return new BusinessSubscriptionCancellationInfo();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

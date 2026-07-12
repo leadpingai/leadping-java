@@ -2,6 +2,7 @@ package ai.leadping.openapi.paymentmethods.item;
 
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.StripePaymentMethodResponse;
+import ai.leadping.openapi.paymentmethods.item.defaultescaped.DefaultRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -19,6 +20,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The default property
+     * @return a {@link DefaultRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public DefaultRequestBuilder defaultEscaped() {
+        return new DefaultRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Instantiates a new {@link PaymentMethodsItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request

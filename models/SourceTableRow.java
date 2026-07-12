@@ -35,7 +35,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime apiKeyLastUsedAt;
     /**
-     * Masked preview of the source API key for display without exposing the secret.
+     * Masked preview of the source API key for compact display.
      */
     private String apiKeyPreview;
     /**
@@ -171,7 +171,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.apiKeyLastUsedAt;
     }
     /**
-     * Gets the apiKeyPreview property value. Masked preview of the source API key for display without exposing the secret.
+     * Gets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -431,7 +431,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.apiKeyLastUsedAt = value;
     }
     /**
-     * Sets the apiKeyPreview property value. Masked preview of the source API key for display without exposing the secret.
+     * Sets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @param value Value to set for the apiKeyPreview property.
      */
     public void setApiKeyPreview(@jakarta.annotation.Nullable final String value) {

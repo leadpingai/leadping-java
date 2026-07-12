@@ -37,14 +37,6 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The licensed products included with this user compliance.
-     */
-    private java.util.List<String> licensedProducts;
-    /**
-     * The licensed states included with this user compliance.
-     */
-    private java.util.List<String> licensedStates;
-    /**
      * The TrustedForm certificates included with this user compliance.
      */
     private java.util.List<TrustedFormCertificate> trustedFormCertificates;
@@ -118,32 +110,14 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("acceptedBaa", (n) -> { this.setAcceptedBaa(n.getBooleanValue()); });
         deserializerMap.put("acceptedEmail", (n) -> { this.setAcceptedEmail(n.getBooleanValue()); });
         deserializerMap.put("acceptedSms", (n) -> { this.setAcceptedSms(n.getBooleanValue()); });
         deserializerMap.put("acceptedTerms", (n) -> { this.setAcceptedTerms(n.getBooleanValue()); });
         deserializerMap.put("acceptedToSubscription", (n) -> { this.setAcceptedToSubscription(n.getBooleanValue()); });
-        deserializerMap.put("licensedProducts", (n) -> { this.setLicensedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("licensedStates", (n) -> { this.setLicensedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("trustedFormCertificates", (n) -> { this.setTrustedFormCertificates(n.getCollectionOfObjectValues(TrustedFormCertificate::createFromDiscriminatorValue)); });
         return deserializerMap;
-    }
-    /**
-     * Gets the licensedProducts property value. The licensed products included with this user compliance.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getLicensedProducts() {
-        return this.licensedProducts;
-    }
-    /**
-     * Gets the licensedStates property value. The licensed states included with this user compliance.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getLicensedStates() {
-        return this.licensedStates;
     }
     /**
      * Gets the trustedFormCertificates property value. The TrustedForm certificates included with this user compliance.
@@ -164,8 +138,6 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("acceptedSms", this.getAcceptedSms());
         writer.writeBooleanValue("acceptedTerms", this.getAcceptedTerms());
         writer.writeBooleanValue("acceptedToSubscription", this.getAcceptedToSubscription());
-        writer.writeCollectionOfPrimitiveValues("licensedProducts", this.getLicensedProducts());
-        writer.writeCollectionOfPrimitiveValues("licensedStates", this.getLicensedStates());
         writer.writeCollectionOfObjectValues("trustedFormCertificates", this.getTrustedFormCertificates());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -210,20 +182,6 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the licensedProducts property value. The licensed products included with this user compliance.
-     * @param value Value to set for the licensedProducts property.
-     */
-    public void setLicensedProducts(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.licensedProducts = value;
-    }
-    /**
-     * Sets the licensedStates property value. The licensed states included with this user compliance.
-     * @param value Value to set for the licensedStates property.
-     */
-    public void setLicensedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.licensedStates = value;
     }
     /**
      * Sets the trustedFormCertificates property value. The TrustedForm certificates included with this user compliance.

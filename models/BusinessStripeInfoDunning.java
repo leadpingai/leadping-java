@@ -10,7 +10,7 @@ import java.util.Objects;
  * Dunning state recorded after a failed recurring payment.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class BusinessStripeInfoDunning extends UserDunningInfo implements Parsable {
+public class BusinessStripeInfoDunning extends BusinessDunningInfo implements Parsable {
     /**
      * Instantiates a new {@link BusinessStripeInfoDunning} and sets the default values.
      */
