@@ -36,7 +36,7 @@ public class DefaultRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/payment-methods/{id}/default", rawUrl);
     }
     /**
-     * Makes a card the default payment method for the current business.
+     * Set default payment method
      * @return a {@link StripePaymentMethodResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -46,7 +46,7 @@ public class DefaultRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Makes a card the default payment method for the current business.
+     * Set default payment method
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link StripePaymentMethodResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -61,7 +61,7 @@ public class DefaultRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, StripePaymentMethodResponse::createFromDiscriminatorValue);
     }
     /**
-     * Makes a card the default payment method for the current business.
+     * Set default payment method
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +69,7 @@ public class DefaultRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Makes a card the default payment method for the current business.
+     * Set default payment method
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

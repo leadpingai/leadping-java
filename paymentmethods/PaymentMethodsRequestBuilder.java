@@ -49,7 +49,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/payment-methods", rawUrl);
     }
     /**
-     * Gets all cards attached to the current business billing customer.
+     * List payment methods
      * @return a {@link java.util.List<StripePaymentMethodResponse>}
      * @throws ProblemDetails When receiving a 401 status code
      */
@@ -58,7 +58,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Gets all cards attached to the current business billing customer.
+     * List payment methods
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripePaymentMethodResponse>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -71,7 +71,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, StripePaymentMethodResponse::createFromDiscriminatorValue);
     }
     /**
-     * Gets all cards attached to the current business billing customer.
+     * List payment methods
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -79,7 +79,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Gets all cards attached to the current business billing customer.
+     * List payment methods
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
