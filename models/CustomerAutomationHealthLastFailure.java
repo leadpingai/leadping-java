@@ -6,6 +6,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Last failure associated with this Leadping customer automation health.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAutomationHealthLastFailure extends CustomerFailingAutomation implements Parsable {
     /**

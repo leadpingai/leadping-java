@@ -17,10 +17,6 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private LeadRequestAdminEnablementOverride adminEnablementOverride;
-    /**
      * Contact details for the lead or customer represented by this lead request.
      */
     private LeadContact contact;
@@ -73,14 +69,6 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link LeadRequestAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public LeadRequestAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
-    }
-    /**
      * Gets the contact property value. Contact details for the lead or customer represented by this lead request.
      * @return a {@link LeadContact}
      */
@@ -110,8 +98,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(LeadRequestAdminEnablementOverride::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("contact", (n) -> { this.setContact(n.getObjectValue(LeadContact::createFromDiscriminatorValue)); });
         deserializerMap.put("customer", (n) -> { this.setCustomer(n.getObjectValue(LeadProfile::createFromDiscriminatorValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
@@ -159,7 +146,6 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeObjectValue("contact", this.getContact());
         writer.writeObjectValue("customer", this.getCustomer());
         writer.writeBooleanValue("enabled", this.getEnabled());
@@ -175,13 +161,6 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final LeadRequestAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the contact property value. Contact details for the lead or customer represented by this lead request.

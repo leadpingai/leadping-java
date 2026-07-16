@@ -34,18 +34,6 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     private OffsetDateTime completedAt;
     /**
-     * Stable integration connection key used by this automation action.
-     */
-    private String connectionKey;
-    /**
-     * Error text returned while processing this automation action run record.
-     */
-    private String error;
-    /**
-     * Idempotency key used to identify a unique automation workflow execution.
-     */
-    private String executionKey;
-    /**
      * UTC timestamp when processing failed for this automation action run record.
      */
     private OffsetDateTime failedAt;
@@ -65,10 +53,6 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      * Sort order used to evaluate or display this automation action run record.
      */
     private Integer order;
-    /**
-     * Generated output returned by this automation action run record.
-     */
-    private String output;
     /**
      * Number of processing attempts made for this workflow or delivery request.
      */
@@ -142,30 +126,6 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         return this.completedAt;
     }
     /**
-     * Gets the connectionKey property value. Stable integration connection key used by this automation action.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getConnectionKey() {
-        return this.connectionKey;
-    }
-    /**
-     * Gets the error property value. Error text returned while processing this automation action run record.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getError() {
-        return this.error;
-    }
-    /**
-     * Gets the executionKey property value. Idempotency key used to identify a unique automation workflow execution.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getExecutionKey() {
-        return this.executionKey;
-    }
-    /**
      * Gets the failedAt property value. UTC timestamp when processing failed for this automation action run record.
      * @return a {@link OffsetDateTime}
      */
@@ -187,20 +147,16 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("actionId", (n) -> { this.setActionId(n.getStringValue()); });
         deserializerMap.put("actionType", (n) -> { this.setActionType(n.getStringValue()); });
         deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("connectionKey", (n) -> { this.setConnectionKey(n.getStringValue()); });
-        deserializerMap.put("error", (n) -> { this.setError(n.getStringValue()); });
-        deserializerMap.put("executionKey", (n) -> { this.setExecutionKey(n.getStringValue()); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("order", (n) -> { this.setOrder(n.getIntegerValue()); });
-        deserializerMap.put("output", (n) -> { this.setOutput(n.getStringValue()); });
         deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("scheduledAt", (n) -> { this.setScheduledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
@@ -230,14 +186,6 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public Integer getOrder() {
         return this.order;
-    }
-    /**
-     * Gets the output property value. Generated output returned by this automation action run record.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getOutput() {
-        return this.output;
     }
     /**
      * Gets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
@@ -281,15 +229,11 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         writer.writeStringValue("actionType", this.getActionType());
         writer.writeStringValue("automationRunId", this.getAutomationRunId());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
-        writer.writeStringValue("connectionKey", this.getConnectionKey());
-        writer.writeStringValue("error", this.getError());
-        writer.writeStringValue("executionKey", this.getExecutionKey());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("failureCode", this.getFailureCode());
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
         writer.writeIntegerValue("order", this.getOrder());
-        writer.writeStringValue("output", this.getOutput());
         writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeOffsetDateTimeValue("scheduledAt", this.getScheduledAt());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
@@ -332,27 +276,6 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         this.completedAt = value;
     }
     /**
-     * Sets the connectionKey property value. Stable integration connection key used by this automation action.
-     * @param value Value to set for the connectionKey property.
-     */
-    public void setConnectionKey(@jakarta.annotation.Nullable final String value) {
-        this.connectionKey = value;
-    }
-    /**
-     * Sets the error property value. Error text returned while processing this automation action run record.
-     * @param value Value to set for the error property.
-     */
-    public void setError(@jakarta.annotation.Nullable final String value) {
-        this.error = value;
-    }
-    /**
-     * Sets the executionKey property value. Idempotency key used to identify a unique automation workflow execution.
-     * @param value Value to set for the executionKey property.
-     */
-    public void setExecutionKey(@jakarta.annotation.Nullable final String value) {
-        this.executionKey = value;
-    }
-    /**
      * Sets the failedAt property value. UTC timestamp when processing failed for this automation action run record.
      * @param value Value to set for the failedAt property.
      */
@@ -386,13 +309,6 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     public void setOrder(@jakarta.annotation.Nullable final Integer value) {
         this.order = value;
-    }
-    /**
-     * Sets the output property value. Generated output returned by this automation action run record.
-     * @param value Value to set for the output property.
-     */
-    public void setOutput(@jakarta.annotation.Nullable final String value) {
-        this.output = value;
     }
     /**
      * Sets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.

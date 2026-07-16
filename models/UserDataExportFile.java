@@ -14,19 +14,19 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The category property
+     * Category classification for this Leadping user data export file.
      */
     private String category;
     /**
-     * The contentType property
+     * Media type of the generated file or response content.
      */
     private String contentType;
     /**
-     * The fileName property
+     * Human-readable file name associated with this Leadping user data export file.
      */
     private String fileName;
     /**
-     * The rowCount property
+     * Total number of row records represented by this Leadping user data export file.
      */
     private Integer rowCount;
     /**
@@ -54,7 +54,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. Category classification for this Leadping user data export file.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -62,7 +62,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. Media type of the generated file or response content.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -83,7 +83,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the fileName property value. The fileName property
+     * Gets the fileName property value. Human-readable file name associated with this Leadping user data export file.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -91,7 +91,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         return this.fileName;
     }
     /**
-     * Gets the rowCount property value. The rowCount property
+     * Gets the rowCount property value. Total number of row records represented by this Leadping user data export file.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -118,28 +118,28 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. Category classification for this Leadping user data export file.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final String value) {
         this.category = value;
     }
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. Media type of the generated file or response content.
      * @param value Value to set for the contentType property.
      */
     public void setContentType(@jakarta.annotation.Nullable final String value) {
         this.contentType = value;
     }
     /**
-     * Sets the fileName property value. The fileName property
+     * Sets the fileName property value. Human-readable file name associated with this Leadping user data export file.
      * @param value Value to set for the fileName property.
      */
     public void setFileName(@jakarta.annotation.Nullable final String value) {
         this.fileName = value;
     }
     /**
-     * Sets the rowCount property value. The rowCount property
+     * Sets the rowCount property value. Total number of row records represented by this Leadping user data export file.
      * @param value Value to set for the rowCount property.
      */
     public void setRowCount(@jakarta.annotation.Nullable final Integer value) {

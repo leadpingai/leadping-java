@@ -14,10 +14,6 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
-     * Leadping account identifier used for wallet and transaction reconciliation.
-     */
-    private String accountId;
-    /**
      * Display name of the wallet or account used for this transaction.
      */
     private String accountName;
@@ -41,10 +37,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * UTC timestamp when this billing transaction table row was created.
      */
     private OffsetDateTime createdAt;
-    /**
-     * Display name or identifier for the person or system that created this billing transaction table row.
-     */
-    private String createdBy;
     /**
      * Human-readable description that explains this billing transaction table row to API users.
      */
@@ -92,14 +84,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     public static TransactionTableRow createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
         return new TransactionTableRow();
-    }
-    /**
-     * Gets the accountId property value. Leadping account identifier used for wallet and transaction reconciliation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAccountId() {
-        return this.accountId;
     }
     /**
      * Gets the accountName property value. Display name of the wallet or account used for this transaction.
@@ -150,14 +134,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the createdBy property value. Display name or identifier for the person or system that created this billing transaction table row.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-    /**
      * Gets the description property value. Human-readable description that explains this billing transaction table row to API users.
      * @return a {@link String}
      */
@@ -171,14 +147,12 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
-        deserializerMap.put("accountId", (n) -> { this.setAccountId(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("accountName", (n) -> { this.setAccountName(n.getStringValue()); });
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("createdBy", (n) -> { this.setCreatedBy(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
@@ -251,13 +225,11 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("accountId", this.getAccountId());
         writer.writeStringValue("accountName", this.getAccountName());
         writer.writeDoubleValue("amount", this.getAmount());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("businessName", this.getBusinessName());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeStringValue("createdBy", this.getCreatedBy());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("leadId", this.getLeadId());
@@ -267,13 +239,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("transactionStatus", this.getTransactionStatus());
         writer.writeEnumValue("transactionType", this.getTransactionType());
         writer.writeAdditionalData(this.getAdditionalData());
-    }
-    /**
-     * Sets the accountId property value. Leadping account identifier used for wallet and transaction reconciliation.
-     * @param value Value to set for the accountId property.
-     */
-    public void setAccountId(@jakarta.annotation.Nullable final String value) {
-        this.accountId = value;
     }
     /**
      * Sets the accountName property value. Display name of the wallet or account used for this transaction.
@@ -316,13 +281,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
-    }
-    /**
-     * Sets the createdBy property value. Display name or identifier for the person or system that created this billing transaction table row.
-     * @param value Value to set for the createdBy property.
-     */
-    public void setCreatedBy(@jakarta.annotation.Nullable final String value) {
-        this.createdBy = value;
     }
     /**
      * Sets the description property value. Human-readable description that explains this billing transaction table row to API users.

@@ -21,21 +21,9 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private AutomationRequestAdminEnablementOverride adminEnablementOverride;
-    /**
-     * Business ID that owns this automation configuration.
-     */
-    private String businessId;
-    /**
      * Grouped automation conditions used to decide whether this workflow should run.
      */
     private java.util.List<AutomationConditionGroup> conditionGroups;
-    /**
-     * User ID of the person who created this automation configuration request.
-     */
-    private String createdByUserId;
     /**
      * Human-readable description that explains this automation configuration request to API users.
      */
@@ -48,14 +36,6 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      * The unique identifier for the entity, when updating an existing entity.
      */
     private String id;
-    /**
-     * Indicates whether Leadping manages this automation configuration request automatically instead of a user.
-     */
-    private Boolean isSystemManaged;
-    /**
-     * Management level that controls whether Leadping or the business owns this automation setting.
-     */
-    private String managementLevel;
     /**
      * The display name for the entity.
      */
@@ -109,36 +89,12 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link AutomationRequestAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public AutomationRequestAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
-    }
-    /**
-     * Gets the businessId property value. Business ID that owns this automation configuration.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the conditionGroups property value. Grouped automation conditions used to decide whether this workflow should run.
      * @return a {@link java.util.List<AutomationConditionGroup>}
      */
     @jakarta.annotation.Nullable
     public java.util.List<AutomationConditionGroup> getConditionGroups() {
         return this.conditionGroups;
-    }
-    /**
-     * Gets the createdByUserId property value. User ID of the person who created this automation configuration request.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getCreatedByUserId() {
-        return this.createdByUserId;
     }
     /**
      * Gets the description property value. Human-readable description that explains this automation configuration request to API users.
@@ -162,17 +118,12 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(AutomationRequestAdminEnablementOverride::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
-        deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("isSystemManaged", (n) -> { this.setIsSystemManaged(n.getBooleanValue()); });
-        deserializerMap.put("managementLevel", (n) -> { this.setManagementLevel(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
@@ -187,22 +138,6 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
-    }
-    /**
-     * Gets the isSystemManaged property value. Indicates whether Leadping manages this automation configuration request automatically instead of a user.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsSystemManaged() {
-        return this.isSystemManaged;
-    }
-    /**
-     * Gets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getManagementLevel() {
-        return this.managementLevel;
     }
     /**
      * Gets the name property value. The display name for the entity.
@@ -251,15 +186,10 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeCollectionOfObjectValues("conditionGroups", this.getConditionGroups());
-        writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
         writer.writeStringValue("description", this.getDescription());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
-        writer.writeBooleanValue("isSystemManaged", this.getIsSystemManaged());
-        writer.writeStringValue("managementLevel", this.getManagementLevel());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
@@ -282,32 +212,11 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final AutomationRequestAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this automation configuration.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
      * Sets the conditionGroups property value. Grouped automation conditions used to decide whether this workflow should run.
      * @param value Value to set for the conditionGroups property.
      */
     public void setConditionGroups(@jakarta.annotation.Nullable final java.util.List<AutomationConditionGroup> value) {
         this.conditionGroups = value;
-    }
-    /**
-     * Sets the createdByUserId property value. User ID of the person who created this automation configuration request.
-     * @param value Value to set for the createdByUserId property.
-     */
-    public void setCreatedByUserId(@jakarta.annotation.Nullable final String value) {
-        this.createdByUserId = value;
     }
     /**
      * Sets the description property value. Human-readable description that explains this automation configuration request to API users.
@@ -329,20 +238,6 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
-    }
-    /**
-     * Sets the isSystemManaged property value. Indicates whether Leadping manages this automation configuration request automatically instead of a user.
-     * @param value Value to set for the isSystemManaged property.
-     */
-    public void setIsSystemManaged(@jakarta.annotation.Nullable final Boolean value) {
-        this.isSystemManaged = value;
-    }
-    /**
-     * Sets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
-     * @param value Value to set for the managementLevel property.
-     */
-    public void setManagementLevel(@jakarta.annotation.Nullable final String value) {
-        this.managementLevel = value;
     }
     /**
      * Sets the name property value. The display name for the entity.

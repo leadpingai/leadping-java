@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Lead trend associated with this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
     /**
@@ -14,15 +17,15 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The comparison property
+     * Date and time when this Leadping customer lead trend was comparison.
      */
     private AnalyticsComparison comparison;
     /**
-     * The points property
+     * Collection of points included with this Leadping customer lead trend.
      */
     private java.util.List<AnalyticsTrendPointOfint> points;
     /**
-     * The total property
+     * Total number of total records represented by this Leadping customer lead trend.
      */
     private Integer total;
     /**
@@ -50,7 +53,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the comparison property value. The comparison property
+     * Gets the comparison property value. Date and time when this Leadping customer lead trend was comparison.
      * @return a {@link AnalyticsComparison}
      */
     @jakarta.annotation.Nullable
@@ -70,7 +73,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the points property value. The points property
+     * Gets the points property value. Collection of points included with this Leadping customer lead trend.
      * @return a {@link java.util.List<AnalyticsTrendPointOfint>}
      */
     @jakarta.annotation.Nullable
@@ -78,7 +81,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.points;
     }
     /**
-     * Gets the total property value. The total property
+     * Gets the total property value. Total number of total records represented by this Leadping customer lead trend.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -104,21 +107,21 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the comparison property value. The comparison property
+     * Sets the comparison property value. Date and time when this Leadping customer lead trend was comparison.
      * @param value Value to set for the comparison property.
      */
     public void setComparison(@jakarta.annotation.Nullable final AnalyticsComparison value) {
         this.comparison = value;
     }
     /**
-     * Sets the points property value. The points property
+     * Sets the points property value. Collection of points included with this Leadping customer lead trend.
      * @param value Value to set for the points property.
      */
     public void setPoints(@jakarta.annotation.Nullable final java.util.List<AnalyticsTrendPointOfint> value) {
         this.points = value;
     }
     /**
-     * Sets the total property value. The total property
+     * Sets the total property value. Total number of total records represented by this Leadping customer lead trend.
      * @param value Value to set for the total property.
      */
     public void setTotal(@jakarta.annotation.Nullable final Integer value) {

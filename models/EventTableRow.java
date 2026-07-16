@@ -107,10 +107,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * Indicates whether this event timeline table row is part of Leadping sender warmup traffic.
-     */
-    private Boolean isWarmup;
-    /**
      * Lead ID associated with this timeline event.
      */
     private String leadId;
@@ -122,10 +118,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      * Phone number ID selected for outbound delivery.
      */
     private String outboundPhoneNumberId;
-    /**
-     * Provider message identifier for SMS delivery tracking and reconciliation.
-     */
-    private String providerMessageId;
     /**
      * UTC timestamp when Leadping queued this event timeline table row for processing.
      */
@@ -182,14 +174,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      * Short human-readable summary of this event timeline table row for lists, timelines, and notifications.
      */
     private String summary;
-    /**
-     * Telnyx identifier connected to this phone number, call, or SMS event.
-     */
-    private String telnyxId;
-    /**
-     * 10DLC campaign identifier associated with this sender or SMS event.
-     */
-    private String tenDlcCampaignId;
     /**
      * Timeline category used to group events for display and filtering.
      */
@@ -396,7 +380,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(49);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
@@ -419,11 +403,9 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("isWarmup", (n) -> { this.setIsWarmup(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("providerMessageId", (n) -> { this.setProviderMessageId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("relatedEntityId", (n) -> { this.setRelatedEntityId(n.getStringValue()); });
@@ -438,8 +420,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(EventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("summary", (n) -> { this.setSummary(n.getStringValue()); });
-        deserializerMap.put("telnyxId", (n) -> { this.setTelnyxId(n.getStringValue()); });
-        deserializerMap.put("tenDlcCampaignId", (n) -> { this.setTenDlcCampaignId(n.getStringValue()); });
         deserializerMap.put("timelineCategory", (n) -> { this.setTimelineCategory(n.getStringValue()); });
         deserializerMap.put("timelineType", (n) -> { this.setTimelineType(n.getEnumValue(EventTimelineType::forValue)); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
@@ -473,14 +453,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isWarmup property value. Indicates whether this event timeline table row is part of Leadping sender warmup traffic.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsWarmup() {
-        return this.isWarmup;
-    }
-    /**
      * Gets the leadId property value. Lead ID associated with this timeline event.
      * @return a {@link String}
      */
@@ -503,14 +475,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getOutboundPhoneNumberId() {
         return this.outboundPhoneNumberId;
-    }
-    /**
-     * Gets the providerMessageId property value. Provider message identifier for SMS delivery tracking and reconciliation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderMessageId() {
-        return this.providerMessageId;
     }
     /**
      * Gets the queuedAt property value. UTC timestamp when Leadping queued this event timeline table row for processing.
@@ -625,22 +589,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.summary;
     }
     /**
-     * Gets the telnyxId property value. Telnyx identifier connected to this phone number, call, or SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTelnyxId() {
-        return this.telnyxId;
-    }
-    /**
-     * Gets the tenDlcCampaignId property value. 10DLC campaign identifier associated with this sender or SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTenDlcCampaignId() {
-        return this.tenDlcCampaignId;
-    }
-    /**
      * Gets the timelineCategory property value. Timeline category used to group events for display and filtering.
      * @return a {@link String}
      */
@@ -716,11 +664,9 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
-        writer.writeBooleanValue("isWarmup", this.getIsWarmup());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
-        writer.writeStringValue("providerMessageId", this.getProviderMessageId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
         writer.writeStringValue("relatedEntityId", this.getRelatedEntityId());
@@ -735,8 +681,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("summary", this.getSummary());
-        writer.writeStringValue("telnyxId", this.getTelnyxId());
-        writer.writeStringValue("tenDlcCampaignId", this.getTenDlcCampaignId());
         writer.writeStringValue("timelineCategory", this.getTimelineCategory());
         writer.writeEnumValue("timelineType", this.getTimelineType());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
@@ -907,13 +851,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the isWarmup property value. Indicates whether this event timeline table row is part of Leadping sender warmup traffic.
-     * @param value Value to set for the isWarmup property.
-     */
-    public void setIsWarmup(@jakarta.annotation.Nullable final Boolean value) {
-        this.isWarmup = value;
-    }
-    /**
      * Sets the leadId property value. Lead ID associated with this timeline event.
      * @param value Value to set for the leadId property.
      */
@@ -933,13 +870,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setOutboundPhoneNumberId(@jakarta.annotation.Nullable final String value) {
         this.outboundPhoneNumberId = value;
-    }
-    /**
-     * Sets the providerMessageId property value. Provider message identifier for SMS delivery tracking and reconciliation.
-     * @param value Value to set for the providerMessageId property.
-     */
-    public void setProviderMessageId(@jakarta.annotation.Nullable final String value) {
-        this.providerMessageId = value;
     }
     /**
      * Sets the queuedAt property value. UTC timestamp when Leadping queued this event timeline table row for processing.
@@ -1038,20 +968,6 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setSummary(@jakarta.annotation.Nullable final String value) {
         this.summary = value;
-    }
-    /**
-     * Sets the telnyxId property value. Telnyx identifier connected to this phone number, call, or SMS event.
-     * @param value Value to set for the telnyxId property.
-     */
-    public void setTelnyxId(@jakarta.annotation.Nullable final String value) {
-        this.telnyxId = value;
-    }
-    /**
-     * Sets the tenDlcCampaignId property value. 10DLC campaign identifier associated with this sender or SMS event.
-     * @param value Value to set for the tenDlcCampaignId property.
-     */
-    public void setTenDlcCampaignId(@jakarta.annotation.Nullable final String value) {
-        this.tenDlcCampaignId = value;
     }
     /**
      * Sets the timelineCategory property value. Timeline category used to group events for display and filtering.

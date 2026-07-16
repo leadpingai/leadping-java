@@ -8,6 +8,9 @@ import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Response metrics associated with this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     /**
@@ -15,35 +18,35 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The averageMinutes property
+     * Average minutes measured in minutes.
      */
     private UntypedNode averageMinutes;
     /**
-     * The averageMinutesTrend property
+     * Collection of average minutes trend included with this Leadping customer response metrics.
      */
     private java.util.List<AnalyticsTrendPointOfdecimal> averageMinutesTrend;
     /**
-     * The medianMinutes property
+     * Median minutes measured in minutes.
      */
     private UntypedNode medianMinutes;
     /**
-     * The missedCalls property
+     * Number of calls missed during the reporting period.
      */
     private Integer missedCalls;
     /**
-     * The respondedLeads property
+     * Number of responded leads represented by this Leadping customer response metrics.
      */
     private Integer respondedLeads;
     /**
-     * The respondedWithinFiveMinutesPercent property
+     * Responded within five minutes percent expressed as a percentage.
      */
     private Double respondedWithinFiveMinutesPercent;
     /**
-     * The unreadMessages property
+     * Number of unread messages represented by this Leadping customer response metrics.
      */
     private Integer unreadMessages;
     /**
-     * The unrespondedLeads property
+     * Number of unresponded leads represented by this Leadping customer response metrics.
      */
     private Integer unrespondedLeads;
     /**
@@ -71,7 +74,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the averageMinutes property value. The averageMinutes property
+     * Gets the averageMinutes property value. Average minutes measured in minutes.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +82,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.averageMinutes;
     }
     /**
-     * Gets the averageMinutesTrend property value. The averageMinutesTrend property
+     * Gets the averageMinutesTrend property value. Collection of average minutes trend included with this Leadping customer response metrics.
      * @return a {@link java.util.List<AnalyticsTrendPointOfdecimal>}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +107,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the medianMinutes property value. The medianMinutes property
+     * Gets the medianMinutes property value. Median minutes measured in minutes.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -112,7 +115,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.medianMinutes;
     }
     /**
-     * Gets the missedCalls property value. The missedCalls property
+     * Gets the missedCalls property value. Number of calls missed during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -120,7 +123,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.missedCalls;
     }
     /**
-     * Gets the respondedLeads property value. The respondedLeads property
+     * Gets the respondedLeads property value. Number of responded leads represented by this Leadping customer response metrics.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -128,7 +131,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.respondedLeads;
     }
     /**
-     * Gets the respondedWithinFiveMinutesPercent property value. The respondedWithinFiveMinutesPercent property
+     * Gets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -136,7 +139,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.respondedWithinFiveMinutesPercent;
     }
     /**
-     * Gets the unreadMessages property value. The unreadMessages property
+     * Gets the unreadMessages property value. Number of unread messages represented by this Leadping customer response metrics.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -144,7 +147,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         return this.unreadMessages;
     }
     /**
-     * Gets the unrespondedLeads property value. The unrespondedLeads property
+     * Gets the unrespondedLeads property value. Number of unresponded leads represented by this Leadping customer response metrics.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -175,56 +178,56 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the averageMinutes property value. The averageMinutes property
+     * Sets the averageMinutes property value. Average minutes measured in minutes.
      * @param value Value to set for the averageMinutes property.
      */
     public void setAverageMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
         this.averageMinutes = value;
     }
     /**
-     * Sets the averageMinutesTrend property value. The averageMinutesTrend property
+     * Sets the averageMinutesTrend property value. Collection of average minutes trend included with this Leadping customer response metrics.
      * @param value Value to set for the averageMinutesTrend property.
      */
     public void setAverageMinutesTrend(@jakarta.annotation.Nullable final java.util.List<AnalyticsTrendPointOfdecimal> value) {
         this.averageMinutesTrend = value;
     }
     /**
-     * Sets the medianMinutes property value. The medianMinutes property
+     * Sets the medianMinutes property value. Median minutes measured in minutes.
      * @param value Value to set for the medianMinutes property.
      */
     public void setMedianMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
         this.medianMinutes = value;
     }
     /**
-     * Sets the missedCalls property value. The missedCalls property
+     * Sets the missedCalls property value. Number of calls missed during the reporting period.
      * @param value Value to set for the missedCalls property.
      */
     public void setMissedCalls(@jakarta.annotation.Nullable final Integer value) {
         this.missedCalls = value;
     }
     /**
-     * Sets the respondedLeads property value. The respondedLeads property
+     * Sets the respondedLeads property value. Number of responded leads represented by this Leadping customer response metrics.
      * @param value Value to set for the respondedLeads property.
      */
     public void setRespondedLeads(@jakarta.annotation.Nullable final Integer value) {
         this.respondedLeads = value;
     }
     /**
-     * Sets the respondedWithinFiveMinutesPercent property value. The respondedWithinFiveMinutesPercent property
+     * Sets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
      * @param value Value to set for the respondedWithinFiveMinutesPercent property.
      */
     public void setRespondedWithinFiveMinutesPercent(@jakarta.annotation.Nullable final Double value) {
         this.respondedWithinFiveMinutesPercent = value;
     }
     /**
-     * Sets the unreadMessages property value. The unreadMessages property
+     * Sets the unreadMessages property value. Number of unread messages represented by this Leadping customer response metrics.
      * @param value Value to set for the unreadMessages property.
      */
     public void setUnreadMessages(@jakarta.annotation.Nullable final Integer value) {
         this.unreadMessages = value;
     }
     /**
-     * Sets the unrespondedLeads property value. The unrespondedLeads property
+     * Sets the unrespondedLeads property value. Number of unresponded leads represented by this Leadping customer response metrics.
      * @param value Value to set for the unrespondedLeads property.
      */
     public void setUnrespondedLeads(@jakarta.annotation.Nullable final Integer value) {

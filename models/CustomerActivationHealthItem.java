@@ -10,7 +10,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsable {
     /**
-     * The actionHref property
+     * Relative URL for the recommended follow-up action.
      */
     private String actionHref;
     /**
@@ -18,19 +18,19 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
      */
     private Map<String, Object> additionalData;
     /**
-     * The detail property
+     * Human-readable detail for this Leadping customer activation health item.
      */
     private String detail;
     /**
-     * The key property
+     * Key associated with this Leadping customer activation health item.
      */
     private String key;
     /**
-     * The label property
+     * Human-readable label for this Leadping customer activation health item.
      */
     private String label;
     /**
-     * The status property
+     * Current status for this Leadping customer activation health item.
      */
     private String status;
     /**
@@ -50,7 +50,7 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         return new CustomerActivationHealthItem();
     }
     /**
-     * Gets the actionHref property value. The actionHref property
+     * Gets the actionHref property value. Relative URL for the recommended follow-up action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -66,7 +66,7 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         return this.additionalData;
     }
     /**
-     * Gets the detail property value. The detail property
+     * Gets the detail property value. Human-readable detail for this Leadping customer activation health item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -88,7 +88,7 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         return deserializerMap;
     }
     /**
-     * Gets the key property value. The key property
+     * Gets the key property value. Key associated with this Leadping customer activation health item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         return this.key;
     }
     /**
-     * Gets the label property value. The label property
+     * Gets the label property value. Human-readable label for this Leadping customer activation health item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +104,7 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         return this.label;
     }
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Current status for this Leadping customer activation health item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -125,7 +125,7 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actionHref property value. The actionHref property
+     * Sets the actionHref property value. Relative URL for the recommended follow-up action.
      * @param value Value to set for the actionHref property.
      */
     public void setActionHref(@jakarta.annotation.Nullable final String value) {
@@ -139,28 +139,28 @@ public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsa
         this.additionalData = value;
     }
     /**
-     * Sets the detail property value. The detail property
+     * Sets the detail property value. Human-readable detail for this Leadping customer activation health item.
      * @param value Value to set for the detail property.
      */
     public void setDetail(@jakarta.annotation.Nullable final String value) {
         this.detail = value;
     }
     /**
-     * Sets the key property value. The key property
+     * Sets the key property value. Key associated with this Leadping customer activation health item.
      * @param value Value to set for the key property.
      */
     public void setKey(@jakarta.annotation.Nullable final String value) {
         this.key = value;
     }
     /**
-     * Sets the label property value. The label property
+     * Sets the label property value. Human-readable label for this Leadping customer activation health item.
      * @param value Value to set for the label property.
      */
     public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
     }
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Current status for this Leadping customer activation health item.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {

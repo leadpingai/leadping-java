@@ -42,7 +42,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The isArchived property
+     * Indicates whether the Leadping conversation has been archived.
      */
     private Boolean isArchived;
     /**
@@ -189,7 +189,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Indicates whether the Leadping conversation has been archived.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -360,7 +360,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Indicates whether the Leadping conversation has been archived.
      * @param value Value to set for the isArchived property.
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {

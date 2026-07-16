@@ -15,19 +15,19 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The generatedAt property
+     * Date and time when the source metrics was generated.
      */
     private OffsetDateTime generatedAt;
     /**
-     * The points property
+     * Collection of points included with this Leadping source metrics.
      */
     private java.util.List<AnalyticsTrendPointOfint> points;
     /**
-     * The range property
+     * Range associated with this Leadping source metrics.
      */
     private AnalyticsDateRange range;
     /**
-     * The totalLeads property
+     * Total number of leads records represented by this Leadping source metrics.
      */
     private Integer totalLeads;
     /**
@@ -68,7 +68,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the generatedAt property value. The generatedAt property
+     * Gets the generatedAt property value. Date and time when the source metrics was generated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -76,7 +76,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return this.generatedAt;
     }
     /**
-     * Gets the points property value. The points property
+     * Gets the points property value. Collection of points included with this Leadping source metrics.
      * @return a {@link java.util.List<AnalyticsTrendPointOfint>}
      */
     @jakarta.annotation.Nullable
@@ -84,7 +84,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return this.points;
     }
     /**
-     * Gets the range property value. The range property
+     * Gets the range property value. Range associated with this Leadping source metrics.
      * @return a {@link AnalyticsDateRange}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +92,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return this.range;
     }
     /**
-     * Gets the totalLeads property value. The totalLeads property
+     * Gets the totalLeads property value. Total number of leads records represented by this Leadping source metrics.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -119,28 +119,28 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the generatedAt property value. The generatedAt property
+     * Sets the generatedAt property value. Date and time when the source metrics was generated.
      * @param value Value to set for the generatedAt property.
      */
     public void setGeneratedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.generatedAt = value;
     }
     /**
-     * Sets the points property value. The points property
+     * Sets the points property value. Collection of points included with this Leadping source metrics.
      * @param value Value to set for the points property.
      */
     public void setPoints(@jakarta.annotation.Nullable final java.util.List<AnalyticsTrendPointOfint> value) {
         this.points = value;
     }
     /**
-     * Sets the range property value. The range property
+     * Sets the range property value. Range associated with this Leadping source metrics.
      * @param value Value to set for the range property.
      */
     public void setRange(@jakarta.annotation.Nullable final AnalyticsDateRange value) {
         this.range = value;
     }
     /**
-     * Sets the totalLeads property value. The totalLeads property
+     * Sets the totalLeads property value. Total number of leads records represented by this Leadping source metrics.
      * @param value Value to set for the totalLeads property.
      */
     public void setTotalLeads(@jakarta.annotation.Nullable final Integer value) {

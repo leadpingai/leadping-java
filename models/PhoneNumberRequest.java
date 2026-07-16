@@ -17,10 +17,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private PhoneNumberRequestAdminEnablementOverride adminEnablementOverride;
-    /**
      * Business ID that owns the phone number being created or updated.
      */
     private String businessId;
@@ -65,14 +61,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link PhoneNumberRequestAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneNumberRequestAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
-    }
-    /**
      * Gets the businessId property value. Business ID that owns the phone number being created or updated.
      * @return a {@link String}
      */
@@ -94,8 +82,7 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(PhoneNumberRequestAdminEnablementOverride::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -133,7 +120,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
@@ -147,13 +133,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final PhoneNumberRequestAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the businessId property value. Business ID that owns the phone number being created or updated.

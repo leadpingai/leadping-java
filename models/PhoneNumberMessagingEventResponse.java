@@ -46,10 +46,6 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
      */
     private String label;
     /**
-     * Provider lifecycle or delivery status for this phone number messaging event.
-     */
-    private String providerStatus;
-    /**
      * Short preview of the SMS or conversation text for this phone number messaging event.
      */
     private String textPreview;
@@ -111,7 +107,7 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
         deserializerMap.put("eventType", (n) -> { this.setEventType(n.getStringValue()); });
@@ -119,7 +115,6 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isOptOut", (n) -> { this.setIsOptOut(n.getBooleanValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
-        deserializerMap.put("providerStatus", (n) -> { this.setProviderStatus(n.getStringValue()); });
         deserializerMap.put("textPreview", (n) -> { this.setTextPreview(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
         return deserializerMap;
@@ -157,14 +152,6 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
         return this.label;
     }
     /**
-     * Gets the providerStatus property value. Provider lifecycle or delivery status for this phone number messaging event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderStatus() {
-        return this.providerStatus;
-    }
-    /**
      * Gets the textPreview property value. Short preview of the SMS or conversation text for this phone number messaging event.
      * @return a {@link String}
      */
@@ -193,7 +180,6 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isOptOut", this.getIsOptOut());
         writer.writeStringValue("label", this.getLabel());
-        writer.writeStringValue("providerStatus", this.getProviderStatus());
         writer.writeStringValue("textPreview", this.getTextPreview());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -253,13 +239,6 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
      */
     public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
-    }
-    /**
-     * Sets the providerStatus property value. Provider lifecycle or delivery status for this phone number messaging event.
-     * @param value Value to set for the providerStatus property.
-     */
-    public void setProviderStatus(@jakarta.annotation.Nullable final String value) {
-        this.providerStatus = value;
     }
     /**
      * Sets the textPreview property value. Short preview of the SMS or conversation text for this phone number messaging event.

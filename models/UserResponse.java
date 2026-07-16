@@ -99,10 +99,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UntypedNode roles;
     /**
-     * Stripe state for the user&apos;s currently selected business.
-     */
-    private UserResponseStripeInfo stripeInfo;
-    /**
      * Defines the supported Subscription Status values.
      */
     private UserResponseSubscriptionStatus subscriptionStatus;
@@ -176,7 +172,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -197,7 +193,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("personalDataDeletionStatus", (n) -> { this.setPersonalDataDeletionStatus(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("roles", (n) -> { this.setRoles(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("stripeInfo", (n) -> { this.setStripeInfo(n.getObjectValue(UserResponseStripeInfo::createFromDiscriminatorValue)); });
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(UserResponseSubscriptionStatus::forValue)); });
         return deserializerMap;
     }
@@ -322,14 +317,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.roles;
     }
     /**
-     * Gets the stripeInfo property value. Stripe state for the user&apos;s currently selected business.
-     * @return a {@link UserResponseStripeInfo}
-     */
-    @jakarta.annotation.Nullable
-    public UserResponseStripeInfo getStripeInfo() {
-        return this.stripeInfo;
-    }
-    /**
      * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
      * @return a {@link UserResponseSubscriptionStatus}
      */
@@ -363,7 +350,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("personalDataDeletionStatus", this.getPersonalDataDeletionStatus());
         writer.writeStringValue("phone", this.getPhone());
         writer.writeObjectValue("roles", this.getRoles());
-        writer.writeObjectValue("stripeInfo", this.getStripeInfo());
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -513,13 +499,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setRoles(@jakarta.annotation.Nullable final UntypedNode value) {
         this.roles = value;
-    }
-    /**
-     * Sets the stripeInfo property value. Stripe state for the user&apos;s currently selected business.
-     * @param value Value to set for the stripeInfo property.
-     */
-    public void setStripeInfo(@jakarta.annotation.Nullable final UserResponseStripeInfo value) {
-        this.stripeInfo = value;
     }
     /**
      * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.

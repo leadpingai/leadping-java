@@ -34,18 +34,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime completedAt;
     /**
-     * Snapshot of request context captured when this automation run record was created.
-     */
-    private AutomationRunRecordContextSnapshot contextSnapshot;
-    /**
-     * Error text returned while processing this automation run record.
-     */
-    private String error;
-    /**
-     * Idempotency key used to identify a unique automation workflow execution.
-     */
-    private String executionKey;
-    /**
      * Execution mode used for automation preview or live workflow processing.
      */
     private String executionMode;
@@ -73,10 +61,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      * Human-readable reason explaining why Leadping skipped this automation run.
      */
     private String skippedReason;
-    /**
-     * Source event ID that triggered this workflow or outbound delivery.
-     */
-    private String sourceEventId;
     /**
      * UTC timestamp when processing started for this automation run record.
      */
@@ -146,30 +130,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         return this.completedAt;
     }
     /**
-     * Gets the contextSnapshot property value. Snapshot of request context captured when this automation run record was created.
-     * @return a {@link AutomationRunRecordContextSnapshot}
-     */
-    @jakarta.annotation.Nullable
-    public AutomationRunRecordContextSnapshot getContextSnapshot() {
-        return this.contextSnapshot;
-    }
-    /**
-     * Gets the error property value. Error text returned while processing this automation run record.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getError() {
-        return this.error;
-    }
-    /**
-     * Gets the executionKey property value. Idempotency key used to identify a unique automation workflow execution.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getExecutionKey() {
-        return this.executionKey;
-    }
-    /**
      * Gets the executionMode property value. Execution mode used for automation preview or live workflow processing.
      * @return a {@link String}
      */
@@ -191,14 +151,11 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationActionRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("contextSnapshot", (n) -> { this.setContextSnapshot(n.getObjectValue(AutomationRunRecordContextSnapshot::createFromDiscriminatorValue)); });
-        deserializerMap.put("error", (n) -> { this.setError(n.getStringValue()); });
-        deserializerMap.put("executionKey", (n) -> { this.setExecutionKey(n.getStringValue()); });
         deserializerMap.put("executionMode", (n) -> { this.setExecutionMode(n.getStringValue()); });
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -206,7 +163,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("skippedReason", (n) -> { this.setSkippedReason(n.getStringValue()); });
-        deserializerMap.put("sourceEventId", (n) -> { this.setSourceEventId(n.getStringValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("triggerType", (n) -> { this.setTriggerType(n.getStringValue()); });
@@ -253,14 +209,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         return this.skippedReason;
     }
     /**
-     * Gets the sourceEventId property value. Source event ID that triggered this workflow or outbound delivery.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getSourceEventId() {
-        return this.sourceEventId;
-    }
-    /**
      * Gets the startedAt property value. UTC timestamp when processing started for this automation run record.
      * @return a {@link OffsetDateTime}
      */
@@ -294,9 +242,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("automationId", this.getAutomationId());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
-        writer.writeObjectValue("contextSnapshot", this.getContextSnapshot());
-        writer.writeStringValue("error", this.getError());
-        writer.writeStringValue("executionKey", this.getExecutionKey());
         writer.writeStringValue("executionMode", this.getExecutionMode());
         writer.writeStringValue("failureCode", this.getFailureCode());
         writer.writeStringValue("id", this.getId());
@@ -304,7 +249,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeStringValue("skippedReason", this.getSkippedReason());
-        writer.writeStringValue("sourceEventId", this.getSourceEventId());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("triggerType", this.getTriggerType());
@@ -344,27 +288,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setCompletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.completedAt = value;
-    }
-    /**
-     * Sets the contextSnapshot property value. Snapshot of request context captured when this automation run record was created.
-     * @param value Value to set for the contextSnapshot property.
-     */
-    public void setContextSnapshot(@jakarta.annotation.Nullable final AutomationRunRecordContextSnapshot value) {
-        this.contextSnapshot = value;
-    }
-    /**
-     * Sets the error property value. Error text returned while processing this automation run record.
-     * @param value Value to set for the error property.
-     */
-    public void setError(@jakarta.annotation.Nullable final String value) {
-        this.error = value;
-    }
-    /**
-     * Sets the executionKey property value. Idempotency key used to identify a unique automation workflow execution.
-     * @param value Value to set for the executionKey property.
-     */
-    public void setExecutionKey(@jakarta.annotation.Nullable final String value) {
-        this.executionKey = value;
     }
     /**
      * Sets the executionMode property value. Execution mode used for automation preview or live workflow processing.
@@ -414,13 +337,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setSkippedReason(@jakarta.annotation.Nullable final String value) {
         this.skippedReason = value;
-    }
-    /**
-     * Sets the sourceEventId property value. Source event ID that triggered this workflow or outbound delivery.
-     * @param value Value to set for the sourceEventId property.
-     */
-    public void setSourceEventId(@jakarta.annotation.Nullable final String value) {
-        this.sourceEventId = value;
     }
     /**
      * Sets the startedAt property value. UTC timestamp when processing started for this automation run record.

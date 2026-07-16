@@ -16,23 +16,23 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
      */
     private Map<String, Object> additionalData;
     /**
-     * The detail property
+     * Human-readable explanation specific to this occurrence of the problem.
      */
     private String detail;
     /**
-     * The instance property
+     * URI reference that identifies this specific occurrence of the problem.
      */
     private String instance;
     /**
-     * The status property
+     * HTTP status code returned for the problem.
      */
     private UntypedNode status;
     /**
-     * The title property
+     * Short, human-readable summary of the problem.
      */
     private String title;
     /**
-     * The type property
+     * URI reference that identifies the problem type.
      */
     private String type;
     /**
@@ -60,7 +60,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         return this.additionalData;
     }
     /**
-     * Gets the detail property value. The detail property
+     * Gets the detail property value. Human-readable explanation specific to this occurrence of the problem.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         return deserializerMap;
     }
     /**
-     * Gets the instance property value. The instance property
+     * Gets the instance property value. URI reference that identifies this specific occurrence of the problem.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -99,7 +99,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         return super.getMessage();
     }
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. HTTP status code returned for the problem.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -107,7 +107,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         return this.status;
     }
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Short, human-readable summary of the problem.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -115,7 +115,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         return this.title;
     }
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. URI reference that identifies the problem type.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -143,35 +143,35 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         this.additionalData = value;
     }
     /**
-     * Sets the detail property value. The detail property
+     * Sets the detail property value. Human-readable explanation specific to this occurrence of the problem.
      * @param value Value to set for the detail property.
      */
     public void setDetail(@jakarta.annotation.Nullable final String value) {
         this.detail = value;
     }
     /**
-     * Sets the instance property value. The instance property
+     * Sets the instance property value. URI reference that identifies this specific occurrence of the problem.
      * @param value Value to set for the instance property.
      */
     public void setInstance(@jakarta.annotation.Nullable final String value) {
         this.instance = value;
     }
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. HTTP status code returned for the problem.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final UntypedNode value) {
         this.status = value;
     }
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Short, human-readable summary of the problem.
      * @param value Value to set for the title property.
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {
         this.title = value;
     }
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. URI reference that identifies the problem type.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final String value) {

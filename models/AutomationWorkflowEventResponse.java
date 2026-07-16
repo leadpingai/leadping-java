@@ -14,7 +14,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Parsable {
     /**
-     * The actionId property
+     * Unique identifier of the action associated with this Leadping automation workflow event.
      */
     private String actionId;
     /**
@@ -22,39 +22,35 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
      */
     private Map<String, Object> additionalData;
     /**
-     * The adminDiagnostics property
-     */
-    private String adminDiagnostics;
-    /**
-     * The eventType property
+     * Event type classification for this Leadping automation workflow event.
      */
     private String eventType;
     /**
-     * The id property
+     * Unique Leadping identifier for the automation workflow event.
      */
     private String id;
     /**
-     * The occurredAt property
+     * Date and time when the automation workflow event event occurred.
      */
     private OffsetDateTime occurredAt;
     /**
-     * The reasonCode property
+     * Reason or diagnostic code that explains the current outcome for this Leadping automation workflow event.
      */
     private String reasonCode;
     /**
-     * The status property
+     * Current status for this Leadping automation workflow event.
      */
     private String status;
     /**
-     * The statusDisplay property
+     * Human-readable status display for this Leadping automation workflow event.
      */
     private String statusDisplay;
     /**
-     * The stepId property
+     * Unique identifier of the step associated with this Leadping automation workflow event.
      */
     private String stepId;
     /**
-     * The summary property
+     * Human-readable summary for this Leadping automation workflow event.
      */
     private String summary;
     /**
@@ -74,7 +70,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return new AutomationWorkflowEventResponse();
     }
     /**
-     * Gets the actionId property value. The actionId property
+     * Gets the actionId property value. Unique identifier of the action associated with this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -90,15 +86,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.additionalData;
     }
     /**
-     * Gets the adminDiagnostics property value. The adminDiagnostics property
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAdminDiagnostics() {
-        return this.adminDiagnostics;
-    }
-    /**
-     * Gets the eventType property value. The eventType property
+     * Gets the eventType property value. Event type classification for this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -111,9 +99,8 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("actionId", (n) -> { this.setActionId(n.getStringValue()); });
-        deserializerMap.put("adminDiagnostics", (n) -> { this.setAdminDiagnostics(n.getStringValue()); });
         deserializerMap.put("eventType", (n) -> { this.setEventType(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("occurredAt", (n) -> { this.setOccurredAt(n.getOffsetDateTimeValue()); });
@@ -125,7 +112,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique Leadping identifier for the automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -133,7 +120,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.id;
     }
     /**
-     * Gets the occurredAt property value. The occurredAt property
+     * Gets the occurredAt property value. Date and time when the automation workflow event event occurred.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -141,7 +128,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.occurredAt;
     }
     /**
-     * Gets the reasonCode property value. The reasonCode property
+     * Gets the reasonCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +136,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.reasonCode;
     }
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Current status for this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -157,7 +144,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.status;
     }
     /**
-     * Gets the statusDisplay property value. The statusDisplay property
+     * Gets the statusDisplay property value. Human-readable status display for this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -165,7 +152,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.statusDisplay;
     }
     /**
-     * Gets the stepId property value. The stepId property
+     * Gets the stepId property value. Unique identifier of the step associated with this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -173,7 +160,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         return this.stepId;
     }
     /**
-     * Gets the summary property value. The summary property
+     * Gets the summary property value. Human-readable summary for this Leadping automation workflow event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -187,7 +174,6 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actionId", this.getActionId());
-        writer.writeStringValue("adminDiagnostics", this.getAdminDiagnostics());
         writer.writeStringValue("eventType", this.getEventType());
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("occurredAt", this.getOccurredAt());
@@ -199,7 +185,7 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actionId property value. The actionId property
+     * Sets the actionId property value. Unique identifier of the action associated with this Leadping automation workflow event.
      * @param value Value to set for the actionId property.
      */
     public void setActionId(@jakarta.annotation.Nullable final String value) {
@@ -213,63 +199,56 @@ public class AutomationWorkflowEventResponse implements AdditionalDataHolder, Pa
         this.additionalData = value;
     }
     /**
-     * Sets the adminDiagnostics property value. The adminDiagnostics property
-     * @param value Value to set for the adminDiagnostics property.
-     */
-    public void setAdminDiagnostics(@jakarta.annotation.Nullable final String value) {
-        this.adminDiagnostics = value;
-    }
-    /**
-     * Sets the eventType property value. The eventType property
+     * Sets the eventType property value. Event type classification for this Leadping automation workflow event.
      * @param value Value to set for the eventType property.
      */
     public void setEventType(@jakarta.annotation.Nullable final String value) {
         this.eventType = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique Leadping identifier for the automation workflow event.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the occurredAt property value. The occurredAt property
+     * Sets the occurredAt property value. Date and time when the automation workflow event event occurred.
      * @param value Value to set for the occurredAt property.
      */
     public void setOccurredAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.occurredAt = value;
     }
     /**
-     * Sets the reasonCode property value. The reasonCode property
+     * Sets the reasonCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow event.
      * @param value Value to set for the reasonCode property.
      */
     public void setReasonCode(@jakarta.annotation.Nullable final String value) {
         this.reasonCode = value;
     }
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Current status for this Leadping automation workflow event.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {
         this.status = value;
     }
     /**
-     * Sets the statusDisplay property value. The statusDisplay property
+     * Sets the statusDisplay property value. Human-readable status display for this Leadping automation workflow event.
      * @param value Value to set for the statusDisplay property.
      */
     public void setStatusDisplay(@jakarta.annotation.Nullable final String value) {
         this.statusDisplay = value;
     }
     /**
-     * Sets the stepId property value. The stepId property
+     * Sets the stepId property value. Unique identifier of the step associated with this Leadping automation workflow event.
      * @param value Value to set for the stepId property.
      */
     public void setStepId(@jakarta.annotation.Nullable final String value) {
         this.stepId = value;
     }
     /**
-     * Sets the summary property value. The summary property
+     * Sets the summary property value. Human-readable summary for this Leadping automation workflow event.
      * @param value Value to set for the summary property.
      */
     public void setSummary(@jakarta.annotation.Nullable final String value) {

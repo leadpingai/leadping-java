@@ -26,10 +26,6 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The provider event ID associated with this ion entry audit.
-     */
-    private String providerEventId;
-    /**
      * The human-readable reason explaining this ion entry audit.
      */
     private String reason;
@@ -41,10 +37,6 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
      * The source value for this ion entry audit.
      */
     private String source;
-    /**
-     * The source event ID associated with this ion entry audit.
-     */
-    private String sourceEventId;
     /**
      * The current status for this ion entry audit.
      */
@@ -91,14 +83,12 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("actorId", (n) -> { this.setActorId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("providerEventId", (n) -> { this.setProviderEventId(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
         deserializerMap.put("safeMetadata", (n) -> { this.setSafeMetadata(n.getObjectValue(SuppressionEntryAuditSafeMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getStringValue()); });
-        deserializerMap.put("sourceEventId", (n) -> { this.setSourceEventId(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("timestamp", (n) -> { this.setTimestamp(n.getOffsetDateTimeValue()); });
         return deserializerMap;
@@ -110,14 +100,6 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
-    }
-    /**
-     * Gets the providerEventId property value. The provider event ID associated with this ion entry audit.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderEventId() {
-        return this.providerEventId;
     }
     /**
      * Gets the reason property value. The human-readable reason explaining this ion entry audit.
@@ -144,14 +126,6 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return this.source;
     }
     /**
-     * Gets the sourceEventId property value. The source event ID associated with this ion entry audit.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getSourceEventId() {
-        return this.sourceEventId;
-    }
-    /**
      * Gets the status property value. The current status for this ion entry audit.
      * @return a {@link String}
      */
@@ -175,11 +149,9 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actorId", this.getActorId());
         writer.writeStringValue("id", this.getId());
-        writer.writeStringValue("providerEventId", this.getProviderEventId());
         writer.writeStringValue("reason", this.getReason());
         writer.writeObjectValue("safeMetadata", this.getSafeMetadata());
         writer.writeStringValue("source", this.getSource());
-        writer.writeStringValue("sourceEventId", this.getSourceEventId());
         writer.writeStringValue("status", this.getStatus());
         writer.writeOffsetDateTimeValue("timestamp", this.getTimestamp());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -206,13 +178,6 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the providerEventId property value. The provider event ID associated with this ion entry audit.
-     * @param value Value to set for the providerEventId property.
-     */
-    public void setProviderEventId(@jakarta.annotation.Nullable final String value) {
-        this.providerEventId = value;
-    }
-    /**
      * Sets the reason property value. The human-readable reason explaining this ion entry audit.
      * @param value Value to set for the reason property.
      */
@@ -232,13 +197,6 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {
         this.source = value;
-    }
-    /**
-     * Sets the sourceEventId property value. The source event ID associated with this ion entry audit.
-     * @param value Value to set for the sourceEventId property.
-     */
-    public void setSourceEventId(@jakarta.annotation.Nullable final String value) {
-        this.sourceEventId = value;
     }
     /**
      * Sets the status property value. The current status for this ion entry audit.

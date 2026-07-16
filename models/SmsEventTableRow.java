@@ -103,10 +103,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isAutomated;
     /**
-     * Indicates whether this SMS event table row is part of Leadping sender warmup traffic.
-     */
-    private Boolean isWarmup;
-    /**
      * Lead ID associated with this SMS event.
      */
     private String leadId;
@@ -122,10 +118,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      * Defines the source that requested outbound delivery.
      */
     private SmsEventTableRowOutboundSource outboundSource;
-    /**
-     * Provider message identifier for SMS delivery tracking and reconciliation.
-     */
-    private String providerMessageId;
     /**
      * UTC timestamp when Leadping queued this SMS event table row for processing.
      */
@@ -162,14 +154,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      * Human-readable reason explaining the current status of this SMS event table row.
      */
     private String statusReason;
-    /**
-     * Telnyx identifier connected to this phone number, call, or SMS event.
-     */
-    private String telnyxId;
-    /**
-     * 10DLC campaign identifier associated with this sender or SMS event.
-     */
-    private String tenDlcCampaignId;
     /**
      * Body text for the SMS message or communication represented by this SMS event table row.
      */
@@ -360,7 +344,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
@@ -382,12 +366,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
-        deserializerMap.put("isWarmup", (n) -> { this.setIsWarmup(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(SmsEventTableRowOutboundSource::forValue)); });
-        deserializerMap.put("providerMessageId", (n) -> { this.setProviderMessageId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
@@ -397,8 +379,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("sentAt", (n) -> { this.setSentAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(SmsEventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
-        deserializerMap.put("telnyxId", (n) -> { this.setTelnyxId(n.getStringValue()); });
-        deserializerMap.put("tenDlcCampaignId", (n) -> { this.setTenDlcCampaignId(n.getStringValue()); });
         deserializerMap.put("text", (n) -> { this.setText(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
         deserializerMap.put("trafficType", (n) -> { this.setTrafficType(n.getEnumValue(SmsEventTableRowTrafficType::forValue)); });
@@ -440,14 +420,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.isAutomated;
     }
     /**
-     * Gets the isWarmup property value. Indicates whether this SMS event table row is part of Leadping sender warmup traffic.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsWarmup() {
-        return this.isWarmup;
-    }
-    /**
      * Gets the leadId property value. Lead ID associated with this SMS event.
      * @return a {@link String}
      */
@@ -478,14 +450,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public SmsEventTableRowOutboundSource getOutboundSource() {
         return this.outboundSource;
-    }
-    /**
-     * Gets the providerMessageId property value. Provider message identifier for SMS delivery tracking and reconciliation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderMessageId() {
-        return this.providerMessageId;
     }
     /**
      * Gets the queuedAt property value. UTC timestamp when Leadping queued this SMS event table row for processing.
@@ -558,22 +522,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getStatusReason() {
         return this.statusReason;
-    }
-    /**
-     * Gets the telnyxId property value. Telnyx identifier connected to this phone number, call, or SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTelnyxId() {
-        return this.telnyxId;
-    }
-    /**
-     * Gets the tenDlcCampaignId property value. 10DLC campaign identifier associated with this sender or SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTenDlcCampaignId() {
-        return this.tenDlcCampaignId;
     }
     /**
      * Gets the text property value. Body text for the SMS message or communication represented by this SMS event table row.
@@ -650,12 +598,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
-        writer.writeBooleanValue("isWarmup", this.getIsWarmup());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeEnumValue("outboundSource", this.getOutboundSource());
-        writer.writeStringValue("providerMessageId", this.getProviderMessageId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
@@ -665,8 +611,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("sentAt", this.getSentAt());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
-        writer.writeStringValue("telnyxId", this.getTelnyxId());
-        writer.writeStringValue("tenDlcCampaignId", this.getTenDlcCampaignId());
         writer.writeStringValue("text", this.getText());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
         writer.writeEnumValue("trafficType", this.getTrafficType());
@@ -830,13 +774,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.isAutomated = value;
     }
     /**
-     * Sets the isWarmup property value. Indicates whether this SMS event table row is part of Leadping sender warmup traffic.
-     * @param value Value to set for the isWarmup property.
-     */
-    public void setIsWarmup(@jakarta.annotation.Nullable final Boolean value) {
-        this.isWarmup = value;
-    }
-    /**
      * Sets the leadId property value. Lead ID associated with this SMS event.
      * @param value Value to set for the leadId property.
      */
@@ -863,13 +800,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setOutboundSource(@jakarta.annotation.Nullable final SmsEventTableRowOutboundSource value) {
         this.outboundSource = value;
-    }
-    /**
-     * Sets the providerMessageId property value. Provider message identifier for SMS delivery tracking and reconciliation.
-     * @param value Value to set for the providerMessageId property.
-     */
-    public void setProviderMessageId(@jakarta.annotation.Nullable final String value) {
-        this.providerMessageId = value;
     }
     /**
      * Sets the queuedAt property value. UTC timestamp when Leadping queued this SMS event table row for processing.
@@ -933,20 +863,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setStatusReason(@jakarta.annotation.Nullable final String value) {
         this.statusReason = value;
-    }
-    /**
-     * Sets the telnyxId property value. Telnyx identifier connected to this phone number, call, or SMS event.
-     * @param value Value to set for the telnyxId property.
-     */
-    public void setTelnyxId(@jakarta.annotation.Nullable final String value) {
-        this.telnyxId = value;
-    }
-    /**
-     * Sets the tenDlcCampaignId property value. 10DLC campaign identifier associated with this sender or SMS event.
-     * @param value Value to set for the tenDlcCampaignId property.
-     */
-    public void setTenDlcCampaignId(@jakarta.annotation.Nullable final String value) {
-        this.tenDlcCampaignId = value;
     }
     /**
      * Sets the text property value. Body text for the SMS message or communication represented by this SMS event table row.

@@ -27,10 +27,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The admin force enablement override on this business.
-     */
-    private BusinessTableRowAdminEnablementOverride adminEnablementOverride;
-    /**
      * The date and time this business API key expires, or null when it has no expiration.
      */
     private OffsetDateTime apiKeyExpiresAt;
@@ -79,7 +75,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private String industry;
     /**
-     * The lastSubscriptionEventAt property
+     * Date and time when this Leadping business table row was last subscription event.
      */
     private OffsetDateTime lastSubscriptionEventAt;
     /**
@@ -95,7 +91,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean needsAdminReview;
     /**
-     * The paymentFailedAt property
+     * Date and time when this Leadping business table row was payment failed.
      */
     private OffsetDateTime paymentFailedAt;
     /**
@@ -111,7 +107,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private BusinessTableRowStatus status;
     /**
-     * The subscriptionCancelAt property
+     * Date and time when this Leadping business table row was subscription cancel.
      */
     private OffsetDateTime subscriptionCancelAt;
     /**
@@ -181,14 +177,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
         return this.additionalData;
-    }
-    /**
-     * Gets the adminEnablementOverride property value. The admin force enablement override on this business.
-     * @return a {@link BusinessTableRowAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessTableRowAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
     }
     /**
      * Gets the apiKeyExpiresAt property value. The date and time this business API key expires, or null when it has no expiration.
@@ -276,10 +264,9 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(BusinessTableRowActivationStatus::forValue)); });
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(BusinessTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("apiKeyExpiresAt", (n) -> { this.setApiKeyExpiresAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyFirstUsedAt", (n) -> { this.setApiKeyFirstUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyIssuedAt", (n) -> { this.setApiKeyIssuedAt(n.getOffsetDateTimeValue()); });
@@ -327,7 +314,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.industry;
     }
     /**
-     * Gets the lastSubscriptionEventAt property value. The lastSubscriptionEventAt property
+     * Gets the lastSubscriptionEventAt property value. Date and time when this Leadping business table row was last subscription event.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -359,7 +346,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.needsAdminReview;
     }
     /**
-     * Gets the paymentFailedAt property value. The paymentFailedAt property
+     * Gets the paymentFailedAt property value. Date and time when this Leadping business table row was payment failed.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -391,7 +378,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the subscriptionCancelAt property value. The subscriptionCancelAt property
+     * Gets the subscriptionCancelAt property value. Date and time when this Leadping business table row was subscription cancel.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -462,7 +449,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("accountBalance", this.getAccountBalance());
         writer.writeEnumValue("activationStatus", this.getActivationStatus());
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeOffsetDateTimeValue("apiKeyExpiresAt", this.getApiKeyExpiresAt());
         writer.writeOffsetDateTimeValue("apiKeyFirstUsedAt", this.getApiKeyFirstUsedAt());
         writer.writeOffsetDateTimeValue("apiKeyIssuedAt", this.getApiKeyIssuedAt());
@@ -513,13 +499,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. The admin force enablement override on this business.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final BusinessTableRowAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the apiKeyExpiresAt property value. The date and time this business API key expires, or null when it has no expiration.
@@ -606,7 +585,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.industry = value;
     }
     /**
-     * Sets the lastSubscriptionEventAt property value. The lastSubscriptionEventAt property
+     * Sets the lastSubscriptionEventAt property value. Date and time when this Leadping business table row was last subscription event.
      * @param value Value to set for the lastSubscriptionEventAt property.
      */
     public void setLastSubscriptionEventAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -634,7 +613,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.needsAdminReview = value;
     }
     /**
-     * Sets the paymentFailedAt property value. The paymentFailedAt property
+     * Sets the paymentFailedAt property value. Date and time when this Leadping business table row was payment failed.
      * @param value Value to set for the paymentFailedAt property.
      */
     public void setPaymentFailedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -662,7 +641,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.status = value;
     }
     /**
-     * Sets the subscriptionCancelAt property value. The subscriptionCancelAt property
+     * Sets the subscriptionCancelAt property value. Date and time when this Leadping business table row was subscription cancel.
      * @param value Value to set for the subscriptionCancelAt property.
      */
     public void setSubscriptionCancelAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

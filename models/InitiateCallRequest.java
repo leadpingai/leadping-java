@@ -17,10 +17,6 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Automation ID connected to this workflow, run, or event.
-     */
-    private String automationId;
-    /**
      * Messaging campaign identifier associated with this phone call initiation request.
      */
     private String campaignId;
@@ -33,45 +29,13 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
-     * Bulk import batch ID that created or updated this lead.
-     */
-    private String importBatchId;
-    /**
-     * Indicates whether automation created or triggered this phone call initiation request.
-     */
-    private Boolean isAutomated;
-    /**
-     * Indicates whether this record originated from a bulk import rather than a real-time lead source.
-     */
-    private Boolean isImportedLead;
-    /**
      * Lead ID associated with the outbound call request.
      */
     private String leadId;
     /**
-     * Outbound delivery request ID connected to this decision or attempt.
-     */
-    private String outboundDeliveryRequestId;
-    /**
      * Idempotency key used to prevent duplicate outbound delivery.
      */
     private String outboundIdempotencyKey;
-    /**
-     * Defines priority classes used when pacing outbound delivery.
-     */
-    private InitiateCallRequestOutboundPriority outboundPriority;
-    /**
-     * Outbound reservation ID used to throttle and track delivery capacity.
-     */
-    private String outboundReservationId;
-    /**
-     * Defines the source that requested outbound delivery.
-     */
-    private InitiateCallRequestOutboundSource outboundSource;
-    /**
-     * Defines the supported Outgoing Number Selection Reason values.
-     */
-    private InitiateCallRequestSelectionReason selectionReason;
     /**
      * Lead source ID used for call attribution and sender selection.
      */
@@ -105,14 +69,6 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the automationId property value. Automation ID connected to this workflow, run, or event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAutomationId() {
-        return this.automationId;
-    }
-    /**
      * Gets the campaignId property value. Messaging campaign identifier associated with this phone call initiation request.
      * @return a {@link String}
      */
@@ -134,21 +90,12 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
-        deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("importBatchId", (n) -> { this.setImportBatchId(n.getStringValue()); });
-        deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
-        deserializerMap.put("isImportedLead", (n) -> { this.setIsImportedLead(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("outboundDeliveryRequestId", (n) -> { this.setOutboundDeliveryRequestId(n.getStringValue()); });
         deserializerMap.put("outboundIdempotencyKey", (n) -> { this.setOutboundIdempotencyKey(n.getStringValue()); });
-        deserializerMap.put("outboundPriority", (n) -> { this.setOutboundPriority(n.getEnumValue(InitiateCallRequestOutboundPriority::forValue)); });
-        deserializerMap.put("outboundReservationId", (n) -> { this.setOutboundReservationId(n.getStringValue()); });
-        deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(InitiateCallRequestOutboundSource::forValue)); });
-        deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(InitiateCallRequestSelectionReason::forValue)); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("wasManuallyOverridden", (n) -> { this.setWasManuallyOverridden(n.getBooleanValue()); });
         return deserializerMap;
@@ -162,30 +109,6 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the importBatchId property value. Bulk import batch ID that created or updated this lead.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getImportBatchId() {
-        return this.importBatchId;
-    }
-    /**
-     * Gets the isAutomated property value. Indicates whether automation created or triggered this phone call initiation request.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsAutomated() {
-        return this.isAutomated;
-    }
-    /**
-     * Gets the isImportedLead property value. Indicates whether this record originated from a bulk import rather than a real-time lead source.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsImportedLead() {
-        return this.isImportedLead;
-    }
-    /**
      * Gets the leadId property value. Lead ID associated with the outbound call request.
      * @return a {@link String}
      */
@@ -194,52 +117,12 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
-     * Gets the outboundDeliveryRequestId property value. Outbound delivery request ID connected to this decision or attempt.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getOutboundDeliveryRequestId() {
-        return this.outboundDeliveryRequestId;
-    }
-    /**
      * Gets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getOutboundIdempotencyKey() {
         return this.outboundIdempotencyKey;
-    }
-    /**
-     * Gets the outboundPriority property value. Defines priority classes used when pacing outbound delivery.
-     * @return a {@link InitiateCallRequestOutboundPriority}
-     */
-    @jakarta.annotation.Nullable
-    public InitiateCallRequestOutboundPriority getOutboundPriority() {
-        return this.outboundPriority;
-    }
-    /**
-     * Gets the outboundReservationId property value. Outbound reservation ID used to throttle and track delivery capacity.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getOutboundReservationId() {
-        return this.outboundReservationId;
-    }
-    /**
-     * Gets the outboundSource property value. Defines the source that requested outbound delivery.
-     * @return a {@link InitiateCallRequestOutboundSource}
-     */
-    @jakarta.annotation.Nullable
-    public InitiateCallRequestOutboundSource getOutboundSource() {
-        return this.outboundSource;
-    }
-    /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
-     * @return a {@link InitiateCallRequestSelectionReason}
-     */
-    @jakarta.annotation.Nullable
-    public InitiateCallRequestSelectionReason getSelectionReason() {
-        return this.selectionReason;
     }
     /**
      * Gets the sourceId property value. Lead source ID used for call attribution and sender selection.
@@ -263,20 +146,11 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("automationId", this.getAutomationId());
         writer.writeStringValue("campaignId", this.getCampaignId());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
-        writer.writeStringValue("importBatchId", this.getImportBatchId());
-        writer.writeBooleanValue("isAutomated", this.getIsAutomated());
-        writer.writeBooleanValue("isImportedLead", this.getIsImportedLead());
         writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeStringValue("outboundDeliveryRequestId", this.getOutboundDeliveryRequestId());
         writer.writeStringValue("outboundIdempotencyKey", this.getOutboundIdempotencyKey());
-        writer.writeEnumValue("outboundPriority", this.getOutboundPriority());
-        writer.writeStringValue("outboundReservationId", this.getOutboundReservationId());
-        writer.writeEnumValue("outboundSource", this.getOutboundSource());
-        writer.writeEnumValue("selectionReason", this.getSelectionReason());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeBooleanValue("wasManuallyOverridden", this.getWasManuallyOverridden());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -287,13 +161,6 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the automationId property value. Automation ID connected to this workflow, run, or event.
-     * @param value Value to set for the automationId property.
-     */
-    public void setAutomationId(@jakarta.annotation.Nullable final String value) {
-        this.automationId = value;
     }
     /**
      * Sets the campaignId property value. Messaging campaign identifier associated with this phone call initiation request.
@@ -317,27 +184,6 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the importBatchId property value. Bulk import batch ID that created or updated this lead.
-     * @param value Value to set for the importBatchId property.
-     */
-    public void setImportBatchId(@jakarta.annotation.Nullable final String value) {
-        this.importBatchId = value;
-    }
-    /**
-     * Sets the isAutomated property value. Indicates whether automation created or triggered this phone call initiation request.
-     * @param value Value to set for the isAutomated property.
-     */
-    public void setIsAutomated(@jakarta.annotation.Nullable final Boolean value) {
-        this.isAutomated = value;
-    }
-    /**
-     * Sets the isImportedLead property value. Indicates whether this record originated from a bulk import rather than a real-time lead source.
-     * @param value Value to set for the isImportedLead property.
-     */
-    public void setIsImportedLead(@jakarta.annotation.Nullable final Boolean value) {
-        this.isImportedLead = value;
-    }
-    /**
      * Sets the leadId property value. Lead ID associated with the outbound call request.
      * @param value Value to set for the leadId property.
      */
@@ -345,46 +191,11 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
-     * Sets the outboundDeliveryRequestId property value. Outbound delivery request ID connected to this decision or attempt.
-     * @param value Value to set for the outboundDeliveryRequestId property.
-     */
-    public void setOutboundDeliveryRequestId(@jakarta.annotation.Nullable final String value) {
-        this.outboundDeliveryRequestId = value;
-    }
-    /**
      * Sets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
      * @param value Value to set for the outboundIdempotencyKey property.
      */
     public void setOutboundIdempotencyKey(@jakarta.annotation.Nullable final String value) {
         this.outboundIdempotencyKey = value;
-    }
-    /**
-     * Sets the outboundPriority property value. Defines priority classes used when pacing outbound delivery.
-     * @param value Value to set for the outboundPriority property.
-     */
-    public void setOutboundPriority(@jakarta.annotation.Nullable final InitiateCallRequestOutboundPriority value) {
-        this.outboundPriority = value;
-    }
-    /**
-     * Sets the outboundReservationId property value. Outbound reservation ID used to throttle and track delivery capacity.
-     * @param value Value to set for the outboundReservationId property.
-     */
-    public void setOutboundReservationId(@jakarta.annotation.Nullable final String value) {
-        this.outboundReservationId = value;
-    }
-    /**
-     * Sets the outboundSource property value. Defines the source that requested outbound delivery.
-     * @param value Value to set for the outboundSource property.
-     */
-    public void setOutboundSource(@jakarta.annotation.Nullable final InitiateCallRequestOutboundSource value) {
-        this.outboundSource = value;
-    }
-    /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
-     * @param value Value to set for the selectionReason property.
-     */
-    public void setSelectionReason(@jakarta.annotation.Nullable final InitiateCallRequestSelectionReason value) {
-        this.selectionReason = value;
     }
     /**
      * Sets the sourceId property value. Lead source ID used for call attribution and sender selection.

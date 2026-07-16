@@ -39,10 +39,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private UsageChannel channel;
     /**
-     * The correlation ID associated with this usage ledger.
-     */
-    private String correlationId;
-    /**
      * The date and time for the created at value on this usage ledger.
      */
     private OffsetDateTime createdAt;
@@ -63,21 +59,9 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The idempotency key value for this usage ledger.
-     */
-    private String idempotencyKey;
-    /**
-     * The monetary internal cost amount for this usage ledger.
-     */
-    private UntypedNode internalCostAmount;
-    /**
      * Whether this usage ledger is billable.
      */
     private Boolean isBillable;
-    /**
-     * Whether this usage ledger is internal.
-     */
-    private Boolean isInternal;
     /**
      * The lead ID associated with this usage ledger.
      */
@@ -95,10 +79,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private String phoneNumberId;
     /**
-     * The monetary provider cost amount for this usage ledger.
-     */
-    private UntypedNode providerCostAmount;
-    /**
      * The quantity value for this usage ledger.
      */
     private Double quantity;
@@ -106,10 +86,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * The SMS segments value for this usage ledger.
      */
     private UntypedNode smsSegments;
-    /**
-     * The source event ID associated with this usage ledger.
-     */
-    private String sourceEventId;
     /**
      * The current status for this usage ledger.
      */
@@ -191,14 +167,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.channel;
     }
     /**
-     * Gets the correlationId property value. The correlation ID associated with this usage ledger.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getCorrelationId() {
-        return this.correlationId;
-    }
-    /**
      * Gets the createdAt property value. The date and time for the created at value on this usage ledger.
      * @return a {@link OffsetDateTime}
      */
@@ -236,30 +204,24 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
-        deserializerMap.put("correlationId", (n) -> { this.setCorrelationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("idempotencyKey", (n) -> { this.setIdempotencyKey(n.getStringValue()); });
-        deserializerMap.put("internalCostAmount", (n) -> { this.setInternalCostAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("isBillable", (n) -> { this.setIsBillable(n.getBooleanValue()); });
-        deserializerMap.put("isInternal", (n) -> { this.setIsInternal(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("providerCostAmount", (n) -> { this.setProviderCostAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
         deserializerMap.put("smsSegments", (n) -> { this.setSmsSegments(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("sourceEventId", (n) -> { this.setSourceEventId(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageRecordStatus::forValue)); });
         deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getDoubleValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
@@ -275,36 +237,12 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the idempotencyKey property value. The idempotency key value for this usage ledger.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getIdempotencyKey() {
-        return this.idempotencyKey;
-    }
-    /**
-     * Gets the internalCostAmount property value. The monetary internal cost amount for this usage ledger.
-     * @return a {@link UntypedNode}
-     */
-    @jakarta.annotation.Nullable
-    public UntypedNode getInternalCostAmount() {
-        return this.internalCostAmount;
-    }
-    /**
      * Gets the isBillable property value. Whether this usage ledger is billable.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getIsBillable() {
         return this.isBillable;
-    }
-    /**
-     * Gets the isInternal property value. Whether this usage ledger is internal.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsInternal() {
-        return this.isInternal;
     }
     /**
      * Gets the leadId property value. The lead ID associated with this usage ledger.
@@ -339,14 +277,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.phoneNumberId;
     }
     /**
-     * Gets the providerCostAmount property value. The monetary provider cost amount for this usage ledger.
-     * @return a {@link UntypedNode}
-     */
-    @jakarta.annotation.Nullable
-    public UntypedNode getProviderCostAmount() {
-        return this.providerCostAmount;
-    }
-    /**
      * Gets the quantity property value. The quantity value for this usage ledger.
      * @return a {@link Double}
      */
@@ -361,14 +291,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public UntypedNode getSmsSegments() {
         return this.smsSegments;
-    }
-    /**
-     * Gets the sourceEventId property value. The source event ID associated with this usage ledger.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getSourceEventId() {
-        return this.sourceEventId;
     }
     /**
      * Gets the status property value. The current status for this usage ledger.
@@ -413,24 +335,18 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("businessName", this.getBusinessName());
         writer.writeEnumValue("channel", this.getChannel());
-        writer.writeStringValue("correlationId", this.getCorrelationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
         writer.writeStringValue("description", this.getDescription());
         writer.writeObjectValue("durationSeconds", this.getDurationSeconds());
         writer.writeStringValue("id", this.getId());
-        writer.writeStringValue("idempotencyKey", this.getIdempotencyKey());
-        writer.writeObjectValue("internalCostAmount", this.getInternalCostAmount());
         writer.writeBooleanValue("isBillable", this.getIsBillable());
-        writer.writeBooleanValue("isInternal", this.getIsInternal());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
-        writer.writeObjectValue("providerCostAmount", this.getProviderCostAmount());
         writer.writeDoubleValue("quantity", this.getQuantity());
         writer.writeObjectValue("smsSegments", this.getSmsSegments());
-        writer.writeStringValue("sourceEventId", this.getSourceEventId());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeDoubleValue("unitPrice", this.getUnitPrice());
         writer.writeStringValue("userId", this.getUserId());
@@ -480,13 +396,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.channel = value;
     }
     /**
-     * Sets the correlationId property value. The correlation ID associated with this usage ledger.
-     * @param value Value to set for the correlationId property.
-     */
-    public void setCorrelationId(@jakarta.annotation.Nullable final String value) {
-        this.correlationId = value;
-    }
-    /**
      * Sets the createdAt property value. The date and time for the created at value on this usage ledger.
      * @param value Value to set for the createdAt property.
      */
@@ -522,32 +431,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the idempotencyKey property value. The idempotency key value for this usage ledger.
-     * @param value Value to set for the idempotencyKey property.
-     */
-    public void setIdempotencyKey(@jakarta.annotation.Nullable final String value) {
-        this.idempotencyKey = value;
-    }
-    /**
-     * Sets the internalCostAmount property value. The monetary internal cost amount for this usage ledger.
-     * @param value Value to set for the internalCostAmount property.
-     */
-    public void setInternalCostAmount(@jakarta.annotation.Nullable final UntypedNode value) {
-        this.internalCostAmount = value;
-    }
-    /**
      * Sets the isBillable property value. Whether this usage ledger is billable.
      * @param value Value to set for the isBillable property.
      */
     public void setIsBillable(@jakarta.annotation.Nullable final Boolean value) {
         this.isBillable = value;
-    }
-    /**
-     * Sets the isInternal property value. Whether this usage ledger is internal.
-     * @param value Value to set for the isInternal property.
-     */
-    public void setIsInternal(@jakarta.annotation.Nullable final Boolean value) {
-        this.isInternal = value;
     }
     /**
      * Sets the leadId property value. The lead ID associated with this usage ledger.
@@ -578,13 +466,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.phoneNumberId = value;
     }
     /**
-     * Sets the providerCostAmount property value. The monetary provider cost amount for this usage ledger.
-     * @param value Value to set for the providerCostAmount property.
-     */
-    public void setProviderCostAmount(@jakarta.annotation.Nullable final UntypedNode value) {
-        this.providerCostAmount = value;
-    }
-    /**
      * Sets the quantity property value. The quantity value for this usage ledger.
      * @param value Value to set for the quantity property.
      */
@@ -597,13 +478,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setSmsSegments(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsSegments = value;
-    }
-    /**
-     * Sets the sourceEventId property value. The source event ID associated with this usage ledger.
-     * @param value Value to set for the sourceEventId property.
-     */
-    public void setSourceEventId(@jakarta.annotation.Nullable final String value) {
-        this.sourceEventId = value;
     }
     /**
      * Sets the status property value. The current status for this usage ledger.

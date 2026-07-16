@@ -42,10 +42,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private String normalizedPhoneNumber;
     /**
-     * The provider event ID associated with this ion entry.
-     */
-    private String providerEventId;
-    /**
      * The human-readable reason explaining this ion entry.
      */
     private String reason;
@@ -61,10 +57,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      * The source value for this ion entry.
      */
     private String source;
-    /**
-     * The source event ID associated with this ion entry.
-     */
-    private String sourceEventId;
     /**
      * The current status for this ion entry.
      */
@@ -127,19 +119,17 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("audit", (n) -> { this.setAudit(n.getCollectionOfObjectValues(SuppressionEntryAudit::createFromDiscriminatorValue)); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("normalizedEmail", (n) -> { this.setNormalizedEmail(n.getStringValue()); });
         deserializerMap.put("normalizedPhoneNumber", (n) -> { this.setNormalizedPhoneNumber(n.getStringValue()); });
-        deserializerMap.put("providerEventId", (n) -> { this.setProviderEventId(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
         deserializerMap.put("recipientIdentifier", (n) -> { this.setRecipientIdentifier(n.getStringValue()); });
         deserializerMap.put("releasedAt", (n) -> { this.setReleasedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getStringValue()); });
-        deserializerMap.put("sourceEventId", (n) -> { this.setSourceEventId(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("suppressedAt", (n) -> { this.setSuppressedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
@@ -167,14 +157,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getNormalizedPhoneNumber() {
         return this.normalizedPhoneNumber;
-    }
-    /**
-     * Gets the providerEventId property value. The provider event ID associated with this ion entry.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderEventId() {
-        return this.providerEventId;
     }
     /**
      * Gets the reason property value. The human-readable reason explaining this ion entry.
@@ -209,14 +191,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.source;
     }
     /**
-     * Gets the sourceEventId property value. The source event ID associated with this ion entry.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getSourceEventId() {
-        return this.sourceEventId;
-    }
-    /**
      * Gets the status property value. The current status for this ion entry.
      * @return a {@link String}
      */
@@ -244,12 +218,10 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("normalizedEmail", this.getNormalizedEmail());
         writer.writeStringValue("normalizedPhoneNumber", this.getNormalizedPhoneNumber());
-        writer.writeStringValue("providerEventId", this.getProviderEventId());
         writer.writeStringValue("reason", this.getReason());
         writer.writeStringValue("recipientIdentifier", this.getRecipientIdentifier());
         writer.writeOffsetDateTimeValue("releasedAt", this.getReleasedAt());
         writer.writeStringValue("source", this.getSource());
-        writer.writeStringValue("sourceEventId", this.getSourceEventId());
         writer.writeStringValue("status", this.getStatus());
         writer.writeOffsetDateTimeValue("suppressedAt", this.getSuppressedAt());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -304,13 +276,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         this.normalizedPhoneNumber = value;
     }
     /**
-     * Sets the providerEventId property value. The provider event ID associated with this ion entry.
-     * @param value Value to set for the providerEventId property.
-     */
-    public void setProviderEventId(@jakarta.annotation.Nullable final String value) {
-        this.providerEventId = value;
-    }
-    /**
      * Sets the reason property value. The human-readable reason explaining this ion entry.
      * @param value Value to set for the reason property.
      */
@@ -337,13 +302,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {
         this.source = value;
-    }
-    /**
-     * Sets the sourceEventId property value. The source event ID associated with this ion entry.
-     * @param value Value to set for the sourceEventId property.
-     */
-    public void setSourceEventId(@jakarta.annotation.Nullable final String value) {
-        this.sourceEventId = value;
     }
     /**
      * Sets the status property value. The current status for this ion entry.

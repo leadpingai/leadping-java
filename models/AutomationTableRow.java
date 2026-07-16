@@ -22,10 +22,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private AutomationTableRowAdminEnablementOverride adminEnablementOverride;
-    /**
      * Business summary connected to this automation table row.
      */
     private AutomationTableRowBusiness business;
@@ -65,10 +61,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      * UTC timestamp when this automation last ran.
      */
     private OffsetDateTime lastRunAt;
-    /**
-     * Most recent automation run error message, if the last run failed.
-     */
-    private String lastRunError;
     /**
      * Status from the most recent automation run.
      */
@@ -142,14 +134,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link AutomationTableRowAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public AutomationTableRowAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
-    }
-    /**
      * Gets the business property value. Business summary connected to this automation table row.
      * @return a {@link AutomationTableRowBusiness}
      */
@@ -203,9 +187,8 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("actionSummary", (n) -> { this.setActionSummary(n.getStringValue()); });
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(AutomationTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(AutomationTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("conditionSummary", (n) -> { this.setConditionSummary(n.getStringValue()); });
@@ -216,7 +199,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isSystemManaged", (n) -> { this.setIsSystemManaged(n.getBooleanValue()); });
         deserializerMap.put("lastRunAt", (n) -> { this.setLastRunAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("lastRunError", (n) -> { this.setLastRunError(n.getStringValue()); });
         deserializerMap.put("lastRunStatus", (n) -> { this.setLastRunStatus(n.getStringValue()); });
         deserializerMap.put("managementLevel", (n) -> { this.setManagementLevel(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
@@ -260,14 +242,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getLastRunAt() {
         return this.lastRunAt;
-    }
-    /**
-     * Gets the lastRunError property value. Most recent automation run error message, if the last run failed.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLastRunError() {
-        return this.lastRunError;
     }
     /**
      * Gets the lastRunStatus property value. Status from the most recent automation run.
@@ -356,7 +330,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actionSummary", this.getActionSummary());
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("conditionSummary", this.getConditionSummary());
@@ -367,7 +340,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isSystemManaged", this.getIsSystemManaged());
         writer.writeOffsetDateTimeValue("lastRunAt", this.getLastRunAt());
-        writer.writeStringValue("lastRunError", this.getLastRunError());
         writer.writeStringValue("lastRunStatus", this.getLastRunStatus());
         writer.writeStringValue("managementLevel", this.getManagementLevel());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
@@ -393,13 +365,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final AutomationTableRowAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the business property value. Business summary connected to this automation table row.
@@ -470,13 +435,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLastRunAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastRunAt = value;
-    }
-    /**
-     * Sets the lastRunError property value. Most recent automation run error message, if the last run failed.
-     * @param value Value to set for the lastRunError property.
-     */
-    public void setLastRunError(@jakarta.annotation.Nullable final String value) {
-        this.lastRunError = value;
     }
     /**
      * Sets the lastRunStatus property value. Status from the most recent automation run.

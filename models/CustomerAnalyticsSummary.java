@@ -8,6 +8,9 @@ import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Human-readable summary for this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable {
     /**
@@ -15,71 +18,71 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The averageResponseMinutes property
+     * Average time, in minutes, before a lead receives a response.
      */
     private UntypedNode averageResponseMinutes;
     /**
-     * The billingStatus property
+     * Current billing status for this Leadping customer analytics summary.
      */
     private String billingStatus;
     /**
-     * The callMinutes property
+     * Total connected call duration, in minutes, during the reporting period.
      */
     private Double callMinutes;
     /**
-     * The callsPlaced property
+     * Number of outbound calls placed during the reporting period.
      */
     private Integer callsPlaced;
     /**
-     * The callsReceived property
+     * Number of inbound calls received during the reporting period.
      */
     private Integer callsReceived;
     /**
-     * The leads property
+     * Number of leads represented by this Leadping customer analytics summary.
      */
     private Integer leads;
     /**
-     * The leadsComparison property
+     * Date and time when this Leadping customer analytics summary was leads comparison.
      */
     private AnalyticsComparison leadsComparison;
     /**
-     * The medianResponseMinutes property
+     * Median response minutes measured in minutes.
      */
     private UntypedNode medianResponseMinutes;
     /**
-     * The missedCalls property
+     * Number of calls missed during the reporting period.
      */
     private Integer missedCalls;
     /**
-     * The missedLeads property
+     * Number of missed leads represented by this Leadping customer analytics summary.
      */
     private Integer missedLeads;
     /**
-     * The respondedWithinFiveMinutesPercent property
+     * Responded within five minutes percent expressed as a percentage.
      */
     private Double respondedWithinFiveMinutesPercent;
     /**
-     * The smsReceived property
+     * Number of SMS messages received during the reporting period.
      */
     private Integer smsReceived;
     /**
-     * The smsSent property
+     * Number of SMS messages sent during the reporting period.
      */
     private Integer smsSent;
     /**
-     * The unreadMessages property
+     * Number of unread messages represented by this Leadping customer analytics summary.
      */
     private Integer unreadMessages;
     /**
-     * The usageSpend property
+     * Usage spend represented by this Leadping customer analytics summary.
      */
     private Double usageSpend;
     /**
-     * The walletBalance property
+     * Wallet balance represented by this Leadping customer analytics summary.
      */
     private Double walletBalance;
     /**
-     * The walletStatus property
+     * Current wallet status for this Leadping customer analytics summary.
      */
     private String walletStatus;
     /**
@@ -107,7 +110,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the averageResponseMinutes property value. The averageResponseMinutes property
+     * Gets the averageResponseMinutes property value. Average time, in minutes, before a lead receives a response.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -115,7 +118,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.averageResponseMinutes;
     }
     /**
-     * Gets the billingStatus property value. The billingStatus property
+     * Gets the billingStatus property value. Current billing status for this Leadping customer analytics summary.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -123,7 +126,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.billingStatus;
     }
     /**
-     * Gets the callMinutes property value. The callMinutes property
+     * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -131,7 +134,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.callMinutes;
     }
     /**
-     * Gets the callsPlaced property value. The callsPlaced property
+     * Gets the callsPlaced property value. Number of outbound calls placed during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -139,7 +142,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.callsPlaced;
     }
     /**
-     * Gets the callsReceived property value. The callsReceived property
+     * Gets the callsReceived property value. Number of inbound calls received during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -173,7 +176,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the leads property value. The leads property
+     * Gets the leads property value. Number of leads represented by this Leadping customer analytics summary.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -181,7 +184,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.leads;
     }
     /**
-     * Gets the leadsComparison property value. The leadsComparison property
+     * Gets the leadsComparison property value. Date and time when this Leadping customer analytics summary was leads comparison.
      * @return a {@link AnalyticsComparison}
      */
     @jakarta.annotation.Nullable
@@ -189,7 +192,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.leadsComparison;
     }
     /**
-     * Gets the medianResponseMinutes property value. The medianResponseMinutes property
+     * Gets the medianResponseMinutes property value. Median response minutes measured in minutes.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -197,7 +200,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.medianResponseMinutes;
     }
     /**
-     * Gets the missedCalls property value. The missedCalls property
+     * Gets the missedCalls property value. Number of calls missed during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -205,7 +208,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.missedCalls;
     }
     /**
-     * Gets the missedLeads property value. The missedLeads property
+     * Gets the missedLeads property value. Number of missed leads represented by this Leadping customer analytics summary.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +216,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.missedLeads;
     }
     /**
-     * Gets the respondedWithinFiveMinutesPercent property value. The respondedWithinFiveMinutesPercent property
+     * Gets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -221,7 +224,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.respondedWithinFiveMinutesPercent;
     }
     /**
-     * Gets the smsReceived property value. The smsReceived property
+     * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -229,7 +232,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.smsReceived;
     }
     /**
-     * Gets the smsSent property value. The smsSent property
+     * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -237,7 +240,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.smsSent;
     }
     /**
-     * Gets the unreadMessages property value. The unreadMessages property
+     * Gets the unreadMessages property value. Number of unread messages represented by this Leadping customer analytics summary.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -245,7 +248,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.unreadMessages;
     }
     /**
-     * Gets the usageSpend property value. The usageSpend property
+     * Gets the usageSpend property value. Usage spend represented by this Leadping customer analytics summary.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -253,7 +256,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.usageSpend;
     }
     /**
-     * Gets the walletBalance property value. The walletBalance property
+     * Gets the walletBalance property value. Wallet balance represented by this Leadping customer analytics summary.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -261,7 +264,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.walletBalance;
     }
     /**
-     * Gets the walletStatus property value. The walletStatus property
+     * Gets the walletStatus property value. Current wallet status for this Leadping customer analytics summary.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -301,119 +304,119 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the averageResponseMinutes property value. The averageResponseMinutes property
+     * Sets the averageResponseMinutes property value. Average time, in minutes, before a lead receives a response.
      * @param value Value to set for the averageResponseMinutes property.
      */
     public void setAverageResponseMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
         this.averageResponseMinutes = value;
     }
     /**
-     * Sets the billingStatus property value. The billingStatus property
+     * Sets the billingStatus property value. Current billing status for this Leadping customer analytics summary.
      * @param value Value to set for the billingStatus property.
      */
     public void setBillingStatus(@jakarta.annotation.Nullable final String value) {
         this.billingStatus = value;
     }
     /**
-     * Sets the callMinutes property value. The callMinutes property
+     * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @param value Value to set for the callMinutes property.
      */
     public void setCallMinutes(@jakarta.annotation.Nullable final Double value) {
         this.callMinutes = value;
     }
     /**
-     * Sets the callsPlaced property value. The callsPlaced property
+     * Sets the callsPlaced property value. Number of outbound calls placed during the reporting period.
      * @param value Value to set for the callsPlaced property.
      */
     public void setCallsPlaced(@jakarta.annotation.Nullable final Integer value) {
         this.callsPlaced = value;
     }
     /**
-     * Sets the callsReceived property value. The callsReceived property
+     * Sets the callsReceived property value. Number of inbound calls received during the reporting period.
      * @param value Value to set for the callsReceived property.
      */
     public void setCallsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.callsReceived = value;
     }
     /**
-     * Sets the leads property value. The leads property
+     * Sets the leads property value. Number of leads represented by this Leadping customer analytics summary.
      * @param value Value to set for the leads property.
      */
     public void setLeads(@jakarta.annotation.Nullable final Integer value) {
         this.leads = value;
     }
     /**
-     * Sets the leadsComparison property value. The leadsComparison property
+     * Sets the leadsComparison property value. Date and time when this Leadping customer analytics summary was leads comparison.
      * @param value Value to set for the leadsComparison property.
      */
     public void setLeadsComparison(@jakarta.annotation.Nullable final AnalyticsComparison value) {
         this.leadsComparison = value;
     }
     /**
-     * Sets the medianResponseMinutes property value. The medianResponseMinutes property
+     * Sets the medianResponseMinutes property value. Median response minutes measured in minutes.
      * @param value Value to set for the medianResponseMinutes property.
      */
     public void setMedianResponseMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
         this.medianResponseMinutes = value;
     }
     /**
-     * Sets the missedCalls property value. The missedCalls property
+     * Sets the missedCalls property value. Number of calls missed during the reporting period.
      * @param value Value to set for the missedCalls property.
      */
     public void setMissedCalls(@jakarta.annotation.Nullable final Integer value) {
         this.missedCalls = value;
     }
     /**
-     * Sets the missedLeads property value. The missedLeads property
+     * Sets the missedLeads property value. Number of missed leads represented by this Leadping customer analytics summary.
      * @param value Value to set for the missedLeads property.
      */
     public void setMissedLeads(@jakarta.annotation.Nullable final Integer value) {
         this.missedLeads = value;
     }
     /**
-     * Sets the respondedWithinFiveMinutesPercent property value. The respondedWithinFiveMinutesPercent property
+     * Sets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
      * @param value Value to set for the respondedWithinFiveMinutesPercent property.
      */
     public void setRespondedWithinFiveMinutesPercent(@jakarta.annotation.Nullable final Double value) {
         this.respondedWithinFiveMinutesPercent = value;
     }
     /**
-     * Sets the smsReceived property value. The smsReceived property
+     * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @param value Value to set for the smsReceived property.
      */
     public void setSmsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.smsReceived = value;
     }
     /**
-     * Sets the smsSent property value. The smsSent property
+     * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @param value Value to set for the smsSent property.
      */
     public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {
         this.smsSent = value;
     }
     /**
-     * Sets the unreadMessages property value. The unreadMessages property
+     * Sets the unreadMessages property value. Number of unread messages represented by this Leadping customer analytics summary.
      * @param value Value to set for the unreadMessages property.
      */
     public void setUnreadMessages(@jakarta.annotation.Nullable final Integer value) {
         this.unreadMessages = value;
     }
     /**
-     * Sets the usageSpend property value. The usageSpend property
+     * Sets the usageSpend property value. Usage spend represented by this Leadping customer analytics summary.
      * @param value Value to set for the usageSpend property.
      */
     public void setUsageSpend(@jakarta.annotation.Nullable final Double value) {
         this.usageSpend = value;
     }
     /**
-     * Sets the walletBalance property value. The walletBalance property
+     * Sets the walletBalance property value. Wallet balance represented by this Leadping customer analytics summary.
      * @param value Value to set for the walletBalance property.
      */
     public void setWalletBalance(@jakarta.annotation.Nullable final Double value) {
         this.walletBalance = value;
     }
     /**
-     * Sets the walletStatus property value. The walletStatus property
+     * Sets the walletStatus property value. Current wallet status for this Leadping customer analytics summary.
      * @param value Value to set for the walletStatus property.
      */
     public void setWalletStatus(@jakarta.annotation.Nullable final String value) {

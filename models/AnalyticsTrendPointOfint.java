@@ -15,19 +15,19 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The endAt property
+     * Date and time when this Leadping analytics trend point was end.
      */
     private OffsetDateTime endAt;
     /**
-     * The label property
+     * Human-readable label for this Leadping analytics trend point.
      */
     private String label;
     /**
-     * The startAt property
+     * Date and time when this Leadping analytics trend point was start.
      */
     private OffsetDateTime startAt;
     /**
-     * The value property
+     * Value associated with this Leadping analytics trend point.
      */
     private Integer value;
     /**
@@ -55,7 +55,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the endAt property value. The endAt property
+     * Gets the endAt property value. Date and time when this Leadping analytics trend point was end.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -76,7 +76,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the label property value. The label property
+     * Gets the label property value. Human-readable label for this Leadping analytics trend point.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -84,7 +84,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         return this.label;
     }
     /**
-     * Gets the startAt property value. The startAt property
+     * Gets the startAt property value. Date and time when this Leadping analytics trend point was start.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +92,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         return this.startAt;
     }
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. Value associated with this Leadping analytics trend point.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -119,28 +119,28 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the endAt property value. The endAt property
+     * Sets the endAt property value. Date and time when this Leadping analytics trend point was end.
      * @param value Value to set for the endAt property.
      */
     public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.endAt = value;
     }
     /**
-     * Sets the label property value. The label property
+     * Sets the label property value. Human-readable label for this Leadping analytics trend point.
      * @param value Value to set for the label property.
      */
     public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
     }
     /**
-     * Sets the startAt property value. The startAt property
+     * Sets the startAt property value. Date and time when this Leadping analytics trend point was start.
      * @param value Value to set for the startAt property.
      */
     public void setStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.startAt = value;
     }
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. Value associated with this Leadping analytics trend point.
      * @param value Value to set for the value property.
      */
     public void setValue(@jakarta.annotation.Nullable final Integer value) {

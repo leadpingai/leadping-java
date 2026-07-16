@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Activation health associated with this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerActivationHealth implements AdditionalDataHolder, Parsable {
     /**
@@ -14,11 +17,11 @@ public class CustomerActivationHealth implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The items property
+     * Collection of items included with this Leadping customer activation health.
      */
     private java.util.List<CustomerActivationHealthItem> items;
     /**
-     * The overallStatus property
+     * Current overall status for this Leadping customer activation health.
      */
     private String overallStatus;
     /**
@@ -57,7 +60,7 @@ public class CustomerActivationHealth implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the items property value. The items property
+     * Gets the items property value. Collection of items included with this Leadping customer activation health.
      * @return a {@link java.util.List<CustomerActivationHealthItem>}
      */
     @jakarta.annotation.Nullable
@@ -65,7 +68,7 @@ public class CustomerActivationHealth implements AdditionalDataHolder, Parsable 
         return this.items;
     }
     /**
-     * Gets the overallStatus property value. The overallStatus property
+     * Gets the overallStatus property value. Current overall status for this Leadping customer activation health.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -90,14 +93,14 @@ public class CustomerActivationHealth implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the items property value. The items property
+     * Sets the items property value. Collection of items included with this Leadping customer activation health.
      * @param value Value to set for the items property.
      */
     public void setItems(@jakarta.annotation.Nullable final java.util.List<CustomerActivationHealthItem> value) {
         this.items = value;
     }
     /**
-     * Sets the overallStatus property value. The overallStatus property
+     * Sets the overallStatus property value. Current overall status for this Leadping customer activation health.
      * @param value Value to set for the overallStatus property.
      */
     public void setOverallStatus(@jakarta.annotation.Nullable final String value) {

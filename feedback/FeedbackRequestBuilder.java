@@ -1,6 +1,5 @@
 package ai.leadping.openapi.feedback;
 
-import ai.leadping.openapi.feedback.admin.AdminRequestBuilder;
 import ai.leadping.openapi.models.FeedbackCreateRequest;
 import ai.leadping.openapi.models.FeedbackResponse;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -21,14 +20,6 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class FeedbackRequestBuilder extends BaseRequestBuilder {
-    /**
-     * The admin property
-     * @return a {@link AdminRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public AdminRequestBuilder admin() {
-        return new AdminRequestBuilder(pathParameters, requestAdapter);
-    }
     /**
      * Instantiates a new {@link FeedbackRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request

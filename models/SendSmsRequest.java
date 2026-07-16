@@ -18,10 +18,6 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Automation ID connected to this workflow, run, or event.
-     */
-    private String automationId;
-    /**
      * Messaging campaign identifier associated with this SMS send request.
      */
     private String campaignId;
@@ -34,49 +30,13 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
-     * Indicates whether the lead has the consent required for compliant outreach.
-     */
-    private Boolean hasRequiredConsent;
-    /**
-     * Bulk import batch ID that created or updated this lead.
-     */
-    private String importBatchId;
-    /**
-     * Indicates whether automation created or triggered this SMS send request.
-     */
-    private Boolean isAutomated;
-    /**
-     * Indicates whether this record originated from a bulk import rather than a real-time lead source.
-     */
-    private Boolean isImportedLead;
-    /**
-     * Outbound delivery request ID connected to this decision or attempt.
-     */
-    private String outboundDeliveryRequestId;
-    /**
      * Idempotency key used to prevent duplicate outbound delivery.
      */
     private String outboundIdempotencyKey;
     /**
-     * Defines priority classes used when pacing outbound delivery.
-     */
-    private SendSmsRequestOutboundPriority outboundPriority;
-    /**
-     * Outbound reservation ID used to throttle and track delivery capacity.
-     */
-    private String outboundReservationId;
-    /**
-     * Defines the source that requested outbound delivery.
-     */
-    private SendSmsRequestOutboundSource outboundSource;
-    /**
      * UTC timestamp when Leadping should send the SMS message.
      */
     private OffsetDateTime scheduledFor;
-    /**
-     * Defines the supported Outgoing Number Selection Reason values.
-     */
-    private SendSmsRequestSelectionReason selectionReason;
     /**
      * Existing SMS event ID to reuse or update when retrying a send request.
      */
@@ -118,14 +78,6 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the automationId property value. Automation ID connected to this workflow, run, or event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAutomationId() {
-        return this.automationId;
-    }
-    /**
      * Gets the campaignId property value. Messaging campaign identifier associated with this SMS send request.
      * @return a {@link String}
      */
@@ -147,22 +99,12 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
-        deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("hasRequiredConsent", (n) -> { this.setHasRequiredConsent(n.getBooleanValue()); });
-        deserializerMap.put("importBatchId", (n) -> { this.setImportBatchId(n.getStringValue()); });
-        deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
-        deserializerMap.put("isImportedLead", (n) -> { this.setIsImportedLead(n.getBooleanValue()); });
-        deserializerMap.put("outboundDeliveryRequestId", (n) -> { this.setOutboundDeliveryRequestId(n.getStringValue()); });
         deserializerMap.put("outboundIdempotencyKey", (n) -> { this.setOutboundIdempotencyKey(n.getStringValue()); });
-        deserializerMap.put("outboundPriority", (n) -> { this.setOutboundPriority(n.getEnumValue(SendSmsRequestOutboundPriority::forValue)); });
-        deserializerMap.put("outboundReservationId", (n) -> { this.setOutboundReservationId(n.getStringValue()); });
-        deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(SendSmsRequestOutboundSource::forValue)); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(SendSmsRequestSelectionReason::forValue)); });
         deserializerMap.put("smsEventId", (n) -> { this.setSmsEventId(n.getStringValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("text", (n) -> { this.setText(n.getStringValue()); });
@@ -178,46 +120,6 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the hasRequiredConsent property value. Indicates whether the lead has the consent required for compliant outreach.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getHasRequiredConsent() {
-        return this.hasRequiredConsent;
-    }
-    /**
-     * Gets the importBatchId property value. Bulk import batch ID that created or updated this lead.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getImportBatchId() {
-        return this.importBatchId;
-    }
-    /**
-     * Gets the isAutomated property value. Indicates whether automation created or triggered this SMS send request.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsAutomated() {
-        return this.isAutomated;
-    }
-    /**
-     * Gets the isImportedLead property value. Indicates whether this record originated from a bulk import rather than a real-time lead source.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsImportedLead() {
-        return this.isImportedLead;
-    }
-    /**
-     * Gets the outboundDeliveryRequestId property value. Outbound delivery request ID connected to this decision or attempt.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getOutboundDeliveryRequestId() {
-        return this.outboundDeliveryRequestId;
-    }
-    /**
      * Gets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
      * @return a {@link String}
      */
@@ -226,44 +128,12 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         return this.outboundIdempotencyKey;
     }
     /**
-     * Gets the outboundPriority property value. Defines priority classes used when pacing outbound delivery.
-     * @return a {@link SendSmsRequestOutboundPriority}
-     */
-    @jakarta.annotation.Nullable
-    public SendSmsRequestOutboundPriority getOutboundPriority() {
-        return this.outboundPriority;
-    }
-    /**
-     * Gets the outboundReservationId property value. Outbound reservation ID used to throttle and track delivery capacity.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getOutboundReservationId() {
-        return this.outboundReservationId;
-    }
-    /**
-     * Gets the outboundSource property value. Defines the source that requested outbound delivery.
-     * @return a {@link SendSmsRequestOutboundSource}
-     */
-    @jakarta.annotation.Nullable
-    public SendSmsRequestOutboundSource getOutboundSource() {
-        return this.outboundSource;
-    }
-    /**
      * Gets the scheduledFor property value. UTC timestamp when Leadping should send the SMS message.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getScheduledFor() {
         return this.scheduledFor;
-    }
-    /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
-     * @return a {@link SendSmsRequestSelectionReason}
-     */
-    @jakarta.annotation.Nullable
-    public SendSmsRequestSelectionReason getSelectionReason() {
-        return this.selectionReason;
     }
     /**
      * Gets the smsEventId property value. Existing SMS event ID to reuse or update when retrying a send request.
@@ -303,21 +173,11 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("automationId", this.getAutomationId());
         writer.writeStringValue("campaignId", this.getCampaignId());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
-        writer.writeBooleanValue("hasRequiredConsent", this.getHasRequiredConsent());
-        writer.writeStringValue("importBatchId", this.getImportBatchId());
-        writer.writeBooleanValue("isAutomated", this.getIsAutomated());
-        writer.writeBooleanValue("isImportedLead", this.getIsImportedLead());
-        writer.writeStringValue("outboundDeliveryRequestId", this.getOutboundDeliveryRequestId());
         writer.writeStringValue("outboundIdempotencyKey", this.getOutboundIdempotencyKey());
-        writer.writeEnumValue("outboundPriority", this.getOutboundPriority());
-        writer.writeStringValue("outboundReservationId", this.getOutboundReservationId());
-        writer.writeEnumValue("outboundSource", this.getOutboundSource());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
-        writer.writeEnumValue("selectionReason", this.getSelectionReason());
         writer.writeStringValue("smsEventId", this.getSmsEventId());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeStringValue("text", this.getText());
@@ -330,13 +190,6 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the automationId property value. Automation ID connected to this workflow, run, or event.
-     * @param value Value to set for the automationId property.
-     */
-    public void setAutomationId(@jakarta.annotation.Nullable final String value) {
-        this.automationId = value;
     }
     /**
      * Sets the campaignId property value. Messaging campaign identifier associated with this SMS send request.
@@ -360,41 +213,6 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the hasRequiredConsent property value. Indicates whether the lead has the consent required for compliant outreach.
-     * @param value Value to set for the hasRequiredConsent property.
-     */
-    public void setHasRequiredConsent(@jakarta.annotation.Nullable final Boolean value) {
-        this.hasRequiredConsent = value;
-    }
-    /**
-     * Sets the importBatchId property value. Bulk import batch ID that created or updated this lead.
-     * @param value Value to set for the importBatchId property.
-     */
-    public void setImportBatchId(@jakarta.annotation.Nullable final String value) {
-        this.importBatchId = value;
-    }
-    /**
-     * Sets the isAutomated property value. Indicates whether automation created or triggered this SMS send request.
-     * @param value Value to set for the isAutomated property.
-     */
-    public void setIsAutomated(@jakarta.annotation.Nullable final Boolean value) {
-        this.isAutomated = value;
-    }
-    /**
-     * Sets the isImportedLead property value. Indicates whether this record originated from a bulk import rather than a real-time lead source.
-     * @param value Value to set for the isImportedLead property.
-     */
-    public void setIsImportedLead(@jakarta.annotation.Nullable final Boolean value) {
-        this.isImportedLead = value;
-    }
-    /**
-     * Sets the outboundDeliveryRequestId property value. Outbound delivery request ID connected to this decision or attempt.
-     * @param value Value to set for the outboundDeliveryRequestId property.
-     */
-    public void setOutboundDeliveryRequestId(@jakarta.annotation.Nullable final String value) {
-        this.outboundDeliveryRequestId = value;
-    }
-    /**
      * Sets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
      * @param value Value to set for the outboundIdempotencyKey property.
      */
@@ -402,39 +220,11 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         this.outboundIdempotencyKey = value;
     }
     /**
-     * Sets the outboundPriority property value. Defines priority classes used when pacing outbound delivery.
-     * @param value Value to set for the outboundPriority property.
-     */
-    public void setOutboundPriority(@jakarta.annotation.Nullable final SendSmsRequestOutboundPriority value) {
-        this.outboundPriority = value;
-    }
-    /**
-     * Sets the outboundReservationId property value. Outbound reservation ID used to throttle and track delivery capacity.
-     * @param value Value to set for the outboundReservationId property.
-     */
-    public void setOutboundReservationId(@jakarta.annotation.Nullable final String value) {
-        this.outboundReservationId = value;
-    }
-    /**
-     * Sets the outboundSource property value. Defines the source that requested outbound delivery.
-     * @param value Value to set for the outboundSource property.
-     */
-    public void setOutboundSource(@jakarta.annotation.Nullable final SendSmsRequestOutboundSource value) {
-        this.outboundSource = value;
-    }
-    /**
      * Sets the scheduledFor property value. UTC timestamp when Leadping should send the SMS message.
      * @param value Value to set for the scheduledFor property.
      */
     public void setScheduledFor(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.scheduledFor = value;
-    }
-    /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
-     * @param value Value to set for the selectionReason property.
-     */
-    public void setSelectionReason(@jakarta.annotation.Nullable final SendSmsRequestSelectionReason value) {
-        this.selectionReason = value;
     }
     /**
      * Sets the smsEventId property value. Existing SMS event ID to reuse or update when retrying a send request.

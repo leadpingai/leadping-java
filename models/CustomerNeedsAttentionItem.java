@@ -10,11 +10,11 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsable {
     /**
-     * The actionHref property
+     * Relative URL for the recommended follow-up action.
      */
     private String actionHref;
     /**
-     * The actionText property
+     * Action text associated with this Leadping customer needs attention item.
      */
     private String actionText;
     /**
@@ -22,15 +22,15 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * The detail property
+     * Human-readable detail for this Leadping customer needs attention item.
      */
     private String detail;
     /**
-     * The severity property
+     * Severity associated with this Leadping customer needs attention item.
      */
     private String severity;
     /**
-     * The title property
+     * Human-readable title for this Leadping customer needs attention item.
      */
     private String title;
     /**
@@ -50,7 +50,7 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         return new CustomerNeedsAttentionItem();
     }
     /**
-     * Gets the actionHref property value. The actionHref property
+     * Gets the actionHref property value. Relative URL for the recommended follow-up action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -58,7 +58,7 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         return this.actionHref;
     }
     /**
-     * Gets the actionText property value. The actionText property
+     * Gets the actionText property value. Action text associated with this Leadping customer needs attention item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -74,7 +74,7 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the detail property value. The detail property
+     * Gets the detail property value. Human-readable detail for this Leadping customer needs attention item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         return deserializerMap;
     }
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. Severity associated with this Leadping customer needs attention item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +104,7 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         return this.severity;
     }
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Human-readable title for this Leadping customer needs attention item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -125,14 +125,14 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actionHref property value. The actionHref property
+     * Sets the actionHref property value. Relative URL for the recommended follow-up action.
      * @param value Value to set for the actionHref property.
      */
     public void setActionHref(@jakarta.annotation.Nullable final String value) {
         this.actionHref = value;
     }
     /**
-     * Sets the actionText property value. The actionText property
+     * Sets the actionText property value. Action text associated with this Leadping customer needs attention item.
      * @param value Value to set for the actionText property.
      */
     public void setActionText(@jakarta.annotation.Nullable final String value) {
@@ -146,21 +146,21 @@ public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the detail property value. The detail property
+     * Sets the detail property value. Human-readable detail for this Leadping customer needs attention item.
      * @param value Value to set for the detail property.
      */
     public void setDetail(@jakarta.annotation.Nullable final String value) {
         this.detail = value;
     }
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. Severity associated with this Leadping customer needs attention item.
      * @param value Value to set for the severity property.
      */
     public void setSeverity(@jakarta.annotation.Nullable final String value) {
         this.severity = value;
     }
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Human-readable title for this Leadping customer needs attention item.
      * @param value Value to set for the title property.
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {

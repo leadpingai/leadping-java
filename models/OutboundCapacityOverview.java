@@ -14,39 +14,39 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The blockedCount property
+     * Total number of blocked records represented by this Leadping outbound capacity overview.
      */
     private Integer blockedCount;
     /**
-     * The coolingPhoneNumbers property
+     * Number of cooling phone numbers represented by this Leadping outbound capacity overview.
      */
     private Integer coolingPhoneNumbers;
     /**
-     * The healthyPhoneNumbers property
+     * Number of healthy phone numbers represented by this Leadping outbound capacity overview.
      */
     private Integer healthyPhoneNumbers;
     /**
-     * The limitedPhoneNumbers property
+     * Number of limited phone numbers represented by this Leadping outbound capacity overview.
      */
     private Integer limitedPhoneNumbers;
     /**
-     * The phoneNumbers property
+     * Collection of phone numbers included with this Leadping outbound capacity overview.
      */
     private java.util.List<OutboundPhoneNumberCapacity> phoneNumbers;
     /**
-     * The recentDecisions property
+     * Collection of recent decisions included with this Leadping outbound capacity overview.
      */
     private java.util.List<OutboundQueueItem> recentDecisions;
     /**
-     * The scheduledCount property
+     * Total number of scheduled records represented by this Leadping outbound capacity overview.
      */
     private Integer scheduledCount;
     /**
-     * The smsCapacityRemainingToday property
+     * SMS capacity remaining today for the applicable messaging or voice capacity window.
      */
     private Integer smsCapacityRemainingToday;
     /**
-     * The voiceCapacityRemainingToday property
+     * Voice capacity remaining today for the applicable messaging or voice capacity window.
      */
     private Integer voiceCapacityRemainingToday;
     /**
@@ -74,7 +74,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the blockedCount property value. The blockedCount property
+     * Gets the blockedCount property value. Total number of blocked records represented by this Leadping outbound capacity overview.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.blockedCount;
     }
     /**
-     * Gets the coolingPhoneNumbers property value. The coolingPhoneNumbers property
+     * Gets the coolingPhoneNumbers property value. Number of cooling phone numbers represented by this Leadping outbound capacity overview.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the healthyPhoneNumbers property value. The healthyPhoneNumbers property
+     * Gets the healthyPhoneNumbers property value. Number of healthy phone numbers represented by this Leadping outbound capacity overview.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -116,7 +116,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.healthyPhoneNumbers;
     }
     /**
-     * Gets the limitedPhoneNumbers property value. The limitedPhoneNumbers property
+     * Gets the limitedPhoneNumbers property value. Number of limited phone numbers represented by this Leadping outbound capacity overview.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -124,7 +124,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.limitedPhoneNumbers;
     }
     /**
-     * Gets the phoneNumbers property value. The phoneNumbers property
+     * Gets the phoneNumbers property value. Collection of phone numbers included with this Leadping outbound capacity overview.
      * @return a {@link java.util.List<OutboundPhoneNumberCapacity>}
      */
     @jakarta.annotation.Nullable
@@ -132,7 +132,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.phoneNumbers;
     }
     /**
-     * Gets the recentDecisions property value. The recentDecisions property
+     * Gets the recentDecisions property value. Collection of recent decisions included with this Leadping outbound capacity overview.
      * @return a {@link java.util.List<OutboundQueueItem>}
      */
     @jakarta.annotation.Nullable
@@ -140,7 +140,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.recentDecisions;
     }
     /**
-     * Gets the scheduledCount property value. The scheduledCount property
+     * Gets the scheduledCount property value. Total number of scheduled records represented by this Leadping outbound capacity overview.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -148,7 +148,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.scheduledCount;
     }
     /**
-     * Gets the smsCapacityRemainingToday property value. The smsCapacityRemainingToday property
+     * Gets the smsCapacityRemainingToday property value. SMS capacity remaining today for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -156,7 +156,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         return this.smsCapacityRemainingToday;
     }
     /**
-     * Gets the voiceCapacityRemainingToday property value. The voiceCapacityRemainingToday property
+     * Gets the voiceCapacityRemainingToday property value. Voice capacity remaining today for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -188,63 +188,63 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the blockedCount property value. The blockedCount property
+     * Sets the blockedCount property value. Total number of blocked records represented by this Leadping outbound capacity overview.
      * @param value Value to set for the blockedCount property.
      */
     public void setBlockedCount(@jakarta.annotation.Nullable final Integer value) {
         this.blockedCount = value;
     }
     /**
-     * Sets the coolingPhoneNumbers property value. The coolingPhoneNumbers property
+     * Sets the coolingPhoneNumbers property value. Number of cooling phone numbers represented by this Leadping outbound capacity overview.
      * @param value Value to set for the coolingPhoneNumbers property.
      */
     public void setCoolingPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
         this.coolingPhoneNumbers = value;
     }
     /**
-     * Sets the healthyPhoneNumbers property value. The healthyPhoneNumbers property
+     * Sets the healthyPhoneNumbers property value. Number of healthy phone numbers represented by this Leadping outbound capacity overview.
      * @param value Value to set for the healthyPhoneNumbers property.
      */
     public void setHealthyPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
         this.healthyPhoneNumbers = value;
     }
     /**
-     * Sets the limitedPhoneNumbers property value. The limitedPhoneNumbers property
+     * Sets the limitedPhoneNumbers property value. Number of limited phone numbers represented by this Leadping outbound capacity overview.
      * @param value Value to set for the limitedPhoneNumbers property.
      */
     public void setLimitedPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
         this.limitedPhoneNumbers = value;
     }
     /**
-     * Sets the phoneNumbers property value. The phoneNumbers property
+     * Sets the phoneNumbers property value. Collection of phone numbers included with this Leadping outbound capacity overview.
      * @param value Value to set for the phoneNumbers property.
      */
     public void setPhoneNumbers(@jakarta.annotation.Nullable final java.util.List<OutboundPhoneNumberCapacity> value) {
         this.phoneNumbers = value;
     }
     /**
-     * Sets the recentDecisions property value. The recentDecisions property
+     * Sets the recentDecisions property value. Collection of recent decisions included with this Leadping outbound capacity overview.
      * @param value Value to set for the recentDecisions property.
      */
     public void setRecentDecisions(@jakarta.annotation.Nullable final java.util.List<OutboundQueueItem> value) {
         this.recentDecisions = value;
     }
     /**
-     * Sets the scheduledCount property value. The scheduledCount property
+     * Sets the scheduledCount property value. Total number of scheduled records represented by this Leadping outbound capacity overview.
      * @param value Value to set for the scheduledCount property.
      */
     public void setScheduledCount(@jakarta.annotation.Nullable final Integer value) {
         this.scheduledCount = value;
     }
     /**
-     * Sets the smsCapacityRemainingToday property value. The smsCapacityRemainingToday property
+     * Sets the smsCapacityRemainingToday property value. SMS capacity remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsCapacityRemainingToday property.
      */
     public void setSmsCapacityRemainingToday(@jakarta.annotation.Nullable final Integer value) {
         this.smsCapacityRemainingToday = value;
     }
     /**
-     * Sets the voiceCapacityRemainingToday property value. The voiceCapacityRemainingToday property
+     * Sets the voiceCapacityRemainingToday property value. Voice capacity remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceCapacityRemainingToday property.
      */
     public void setVoiceCapacityRemainingToday(@jakarta.annotation.Nullable final Integer value) {

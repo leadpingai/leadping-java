@@ -42,15 +42,15 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
      */
     private DispositionResponseCategory category;
     /**
-     * The changedAt property
+     * Date and time when the disposition change occurred.
      */
     private OffsetDateTime changedAt;
     /**
-     * The changedByAutomationId property
+     * Unique identifier of the automation that changed the disposition, when applicable.
      */
     private String changedByAutomationId;
     /**
-     * The changedByUserId property
+     * Unique identifier of the Leadping user who made the change.
      */
     private String changedByUserId;
     /**
@@ -78,7 +78,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
      */
     private String leadId;
     /**
-     * The newDispositionId property
+     * Unique identifier of the new disposition associated with this Leadping disposition.
      */
     private String newDispositionId;
     /**
@@ -86,15 +86,15 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
      */
     private String notes;
     /**
-     * The oldDispositionId property
+     * Unique identifier of the old disposition associated with this Leadping disposition.
      */
     private String oldDispositionId;
     /**
-     * The oldDispositionOutcome property
+     * Old disposition outcome associated with this Leadping disposition.
      */
     private String oldDispositionOutcome;
     /**
-     * The oldDispositionType property
+     * Old disposition type classification for this Leadping disposition.
      */
     private String oldDispositionType;
     /**
@@ -202,7 +202,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the changedAt property value. The changedAt property
+     * Gets the changedAt property value. Date and time when the disposition change occurred.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -210,7 +210,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.changedAt;
     }
     /**
-     * Gets the changedByAutomationId property value. The changedByAutomationId property
+     * Gets the changedByAutomationId property value. Unique identifier of the automation that changed the disposition, when applicable.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -218,7 +218,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.changedByAutomationId;
     }
     /**
-     * Gets the changedByUserId property value. The changedByUserId property
+     * Gets the changedByUserId property value. Unique identifier of the Leadping user who made the change.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -311,7 +311,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
-     * Gets the newDispositionId property value. The newDispositionId property
+     * Gets the newDispositionId property value. Unique identifier of the new disposition associated with this Leadping disposition.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -327,7 +327,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.notes;
     }
     /**
-     * Gets the oldDispositionId property value. The oldDispositionId property
+     * Gets the oldDispositionId property value. Unique identifier of the old disposition associated with this Leadping disposition.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -335,7 +335,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.oldDispositionId;
     }
     /**
-     * Gets the oldDispositionOutcome property value. The oldDispositionOutcome property
+     * Gets the oldDispositionOutcome property value. Old disposition outcome associated with this Leadping disposition.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -343,7 +343,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         return this.oldDispositionOutcome;
     }
     /**
-     * Gets the oldDispositionType property value. The oldDispositionType property
+     * Gets the oldDispositionType property value. Old disposition type classification for this Leadping disposition.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -500,21 +500,21 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         this.category = value;
     }
     /**
-     * Sets the changedAt property value. The changedAt property
+     * Sets the changedAt property value. Date and time when the disposition change occurred.
      * @param value Value to set for the changedAt property.
      */
     public void setChangedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.changedAt = value;
     }
     /**
-     * Sets the changedByAutomationId property value. The changedByAutomationId property
+     * Sets the changedByAutomationId property value. Unique identifier of the automation that changed the disposition, when applicable.
      * @param value Value to set for the changedByAutomationId property.
      */
     public void setChangedByAutomationId(@jakarta.annotation.Nullable final String value) {
         this.changedByAutomationId = value;
     }
     /**
-     * Sets the changedByUserId property value. The changedByUserId property
+     * Sets the changedByUserId property value. Unique identifier of the Leadping user who made the change.
      * @param value Value to set for the changedByUserId property.
      */
     public void setChangedByUserId(@jakarta.annotation.Nullable final String value) {
@@ -563,7 +563,7 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
-     * Sets the newDispositionId property value. The newDispositionId property
+     * Sets the newDispositionId property value. Unique identifier of the new disposition associated with this Leadping disposition.
      * @param value Value to set for the newDispositionId property.
      */
     public void setNewDispositionId(@jakarta.annotation.Nullable final String value) {
@@ -577,21 +577,21 @@ public class DispositionResponse implements AdditionalDataHolder, Parsable {
         this.notes = value;
     }
     /**
-     * Sets the oldDispositionId property value. The oldDispositionId property
+     * Sets the oldDispositionId property value. Unique identifier of the old disposition associated with this Leadping disposition.
      * @param value Value to set for the oldDispositionId property.
      */
     public void setOldDispositionId(@jakarta.annotation.Nullable final String value) {
         this.oldDispositionId = value;
     }
     /**
-     * Sets the oldDispositionOutcome property value. The oldDispositionOutcome property
+     * Sets the oldDispositionOutcome property value. Old disposition outcome associated with this Leadping disposition.
      * @param value Value to set for the oldDispositionOutcome property.
      */
     public void setOldDispositionOutcome(@jakarta.annotation.Nullable final String value) {
         this.oldDispositionOutcome = value;
     }
     /**
-     * Sets the oldDispositionType property value. The oldDispositionType property
+     * Sets the oldDispositionType property value. Old disposition type classification for this Leadping disposition.
      * @param value Value to set for the oldDispositionType property.
      */
     public void setOldDispositionType(@jakarta.annotation.Nullable final String value) {

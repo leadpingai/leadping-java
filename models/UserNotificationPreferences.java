@@ -17,7 +17,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * The automationFailedEmailEnabled property
+     * Indicates whether automation failed email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean automationFailedEmailEnabled;
     /**
@@ -25,7 +25,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean automationFailedEnabled;
     /**
-     * The automationFailedSmsEnabled property
+     * Indicates whether automation failed SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean automationFailedSmsEnabled;
     /**
@@ -37,7 +37,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean billingSmsEnabled;
     /**
-     * The lowWalletBalanceEmailEnabled property
+     * Indicates whether low wallet balance email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean lowWalletBalanceEmailEnabled;
     /**
@@ -45,11 +45,11 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean lowWalletBalanceEnabled;
     /**
-     * The lowWalletBalanceSmsEnabled property
+     * Indicates whether low wallet balance SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean lowWalletBalanceSmsEnabled;
     /**
-     * The missedCallEmailEnabled property
+     * Indicates whether missed call email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean missedCallEmailEnabled;
     /**
@@ -57,7 +57,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean missedCallEnabled;
     /**
-     * The missedCallSmsEnabled property
+     * Indicates whether missed call SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean missedCallSmsEnabled;
     /**
@@ -77,11 +77,11 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean paymentFailedEnabled;
     /**
-     * The paymentFailedSmsEnabled property
+     * Indicates whether payment failed SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean paymentFailedSmsEnabled;
     /**
-     * The subscriptionRenewingEmailEnabled property
+     * Indicates whether subscription renewing email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean subscriptionRenewingEmailEnabled;
     /**
@@ -89,7 +89,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean subscriptionRenewingEnabled;
     /**
-     * The subscriptionRenewingSmsEnabled property
+     * Indicates whether subscription renewing SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean subscriptionRenewingSmsEnabled;
     /**
@@ -97,7 +97,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean tenDlcStatusEnabled;
     /**
-     * The unreadSmsEmailEnabled property
+     * Indicates whether unread SMS email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean unreadSmsEmailEnabled;
     /**
@@ -105,7 +105,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean unreadSmsEnabled;
     /**
-     * The unreadSmsSmsEnabled property
+     * Indicates whether unread SMS SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean unreadSmsSmsEnabled;
     /**
@@ -137,7 +137,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
-     * Gets the automationFailedEmailEnabled property value. The automationFailedEmailEnabled property
+     * Gets the automationFailedEmailEnabled property value. Indicates whether automation failed email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -153,7 +153,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.automationFailedEnabled;
     }
     /**
-     * Gets the automationFailedSmsEnabled property value. The automationFailedSmsEnabled property
+     * Gets the automationFailedSmsEnabled property value. Indicates whether automation failed SMS functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -210,7 +210,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return deserializerMap;
     }
     /**
-     * Gets the lowWalletBalanceEmailEnabled property value. The lowWalletBalanceEmailEnabled property
+     * Gets the lowWalletBalanceEmailEnabled property value. Indicates whether low wallet balance email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -226,7 +226,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.lowWalletBalanceEnabled;
     }
     /**
-     * Gets the lowWalletBalanceSmsEnabled property value. The lowWalletBalanceSmsEnabled property
+     * Gets the lowWalletBalanceSmsEnabled property value. Indicates whether low wallet balance SMS functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -234,7 +234,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.lowWalletBalanceSmsEnabled;
     }
     /**
-     * Gets the missedCallEmailEnabled property value. The missedCallEmailEnabled property
+     * Gets the missedCallEmailEnabled property value. Indicates whether missed call email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -250,7 +250,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.missedCallEnabled;
     }
     /**
-     * Gets the missedCallSmsEnabled property value. The missedCallSmsEnabled property
+     * Gets the missedCallSmsEnabled property value. Indicates whether missed call SMS functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -290,7 +290,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.paymentFailedEnabled;
     }
     /**
-     * Gets the paymentFailedSmsEnabled property value. The paymentFailedSmsEnabled property
+     * Gets the paymentFailedSmsEnabled property value. Indicates whether payment failed SMS functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -298,7 +298,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.paymentFailedSmsEnabled;
     }
     /**
-     * Gets the subscriptionRenewingEmailEnabled property value. The subscriptionRenewingEmailEnabled property
+     * Gets the subscriptionRenewingEmailEnabled property value. Indicates whether subscription renewing email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -314,7 +314,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.subscriptionRenewingEnabled;
     }
     /**
-     * Gets the subscriptionRenewingSmsEnabled property value. The subscriptionRenewingSmsEnabled property
+     * Gets the subscriptionRenewingSmsEnabled property value. Indicates whether subscription renewing SMS functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -330,7 +330,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.tenDlcStatusEnabled;
     }
     /**
-     * Gets the unreadSmsEmailEnabled property value. The unreadSmsEmailEnabled property
+     * Gets the unreadSmsEmailEnabled property value. Indicates whether unread SMS email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -346,7 +346,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.unreadSmsEnabled;
     }
     /**
-     * Gets the unreadSmsSmsEnabled property value. The unreadSmsSmsEnabled property
+     * Gets the unreadSmsSmsEnabled property value. Indicates whether unread SMS SMS functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -401,7 +401,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the automationFailedEmailEnabled property value. The automationFailedEmailEnabled property
+     * Sets the automationFailedEmailEnabled property value. Indicates whether automation failed email functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the automationFailedEmailEnabled property.
      */
     public void setAutomationFailedEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -415,7 +415,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.automationFailedEnabled = value;
     }
     /**
-     * Sets the automationFailedSmsEnabled property value. The automationFailedSmsEnabled property
+     * Sets the automationFailedSmsEnabled property value. Indicates whether automation failed SMS functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the automationFailedSmsEnabled property.
      */
     public void setAutomationFailedSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -436,7 +436,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.billingSmsEnabled = value;
     }
     /**
-     * Sets the lowWalletBalanceEmailEnabled property value. The lowWalletBalanceEmailEnabled property
+     * Sets the lowWalletBalanceEmailEnabled property value. Indicates whether low wallet balance email functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the lowWalletBalanceEmailEnabled property.
      */
     public void setLowWalletBalanceEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -450,14 +450,14 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.lowWalletBalanceEnabled = value;
     }
     /**
-     * Sets the lowWalletBalanceSmsEnabled property value. The lowWalletBalanceSmsEnabled property
+     * Sets the lowWalletBalanceSmsEnabled property value. Indicates whether low wallet balance SMS functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the lowWalletBalanceSmsEnabled property.
      */
     public void setLowWalletBalanceSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.lowWalletBalanceSmsEnabled = value;
     }
     /**
-     * Sets the missedCallEmailEnabled property value. The missedCallEmailEnabled property
+     * Sets the missedCallEmailEnabled property value. Indicates whether missed call email functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the missedCallEmailEnabled property.
      */
     public void setMissedCallEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -471,7 +471,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.missedCallEnabled = value;
     }
     /**
-     * Sets the missedCallSmsEnabled property value. The missedCallSmsEnabled property
+     * Sets the missedCallSmsEnabled property value. Indicates whether missed call SMS functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the missedCallSmsEnabled property.
      */
     public void setMissedCallSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -506,14 +506,14 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.paymentFailedEnabled = value;
     }
     /**
-     * Sets the paymentFailedSmsEnabled property value. The paymentFailedSmsEnabled property
+     * Sets the paymentFailedSmsEnabled property value. Indicates whether payment failed SMS functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the paymentFailedSmsEnabled property.
      */
     public void setPaymentFailedSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.paymentFailedSmsEnabled = value;
     }
     /**
-     * Sets the subscriptionRenewingEmailEnabled property value. The subscriptionRenewingEmailEnabled property
+     * Sets the subscriptionRenewingEmailEnabled property value. Indicates whether subscription renewing email functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the subscriptionRenewingEmailEnabled property.
      */
     public void setSubscriptionRenewingEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -527,7 +527,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.subscriptionRenewingEnabled = value;
     }
     /**
-     * Sets the subscriptionRenewingSmsEnabled property value. The subscriptionRenewingSmsEnabled property
+     * Sets the subscriptionRenewingSmsEnabled property value. Indicates whether subscription renewing SMS functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the subscriptionRenewingSmsEnabled property.
      */
     public void setSubscriptionRenewingSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -541,7 +541,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.tenDlcStatusEnabled = value;
     }
     /**
-     * Sets the unreadSmsEmailEnabled property value. The unreadSmsEmailEnabled property
+     * Sets the unreadSmsEmailEnabled property value. Indicates whether unread SMS email functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the unreadSmsEmailEnabled property.
      */
     public void setUnreadSmsEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -555,7 +555,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.unreadSmsEnabled = value;
     }
     /**
-     * Sets the unreadSmsSmsEnabled property value. The unreadSmsSmsEnabled property
+     * Sets the unreadSmsSmsEnabled property value. Indicates whether unread SMS SMS functionality is enabled for this Leadping user notification preferences.
      * @param value Value to set for the unreadSmsSmsEnabled property.
      */
     public void setUnreadSmsSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {

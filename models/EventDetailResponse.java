@@ -82,10 +82,6 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String outboundPhoneNumberId;
     /**
-     * Provider message identifier for SMS delivery tracking and reconciliation.
-     */
-    private String providerMessageId;
-    /**
      * UTC timestamp when Leadping queued this event detail response for processing.
      */
     private OffsetDateTime queuedAt;
@@ -255,7 +251,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
@@ -272,7 +268,6 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("providerMessageId", (n) -> { this.setProviderMessageId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
@@ -337,14 +332,6 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getOutboundPhoneNumberId() {
         return this.outboundPhoneNumberId;
-    }
-    /**
-     * Gets the providerMessageId property value. Provider message identifier for SMS delivery tracking and reconciliation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderMessageId() {
-        return this.providerMessageId;
     }
     /**
      * Gets the queuedAt property value. UTC timestamp when Leadping queued this event detail response for processing.
@@ -488,7 +475,6 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
-        writer.writeStringValue("providerMessageId", this.getProviderMessageId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
@@ -624,13 +610,6 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     public void setOutboundPhoneNumberId(@jakarta.annotation.Nullable final String value) {
         this.outboundPhoneNumberId = value;
-    }
-    /**
-     * Sets the providerMessageId property value. Provider message identifier for SMS delivery tracking and reconciliation.
-     * @param value Value to set for the providerMessageId property.
-     */
-    public void setProviderMessageId(@jakarta.annotation.Nullable final String value) {
-        this.providerMessageId = value;
     }
     /**
      * Sets the queuedAt property value. UTC timestamp when Leadping queued this event detail response for processing.

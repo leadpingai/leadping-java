@@ -18,10 +18,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The human-readable admin reason explaining this ion check result.
-     */
-    private String adminReason;
-    /**
      * Whether this ion check result allows ed.
      */
     private Boolean allowed;
@@ -86,14 +82,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminReason property value. The human-readable admin reason explaining this ion check result.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAdminReason() {
-        return this.adminReason;
-    }
-    /**
      * Gets the allowed property value. Whether this ion check result allows ed.
      * @return a {@link Boolean}
      */
@@ -131,8 +119,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
-        deserializerMap.put("adminReason", (n) -> { this.setAdminReason(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("allowed", (n) -> { this.setAllowed(n.getBooleanValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
@@ -199,7 +186,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("adminReason", this.getAdminReason());
         writer.writeBooleanValue("allowed", this.getAllowed());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("channel", this.getChannel());
@@ -218,13 +204,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminReason property value. The human-readable admin reason explaining this ion check result.
-     * @param value Value to set for the adminReason property.
-     */
-    public void setAdminReason(@jakarta.annotation.Nullable final String value) {
-        this.adminReason = value;
     }
     /**
      * Sets the allowed property value. Whether this ion check result allows ed.

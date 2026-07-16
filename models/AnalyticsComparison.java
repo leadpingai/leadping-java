@@ -8,6 +8,9 @@ import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Date and time when this Leadping customer analytics summary was leads comparison.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
     /**
@@ -15,19 +18,19 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The changePercent property
+     * Percentage change between the current and previous reporting periods.
      */
     private UntypedNode changePercent;
     /**
-     * The current property
+     * Metric value for the current reporting period.
      */
     private Double current;
     /**
-     * The direction property
+     * Direction classification for this Leadping analytics comparison.
      */
     private String direction;
     /**
-     * The previous property
+     * Metric value for the preceding comparison period.
      */
     private Double previous;
     /**
@@ -55,7 +58,7 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the changePercent property value. The changePercent property
+     * Gets the changePercent property value. Percentage change between the current and previous reporting periods.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -63,7 +66,7 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
         return this.changePercent;
     }
     /**
-     * Gets the current property value. The current property
+     * Gets the current property value. Metric value for the current reporting period.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -71,7 +74,7 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
         return this.current;
     }
     /**
-     * Gets the direction property value. The direction property
+     * Gets the direction property value. Direction classification for this Leadping analytics comparison.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +95,7 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the previous property value. The previous property
+     * Gets the previous property value. Metric value for the preceding comparison period.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -119,28 +122,28 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the changePercent property value. The changePercent property
+     * Sets the changePercent property value. Percentage change between the current and previous reporting periods.
      * @param value Value to set for the changePercent property.
      */
     public void setChangePercent(@jakarta.annotation.Nullable final UntypedNode value) {
         this.changePercent = value;
     }
     /**
-     * Sets the current property value. The current property
+     * Sets the current property value. Metric value for the current reporting period.
      * @param value Value to set for the current property.
      */
     public void setCurrent(@jakarta.annotation.Nullable final Double value) {
         this.current = value;
     }
     /**
-     * Sets the direction property value. The direction property
+     * Sets the direction property value. Direction classification for this Leadping analytics comparison.
      * @param value Value to set for the direction property.
      */
     public void setDirection(@jakarta.annotation.Nullable final String value) {
         this.direction = value;
     }
     /**
-     * Sets the previous property value. The previous property
+     * Sets the previous property value. Metric value for the preceding comparison period.
      * @param value Value to set for the previous property.
      */
     public void setPrevious(@jakarta.annotation.Nullable final Double value) {

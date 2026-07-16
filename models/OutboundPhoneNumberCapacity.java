@@ -14,63 +14,63 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * Defines phone-number outbound health states used by pacing.
+     * Current health status for this Leadping outbound phone number capacity.
      */
     private PhoneNumberOutboundHealthStatus healthStatus;
     /**
-     * The phoneNumber property
+     * Phone number associated with this Leadping outbound phone number capacity.
      */
     private String phoneNumber;
     /**
-     * The phoneNumberId property
+     * Unique identifier of the phone number associated with this Leadping outbound phone number capacity.
      */
     private String phoneNumberId;
     /**
-     * The smsLimitThisHour property
+     * Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      */
     private Integer smsLimitThisHour;
     /**
-     * The smsLimitToday property
+     * Number of SMS limit today represented by this Leadping outbound phone number capacity.
      */
     private Integer smsLimitToday;
     /**
-     * The smsRemainingThisHour property
+     * SMS remaining this hour for the applicable messaging or voice capacity window.
      */
     private Integer smsRemainingThisHour;
     /**
-     * The smsRemainingToday property
+     * SMS remaining today for the applicable messaging or voice capacity window.
      */
     private Integer smsRemainingToday;
     /**
-     * The smsUsedThisHour property
+     * SMS used this hour for the applicable messaging or voice capacity window.
      */
     private Integer smsUsedThisHour;
     /**
-     * The smsUsedToday property
+     * SMS used today for the applicable messaging or voice capacity window.
      */
     private Integer smsUsedToday;
     /**
-     * The voiceLimitThisHour property
+     * Voice limit this hour associated with this Leadping outbound phone number capacity.
      */
     private Integer voiceLimitThisHour;
     /**
-     * The voiceLimitToday property
+     * Voice limit today associated with this Leadping outbound phone number capacity.
      */
     private Integer voiceLimitToday;
     /**
-     * The voiceRemainingThisHour property
+     * Voice remaining this hour for the applicable messaging or voice capacity window.
      */
     private Integer voiceRemainingThisHour;
     /**
-     * The voiceRemainingToday property
+     * Voice remaining today for the applicable messaging or voice capacity window.
      */
     private Integer voiceRemainingToday;
     /**
-     * The voiceUsedThisHour property
+     * Voice used this hour for the applicable messaging or voice capacity window.
      */
     private Integer voiceUsedThisHour;
     /**
-     * The voiceUsedToday property
+     * Voice used today for the applicable messaging or voice capacity window.
      */
     private Integer voiceUsedToday;
     /**
@@ -122,7 +122,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return deserializerMap;
     }
     /**
-     * Gets the healthStatus property value. Defines phone-number outbound health states used by pacing.
+     * Gets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.
      * @return a {@link PhoneNumberOutboundHealthStatus}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.healthStatus;
     }
     /**
-     * Gets the phoneNumber property value. The phoneNumber property
+     * Gets the phoneNumber property value. Phone number associated with this Leadping outbound phone number capacity.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.phoneNumber;
     }
     /**
-     * Gets the phoneNumberId property value. The phoneNumberId property
+     * Gets the phoneNumberId property value. Unique identifier of the phone number associated with this Leadping outbound phone number capacity.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +146,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.phoneNumberId;
     }
     /**
-     * Gets the smsLimitThisHour property value. The smsLimitThisHour property
+     * Gets the smsLimitThisHour property value. Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -154,7 +154,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.smsLimitThisHour;
     }
     /**
-     * Gets the smsLimitToday property value. The smsLimitToday property
+     * Gets the smsLimitToday property value. Number of SMS limit today represented by this Leadping outbound phone number capacity.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -162,7 +162,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.smsLimitToday;
     }
     /**
-     * Gets the smsRemainingThisHour property value. The smsRemainingThisHour property
+     * Gets the smsRemainingThisHour property value. SMS remaining this hour for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +170,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.smsRemainingThisHour;
     }
     /**
-     * Gets the smsRemainingToday property value. The smsRemainingToday property
+     * Gets the smsRemainingToday property value. SMS remaining today for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +178,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.smsRemainingToday;
     }
     /**
-     * Gets the smsUsedThisHour property value. The smsUsedThisHour property
+     * Gets the smsUsedThisHour property value. SMS used this hour for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -186,7 +186,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.smsUsedThisHour;
     }
     /**
-     * Gets the smsUsedToday property value. The smsUsedToday property
+     * Gets the smsUsedToday property value. SMS used today for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -194,7 +194,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.smsUsedToday;
     }
     /**
-     * Gets the voiceLimitThisHour property value. The voiceLimitThisHour property
+     * Gets the voiceLimitThisHour property value. Voice limit this hour associated with this Leadping outbound phone number capacity.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -202,7 +202,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceLimitThisHour;
     }
     /**
-     * Gets the voiceLimitToday property value. The voiceLimitToday property
+     * Gets the voiceLimitToday property value. Voice limit today associated with this Leadping outbound phone number capacity.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -210,7 +210,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceLimitToday;
     }
     /**
-     * Gets the voiceRemainingThisHour property value. The voiceRemainingThisHour property
+     * Gets the voiceRemainingThisHour property value. Voice remaining this hour for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -218,7 +218,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceRemainingThisHour;
     }
     /**
-     * Gets the voiceRemainingToday property value. The voiceRemainingToday property
+     * Gets the voiceRemainingToday property value. Voice remaining today for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -226,7 +226,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceRemainingToday;
     }
     /**
-     * Gets the voiceUsedThisHour property value. The voiceUsedThisHour property
+     * Gets the voiceUsedThisHour property value. Voice used this hour for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -234,7 +234,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceUsedThisHour;
     }
     /**
-     * Gets the voiceUsedToday property value. The voiceUsedToday property
+     * Gets the voiceUsedToday property value. Voice used today for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -272,105 +272,105 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the healthStatus property value. Defines phone-number outbound health states used by pacing.
+     * Sets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.
      * @param value Value to set for the healthStatus property.
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final PhoneNumberOutboundHealthStatus value) {
         this.healthStatus = value;
     }
     /**
-     * Sets the phoneNumber property value. The phoneNumber property
+     * Sets the phoneNumber property value. Phone number associated with this Leadping outbound phone number capacity.
      * @param value Value to set for the phoneNumber property.
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.phoneNumber = value;
     }
     /**
-     * Sets the phoneNumberId property value. The phoneNumberId property
+     * Sets the phoneNumberId property value. Unique identifier of the phone number associated with this Leadping outbound phone number capacity.
      * @param value Value to set for the phoneNumberId property.
      */
     public void setPhoneNumberId(@jakarta.annotation.Nullable final String value) {
         this.phoneNumberId = value;
     }
     /**
-     * Sets the smsLimitThisHour property value. The smsLimitThisHour property
+     * Sets the smsLimitThisHour property value. Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      * @param value Value to set for the smsLimitThisHour property.
      */
     public void setSmsLimitThisHour(@jakarta.annotation.Nullable final Integer value) {
         this.smsLimitThisHour = value;
     }
     /**
-     * Sets the smsLimitToday property value. The smsLimitToday property
+     * Sets the smsLimitToday property value. Number of SMS limit today represented by this Leadping outbound phone number capacity.
      * @param value Value to set for the smsLimitToday property.
      */
     public void setSmsLimitToday(@jakarta.annotation.Nullable final Integer value) {
         this.smsLimitToday = value;
     }
     /**
-     * Sets the smsRemainingThisHour property value. The smsRemainingThisHour property
+     * Sets the smsRemainingThisHour property value. SMS remaining this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsRemainingThisHour property.
      */
     public void setSmsRemainingThisHour(@jakarta.annotation.Nullable final Integer value) {
         this.smsRemainingThisHour = value;
     }
     /**
-     * Sets the smsRemainingToday property value. The smsRemainingToday property
+     * Sets the smsRemainingToday property value. SMS remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsRemainingToday property.
      */
     public void setSmsRemainingToday(@jakarta.annotation.Nullable final Integer value) {
         this.smsRemainingToday = value;
     }
     /**
-     * Sets the smsUsedThisHour property value. The smsUsedThisHour property
+     * Sets the smsUsedThisHour property value. SMS used this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsUsedThisHour property.
      */
     public void setSmsUsedThisHour(@jakarta.annotation.Nullable final Integer value) {
         this.smsUsedThisHour = value;
     }
     /**
-     * Sets the smsUsedToday property value. The smsUsedToday property
+     * Sets the smsUsedToday property value. SMS used today for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsUsedToday property.
      */
     public void setSmsUsedToday(@jakarta.annotation.Nullable final Integer value) {
         this.smsUsedToday = value;
     }
     /**
-     * Sets the voiceLimitThisHour property value. The voiceLimitThisHour property
+     * Sets the voiceLimitThisHour property value. Voice limit this hour associated with this Leadping outbound phone number capacity.
      * @param value Value to set for the voiceLimitThisHour property.
      */
     public void setVoiceLimitThisHour(@jakarta.annotation.Nullable final Integer value) {
         this.voiceLimitThisHour = value;
     }
     /**
-     * Sets the voiceLimitToday property value. The voiceLimitToday property
+     * Sets the voiceLimitToday property value. Voice limit today associated with this Leadping outbound phone number capacity.
      * @param value Value to set for the voiceLimitToday property.
      */
     public void setVoiceLimitToday(@jakarta.annotation.Nullable final Integer value) {
         this.voiceLimitToday = value;
     }
     /**
-     * Sets the voiceRemainingThisHour property value. The voiceRemainingThisHour property
+     * Sets the voiceRemainingThisHour property value. Voice remaining this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceRemainingThisHour property.
      */
     public void setVoiceRemainingThisHour(@jakarta.annotation.Nullable final Integer value) {
         this.voiceRemainingThisHour = value;
     }
     /**
-     * Sets the voiceRemainingToday property value. The voiceRemainingToday property
+     * Sets the voiceRemainingToday property value. Voice remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceRemainingToday property.
      */
     public void setVoiceRemainingToday(@jakarta.annotation.Nullable final Integer value) {
         this.voiceRemainingToday = value;
     }
     /**
-     * Sets the voiceUsedThisHour property value. The voiceUsedThisHour property
+     * Sets the voiceUsedThisHour property value. Voice used this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceUsedThisHour property.
      */
     public void setVoiceUsedThisHour(@jakarta.annotation.Nullable final Integer value) {
         this.voiceUsedThisHour = value;
     }
     /**
-     * Sets the voiceUsedToday property value. The voiceUsedToday property
+     * Sets the voiceUsedToday property value. Voice used today for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceUsedToday property.
      */
     public void setVoiceUsedToday(@jakarta.annotation.Nullable final Integer value) {

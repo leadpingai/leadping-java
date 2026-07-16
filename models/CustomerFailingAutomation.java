@@ -8,6 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Last failure associated with this Leadping customer automation health.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable {
     /**
@@ -15,19 +18,19 @@ public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * The automationId property
+     * Unique identifier of the automation associated with this Leadping customer failing automation.
      */
     private String automationId;
     /**
-     * The error property
+     * Error associated with this Leadping customer failing automation.
      */
     private String error;
     /**
-     * The failedAt property
+     * Date and time when the customer failing automation failed.
      */
     private OffsetDateTime failedAt;
     /**
-     * The name property
+     * Human-readable name of the customer failing automation.
      */
     private String name;
     /**
@@ -55,7 +58,7 @@ public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
-     * Gets the automationId property value. The automationId property
+     * Gets the automationId property value. Unique identifier of the automation associated with this Leadping customer failing automation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -63,7 +66,7 @@ public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable
         return this.automationId;
     }
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. Error associated with this Leadping customer failing automation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -71,7 +74,7 @@ public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable
         return this.error;
     }
     /**
-     * Gets the failedAt property value. The failedAt property
+     * Gets the failedAt property value. Date and time when the customer failing automation failed.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +95,7 @@ public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Human-readable name of the customer failing automation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -119,28 +122,28 @@ public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the automationId property value. The automationId property
+     * Sets the automationId property value. Unique identifier of the automation associated with this Leadping customer failing automation.
      * @param value Value to set for the automationId property.
      */
     public void setAutomationId(@jakarta.annotation.Nullable final String value) {
         this.automationId = value;
     }
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. Error associated with this Leadping customer failing automation.
      * @param value Value to set for the error property.
      */
     public void setError(@jakarta.annotation.Nullable final String value) {
         this.error = value;
     }
     /**
-     * Sets the failedAt property value. The failedAt property
+     * Sets the failedAt property value. Date and time when the customer failing automation failed.
      * @param value Value to set for the failedAt property.
      */
     public void setFailedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.failedAt = value;
     }
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Human-readable name of the customer failing automation.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {

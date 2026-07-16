@@ -29,14 +29,6 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     private Double customerChargeAmount;
     /**
-     * The monetary internal cost amount for this usage summary line.
-     */
-    private Double internalCostAmount;
-    /**
-     * The monetary provider cost amount for this usage summary line.
-     */
-    private Double providerCostAmount;
-    /**
      * The quantity value for this usage summary line.
      */
     private Double quantity;
@@ -102,32 +94,14 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
         deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
-        deserializerMap.put("internalCostAmount", (n) -> { this.setInternalCostAmount(n.getDoubleValue()); });
-        deserializerMap.put("providerCostAmount", (n) -> { this.setProviderCostAmount(n.getDoubleValue()); });
         deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
         deserializerMap.put("recordCount", (n) -> { this.setRecordCount(n.getIntegerValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageRecordStatus::forValue)); });
         return deserializerMap;
-    }
-    /**
-     * Gets the internalCostAmount property value. The monetary internal cost amount for this usage summary line.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getInternalCostAmount() {
-        return this.internalCostAmount;
-    }
-    /**
-     * Gets the providerCostAmount property value. The monetary provider cost amount for this usage summary line.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getProviderCostAmount() {
-        return this.providerCostAmount;
     }
     /**
      * Gets the quantity property value. The quantity value for this usage summary line.
@@ -162,8 +136,6 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
         writer.writeEnumValue("channel", this.getChannel());
         writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
-        writer.writeDoubleValue("internalCostAmount", this.getInternalCostAmount());
-        writer.writeDoubleValue("providerCostAmount", this.getProviderCostAmount());
         writer.writeDoubleValue("quantity", this.getQuantity());
         writer.writeIntegerValue("recordCount", this.getRecordCount());
         writer.writeEnumValue("status", this.getStatus());
@@ -196,20 +168,6 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     public void setCustomerChargeAmount(@jakarta.annotation.Nullable final Double value) {
         this.customerChargeAmount = value;
-    }
-    /**
-     * Sets the internalCostAmount property value. The monetary internal cost amount for this usage summary line.
-     * @param value Value to set for the internalCostAmount property.
-     */
-    public void setInternalCostAmount(@jakarta.annotation.Nullable final Double value) {
-        this.internalCostAmount = value;
-    }
-    /**
-     * Sets the providerCostAmount property value. The monetary provider cost amount for this usage summary line.
-     * @param value Value to set for the providerCostAmount property.
-     */
-    public void setProviderCostAmount(@jakarta.annotation.Nullable final Double value) {
-        this.providerCostAmount = value;
     }
     /**
      * Sets the quantity property value. The quantity value for this usage summary line.

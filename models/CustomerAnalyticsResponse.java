@@ -11,7 +11,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable {
     /**
-     * The activationHealth property
+     * Activation health associated with this Leadping customer analytics.
      */
     private CustomerActivationHealth activationHealth;
     /**
@@ -19,39 +19,39 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * The automationHealth property
+     * Automation health associated with this Leadping customer analytics.
      */
     private CustomerAutomationHealth automationHealth;
     /**
-     * The communicationUsage property
+     * Communication usage associated with this Leadping customer analytics.
      */
     private CustomerCommunicationUsage communicationUsage;
     /**
-     * The generatedAt property
+     * Date and time when this Leadping customer analytics was generated.
      */
     private OffsetDateTime generatedAt;
     /**
-     * The leadSources property
+     * Collection of lead sources included with this Leadping customer analytics.
      */
     private java.util.List<CustomerLeadSourceBreakdown> leadSources;
     /**
-     * The leadTrend property
+     * Lead trend associated with this Leadping customer analytics.
      */
     private CustomerLeadTrend leadTrend;
     /**
-     * The needsAttention property
+     * Date and time when this Leadping customer analytics was needs attention.
      */
     private java.util.List<CustomerNeedsAttentionItem> needsAttention;
     /**
-     * The range property
+     * Range associated with this Leadping customer analytics.
      */
     private AnalyticsDateRange range;
     /**
-     * The responseMetrics property
+     * Response metrics associated with this Leadping customer analytics.
      */
     private CustomerResponseMetrics responseMetrics;
     /**
-     * The summary property
+     * Human-readable summary for this Leadping customer analytics.
      */
     private CustomerAnalyticsSummary summary;
     /**
@@ -71,7 +71,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return new CustomerAnalyticsResponse();
     }
     /**
-     * Gets the activationHealth property value. The activationHealth property
+     * Gets the activationHealth property value. Activation health associated with this Leadping customer analytics.
      * @return a {@link CustomerActivationHealth}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
-     * Gets the automationHealth property value. The automationHealth property
+     * Gets the automationHealth property value. Automation health associated with this Leadping customer analytics.
      * @return a {@link CustomerAutomationHealth}
      */
     @jakarta.annotation.Nullable
@@ -95,7 +95,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.automationHealth;
     }
     /**
-     * Gets the communicationUsage property value. The communicationUsage property
+     * Gets the communicationUsage property value. Communication usage associated with this Leadping customer analytics.
      * @return a {@link CustomerCommunicationUsage}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the generatedAt property value. The generatedAt property
+     * Gets the generatedAt property value. Date and time when this Leadping customer analytics was generated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.generatedAt;
     }
     /**
-     * Gets the leadSources property value. The leadSources property
+     * Gets the leadSources property value. Collection of lead sources included with this Leadping customer analytics.
      * @return a {@link java.util.List<CustomerLeadSourceBreakdown>}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.leadSources;
     }
     /**
-     * Gets the leadTrend property value. The leadTrend property
+     * Gets the leadTrend property value. Lead trend associated with this Leadping customer analytics.
      * @return a {@link CustomerLeadTrend}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +146,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.leadTrend;
     }
     /**
-     * Gets the needsAttention property value. The needsAttention property
+     * Gets the needsAttention property value. Date and time when this Leadping customer analytics was needs attention.
      * @return a {@link java.util.List<CustomerNeedsAttentionItem>}
      */
     @jakarta.annotation.Nullable
@@ -154,7 +154,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.needsAttention;
     }
     /**
-     * Gets the range property value. The range property
+     * Gets the range property value. Range associated with this Leadping customer analytics.
      * @return a {@link AnalyticsDateRange}
      */
     @jakarta.annotation.Nullable
@@ -162,7 +162,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.range;
     }
     /**
-     * Gets the responseMetrics property value. The responseMetrics property
+     * Gets the responseMetrics property value. Response metrics associated with this Leadping customer analytics.
      * @return a {@link CustomerResponseMetrics}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +170,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.responseMetrics;
     }
     /**
-     * Gets the summary property value. The summary property
+     * Gets the summary property value. Human-readable summary for this Leadping customer analytics.
      * @return a {@link CustomerAnalyticsSummary}
      */
     @jakarta.annotation.Nullable
@@ -196,7 +196,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the activationHealth property value. The activationHealth property
+     * Sets the activationHealth property value. Activation health associated with this Leadping customer analytics.
      * @param value Value to set for the activationHealth property.
      */
     public void setActivationHealth(@jakarta.annotation.Nullable final CustomerActivationHealth value) {
@@ -210,63 +210,63 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the automationHealth property value. The automationHealth property
+     * Sets the automationHealth property value. Automation health associated with this Leadping customer analytics.
      * @param value Value to set for the automationHealth property.
      */
     public void setAutomationHealth(@jakarta.annotation.Nullable final CustomerAutomationHealth value) {
         this.automationHealth = value;
     }
     /**
-     * Sets the communicationUsage property value. The communicationUsage property
+     * Sets the communicationUsage property value. Communication usage associated with this Leadping customer analytics.
      * @param value Value to set for the communicationUsage property.
      */
     public void setCommunicationUsage(@jakarta.annotation.Nullable final CustomerCommunicationUsage value) {
         this.communicationUsage = value;
     }
     /**
-     * Sets the generatedAt property value. The generatedAt property
+     * Sets the generatedAt property value. Date and time when this Leadping customer analytics was generated.
      * @param value Value to set for the generatedAt property.
      */
     public void setGeneratedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.generatedAt = value;
     }
     /**
-     * Sets the leadSources property value. The leadSources property
+     * Sets the leadSources property value. Collection of lead sources included with this Leadping customer analytics.
      * @param value Value to set for the leadSources property.
      */
     public void setLeadSources(@jakarta.annotation.Nullable final java.util.List<CustomerLeadSourceBreakdown> value) {
         this.leadSources = value;
     }
     /**
-     * Sets the leadTrend property value. The leadTrend property
+     * Sets the leadTrend property value. Lead trend associated with this Leadping customer analytics.
      * @param value Value to set for the leadTrend property.
      */
     public void setLeadTrend(@jakarta.annotation.Nullable final CustomerLeadTrend value) {
         this.leadTrend = value;
     }
     /**
-     * Sets the needsAttention property value. The needsAttention property
+     * Sets the needsAttention property value. Date and time when this Leadping customer analytics was needs attention.
      * @param value Value to set for the needsAttention property.
      */
     public void setNeedsAttention(@jakarta.annotation.Nullable final java.util.List<CustomerNeedsAttentionItem> value) {
         this.needsAttention = value;
     }
     /**
-     * Sets the range property value. The range property
+     * Sets the range property value. Range associated with this Leadping customer analytics.
      * @param value Value to set for the range property.
      */
     public void setRange(@jakarta.annotation.Nullable final AnalyticsDateRange value) {
         this.range = value;
     }
     /**
-     * Sets the responseMetrics property value. The responseMetrics property
+     * Sets the responseMetrics property value. Response metrics associated with this Leadping customer analytics.
      * @param value Value to set for the responseMetrics property.
      */
     public void setResponseMetrics(@jakarta.annotation.Nullable final CustomerResponseMetrics value) {
         this.responseMetrics = value;
     }
     /**
-     * Sets the summary property value. The summary property
+     * Sets the summary property value. Human-readable summary for this Leadping customer analytics.
      * @param value Value to set for the summary property.
      */
     public void setSummary(@jakarta.annotation.Nullable final CustomerAnalyticsSummary value) {

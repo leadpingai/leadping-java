@@ -15,19 +15,19 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Defines outbound delivery channels protected by delivery control.
+     * Channel classification for this Leadping outbound queue item.
      */
     private OutboundDeliveryChannel channel;
     /**
-     * The id property
+     * Unique Leadping identifier for the outbound queue item.
      */
     private String id;
     /**
-     * The phoneNumber property
+     * Phone number associated with this Leadping outbound queue item.
      */
     private String phoneNumber;
     /**
-     * The reason property
+     * Human-readable explanation for the current outbound queue item outcome.
      */
     private String reason;
     /**
@@ -35,15 +35,15 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
      */
     private OutboundQueueItemReasonCode reasonCode;
     /**
-     * The scheduledSendAt property
+     * Date and time when this Leadping outbound queue item was scheduled send.
      */
     private OffsetDateTime scheduledSendAt;
     /**
-     * Defines the source that requested outbound delivery.
+     * Source classification for this Leadping outbound queue item.
      */
     private OutboundDeliverySource source;
     /**
-     * Defines durable outbound delivery request statuses.
+     * Current status for this Leadping outbound queue item.
      */
     private OutboundDeliveryStatus status;
     /**
@@ -71,7 +71,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the channel property value. Defines outbound delivery channels protected by delivery control.
+     * Gets the channel property value. Channel classification for this Leadping outbound queue item.
      * @return a {@link OutboundDeliveryChannel}
      */
     @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique Leadping identifier for the outbound queue item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +104,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the phoneNumber property value. The phoneNumber property
+     * Gets the phoneNumber property value. Phone number associated with this Leadping outbound queue item.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -112,7 +112,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.phoneNumber;
     }
     /**
-     * Gets the reason property value. The reason property
+     * Gets the reason property value. Human-readable explanation for the current outbound queue item outcome.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -128,7 +128,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.reasonCode;
     }
     /**
-     * Gets the scheduledSendAt property value. The scheduledSendAt property
+     * Gets the scheduledSendAt property value. Date and time when this Leadping outbound queue item was scheduled send.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -136,7 +136,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.scheduledSendAt;
     }
     /**
-     * Gets the source property value. Defines the source that requested outbound delivery.
+     * Gets the source property value. Source classification for this Leadping outbound queue item.
      * @return a {@link OutboundDeliverySource}
      */
     @jakarta.annotation.Nullable
@@ -144,7 +144,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.source;
     }
     /**
-     * Gets the status property value. Defines durable outbound delivery request statuses.
+     * Gets the status property value. Current status for this Leadping outbound queue item.
      * @return a {@link OutboundDeliveryStatus}
      */
     @jakarta.annotation.Nullable
@@ -175,28 +175,28 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the channel property value. Defines outbound delivery channels protected by delivery control.
+     * Sets the channel property value. Channel classification for this Leadping outbound queue item.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final OutboundDeliveryChannel value) {
         this.channel = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique Leadping identifier for the outbound queue item.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the phoneNumber property value. The phoneNumber property
+     * Sets the phoneNumber property value. Phone number associated with this Leadping outbound queue item.
      * @param value Value to set for the phoneNumber property.
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.phoneNumber = value;
     }
     /**
-     * Sets the reason property value. The reason property
+     * Sets the reason property value. Human-readable explanation for the current outbound queue item outcome.
      * @param value Value to set for the reason property.
      */
     public void setReason(@jakarta.annotation.Nullable final String value) {
@@ -210,21 +210,21 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         this.reasonCode = value;
     }
     /**
-     * Sets the scheduledSendAt property value. The scheduledSendAt property
+     * Sets the scheduledSendAt property value. Date and time when this Leadping outbound queue item was scheduled send.
      * @param value Value to set for the scheduledSendAt property.
      */
     public void setScheduledSendAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.scheduledSendAt = value;
     }
     /**
-     * Sets the source property value. Defines the source that requested outbound delivery.
+     * Sets the source property value. Source classification for this Leadping outbound queue item.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final OutboundDeliverySource value) {
         this.source = value;
     }
     /**
-     * Sets the status property value. Defines durable outbound delivery request statuses.
+     * Sets the status property value. Current status for this Leadping outbound queue item.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OutboundDeliveryStatus value) {

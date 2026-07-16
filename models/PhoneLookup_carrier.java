@@ -7,25 +7,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Admin override that can enable or disable this record independently of normal status checks.
+ * Complete carrier metadata reported for this phone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class BusinessRequestAdminEnablementOverride extends AdminEnablementOverride implements Parsable {
+public class PhoneLookup_carrier extends PhoneLookupCarrier implements Parsable {
     /**
-     * Instantiates a new {@link BusinessRequestAdminEnablementOverride} and sets the default values.
+     * Instantiates a new {@link PhoneLookup_carrier} and sets the default values.
      */
-    public BusinessRequestAdminEnablementOverride() {
+    public PhoneLookup_carrier() {
         super();
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link BusinessRequestAdminEnablementOverride}
+     * @return a {@link PhoneLookup_carrier}
      */
     @jakarta.annotation.Nonnull
-    public static BusinessRequestAdminEnablementOverride createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static PhoneLookup_carrier createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new BusinessRequestAdminEnablementOverride();
+        return new PhoneLookup_carrier();
     }
     /**
      * The deserialization information for the current model

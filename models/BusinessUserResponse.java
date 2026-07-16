@@ -51,14 +51,6 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * The Stripe subscription ID containing this user&apos;s business license item.
-     */
-    private String licenseStripeSubscriptionId;
-    /**
-     * The Stripe subscription item ID used for business user licenses.
-     */
-    private String licenseStripeSubscriptionItemId;
-    /**
      * The date and time when the entity was last modified, if applicable.
      */
     private OffsetDateTime modifiedAt;
@@ -140,7 +132,7 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
@@ -149,8 +141,6 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
         deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("licenseStripeSubscriptionId", (n) -> { this.setLicenseStripeSubscriptionId(n.getStringValue()); });
-        deserializerMap.put("licenseStripeSubscriptionItemId", (n) -> { this.setLicenseStripeSubscriptionItemId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("removedAt", (n) -> { this.setRemovedAt(n.getOffsetDateTimeValue()); });
@@ -199,22 +189,6 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getLicenseRenewalDate() {
         return this.licenseRenewalDate;
-    }
-    /**
-     * Gets the licenseStripeSubscriptionId property value. The Stripe subscription ID containing this user&apos;s business license item.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLicenseStripeSubscriptionId() {
-        return this.licenseStripeSubscriptionId;
-    }
-    /**
-     * Gets the licenseStripeSubscriptionItemId property value. The Stripe subscription item ID used for business user licenses.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLicenseStripeSubscriptionItemId() {
-        return this.licenseStripeSubscriptionItemId;
     }
     /**
      * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
@@ -286,8 +260,6 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
         writer.writeObjectValue("licenseQuantity", this.getLicenseQuantity());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
-        writer.writeStringValue("licenseStripeSubscriptionId", this.getLicenseStripeSubscriptionId());
-        writer.writeStringValue("licenseStripeSubscriptionItemId", this.getLicenseStripeSubscriptionItemId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeOffsetDateTimeValue("removedAt", this.getRemovedAt());
@@ -359,20 +331,6 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLicenseRenewalDate(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.licenseRenewalDate = value;
-    }
-    /**
-     * Sets the licenseStripeSubscriptionId property value. The Stripe subscription ID containing this user&apos;s business license item.
-     * @param value Value to set for the licenseStripeSubscriptionId property.
-     */
-    public void setLicenseStripeSubscriptionId(@jakarta.annotation.Nullable final String value) {
-        this.licenseStripeSubscriptionId = value;
-    }
-    /**
-     * Sets the licenseStripeSubscriptionItemId property value. The Stripe subscription item ID used for business user licenses.
-     * @param value Value to set for the licenseStripeSubscriptionItemId property.
-     */
-    public void setLicenseStripeSubscriptionItemId(@jakarta.annotation.Nullable final String value) {
-        this.licenseStripeSubscriptionItemId = value;
     }
     /**
      * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.

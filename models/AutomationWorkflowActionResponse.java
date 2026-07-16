@@ -14,11 +14,11 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationWorkflowActionResponse implements AdditionalDataHolder, Parsable {
     /**
-     * The actionType property
+     * Action type classification for this Leadping automation workflow action.
      */
     private String actionType;
     /**
-     * The actionTypeDisplay property
+     * Human-readable action type display for this Leadping automation workflow action.
      */
     private String actionTypeDisplay;
     /**
@@ -26,71 +26,67 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
      */
     private Map<String, Object> additionalData;
     /**
-     * The adminDiagnostics property
-     */
-    private String adminDiagnostics;
-    /**
-     * The completedAt property
+     * Date and time when the automation workflow action completed.
      */
     private OffsetDateTime completedAt;
     /**
-     * The failedAt property
+     * Date and time when the automation workflow action failed.
      */
     private OffsetDateTime failedAt;
     /**
-     * The failureCode property
+     * Reason or diagnostic code that explains the current outcome for this Leadping automation workflow action.
      */
     private String failureCode;
     /**
-     * The id property
+     * Unique Leadping identifier for the automation workflow action.
      */
     private String id;
     /**
-     * The nextRetryAt property
+     * Date and time when the next retry is scheduled.
      */
     private OffsetDateTime nextRetryAt;
     /**
-     * The retryCount property
+     * Total number of retry records represented by this Leadping automation workflow action.
      */
     private Integer retryCount;
     /**
-     * The safeReason property
+     * Safe reason associated with this Leadping automation workflow action.
      */
     private String safeReason;
     /**
-     * The scheduledAt property
+     * Date and time when the automation workflow action was scheduled.
      */
     private OffsetDateTime scheduledAt;
     /**
-     * The skippedAt property
+     * Date and time when the workflow action was skipped.
      */
     private OffsetDateTime skippedAt;
     /**
-     * The startedAt property
+     * Date and time when the automation workflow action started.
      */
     private OffsetDateTime startedAt;
     /**
-     * The status property
+     * Current status for this Leadping automation workflow action.
      */
     private String status;
     /**
-     * The statusDisplay property
+     * Human-readable status display for this Leadping automation workflow action.
      */
     private String statusDisplay;
     /**
-     * The stepDisplayName property
+     * Human-readable step display name associated with this Leadping automation workflow action.
      */
     private String stepDisplayName;
     /**
-     * The stepId property
+     * Unique identifier of the step associated with this Leadping automation workflow action.
      */
     private String stepId;
     /**
-     * The stepOrder property
+     * Step order associated with this Leadping automation workflow action.
      */
     private Integer stepOrder;
     /**
-     * The userSummary property
+     * Human-readable user summary for this Leadping automation workflow action.
      */
     private String userSummary;
     /**
@@ -110,7 +106,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return new AutomationWorkflowActionResponse();
     }
     /**
-     * Gets the actionType property value. The actionType property
+     * Gets the actionType property value. Action type classification for this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -118,7 +114,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.actionType;
     }
     /**
-     * Gets the actionTypeDisplay property value. The actionTypeDisplay property
+     * Gets the actionTypeDisplay property value. Human-readable action type display for this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -134,15 +130,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.additionalData;
     }
     /**
-     * Gets the adminDiagnostics property value. The adminDiagnostics property
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAdminDiagnostics() {
-        return this.adminDiagnostics;
-    }
-    /**
-     * Gets the completedAt property value. The completedAt property
+     * Gets the completedAt property value. Date and time when the automation workflow action completed.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -150,7 +138,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.completedAt;
     }
     /**
-     * Gets the failedAt property value. The failedAt property
+     * Gets the failedAt property value. Date and time when the automation workflow action failed.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -158,7 +146,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.failedAt;
     }
     /**
-     * Gets the failureCode property value. The failureCode property
+     * Gets the failureCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -171,10 +159,9 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("actionType", (n) -> { this.setActionType(n.getStringValue()); });
         deserializerMap.put("actionTypeDisplay", (n) -> { this.setActionTypeDisplay(n.getStringValue()); });
-        deserializerMap.put("adminDiagnostics", (n) -> { this.setAdminDiagnostics(n.getStringValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
@@ -194,7 +181,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique Leadping identifier for the automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -202,7 +189,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.id;
     }
     /**
-     * Gets the nextRetryAt property value. The nextRetryAt property
+     * Gets the nextRetryAt property value. Date and time when the next retry is scheduled.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -210,7 +197,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.nextRetryAt;
     }
     /**
-     * Gets the retryCount property value. The retryCount property
+     * Gets the retryCount property value. Total number of retry records represented by this Leadping automation workflow action.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -218,7 +205,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.retryCount;
     }
     /**
-     * Gets the safeReason property value. The safeReason property
+     * Gets the safeReason property value. Safe reason associated with this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -226,7 +213,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.safeReason;
     }
     /**
-     * Gets the scheduledAt property value. The scheduledAt property
+     * Gets the scheduledAt property value. Date and time when the automation workflow action was scheduled.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -234,7 +221,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.scheduledAt;
     }
     /**
-     * Gets the skippedAt property value. The skippedAt property
+     * Gets the skippedAt property value. Date and time when the workflow action was skipped.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -242,7 +229,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.skippedAt;
     }
     /**
-     * Gets the startedAt property value. The startedAt property
+     * Gets the startedAt property value. Date and time when the automation workflow action started.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -250,7 +237,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.startedAt;
     }
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Current status for this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -258,7 +245,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.status;
     }
     /**
-     * Gets the statusDisplay property value. The statusDisplay property
+     * Gets the statusDisplay property value. Human-readable status display for this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -266,7 +253,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.statusDisplay;
     }
     /**
-     * Gets the stepDisplayName property value. The stepDisplayName property
+     * Gets the stepDisplayName property value. Human-readable step display name associated with this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -274,7 +261,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.stepDisplayName;
     }
     /**
-     * Gets the stepId property value. The stepId property
+     * Gets the stepId property value. Unique identifier of the step associated with this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -282,7 +269,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.stepId;
     }
     /**
-     * Gets the stepOrder property value. The stepOrder property
+     * Gets the stepOrder property value. Step order associated with this Leadping automation workflow action.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -290,7 +277,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         return this.stepOrder;
     }
     /**
-     * Gets the userSummary property value. The userSummary property
+     * Gets the userSummary property value. Human-readable user summary for this Leadping automation workflow action.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -305,7 +292,6 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         Objects.requireNonNull(writer);
         writer.writeStringValue("actionType", this.getActionType());
         writer.writeStringValue("actionTypeDisplay", this.getActionTypeDisplay());
-        writer.writeStringValue("adminDiagnostics", this.getAdminDiagnostics());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("failureCode", this.getFailureCode());
@@ -325,14 +311,14 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actionType property value. The actionType property
+     * Sets the actionType property value. Action type classification for this Leadping automation workflow action.
      * @param value Value to set for the actionType property.
      */
     public void setActionType(@jakarta.annotation.Nullable final String value) {
         this.actionType = value;
     }
     /**
-     * Sets the actionTypeDisplay property value. The actionTypeDisplay property
+     * Sets the actionTypeDisplay property value. Human-readable action type display for this Leadping automation workflow action.
      * @param value Value to set for the actionTypeDisplay property.
      */
     public void setActionTypeDisplay(@jakarta.annotation.Nullable final String value) {
@@ -346,119 +332,112 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         this.additionalData = value;
     }
     /**
-     * Sets the adminDiagnostics property value. The adminDiagnostics property
-     * @param value Value to set for the adminDiagnostics property.
-     */
-    public void setAdminDiagnostics(@jakarta.annotation.Nullable final String value) {
-        this.adminDiagnostics = value;
-    }
-    /**
-     * Sets the completedAt property value. The completedAt property
+     * Sets the completedAt property value. Date and time when the automation workflow action completed.
      * @param value Value to set for the completedAt property.
      */
     public void setCompletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.completedAt = value;
     }
     /**
-     * Sets the failedAt property value. The failedAt property
+     * Sets the failedAt property value. Date and time when the automation workflow action failed.
      * @param value Value to set for the failedAt property.
      */
     public void setFailedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.failedAt = value;
     }
     /**
-     * Sets the failureCode property value. The failureCode property
+     * Sets the failureCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow action.
      * @param value Value to set for the failureCode property.
      */
     public void setFailureCode(@jakarta.annotation.Nullable final String value) {
         this.failureCode = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique Leadping identifier for the automation workflow action.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the nextRetryAt property value. The nextRetryAt property
+     * Sets the nextRetryAt property value. Date and time when the next retry is scheduled.
      * @param value Value to set for the nextRetryAt property.
      */
     public void setNextRetryAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.nextRetryAt = value;
     }
     /**
-     * Sets the retryCount property value. The retryCount property
+     * Sets the retryCount property value. Total number of retry records represented by this Leadping automation workflow action.
      * @param value Value to set for the retryCount property.
      */
     public void setRetryCount(@jakarta.annotation.Nullable final Integer value) {
         this.retryCount = value;
     }
     /**
-     * Sets the safeReason property value. The safeReason property
+     * Sets the safeReason property value. Safe reason associated with this Leadping automation workflow action.
      * @param value Value to set for the safeReason property.
      */
     public void setSafeReason(@jakarta.annotation.Nullable final String value) {
         this.safeReason = value;
     }
     /**
-     * Sets the scheduledAt property value. The scheduledAt property
+     * Sets the scheduledAt property value. Date and time when the automation workflow action was scheduled.
      * @param value Value to set for the scheduledAt property.
      */
     public void setScheduledAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.scheduledAt = value;
     }
     /**
-     * Sets the skippedAt property value. The skippedAt property
+     * Sets the skippedAt property value. Date and time when the workflow action was skipped.
      * @param value Value to set for the skippedAt property.
      */
     public void setSkippedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.skippedAt = value;
     }
     /**
-     * Sets the startedAt property value. The startedAt property
+     * Sets the startedAt property value. Date and time when the automation workflow action started.
      * @param value Value to set for the startedAt property.
      */
     public void setStartedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.startedAt = value;
     }
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Current status for this Leadping automation workflow action.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {
         this.status = value;
     }
     /**
-     * Sets the statusDisplay property value. The statusDisplay property
+     * Sets the statusDisplay property value. Human-readable status display for this Leadping automation workflow action.
      * @param value Value to set for the statusDisplay property.
      */
     public void setStatusDisplay(@jakarta.annotation.Nullable final String value) {
         this.statusDisplay = value;
     }
     /**
-     * Sets the stepDisplayName property value. The stepDisplayName property
+     * Sets the stepDisplayName property value. Human-readable step display name associated with this Leadping automation workflow action.
      * @param value Value to set for the stepDisplayName property.
      */
     public void setStepDisplayName(@jakarta.annotation.Nullable final String value) {
         this.stepDisplayName = value;
     }
     /**
-     * Sets the stepId property value. The stepId property
+     * Sets the stepId property value. Unique identifier of the step associated with this Leadping automation workflow action.
      * @param value Value to set for the stepId property.
      */
     public void setStepId(@jakarta.annotation.Nullable final String value) {
         this.stepId = value;
     }
     /**
-     * Sets the stepOrder property value. The stepOrder property
+     * Sets the stepOrder property value. Step order associated with this Leadping automation workflow action.
      * @param value Value to set for the stepOrder property.
      */
     public void setStepOrder(@jakarta.annotation.Nullable final Integer value) {
         this.stepOrder = value;
     }
     /**
-     * Sets the userSummary property value. The userSummary property
+     * Sets the userSummary property value. Human-readable user summary for this Leadping automation workflow action.
      * @param value Value to set for the userSummary property.
      */
     public void setUserSummary(@jakarta.annotation.Nullable final String value) {

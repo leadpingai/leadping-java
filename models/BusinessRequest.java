@@ -14,10 +14,6 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BusinessRequest implements AdditionalDataHolder, Parsable {
     /**
-     * Business activation state covering site, billing, compliance, and telephony readiness.
-     */
-    private BusinessRequestActivation activation;
-    /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
@@ -25,10 +21,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      * Postal address for the business, lead, or contact represented by this business profile request.
      */
     private BusinessRequestAddress address;
-    /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private BusinessRequestAdminEnablementOverride adminEnablementOverride;
     /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
@@ -49,10 +41,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      * Name used for invoices, receipts, and payment processor billing records.
      */
     private String billingName;
-    /**
-     * Defines the supported Billing Plan values.
-     */
-    private BusinessRequestBillingPlan billingPlan;
     /**
      * Compliance policy configuration for the business.
      */
@@ -98,21 +86,9 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     private String secondaryName;
     /**
-     * Defines the supported Business Setup Step values.
-     */
-    private BusinessRequestSetupStep setupStep;
-    /**
      * Defines the supported Business Status values.
      */
     private BusinessRequestStatus status;
-    /**
-     * Stripe customer and subscription state associated with this business or user.
-     */
-    private BusinessRequestStripeInfo stripeInfo;
-    /**
-     * Defines the supported Subscription Status values.
-     */
-    private BusinessRequestSubscriptionStatus subscriptionStatus;
     /**
      * Industry vertical used for lead routing, compliance review, and reporting.
      */
@@ -138,14 +114,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         return new BusinessRequest();
     }
     /**
-     * Gets the activation property value. Business activation state covering site, billing, compliance, and telephony readiness.
-     * @return a {@link BusinessRequestActivation}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessRequestActivation getActivation() {
-        return this.activation;
-    }
-    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return a {@link Map<String, Object>}
      */
@@ -160,14 +128,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public BusinessRequestAddress getAddress() {
         return this.address;
-    }
-    /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link BusinessRequestAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessRequestAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
     }
     /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -208,14 +168,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getBillingName() {
         return this.billingName;
-    }
-    /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
-     * @return a {@link BusinessRequestBillingPlan}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessRequestBillingPlan getBillingPlan() {
-        return this.billingPlan;
     }
     /**
      * Gets the compliancePolicy property value. Compliance policy configuration for the business.
@@ -263,16 +215,13 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
-        deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(BusinessRequestActivation::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessRequestAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(BusinessRequestAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(BusinessRequestBillingAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
-        deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessRequestBillingPlan::forValue)); });
         deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(BusinessRequestCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
@@ -284,10 +233,7 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("phones", (n) -> { this.setPhones(n.getCollectionOfObjectValues(IdNameValue::createFromDiscriminatorValue)); });
         deserializerMap.put("secondaryName", (n) -> { this.setSecondaryName(n.getStringValue()); });
-        deserializerMap.put("setupStep", (n) -> { this.setSetupStep(n.getEnumValue(BusinessRequestSetupStep::forValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(BusinessRequestStatus::forValue)); });
-        deserializerMap.put("stripeInfo", (n) -> { this.setStripeInfo(n.getObjectValue(BusinessRequestStripeInfo::createFromDiscriminatorValue)); });
-        deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(BusinessRequestSubscriptionStatus::forValue)); });
         deserializerMap.put("vertical", (n) -> { this.setVertical(n.getStringValue()); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
         return deserializerMap;
@@ -341,36 +287,12 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         return this.secondaryName;
     }
     /**
-     * Gets the setupStep property value. Defines the supported Business Setup Step values.
-     * @return a {@link BusinessRequestSetupStep}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessRequestSetupStep getSetupStep() {
-        return this.setupStep;
-    }
-    /**
      * Gets the status property value. Defines the supported Business Status values.
      * @return a {@link BusinessRequestStatus}
      */
     @jakarta.annotation.Nullable
     public BusinessRequestStatus getStatus() {
         return this.status;
-    }
-    /**
-     * Gets the stripeInfo property value. Stripe customer and subscription state associated with this business or user.
-     * @return a {@link BusinessRequestStripeInfo}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessRequestStripeInfo getStripeInfo() {
-        return this.stripeInfo;
-    }
-    /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
-     * @return a {@link BusinessRequestSubscriptionStatus}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessRequestSubscriptionStatus getSubscriptionStatus() {
-        return this.subscriptionStatus;
     }
     /**
      * Gets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.
@@ -394,15 +316,12 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("activation", this.getActivation());
         writer.writeObjectValue("address", this.getAddress());
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeObjectValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
         writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
         writer.writeStringValue("billingName", this.getBillingName());
-        writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("ein", this.getEin());
@@ -414,20 +333,10 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("phone", this.getPhone());
         writer.writeCollectionOfObjectValues("phones", this.getPhones());
         writer.writeStringValue("secondaryName", this.getSecondaryName());
-        writer.writeEnumValue("setupStep", this.getSetupStep());
         writer.writeEnumValue("status", this.getStatus());
-        writer.writeObjectValue("stripeInfo", this.getStripeInfo());
-        writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeStringValue("vertical", this.getVertical());
         writer.writeStringValue("website", this.getWebsite());
         writer.writeAdditionalData(this.getAdditionalData());
-    }
-    /**
-     * Sets the activation property value. Business activation state covering site, billing, compliance, and telephony readiness.
-     * @param value Value to set for the activation property.
-     */
-    public void setActivation(@jakarta.annotation.Nullable final BusinessRequestActivation value) {
-        this.activation = value;
     }
     /**
      * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -442,13 +351,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAddress(@jakarta.annotation.Nullable final BusinessRequestAddress value) {
         this.address = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final BusinessRequestAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -484,13 +386,6 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     public void setBillingName(@jakarta.annotation.Nullable final String value) {
         this.billingName = value;
-    }
-    /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
-     * @param value Value to set for the billingPlan property.
-     */
-    public void setBillingPlan(@jakarta.annotation.Nullable final BusinessRequestBillingPlan value) {
-        this.billingPlan = value;
     }
     /**
      * Sets the compliancePolicy property value. Compliance policy configuration for the business.
@@ -570,32 +465,11 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         this.secondaryName = value;
     }
     /**
-     * Sets the setupStep property value. Defines the supported Business Setup Step values.
-     * @param value Value to set for the setupStep property.
-     */
-    public void setSetupStep(@jakarta.annotation.Nullable final BusinessRequestSetupStep value) {
-        this.setupStep = value;
-    }
-    /**
      * Sets the status property value. Defines the supported Business Status values.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final BusinessRequestStatus value) {
         this.status = value;
-    }
-    /**
-     * Sets the stripeInfo property value. Stripe customer and subscription state associated with this business or user.
-     * @param value Value to set for the stripeInfo property.
-     */
-    public void setStripeInfo(@jakarta.annotation.Nullable final BusinessRequestStripeInfo value) {
-        this.stripeInfo = value;
-    }
-    /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
-     * @param value Value to set for the subscriptionStatus property.
-     */
-    public void setSubscriptionStatus(@jakarta.annotation.Nullable final BusinessRequestSubscriptionStatus value) {
-        this.subscriptionStatus = value;
     }
     /**
      * Sets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.

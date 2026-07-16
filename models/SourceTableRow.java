@@ -19,10 +19,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private SourceTableRowAdminEnablementOverride adminEnablementOverride;
-    /**
      * Product allowlist used to accept or route leads from this source.
      */
     private java.util.List<String> allowedProducts;
@@ -137,14 +133,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
         return this.additionalData;
-    }
-    /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link SourceTableRowAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public SourceTableRowAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
     }
     /**
      * Gets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
@@ -272,8 +260,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(SourceTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
@@ -369,7 +356,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
@@ -401,13 +387,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final SourceTableRowAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the allowedProducts property value. Product allowlist used to accept or route leads from this source.

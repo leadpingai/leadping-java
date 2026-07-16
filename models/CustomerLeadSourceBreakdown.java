@@ -14,15 +14,15 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * The leads property
+     * Number of leads represented by this Leadping customer lead source breakdown.
      */
     private Integer leads;
     /**
-     * The percent property
+     * Percent expressed as a percentage.
      */
     private Double percent;
     /**
-     * The source property
+     * Source classification for this Leadping customer lead source breakdown.
      */
     private String source;
     /**
@@ -62,7 +62,7 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
         return deserializerMap;
     }
     /**
-     * Gets the leads property value. The leads property
+     * Gets the leads property value. Number of leads represented by this Leadping customer lead source breakdown.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -70,7 +70,7 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
         return this.leads;
     }
     /**
-     * Gets the percent property value. The percent property
+     * Gets the percent property value. Percent expressed as a percentage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -78,7 +78,7 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
         return this.percent;
     }
     /**
-     * Gets the source property value. The source property
+     * Gets the source property value. Source classification for this Leadping customer lead source breakdown.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -104,21 +104,21 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the leads property value. The leads property
+     * Sets the leads property value. Number of leads represented by this Leadping customer lead source breakdown.
      * @param value Value to set for the leads property.
      */
     public void setLeads(@jakarta.annotation.Nullable final Integer value) {
         this.leads = value;
     }
     /**
-     * Sets the percent property value. The percent property
+     * Sets the percent property value. Percent expressed as a percentage.
      * @param value Value to set for the percent property.
      */
     public void setPercent(@jakarta.annotation.Nullable final Double value) {
         this.percent = value;
     }
     /**
-     * Sets the source property value. The source property
+     * Sets the source property value. Source classification for this Leadping customer lead source breakdown.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {

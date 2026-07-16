@@ -18,9 +18,9 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * An enumerator describing carrier types
+     * Complete carrier metadata reported for this phone number.
      */
-    private PhoneLookupCarrierType carrierType;
+    private PhoneLookup_carrier carrier;
     /**
      * Gets or sets created at.
      */
@@ -74,12 +74,12 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the carrierType property value. An enumerator describing carrier types
-     * @return a {@link PhoneLookupCarrierType}
+     * Gets the carrier property value. Complete carrier metadata reported for this phone number.
+     * @return a {@link PhoneLookup_carrier}
      */
     @jakarta.annotation.Nullable
-    public PhoneLookupCarrierType getCarrierType() {
-        return this.carrierType;
+    public PhoneLookup_carrier getCarrier() {
+        return this.carrier;
     }
     /**
      * Gets the createdAt property value. Gets or sets created at.
@@ -96,7 +96,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("carrierType", (n) -> { this.setCarrierType(n.getEnumValue(PhoneLookupCarrierType::forValue)); });
+        deserializerMap.put("carrier", (n) -> { this.setCarrier(n.getObjectValue(PhoneLookup_carrier::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isValid", (n) -> { this.setIsValid(n.getBooleanValue()); });
@@ -160,7 +160,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeEnumValue("carrierType", this.getCarrierType());
+        writer.writeObjectValue("carrier", this.getCarrier());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isValid", this.getIsValid());
@@ -178,11 +178,11 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the carrierType property value. An enumerator describing carrier types
-     * @param value Value to set for the carrierType property.
+     * Sets the carrier property value. Complete carrier metadata reported for this phone number.
+     * @param value Value to set for the carrier property.
      */
-    public void setCarrierType(@jakarta.annotation.Nullable final PhoneLookupCarrierType value) {
-        this.carrierType = value;
+    public void setCarrier(@jakarta.annotation.Nullable final PhoneLookup_carrier value) {
+        this.carrier = value;
     }
     /**
      * Sets the createdAt property value. Gets or sets created at.

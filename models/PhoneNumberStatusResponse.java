@@ -21,17 +21,9 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private Integer callsPossible;
     /**
-     * Voice call warmup status for this phone number.
-     */
-    private PhoneNumberStatusResponseCallWarmup callWarmup;
-    /**
      * Indicates whether this phone number can currently send SMS messages.
      */
     private Integer messagesPossible;
-    /**
-     * Number of warmup SMS messages completed for this sender.
-     */
-    private Integer messagesWarmed;
     /**
      * E.164 phone number exposed by this phone number readiness status.
      */
@@ -56,10 +48,6 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      * Phone number traffic metrics for recent SMS and call activity.
      */
     private PhoneNumberTrafficMetricsResponse trafficMetrics;
-    /**
-     * Number of voice warmup calls completed for this phone number.
-     */
-    private Integer warmupCallsMade;
     /**
      * Instantiates a new {@link PhoneNumberStatusResponse} and sets the default values.
      */
@@ -93,31 +81,20 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.callsPossible;
     }
     /**
-     * Gets the callWarmup property value. Voice call warmup status for this phone number.
-     * @return a {@link PhoneNumberStatusResponseCallWarmup}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneNumberStatusResponseCallWarmup getCallWarmup() {
-        return this.callWarmup;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("callsPossible", (n) -> { this.setCallsPossible(n.getIntegerValue()); });
-        deserializerMap.put("callWarmup", (n) -> { this.setCallWarmup(n.getObjectValue(PhoneNumberStatusResponseCallWarmup::createFromDiscriminatorValue)); });
         deserializerMap.put("messagesPossible", (n) -> { this.setMessagesPossible(n.getIntegerValue()); });
-        deserializerMap.put("messagesWarmed", (n) -> { this.setMessagesWarmed(n.getIntegerValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("optOutMetrics", (n) -> { this.setOptOutMetrics(n.getObjectValue(PhoneNumberOptOutMetricsResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("outboundCapacity", (n) -> { this.setOutboundCapacity(n.getObjectValue(PhoneNumberStatusResponseOutboundCapacity::createFromDiscriminatorValue)); });
         deserializerMap.put("recentEvents", (n) -> { this.setRecentEvents(n.getCollectionOfObjectValues(PhoneNumberMessagingEventResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("smsWarmup", (n) -> { this.setSmsWarmup(n.getObjectValue(PhoneNumberStatusResponseSmsWarmup::createFromDiscriminatorValue)); });
         deserializerMap.put("trafficMetrics", (n) -> { this.setTrafficMetrics(n.getObjectValue(PhoneNumberTrafficMetricsResponse::createFromDiscriminatorValue)); });
-        deserializerMap.put("warmupCallsMade", (n) -> { this.setWarmupCallsMade(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -127,14 +104,6 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public Integer getMessagesPossible() {
         return this.messagesPossible;
-    }
-    /**
-     * Gets the messagesWarmed property value. Number of warmup SMS messages completed for this sender.
-     * @return a {@link Integer}
-     */
-    @jakarta.annotation.Nullable
-    public Integer getMessagesWarmed() {
-        return this.messagesWarmed;
     }
     /**
      * Gets the number property value. E.164 phone number exposed by this phone number readiness status.
@@ -185,30 +154,19 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.trafficMetrics;
     }
     /**
-     * Gets the warmupCallsMade property value. Number of voice warmup calls completed for this phone number.
-     * @return a {@link Integer}
-     */
-    @jakarta.annotation.Nullable
-    public Integer getWarmupCallsMade() {
-        return this.warmupCallsMade;
-    }
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("callsPossible", this.getCallsPossible());
-        writer.writeObjectValue("callWarmup", this.getCallWarmup());
         writer.writeIntegerValue("messagesPossible", this.getMessagesPossible());
-        writer.writeIntegerValue("messagesWarmed", this.getMessagesWarmed());
         writer.writeStringValue("number", this.getNumber());
         writer.writeObjectValue("optOutMetrics", this.getOptOutMetrics());
         writer.writeObjectValue("outboundCapacity", this.getOutboundCapacity());
         writer.writeCollectionOfObjectValues("recentEvents", this.getRecentEvents());
         writer.writeObjectValue("smsWarmup", this.getSmsWarmup());
         writer.writeObjectValue("trafficMetrics", this.getTrafficMetrics());
-        writer.writeIntegerValue("warmupCallsMade", this.getWarmupCallsMade());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -226,25 +184,11 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         this.callsPossible = value;
     }
     /**
-     * Sets the callWarmup property value. Voice call warmup status for this phone number.
-     * @param value Value to set for the callWarmup property.
-     */
-    public void setCallWarmup(@jakarta.annotation.Nullable final PhoneNumberStatusResponseCallWarmup value) {
-        this.callWarmup = value;
-    }
-    /**
      * Sets the messagesPossible property value. Indicates whether this phone number can currently send SMS messages.
      * @param value Value to set for the messagesPossible property.
      */
     public void setMessagesPossible(@jakarta.annotation.Nullable final Integer value) {
         this.messagesPossible = value;
-    }
-    /**
-     * Sets the messagesWarmed property value. Number of warmup SMS messages completed for this sender.
-     * @param value Value to set for the messagesWarmed property.
-     */
-    public void setMessagesWarmed(@jakarta.annotation.Nullable final Integer value) {
-        this.messagesWarmed = value;
     }
     /**
      * Sets the number property value. E.164 phone number exposed by this phone number readiness status.
@@ -287,12 +231,5 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     public void setTrafficMetrics(@jakarta.annotation.Nullable final PhoneNumberTrafficMetricsResponse value) {
         this.trafficMetrics = value;
-    }
-    /**
-     * Sets the warmupCallsMade property value. Number of voice warmup calls completed for this phone number.
-     * @param value Value to set for the warmupCallsMade property.
-     */
-    public void setWarmupCallsMade(@jakarta.annotation.Nullable final Integer value) {
-        this.warmupCallsMade = value;
     }
 }

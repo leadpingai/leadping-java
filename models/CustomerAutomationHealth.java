@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Automation health associated with this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable {
     /**
@@ -14,31 +17,31 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The automationCount property
+     * Total number of automation records represented by this Leadping customer automation health.
      */
     private Integer automationCount;
     /**
-     * The enabledCount property
+     * Total number of enabled records represented by this Leadping customer automation health.
      */
     private Integer enabledCount;
     /**
-     * The executions property
+     * Number of executions represented by this Leadping customer automation health.
      */
     private Integer executions;
     /**
-     * The failingAutomations property
+     * Collection of failing automations included with this Leadping customer automation health.
      */
     private java.util.List<CustomerFailingAutomation> failingAutomations;
     /**
-     * The failureCount property
+     * Total number of failure records represented by this Leadping customer automation health.
      */
     private Integer failureCount;
     /**
-     * The lastFailure property
+     * Last failure associated with this Leadping customer automation health.
      */
     private CustomerAutomationHealthLastFailure lastFailure;
     /**
-     * The successCount property
+     * Total number of success records represented by this Leadping customer automation health.
      */
     private Integer successCount;
     /**
@@ -66,7 +69,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the automationCount property value. The automationCount property
+     * Gets the automationCount property value. Total number of automation records represented by this Leadping customer automation health.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -74,7 +77,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.automationCount;
     }
     /**
-     * Gets the enabledCount property value. The enabledCount property
+     * Gets the enabledCount property value. Total number of enabled records represented by this Leadping customer automation health.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +85,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.enabledCount;
     }
     /**
-     * Gets the executions property value. The executions property
+     * Gets the executions property value. Number of executions represented by this Leadping customer automation health.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -90,7 +93,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.executions;
     }
     /**
-     * Gets the failingAutomations property value. The failingAutomations property
+     * Gets the failingAutomations property value. Collection of failing automations included with this Leadping customer automation health.
      * @return a {@link java.util.List<CustomerFailingAutomation>}
      */
     @jakarta.annotation.Nullable
@@ -98,7 +101,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.failingAutomations;
     }
     /**
-     * Gets the failureCount property value. The failureCount property
+     * Gets the failureCount property value. Total number of failure records represented by this Leadping customer automation health.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +125,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the lastFailure property value. The lastFailure property
+     * Gets the lastFailure property value. Last failure associated with this Leadping customer automation health.
      * @return a {@link CustomerAutomationHealthLastFailure}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +133,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.lastFailure;
     }
     /**
-     * Gets the successCount property value. The successCount property
+     * Gets the successCount property value. Total number of success records represented by this Leadping customer automation health.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -160,49 +163,49 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the automationCount property value. The automationCount property
+     * Sets the automationCount property value. Total number of automation records represented by this Leadping customer automation health.
      * @param value Value to set for the automationCount property.
      */
     public void setAutomationCount(@jakarta.annotation.Nullable final Integer value) {
         this.automationCount = value;
     }
     /**
-     * Sets the enabledCount property value. The enabledCount property
+     * Sets the enabledCount property value. Total number of enabled records represented by this Leadping customer automation health.
      * @param value Value to set for the enabledCount property.
      */
     public void setEnabledCount(@jakarta.annotation.Nullable final Integer value) {
         this.enabledCount = value;
     }
     /**
-     * Sets the executions property value. The executions property
+     * Sets the executions property value. Number of executions represented by this Leadping customer automation health.
      * @param value Value to set for the executions property.
      */
     public void setExecutions(@jakarta.annotation.Nullable final Integer value) {
         this.executions = value;
     }
     /**
-     * Sets the failingAutomations property value. The failingAutomations property
+     * Sets the failingAutomations property value. Collection of failing automations included with this Leadping customer automation health.
      * @param value Value to set for the failingAutomations property.
      */
     public void setFailingAutomations(@jakarta.annotation.Nullable final java.util.List<CustomerFailingAutomation> value) {
         this.failingAutomations = value;
     }
     /**
-     * Sets the failureCount property value. The failureCount property
+     * Sets the failureCount property value. Total number of failure records represented by this Leadping customer automation health.
      * @param value Value to set for the failureCount property.
      */
     public void setFailureCount(@jakarta.annotation.Nullable final Integer value) {
         this.failureCount = value;
     }
     /**
-     * Sets the lastFailure property value. The lastFailure property
+     * Sets the lastFailure property value. Last failure associated with this Leadping customer automation health.
      * @param value Value to set for the lastFailure property.
      */
     public void setLastFailure(@jakarta.annotation.Nullable final CustomerAutomationHealthLastFailure value) {
         this.lastFailure = value;
     }
     /**
-     * Sets the successCount property value. The successCount property
+     * Sets the successCount property value. Total number of success records represented by this Leadping customer automation health.
      * @param value Value to set for the successCount property.
      */
     public void setSuccessCount(@jakarta.annotation.Nullable final Integer value) {

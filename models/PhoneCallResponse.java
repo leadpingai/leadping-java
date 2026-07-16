@@ -75,10 +75,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String leadId;
     /**
-     * Structured metadata used for attribution, integrations, and reporting on this phone call.
-     */
-    private PhoneCallResponseMetadata metadata;
-    /**
      * The date and time when the entity was last modified, if applicable.
      */
     private OffsetDateTime modifiedAt;
@@ -232,7 +228,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
@@ -247,7 +243,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(PhoneCallResponseMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
@@ -292,14 +287,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLeadId() {
         return this.leadId;
-    }
-    /**
-     * Gets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this phone call.
-     * @return a {@link PhoneCallResponseMetadata}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneCallResponseMetadata getMetadata() {
-        return this.metadata;
     }
     /**
      * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
@@ -409,7 +396,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeObjectValue("metadata", this.getMetadata());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
@@ -527,13 +513,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLeadId(@jakarta.annotation.Nullable final String value) {
         this.leadId = value;
-    }
-    /**
-     * Sets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this phone call.
-     * @param value Value to set for the metadata property.
-     */
-    public void setMetadata(@jakarta.annotation.Nullable final PhoneCallResponseMetadata value) {
-        this.metadata = value;
     }
     /**
      * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.

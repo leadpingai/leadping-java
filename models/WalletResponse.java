@@ -91,18 +91,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     private WalletResponseSourceType sourceType;
     /**
-     * Stripe charge identifier linked to this billing transaction.
-     */
-    private String stripeChargeId;
-    /**
-     * Stripe invoice identifier linked to this billing transaction.
-     */
-    private String stripeInvoiceId;
-    /**
-     * Stripe payment intent identifier linked to this billing transaction.
-     */
-    private String stripePaymentIntentId;
-    /**
      * Instantiates a new {@link WalletResponse} and sets the default values.
      */
     public WalletResponse() {
@@ -212,7 +200,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("amountPurchased", (n) -> { this.setAmountPurchased(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("amountRemaining", (n) -> { this.setAmountRemaining(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("balance", (n) -> { this.setBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
@@ -231,9 +219,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("originalTransactionId", (n) -> { this.setOriginalTransactionId(n.getStringValue()); });
         deserializerMap.put("purchasedAt", (n) -> { this.setPurchasedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("sourceType", (n) -> { this.setSourceType(n.getEnumValue(WalletResponseSourceType::forValue)); });
-        deserializerMap.put("stripeChargeId", (n) -> { this.setStripeChargeId(n.getStringValue()); });
-        deserializerMap.put("stripeInvoiceId", (n) -> { this.setStripeInvoiceId(n.getStringValue()); });
-        deserializerMap.put("stripePaymentIntentId", (n) -> { this.setStripePaymentIntentId(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -301,30 +286,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         return this.sourceType;
     }
     /**
-     * Gets the stripeChargeId property value. Stripe charge identifier linked to this billing transaction.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getStripeChargeId() {
-        return this.stripeChargeId;
-    }
-    /**
-     * Gets the stripeInvoiceId property value. Stripe invoice identifier linked to this billing transaction.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getStripeInvoiceId() {
-        return this.stripeInvoiceId;
-    }
-    /**
-     * Gets the stripePaymentIntentId property value. Stripe payment intent identifier linked to this billing transaction.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getStripePaymentIntentId() {
-        return this.stripePaymentIntentId;
-    }
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -348,9 +309,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("originalTransactionId", this.getOriginalTransactionId());
         writer.writeOffsetDateTimeValue("purchasedAt", this.getPurchasedAt());
         writer.writeEnumValue("sourceType", this.getSourceType());
-        writer.writeStringValue("stripeChargeId", this.getStripeChargeId());
-        writer.writeStringValue("stripeInvoiceId", this.getStripeInvoiceId());
-        writer.writeStringValue("stripePaymentIntentId", this.getStripePaymentIntentId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -485,26 +443,5 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     public void setSourceType(@jakarta.annotation.Nullable final WalletResponseSourceType value) {
         this.sourceType = value;
-    }
-    /**
-     * Sets the stripeChargeId property value. Stripe charge identifier linked to this billing transaction.
-     * @param value Value to set for the stripeChargeId property.
-     */
-    public void setStripeChargeId(@jakarta.annotation.Nullable final String value) {
-        this.stripeChargeId = value;
-    }
-    /**
-     * Sets the stripeInvoiceId property value. Stripe invoice identifier linked to this billing transaction.
-     * @param value Value to set for the stripeInvoiceId property.
-     */
-    public void setStripeInvoiceId(@jakarta.annotation.Nullable final String value) {
-        this.stripeInvoiceId = value;
-    }
-    /**
-     * Sets the stripePaymentIntentId property value. Stripe payment intent identifier linked to this billing transaction.
-     * @param value Value to set for the stripePaymentIntentId property.
-     */
-    public void setStripePaymentIntentId(@jakarta.annotation.Nullable final String value) {
-        this.stripePaymentIntentId = value;
     }
 }

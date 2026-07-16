@@ -21,14 +21,6 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     private String campaignId;
     /**
-     * Indicates whether this record is restricted to internal Leadping testing.
-     */
-    private Boolean internalTestOnly;
-    /**
-     * Messaging profile identifier used for SMS routing with the provider.
-     */
-    private String messagingProfileId;
-    /**
      * Indicates whether the phone number can be used for SMS messaging.
      */
     private Boolean smsEnabled;
@@ -41,17 +33,9 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     private String teamId;
     /**
-     * Leadping v oi ce co nn ec ti o n ID that links this phone number routing metadata to the related record.
-     */
-    private String voiceConnectionId;
-    /**
      * Indicates whether the phone number can be used for voice calls.
      */
     private Boolean voiceEnabled;
-    /**
-     * Indicates whether this phone number should only be used for warmup traffic.
-     */
-    private Boolean warmupOnly;
     /**
      * Instantiates a new {@link PhoneNumberRoutingMetadata} and sets the default values.
      */
@@ -90,33 +74,13 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
-        deserializerMap.put("internalTestOnly", (n) -> { this.setInternalTestOnly(n.getBooleanValue()); });
-        deserializerMap.put("messagingProfileId", (n) -> { this.setMessagingProfileId(n.getStringValue()); });
         deserializerMap.put("smsEnabled", (n) -> { this.setSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("teamId", (n) -> { this.setTeamId(n.getStringValue()); });
-        deserializerMap.put("voiceConnectionId", (n) -> { this.setVoiceConnectionId(n.getStringValue()); });
         deserializerMap.put("voiceEnabled", (n) -> { this.setVoiceEnabled(n.getBooleanValue()); });
-        deserializerMap.put("warmupOnly", (n) -> { this.setWarmupOnly(n.getBooleanValue()); });
         return deserializerMap;
-    }
-    /**
-     * Gets the internalTestOnly property value. Indicates whether this record is restricted to internal Leadping testing.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getInternalTestOnly() {
-        return this.internalTestOnly;
-    }
-    /**
-     * Gets the messagingProfileId property value. Messaging profile identifier used for SMS routing with the provider.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getMessagingProfileId() {
-        return this.messagingProfileId;
     }
     /**
      * Gets the smsEnabled property value. Indicates whether the phone number can be used for SMS messaging.
@@ -143,14 +107,6 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         return this.teamId;
     }
     /**
-     * Gets the voiceConnectionId property value. Leadping v oi ce co nn ec ti o n ID that links this phone number routing metadata to the related record.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getVoiceConnectionId() {
-        return this.voiceConnectionId;
-    }
-    /**
      * Gets the voiceEnabled property value. Indicates whether the phone number can be used for voice calls.
      * @return a {@link Boolean}
      */
@@ -159,28 +115,16 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         return this.voiceEnabled;
     }
     /**
-     * Gets the warmupOnly property value. Indicates whether this phone number should only be used for warmup traffic.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getWarmupOnly() {
-        return this.warmupOnly;
-    }
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("campaignId", this.getCampaignId());
-        writer.writeBooleanValue("internalTestOnly", this.getInternalTestOnly());
-        writer.writeStringValue("messagingProfileId", this.getMessagingProfileId());
         writer.writeBooleanValue("smsEnabled", this.getSmsEnabled());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeStringValue("teamId", this.getTeamId());
-        writer.writeStringValue("voiceConnectionId", this.getVoiceConnectionId());
         writer.writeBooleanValue("voiceEnabled", this.getVoiceEnabled());
-        writer.writeBooleanValue("warmupOnly", this.getWarmupOnly());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -196,20 +140,6 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     public void setCampaignId(@jakarta.annotation.Nullable final String value) {
         this.campaignId = value;
-    }
-    /**
-     * Sets the internalTestOnly property value. Indicates whether this record is restricted to internal Leadping testing.
-     * @param value Value to set for the internalTestOnly property.
-     */
-    public void setInternalTestOnly(@jakarta.annotation.Nullable final Boolean value) {
-        this.internalTestOnly = value;
-    }
-    /**
-     * Sets the messagingProfileId property value. Messaging profile identifier used for SMS routing with the provider.
-     * @param value Value to set for the messagingProfileId property.
-     */
-    public void setMessagingProfileId(@jakarta.annotation.Nullable final String value) {
-        this.messagingProfileId = value;
     }
     /**
      * Sets the smsEnabled property value. Indicates whether the phone number can be used for SMS messaging.
@@ -233,24 +163,10 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         this.teamId = value;
     }
     /**
-     * Sets the voiceConnectionId property value. Leadping v oi ce co nn ec ti o n ID that links this phone number routing metadata to the related record.
-     * @param value Value to set for the voiceConnectionId property.
-     */
-    public void setVoiceConnectionId(@jakarta.annotation.Nullable final String value) {
-        this.voiceConnectionId = value;
-    }
-    /**
      * Sets the voiceEnabled property value. Indicates whether the phone number can be used for voice calls.
      * @param value Value to set for the voiceEnabled property.
      */
     public void setVoiceEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.voiceEnabled = value;
-    }
-    /**
-     * Sets the warmupOnly property value. Indicates whether this phone number should only be used for warmup traffic.
-     * @param value Value to set for the warmupOnly property.
-     */
-    public void setWarmupOnly(@jakarta.annotation.Nullable final Boolean value) {
-        this.warmupOnly = value;
     }
 }

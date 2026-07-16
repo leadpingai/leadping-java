@@ -17,10 +17,6 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Whether this usage counter is only shown to admins.
-     */
-    private Boolean adminOnly;
-    /**
      * The stable key for this usage counter.
      */
     private String key;
@@ -65,21 +61,12 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminOnly property value. Whether this usage counter is only shown to admins.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getAdminOnly() {
-        return this.adminOnly;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
-        deserializerMap.put("adminOnly", (n) -> { this.setAdminOnly(n.getBooleanValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("key", (n) -> { this.setKey(n.getStringValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
         deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getIntegerValue()); });
@@ -133,7 +120,6 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeBooleanValue("adminOnly", this.getAdminOnly());
         writer.writeStringValue("key", this.getKey());
         writer.writeStringValue("label", this.getLabel());
         writer.writeIntegerValue("sortOrder", this.getSortOrder());
@@ -147,13 +133,6 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminOnly property value. Whether this usage counter is only shown to admins.
-     * @param value Value to set for the adminOnly property.
-     */
-    public void setAdminOnly(@jakarta.annotation.Nullable final Boolean value) {
-        this.adminOnly = value;
     }
     /**
      * Sets the key property value. The stable key for this usage counter.

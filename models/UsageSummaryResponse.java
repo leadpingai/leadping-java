@@ -22,10 +22,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     private Double billableQuantityTotal;
     /**
-     * The billing blocked count for this usage summary.
-     */
-    private Integer billingBlockedCount;
-    /**
      * The named usage counters included with this usage summary.
      */
     private java.util.List<UsageCounterLine> counters;
@@ -38,17 +34,9 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer failedCount;
     /**
-     * The internal cost total for this usage summary.
-     */
-    private Double internalCostTotal;
-    /**
      * The lines included with this usage summary.
      */
     private java.util.List<UsageSummaryLine> lines;
-    /**
-     * The non billable internal count for this usage summary.
-     */
-    private Integer nonBillableInternalCount;
     /**
      * The pending invoice count for this usage summary.
      */
@@ -61,10 +49,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      * The date and time for the period start value on this usage summary.
      */
     private OffsetDateTime periodStart;
-    /**
-     * The provider cost total for this usage summary.
-     */
-    private Double providerCostTotal;
     /**
      * The usage record count for this usage summary.
      */
@@ -102,14 +86,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         return this.billableQuantityTotal;
     }
     /**
-     * Gets the billingBlockedCount property value. The billing blocked count for this usage summary.
-     * @return a {@link Integer}
-     */
-    @jakarta.annotation.Nullable
-    public Integer getBillingBlockedCount() {
-        return this.billingBlockedCount;
-    }
-    /**
      * Gets the counters property value. The named usage counters included with this usage summary.
      * @return a {@link java.util.List<UsageCounterLine>}
      */
@@ -139,29 +115,17 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("billableQuantityTotal", (n) -> { this.setBillableQuantityTotal(n.getDoubleValue()); });
-        deserializerMap.put("billingBlockedCount", (n) -> { this.setBillingBlockedCount(n.getIntegerValue()); });
         deserializerMap.put("counters", (n) -> { this.setCounters(n.getCollectionOfObjectValues(UsageCounterLine::createFromDiscriminatorValue)); });
         deserializerMap.put("customerChargeTotal", (n) -> { this.setCustomerChargeTotal(n.getDoubleValue()); });
         deserializerMap.put("failedCount", (n) -> { this.setFailedCount(n.getIntegerValue()); });
-        deserializerMap.put("internalCostTotal", (n) -> { this.setInternalCostTotal(n.getDoubleValue()); });
         deserializerMap.put("lines", (n) -> { this.setLines(n.getCollectionOfObjectValues(UsageSummaryLine::createFromDiscriminatorValue)); });
-        deserializerMap.put("nonBillableInternalCount", (n) -> { this.setNonBillableInternalCount(n.getIntegerValue()); });
         deserializerMap.put("pendingInvoiceCount", (n) -> { this.setPendingInvoiceCount(n.getIntegerValue()); });
         deserializerMap.put("periodEnd", (n) -> { this.setPeriodEnd(n.getOffsetDateTimeValue()); });
         deserializerMap.put("periodStart", (n) -> { this.setPeriodStart(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("providerCostTotal", (n) -> { this.setProviderCostTotal(n.getDoubleValue()); });
         deserializerMap.put("usageRecordCount", (n) -> { this.setUsageRecordCount(n.getIntegerValue()); });
         return deserializerMap;
-    }
-    /**
-     * Gets the internalCostTotal property value. The internal cost total for this usage summary.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getInternalCostTotal() {
-        return this.internalCostTotal;
     }
     /**
      * Gets the lines property value. The lines included with this usage summary.
@@ -170,14 +134,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public java.util.List<UsageSummaryLine> getLines() {
         return this.lines;
-    }
-    /**
-     * Gets the nonBillableInternalCount property value. The non billable internal count for this usage summary.
-     * @return a {@link Integer}
-     */
-    @jakarta.annotation.Nullable
-    public Integer getNonBillableInternalCount() {
-        return this.nonBillableInternalCount;
     }
     /**
      * Gets the pendingInvoiceCount property value. The pending invoice count for this usage summary.
@@ -204,14 +160,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         return this.periodStart;
     }
     /**
-     * Gets the providerCostTotal property value. The provider cost total for this usage summary.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getProviderCostTotal() {
-        return this.providerCostTotal;
-    }
-    /**
      * Gets the usageRecordCount property value. The usage record count for this usage summary.
      * @return a {@link Integer}
      */
@@ -226,17 +174,13 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeDoubleValue("billableQuantityTotal", this.getBillableQuantityTotal());
-        writer.writeIntegerValue("billingBlockedCount", this.getBillingBlockedCount());
         writer.writeCollectionOfObjectValues("counters", this.getCounters());
         writer.writeDoubleValue("customerChargeTotal", this.getCustomerChargeTotal());
         writer.writeIntegerValue("failedCount", this.getFailedCount());
-        writer.writeDoubleValue("internalCostTotal", this.getInternalCostTotal());
         writer.writeCollectionOfObjectValues("lines", this.getLines());
-        writer.writeIntegerValue("nonBillableInternalCount", this.getNonBillableInternalCount());
         writer.writeIntegerValue("pendingInvoiceCount", this.getPendingInvoiceCount());
         writer.writeOffsetDateTimeValue("periodEnd", this.getPeriodEnd());
         writer.writeOffsetDateTimeValue("periodStart", this.getPeriodStart());
-        writer.writeDoubleValue("providerCostTotal", this.getProviderCostTotal());
         writer.writeIntegerValue("usageRecordCount", this.getUsageRecordCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -253,13 +197,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillableQuantityTotal(@jakarta.annotation.Nullable final Double value) {
         this.billableQuantityTotal = value;
-    }
-    /**
-     * Sets the billingBlockedCount property value. The billing blocked count for this usage summary.
-     * @param value Value to set for the billingBlockedCount property.
-     */
-    public void setBillingBlockedCount(@jakarta.annotation.Nullable final Integer value) {
-        this.billingBlockedCount = value;
     }
     /**
      * Sets the counters property value. The named usage counters included with this usage summary.
@@ -283,25 +220,11 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         this.failedCount = value;
     }
     /**
-     * Sets the internalCostTotal property value. The internal cost total for this usage summary.
-     * @param value Value to set for the internalCostTotal property.
-     */
-    public void setInternalCostTotal(@jakarta.annotation.Nullable final Double value) {
-        this.internalCostTotal = value;
-    }
-    /**
      * Sets the lines property value. The lines included with this usage summary.
      * @param value Value to set for the lines property.
      */
     public void setLines(@jakarta.annotation.Nullable final java.util.List<UsageSummaryLine> value) {
         this.lines = value;
-    }
-    /**
-     * Sets the nonBillableInternalCount property value. The non billable internal count for this usage summary.
-     * @param value Value to set for the nonBillableInternalCount property.
-     */
-    public void setNonBillableInternalCount(@jakarta.annotation.Nullable final Integer value) {
-        this.nonBillableInternalCount = value;
     }
     /**
      * Sets the pendingInvoiceCount property value. The pending invoice count for this usage summary.
@@ -323,13 +246,6 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     public void setPeriodStart(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.periodStart = value;
-    }
-    /**
-     * Sets the providerCostTotal property value. The provider cost total for this usage summary.
-     * @param value Value to set for the providerCostTotal property.
-     */
-    public void setProviderCostTotal(@jakarta.annotation.Nullable final Double value) {
-        this.providerCostTotal = value;
     }
     /**
      * Sets the usageRecordCount property value. The usage record count for this usage summary.

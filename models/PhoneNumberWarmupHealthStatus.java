@@ -4,17 +4,17 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported health states for controlled internal voice call warmup.
+ * Defines the supported SMS Warmup Health State values.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum PhoneNumberWarmupHealthStatus implements ValuedEnum {
     NotStarted("Not Started"),
-    NotEligible("Not Eligible"),
     Warming("Warming"),
-    Warmed("Warmed"),
-    Paused("Paused"),
+    Healthy("Healthy"),
     NeedsAttention("Needs Attention"),
-    Blocked("Blocked");
+    Paused("Paused"),
+    Blocked("Blocked"),
+    Ready("Ready");
     public final String value;
     PhoneNumberWarmupHealthStatus(final String value) {
         this.value = value;
@@ -26,12 +26,12 @@ public enum PhoneNumberWarmupHealthStatus implements ValuedEnum {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "Not Started": return NotStarted;
-            case "Not Eligible": return NotEligible;
             case "Warming": return Warming;
-            case "Warmed": return Warmed;
-            case "Paused": return Paused;
+            case "Healthy": return Healthy;
             case "Needs Attention": return NeedsAttention;
+            case "Paused": return Paused;
             case "Blocked": return Blocked;
+            case "Ready": return Ready;
             default: return null;
         }
     }

@@ -17,11 +17,11 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The latitude property
+     * Latitude of the geographic coordinate in decimal degrees, from -90 through 90.
      */
     private Double latitude;
     /**
-     * The longitude property
+     * Longitude of the geographic coordinate in decimal degrees, from -180 through 180.
      */
     private Double longitude;
     /**
@@ -60,7 +60,7 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the latitude property value. The latitude property
+     * Gets the latitude property value. Latitude of the geographic coordinate in decimal degrees, from -90 through 90.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
         return this.latitude;
     }
     /**
-     * Gets the longitude property value. The longitude property
+     * Gets the longitude property value. Longitude of the geographic coordinate in decimal degrees, from -180 through 180.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the latitude property value. The latitude property
+     * Sets the latitude property value. Latitude of the geographic coordinate in decimal degrees, from -90 through 90.
      * @param value Value to set for the latitude property.
      */
     public void setLatitude(@jakarta.annotation.Nullable final Double value) {
         this.latitude = value;
     }
     /**
-     * Sets the longitude property value. The longitude property
+     * Sets the longitude property value. Longitude of the geographic coordinate in decimal degrees, from -180 through 180.
      * @param value Value to set for the longitude property.
      */
     public void setLongitude(@jakarta.annotation.Nullable final Double value) {

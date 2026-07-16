@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Communication usage associated with this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsable {
     /**
@@ -14,43 +17,43 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * The answeredCalls property
+     * Number of calls answered during the reporting period.
      */
     private Integer answeredCalls;
     /**
-     * The callMinutes property
+     * Total connected call duration, in minutes, during the reporting period.
      */
     private Double callMinutes;
     /**
-     * The callsPlaced property
+     * Number of outbound calls placed during the reporting period.
      */
     private Integer callsPlaced;
     /**
-     * The callsReceived property
+     * Number of inbound calls received during the reporting period.
      */
     private Integer callsReceived;
     /**
-     * The failedOrBlockedSms property
+     * Number of SMS messages that failed or were blocked during the reporting period.
      */
     private Integer failedOrBlockedSms;
     /**
-     * The missedCalls property
+     * Number of calls missed during the reporting period.
      */
     private Integer missedCalls;
     /**
-     * The smsReceived property
+     * Number of SMS messages received during the reporting period.
      */
     private Integer smsReceived;
     /**
-     * The smsSent property
+     * Number of SMS messages sent during the reporting period.
      */
     private Integer smsSent;
     /**
-     * The trend property
+     * Collection of trend included with this Leadping customer communication usage.
      */
     private java.util.List<CustomerCommunicationUsagePoint> trend;
     /**
-     * The usageSpend property
+     * Usage spend represented by this Leadping customer communication usage.
      */
     private Double usageSpend;
     /**
@@ -78,7 +81,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the answeredCalls property value. The answeredCalls property
+     * Gets the answeredCalls property value. Number of calls answered during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -86,7 +89,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.answeredCalls;
     }
     /**
-     * Gets the callMinutes property value. The callMinutes property
+     * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -94,7 +97,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.callMinutes;
     }
     /**
-     * Gets the callsPlaced property value. The callsPlaced property
+     * Gets the callsPlaced property value. Number of outbound calls placed during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -102,7 +105,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.callsPlaced;
     }
     /**
-     * Gets the callsReceived property value. The callsReceived property
+     * Gets the callsReceived property value. Number of inbound calls received during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -110,7 +113,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.callsReceived;
     }
     /**
-     * Gets the failedOrBlockedSms property value. The failedOrBlockedSms property
+     * Gets the failedOrBlockedSms property value. Number of SMS messages that failed or were blocked during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -137,7 +140,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return deserializerMap;
     }
     /**
-     * Gets the missedCalls property value. The missedCalls property
+     * Gets the missedCalls property value. Number of calls missed during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -145,7 +148,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.missedCalls;
     }
     /**
-     * Gets the smsReceived property value. The smsReceived property
+     * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -153,7 +156,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.smsReceived;
     }
     /**
-     * Gets the smsSent property value. The smsSent property
+     * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -161,7 +164,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.smsSent;
     }
     /**
-     * Gets the trend property value. The trend property
+     * Gets the trend property value. Collection of trend included with this Leadping customer communication usage.
      * @return a {@link java.util.List<CustomerCommunicationUsagePoint>}
      */
     @jakarta.annotation.Nullable
@@ -169,7 +172,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.trend;
     }
     /**
-     * Gets the usageSpend property value. The usageSpend property
+     * Gets the usageSpend property value. Usage spend represented by this Leadping customer communication usage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -202,70 +205,70 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the answeredCalls property value. The answeredCalls property
+     * Sets the answeredCalls property value. Number of calls answered during the reporting period.
      * @param value Value to set for the answeredCalls property.
      */
     public void setAnsweredCalls(@jakarta.annotation.Nullable final Integer value) {
         this.answeredCalls = value;
     }
     /**
-     * Sets the callMinutes property value. The callMinutes property
+     * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @param value Value to set for the callMinutes property.
      */
     public void setCallMinutes(@jakarta.annotation.Nullable final Double value) {
         this.callMinutes = value;
     }
     /**
-     * Sets the callsPlaced property value. The callsPlaced property
+     * Sets the callsPlaced property value. Number of outbound calls placed during the reporting period.
      * @param value Value to set for the callsPlaced property.
      */
     public void setCallsPlaced(@jakarta.annotation.Nullable final Integer value) {
         this.callsPlaced = value;
     }
     /**
-     * Sets the callsReceived property value. The callsReceived property
+     * Sets the callsReceived property value. Number of inbound calls received during the reporting period.
      * @param value Value to set for the callsReceived property.
      */
     public void setCallsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.callsReceived = value;
     }
     /**
-     * Sets the failedOrBlockedSms property value. The failedOrBlockedSms property
+     * Sets the failedOrBlockedSms property value. Number of SMS messages that failed or were blocked during the reporting period.
      * @param value Value to set for the failedOrBlockedSms property.
      */
     public void setFailedOrBlockedSms(@jakarta.annotation.Nullable final Integer value) {
         this.failedOrBlockedSms = value;
     }
     /**
-     * Sets the missedCalls property value. The missedCalls property
+     * Sets the missedCalls property value. Number of calls missed during the reporting period.
      * @param value Value to set for the missedCalls property.
      */
     public void setMissedCalls(@jakarta.annotation.Nullable final Integer value) {
         this.missedCalls = value;
     }
     /**
-     * Sets the smsReceived property value. The smsReceived property
+     * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @param value Value to set for the smsReceived property.
      */
     public void setSmsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.smsReceived = value;
     }
     /**
-     * Sets the smsSent property value. The smsSent property
+     * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @param value Value to set for the smsSent property.
      */
     public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {
         this.smsSent = value;
     }
     /**
-     * Sets the trend property value. The trend property
+     * Sets the trend property value. Collection of trend included with this Leadping customer communication usage.
      * @param value Value to set for the trend property.
      */
     public void setTrend(@jakarta.annotation.Nullable final java.util.List<CustomerCommunicationUsagePoint> value) {
         this.trend = value;
     }
     /**
-     * Sets the usageSpend property value. The usageSpend property
+     * Sets the usageSpend property value. Usage spend represented by this Leadping customer communication usage.
      * @param value Value to set for the usageSpend property.
      */
     public void setUsageSpend(@jakarta.annotation.Nullable final Double value) {

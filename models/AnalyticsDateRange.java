@@ -8,6 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Range associated with this Leadping customer analytics.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
     /**
@@ -15,15 +18,15 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The bucketSize property
+     * Bucket size associated with this Leadping analytics date range.
      */
     private Integer bucketSize;
     /**
-     * The endAt property
+     * Date and time when this Leadping analytics date range was end.
      */
     private OffsetDateTime endAt;
     /**
-     * The startAt property
+     * Date and time when this Leadping analytics date range was start.
      */
     private OffsetDateTime startAt;
     /**
@@ -51,7 +54,7 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the bucketSize property value. The bucketSize property
+     * Gets the bucketSize property value. Bucket size associated with this Leadping analytics date range.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -59,7 +62,7 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
         return this.bucketSize;
     }
     /**
-     * Gets the endAt property value. The endAt property
+     * Gets the endAt property value. Date and time when this Leadping analytics date range was end.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +82,7 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the startAt property value. The startAt property
+     * Gets the startAt property value. Date and time when this Leadping analytics date range was start.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -105,21 +108,21 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the bucketSize property value. The bucketSize property
+     * Sets the bucketSize property value. Bucket size associated with this Leadping analytics date range.
      * @param value Value to set for the bucketSize property.
      */
     public void setBucketSize(@jakarta.annotation.Nullable final Integer value) {
         this.bucketSize = value;
     }
     /**
-     * Sets the endAt property value. The endAt property
+     * Sets the endAt property value. Date and time when this Leadping analytics date range was end.
      * @param value Value to set for the endAt property.
      */
     public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.endAt = value;
     }
     /**
-     * Sets the startAt property value. The startAt property
+     * Sets the startAt property value. Date and time when this Leadping analytics date range was start.
      * @param value Value to set for the startAt property.
      */
     public void setStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

@@ -31,10 +31,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     private BusinessResponseAddress address;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private BusinessResponseAdminEnablementOverride adminEnablementOverride;
-    /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
     private UntypedNode autoRefillAmount;
@@ -123,10 +119,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     private BusinessResponseStatus status;
     /**
-     * Stripe customer and subscription state associated with this business or user.
-     */
-    private BusinessResponseStripeInfo stripeInfo;
-    /**
      * Defines the supported Subscription Status values.
      */
     private BusinessResponseSubscriptionStatus subscriptionStatus;
@@ -189,14 +181,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public BusinessResponseAddress getAddress() {
         return this.address;
-    }
-    /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link BusinessResponseAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessResponseAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
     }
     /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -308,11 +292,10 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(BusinessResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessResponseAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(BusinessResponseAdminEnablementOverride::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
@@ -335,7 +318,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("setupStep", (n) -> { this.setSetupStep(n.getEnumValue(BusinessResponseSetupStep::forValue)); });
         deserializerMap.put("site", (n) -> { this.setSite(n.getObjectValue(BusinessResponseSite::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(BusinessResponseStatus::forValue)); });
-        deserializerMap.put("stripeInfo", (n) -> { this.setStripeInfo(n.getObjectValue(BusinessResponseStripeInfo::createFromDiscriminatorValue)); });
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(BusinessResponseSubscriptionStatus::forValue)); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(BusinessResponseUser::createFromDiscriminatorValue)); });
         deserializerMap.put("vertical", (n) -> { this.setVertical(n.getStringValue()); });
@@ -415,14 +397,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the stripeInfo property value. Stripe customer and subscription state associated with this business or user.
-     * @return a {@link BusinessResponseStripeInfo}
-     */
-    @jakarta.annotation.Nullable
-    public BusinessResponseStripeInfo getStripeInfo() {
-        return this.stripeInfo;
-    }
-    /**
      * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
      * @return a {@link BusinessResponseSubscriptionStatus}
      */
@@ -463,7 +437,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("accountBalance", this.getAccountBalance());
         writer.writeObjectValue("activation", this.getActivation());
         writer.writeObjectValue("address", this.getAddress());
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeObjectValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
         writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
@@ -486,7 +459,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("setupStep", this.getSetupStep());
         writer.writeObjectValue("site", this.getSite());
         writer.writeEnumValue("status", this.getStatus());
-        writer.writeObjectValue("stripeInfo", this.getStripeInfo());
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeObjectValue("user", this.getUser());
         writer.writeStringValue("vertical", this.getVertical());
@@ -520,13 +492,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAddress(@jakarta.annotation.Nullable final BusinessResponseAddress value) {
         this.address = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final BusinessResponseAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -681,13 +646,6 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     public void setStatus(@jakarta.annotation.Nullable final BusinessResponseStatus value) {
         this.status = value;
-    }
-    /**
-     * Sets the stripeInfo property value. Stripe customer and subscription state associated with this business or user.
-     * @param value Value to set for the stripeInfo property.
-     */
-    public void setStripeInfo(@jakarta.annotation.Nullable final BusinessResponseStripeInfo value) {
-        this.stripeInfo = value;
     }
     /**
      * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.

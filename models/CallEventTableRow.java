@@ -31,10 +31,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private UntypedNode billableSeconds;
     /**
-     * Phone number identifier used for billing reconciliation.
-     */
-    private String billingPhoneNumberId;
-    /**
      * Billing state for this communication, charge, or transaction.
      */
     private String billingStatus;
@@ -87,14 +83,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String leadId;
     /**
-     * Structured metadata used for attribution, integrations, and reporting on this call event table row.
-     */
-    private CallEventTableRowMetadata metadata;
-    /**
-     * Provider lifecycle or delivery status for this call event table row.
-     */
-    private String providerStatus;
-    /**
      * URL for the call recording, when the provider makes one available.
      */
     private String recordingUrl;
@@ -106,10 +94,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Human-readable reason explaining the current status of this call event table row.
      */
     private String statusReason;
-    /**
-     * Telnyx identifier connected to this phone number, call, or SMS event.
-     */
-    private String telnyxId;
     /**
      * Recipient phone number used for this communication.
      */
@@ -169,14 +153,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public UntypedNode getBillableSeconds() {
         return this.billableSeconds;
-    }
-    /**
-     * Gets the billingPhoneNumberId property value. Phone number identifier used for billing reconciliation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBillingPhoneNumberId() {
-        return this.billingPhoneNumberId;
     }
     /**
      * Gets the billingStatus property value. Billing state for this communication, charge, or transaction.
@@ -256,11 +232,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("billingPhoneNumberId", (n) -> { this.setBillingPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
@@ -274,12 +249,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(CallEventTableRowMetadata::createFromDiscriminatorValue)); });
-        deserializerMap.put("providerStatus", (n) -> { this.setProviderStatus(n.getStringValue()); });
         deserializerMap.put("recordingUrl", (n) -> { this.setRecordingUrl(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(CallEventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
-        deserializerMap.put("telnyxId", (n) -> { this.setTelnyxId(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
@@ -318,22 +290,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
-     * Gets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this call event table row.
-     * @return a {@link CallEventTableRowMetadata}
-     */
-    @jakarta.annotation.Nullable
-    public CallEventTableRowMetadata getMetadata() {
-        return this.metadata;
-    }
-    /**
-     * Gets the providerStatus property value. Provider lifecycle or delivery status for this call event table row.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getProviderStatus() {
-        return this.providerStatus;
-    }
-    /**
      * Gets the recordingUrl property value. URL for the call recording, when the provider makes one available.
      * @return a {@link String}
      */
@@ -356,14 +312,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getStatusReason() {
         return this.statusReason;
-    }
-    /**
-     * Gets the telnyxId property value. Telnyx identifier connected to this phone number, call, or SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTelnyxId() {
-        return this.telnyxId;
     }
     /**
      * Gets the toPhoneNumber property value. Recipient phone number used for this communication.
@@ -398,7 +346,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("answeredAt", this.getAnsweredAt());
         writer.writeObjectValue("billableAmount", this.getBillableAmount());
         writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
-        writer.writeStringValue("billingPhoneNumberId", this.getBillingPhoneNumberId());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeStringValue("business", this.getBusiness());
         writer.writeStringValue("businessId", this.getBusinessId());
@@ -412,12 +359,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeObjectValue("metadata", this.getMetadata());
-        writer.writeStringValue("providerStatus", this.getProviderStatus());
         writer.writeStringValue("recordingUrl", this.getRecordingUrl());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
-        writer.writeStringValue("telnyxId", this.getTelnyxId());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
         writer.writeStringValue("user", this.getUser());
         writer.writeStringValue("userId", this.getUserId());
@@ -450,13 +394,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setBillableSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
         this.billableSeconds = value;
-    }
-    /**
-     * Sets the billingPhoneNumberId property value. Phone number identifier used for billing reconciliation.
-     * @param value Value to set for the billingPhoneNumberId property.
-     */
-    public void setBillingPhoneNumberId(@jakarta.annotation.Nullable final String value) {
-        this.billingPhoneNumberId = value;
     }
     /**
      * Sets the billingStatus property value. Billing state for this communication, charge, or transaction.
@@ -550,20 +487,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
-     * Sets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this call event table row.
-     * @param value Value to set for the metadata property.
-     */
-    public void setMetadata(@jakarta.annotation.Nullable final CallEventTableRowMetadata value) {
-        this.metadata = value;
-    }
-    /**
-     * Sets the providerStatus property value. Provider lifecycle or delivery status for this call event table row.
-     * @param value Value to set for the providerStatus property.
-     */
-    public void setProviderStatus(@jakarta.annotation.Nullable final String value) {
-        this.providerStatus = value;
-    }
-    /**
      * Sets the recordingUrl property value. URL for the call recording, when the provider makes one available.
      * @param value Value to set for the recordingUrl property.
      */
@@ -583,13 +506,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setStatusReason(@jakarta.annotation.Nullable final String value) {
         this.statusReason = value;
-    }
-    /**
-     * Sets the telnyxId property value. Telnyx identifier connected to this phone number, call, or SMS event.
-     * @param value Value to set for the telnyxId property.
-     */
-    public void setTelnyxId(@jakarta.annotation.Nullable final String value) {
-        this.telnyxId = value;
     }
     /**
      * Sets the toPhoneNumber property value. Recipient phone number used for this communication.

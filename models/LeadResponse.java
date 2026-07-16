@@ -18,10 +18,6 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private LeadResponseAdminEnablementOverride adminEnablementOverride;
-    /**
      * UTC timestamp when this record was archived.
      */
     private OffsetDateTime archivedAt;
@@ -62,7 +58,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The isArchived property
+     * Indicates whether the lead has been archived in Leadping.
      */
     private Boolean isArchived;
     /**
@@ -100,14 +96,6 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
         return this.additionalData;
-    }
-    /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link LeadResponseAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public LeadResponseAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
     }
     /**
      * Gets the archivedAt property value. UTC timestamp when this record was archived.
@@ -187,8 +175,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(LeadResponseAdminEnablementOverride::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
@@ -214,7 +201,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Indicates whether the lead has been archived in Leadping.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -251,7 +238,6 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeStringValue("archiveNote", this.getArchiveNote());
@@ -274,13 +260,6 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final LeadResponseAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the archivedAt property value. UTC timestamp when this record was archived.
@@ -353,7 +332,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Indicates whether the lead has been archived in Leadping.
      * @param value Value to set for the isArchived property.
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {

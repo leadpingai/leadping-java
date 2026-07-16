@@ -16,63 +16,63 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The completedAt property
+     * Date and time when the user data export completed.
      */
     private OffsetDateTime completedAt;
     /**
-     * The contentType property
+     * Media type of the generated file or response content.
      */
     private String contentType;
     /**
-     * The downloadCount property
+     * Total number of download records represented by this Leadping user data export.
      */
     private Integer downloadCount;
     /**
-     * The downloadUrl property
+     * Temporary URL for downloading the completed Leadping data export.
      */
     private String downloadUrl;
     /**
-     * The expiresAt property
+     * Date and time when the user data export expires.
      */
     private OffsetDateTime expiresAt;
     /**
-     * The failedAt property
+     * Date and time when the user data export failed.
      */
     private OffsetDateTime failedAt;
     /**
-     * The fileName property
+     * Human-readable file name associated with this Leadping user data export.
      */
     private String fileName;
     /**
-     * The files property
+     * Collection of files included with this Leadping user data export.
      */
     private java.util.List<UserDataExportFile> files;
     /**
-     * The id property
+     * Unique Leadping identifier for the user data export.
      */
     private String id;
     /**
-     * The maxDownloadCount property
+     * Total number of max download records represented by this Leadping user data export.
      */
     private Integer maxDownloadCount;
     /**
-     * The message property
+     * Human-readable message for this Leadping user data export.
      */
     private String message;
     /**
-     * The requestedAt property
+     * Date and time when the user data export was requested.
      */
     private OffsetDateTime requestedAt;
     /**
-     * The sizeBytes property
+     * File size in bytes.
      */
     private UntypedNode sizeBytes;
     /**
-     * The startedAt property
+     * Date and time when the user data export started.
      */
     private OffsetDateTime startedAt;
     /**
-     * Defines the supported user data export statuses values.
+     * Current status for this Leadping user data export.
      */
     private UserDataExportStatuses status;
     /**
@@ -100,7 +100,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the completedAt property value. The completedAt property
+     * Gets the completedAt property value. Date and time when the user data export completed.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.completedAt;
     }
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. Media type of the generated file or response content.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -116,7 +116,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.contentType;
     }
     /**
-     * Gets the downloadCount property value. The downloadCount property
+     * Gets the downloadCount property value. Total number of download records represented by this Leadping user data export.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -124,7 +124,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.downloadCount;
     }
     /**
-     * Gets the downloadUrl property value. The downloadUrl property
+     * Gets the downloadUrl property value. Temporary URL for downloading the completed Leadping data export.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -132,7 +132,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.downloadUrl;
     }
     /**
-     * Gets the expiresAt property value. The expiresAt property
+     * Gets the expiresAt property value. Date and time when the user data export expires.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -140,7 +140,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.expiresAt;
     }
     /**
-     * Gets the failedAt property value. The failedAt property
+     * Gets the failedAt property value. Date and time when the user data export failed.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -172,7 +172,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the fileName property value. The fileName property
+     * Gets the fileName property value. Human-readable file name associated with this Leadping user data export.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.fileName;
     }
     /**
-     * Gets the files property value. The files property
+     * Gets the files property value. Collection of files included with this Leadping user data export.
      * @return a {@link java.util.List<UserDataExportFile>}
      */
     @jakarta.annotation.Nullable
@@ -188,7 +188,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.files;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique Leadping identifier for the user data export.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -196,7 +196,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the maxDownloadCount property value. The maxDownloadCount property
+     * Gets the maxDownloadCount property value. Total number of max download records represented by this Leadping user data export.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -204,7 +204,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.maxDownloadCount;
     }
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. Human-readable message for this Leadping user data export.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -212,7 +212,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.message;
     }
     /**
-     * Gets the requestedAt property value. The requestedAt property
+     * Gets the requestedAt property value. Date and time when the user data export was requested.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -220,7 +220,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.requestedAt;
     }
     /**
-     * Gets the sizeBytes property value. The sizeBytes property
+     * Gets the sizeBytes property value. File size in bytes.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -228,7 +228,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.sizeBytes;
     }
     /**
-     * Gets the startedAt property value. The startedAt property
+     * Gets the startedAt property value. Date and time when the user data export started.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -236,7 +236,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.startedAt;
     }
     /**
-     * Gets the status property value. Defines the supported user data export statuses values.
+     * Gets the status property value. Current status for this Leadping user data export.
      * @return a {@link UserDataExportStatuses}
      */
     @jakarta.annotation.Nullable
@@ -274,105 +274,105 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the completedAt property value. The completedAt property
+     * Sets the completedAt property value. Date and time when the user data export completed.
      * @param value Value to set for the completedAt property.
      */
     public void setCompletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.completedAt = value;
     }
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. Media type of the generated file or response content.
      * @param value Value to set for the contentType property.
      */
     public void setContentType(@jakarta.annotation.Nullable final String value) {
         this.contentType = value;
     }
     /**
-     * Sets the downloadCount property value. The downloadCount property
+     * Sets the downloadCount property value. Total number of download records represented by this Leadping user data export.
      * @param value Value to set for the downloadCount property.
      */
     public void setDownloadCount(@jakarta.annotation.Nullable final Integer value) {
         this.downloadCount = value;
     }
     /**
-     * Sets the downloadUrl property value. The downloadUrl property
+     * Sets the downloadUrl property value. Temporary URL for downloading the completed Leadping data export.
      * @param value Value to set for the downloadUrl property.
      */
     public void setDownloadUrl(@jakarta.annotation.Nullable final String value) {
         this.downloadUrl = value;
     }
     /**
-     * Sets the expiresAt property value. The expiresAt property
+     * Sets the expiresAt property value. Date and time when the user data export expires.
      * @param value Value to set for the expiresAt property.
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.expiresAt = value;
     }
     /**
-     * Sets the failedAt property value. The failedAt property
+     * Sets the failedAt property value. Date and time when the user data export failed.
      * @param value Value to set for the failedAt property.
      */
     public void setFailedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.failedAt = value;
     }
     /**
-     * Sets the fileName property value. The fileName property
+     * Sets the fileName property value. Human-readable file name associated with this Leadping user data export.
      * @param value Value to set for the fileName property.
      */
     public void setFileName(@jakarta.annotation.Nullable final String value) {
         this.fileName = value;
     }
     /**
-     * Sets the files property value. The files property
+     * Sets the files property value. Collection of files included with this Leadping user data export.
      * @param value Value to set for the files property.
      */
     public void setFiles(@jakarta.annotation.Nullable final java.util.List<UserDataExportFile> value) {
         this.files = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique Leadping identifier for the user data export.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the maxDownloadCount property value. The maxDownloadCount property
+     * Sets the maxDownloadCount property value. Total number of max download records represented by this Leadping user data export.
      * @param value Value to set for the maxDownloadCount property.
      */
     public void setMaxDownloadCount(@jakarta.annotation.Nullable final Integer value) {
         this.maxDownloadCount = value;
     }
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. Human-readable message for this Leadping user data export.
      * @param value Value to set for the message property.
      */
     public void setMessage(@jakarta.annotation.Nullable final String value) {
         this.message = value;
     }
     /**
-     * Sets the requestedAt property value. The requestedAt property
+     * Sets the requestedAt property value. Date and time when the user data export was requested.
      * @param value Value to set for the requestedAt property.
      */
     public void setRequestedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.requestedAt = value;
     }
     /**
-     * Sets the sizeBytes property value. The sizeBytes property
+     * Sets the sizeBytes property value. File size in bytes.
      * @param value Value to set for the sizeBytes property.
      */
     public void setSizeBytes(@jakarta.annotation.Nullable final UntypedNode value) {
         this.sizeBytes = value;
     }
     /**
-     * Sets the startedAt property value. The startedAt property
+     * Sets the startedAt property value. Date and time when the user data export started.
      * @param value Value to set for the startedAt property.
      */
     public void setStartedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.startedAt = value;
     }
     /**
-     * Sets the status property value. Defines the supported user data export statuses values.
+     * Sets the status property value. Current status for this Leadping user data export.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final UserDataExportStatuses value) {

@@ -15,35 +15,35 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     private Map<String, Object> additionalData;
     /**
-     * The callMinutes property
+     * Total connected call duration, in minutes, during the reporting period.
      */
     private Double callMinutes;
     /**
-     * The calls property
+     * Number of calls represented by this Leadping customer communication usage point.
      */
     private Integer calls;
     /**
-     * The endAt property
+     * Date and time when this Leadping customer communication usage point was end.
      */
     private OffsetDateTime endAt;
     /**
-     * The label property
+     * Human-readable label for this Leadping customer communication usage point.
      */
     private String label;
     /**
-     * The smsReceived property
+     * Number of SMS messages received during the reporting period.
      */
     private Integer smsReceived;
     /**
-     * The smsSent property
+     * Number of SMS messages sent during the reporting period.
      */
     private Integer smsSent;
     /**
-     * The spend property
+     * Spend represented by this Leadping customer communication usage point.
      */
     private Double spend;
     /**
-     * The startAt property
+     * Date and time when this Leadping customer communication usage point was start.
      */
     private OffsetDateTime startAt;
     /**
@@ -71,7 +71,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.additionalData;
     }
     /**
-     * Gets the callMinutes property value. The callMinutes property
+     * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.callMinutes;
     }
     /**
-     * Gets the calls property value. The calls property
+     * Gets the calls property value. Number of calls represented by this Leadping customer communication usage point.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.calls;
     }
     /**
-     * Gets the endAt property value. The endAt property
+     * Gets the endAt property value. Date and time when this Leadping customer communication usage point was end.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -112,7 +112,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return deserializerMap;
     }
     /**
-     * Gets the label property value. The label property
+     * Gets the label property value. Human-readable label for this Leadping customer communication usage point.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -120,7 +120,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.label;
     }
     /**
-     * Gets the smsReceived property value. The smsReceived property
+     * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -128,7 +128,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.smsReceived;
     }
     /**
-     * Gets the smsSent property value. The smsSent property
+     * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -136,7 +136,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.smsSent;
     }
     /**
-     * Gets the spend property value. The spend property
+     * Gets the spend property value. Spend represented by this Leadping customer communication usage point.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -144,7 +144,7 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.spend;
     }
     /**
-     * Gets the startAt property value. The startAt property
+     * Gets the startAt property value. Date and time when this Leadping customer communication usage point was start.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -175,56 +175,56 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         this.additionalData = value;
     }
     /**
-     * Sets the callMinutes property value. The callMinutes property
+     * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @param value Value to set for the callMinutes property.
      */
     public void setCallMinutes(@jakarta.annotation.Nullable final Double value) {
         this.callMinutes = value;
     }
     /**
-     * Sets the calls property value. The calls property
+     * Sets the calls property value. Number of calls represented by this Leadping customer communication usage point.
      * @param value Value to set for the calls property.
      */
     public void setCalls(@jakarta.annotation.Nullable final Integer value) {
         this.calls = value;
     }
     /**
-     * Sets the endAt property value. The endAt property
+     * Sets the endAt property value. Date and time when this Leadping customer communication usage point was end.
      * @param value Value to set for the endAt property.
      */
     public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.endAt = value;
     }
     /**
-     * Sets the label property value. The label property
+     * Sets the label property value. Human-readable label for this Leadping customer communication usage point.
      * @param value Value to set for the label property.
      */
     public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
     }
     /**
-     * Sets the smsReceived property value. The smsReceived property
+     * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @param value Value to set for the smsReceived property.
      */
     public void setSmsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.smsReceived = value;
     }
     /**
-     * Sets the smsSent property value. The smsSent property
+     * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @param value Value to set for the smsSent property.
      */
     public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {
         this.smsSent = value;
     }
     /**
-     * Sets the spend property value. The spend property
+     * Sets the spend property value. Spend represented by this Leadping customer communication usage point.
      * @param value Value to set for the spend property.
      */
     public void setSpend(@jakarta.annotation.Nullable final Double value) {
         this.spend = value;
     }
     /**
-     * Sets the startAt property value. The startAt property
+     * Sets the startAt property value. Date and time when this Leadping customer communication usage point was start.
      * @param value Value to set for the startAt property.
      */
     public void setStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

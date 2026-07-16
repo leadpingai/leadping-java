@@ -17,11 +17,11 @@ public class AutomationWorkflowStatusResponse implements AdditionalDataHolder, P
      */
     private Map<String, Object> additionalData;
     /**
-     * The leadId property
+     * Unique identifier of the lead associated with this Leadping automation workflow status.
      */
     private String leadId;
     /**
-     * The runs property
+     * Collection of runs included with this Leadping automation workflow status.
      */
     private java.util.List<AutomationWorkflowRunResponse> runs;
     /**
@@ -60,7 +60,7 @@ public class AutomationWorkflowStatusResponse implements AdditionalDataHolder, P
         return deserializerMap;
     }
     /**
-     * Gets the leadId property value. The leadId property
+     * Gets the leadId property value. Unique identifier of the lead associated with this Leadping automation workflow status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class AutomationWorkflowStatusResponse implements AdditionalDataHolder, P
         return this.leadId;
     }
     /**
-     * Gets the runs property value. The runs property
+     * Gets the runs property value. Collection of runs included with this Leadping automation workflow status.
      * @return a {@link java.util.List<AutomationWorkflowRunResponse>}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class AutomationWorkflowStatusResponse implements AdditionalDataHolder, P
         this.additionalData = value;
     }
     /**
-     * Sets the leadId property value. The leadId property
+     * Sets the leadId property value. Unique identifier of the lead associated with this Leadping automation workflow status.
      * @param value Value to set for the leadId property.
      */
     public void setLeadId(@jakarta.annotation.Nullable final String value) {
         this.leadId = value;
     }
     /**
-     * Sets the runs property value. The runs property
+     * Sets the runs property value. Collection of runs included with this Leadping automation workflow status.
      * @param value Value to set for the runs property.
      */
     public void setRuns(@jakarta.annotation.Nullable final java.util.List<AutomationWorkflowRunResponse> value) {

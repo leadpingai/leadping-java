@@ -19,10 +19,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private SourceResponseAdminEnablementOverride adminEnablementOverride;
-    /**
      * Product allowlist used to accept or route leads from this source.
      */
     private java.util.List<String> allowedProducts;
@@ -42,10 +38,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      * Indicates whether the business or sender passed compliance review.
      */
     private Boolean complianceApproved;
-    /**
-     * Compliance notes captured for admin review.
-     */
-    private String complianceNotes;
     /**
      * Configured cost charged when this source creates a billable lead.
      */
@@ -131,14 +123,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link SourceResponseAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public SourceResponseAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
-    }
-    /**
      * Gets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
      * @return a {@link java.util.List<String>}
      */
@@ -177,14 +161,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getComplianceApproved() {
         return this.complianceApproved;
-    }
-    /**
-     * Gets the complianceNotes property value. Compliance notes captured for admin review.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getComplianceNotes() {
-        return this.complianceNotes;
     }
     /**
      * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
@@ -248,14 +224,12 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(SourceResponseAdminEnablementOverride::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(SourceResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
-        deserializerMap.put("complianceNotes", (n) -> { this.setComplianceNotes(n.getStringValue()); });
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUser", (n) -> { this.setCreatedByUser(n.getObjectValue(SourceResponseCreatedByUser::createFromDiscriminatorValue)); });
@@ -343,13 +317,11 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
-        writer.writeStringValue("complianceNotes", this.getComplianceNotes());
         writer.writeObjectValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("createdByUser", this.getCreatedByUser());
@@ -373,13 +345,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final SourceResponseAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
@@ -415,13 +380,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setComplianceApproved(@jakarta.annotation.Nullable final Boolean value) {
         this.complianceApproved = value;
-    }
-    /**
-     * Sets the complianceNotes property value. Compliance notes captured for admin review.
-     * @param value Value to set for the complianceNotes property.
-     */
-    public void setComplianceNotes(@jakarta.annotation.Nullable final String value) {
-        this.complianceNotes = value;
     }
     /**
      * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.

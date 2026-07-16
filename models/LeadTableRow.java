@@ -19,10 +19,6 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Admin override that can enable or disable this record independently of normal status checks.
-     */
-    private LeadTableRowAdminEnablementOverride adminEnablementOverride;
-    /**
      * UTC timestamp when this record was archived.
      */
     private OffsetDateTime archivedAt;
@@ -131,14 +127,6 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @return a {@link LeadTableRowAdminEnablementOverride}
-     */
-    @jakarta.annotation.Nullable
-    public LeadTableRowAdminEnablementOverride getAdminEnablementOverride() {
-        return this.adminEnablementOverride;
-    }
-    /**
      * Gets the archivedAt property value. UTC timestamp when this record was archived.
      * @return a {@link OffsetDateTime}
      */
@@ -216,8 +204,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
-        deserializerMap.put("adminEnablementOverride", (n) -> { this.setAdminEnablementOverride(n.getObjectValue(LeadTableRowAdminEnablementOverride::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -343,7 +330,6 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("adminEnablementOverride", this.getAdminEnablementOverride());
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
@@ -373,13 +359,6 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the adminEnablementOverride property value. Admin override that can enable or disable this record independently of normal status checks.
-     * @param value Value to set for the adminEnablementOverride property.
-     */
-    public void setAdminEnablementOverride(@jakarta.annotation.Nullable final LeadTableRowAdminEnablementOverride value) {
-        this.adminEnablementOverride = value;
     }
     /**
      * Sets the archivedAt property value. UTC timestamp when this record was archived.
