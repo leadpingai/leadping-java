@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Human-readable summary for this Leadping customer analytics.
+ * Represents customer analytics summary data exposed by Leadping analytics.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable {

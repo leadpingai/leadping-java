@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Lead trend associated with this Leadping customer analytics.
+ * Represents customer lead trend data exposed by Leadping analytics.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {

@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Represents outbound phone number capacity data used by Leadping.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsable {
     /**

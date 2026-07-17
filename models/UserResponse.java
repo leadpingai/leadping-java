@@ -23,6 +23,10 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UserResponseBillingPlan billingPlan;
     /**
+     * Customer-safe billing state for the user&apos;s currently selected business.
+     */
+    private UserResponseBillingState billingState;
+    /**
      * The compliance value for this user.
      */
     private UserResponseCompliance compliance;
@@ -135,6 +139,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
+     * Gets the billingState property value. Customer-safe billing state for the user&apos;s currently selected business.
+     * @return a {@link UserResponseBillingState}
+     */
+    @jakarta.annotation.Nullable
+    public UserResponseBillingState getBillingState() {
+        return this.billingState;
+    }
+    /**
      * Gets the compliance property value. The compliance value for this user.
      * @return a {@link UserResponseCompliance}
      */
@@ -172,8 +184,9 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
+        deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentBusiness", (n) -> { this.setCurrentBusiness(n.getObjectValue(UserResponseCurrentBusiness::createFromDiscriminatorValue)); });
@@ -331,6 +344,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
+        writer.writeObjectValue("billingState", this.getBillingState());
         writer.writeObjectValue("compliance", this.getCompliance());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentBusiness", this.getCurrentBusiness());
@@ -366,6 +380,13 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final UserResponseBillingPlan value) {
         this.billingPlan = value;
+    }
+    /**
+     * Sets the billingState property value. Customer-safe billing state for the user&apos;s currently selected business.
+     * @param value Value to set for the billingState property.
+     */
+    public void setBillingState(@jakarta.annotation.Nullable final UserResponseBillingState value) {
+        this.billingState = value;
     }
     /**
      * Sets the compliance property value. The compliance value for this user.

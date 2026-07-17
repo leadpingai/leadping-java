@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response metrics associated with this Leadping customer analytics.
+ * Represents customer response metrics data exposed by Leadping analytics.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {

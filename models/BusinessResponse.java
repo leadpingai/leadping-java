@@ -55,6 +55,10 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     private BusinessResponseBillingPlan billingPlan;
     /**
+     * Customer-safe billing state for this business.
+     */
+    private BusinessResponseBillingState billingState;
+    /**
      * Compliance policy configuration for the business.
      */
     private BusinessResponseCompliancePolicy compliancePolicy;
@@ -231,6 +235,14 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
+     * Gets the billingState property value. Customer-safe billing state for this business.
+     * @return a {@link BusinessResponseBillingState}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessResponseBillingState getBillingState() {
+        return this.billingState;
+    }
+    /**
      * Gets the compliancePolicy property value. Compliance policy configuration for the business.
      * @return a {@link BusinessResponseCompliancePolicy}
      */
@@ -292,7 +304,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(BusinessResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessResponseAddress::createFromDiscriminatorValue)); });
@@ -302,6 +314,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(BusinessResponseBillingAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessResponseBillingPlan::forValue)); });
+        deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(BusinessResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(BusinessResponseCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -443,6 +456,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
         writer.writeStringValue("billingName", this.getBillingName());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
+        writer.writeObjectValue("billingState", this.getBillingState());
         writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
@@ -534,6 +548,13 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final BusinessResponseBillingPlan value) {
         this.billingPlan = value;
+    }
+    /**
+     * Sets the billingState property value. Customer-safe billing state for this business.
+     * @param value Value to set for the billingState property.
+     */
+    public void setBillingState(@jakarta.annotation.Nullable final BusinessResponseBillingState value) {
+        this.billingState = value;
     }
     /**
      * Sets the compliancePolicy property value. Compliance policy configuration for the business.

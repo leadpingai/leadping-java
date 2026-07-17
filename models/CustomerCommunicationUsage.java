@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Communication usage associated with this Leadping customer analytics.
+ * Represents customer communication usage data exposed by Leadping analytics.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsable {

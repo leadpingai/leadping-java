@@ -8,6 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Response model containing source metrics data returned by the Leadping API.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
     /**
