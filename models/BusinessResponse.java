@@ -111,6 +111,10 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     private String secondaryName;
     /**
+     * Defines the supported User Setup Status values.
+     */
+    private BusinessResponseSetupStatus setupStatus;
+    /**
      * Defines the supported Business Setup Step values.
      */
     private BusinessResponseSetupStep setupStep;
@@ -304,7 +308,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(BusinessResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessResponseAddress::createFromDiscriminatorValue)); });
@@ -328,6 +332,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("phones", (n) -> { this.setPhones(n.getCollectionOfObjectValues(IdNameValue::createFromDiscriminatorValue)); });
         deserializerMap.put("secondaryName", (n) -> { this.setSecondaryName(n.getStringValue()); });
+        deserializerMap.put("setupStatus", (n) -> { this.setSetupStatus(n.getEnumValue(BusinessResponseSetupStatus::forValue)); });
         deserializerMap.put("setupStep", (n) -> { this.setSetupStep(n.getEnumValue(BusinessResponseSetupStep::forValue)); });
         deserializerMap.put("site", (n) -> { this.setSite(n.getObjectValue(BusinessResponseSite::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(BusinessResponseStatus::forValue)); });
@@ -384,6 +389,14 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getSecondaryName() {
         return this.secondaryName;
+    }
+    /**
+     * Gets the setupStatus property value. Defines the supported User Setup Status values.
+     * @return a {@link BusinessResponseSetupStatus}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessResponseSetupStatus getSetupStatus() {
+        return this.setupStatus;
     }
     /**
      * Gets the setupStep property value. Defines the supported Business Setup Step values.
@@ -470,6 +483,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("phone", this.getPhone());
         writer.writeCollectionOfObjectValues("phones", this.getPhones());
         writer.writeStringValue("secondaryName", this.getSecondaryName());
+        writer.writeEnumValue("setupStatus", this.getSetupStatus());
         writer.writeEnumValue("setupStep", this.getSetupStep());
         writer.writeObjectValue("site", this.getSite());
         writer.writeEnumValue("status", this.getStatus());
@@ -646,6 +660,13 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     public void setSecondaryName(@jakarta.annotation.Nullable final String value) {
         this.secondaryName = value;
+    }
+    /**
+     * Sets the setupStatus property value. Defines the supported User Setup Status values.
+     * @param value Value to set for the setupStatus property.
+     */
+    public void setSetupStatus(@jakarta.annotation.Nullable final BusinessResponseSetupStatus value) {
+        this.setupStatus = value;
     }
     /**
      * Sets the setupStep property value. Defines the supported Business Setup Step values.
