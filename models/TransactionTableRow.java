@@ -14,10 +14,6 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
-     * Display name of the wallet or account used for this transaction.
-     */
-    private String accountName;
-    /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
@@ -26,13 +22,9 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double amount;
     /**
-     * Business ID charged or credited by this wallet transaction.
+     * The ID and name for this business.
      */
-    private String businessId;
-    /**
-     * Business display name shown for this wallet transaction.
-     */
-    private String businessName;
+    private TransactionTableRowBusiness business;
     /**
      * UTC timestamp when this billing transaction table row was created.
      */
@@ -46,13 +38,9 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * Lead ID connected to this transaction when the charge came from lead activity.
+     * The ID and name for this lead.
      */
-    private String leadId;
-    /**
-     * Lead display name shown for lead-related wallet transactions.
-     */
-    private String leadName;
+    private TransactionTableRowLead lead;
     /**
      * Net monetary amount after fees, credits, or adjustments.
      */
@@ -86,14 +74,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return new TransactionTableRow();
     }
     /**
-     * Gets the accountName property value. Display name of the wallet or account used for this transaction.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAccountName() {
-        return this.accountName;
-    }
-    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return a {@link Map<String, Object>}
      */
@@ -110,20 +90,12 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.amount;
     }
     /**
-     * Gets the businessId property value. Business ID charged or credited by this wallet transaction.
-     * @return a {@link String}
+     * Gets the business property value. The ID and name for this business.
+     * @return a {@link TransactionTableRowBusiness}
      */
     @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the businessName property value. Business display name shown for this wallet transaction.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
+    public TransactionTableRowBusiness getBusiness() {
+        return this.business;
     }
     /**
      * Gets the createdAt property value. UTC timestamp when this billing transaction table row was created.
@@ -147,16 +119,13 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
-        deserializerMap.put("accountName", (n) -> { this.setAccountName(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
+        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(TransactionTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
+        deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionTableRowLead::createFromDiscriminatorValue)); });
         deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("paymentMethodDisplay", (n) -> { this.setPaymentMethodDisplay(n.getStringValue()); });
         deserializerMap.put("transactionStatus", (n) -> { this.setTransactionStatus(n.getEnumValue(TransactionStatus::forValue)); });
@@ -172,20 +141,12 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the leadId property value. Lead ID connected to this transaction when the charge came from lead activity.
-     * @return a {@link String}
+     * Gets the lead property value. The ID and name for this lead.
+     * @return a {@link TransactionTableRowLead}
      */
     @jakarta.annotation.Nullable
-    public String getLeadId() {
-        return this.leadId;
-    }
-    /**
-     * Gets the leadName property value. Lead display name shown for lead-related wallet transactions.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLeadName() {
-        return this.leadName;
+    public TransactionTableRowLead getLead() {
+        return this.lead;
     }
     /**
      * Gets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
@@ -225,27 +186,17 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("accountName", this.getAccountName());
         writer.writeDoubleValue("amount", this.getAmount());
-        writer.writeStringValue("businessId", this.getBusinessId());
-        writer.writeStringValue("businessName", this.getBusinessName());
+        writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("id", this.getId());
-        writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeStringValue("leadName", this.getLeadName());
+        writer.writeObjectValue("lead", this.getLead());
         writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeStringValue("paymentMethodDisplay", this.getPaymentMethodDisplay());
         writer.writeEnumValue("transactionStatus", this.getTransactionStatus());
         writer.writeEnumValue("transactionType", this.getTransactionType());
         writer.writeAdditionalData(this.getAdditionalData());
-    }
-    /**
-     * Sets the accountName property value. Display name of the wallet or account used for this transaction.
-     * @param value Value to set for the accountName property.
-     */
-    public void setAccountName(@jakarta.annotation.Nullable final String value) {
-        this.accountName = value;
     }
     /**
      * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -262,18 +213,11 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.amount = value;
     }
     /**
-     * Sets the businessId property value. Business ID charged or credited by this wallet transaction.
-     * @param value Value to set for the businessId property.
+     * Sets the business property value. The ID and name for this business.
+     * @param value Value to set for the business property.
      */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the businessName property value. Business display name shown for this wallet transaction.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
+    public void setBusiness(@jakarta.annotation.Nullable final TransactionTableRowBusiness value) {
+        this.business = value;
     }
     /**
      * Sets the createdAt property value. UTC timestamp when this billing transaction table row was created.
@@ -297,18 +241,11 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the leadId property value. Lead ID connected to this transaction when the charge came from lead activity.
-     * @param value Value to set for the leadId property.
+     * Sets the lead property value. The ID and name for this lead.
+     * @param value Value to set for the lead property.
      */
-    public void setLeadId(@jakarta.annotation.Nullable final String value) {
-        this.leadId = value;
-    }
-    /**
-     * Sets the leadName property value. Lead display name shown for lead-related wallet transactions.
-     * @param value Value to set for the leadName property.
-     */
-    public void setLeadName(@jakarta.annotation.Nullable final String value) {
-        this.leadName = value;
+    public void setLead(@jakarta.annotation.Nullable final TransactionTableRowLead value) {
+        this.lead = value;
     }
     /**
      * Sets the netAmount property value. Net monetary amount after fees, credits, or adjustments.

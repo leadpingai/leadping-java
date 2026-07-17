@@ -103,13 +103,9 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isAutomated;
     /**
-     * Lead ID associated with this SMS event.
+     * The ID and name for this lead.
      */
-    private String leadId;
-    /**
-     * Lead display name shown for this SMS event.
-     */
-    private String leadName;
+    private IdNamePair lead;
     /**
      * Phone number ID selected for outbound delivery.
      */
@@ -344,7 +340,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
@@ -366,8 +362,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
-        deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
+        deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(SmsEventTableRowOutboundSource::forValue)); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
@@ -420,20 +415,12 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.isAutomated;
     }
     /**
-     * Gets the leadId property value. Lead ID associated with this SMS event.
-     * @return a {@link String}
+     * Gets the lead property value. The ID and name for this lead.
+     * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
-    public String getLeadId() {
-        return this.leadId;
-    }
-    /**
-     * Gets the leadName property value. Lead display name shown for this SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLeadName() {
-        return this.leadName;
+    public IdNamePair getLead() {
+        return this.lead;
     }
     /**
      * Gets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.
@@ -598,8 +585,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
-        writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeStringValue("leadName", this.getLeadName());
+        writer.writeObjectValue("lead", this.getLead());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeEnumValue("outboundSource", this.getOutboundSource());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
@@ -774,18 +760,11 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.isAutomated = value;
     }
     /**
-     * Sets the leadId property value. Lead ID associated with this SMS event.
-     * @param value Value to set for the leadId property.
+     * Sets the lead property value. The ID and name for this lead.
+     * @param value Value to set for the lead property.
      */
-    public void setLeadId(@jakarta.annotation.Nullable final String value) {
-        this.leadId = value;
-    }
-    /**
-     * Sets the leadName property value. Lead display name shown for this SMS event.
-     * @param value Value to set for the leadName property.
-     */
-    public void setLeadName(@jakarta.annotation.Nullable final String value) {
-        this.leadName = value;
+    public void setLead(@jakarta.annotation.Nullable final IdNamePair value) {
+        this.lead = value;
     }
     /**
      * Sets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.

@@ -1,0 +1,129 @@
+name: Release Java SDK
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+      - "CODE_OF_CONDUCT.md"
+      - "CONTRIBUTING.md"
+      - "SECURITY.md"
+      - "LICENSE"
+      - "renovate.json"
+      - ".github/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GIT__TOKEN || secrets.GH__TOKEN || github.token }}
+
+      - name: Prepare version
+        id: version
+        run: |
+          set -euo pipefail
+
+          git fetch --tags --force
+          latest_tag="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | awk '/^v[0-9]+\.[0-9]+\.[0-9]+$/ { print; exit }')"
+
+          if [ -z "${latest_tag}" ]; then
+            version="1.0.0"
+          else
+            base="${latest_tag#v}"
+            IFS='.' read -r major minor patch <<< "${base}"
+            version="${major}.${minor}.$((patch + 1))"
+          fi
+
+          if [[ ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Version must look like 1.2.3."
+            exit 1
+          fi
+
+          tag="v${version}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
+            echo "::error::Tag ${tag} already exists."
+            exit 1
+          fi
+
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+          server-id: central
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Build package
+        run: mvn -B -Drevision="${{ steps.version.outputs.version }}" verify
+
+      - name: Publish to Maven Central
+        env:
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: mvn -B -Prelease -Drevision="${{ steps.version.outputs.version }}" deploy -DskipTests
+
+      - name: Set up GitHub Packages publishing
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          mvn -B org.apache.maven.plugins:maven-deploy-plugin:3.1.4:deploy-file \
+            -DrepositoryId=github \
+            -Durl="https://maven.pkg.github.com/${{ github.repository }}" \
+            -DpomFile=.flattened-pom.xml \
+            -Dfile="target/leadping-${VERSION}.jar" \
+            -Dsources="target/leadping-${VERSION}-sources.jar" \
+            -Djavadoc="target/leadping-${VERSION}-javadoc.jar"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          GIT_EMAIL: ${{ secrets.GIT__EMAIL || 'support@leadping.ai' }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p artifacts
+          cp target/*.jar artifacts/
+
+          git config user.name "leadpingai-bot"
+          git config user.email "${GIT_EMAIL}"
+          git tag "${TAG}"
+          git push origin "${TAG}"
+
+          gh release create "${TAG}" artifacts/* \
+            --title "${TAG}" \
+            --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from Maven Central or GitHub Packages with ai.leadping:leadping:${{ steps.version.outputs.version }}."

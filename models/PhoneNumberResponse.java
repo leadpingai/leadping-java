@@ -38,10 +38,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean leadpingOwned;
     /**
-     * Geographic location metadata for the phone number, lead, or lookup result.
-     */
-    private PhoneNumberResponseLocation location;
-    /**
      * The date and time when the entity was last modified, if applicable.
      */
     private OffsetDateTime modifiedAt;
@@ -53,6 +49,10 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      * E.164 phone number exposed by this phone number.
      */
     private String number;
+    /**
+     * Identifier of the canonical phone identity for this number.
+     */
+    private String phoneIdentityId;
     /**
      * Routing metadata that connects this phone number to teams, campaigns, and sources.
      */
@@ -121,10 +121,10 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("leadpingOwned", (n) -> { this.setLeadpingOwned(n.getBooleanValue()); });
-        deserializerMap.put("location", (n) -> { this.setLocation(n.getObjectValue(PhoneNumberResponseLocation::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberWarmup::createFromDiscriminatorValue)); });
         return deserializerMap;
@@ -144,14 +144,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getLeadpingOwned() {
         return this.leadpingOwned;
-    }
-    /**
-     * Gets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
-     * @return a {@link PhoneNumberResponseLocation}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneNumberResponseLocation getLocation() {
-        return this.location;
     }
     /**
      * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
@@ -176,6 +168,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getNumber() {
         return this.number;
+    }
+    /**
+     * Gets the phoneIdentityId property value. Identifier of the canonical phone identity for this number.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getPhoneIdentityId() {
+        return this.phoneIdentityId;
     }
     /**
      * Gets the routing property value. Routing metadata that connects this phone number to teams, campaigns, and sources.
@@ -204,10 +204,10 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("leadpingOwned", this.getLeadpingOwned());
-        writer.writeObjectValue("location", this.getLocation());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeObjectValue("routing", this.getRouting());
         writer.writeObjectValue("warmup", this.getWarmup());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -255,13 +255,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.leadpingOwned = value;
     }
     /**
-     * Sets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
-     * @param value Value to set for the location property.
-     */
-    public void setLocation(@jakarta.annotation.Nullable final PhoneNumberResponseLocation value) {
-        this.location = value;
-    }
-    /**
      * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
      * @param value Value to set for the modifiedAt property.
      */
@@ -281,6 +274,13 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the phoneIdentityId property value. Identifier of the canonical phone identity for this number.
+     * @param value Value to set for the phoneIdentityId property.
+     */
+    public void setPhoneIdentityId(@jakarta.annotation.Nullable final String value) {
+        this.phoneIdentityId = value;
     }
     /**
      * Sets the routing property value. Routing metadata that connects this phone number to teams, campaigns, and sources.

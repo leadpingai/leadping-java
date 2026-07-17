@@ -27,13 +27,9 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private BillableUnit billableUnit;
     /**
-     * The business ID associated with this usage ledger.
+     * The ID and name for this business.
      */
-    private String businessId;
-    /**
-     * The business name value for this usage ledger.
-     */
-    private String businessName;
+    private UsageLedgerTableRowBusiness business;
     /**
      * The channel value for this usage ledger.
      */
@@ -63,13 +59,9 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isBillable;
     /**
-     * The lead ID associated with this usage ledger.
+     * The ID and name for this lead.
      */
-    private String leadId;
-    /**
-     * The lead name value for this usage ledger.
-     */
-    private String leadName;
+    private UsageLedgerTableRowLead lead;
     /**
      * The phone number associated with this usage ledger.
      */
@@ -95,13 +87,9 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double unitPrice;
     /**
-     * The user ID associated with this usage ledger.
+     * The ID and name for this user.
      */
-    private String userId;
-    /**
-     * The user name value for this usage ledger.
-     */
-    private String userName;
+    private UsageLedgerTableRowUser user;
     /**
      * Instantiates a new {@link UsageLedgerTableRow} and sets the default values.
      */
@@ -143,20 +131,12 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the businessId property value. The business ID associated with this usage ledger.
-     * @return a {@link String}
+     * Gets the business property value. The ID and name for this business.
+     * @return a {@link UsageLedgerTableRowBusiness}
      */
     @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the businessName property value. The business name value for this usage ledger.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
+    public UsageLedgerTableRowBusiness getBusiness() {
+        return this.business;
     }
     /**
      * Gets the channel property value. The channel value for this usage ledger.
@@ -204,11 +184,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
+        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(UsageLedgerTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
@@ -216,16 +195,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isBillable", (n) -> { this.setIsBillable(n.getBooleanValue()); });
-        deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
+        deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(UsageLedgerTableRowLead::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
         deserializerMap.put("smsSegments", (n) -> { this.setSmsSegments(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageRecordStatus::forValue)); });
         deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getDoubleValue()); });
-        deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
-        deserializerMap.put("userName", (n) -> { this.setUserName(n.getStringValue()); });
+        deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(UsageLedgerTableRowUser::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -245,20 +222,12 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.isBillable;
     }
     /**
-     * Gets the leadId property value. The lead ID associated with this usage ledger.
-     * @return a {@link String}
+     * Gets the lead property value. The ID and name for this lead.
+     * @return a {@link UsageLedgerTableRowLead}
      */
     @jakarta.annotation.Nullable
-    public String getLeadId() {
-        return this.leadId;
-    }
-    /**
-     * Gets the leadName property value. The lead name value for this usage ledger.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLeadName() {
-        return this.leadName;
+    public UsageLedgerTableRowLead getLead() {
+        return this.lead;
     }
     /**
      * Gets the phoneNumber property value. The phone number associated with this usage ledger.
@@ -309,20 +278,12 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.unitPrice;
     }
     /**
-     * Gets the userId property value. The user ID associated with this usage ledger.
-     * @return a {@link String}
+     * Gets the user property value. The ID and name for this user.
+     * @return a {@link UsageLedgerTableRowUser}
      */
     @jakarta.annotation.Nullable
-    public String getUserId() {
-        return this.userId;
-    }
-    /**
-     * Gets the userName property value. The user name value for this usage ledger.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserName() {
-        return this.userName;
+    public UsageLedgerTableRowUser getUser() {
+        return this.user;
     }
     /**
      * Serializes information the current object
@@ -332,8 +293,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
-        writer.writeStringValue("businessId", this.getBusinessId());
-        writer.writeStringValue("businessName", this.getBusinessName());
+        writer.writeObjectValue("business", this.getBusiness());
         writer.writeEnumValue("channel", this.getChannel());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
@@ -341,16 +301,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("durationSeconds", this.getDurationSeconds());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isBillable", this.getIsBillable());
-        writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeStringValue("leadName", this.getLeadName());
+        writer.writeObjectValue("lead", this.getLead());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
         writer.writeDoubleValue("quantity", this.getQuantity());
         writer.writeObjectValue("smsSegments", this.getSmsSegments());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeDoubleValue("unitPrice", this.getUnitPrice());
-        writer.writeStringValue("userId", this.getUserId());
-        writer.writeStringValue("userName", this.getUserName());
+        writer.writeObjectValue("user", this.getUser());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -375,18 +333,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.billableUnit = value;
     }
     /**
-     * Sets the businessId property value. The business ID associated with this usage ledger.
-     * @param value Value to set for the businessId property.
+     * Sets the business property value. The ID and name for this business.
+     * @param value Value to set for the business property.
      */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the businessName property value. The business name value for this usage ledger.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
+    public void setBusiness(@jakarta.annotation.Nullable final UsageLedgerTableRowBusiness value) {
+        this.business = value;
     }
     /**
      * Sets the channel property value. The channel value for this usage ledger.
@@ -438,18 +389,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.isBillable = value;
     }
     /**
-     * Sets the leadId property value. The lead ID associated with this usage ledger.
-     * @param value Value to set for the leadId property.
+     * Sets the lead property value. The ID and name for this lead.
+     * @param value Value to set for the lead property.
      */
-    public void setLeadId(@jakarta.annotation.Nullable final String value) {
-        this.leadId = value;
-    }
-    /**
-     * Sets the leadName property value. The lead name value for this usage ledger.
-     * @param value Value to set for the leadName property.
-     */
-    public void setLeadName(@jakarta.annotation.Nullable final String value) {
-        this.leadName = value;
+    public void setLead(@jakarta.annotation.Nullable final UsageLedgerTableRowLead value) {
+        this.lead = value;
     }
     /**
      * Sets the phoneNumber property value. The phone number associated with this usage ledger.
@@ -494,17 +438,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.unitPrice = value;
     }
     /**
-     * Sets the userId property value. The user ID associated with this usage ledger.
-     * @param value Value to set for the userId property.
+     * Sets the user property value. The ID and name for this user.
+     * @param value Value to set for the user property.
      */
-    public void setUserId(@jakarta.annotation.Nullable final String value) {
-        this.userId = value;
-    }
-    /**
-     * Sets the userName property value. The user name value for this usage ledger.
-     * @param value Value to set for the userName property.
-     */
-    public void setUserName(@jakarta.annotation.Nullable final String value) {
-        this.userName = value;
+    public void setUser(@jakarta.annotation.Nullable final UsageLedgerTableRowUser value) {
+        this.user = value;
     }
 }

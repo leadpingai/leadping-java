@@ -33,10 +33,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * Geographic location metadata for the phone number, lead, or lookup result.
-     */
-    private String location;
-    /**
      * Display name for this phone number table row in the Leadping API.
      */
     private String name;
@@ -126,12 +122,11 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("location", (n) -> { this.setLocation(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("ownership", (n) -> { this.setOwnership(n.getStringValue()); });
@@ -150,14 +145,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
-    }
-    /**
-     * Gets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLocation() {
-        return this.location;
     }
     /**
      * Gets the name property value. Display name for this phone number table row in the Leadping API.
@@ -241,7 +228,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
-        writer.writeStringValue("location", this.getLocation());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
         writer.writeStringValue("ownership", this.getOwnership());
@@ -287,13 +273,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
-    }
-    /**
-     * Sets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
-     * @param value Value to set for the location property.
-     */
-    public void setLocation(@jakarta.annotation.Nullable final String value) {
-        this.location = value;
     }
     /**
      * Sets the name property value. Display name for this phone number table row in the Leadping API.

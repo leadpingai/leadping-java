@@ -17,10 +17,6 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Phone lookup details returned by the provider or Leadping enrichment service.
-     */
-    private Phone_lookup lookup;
-    /**
      * E.164 phone number exposed by this lead phone number.
      */
     private String number;
@@ -62,20 +58,11 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
-        deserializerMap.put("lookup", (n) -> { this.setLookup(n.getObjectValue(Phone_lookup::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         return deserializerMap;
-    }
-    /**
-     * Gets the lookup property value. Phone lookup details returned by the provider or Leadping enrichment service.
-     * @return a {@link Phone_lookup}
-     */
-    @jakarta.annotation.Nullable
-    public Phone_lookup getLookup() {
-        return this.lookup;
     }
     /**
      * Gets the number property value. E.164 phone number exposed by this lead phone number.
@@ -107,7 +94,6 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("lookup", this.getLookup());
         writer.writeStringValue("number", this.getNumber());
         writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeStringValue("type", this.getType());
@@ -119,13 +105,6 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the lookup property value. Phone lookup details returned by the provider or Leadping enrichment service.
-     * @param value Value to set for the lookup property.
-     */
-    public void setLookup(@jakarta.annotation.Nullable final Phone_lookup value) {
-        this.lookup = value;
     }
     /**
      * Sets the number property value. E.164 phone number exposed by this lead phone number.

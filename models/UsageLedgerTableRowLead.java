@@ -7,25 +7,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Geographic location metadata for the phone number, lead, or lookup result.
+ * The ID and name for this lead.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class PhoneLookupLocation extends PhoneNumberLocation implements Parsable {
+public class UsageLedgerTableRowLead extends IdNamePair implements Parsable {
     /**
-     * Instantiates a new {@link PhoneLookupLocation} and sets the default values.
+     * Instantiates a new {@link UsageLedgerTableRowLead} and sets the default values.
      */
-    public PhoneLookupLocation() {
+    public UsageLedgerTableRowLead() {
         super();
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link PhoneLookupLocation}
+     * @return a {@link UsageLedgerTableRowLead}
      */
     @jakarta.annotation.Nonnull
-    public static PhoneLookupLocation createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static UsageLedgerTableRowLead createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new PhoneLookupLocation();
+        return new UsageLedgerTableRowLead();
     }
     /**
      * The deserialization information for the current model

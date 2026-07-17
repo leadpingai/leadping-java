@@ -23,13 +23,9 @@ public class BusinessInvitationTableRow implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * The business ID associated with this business invitation.
+     * The ID and name for this business.
      */
-    private String businessId;
-    /**
-     * The business name value for this business invitation.
-     */
-    private String businessName;
+    private IdNamePair business;
     /**
      * The date and time for the created at value on this business invitation.
      */
@@ -123,20 +119,12 @@ public class BusinessInvitationTableRow implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the businessId property value. The business ID associated with this business invitation.
-     * @return a {@link String}
+     * Gets the business property value. The ID and name for this business.
+     * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the businessName property value. The business name value for this business invitation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
+    public IdNamePair getBusiness() {
+        return this.business;
     }
     /**
      * Gets the createdAt property value. The date and time for the created at value on this business invitation.
@@ -168,10 +156,9 @@ public class BusinessInvitationTableRow implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
         deserializerMap.put("acceptedAt", (n) -> { this.setAcceptedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
+        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("expiresAt", (n) -> { this.setExpiresAt(n.getOffsetDateTimeValue()); });
@@ -292,8 +279,7 @@ public class BusinessInvitationTableRow implements AdditionalDataHolder, Parsabl
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("acceptedAt", this.getAcceptedAt());
-        writer.writeStringValue("businessId", this.getBusinessId());
-        writer.writeStringValue("businessName", this.getBusinessName());
+        writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("email", this.getEmail());
         writer.writeOffsetDateTimeValue("expiresAt", this.getExpiresAt());
@@ -326,18 +312,11 @@ public class BusinessInvitationTableRow implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the businessId property value. The business ID associated with this business invitation.
-     * @param value Value to set for the businessId property.
+     * Sets the business property value. The ID and name for this business.
+     * @param value Value to set for the business property.
      */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the businessName property value. The business name value for this business invitation.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
+    public void setBusiness(@jakarta.annotation.Nullable final IdNamePair value) {
+        this.business = value;
     }
     /**
      * Sets the createdAt property value. The date and time for the created at value on this business invitation.

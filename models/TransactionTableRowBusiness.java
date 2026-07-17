@@ -7,25 +7,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Complete carrier metadata reported for this phone number.
+ * The ID and name for this business.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class PhoneLookup_carrier extends PhoneLookupCarrier implements Parsable {
+public class TransactionTableRowBusiness extends IdNamePair implements Parsable {
     /**
-     * Instantiates a new {@link PhoneLookup_carrier} and sets the default values.
+     * Instantiates a new {@link TransactionTableRowBusiness} and sets the default values.
      */
-    public PhoneLookup_carrier() {
+    public TransactionTableRowBusiness() {
         super();
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link PhoneLookup_carrier}
+     * @return a {@link TransactionTableRowBusiness}
      */
     @jakarta.annotation.Nonnull
-    public static PhoneLookup_carrier createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static TransactionTableRowBusiness createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new PhoneLookup_carrier();
+        return new TransactionTableRowBusiness();
     }
     /**
      * The deserialization information for the current model

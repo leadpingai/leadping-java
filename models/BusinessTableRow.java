@@ -55,13 +55,9 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     private BusinessTableRowBillingPlan billingPlan;
     /**
-     * The business ID that owns this row when the row represents a child business resource.
+     * The ID and name for this business.
      */
-    private String businessId;
-    /**
-     * The business name that owns this row when the row represents a child business resource.
-     */
-    private String businessName;
+    private BusinessTableRowBusiness business;
     /**
      * Whether this business is enabled.
      */
@@ -122,14 +118,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      * The user count for this business.
      */
     private Integer userCount;
-    /**
-     * The user ID value for this business.
-     */
-    private String userId;
-    /**
-     * The user name value for this business.
-     */
-    private String userName;
     /**
      * The website URL associated with this business.
      */
@@ -235,20 +223,12 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the businessId property value. The business ID that owns this row when the row represents a child business resource.
-     * @return a {@link String}
+     * Gets the business property value. The ID and name for this business.
+     * @return a {@link BusinessTableRowBusiness}
      */
     @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the businessName property value. The business name that owns this row when the row represents a child business resource.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
+    public BusinessTableRowBusiness getBusiness() {
+        return this.business;
     }
     /**
      * Gets the enabled property value. Whether this business is enabled.
@@ -264,7 +244,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(BusinessTableRowActivationStatus::forValue)); });
         deserializerMap.put("apiKeyExpiresAt", (n) -> { this.setApiKeyExpiresAt(n.getOffsetDateTimeValue()); });
@@ -274,8 +254,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessTableRowBillingPlan::forValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
+        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(BusinessTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
@@ -291,8 +270,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(BusinessTableRowSubscriptionStatus::forValue)); });
         deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(BusinessTableRowTenDlcStatus::forValue)); });
         deserializerMap.put("userCount", (n) -> { this.setUserCount(n.getIntegerValue()); });
-        deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
-        deserializerMap.put("userName", (n) -> { this.setUserName(n.getStringValue()); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
         deserializerMap.put("websiteStatus", (n) -> { this.setWebsiteStatus(n.getEnumValue(BusinessTableRowWebsiteStatus::forValue)); });
         return deserializerMap;
@@ -410,22 +387,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.userCount;
     }
     /**
-     * Gets the userId property value. The user ID value for this business.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserId() {
-        return this.userId;
-    }
-    /**
-     * Gets the userName property value. The user name value for this business.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserName() {
-        return this.userName;
-    }
-    /**
      * Gets the website property value. The website URL associated with this business.
      * @return a {@link String}
      */
@@ -456,8 +417,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
-        writer.writeStringValue("businessId", this.getBusinessId());
-        writer.writeStringValue("businessName", this.getBusinessName());
+        writer.writeObjectValue("business", this.getBusiness());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("industry", this.getIndustry());
@@ -473,8 +433,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
         writer.writeIntegerValue("userCount", this.getUserCount());
-        writer.writeStringValue("userId", this.getUserId());
-        writer.writeStringValue("userName", this.getUserName());
         writer.writeStringValue("website", this.getWebsite());
         writer.writeEnumValue("websiteStatus", this.getWebsiteStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -550,18 +508,11 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         this.billingPlan = value;
     }
     /**
-     * Sets the businessId property value. The business ID that owns this row when the row represents a child business resource.
-     * @param value Value to set for the businessId property.
+     * Sets the business property value. The ID and name for this business.
+     * @param value Value to set for the business property.
      */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the businessName property value. The business name that owns this row when the row represents a child business resource.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
+    public void setBusiness(@jakarta.annotation.Nullable final BusinessTableRowBusiness value) {
+        this.business = value;
     }
     /**
      * Sets the enabled property value. Whether this business is enabled.
@@ -667,20 +618,6 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setUserCount(@jakarta.annotation.Nullable final Integer value) {
         this.userCount = value;
-    }
-    /**
-     * Sets the userId property value. The user ID value for this business.
-     * @param value Value to set for the userId property.
-     */
-    public void setUserId(@jakarta.annotation.Nullable final String value) {
-        this.userId = value;
-    }
-    /**
-     * Sets the userName property value. The user name value for this business.
-     * @param value Value to set for the userName property.
-     */
-    public void setUserName(@jakarta.annotation.Nullable final String value) {
-        this.userName = value;
     }
     /**
      * Sets the website property value. The website URL associated with this business.

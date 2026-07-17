@@ -31,13 +31,9 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
-     * Business ID that owns this lead.
+     * The ID and name for this business.
      */
-    private String businessId;
-    /**
-     * Business display name shown for this lead.
-     */
-    private String businessName;
+    private LeadTableRowBusiness business;
     /**
      * UTC timestamp when this lead table row was created.
      */
@@ -79,13 +75,9 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private UntypedNode price;
     /**
-     * Lead source ID that created or supplied this lead.
+     * The ID and name for this source.
      */
-    private String sourceId;
-    /**
-     * Lead source display name shown for this lead.
-     */
-    private String sourceName;
+    private LeadTableRowSource source;
     /**
      * Current lifecycle status for this lead table row in the Leadping API.
      */
@@ -151,20 +143,12 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
-     * Gets the businessId property value. Business ID that owns this lead.
-     * @return a {@link String}
+     * Gets the business property value. The ID and name for this business.
+     * @return a {@link LeadTableRowBusiness}
      */
     @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the businessName property value. Business display name shown for this lead.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
+    public LeadTableRowBusiness getBusiness() {
+        return this.business;
     }
     /**
      * Gets the createdAt property value. UTC timestamp when this lead table row was created.
@@ -204,12 +188,11 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
+        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(LeadTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentDisposition", (n) -> { this.setCurrentDisposition(n.getObjectValue(LeadTableRowCurrentDisposition::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
@@ -220,8 +203,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
-        deserializerMap.put("sourceName", (n) -> { this.setSourceName(n.getStringValue()); });
+        deserializerMap.put("source", (n) -> { this.setSource(n.getObjectValue(LeadTableRowSource::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("statusTone", (n) -> { this.setStatusTone(n.getStringValue()); });
         deserializerMap.put("tags", (n) -> { this.setTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
@@ -277,20 +259,12 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.price;
     }
     /**
-     * Gets the sourceId property value. Lead source ID that created or supplied this lead.
-     * @return a {@link String}
+     * Gets the source property value. The ID and name for this source.
+     * @return a {@link LeadTableRowSource}
      */
     @jakarta.annotation.Nullable
-    public String getSourceId() {
-        return this.sourceId;
-    }
-    /**
-     * Gets the sourceName property value. Lead source display name shown for this lead.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getSourceName() {
-        return this.sourceName;
+    public LeadTableRowSource getSource() {
+        return this.source;
     }
     /**
      * Gets the status property value. Current lifecycle status for this lead table row in the Leadping API.
@@ -333,8 +307,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
-        writer.writeStringValue("businessId", this.getBusinessId());
-        writer.writeStringValue("businessName", this.getBusinessName());
+        writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentDisposition", this.getCurrentDisposition());
         writer.writeStringValue("email", this.getEmail());
@@ -345,8 +318,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("phone", this.getPhone());
         writer.writeObjectValue("price", this.getPrice());
-        writer.writeStringValue("sourceId", this.getSourceId());
-        writer.writeStringValue("sourceName", this.getSourceName());
+        writer.writeObjectValue("source", this.getSource());
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("statusTone", this.getStatusTone());
         writer.writeCollectionOfObjectValues("tags", this.getTags());
@@ -382,18 +354,11 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
-     * Sets the businessId property value. Business ID that owns this lead.
-     * @param value Value to set for the businessId property.
+     * Sets the business property value. The ID and name for this business.
+     * @param value Value to set for the business property.
      */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the businessName property value. Business display name shown for this lead.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
+    public void setBusiness(@jakarta.annotation.Nullable final LeadTableRowBusiness value) {
+        this.business = value;
     }
     /**
      * Sets the createdAt property value. UTC timestamp when this lead table row was created.
@@ -466,18 +431,11 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.price = value;
     }
     /**
-     * Sets the sourceId property value. Lead source ID that created or supplied this lead.
-     * @param value Value to set for the sourceId property.
+     * Sets the source property value. The ID and name for this source.
+     * @param value Value to set for the source property.
      */
-    public void setSourceId(@jakarta.annotation.Nullable final String value) {
-        this.sourceId = value;
-    }
-    /**
-     * Sets the sourceName property value. Lead source display name shown for this lead.
-     * @param value Value to set for the sourceName property.
-     */
-    public void setSourceName(@jakarta.annotation.Nullable final String value) {
-        this.sourceName = value;
+    public void setSource(@jakarta.annotation.Nullable final LeadTableRowSource value) {
+        this.source = value;
     }
     /**
      * Sets the status property value. Current lifecycle status for this lead table row in the Leadping API.

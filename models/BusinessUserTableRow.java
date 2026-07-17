@@ -38,17 +38,13 @@ public class BusinessUserTableRow implements AdditionalDataHolder, Parsable {
      */
     private BusinessUserRole role;
     /**
+     * The ID and name for this user.
+     */
+    private IdNamePair user;
+    /**
      * The user email value for this business user.
      */
     private String userEmail;
-    /**
-     * The user ID associated with this business user.
-     */
-    private String userId;
-    /**
-     * The user name value for this business user.
-     */
-    private String userName;
     /**
      * Instantiates a new {@link BusinessUserTableRow} and sets the default values.
      */
@@ -87,15 +83,14 @@ public class BusinessUserTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(BusinessUserRole::forValue)); });
+        deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("userEmail", (n) -> { this.setUserEmail(n.getStringValue()); });
-        deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
-        deserializerMap.put("userName", (n) -> { this.setUserName(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -131,28 +126,20 @@ public class BusinessUserTableRow implements AdditionalDataHolder, Parsable {
         return this.role;
     }
     /**
+     * Gets the user property value. The ID and name for this user.
+     * @return a {@link IdNamePair}
+     */
+    @jakarta.annotation.Nullable
+    public IdNamePair getUser() {
+        return this.user;
+    }
+    /**
      * Gets the userEmail property value. The user email value for this business user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getUserEmail() {
         return this.userEmail;
-    }
-    /**
-     * Gets the userId property value. The user ID associated with this business user.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserId() {
-        return this.userId;
-    }
-    /**
-     * Gets the userName property value. The user name value for this business user.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserName() {
-        return this.userName;
     }
     /**
      * Serializes information the current object
@@ -165,9 +152,8 @@ public class BusinessUserTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeEnumValue("role", this.getRole());
+        writer.writeObjectValue("user", this.getUser());
         writer.writeStringValue("userEmail", this.getUserEmail());
-        writer.writeStringValue("userId", this.getUserId());
-        writer.writeStringValue("userName", this.getUserName());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -213,24 +199,17 @@ public class BusinessUserTableRow implements AdditionalDataHolder, Parsable {
         this.role = value;
     }
     /**
+     * Sets the user property value. The ID and name for this user.
+     * @param value Value to set for the user property.
+     */
+    public void setUser(@jakarta.annotation.Nullable final IdNamePair value) {
+        this.user = value;
+    }
+    /**
      * Sets the userEmail property value. The user email value for this business user.
      * @param value Value to set for the userEmail property.
      */
     public void setUserEmail(@jakarta.annotation.Nullable final String value) {
         this.userEmail = value;
-    }
-    /**
-     * Sets the userId property value. The user ID associated with this business user.
-     * @param value Value to set for the userId property.
-     */
-    public void setUserId(@jakarta.annotation.Nullable final String value) {
-        this.userId = value;
-    }
-    /**
-     * Sets the userName property value. The user name value for this business user.
-     * @param value Value to set for the userName property.
-     */
-    public void setUserName(@jakarta.annotation.Nullable final String value) {
-        this.userName = value;
     }
 }

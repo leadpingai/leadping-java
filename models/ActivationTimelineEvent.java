@@ -14,9 +14,9 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
     /**
-     * The actor name value for this activation timeline event.
+     * The ID and name for this actor.
      */
-    private String actorName;
+    private ActivationTimelineEventActor actor;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -66,12 +66,12 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return new ActivationTimelineEvent();
     }
     /**
-     * Gets the actorName property value. The actor name value for this activation timeline event.
-     * @return a {@link String}
+     * Gets the actor property value. The ID and name for this actor.
+     * @return a {@link ActivationTimelineEventActor}
      */
     @jakarta.annotation.Nullable
-    public String getActorName() {
-        return this.actorName;
+    public ActivationTimelineEventActor getActor() {
+        return this.actor;
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -112,7 +112,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("actorName", (n) -> { this.setActorName(n.getStringValue()); });
+        deserializerMap.put("actor", (n) -> { this.setActor(n.getObjectValue(ActivationTimelineEventActor::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("details", (n) -> { this.setDetails(n.getStringValue()); });
         deserializerMap.put("failureReason", (n) -> { this.setFailureReason(n.getStringValue()); });
@@ -160,7 +160,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("actorName", this.getActorName());
+        writer.writeObjectValue("actor", this.getActor());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("details", this.getDetails());
         writer.writeStringValue("failureReason", this.getFailureReason());
@@ -171,11 +171,11 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actorName property value. The actor name value for this activation timeline event.
-     * @param value Value to set for the actorName property.
+     * Sets the actor property value. The ID and name for this actor.
+     * @param value Value to set for the actor property.
      */
-    public void setActorName(@jakarta.annotation.Nullable final String value) {
-        this.actorName = value;
+    public void setActor(@jakarta.annotation.Nullable final ActivationTimelineEventActor value) {
+        this.actor = value;
     }
     /**
      * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

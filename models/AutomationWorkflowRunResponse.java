@@ -23,13 +23,9 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private Map<String, Object> additionalData;
     /**
-     * Unique identifier of the automation associated with this Leadping automation workflow run.
+     * The ID and name for this automation.
      */
-    private String automationId;
-    /**
-     * Human-readable automation name associated with this Leadping automation workflow run.
-     */
-    private String automationName;
+    private AutomationWorkflowRunResponseAutomation automation;
     /**
      * Unique identifier of the business associated with this Leadping automation workflow run.
      */
@@ -43,13 +39,9 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private OffsetDateTime completedAt;
     /**
-     * Unique identifier of the current step associated with this Leadping automation workflow run.
+     * The ID and name for this currentStep.
      */
-    private String currentStepId;
-    /**
-     * Human-readable current step name associated with this Leadping automation workflow run.
-     */
-    private String currentStepName;
+    private AutomationWorkflowRunResponseCurrentStep currentStep;
     /**
      * Current step order associated with this Leadping automation workflow run.
      */
@@ -167,20 +159,12 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.additionalData;
     }
     /**
-     * Gets the automationId property value. Unique identifier of the automation associated with this Leadping automation workflow run.
-     * @return a {@link String}
+     * Gets the automation property value. The ID and name for this automation.
+     * @return a {@link AutomationWorkflowRunResponseAutomation}
      */
     @jakarta.annotation.Nullable
-    public String getAutomationId() {
-        return this.automationId;
-    }
-    /**
-     * Gets the automationName property value. Human-readable automation name associated with this Leadping automation workflow run.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAutomationName() {
-        return this.automationName;
+    public AutomationWorkflowRunResponseAutomation getAutomation() {
+        return this.automation;
     }
     /**
      * Gets the businessId property value. Unique identifier of the business associated with this Leadping automation workflow run.
@@ -207,20 +191,12 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.completedAt;
     }
     /**
-     * Gets the currentStepId property value. Unique identifier of the current step associated with this Leadping automation workflow run.
-     * @return a {@link String}
+     * Gets the currentStep property value. The ID and name for this currentStep.
+     * @return a {@link AutomationWorkflowRunResponseCurrentStep}
      */
     @jakarta.annotation.Nullable
-    public String getCurrentStepId() {
-        return this.currentStepId;
-    }
-    /**
-     * Gets the currentStepName property value. Human-readable current step name associated with this Leadping automation workflow run.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getCurrentStepName() {
-        return this.currentStepName;
+    public AutomationWorkflowRunResponseCurrentStep getCurrentStep() {
+        return this.currentStep;
     }
     /**
      * Gets the currentStepOrder property value. Current step order associated with this Leadping automation workflow run.
@@ -252,15 +228,13 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationWorkflowActionResponse::createFromDiscriminatorValue)); });
-        deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
-        deserializerMap.put("automationName", (n) -> { this.setAutomationName(n.getStringValue()); });
+        deserializerMap.put("automation", (n) -> { this.setAutomation(n.getObjectValue(AutomationWorkflowRunResponseAutomation::createFromDiscriminatorValue)); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("cancelledAt", (n) -> { this.setCancelledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("currentStepId", (n) -> { this.setCurrentStepId(n.getStringValue()); });
-        deserializerMap.put("currentStepName", (n) -> { this.setCurrentStepName(n.getStringValue()); });
+        deserializerMap.put("currentStep", (n) -> { this.setCurrentStep(n.getObjectValue(AutomationWorkflowRunResponseCurrentStep::createFromDiscriminatorValue)); });
         deserializerMap.put("currentStepOrder", (n) -> { this.setCurrentStepOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("events", (n) -> { this.setEvents(n.getCollectionOfObjectValues(AutomationWorkflowEventResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
@@ -435,13 +409,11 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
-        writer.writeStringValue("automationId", this.getAutomationId());
-        writer.writeStringValue("automationName", this.getAutomationName());
+        writer.writeObjectValue("automation", this.getAutomation());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeOffsetDateTimeValue("cancelledAt", this.getCancelledAt());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
-        writer.writeStringValue("currentStepId", this.getCurrentStepId());
-        writer.writeStringValue("currentStepName", this.getCurrentStepName());
+        writer.writeObjectValue("currentStep", this.getCurrentStep());
         writer.writeObjectValue("currentStepOrder", this.getCurrentStepOrder());
         writer.writeCollectionOfObjectValues("events", this.getEvents());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
@@ -480,18 +452,11 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.additionalData = value;
     }
     /**
-     * Sets the automationId property value. Unique identifier of the automation associated with this Leadping automation workflow run.
-     * @param value Value to set for the automationId property.
+     * Sets the automation property value. The ID and name for this automation.
+     * @param value Value to set for the automation property.
      */
-    public void setAutomationId(@jakarta.annotation.Nullable final String value) {
-        this.automationId = value;
-    }
-    /**
-     * Sets the automationName property value. Human-readable automation name associated with this Leadping automation workflow run.
-     * @param value Value to set for the automationName property.
-     */
-    public void setAutomationName(@jakarta.annotation.Nullable final String value) {
-        this.automationName = value;
+    public void setAutomation(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseAutomation value) {
+        this.automation = value;
     }
     /**
      * Sets the businessId property value. Unique identifier of the business associated with this Leadping automation workflow run.
@@ -515,18 +480,11 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.completedAt = value;
     }
     /**
-     * Sets the currentStepId property value. Unique identifier of the current step associated with this Leadping automation workflow run.
-     * @param value Value to set for the currentStepId property.
+     * Sets the currentStep property value. The ID and name for this currentStep.
+     * @param value Value to set for the currentStep property.
      */
-    public void setCurrentStepId(@jakarta.annotation.Nullable final String value) {
-        this.currentStepId = value;
-    }
-    /**
-     * Sets the currentStepName property value. Human-readable current step name associated with this Leadping automation workflow run.
-     * @param value Value to set for the currentStepName property.
-     */
-    public void setCurrentStepName(@jakarta.annotation.Nullable final String value) {
-        this.currentStepName = value;
+    public void setCurrentStep(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseCurrentStep value) {
+        this.currentStep = value;
     }
     /**
      * Sets the currentStepOrder property value. Current step order associated with this Leadping automation workflow run.
