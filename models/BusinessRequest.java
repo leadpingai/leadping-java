@@ -42,6 +42,10 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     private String billingName;
     /**
+     * Tax identifier printed on billing documents. This may differ from the business verification EIN.
+     */
+    private String billingTaxId;
+    /**
      * Compliance policy configuration for the business.
      */
     private BusinessRequestCompliancePolicy compliancePolicy;
@@ -170,6 +174,14 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         return this.billingName;
     }
     /**
+     * Gets the billingTaxId property value. Tax identifier printed on billing documents. This may differ from the business verification EIN.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBillingTaxId() {
+        return this.billingTaxId;
+    }
+    /**
      * Gets the compliancePolicy property value. Compliance policy configuration for the business.
      * @return a {@link BusinessRequestCompliancePolicy}
      */
@@ -215,13 +227,14 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessRequestAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(BusinessRequestBillingAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
+        deserializerMap.put("billingTaxId", (n) -> { this.setBillingTaxId(n.getStringValue()); });
         deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(BusinessRequestCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
@@ -322,6 +335,7 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
         writer.writeStringValue("billingName", this.getBillingName());
+        writer.writeStringValue("billingTaxId", this.getBillingTaxId());
         writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("ein", this.getEin());
@@ -386,6 +400,13 @@ public class BusinessRequest implements AdditionalDataHolder, Parsable {
      */
     public void setBillingName(@jakarta.annotation.Nullable final String value) {
         this.billingName = value;
+    }
+    /**
+     * Sets the billingTaxId property value. Tax identifier printed on billing documents. This may differ from the business verification EIN.
+     * @param value Value to set for the billingTaxId property.
+     */
+    public void setBillingTaxId(@jakarta.annotation.Nullable final String value) {
+        this.billingTaxId = value;
     }
     /**
      * Sets the compliancePolicy property value. Compliance policy configuration for the business.

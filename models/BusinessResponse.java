@@ -59,6 +59,10 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     private BusinessResponseBillingState billingState;
     /**
+     * Tax identifier printed on billing documents. This may differ from the business verification EIN.
+     */
+    private String billingTaxId;
+    /**
      * Compliance policy configuration for the business.
      */
     private BusinessResponseCompliancePolicy compliancePolicy;
@@ -247,6 +251,14 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         return this.billingState;
     }
     /**
+     * Gets the billingTaxId property value. Tax identifier printed on billing documents. This may differ from the business verification EIN.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBillingTaxId() {
+        return this.billingTaxId;
+    }
+    /**
      * Gets the compliancePolicy property value. Compliance policy configuration for the business.
      * @return a {@link BusinessResponseCompliancePolicy}
      */
@@ -308,7 +320,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(BusinessResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(BusinessResponseAddress::createFromDiscriminatorValue)); });
@@ -319,6 +331,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(BusinessResponseBillingState::createFromDiscriminatorValue)); });
+        deserializerMap.put("billingTaxId", (n) -> { this.setBillingTaxId(n.getStringValue()); });
         deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(BusinessResponseCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -470,6 +483,7 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("billingName", this.getBillingName());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("billingState", this.getBillingState());
+        writer.writeStringValue("billingTaxId", this.getBillingTaxId());
         writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
@@ -569,6 +583,13 @@ public class BusinessResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingState(@jakarta.annotation.Nullable final BusinessResponseBillingState value) {
         this.billingState = value;
+    }
+    /**
+     * Sets the billingTaxId property value. Tax identifier printed on billing documents. This may differ from the business verification EIN.
+     * @param value Value to set for the billingTaxId property.
+     */
+    public void setBillingTaxId(@jakarta.annotation.Nullable final String value) {
+        this.billingTaxId = value;
     }
     /**
      * Sets the compliancePolicy property value. Compliance policy configuration for the business.

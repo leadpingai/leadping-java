@@ -2,6 +2,7 @@ package ai.leadping.openapi.paymentmethods;
 
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.StripePaymentMethodResponse;
+import ai.leadping.openapi.paymentmethods.invoices.InvoicesRequestBuilder;
 import ai.leadping.openapi.paymentmethods.item.PaymentMethodsItemRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -20,6 +21,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The invoices property
+     * @return a {@link InvoicesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public InvoicesRequestBuilder invoices() {
+        return new InvoicesRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Gets an item from the ai.leadping.openapi.paymentMethods.item collection
      * @param id The ID of the payment method to retrieve.

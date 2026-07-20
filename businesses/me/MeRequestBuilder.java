@@ -98,6 +98,34 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
     }
     /**
+     * Creates a business owned by the current user and selects it as their active business.
+     * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
+     * @return a {@link BusinessResponse}
+     * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
+     */
+    @jakarta.annotation.Nullable
+    public BusinessResponse post(@jakarta.annotation.Nonnull final BusinessRequest body) {
+        return post(body, null);
+    }
+    /**
+     * Creates a business owned by the current user and selects it as their active business.
+     * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link BusinessResponse}
+     * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
+     */
+    @jakarta.annotation.Nullable
+    public BusinessResponse post(@jakarta.annotation.Nonnull final BusinessRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+        Objects.requireNonNull(body);
+        final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
+    }
+    /**
      * Updates the authenticated user&apos;s current business profile, including contact, settings, and communication configuration.
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @return a {@link BusinessResponse}
@@ -146,6 +174,30 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
+     * Creates a business owned by the current user and selects it as their active business.
+     * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
+     * @return a {@link RequestInformation}
+     */
+    @jakarta.annotation.Nonnull
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final BusinessRequest body) {
+        return toPostRequestInformation(body, null);
+    }
+    /**
+     * Creates a business owned by the current user and selects it as their active business.
+     * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link RequestInformation}
+     */
+    @jakarta.annotation.Nonnull
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final BusinessRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+        Objects.requireNonNull(body);
+        final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
+        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
+        requestInfo.headers.tryAdd("Accept", "application/json");
+        requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
+        return requestInfo;
+    }
+    /**
      * Updates the authenticated user&apos;s current business profile, including contact, settings, and communication configuration.
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @return a {@link RequestInformation}
@@ -184,6 +236,12 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetRequestConfiguration extends BaseRequestConfiguration {
+    }
+    /**
+     * Configuration for the request such as headers, query parameters, and middleware options.
+     */
+    @jakarta.annotation.Generated("com.microsoft.kiota")
+    public class PostRequestConfiguration extends BaseRequestConfiguration {
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

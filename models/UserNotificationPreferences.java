@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -80,6 +81,18 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      * Indicates whether payment failed SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean paymentFailedSmsEnabled;
+    /**
+     * Whether the user has consented to receive Leadping account notification SMS messages.
+     */
+    private Boolean smsConsentOptedIn;
+    /**
+     * The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+     */
+    private UserNotificationPreferencesSmsConsentTrustedFormCertificate smsConsentTrustedFormCertificate;
+    /**
+     * When the user&apos;s Leadping notification SMS consent was last changed.
+     */
+    private OffsetDateTime smsConsentUpdatedAt;
     /**
      * Indicates whether subscription renewing email functionality is enabled for this Leadping user notification preferences.
      */
@@ -182,7 +195,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("automationFailedEmailEnabled", (n) -> { this.setAutomationFailedEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedEnabled", (n) -> { this.setAutomationFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedSmsEnabled", (n) -> { this.setAutomationFailedSmsEnabled(n.getBooleanValue()); });
@@ -199,6 +212,9 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("newLeadSmsEnabled", (n) -> { this.setNewLeadSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedEnabled", (n) -> { this.setPaymentFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedSmsEnabled", (n) -> { this.setPaymentFailedSmsEnabled(n.getBooleanValue()); });
+        deserializerMap.put("smsConsentOptedIn", (n) -> { this.setSmsConsentOptedIn(n.getBooleanValue()); });
+        deserializerMap.put("smsConsentTrustedFormCertificate", (n) -> { this.setSmsConsentTrustedFormCertificate(n.getObjectValue(UserNotificationPreferencesSmsConsentTrustedFormCertificate::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsConsentUpdatedAt", (n) -> { this.setSmsConsentUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("subscriptionRenewingEmailEnabled", (n) -> { this.setSubscriptionRenewingEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("subscriptionRenewingEnabled", (n) -> { this.setSubscriptionRenewingEnabled(n.getBooleanValue()); });
         deserializerMap.put("subscriptionRenewingSmsEnabled", (n) -> { this.setSubscriptionRenewingSmsEnabled(n.getBooleanValue()); });
@@ -298,6 +314,30 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.paymentFailedSmsEnabled;
     }
     /**
+     * Gets the smsConsentOptedIn property value. Whether the user has consented to receive Leadping account notification SMS messages.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsConsentOptedIn() {
+        return this.smsConsentOptedIn;
+    }
+    /**
+     * Gets the smsConsentTrustedFormCertificate property value. The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+     * @return a {@link UserNotificationPreferencesSmsConsentTrustedFormCertificate}
+     */
+    @jakarta.annotation.Nullable
+    public UserNotificationPreferencesSmsConsentTrustedFormCertificate getSmsConsentTrustedFormCertificate() {
+        return this.smsConsentTrustedFormCertificate;
+    }
+    /**
+     * Gets the smsConsentUpdatedAt property value. When the user&apos;s Leadping notification SMS consent was last changed.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getSmsConsentUpdatedAt() {
+        return this.smsConsentUpdatedAt;
+    }
+    /**
      * Gets the subscriptionRenewingEmailEnabled property value. Indicates whether subscription renewing email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
@@ -383,6 +423,9 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("newLeadSmsEnabled", this.getNewLeadSmsEnabled());
         writer.writeBooleanValue("paymentFailedEnabled", this.getPaymentFailedEnabled());
         writer.writeBooleanValue("paymentFailedSmsEnabled", this.getPaymentFailedSmsEnabled());
+        writer.writeBooleanValue("smsConsentOptedIn", this.getSmsConsentOptedIn());
+        writer.writeObjectValue("smsConsentTrustedFormCertificate", this.getSmsConsentTrustedFormCertificate());
+        writer.writeOffsetDateTimeValue("smsConsentUpdatedAt", this.getSmsConsentUpdatedAt());
         writer.writeBooleanValue("subscriptionRenewingEmailEnabled", this.getSubscriptionRenewingEmailEnabled());
         writer.writeBooleanValue("subscriptionRenewingEnabled", this.getSubscriptionRenewingEnabled());
         writer.writeBooleanValue("subscriptionRenewingSmsEnabled", this.getSubscriptionRenewingSmsEnabled());
@@ -511,6 +554,27 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setPaymentFailedSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.paymentFailedSmsEnabled = value;
+    }
+    /**
+     * Sets the smsConsentOptedIn property value. Whether the user has consented to receive Leadping account notification SMS messages.
+     * @param value Value to set for the smsConsentOptedIn property.
+     */
+    public void setSmsConsentOptedIn(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsConsentOptedIn = value;
+    }
+    /**
+     * Sets the smsConsentTrustedFormCertificate property value. The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+     * @param value Value to set for the smsConsentTrustedFormCertificate property.
+     */
+    public void setSmsConsentTrustedFormCertificate(@jakarta.annotation.Nullable final UserNotificationPreferencesSmsConsentTrustedFormCertificate value) {
+        this.smsConsentTrustedFormCertificate = value;
+    }
+    /**
+     * Sets the smsConsentUpdatedAt property value. When the user&apos;s Leadping notification SMS consent was last changed.
+     * @param value Value to set for the smsConsentUpdatedAt property.
+     */
+    public void setSmsConsentUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.smsConsentUpdatedAt = value;
     }
     /**
      * Sets the subscriptionRenewingEmailEnabled property value. Indicates whether subscription renewing email functionality is enabled for this Leadping user notification preferences.
