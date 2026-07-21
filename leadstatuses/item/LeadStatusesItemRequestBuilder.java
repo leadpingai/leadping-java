@@ -36,7 +36,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/lead-statuses/{id}", rawUrl);
     }
     /**
-     * Archive
+     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -44,7 +44,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Archive
+     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      */
@@ -54,7 +54,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, null, Boolean.class);
     }
     /**
-     * Update
+     * Updates the name, color, and display order of a lead status owned by the current business.
      * @param body The request body
      * @return a {@link LeadStatusResponse}
      */
@@ -63,7 +63,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Update
+     * Updates the name, color, and display order of a lead status owned by the current business.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
@@ -75,7 +75,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Archive
+     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -83,7 +83,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Archive
+     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -95,7 +95,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Update
+     * Updates the name, color, and display order of a lead status owned by the current business.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -104,7 +104,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Update
+     * Updates the name, color, and display order of a lead status owned by the current business.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -27,6 +27,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
+     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     */
+    private String apiKey;
+    /**
      * Masked preview of the source API key for compact display.
      */
     private String apiKeyPreview;
@@ -139,6 +143,14 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
+     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getApiKey() {
+        return this.apiKey;
+    }
+    /**
      * Gets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @return a {@link String}
      */
@@ -224,9 +236,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(SourceResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
@@ -319,6 +332,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
+        writer.writeStringValue("apiKey", this.getApiKey());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
@@ -359,6 +373,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.allowedStates = value;
+    }
+    /**
+     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * @param value Value to set for the apiKey property.
+     */
+    public void setApiKey(@jakarta.annotation.Nullable final String value) {
+        this.apiKey = value;
     }
     /**
      * Sets the apiKeyPreview property value. Masked preview of the source API key for compact display.

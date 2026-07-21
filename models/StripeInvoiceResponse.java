@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Customer-safe Stripe invoice summary for billing history.
+ * Customer-safe Leadping invoice summary for billing.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
@@ -26,9 +26,9 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * The hostedInvoiceUrl property
+     * The hasPdf property
      */
-    private String hostedInvoiceUrl;
+    private Boolean hasPdf;
     /**
      * The id property
      */
@@ -90,19 +90,19 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("hostedInvoiceUrl", (n) -> { this.setHostedInvoiceUrl(n.getStringValue()); });
+        deserializerMap.put("hasPdf", (n) -> { this.setHasPdf(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the hostedInvoiceUrl property value. The hostedInvoiceUrl property
-     * @return a {@link String}
+     * Gets the hasPdf property value. The hasPdf property
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
-    public String getHostedInvoiceUrl() {
-        return this.hostedInvoiceUrl;
+    public Boolean getHasPdf() {
+        return this.hasPdf;
     }
     /**
      * Gets the id property value. The id property
@@ -136,7 +136,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeDoubleValue("amount", this.getAmount());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeStringValue("hostedInvoiceUrl", this.getHostedInvoiceUrl());
+        writer.writeBooleanValue("hasPdf", this.getHasPdf());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("number", this.getNumber());
         writer.writeStringValue("status", this.getStatus());
@@ -164,11 +164,11 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the hostedInvoiceUrl property value. The hostedInvoiceUrl property
-     * @param value Value to set for the hostedInvoiceUrl property.
+     * Sets the hasPdf property value. The hasPdf property
+     * @param value Value to set for the hasPdf property.
      */
-    public void setHostedInvoiceUrl(@jakarta.annotation.Nullable final String value) {
-        this.hostedInvoiceUrl = value;
+    public void setHasPdf(@jakarta.annotation.Nullable final Boolean value) {
+        this.hasPdf = value;
     }
     /**
      * Sets the id property value. The id property

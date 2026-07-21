@@ -27,6 +27,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
+     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     */
+    private String apiKey;
+    /**
      * UTC timestamp when the source API key was last used.
      */
     private OffsetDateTime apiKeyLastUsedAt;
@@ -151,6 +155,14 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
+     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getApiKey() {
+        return this.apiKey;
+    }
+    /**
      * Gets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.
      * @return a {@link OffsetDateTime}
      */
@@ -260,9 +272,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
@@ -358,6 +371,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
+        writer.writeStringValue("apiKey", this.getApiKey());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
@@ -401,6 +415,13 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.allowedStates = value;
+    }
+    /**
+     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * @param value Value to set for the apiKey property.
+     */
+    public void setApiKey(@jakarta.annotation.Nullable final String value) {
+        this.apiKey = value;
     }
     /**
      * Sets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.

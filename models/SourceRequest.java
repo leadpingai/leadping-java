@@ -26,6 +26,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
+     * Source API key used to authenticate inbound lead delivery to Leadping.
+     */
+    private String apiKey;
+    /**
      * Configured cost charged when this source creates a billable lead.
      */
     private UntypedNode costPerLead;
@@ -102,6 +106,14 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
+     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getApiKey() {
+        return this.apiKey;
+    }
+    /**
      * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
      * @return a {@link UntypedNode}
      */
@@ -147,9 +159,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -201,6 +214,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
+        writer.writeStringValue("apiKey", this.getApiKey());
         writer.writeObjectValue("costPerLead", this.getCostPerLead());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
@@ -232,6 +246,13 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.allowedStates = value;
+    }
+    /**
+     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping.
+     * @param value Value to set for the apiKey property.
+     */
+    public void setApiKey(@jakarta.annotation.Nullable final String value) {
+        this.apiKey = value;
     }
     /**
      * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.

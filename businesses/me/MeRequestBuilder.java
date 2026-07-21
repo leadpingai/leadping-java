@@ -1,6 +1,7 @@
 package ai.leadping.openapi.businesses.me;
 
 import ai.leadping.openapi.businesses.me.invitations.InvitationsRequestBuilder;
+import ai.leadping.openapi.businesses.me.onezerodlc.OneZerodlcRequestBuilder;
 import ai.leadping.openapi.businesses.me.options.OptionsRequestBuilder;
 import ai.leadping.openapi.businesses.me.switchescaped.SwitchRequestBuilder;
 import ai.leadping.openapi.businesses.me.users.UsersRequestBuilder;
@@ -31,6 +32,14 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public InvitationsRequestBuilder invitations() {
         return new InvitationsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The OneZerodlc property
+     * @return a {@link OneZerodlcRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public OneZerodlcRequestBuilder oneZerodlc() {
+        return new OneZerodlcRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The optionsPath property
@@ -98,7 +107,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates a business owned by the current user and selects it as their active business.
+     * Creates a business account for the authenticated user, assigns them as its owner, and makes it their active business context.
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @return a {@link BusinessResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -109,7 +118,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates a business owned by the current user and selects it as their active business.
+     * Creates a business account for the authenticated user, assigns them as its owner, and makes it their active business context.
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessResponse}
@@ -174,7 +183,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Creates a business owned by the current user and selects it as their active business.
+     * Creates a business account for the authenticated user, assigns them as its owner, and makes it their active business context.
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -183,7 +192,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates a business owned by the current user and selects it as their active business.
+     * Creates a business account for the authenticated user, assigns them as its owner, and makes it their active business context.
      * @param body Request schema for the Leadping API business profile request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

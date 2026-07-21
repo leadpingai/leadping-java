@@ -49,7 +49,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/lead-statuses", rawUrl);
     }
     /**
-     * Get all
+     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @return a {@link java.util.List<LeadStatusResponse>}
      */
     @jakarta.annotation.Nullable
@@ -57,7 +57,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Get all
+     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<LeadStatusResponse>}
      */
@@ -67,7 +67,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Create
+     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
      * @param body The request body
      * @return a {@link LeadStatusResponse}
      */
@@ -76,7 +76,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Create
+     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
@@ -88,7 +88,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Get all
+     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -96,7 +96,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Get all
+     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -108,7 +108,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Create
+     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -117,7 +117,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Create
+     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

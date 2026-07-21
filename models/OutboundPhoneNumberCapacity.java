@@ -17,6 +17,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
+     * Indicates whether Leadping successfully calculated capacity for this phone number.
+     */
+    private Boolean capacityAvailable;
+    /**
      * Current health status for this Leadping outbound phone number capacity.
      */
     private PhoneNumberOutboundHealthStatus healthStatus;
@@ -101,12 +105,21 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
+     * Gets the capacityAvailable property value. Indicates whether Leadping successfully calculated capacity for this phone number.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCapacityAvailable() {
+        return this.capacityAvailable;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
+        deserializerMap.put("capacityAvailable", (n) -> { this.setCapacityAvailable(n.getBooleanValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberOutboundHealthStatus::forValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
@@ -250,6 +263,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeBooleanValue("capacityAvailable", this.getCapacityAvailable());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
@@ -273,6 +287,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the capacityAvailable property value. Indicates whether Leadping successfully calculated capacity for this phone number.
+     * @param value Value to set for the capacityAvailable property.
+     */
+    public void setCapacityAvailable(@jakarta.annotation.Nullable final Boolean value) {
+        this.capacityAvailable = value;
     }
     /**
      * Sets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.

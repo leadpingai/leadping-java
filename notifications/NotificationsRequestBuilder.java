@@ -48,7 +48,7 @@ public class NotificationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.notifications.item collection
-     * @param id The ID of the notification to mark as read.
+     * @param id The notification ID.
      * @return a {@link NotificationsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

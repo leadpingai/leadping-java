@@ -1,6 +1,7 @@
 package ai.leadping.openapi.paymentmethods.invoices;
 
 import ai.leadping.openapi.models.StripeInvoiceResponse;
+import ai.leadping.openapi.paymentmethods.invoices.item.WithInvoiceItemRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -19,6 +20,18 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class InvoicesRequestBuilder extends BaseRequestBuilder {
     /**
+     * Gets an item from the ai.leadping.openapi.paymentMethods.invoices.item collection
+     * @param invoiceId Unique identifier of the item
+     * @return a {@link WithInvoiceItemRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public WithInvoiceItemRequestBuilder byInvoiceId(@jakarta.annotation.Nonnull final String invoiceId) {
+        Objects.requireNonNull(invoiceId);
+        final HashMap<String, Object> urlTplParams = new HashMap<String, Object>(this.pathParameters);
+        urlTplParams.put("invoiceId", invoiceId);
+        return new WithInvoiceItemRequestBuilder(urlTplParams, requestAdapter);
+    }
+    /**
      * Instantiates a new {@link InvoicesRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -35,7 +48,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/payment-methods/invoices", rawUrl);
     }
     /**
-     * Lists actual Stripe invoices for the current business.
+     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
      */
     @jakarta.annotation.Nullable
@@ -43,7 +56,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Lists actual Stripe invoices for the current business.
+     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
      */
@@ -53,7 +66,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, null, StripeInvoiceResponse::createFromDiscriminatorValue);
     }
     /**
-     * Lists actual Stripe invoices for the current business.
+     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -61,7 +74,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Lists actual Stripe invoices for the current business.
+     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
