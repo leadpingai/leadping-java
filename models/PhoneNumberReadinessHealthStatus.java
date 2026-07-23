@@ -7,20 +7,20 @@ import java.util.Objects;
  * Defines the supported SMS readiness health assessments.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public enum EligibleOutgoingNumberResponseHealthStatus implements ValuedEnum {
+public enum PhoneNumberReadinessHealthStatus implements ValuedEnum {
     NotEvaluated("Not Evaluated"),
     Evaluating("Evaluating"),
     Healthy("Healthy"),
     NeedsAttention("Needs Attention"),
     Blocked("Blocked");
     public final String value;
-    EligibleOutgoingNumberResponseHealthStatus(final String value) {
+    PhoneNumberReadinessHealthStatus(final String value) {
         this.value = value;
     }
     @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
     @jakarta.annotation.Nullable
-    public static EligibleOutgoingNumberResponseHealthStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
+    public static PhoneNumberReadinessHealthStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "Not Evaluated": return NotEvaluated;

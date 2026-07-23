@@ -34,6 +34,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private ConversationResponseCurrentDisposition currentDisposition;
     /**
+     * Email address used to resolve the lead&apos;s avatar when available.
+     */
+    private String email;
+    /**
      * First name of the lead, user, or contact represented by this conversation response.
      */
     private String firstName;
@@ -146,16 +150,25 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.currentDisposition;
     }
     /**
+     * Gets the email property value. Email address used to resolve the lead&apos;s avatar when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getEmail() {
+        return this.email;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("currentDisposition", (n) -> { this.setCurrentDisposition(n.getObjectValue(ConversationResponseCurrentDisposition::createFromDiscriminatorValue)); });
+        deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
@@ -294,6 +307,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
         writer.writeObjectValue("currentDisposition", this.getCurrentDisposition());
+        writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
@@ -344,6 +358,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setCurrentDisposition(@jakarta.annotation.Nullable final ConversationResponseCurrentDisposition value) {
         this.currentDisposition = value;
+    }
+    /**
+     * Sets the email property value. Email address used to resolve the lead&apos;s avatar when available.
+     * @param value Value to set for the email property.
+     */
+    public void setEmail(@jakarta.annotation.Nullable final String value) {
+        this.email = value;
     }
     /**
      * Sets the firstName property value. First name of the lead, user, or contact represented by this conversation response.

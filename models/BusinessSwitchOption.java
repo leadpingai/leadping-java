@@ -62,6 +62,10 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
      */
     private BusinessUserRole role;
     /**
+     * Defines the supported 10DLC Application Status values.
+     */
+    private BusinessSwitchOptionTenDlcStatus tenDlcStatus;
+    /**
      * Instantiates a new {@link BusinessSwitchOption} and sets the default values.
      */
     public BusinessSwitchOption() {
@@ -115,7 +119,7 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(BusinessSwitchOptionActivationStatus::forValue)); });
         deserializerMap.put("activationSummary", (n) -> { this.setActivationSummary(n.getStringValue()); });
         deserializerMap.put("businessStatus", (n) -> { this.setBusinessStatus(n.getEnumValue(BusinessSwitchOptionBusinessStatus::forValue)); });
@@ -127,6 +131,7 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
         deserializerMap.put("needsAdminReview", (n) -> { this.setNeedsAdminReview(n.getBooleanValue()); });
         deserializerMap.put("readyForCustomerTraffic", (n) -> { this.setReadyForCustomerTraffic(n.getBooleanValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(BusinessUserRole::forValue)); });
+        deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(BusinessSwitchOptionTenDlcStatus::forValue)); });
         return deserializerMap;
     }
     /**
@@ -194,6 +199,14 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
         return this.role;
     }
     /**
+     * Gets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
+     * @return a {@link BusinessSwitchOptionTenDlcStatus}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessSwitchOptionTenDlcStatus getTenDlcStatus() {
+        return this.tenDlcStatus;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -210,6 +223,7 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("needsAdminReview", this.getNeedsAdminReview());
         writer.writeBooleanValue("readyForCustomerTraffic", this.getReadyForCustomerTraffic());
         writer.writeEnumValue("role", this.getRole());
+        writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -295,5 +309,12 @@ public class BusinessSwitchOption implements AdditionalDataHolder, Parsable {
      */
     public void setRole(@jakarta.annotation.Nullable final BusinessUserRole value) {
         this.role = value;
+    }
+    /**
+     * Sets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
+     * @param value Value to set for the tenDlcStatus property.
+     */
+    public void setTenDlcStatus(@jakarta.annotation.Nullable final BusinessSwitchOptionTenDlcStatus value) {
+        this.tenDlcStatus = value;
     }
 }

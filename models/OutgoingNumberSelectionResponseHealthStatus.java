@@ -4,17 +4,15 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported SMS Warmup Health State values.
+ * Defines the supported SMS readiness health assessments.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OutgoingNumberSelectionResponseHealthStatus implements ValuedEnum {
-    NotStarted("Not Started"),
-    Warming("Warming"),
+    NotEvaluated("Not Evaluated"),
+    Evaluating("Evaluating"),
     Healthy("Healthy"),
     NeedsAttention("Needs Attention"),
-    Paused("Paused"),
-    Blocked("Blocked"),
-    Ready("Ready");
+    Blocked("Blocked");
     public final String value;
     OutgoingNumberSelectionResponseHealthStatus(final String value) {
         this.value = value;
@@ -25,13 +23,11 @@ public enum OutgoingNumberSelectionResponseHealthStatus implements ValuedEnum {
     public static OutgoingNumberSelectionResponseHealthStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
-            case "Not Started": return NotStarted;
-            case "Warming": return Warming;
+            case "Not Evaluated": return NotEvaluated;
+            case "Evaluating": return Evaluating;
             case "Healthy": return Healthy;
             case "Needs Attention": return NeedsAttention;
-            case "Paused": return Paused;
             case "Blocked": return Blocked;
-            case "Ready": return Ready;
             default: return null;
         }
     }

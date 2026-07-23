@@ -107,7 +107,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates phone number settings such as display name, assignment, messaging options, or warmup configuration.
+     * Updates phone number settings such as its optional label, assignment, messaging options, or warmup configuration.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -120,7 +120,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates phone number settings such as display name, assignment, messaging options, or warmup configuration.
+     * Updates phone number settings such as its optional label, assignment, messaging options, or warmup configuration.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberResponse}
@@ -181,7 +181,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates phone number settings such as display name, assignment, messaging options, or warmup configuration.
+     * Updates phone number settings such as its optional label, assignment, messaging options, or warmup configuration.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -190,7 +190,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates phone number settings such as display name, assignment, messaging options, or warmup configuration.
+     * Updates phone number settings such as its optional label, assignment, messaging options, or warmup configuration.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -38,7 +38,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-numbers/{phoneNumber%2Did}/warmup{?endDate*,startDate*,windowDays*}", rawUrl);
     }
     /**
-     * Returns warmup status for a phone number, including readiness, limits, and recent events used for delivery pacing.
+     * Returns warmup status for a phone number, including limits and recent events used for delivery pacing.
      * @return a {@link PhoneNumberStatusResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -48,7 +48,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns warmup status for a phone number, including readiness, limits, and recent events used for delivery pacing.
+     * Returns warmup status for a phone number, including limits and recent events used for delivery pacing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberStatusResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -63,7 +63,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns warmup status for a phone number, including readiness, limits, and recent events used for delivery pacing.
+     * Returns warmup status for a phone number, including limits and recent events used for delivery pacing.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -71,7 +71,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns warmup status for a phone number, including readiness, limits, and recent events used for delivery pacing.
+     * Returns warmup status for a phone number, including limits and recent events used for delivery pacing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -93,7 +93,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
         return new WarmupRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns warmup status for a phone number, including readiness, limits, and recent events used for delivery pacing.
+     * Returns warmup status for a phone number, including limits and recent events used for delivery pacing.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

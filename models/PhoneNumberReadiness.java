@@ -8,49 +8,49 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Warmup state for a Leadping phone number.
+ * Messaging and calling warmup for a Leadping phone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
+public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
     /**
-     * Indicates whether the phone number warmup is enabled in Leadping.
+     * Indicates whether phone number warmup is enabled in Leadping.
      */
     private Boolean enabled;
     /**
-     * Current warmup health score used to assess phone number readiness.
+     * Current warmup health score used to assess phone number warmup.
      */
     private Integer healthScore;
     /**
-     * Defines the supported SMS Warmup Health State values.
+     * Defines the supported SMS readiness health assessments.
      */
-    private PhoneNumberWarmupHealthStatus healthStatus;
+    private PhoneNumberReadinessHealthStatus healthStatus;
     /**
      * Warmup completion percentage, from 0 through 100.
      */
     private Integer progressPercent;
     /**
-     * Defines the supported SMS Warmup Health State values.
+     * Defines the supported SMS readiness states.
      */
-    private PhoneNumberWarmupState state;
+    private PhoneNumberReadinessState state;
     /**
-     * Instantiates a new {@link PhoneNumberWarmup} and sets the default values.
+     * Instantiates a new {@link PhoneNumberReadiness} and sets the default values.
      */
-    public PhoneNumberWarmup() {
+    public PhoneNumberReadiness() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link PhoneNumberWarmup}
+     * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nonnull
-    public static PhoneNumberWarmup createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static PhoneNumberReadiness createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new PhoneNumberWarmup();
+        return new PhoneNumberReadiness();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -61,7 +61,7 @@ public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the enabled property value. Indicates whether the phone number warmup is enabled in Leadping.
+     * Gets the enabled property value. Indicates whether phone number warmup is enabled in Leadping.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -77,13 +77,13 @@ public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getIntegerValue()); });
-        deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberWarmupHealthStatus::forValue)); });
+        deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberReadinessHealthStatus::forValue)); });
         deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getIntegerValue()); });
-        deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(PhoneNumberWarmupState::forValue)); });
+        deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(PhoneNumberReadinessState::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the healthScore property value. Current warmup health score used to assess phone number readiness.
+     * Gets the healthScore property value. Current warmup health score used to assess phone number warmup.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -91,11 +91,11 @@ public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
         return this.healthScore;
     }
     /**
-     * Gets the healthStatus property value. Defines the supported SMS Warmup Health State values.
-     * @return a {@link PhoneNumberWarmupHealthStatus}
+     * Gets the healthStatus property value. Defines the supported SMS readiness health assessments.
+     * @return a {@link PhoneNumberReadinessHealthStatus}
      */
     @jakarta.annotation.Nullable
-    public PhoneNumberWarmupHealthStatus getHealthStatus() {
+    public PhoneNumberReadinessHealthStatus getHealthStatus() {
         return this.healthStatus;
     }
     /**
@@ -107,11 +107,11 @@ public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
         return this.progressPercent;
     }
     /**
-     * Gets the state property value. Defines the supported SMS Warmup Health State values.
-     * @return a {@link PhoneNumberWarmupState}
+     * Gets the state property value. Defines the supported SMS readiness states.
+     * @return a {@link PhoneNumberReadinessState}
      */
     @jakarta.annotation.Nullable
-    public PhoneNumberWarmupState getState() {
+    public PhoneNumberReadinessState getState() {
         return this.state;
     }
     /**
@@ -135,24 +135,24 @@ public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the enabled property value. Indicates whether the phone number warmup is enabled in Leadping.
+     * Sets the enabled property value. Indicates whether phone number warmup is enabled in Leadping.
      * @param value Value to set for the enabled property.
      */
     public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.enabled = value;
     }
     /**
-     * Sets the healthScore property value. Current warmup health score used to assess phone number readiness.
+     * Sets the healthScore property value. Current warmup health score used to assess phone number warmup.
      * @param value Value to set for the healthScore property.
      */
     public void setHealthScore(@jakarta.annotation.Nullable final Integer value) {
         this.healthScore = value;
     }
     /**
-     * Sets the healthStatus property value. Defines the supported SMS Warmup Health State values.
+     * Sets the healthStatus property value. Defines the supported SMS readiness health assessments.
      * @param value Value to set for the healthStatus property.
      */
-    public void setHealthStatus(@jakarta.annotation.Nullable final PhoneNumberWarmupHealthStatus value) {
+    public void setHealthStatus(@jakarta.annotation.Nullable final PhoneNumberReadinessHealthStatus value) {
         this.healthStatus = value;
     }
     /**
@@ -163,10 +163,10 @@ public class PhoneNumberWarmup implements AdditionalDataHolder, Parsable {
         this.progressPercent = value;
     }
     /**
-     * Sets the state property value. Defines the supported SMS Warmup Health State values.
+     * Sets the state property value. Defines the supported SMS readiness states.
      * @param value Value to set for the state property.
      */
-    public void setState(@jakarta.annotation.Nullable final PhoneNumberWarmupState value) {
+    public void setState(@jakarta.annotation.Nullable final PhoneNumberReadinessState value) {
         this.state = value;
     }
 }

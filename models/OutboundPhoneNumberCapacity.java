@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -33,6 +34,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private String phoneNumberId;
     /**
+     * Next midnight Eastern time, when SMS daily capacity resets.
+     */
+    private OffsetDateTime smsDailyResetsAt;
+    /**
+     * Start of the next Eastern time hour, when SMS hourly capacity resets.
+     */
+    private OffsetDateTime smsHourlyResetsAt;
+    /**
      * Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      */
     private Integer smsLimitThisHour;
@@ -56,6 +65,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * SMS used today for the applicable messaging or voice capacity window.
      */
     private Integer smsUsedToday;
+    /**
+     * Next midnight Eastern time, when voice daily capacity resets.
+     */
+    private OffsetDateTime voiceDailyResetsAt;
+    /**
+     * Start of the next Eastern time hour, when voice hourly capacity resets.
+     */
+    private OffsetDateTime voiceHourlyResetsAt;
     /**
      * Voice limit this hour associated with this Leadping outbound phone number capacity.
      */
@@ -118,17 +135,21 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("capacityAvailable", (n) -> { this.setCapacityAvailable(n.getBooleanValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberOutboundHealthStatus::forValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
+        deserializerMap.put("smsDailyResetsAt", (n) -> { this.setSmsDailyResetsAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("smsHourlyResetsAt", (n) -> { this.setSmsHourlyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsLimitThisHour", (n) -> { this.setSmsLimitThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsLimitToday", (n) -> { this.setSmsLimitToday(n.getIntegerValue()); });
         deserializerMap.put("smsRemainingThisHour", (n) -> { this.setSmsRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsRemainingToday", (n) -> { this.setSmsRemainingToday(n.getIntegerValue()); });
         deserializerMap.put("smsUsedThisHour", (n) -> { this.setSmsUsedThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsUsedToday", (n) -> { this.setSmsUsedToday(n.getIntegerValue()); });
+        deserializerMap.put("voiceDailyResetsAt", (n) -> { this.setVoiceDailyResetsAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("voiceHourlyResetsAt", (n) -> { this.setVoiceHourlyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("voiceLimitThisHour", (n) -> { this.setVoiceLimitThisHour(n.getIntegerValue()); });
         deserializerMap.put("voiceLimitToday", (n) -> { this.setVoiceLimitToday(n.getIntegerValue()); });
         deserializerMap.put("voiceRemainingThisHour", (n) -> { this.setVoiceRemainingThisHour(n.getIntegerValue()); });
@@ -160,6 +181,22 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public String getPhoneNumberId() {
         return this.phoneNumberId;
+    }
+    /**
+     * Gets the smsDailyResetsAt property value. Next midnight Eastern time, when SMS daily capacity resets.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getSmsDailyResetsAt() {
+        return this.smsDailyResetsAt;
+    }
+    /**
+     * Gets the smsHourlyResetsAt property value. Start of the next Eastern time hour, when SMS hourly capacity resets.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getSmsHourlyResetsAt() {
+        return this.smsHourlyResetsAt;
     }
     /**
      * Gets the smsLimitThisHour property value. Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
@@ -208,6 +245,22 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public Integer getSmsUsedToday() {
         return this.smsUsedToday;
+    }
+    /**
+     * Gets the voiceDailyResetsAt property value. Next midnight Eastern time, when voice daily capacity resets.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getVoiceDailyResetsAt() {
+        return this.voiceDailyResetsAt;
+    }
+    /**
+     * Gets the voiceHourlyResetsAt property value. Start of the next Eastern time hour, when voice hourly capacity resets.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getVoiceHourlyResetsAt() {
+        return this.voiceHourlyResetsAt;
     }
     /**
      * Gets the voiceLimitThisHour property value. Voice limit this hour associated with this Leadping outbound phone number capacity.
@@ -267,12 +320,16 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
+        writer.writeOffsetDateTimeValue("smsDailyResetsAt", this.getSmsDailyResetsAt());
+        writer.writeOffsetDateTimeValue("smsHourlyResetsAt", this.getSmsHourlyResetsAt());
         writer.writeIntegerValue("smsLimitThisHour", this.getSmsLimitThisHour());
         writer.writeIntegerValue("smsLimitToday", this.getSmsLimitToday());
         writer.writeIntegerValue("smsRemainingThisHour", this.getSmsRemainingThisHour());
         writer.writeIntegerValue("smsRemainingToday", this.getSmsRemainingToday());
         writer.writeIntegerValue("smsUsedThisHour", this.getSmsUsedThisHour());
         writer.writeIntegerValue("smsUsedToday", this.getSmsUsedToday());
+        writer.writeOffsetDateTimeValue("voiceDailyResetsAt", this.getVoiceDailyResetsAt());
+        writer.writeOffsetDateTimeValue("voiceHourlyResetsAt", this.getVoiceHourlyResetsAt());
         writer.writeIntegerValue("voiceLimitThisHour", this.getVoiceLimitThisHour());
         writer.writeIntegerValue("voiceLimitToday", this.getVoiceLimitToday());
         writer.writeIntegerValue("voiceRemainingThisHour", this.getVoiceRemainingThisHour());
@@ -317,6 +374,20 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.phoneNumberId = value;
     }
     /**
+     * Sets the smsDailyResetsAt property value. Next midnight Eastern time, when SMS daily capacity resets.
+     * @param value Value to set for the smsDailyResetsAt property.
+     */
+    public void setSmsDailyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.smsDailyResetsAt = value;
+    }
+    /**
+     * Sets the smsHourlyResetsAt property value. Start of the next Eastern time hour, when SMS hourly capacity resets.
+     * @param value Value to set for the smsHourlyResetsAt property.
+     */
+    public void setSmsHourlyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.smsHourlyResetsAt = value;
+    }
+    /**
      * Sets the smsLimitThisHour property value. Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      * @param value Value to set for the smsLimitThisHour property.
      */
@@ -357,6 +428,20 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setSmsUsedToday(@jakarta.annotation.Nullable final Integer value) {
         this.smsUsedToday = value;
+    }
+    /**
+     * Sets the voiceDailyResetsAt property value. Next midnight Eastern time, when voice daily capacity resets.
+     * @param value Value to set for the voiceDailyResetsAt property.
+     */
+    public void setVoiceDailyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.voiceDailyResetsAt = value;
+    }
+    /**
+     * Sets the voiceHourlyResetsAt property value. Start of the next Eastern time hour, when voice hourly capacity resets.
+     * @param value Value to set for the voiceHourlyResetsAt property.
+     */
+    public void setVoiceHourlyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.voiceHourlyResetsAt = value;
     }
     /**
      * Sets the voiceLimitThisHour property value. Voice limit this hour associated with this Leadping outbound phone number capacity.

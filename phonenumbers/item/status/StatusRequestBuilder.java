@@ -38,7 +38,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-numbers/{phoneNumber%2Did}/status{?endDate*,startDate*,windowDays*}", rawUrl);
     }
     /**
-     * Returns provider and Leadping status for a phone number, including messaging readiness, assignments, and verification state.
+     * Returns provider and Leadping status for a phone number, including messaging warmup, assignments, and verification state.
      * @return a {@link PhoneNumberStatusResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns provider and Leadping status for a phone number, including messaging readiness, assignments, and verification state.
+     * Returns provider and Leadping status for a phone number, including messaging warmup, assignments, and verification state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberStatusResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns provider and Leadping status for a phone number, including messaging readiness, assignments, and verification state.
+     * Returns provider and Leadping status for a phone number, including messaging warmup, assignments, and verification state.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -74,7 +74,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns provider and Leadping status for a phone number, including messaging readiness, assignments, and verification state.
+     * Returns provider and Leadping status for a phone number, including messaging warmup, assignments, and verification state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -96,7 +96,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return new StatusRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns provider and Leadping status for a phone number, including messaging readiness, assignments, and verification state.
+     * Returns provider and Leadping status for a phone number, including messaging warmup, assignments, and verification state.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

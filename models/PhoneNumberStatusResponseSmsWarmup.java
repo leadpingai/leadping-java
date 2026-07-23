@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * SMS sender warmup status for this phone number.
+ * SMS warmup status for this phone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class PhoneNumberStatusResponseSmsWarmup extends SmsWarmupStatusResponse implements Parsable {
+public class PhoneNumberStatusResponseSmsWarmup extends SmsReadinessStatusResponse implements Parsable {
     /**
      * Instantiates a new {@link PhoneNumberStatusResponseSmsWarmup} and sets the default values.
      */

@@ -33,7 +33,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * Display name for this phone number table row in the Leadping API.
+     * Optional display label for this phone number table row in the Leadping API.
      */
     private String name;
     /**
@@ -67,7 +67,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Warmup state for this phone number.
      */
-    private PhoneNumberWarmup warmup;
+    private PhoneNumberReadiness warmup;
     /**
      * Instantiates a new {@link PhoneNumberTableRow} and sets the default values.
      */
@@ -135,7 +135,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("tenDlcCampaignStatus", (n) -> { this.setTenDlcCampaignStatus(n.getStringValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         deserializerMap.put("voiceReady", (n) -> { this.setVoiceReady(n.getBooleanValue()); });
-        deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberWarmup::createFromDiscriminatorValue)); });
+        deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberReadiness::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -147,7 +147,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the name property value. Display name for this phone number table row in the Leadping API.
+     * Gets the name property value. Optional display label for this phone number table row in the Leadping API.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -212,10 +212,10 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the warmup property value. Warmup state for this phone number.
-     * @return a {@link PhoneNumberWarmup}
+     * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nullable
-    public PhoneNumberWarmup getWarmup() {
+    public PhoneNumberReadiness getWarmup() {
         return this.warmup;
     }
     /**
@@ -275,7 +275,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the name property value. Display name for this phone number table row in the Leadping API.
+     * Sets the name property value. Optional display label for this phone number table row in the Leadping API.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -334,7 +334,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      * Sets the warmup property value. Warmup state for this phone number.
      * @param value Value to set for the warmup property.
      */
-    public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberWarmup value) {
+    public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberReadiness value) {
         this.warmup = value;
     }
 }

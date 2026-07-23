@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number readiness status returned to authenticated clients.
+ * Response schema for the Leadping API phone number warmup status returned to authenticated clients.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable {
@@ -25,7 +25,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private Integer messagesPossible;
     /**
-     * E.164 phone number exposed by this phone number readiness status.
+     * E.164 phone number exposed by this phone number warmup status.
      */
     private String number;
     /**
@@ -41,7 +41,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private java.util.List<PhoneNumberMessagingEventResponse> recentEvents;
     /**
-     * SMS sender warmup status for this phone number.
+     * SMS warmup status for this phone number.
      */
     private PhoneNumberStatusResponseSmsWarmup smsWarmup;
     /**
@@ -106,7 +106,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.messagesPossible;
     }
     /**
-     * Gets the number property value. E.164 phone number exposed by this phone number readiness status.
+     * Gets the number property value. E.164 phone number exposed by this phone number warmup status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.recentEvents;
     }
     /**
-     * Gets the smsWarmup property value. SMS sender warmup status for this phone number.
+     * Gets the smsWarmup property value. SMS warmup status for this phone number.
      * @return a {@link PhoneNumberStatusResponseSmsWarmup}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         this.messagesPossible = value;
     }
     /**
-     * Sets the number property value. E.164 phone number exposed by this phone number readiness status.
+     * Sets the number property value. E.164 phone number exposed by this phone number warmup status.
      * @param value Value to set for the number property.
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
@@ -219,7 +219,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         this.recentEvents = value;
     }
     /**
-     * Sets the smsWarmup property value. SMS sender warmup status for this phone number.
+     * Sets the smsWarmup property value. SMS warmup status for this phone number.
      * @param value Value to set for the smsWarmup property.
      */
     public void setSmsWarmup(@jakarta.annotation.Nullable final PhoneNumberStatusResponseSmsWarmup value) {

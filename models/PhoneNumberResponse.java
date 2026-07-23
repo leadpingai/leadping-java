@@ -58,9 +58,9 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private PhoneNumberRoutingMetadata routing;
     /**
-     * SMS and voice warmup state for this phone number.
+     * SMS and call warmup for this phone number.
      */
-    private PhoneNumberWarmup warmup;
+    private PhoneNumberReadiness warmup;
     /**
      * Instantiates a new {@link PhoneNumberResponse} and sets the default values.
      */
@@ -126,7 +126,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
-        deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberWarmup::createFromDiscriminatorValue)); });
+        deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberReadiness::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -186,11 +186,11 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.routing;
     }
     /**
-     * Gets the warmup property value. SMS and voice warmup state for this phone number.
-     * @return a {@link PhoneNumberWarmup}
+     * Gets the warmup property value. SMS and call warmup for this phone number.
+     * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nullable
-    public PhoneNumberWarmup getWarmup() {
+    public PhoneNumberReadiness getWarmup() {
         return this.warmup;
     }
     /**
@@ -290,10 +290,10 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.routing = value;
     }
     /**
-     * Sets the warmup property value. SMS and voice warmup state for this phone number.
+     * Sets the warmup property value. SMS and call warmup for this phone number.
      * @param value Value to set for the warmup property.
      */
-    public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberWarmup value) {
+    public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberReadiness value) {
         this.warmup = value;
     }
 }

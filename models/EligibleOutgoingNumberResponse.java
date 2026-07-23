@@ -33,7 +33,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private String healthLabel;
     /**
-     * Defines the supported SMS Warmup Health State values.
+     * Defines the supported SMS readiness health assessments.
      */
     private EligibleOutgoingNumberResponseHealthStatus healthStatus;
     /**
@@ -152,7 +152,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.healthLabel;
     }
     /**
-     * Gets the healthStatus property value. Defines the supported SMS Warmup Health State values.
+     * Gets the healthStatus property value. Defines the supported SMS readiness health assessments.
      * @return a {@link EligibleOutgoingNumberResponseHealthStatus}
      */
     @jakarta.annotation.Nullable
@@ -289,7 +289,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         this.healthLabel = value;
     }
     /**
-     * Sets the healthStatus property value. Defines the supported SMS Warmup Health State values.
+     * Sets the healthStatus property value. Defines the supported SMS readiness health assessments.
      * @param value Value to set for the healthStatus property.
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final EligibleOutgoingNumberResponseHealthStatus value) {

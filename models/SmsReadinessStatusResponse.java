@@ -11,7 +11,7 @@ import java.util.Objects;
  * API response containing SMS warmup status data returned to callers.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
+public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -20,6 +20,10 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
      * The health score metric for this SMS warmup status.
      */
     private Integer healthScore;
+    /**
+     * The current delivery-health assessment for this SMS warmup status.
+     */
+    private SmsReadinessHealthStatus healthStatus;
     /**
      * The phone number associated with this SMS warmup status.
      */
@@ -33,32 +37,32 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer progressPercent;
     /**
-     * The current status for this SMS warmup status.
+     * The current state for this SMS warmup status.
      */
-    private SmsWarmupHealthState status;
+    private SmsReadinessState status;
     /**
      * The current UI state for this SMS warmup status.
      */
-    private SmsWarmupUiState uiState;
+    private SmsReadinessUiState uiState;
     /**
      * Whether warmup is enabled for this SMS warmup status.
      */
     private Boolean warmupEnabled;
     /**
-     * Instantiates a new {@link SmsWarmupStatusResponse} and sets the default values.
+     * Instantiates a new {@link SmsReadinessStatusResponse} and sets the default values.
      */
-    public SmsWarmupStatusResponse() {
+    public SmsReadinessStatusResponse() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link SmsWarmupStatusResponse}
+     * @return a {@link SmsReadinessStatusResponse}
      */
     @jakarta.annotation.Nonnull
-    public static SmsWarmupStatusResponse createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static SmsReadinessStatusResponse createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new SmsWarmupStatusResponse();
+        return new SmsReadinessStatusResponse();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -74,13 +78,14 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getIntegerValue()); });
+        deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(SmsReadinessHealthStatus::forValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getIntegerValue()); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(SmsWarmupHealthState::forValue)); });
-        deserializerMap.put("uiState", (n) -> { this.setUiState(n.getObjectValue(SmsWarmupUiState::createFromDiscriminatorValue)); });
+        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(SmsReadinessState::forValue)); });
+        deserializerMap.put("uiState", (n) -> { this.setUiState(n.getObjectValue(SmsReadinessUiState::createFromDiscriminatorValue)); });
         deserializerMap.put("warmupEnabled", (n) -> { this.setWarmupEnabled(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -91,6 +96,14 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Integer getHealthScore() {
         return this.healthScore;
+    }
+    /**
+     * Gets the healthStatus property value. The current delivery-health assessment for this SMS warmup status.
+     * @return a {@link SmsReadinessHealthStatus}
+     */
+    @jakarta.annotation.Nullable
+    public SmsReadinessHealthStatus getHealthStatus() {
+        return this.healthStatus;
     }
     /**
      * Gets the phoneNumber property value. The phone number associated with this SMS warmup status.
@@ -117,19 +130,19 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
         return this.progressPercent;
     }
     /**
-     * Gets the status property value. The current status for this SMS warmup status.
-     * @return a {@link SmsWarmupHealthState}
+     * Gets the status property value. The current state for this SMS warmup status.
+     * @return a {@link SmsReadinessState}
      */
     @jakarta.annotation.Nullable
-    public SmsWarmupHealthState getStatus() {
+    public SmsReadinessState getStatus() {
         return this.status;
     }
     /**
      * Gets the uiState property value. The current UI state for this SMS warmup status.
-     * @return a {@link SmsWarmupUiState}
+     * @return a {@link SmsReadinessUiState}
      */
     @jakarta.annotation.Nullable
-    public SmsWarmupUiState getUiState() {
+    public SmsReadinessUiState getUiState() {
         return this.uiState;
     }
     /**
@@ -147,6 +160,7 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("healthScore", this.getHealthScore());
+        writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
         writer.writeIntegerValue("progressPercent", this.getProgressPercent());
@@ -170,6 +184,13 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
         this.healthScore = value;
     }
     /**
+     * Sets the healthStatus property value. The current delivery-health assessment for this SMS warmup status.
+     * @param value Value to set for the healthStatus property.
+     */
+    public void setHealthStatus(@jakarta.annotation.Nullable final SmsReadinessHealthStatus value) {
+        this.healthStatus = value;
+    }
+    /**
      * Sets the phoneNumber property value. The phone number associated with this SMS warmup status.
      * @param value Value to set for the phoneNumber property.
      */
@@ -191,17 +212,17 @@ public class SmsWarmupStatusResponse implements AdditionalDataHolder, Parsable {
         this.progressPercent = value;
     }
     /**
-     * Sets the status property value. The current status for this SMS warmup status.
+     * Sets the status property value. The current state for this SMS warmup status.
      * @param value Value to set for the status property.
      */
-    public void setStatus(@jakarta.annotation.Nullable final SmsWarmupHealthState value) {
+    public void setStatus(@jakarta.annotation.Nullable final SmsReadinessState value) {
         this.status = value;
     }
     /**
      * Sets the uiState property value. The current UI state for this SMS warmup status.
      * @param value Value to set for the uiState property.
      */
-    public void setUiState(@jakarta.annotation.Nullable final SmsWarmupUiState value) {
+    public void setUiState(@jakarta.annotation.Nullable final SmsReadinessUiState value) {
         this.uiState = value;
     }
     /**
