@@ -61,6 +61,10 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private String phone;
     /**
+     * IANA time zone identifier used when displaying dates and times for this user.
+     */
+    private String timeZoneId;
+    /**
      * Instantiates a new {@link UserRequest} and sets the default values.
      */
     public UserRequest() {
@@ -122,7 +126,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserRequestBillingPlan::forValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserRequestCompliance::createFromDiscriminatorValue)); });
         deserializerMap.put("currentBusiness", (n) -> { this.setCurrentBusiness(n.getObjectValue(UserRequestCurrentBusiness::createFromDiscriminatorValue)); });
@@ -134,6 +138,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("notificationPreferences", (n) -> { this.setNotificationPreferences(n.getObjectValue(UserRequestNotificationPreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
+        deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -193,6 +198,14 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.phone;
     }
     /**
+     * Gets the timeZoneId property value. IANA time zone identifier used when displaying dates and times for this user.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTimeZoneId() {
+        return this.timeZoneId;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -209,6 +222,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeObjectValue("notificationPreferences", this.getNotificationPreferences());
         writer.writeStringValue("phone", this.getPhone());
+        writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -294,5 +308,12 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     public void setPhone(@jakarta.annotation.Nullable final String value) {
         this.phone = value;
+    }
+    /**
+     * Sets the timeZoneId property value. IANA time zone identifier used when displaying dates and times for this user.
+     * @param value Value to set for the timeZoneId property.
+     */
+    public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.timeZoneId = value;
     }
 }
