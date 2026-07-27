@@ -37,7 +37,7 @@ public class PdfAccessRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/payment-methods/invoices/{invoiceId}/pdf-access{?download*}", rawUrl);
     }
     /**
-     * Creates a short-lived URL for viewing or downloading a private invoice PDF.
+     * Creates a short-lived, secure URL that lets the current business view or download a private Stripe invoice PDF without exposing a permanent file link.
      * @return a {@link InvoicePdfAccessResponse}
      * @throws ProblemDetails When receiving a 404 status code
      */
@@ -46,7 +46,7 @@ public class PdfAccessRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Creates a short-lived URL for viewing or downloading a private invoice PDF.
+     * Creates a short-lived, secure URL that lets the current business view or download a private Stripe invoice PDF without exposing a permanent file link.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InvoicePdfAccessResponse}
      * @throws ProblemDetails When receiving a 404 status code
@@ -59,7 +59,7 @@ public class PdfAccessRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, InvoicePdfAccessResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates a short-lived URL for viewing or downloading a private invoice PDF.
+     * Creates a short-lived, secure URL that lets the current business view or download a private Stripe invoice PDF without exposing a permanent file link.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -67,7 +67,7 @@ public class PdfAccessRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Creates a short-lived URL for viewing or downloading a private invoice PDF.
+     * Creates a short-lived, secure URL that lets the current business view or download a private Stripe invoice PDF without exposing a permanent file link.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -89,7 +89,7 @@ public class PdfAccessRequestBuilder extends BaseRequestBuilder {
         return new PdfAccessRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Creates a short-lived URL for viewing or downloading a private invoice PDF.
+     * Creates a short-lived, secure URL that lets the current business view or download a private Stripe invoice PDF without exposing a permanent file link.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

@@ -54,7 +54,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, null, Boolean.class);
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business.
+     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
      * @param body The request body
      * @return a {@link LeadStatusResponse}
      */
@@ -63,7 +63,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business.
+     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
@@ -95,7 +95,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business.
+     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -104,7 +104,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business.
+     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

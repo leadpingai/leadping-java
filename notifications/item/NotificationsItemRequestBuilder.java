@@ -45,7 +45,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/notifications/{id}", rawUrl);
     }
     /**
-     * Gets one notification for the current user and business.
+     * Returns one notification for the current user and business, including its content, read state, delivery context, and relevant account activity.
      * @return a {@link NotificationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -55,7 +55,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Gets one notification for the current user and business.
+     * Returns one notification for the current user and business, including its content, read state, delivery context, and relevant account activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link NotificationResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -70,7 +70,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, NotificationResponse::createFromDiscriminatorValue);
     }
     /**
-     * Gets one notification for the current user and business.
+     * Returns one notification for the current user and business, including its content, read state, delivery context, and relevant account activity.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Gets one notification for the current user and business.
+     * Returns one notification for the current user and business, including its content, read state, delivery context, and relevant account activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

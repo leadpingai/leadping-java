@@ -37,7 +37,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/businesses/me/10dlc/notes", rawUrl);
     }
     /**
-     * Updates the shared 10DLC notes for the current business.
+     * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
      * @param body The request body
      * @return a {@link BusinessResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates the shared 10DLC notes for the current business.
+     * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessResponse}
@@ -65,7 +65,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, BusinessResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates the shared 10DLC notes for the current business.
+     * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates the shared 10DLC notes for the current business.
+     * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

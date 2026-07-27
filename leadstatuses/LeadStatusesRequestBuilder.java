@@ -67,7 +67,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
+     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body The request body
      * @return a {@link LeadStatusResponse}
      */
@@ -76,7 +76,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
+     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
@@ -108,7 +108,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
+     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -117,7 +117,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates a reusable lead status for the current business to categorize leads in its sales workflow.
+     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
