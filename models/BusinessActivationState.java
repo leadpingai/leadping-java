@@ -134,6 +134,10 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     private ActivationTelephonyStatus telephonyStatus;
     /**
+     * Identifier of the first-class 10DLC application entity for this business.
+     */
+    private String tenDlcApplicationId;
+    /**
      * The 10DLC draft value for this business activation state.
      */
     private BusinessActivationStateTenDlcDraft tenDlcDraft;
@@ -275,7 +279,7 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
         deserializerMap.put("activatedAt", (n) -> { this.setActivatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billingSubscriptionStatus", (n) -> { this.setBillingSubscriptionStatus(n.getEnumValue(ActivationSubscriptionStatus::forValue)); });
         deserializerMap.put("businessDescription", (n) -> { this.setBusinessDescription(n.getStringValue()); });
@@ -305,6 +309,7 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         deserializerMap.put("telephonyProvisioningStartedAt", (n) -> { this.setTelephonyProvisioningStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("telephonyReadyAt", (n) -> { this.setTelephonyReadyAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("telephonyStatus", (n) -> { this.setTelephonyStatus(n.getEnumValue(ActivationTelephonyStatus::forValue)); });
+        deserializerMap.put("tenDlcApplicationId", (n) -> { this.setTenDlcApplicationId(n.getStringValue()); });
         deserializerMap.put("tenDlcDraft", (n) -> { this.setTenDlcDraft(n.getObjectValue(BusinessActivationStateTenDlcDraft::createFromDiscriminatorValue)); });
         deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(TenDlcApplicationStatus::forValue)); });
         deserializerMap.put("updatedAt", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
@@ -458,6 +463,14 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         return this.telephonyStatus;
     }
     /**
+     * Gets the tenDlcApplicationId property value. Identifier of the first-class 10DLC application entity for this business.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTenDlcApplicationId() {
+        return this.tenDlcApplicationId;
+    }
+    /**
      * Gets the tenDlcDraft property value. The 10DLC draft value for this business activation state.
      * @return a {@link BusinessActivationStateTenDlcDraft}
      */
@@ -540,6 +553,7 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("telephonyProvisioningStartedAt", this.getTelephonyProvisioningStartedAt());
         writer.writeOffsetDateTimeValue("telephonyReadyAt", this.getTelephonyReadyAt());
         writer.writeEnumValue("telephonyStatus", this.getTelephonyStatus());
+        writer.writeStringValue("tenDlcApplicationId", this.getTenDlcApplicationId());
         writer.writeObjectValue("tenDlcDraft", this.getTenDlcDraft());
         writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
         writer.writeOffsetDateTimeValue("updatedAt", this.getUpdatedAt());
@@ -757,6 +771,13 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     public void setTelephonyStatus(@jakarta.annotation.Nullable final ActivationTelephonyStatus value) {
         this.telephonyStatus = value;
+    }
+    /**
+     * Sets the tenDlcApplicationId property value. Identifier of the first-class 10DLC application entity for this business.
+     * @param value Value to set for the tenDlcApplicationId property.
+     */
+    public void setTenDlcApplicationId(@jakarta.annotation.Nullable final String value) {
+        this.tenDlcApplicationId = value;
     }
     /**
      * Sets the tenDlcDraft property value. The 10DLC draft value for this business activation state.

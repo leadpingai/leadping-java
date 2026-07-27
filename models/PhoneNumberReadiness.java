@@ -17,6 +17,10 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     */
+    private PhoneNumberReadinessCallStage callStage;
+    /**
      * Indicates whether phone number warmup is enabled in Leadping.
      */
     private Boolean enabled;
@@ -61,6 +65,14 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the callStage property value. Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * @return a {@link PhoneNumberReadinessCallStage}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberReadinessCallStage getCallStage() {
+        return this.callStage;
+    }
+    /**
      * Gets the enabled property value. Indicates whether phone number warmup is enabled in Leadping.
      * @return a {@link Boolean}
      */
@@ -74,7 +86,8 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        deserializerMap.put("callStage", (n) -> { this.setCallStage(n.getEnumValue(PhoneNumberReadinessCallStage::forValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getIntegerValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberReadinessHealthStatus::forValue)); });
@@ -120,6 +133,7 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeEnumValue("callStage", this.getCallStage());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeIntegerValue("healthScore", this.getHealthScore());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
@@ -133,6 +147,13 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the callStage property value. Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * @param value Value to set for the callStage property.
+     */
+    public void setCallStage(@jakarta.annotation.Nullable final PhoneNumberReadinessCallStage value) {
+        this.callStage = value;
     }
     /**
      * Sets the enabled property value. Indicates whether phone number warmup is enabled in Leadping.

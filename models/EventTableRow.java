@@ -19,6 +19,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String actorDisplayName;
     /**
+     * Email address for the person who created this event timeline table row.
+     */
+    private String actorEmail;
+    /**
      * User ID for the person or system that created this event timeline table row.
      */
     private String actorUserId;
@@ -223,6 +227,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.actorDisplayName;
     }
     /**
+     * Gets the actorEmail property value. Email address for the person who created this event timeline table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorEmail() {
+        return this.actorEmail;
+    }
+    /**
      * Gets the actorUserId property value. User ID for the person or system that created this event timeline table row.
      * @return a {@link String}
      */
@@ -380,8 +392,9 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(46);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
+        deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
@@ -643,6 +656,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
+        writer.writeStringValue("actorEmail", this.getActorEmail());
         writer.writeStringValue("actorUserId", this.getActorUserId());
         writer.writeObjectValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
@@ -695,6 +709,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setActorDisplayName(@jakarta.annotation.Nullable final String value) {
         this.actorDisplayName = value;
+    }
+    /**
+     * Sets the actorEmail property value. Email address for the person who created this event timeline table row.
+     * @param value Value to set for the actorEmail property.
+     */
+    public void setActorEmail(@jakarta.annotation.Nullable final String value) {
+        this.actorEmail = value;
     }
     /**
      * Sets the actorUserId property value. User ID for the person or system that created this event timeline table row.

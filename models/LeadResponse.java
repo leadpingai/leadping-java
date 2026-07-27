@@ -70,6 +70,10 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
+     * Canonical phone identity and provider lookup details for this lead.
+     */
+    private LeadResponsePhoneIdentity phoneIdentity;
+    /**
      * Tags currently attached to this lead, source, or record.
      */
     private java.util.List<TagSummary> tags;
@@ -175,7 +179,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
@@ -189,6 +193,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(LeadMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("phoneIdentity", (n) -> { this.setPhoneIdentity(n.getObjectValue(LeadResponsePhoneIdentity::createFromDiscriminatorValue)); });
         deserializerMap.put("tags", (n) -> { this.setTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -225,6 +230,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
+     * Gets the phoneIdentity property value. Canonical phone identity and provider lookup details for this lead.
+     * @return a {@link LeadResponsePhoneIdentity}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponsePhoneIdentity getPhoneIdentity() {
+        return this.phoneIdentity;
+    }
+    /**
      * Gets the tags property value. Tags currently attached to this lead, source, or record.
      * @return a {@link java.util.List<TagSummary>}
      */
@@ -251,6 +264,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeObjectValue("metadata", this.getMetadata());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
+        writer.writeObjectValue("phoneIdentity", this.getPhoneIdentity());
         writer.writeCollectionOfObjectValues("tags", this.getTags());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -351,6 +365,13 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
+    }
+    /**
+     * Sets the phoneIdentity property value. Canonical phone identity and provider lookup details for this lead.
+     * @param value Value to set for the phoneIdentity property.
+     */
+    public void setPhoneIdentity(@jakarta.annotation.Nullable final LeadResponsePhoneIdentity value) {
+        this.phoneIdentity = value;
     }
     /**
      * Sets the tags property value. Tags currently attached to this lead, source, or record.

@@ -33,6 +33,10 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     private String teamId;
     /**
+     * Leadping 10DLC application entity associated with this phone number.
+     */
+    private String tenDlcApplicationId;
+    /**
      * Indicates whether the phone number can be used for voice calls.
      */
     private Boolean voiceEnabled;
@@ -74,11 +78,12 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("smsEnabled", (n) -> { this.setSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("teamId", (n) -> { this.setTeamId(n.getStringValue()); });
+        deserializerMap.put("tenDlcApplicationId", (n) -> { this.setTenDlcApplicationId(n.getStringValue()); });
         deserializerMap.put("voiceEnabled", (n) -> { this.setVoiceEnabled(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -107,6 +112,14 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         return this.teamId;
     }
     /**
+     * Gets the tenDlcApplicationId property value. Leadping 10DLC application entity associated with this phone number.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTenDlcApplicationId() {
+        return this.tenDlcApplicationId;
+    }
+    /**
      * Gets the voiceEnabled property value. Indicates whether the phone number can be used for voice calls.
      * @return a {@link Boolean}
      */
@@ -124,6 +137,7 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         writer.writeBooleanValue("smsEnabled", this.getSmsEnabled());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeStringValue("teamId", this.getTeamId());
+        writer.writeStringValue("tenDlcApplicationId", this.getTenDlcApplicationId());
         writer.writeBooleanValue("voiceEnabled", this.getVoiceEnabled());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -161,6 +175,13 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     public void setTeamId(@jakarta.annotation.Nullable final String value) {
         this.teamId = value;
+    }
+    /**
+     * Sets the tenDlcApplicationId property value. Leadping 10DLC application entity associated with this phone number.
+     * @param value Value to set for the tenDlcApplicationId property.
+     */
+    public void setTenDlcApplicationId(@jakarta.annotation.Nullable final String value) {
+        this.tenDlcApplicationId = value;
     }
     /**
      * Sets the voiceEnabled property value. Indicates whether the phone number can be used for voice calls.

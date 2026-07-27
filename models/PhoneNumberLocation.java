@@ -17,9 +17,21 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Canonical city resolved by Leadping from its ZIP-code geography data.
+     */
+    private String canonicalCity;
+    /**
+     * Canonical state or territory abbreviation resolved by Leadping.
+     */
+    private String canonicalState;
+    /**
      * Latitude and longitude coordinate for this phone number location.
      */
     private PhoneNumberLocationCoordinate coordinate;
+    /**
+     * Describes how the coordinate was resolved.
+     */
+    private PhoneNumberLocationCoordinateSource coordinateSource;
     /**
      * Country code for the phone number or location represented by this phone number location.
      */
@@ -36,6 +48,10 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      * IANA or Windows time zone identifier used for local scheduling and reporting.
      */
     private String timeZoneId;
+    /**
+     * Describes how the time zone was resolved.
+     */
+    private PhoneNumberLocationTimeZoneSource timeZoneSource;
     /**
      * Instantiates a new {@link PhoneNumberLocation} and sets the default values.
      */
@@ -61,12 +77,36 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the canonicalCity property value. Canonical city resolved by Leadping from its ZIP-code geography data.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCanonicalCity() {
+        return this.canonicalCity;
+    }
+    /**
+     * Gets the canonicalState property value. Canonical state or territory abbreviation resolved by Leadping.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCanonicalState() {
+        return this.canonicalState;
+    }
+    /**
      * Gets the coordinate property value. Latitude and longitude coordinate for this phone number location.
      * @return a {@link PhoneNumberLocationCoordinate}
      */
     @jakarta.annotation.Nullable
     public PhoneNumberLocationCoordinate getCoordinate() {
         return this.coordinate;
+    }
+    /**
+     * Gets the coordinateSource property value. Describes how the coordinate was resolved.
+     * @return a {@link PhoneNumberLocationCoordinateSource}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberLocationCoordinateSource getCoordinateSource() {
+        return this.coordinateSource;
     }
     /**
      * Gets the countryCode property value. Country code for the phone number or location represented by this phone number location.
@@ -82,12 +122,16 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        deserializerMap.put("canonicalCity", (n) -> { this.setCanonicalCity(n.getStringValue()); });
+        deserializerMap.put("canonicalState", (n) -> { this.setCanonicalState(n.getStringValue()); });
         deserializerMap.put("coordinate", (n) -> { this.setCoordinate(n.getObjectValue(PhoneNumberLocationCoordinate::createFromDiscriminatorValue)); });
+        deserializerMap.put("coordinateSource", (n) -> { this.setCoordinateSource(n.getObjectValue(PhoneNumberLocationCoordinateSource::createFromDiscriminatorValue)); });
         deserializerMap.put("countryCode", (n) -> { this.setCountryCode(n.getStringValue()); });
         deserializerMap.put("location", (n) -> { this.setLocation(n.getStringValue()); });
         deserializerMap.put("state", (n) -> { this.setState(n.getStringValue()); });
         deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
+        deserializerMap.put("timeZoneSource", (n) -> { this.setTimeZoneSource(n.getObjectValue(PhoneNumberLocationTimeZoneSource::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -115,16 +159,28 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         return this.timeZoneId;
     }
     /**
+     * Gets the timeZoneSource property value. Describes how the time zone was resolved.
+     * @return a {@link PhoneNumberLocationTimeZoneSource}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberLocationTimeZoneSource getTimeZoneSource() {
+        return this.timeZoneSource;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("canonicalCity", this.getCanonicalCity());
+        writer.writeStringValue("canonicalState", this.getCanonicalState());
         writer.writeObjectValue("coordinate", this.getCoordinate());
+        writer.writeObjectValue("coordinateSource", this.getCoordinateSource());
         writer.writeStringValue("countryCode", this.getCountryCode());
         writer.writeStringValue("location", this.getLocation());
         writer.writeStringValue("state", this.getState());
         writer.writeStringValue("timeZoneId", this.getTimeZoneId());
+        writer.writeObjectValue("timeZoneSource", this.getTimeZoneSource());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,11 +191,32 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
+     * Sets the canonicalCity property value. Canonical city resolved by Leadping from its ZIP-code geography data.
+     * @param value Value to set for the canonicalCity property.
+     */
+    public void setCanonicalCity(@jakarta.annotation.Nullable final String value) {
+        this.canonicalCity = value;
+    }
+    /**
+     * Sets the canonicalState property value. Canonical state or territory abbreviation resolved by Leadping.
+     * @param value Value to set for the canonicalState property.
+     */
+    public void setCanonicalState(@jakarta.annotation.Nullable final String value) {
+        this.canonicalState = value;
+    }
+    /**
      * Sets the coordinate property value. Latitude and longitude coordinate for this phone number location.
      * @param value Value to set for the coordinate property.
      */
     public void setCoordinate(@jakarta.annotation.Nullable final PhoneNumberLocationCoordinate value) {
         this.coordinate = value;
+    }
+    /**
+     * Sets the coordinateSource property value. Describes how the coordinate was resolved.
+     * @param value Value to set for the coordinateSource property.
+     */
+    public void setCoordinateSource(@jakarta.annotation.Nullable final PhoneNumberLocationCoordinateSource value) {
+        this.coordinateSource = value;
     }
     /**
      * Sets the countryCode property value. Country code for the phone number or location represented by this phone number location.
@@ -168,5 +245,12 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
         this.timeZoneId = value;
+    }
+    /**
+     * Sets the timeZoneSource property value. Describes how the time zone was resolved.
+     * @param value Value to set for the timeZoneSource property.
+     */
+    public void setTimeZoneSource(@jakarta.annotation.Nullable final PhoneNumberLocationTimeZoneSource value) {
+        this.timeZoneSource = value;
     }
 }
