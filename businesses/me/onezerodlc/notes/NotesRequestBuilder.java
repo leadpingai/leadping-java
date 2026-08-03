@@ -38,7 +38,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
-     * @param body The request body
+     * @param body Updates the internal notes associated with a 10DLC application.
      * @return a {@link BusinessResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
-     * @param body The request body
+     * @param body Updates the internal notes associated with a 10DLC application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BusinessResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
-     * @param body The request body
+     * @param body Updates the internal notes associated with a 10DLC application.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the shared 10DLC registration notes for the current business, keeping carrier review context and messaging compliance details current.
-     * @param body The request body
+     * @param body Updates the internal notes associated with a 10DLC application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

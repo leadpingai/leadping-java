@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +28,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -106,6 +105,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      * The ID and name for this lead.
      */
     private IdNamePair lead;
+    /**
+     * Media attached to this SMS/MMS event.
+     */
+    private java.util.List<MessageMediaAttachment> media;
     /**
      * Phone number ID selected for outbound delivery.
      */
@@ -216,10 +219,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -340,10 +343,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
@@ -363,6 +366,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
+        deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(SmsEventTableRowOutboundSource::forValue)); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
@@ -421,6 +425,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public IdNamePair getLead() {
         return this.lead;
+    }
+    /**
+     * Gets the media property value. Media attached to this SMS/MMS event.
+     * @return a {@link java.util.List<MessageMediaAttachment>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<MessageMediaAttachment> getMedia() {
+        return this.media;
     }
     /**
      * Gets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.
@@ -566,7 +578,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorUserId", this.getActorUserId());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
         writer.writeStringValue("business", this.getBusiness());
@@ -586,6 +598,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
         writer.writeObjectValue("lead", this.getLead());
+        writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeEnumValue("outboundSource", this.getOutboundSource());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
@@ -630,7 +643,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
@@ -765,6 +778,13 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLead(@jakarta.annotation.Nullable final IdNamePair value) {
         this.lead = value;
+    }
+    /**
+     * Sets the media property value. Media attached to this SMS/MMS event.
+     * @param value Value to set for the media property.
+     */
+    public void setMedia(@jakarta.annotation.Nullable final java.util.List<MessageMediaAttachment> value) {
+        this.media = value;
     }
     /**
      * Sets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -32,7 +31,7 @@ public class PagedResultOfNotificationTableRow implements AdditionalDataHolder, 
     /**
      * The total number of items that match the query across all pages. May be null if the count is not computed or not applicable (e.g., in continuation-based pagination).
      */
-    private UntypedNode totalCount;
+    private Integer totalCount;
     /**
      * Instantiates a new {@link PagedResultOfNotificationTableRow} and sets the default values.
      */
@@ -75,7 +74,7 @@ public class PagedResultOfNotificationTableRow implements AdditionalDataHolder, 
         deserializerMap.put("continuationToken", (n) -> { this.setContinuationToken(n.getStringValue()); });
         deserializerMap.put("items", (n) -> { this.setItems(n.getCollectionOfObjectValues(NotificationTableRow::createFromDiscriminatorValue)); });
         deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getIntegerValue()); });
-        deserializerMap.put("totalCount", (n) -> { this.setTotalCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("totalCount", (n) -> { this.setTotalCount(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -96,10 +95,10 @@ public class PagedResultOfNotificationTableRow implements AdditionalDataHolder, 
     }
     /**
      * Gets the totalCount property value. The total number of items that match the query across all pages. May be null if the count is not computed or not applicable (e.g., in continuation-based pagination).
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getTotalCount() {
+    public Integer getTotalCount() {
         return this.totalCount;
     }
     /**
@@ -111,7 +110,7 @@ public class PagedResultOfNotificationTableRow implements AdditionalDataHolder, 
         writer.writeStringValue("continuationToken", this.getContinuationToken());
         writer.writeCollectionOfObjectValues("items", this.getItems());
         writer.writeIntegerValue("pageSize", this.getPageSize());
-        writer.writeObjectValue("totalCount", this.getTotalCount());
+        writer.writeIntegerValue("totalCount", this.getTotalCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -146,7 +145,7 @@ public class PagedResultOfNotificationTableRow implements AdditionalDataHolder, 
      * Sets the totalCount property value. The total number of items that match the query across all pages. May be null if the count is not computed or not applicable (e.g., in continuation-based pagination).
      * @param value Value to set for the totalCount property.
      */
-    public void setTotalCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setTotalCount(@jakarta.annotation.Nullable final Integer value) {
         this.totalCount = value;
     }
 }

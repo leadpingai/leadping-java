@@ -25,6 +25,10 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<AutomationConditionGroup> conditionGroups;
     /**
+     * Directed connections between nodes in this automation graph.
+     */
+    private java.util.List<AutomationConnection> connections;
+    /**
      * Human-readable description that explains this automation configuration request to API users.
      */
     private String description;
@@ -97,6 +101,14 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         return this.conditionGroups;
     }
     /**
+     * Gets the connections property value. Directed connections between nodes in this automation graph.
+     * @return a {@link java.util.List<AutomationConnection>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<AutomationConnection> getConnections() {
+        return this.connections;
+    }
+    /**
      * Gets the description property value. Human-readable description that explains this automation configuration request to API users.
      * @return a {@link String}
      */
@@ -118,9 +130,10 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
+        deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -187,6 +200,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
         writer.writeCollectionOfObjectValues("conditionGroups", this.getConditionGroups());
+        writer.writeCollectionOfObjectValues("connections", this.getConnections());
         writer.writeStringValue("description", this.getDescription());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
@@ -217,6 +231,13 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     public void setConditionGroups(@jakarta.annotation.Nullable final java.util.List<AutomationConditionGroup> value) {
         this.conditionGroups = value;
+    }
+    /**
+     * Sets the connections property value. Directed connections between nodes in this automation graph.
+     * @param value Value to set for the connections property.
+     */
+    public void setConnections(@jakarta.annotation.Nullable final java.util.List<AutomationConnection> value) {
+        this.connections = value;
     }
     /**
      * Sets the description property value. Human-readable description that explains this automation configuration request to API users.

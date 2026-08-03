@@ -3,7 +3,9 @@ package ai.leadping.openapi.suppressions;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.SuppressionEntryRequest;
 import ai.leadping.openapi.models.SuppressionEntryResponse;
+import ai.leadping.openapi.suppressions.all.AllRequestBuilder;
 import ai.leadping.openapi.suppressions.check.CheckRequestBuilder;
+import ai.leadping.openapi.suppressions.item.SuppressionsItemRequestBuilder;
 import ai.leadping.openapi.suppressions.release.ReleaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -23,6 +25,14 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionsRequestBuilder extends BaseRequestBuilder {
     /**
+     * The all property
+     * @return a {@link AllRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public AllRequestBuilder all() {
+        return new AllRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The check property
      * @return a {@link CheckRequestBuilder}
      */
@@ -37,6 +47,18 @@ public class SuppressionsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public ReleaseRequestBuilder release() {
         return new ReleaseRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * Gets an item from the ai.leadping.openapi.suppressions.item collection
+     * @param id Unique identifier of the item
+     * @return a {@link SuppressionsItemRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public SuppressionsItemRequestBuilder byId(@jakarta.annotation.Nonnull final String id) {
+        Objects.requireNonNull(id);
+        final HashMap<String, Object> urlTplParams = new HashMap<String, Object>(this.pathParameters);
+        urlTplParams.put("id", id);
+        return new SuppressionsItemRequestBuilder(urlTplParams, requestAdapter);
     }
     /**
      * Instantiates a new {@link SuppressionsRequestBuilder} and sets the default values.

@@ -18,6 +18,10 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Caller-name data returned by the provider.
+     */
+    private PhoneLookup_callerName callerName;
+    /**
      * Complete carrier metadata reported for this phone number.
      */
     private PhoneLookup_carrier carrier;
@@ -25,6 +29,10 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      * Gets or sets created at.
      */
     private OffsetDateTime createdAt;
+    /**
+     * Fraud value returned by the provider, when available.
+     */
+    private String fraud;
     /**
      * Gets or sets id.
      */
@@ -46,9 +54,21 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
+     * Provider-formatted national phone number.
+     */
+    private String nationalFormat;
+    /**
      * E.164 phone number exposed by this phone lookup result.
      */
     private String number;
+    /**
+     * Complete portability data returned by Telnyx.
+     */
+    private PhoneLookup_portability portability;
+    /**
+     * Provider record discriminator.
+     */
+    private String recordType;
     /**
      * Instantiates a new {@link PhoneLookup} and sets the default values.
      */
@@ -74,6 +94,14 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the callerName property value. Caller-name data returned by the provider.
+     * @return a {@link PhoneLookup_callerName}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneLookup_callerName getCallerName() {
+        return this.callerName;
+    }
+    /**
      * Gets the carrier property value. Complete carrier metadata reported for this phone number.
      * @return a {@link PhoneLookup_carrier}
      */
@@ -95,16 +123,29 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        deserializerMap.put("callerName", (n) -> { this.setCallerName(n.getObjectValue(PhoneLookup_callerName::createFromDiscriminatorValue)); });
         deserializerMap.put("carrier", (n) -> { this.setCarrier(n.getObjectValue(PhoneLookup_carrier::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("fraud", (n) -> { this.setFraud(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isValid", (n) -> { this.setIsValid(n.getBooleanValue()); });
         deserializerMap.put("lineType", (n) -> { this.setLineType(n.getEnumValue(PhoneLookupLineType::forValue)); });
         deserializerMap.put("location", (n) -> { this.setLocation(n.getObjectValue(PhoneLookupLocation::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("nationalFormat", (n) -> { this.setNationalFormat(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("portability", (n) -> { this.setPortability(n.getObjectValue(PhoneLookup_portability::createFromDiscriminatorValue)); });
+        deserializerMap.put("recordType", (n) -> { this.setRecordType(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the fraud property value. Fraud value returned by the provider, when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getFraud() {
+        return this.fraud;
     }
     /**
      * Gets the id property value. Gets or sets id.
@@ -147,6 +188,14 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
+     * Gets the nationalFormat property value. Provider-formatted national phone number.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getNationalFormat() {
+        return this.nationalFormat;
+    }
+    /**
      * Gets the number property value. E.164 phone number exposed by this phone lookup result.
      * @return a {@link String}
      */
@@ -155,19 +204,40 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the portability property value. Complete portability data returned by Telnyx.
+     * @return a {@link PhoneLookup_portability}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneLookup_portability getPortability() {
+        return this.portability;
+    }
+    /**
+     * Gets the recordType property value. Provider record discriminator.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getRecordType() {
+        return this.recordType;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeObjectValue("callerName", this.getCallerName());
         writer.writeObjectValue("carrier", this.getCarrier());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
+        writer.writeStringValue("fraud", this.getFraud());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isValid", this.getIsValid());
         writer.writeEnumValue("lineType", this.getLineType());
         writer.writeObjectValue("location", this.getLocation());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
+        writer.writeStringValue("nationalFormat", this.getNationalFormat());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeObjectValue("portability", this.getPortability());
+        writer.writeStringValue("recordType", this.getRecordType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -176,6 +246,13 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the callerName property value. Caller-name data returned by the provider.
+     * @param value Value to set for the callerName property.
+     */
+    public void setCallerName(@jakarta.annotation.Nullable final PhoneLookup_callerName value) {
+        this.callerName = value;
     }
     /**
      * Sets the carrier property value. Complete carrier metadata reported for this phone number.
@@ -190,6 +267,13 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
+    }
+    /**
+     * Sets the fraud property value. Fraud value returned by the provider, when available.
+     * @param value Value to set for the fraud property.
+     */
+    public void setFraud(@jakarta.annotation.Nullable final String value) {
+        this.fraud = value;
     }
     /**
      * Sets the id property value. Gets or sets id.
@@ -227,10 +311,31 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.modifiedAt = value;
     }
     /**
+     * Sets the nationalFormat property value. Provider-formatted national phone number.
+     * @param value Value to set for the nationalFormat property.
+     */
+    public void setNationalFormat(@jakarta.annotation.Nullable final String value) {
+        this.nationalFormat = value;
+    }
+    /**
      * Sets the number property value. E.164 phone number exposed by this phone lookup result.
      * @param value Value to set for the number property.
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the portability property value. Complete portability data returned by Telnyx.
+     * @param value Value to set for the portability property.
+     */
+    public void setPortability(@jakarta.annotation.Nullable final PhoneLookup_portability value) {
+        this.portability = value;
+    }
+    /**
+     * Sets the recordType property value. Provider record discriminator.
+     * @param value Value to set for the recordType property.
+     */
+    public void setRecordType(@jakarta.annotation.Nullable final String value) {
+        this.recordType = value;
     }
 }

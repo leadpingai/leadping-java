@@ -10,7 +10,7 @@ import java.util.Objects;
 public enum BusinessSwitchOptionTenDlcStatus implements ValuedEnum {
     NotStarted("NotStarted"),
     DraftGenerated("DraftGenerated"),
-    DraftNeedsAdminReview("DraftNeedsAdminReview"),
+    DraftIncomplete("DraftIncomplete"),
     ReadyToSubmit("ReadyToSubmit"),
     Submitted("Submitted"),
     PendingTelnyxReview("PendingTelnyxReview"),
@@ -31,7 +31,7 @@ public enum BusinessSwitchOptionTenDlcStatus implements ValuedEnum {
         switch(searchValue) {
             case "NotStarted": return NotStarted;
             case "DraftGenerated": return DraftGenerated;
-            case "DraftNeedsAdminReview": return DraftNeedsAdminReview;
+            case "DraftIncomplete": return DraftIncomplete;
             case "ReadyToSubmit": return ReadyToSubmit;
             case "Submitted": return Submitted;
             case "PendingTelnyxReview": return PendingTelnyxReview;

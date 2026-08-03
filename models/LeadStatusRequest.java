@@ -4,10 +4,12 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Defines the editable values used to create or update a lead status.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
     /**
@@ -19,17 +21,17 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
      */
     private LeadStatusRequestCategory category;
     /**
-     * The color property
+     * Display color for the lead status.
      */
     private String color;
     /**
-     * The name property
+     * Display name for the lead status.
      */
     private String name;
     /**
-     * The sortOrder property
+     * Relative display order for the lead status.
      */
-    private UntypedNode sortOrder;
+    private Integer sortOrder;
     /**
      * Instantiates a new {@link LeadStatusRequest} and sets the default values.
      */
@@ -63,7 +65,7 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the color property value. The color property
+     * Gets the color property value. Display color for the lead status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -80,11 +82,11 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(LeadStatusRequestCategory::forValue)); });
         deserializerMap.put("color", (n) -> { this.setColor(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
-        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Display name for the lead status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -92,11 +94,11 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the sortOrder property value. The sortOrder property
-     * @return a {@link UntypedNode}
+     * Gets the sortOrder property value. Relative display order for the lead status.
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSortOrder() {
+    public Integer getSortOrder() {
         return this.sortOrder;
     }
     /**
@@ -108,7 +110,7 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("category", this.getCategory());
         writer.writeStringValue("color", this.getColor());
         writer.writeStringValue("name", this.getName());
-        writer.writeObjectValue("sortOrder", this.getSortOrder());
+        writer.writeIntegerValue("sortOrder", this.getSortOrder());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -126,24 +128,24 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         this.category = value;
     }
     /**
-     * Sets the color property value. The color property
+     * Sets the color property value. Display color for the lead status.
      * @param value Value to set for the color property.
      */
     public void setColor(@jakarta.annotation.Nullable final String value) {
         this.color = value;
     }
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Display name for the lead status.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the sortOrder property value. The sortOrder property
+     * Sets the sortOrder property value. Relative display order for the lead status.
      * @param value Value to set for the sortOrder property.
      */
-    public void setSortOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSortOrder(@jakarta.annotation.Nullable final Integer value) {
         this.sortOrder = value;
     }
 }

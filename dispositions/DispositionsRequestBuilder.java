@@ -1,5 +1,6 @@
 package ai.leadping.openapi.dispositions;
 
+import ai.leadping.openapi.dispositions.all.AllRequestBuilder;
 import ai.leadping.openapi.dispositions.item.DispositionsItemRequestBuilder;
 import ai.leadping.openapi.dispositions.lead.LeadRequestBuilder;
 import ai.leadping.openapi.models.DispositionRequest;
@@ -22,6 +23,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class DispositionsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The all property
+     * @return a {@link AllRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public AllRequestBuilder all() {
+        return new AllRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The lead property
      * @return a {@link LeadRequestBuilder}

@@ -3,7 +3,6 @@ package ai.leadping.openapi.users.me;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.UserRequest;
 import ai.leadping.openapi.models.UserResponse;
-import ai.leadping.openapi.users.me.lastlogin.LastLoginRequestBuilder;
 import ai.leadping.openapi.users.me.paymentmethod.PaymentmethodRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -22,14 +21,6 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MeRequestBuilder extends BaseRequestBuilder {
-    /**
-     * The lastLogin property
-     * @return a {@link LastLoginRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public LastLoginRequestBuilder lastLogin() {
-        return new LastLoginRequestBuilder(pathParameters, requestAdapter);
-    }
     /**
      * The paymentmethod property
      * @return a {@link PaymentmethodRequestBuilder}

@@ -8,6 +8,8 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum BillableUnit implements ValuedEnum {
+    Lead_received("lead_received"),
+    Phone_identity_lookup("phone_identity_lookup"),
     Sms_segment("sms_segment"),
     Mms_message("mms_message"),
     Email_message("email_message"),
@@ -16,6 +18,7 @@ public enum BillableUnit implements ValuedEnum {
     Warmup_sms_segment("warmup_sms_segment"),
     Warmup_voice_minute("warmup_voice_minute"),
     Website_setup("website_setup"),
+    Openai_operation("openai_operation"),
     Domain_registration("domain_registration"),
     OneZerodlc_application("10dlc_application"),
     Connection_action("connection_action"),
@@ -30,6 +33,8 @@ public enum BillableUnit implements ValuedEnum {
     public static BillableUnit forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "lead_received": return Lead_received;
+            case "phone_identity_lookup": return Phone_identity_lookup;
             case "sms_segment": return Sms_segment;
             case "mms_message": return Mms_message;
             case "email_message": return Email_message;
@@ -38,6 +43,7 @@ public enum BillableUnit implements ValuedEnum {
             case "warmup_sms_segment": return Warmup_sms_segment;
             case "warmup_voice_minute": return Warmup_voice_minute;
             case "website_setup": return Website_setup;
+            case "openai_operation": return Openai_operation;
             case "domain_registration": return Domain_registration;
             case "10dlc_application": return OneZerodlc_application;
             case "connection_action": return Connection_action;

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     /**
      * Average minutes measured in minutes.
      */
-    private UntypedNode averageMinutes;
+    private Double averageMinutes;
     /**
      * Collection of average minutes trend included with this Leadping customer response metrics.
      */
@@ -28,7 +27,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     /**
      * Median minutes measured in minutes.
      */
-    private UntypedNode medianMinutes;
+    private Double medianMinutes;
     /**
      * Number of calls missed during the reporting period.
      */
@@ -75,10 +74,10 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the averageMinutes property value. Average minutes measured in minutes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAverageMinutes() {
+    public Double getAverageMinutes() {
         return this.averageMinutes;
     }
     /**
@@ -96,9 +95,9 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("averageMinutes", (n) -> { this.setAverageMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("averageMinutes", (n) -> { this.setAverageMinutes(n.getDoubleValue()); });
         deserializerMap.put("averageMinutesTrend", (n) -> { this.setAverageMinutesTrend(n.getCollectionOfObjectValues(AnalyticsTrendPointOfdecimal::createFromDiscriminatorValue)); });
-        deserializerMap.put("medianMinutes", (n) -> { this.setMedianMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("medianMinutes", (n) -> { this.setMedianMinutes(n.getDoubleValue()); });
         deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getIntegerValue()); });
         deserializerMap.put("respondedLeads", (n) -> { this.setRespondedLeads(n.getIntegerValue()); });
         deserializerMap.put("respondedWithinFiveMinutesPercent", (n) -> { this.setRespondedWithinFiveMinutesPercent(n.getDoubleValue()); });
@@ -108,10 +107,10 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the medianMinutes property value. Median minutes measured in minutes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMedianMinutes() {
+    public Double getMedianMinutes() {
         return this.medianMinutes;
     }
     /**
@@ -160,9 +159,9 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("averageMinutes", this.getAverageMinutes());
+        writer.writeDoubleValue("averageMinutes", this.getAverageMinutes());
         writer.writeCollectionOfObjectValues("averageMinutesTrend", this.getAverageMinutesTrend());
-        writer.writeObjectValue("medianMinutes", this.getMedianMinutes());
+        writer.writeDoubleValue("medianMinutes", this.getMedianMinutes());
         writer.writeIntegerValue("missedCalls", this.getMissedCalls());
         writer.writeIntegerValue("respondedLeads", this.getRespondedLeads());
         writer.writeDoubleValue("respondedWithinFiveMinutesPercent", this.getRespondedWithinFiveMinutesPercent());
@@ -181,7 +180,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      * Sets the averageMinutes property value. Average minutes measured in minutes.
      * @param value Value to set for the averageMinutes property.
      */
-    public void setAverageMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAverageMinutes(@jakarta.annotation.Nullable final Double value) {
         this.averageMinutes = value;
     }
     /**
@@ -195,7 +194,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      * Sets the medianMinutes property value. Median minutes measured in minutes.
      * @param value Value to set for the medianMinutes property.
      */
-    public void setMedianMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMedianMinutes(@jakarta.annotation.Nullable final Double value) {
         this.medianMinutes = value;
     }
     /**

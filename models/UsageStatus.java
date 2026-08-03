@@ -7,7 +7,7 @@ import java.util.Objects;
  * Defines the supported Usage Record Status values.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public enum UsageRecordStatus implements ValuedEnum {
+public enum UsageStatus implements ValuedEnum {
     Recorded("recorded"),
     Rated("rated"),
     Pending_invoice("pending_invoice"),
@@ -18,13 +18,13 @@ public enum UsageRecordStatus implements ValuedEnum {
     Non_billable_internal("non_billable_internal"),
     Blocked_due_to_billing("blocked_due_to_billing");
     public final String value;
-    UsageRecordStatus(final String value) {
+    UsageStatus(final String value) {
         this.value = value;
     }
     @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
     @jakarta.annotation.Nullable
-    public static UsageRecordStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
+    public static UsageStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "recorded": return Recorded;

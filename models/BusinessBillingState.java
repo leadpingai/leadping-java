@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +24,11 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
     /**
      * Gets or sets the number of user licenses currently assigned by the business.
      */
-    private UntypedNode businessUserAssignedQuantity;
+    private Long businessUserAssignedQuantity;
     /**
      * Gets or sets the number of user licenses included in the business subscription.
      */
-    private UntypedNode businessUserQuantity;
+    private Long businessUserQuantity;
     /**
      * Gets or sets when the active subscription is scheduled to cancel.
      */
@@ -61,7 +60,11 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
     /**
      * Gets or sets the number of phone numbers included in the business subscription.
      */
-    private UntypedNode phoneNumberQuantity;
+    private Long phoneNumberQuantity;
+    /**
+     * Start of the current plan billing period.
+     */
+    private OffsetDateTime planPeriodStartAt;
     /**
      * Current plan renewal date.
      */
@@ -100,18 +103,18 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the businessUserAssignedQuantity property value. Gets or sets the number of user licenses currently assigned by the business.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBusinessUserAssignedQuantity() {
+    public Long getBusinessUserAssignedQuantity() {
         return this.businessUserAssignedQuantity;
     }
     /**
      * Gets the businessUserQuantity property value. Gets or sets the number of user licenses included in the business subscription.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBusinessUserQuantity() {
+    public Long getBusinessUserQuantity() {
         return this.businessUserQuantity;
     }
     /**
@@ -136,10 +139,10 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("billingPlanChangeEffectiveAt", (n) -> { this.setBillingPlanChangeEffectiveAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("businessUserAssignedQuantity", (n) -> { this.setBusinessUserAssignedQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessUserQuantity", (n) -> { this.setBusinessUserQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("businessUserAssignedQuantity", (n) -> { this.setBusinessUserAssignedQuantity(n.getLongValue()); });
+        deserializerMap.put("businessUserQuantity", (n) -> { this.setBusinessUserQuantity(n.getLongValue()); });
         deserializerMap.put("cancelAt", (n) -> { this.setCancelAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("dunning", (n) -> { this.setDunning(n.getObjectValue(BusinessBillingStateDunning::createFromDiscriminatorValue)); });
         deserializerMap.put("hasPaymentMethod", (n) -> { this.setHasPaymentMethod(n.getBooleanValue()); });
@@ -147,7 +150,8 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lastPaymentMethodEventAt", (n) -> { this.setLastPaymentMethodEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastSubscriptionEventAt", (n) -> { this.setLastSubscriptionEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("pendingBillingPlan", (n) -> { this.setPendingBillingPlan(n.getEnumValue(BusinessBillingStatePendingBillingPlan::forValue)); });
-        deserializerMap.put("phoneNumberQuantity", (n) -> { this.setPhoneNumberQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("phoneNumberQuantity", (n) -> { this.setPhoneNumberQuantity(n.getLongValue()); });
+        deserializerMap.put("planPeriodStartAt", (n) -> { this.setPlanPeriodStartAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("planRenewalAt", (n) -> { this.setPlanRenewalAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
     }
@@ -193,11 +197,19 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the phoneNumberQuantity property value. Gets or sets the number of phone numbers included in the business subscription.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPhoneNumberQuantity() {
+    public Long getPhoneNumberQuantity() {
         return this.phoneNumberQuantity;
+    }
+    /**
+     * Gets the planPeriodStartAt property value. Start of the current plan billing period.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getPlanPeriodStartAt() {
+        return this.planPeriodStartAt;
     }
     /**
      * Gets the planRenewalAt property value. Current plan renewal date.
@@ -214,8 +226,8 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("billingPlanChangeEffectiveAt", this.getBillingPlanChangeEffectiveAt());
-        writer.writeObjectValue("businessUserAssignedQuantity", this.getBusinessUserAssignedQuantity());
-        writer.writeObjectValue("businessUserQuantity", this.getBusinessUserQuantity());
+        writer.writeLongValue("businessUserAssignedQuantity", this.getBusinessUserAssignedQuantity());
+        writer.writeLongValue("businessUserQuantity", this.getBusinessUserQuantity());
         writer.writeOffsetDateTimeValue("cancelAt", this.getCancelAt());
         writer.writeObjectValue("dunning", this.getDunning());
         writer.writeBooleanValue("hasPaymentMethod", this.getHasPaymentMethod());
@@ -223,7 +235,8 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("lastPaymentMethodEventAt", this.getLastPaymentMethodEventAt());
         writer.writeOffsetDateTimeValue("lastSubscriptionEventAt", this.getLastSubscriptionEventAt());
         writer.writeEnumValue("pendingBillingPlan", this.getPendingBillingPlan());
-        writer.writeObjectValue("phoneNumberQuantity", this.getPhoneNumberQuantity());
+        writer.writeLongValue("phoneNumberQuantity", this.getPhoneNumberQuantity());
+        writer.writeOffsetDateTimeValue("planPeriodStartAt", this.getPlanPeriodStartAt());
         writer.writeOffsetDateTimeValue("planRenewalAt", this.getPlanRenewalAt());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -245,14 +258,14 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
      * Sets the businessUserAssignedQuantity property value. Gets or sets the number of user licenses currently assigned by the business.
      * @param value Value to set for the businessUserAssignedQuantity property.
      */
-    public void setBusinessUserAssignedQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBusinessUserAssignedQuantity(@jakarta.annotation.Nullable final Long value) {
         this.businessUserAssignedQuantity = value;
     }
     /**
      * Sets the businessUserQuantity property value. Gets or sets the number of user licenses included in the business subscription.
      * @param value Value to set for the businessUserQuantity property.
      */
-    public void setBusinessUserQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBusinessUserQuantity(@jakarta.annotation.Nullable final Long value) {
         this.businessUserQuantity = value;
     }
     /**
@@ -308,8 +321,15 @@ public class BusinessBillingState implements AdditionalDataHolder, Parsable {
      * Sets the phoneNumberQuantity property value. Gets or sets the number of phone numbers included in the business subscription.
      * @param value Value to set for the phoneNumberQuantity property.
      */
-    public void setPhoneNumberQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPhoneNumberQuantity(@jakarta.annotation.Nullable final Long value) {
         this.phoneNumberQuantity = value;
+    }
+    /**
+     * Sets the planPeriodStartAt property value. Start of the current plan billing period.
+     * @param value Value to set for the planPeriodStartAt property.
+     */
+    public void setPlanPeriodStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.planPeriodStartAt = value;
     }
     /**
      * Sets the planRenewalAt property value. Current plan renewal date.

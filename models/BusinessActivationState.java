@@ -22,6 +22,10 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * The number of registrar-verified domains found by the current search.
+     */
+    private Integer availableDomainCount;
+    /**
      * The current billing subscription status for this business activation state.
      */
     private ActivationSubscriptionStatus billingSubscriptionStatus;
@@ -53,6 +57,26 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      * The domain options included with this business activation state.
      */
     private java.util.List<ActivationDomainOption> domainOptions;
+    /**
+     * The date and time the selected domain was purchased.
+     */
+    private OffsetDateTime domainPurchasedAt;
+    /**
+     * The current domain generation attempt.
+     */
+    private Integer domainSearchAttempt;
+    /**
+     * Identifies the active domain search run.
+     */
+    private String domainSearchId;
+    /**
+     * Defines the stages of a domain search.
+     */
+    private BusinessActivationStateDomainSearchStage domainSearchStage;
+    /**
+     * The last time domain search progress changed.
+     */
+    private OffsetDateTime domainSearchUpdatedAt;
     /**
      * The events included with this business activation state.
      */
@@ -150,6 +174,10 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime updatedAt;
     /**
+     * The latest persisted website generation progress message.
+     */
+    private String websiteGenerationResult;
+    /**
      * The website needs value for this business activation state.
      */
     private String websiteNeeds;
@@ -192,6 +220,14 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
         return this.additionalData;
+    }
+    /**
+     * Gets the availableDomainCount property value. The number of registrar-verified domains found by the current search.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getAvailableDomainCount() {
+        return this.availableDomainCount;
     }
     /**
      * Gets the billingSubscriptionStatus property value. The current billing subscription status for this business activation state.
@@ -258,6 +294,46 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         return this.domainOptions;
     }
     /**
+     * Gets the domainPurchasedAt property value. The date and time the selected domain was purchased.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getDomainPurchasedAt() {
+        return this.domainPurchasedAt;
+    }
+    /**
+     * Gets the domainSearchAttempt property value. The current domain generation attempt.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getDomainSearchAttempt() {
+        return this.domainSearchAttempt;
+    }
+    /**
+     * Gets the domainSearchId property value. Identifies the active domain search run.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getDomainSearchId() {
+        return this.domainSearchId;
+    }
+    /**
+     * Gets the domainSearchStage property value. Defines the stages of a domain search.
+     * @return a {@link BusinessActivationStateDomainSearchStage}
+     */
+    @jakarta.annotation.Nullable
+    public BusinessActivationStateDomainSearchStage getDomainSearchStage() {
+        return this.domainSearchStage;
+    }
+    /**
+     * Gets the domainSearchUpdatedAt property value. The last time domain search progress changed.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getDomainSearchUpdatedAt() {
+        return this.domainSearchUpdatedAt;
+    }
+    /**
      * Gets the events property value. The events included with this business activation state.
      * @return a {@link java.util.List<ActivationTimelineEvent>}
      */
@@ -279,8 +355,9 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(43);
         deserializerMap.put("activatedAt", (n) -> { this.setActivatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("availableDomainCount", (n) -> { this.setAvailableDomainCount(n.getIntegerValue()); });
         deserializerMap.put("billingSubscriptionStatus", (n) -> { this.setBillingSubscriptionStatus(n.getEnumValue(ActivationSubscriptionStatus::forValue)); });
         deserializerMap.put("businessDescription", (n) -> { this.setBusinessDescription(n.getStringValue()); });
         deserializerMap.put("complianceNotes", (n) -> { this.setComplianceNotes(n.getStringValue()); });
@@ -289,6 +366,11 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         deserializerMap.put("customerFacingStatus", (n) -> { this.setCustomerFacingStatus(n.getStringValue()); });
         deserializerMap.put("domainApprovedAt", (n) -> { this.setDomainApprovedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("domainOptions", (n) -> { this.setDomainOptions(n.getCollectionOfObjectValues(ActivationDomainOption::createFromDiscriminatorValue)); });
+        deserializerMap.put("domainPurchasedAt", (n) -> { this.setDomainPurchasedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("domainSearchAttempt", (n) -> { this.setDomainSearchAttempt(n.getIntegerValue()); });
+        deserializerMap.put("domainSearchId", (n) -> { this.setDomainSearchId(n.getStringValue()); });
+        deserializerMap.put("domainSearchStage", (n) -> { this.setDomainSearchStage(n.getEnumValue(BusinessActivationStateDomainSearchStage::forValue)); });
+        deserializerMap.put("domainSearchUpdatedAt", (n) -> { this.setDomainSearchUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("events", (n) -> { this.setEvents(n.getCollectionOfObjectValues(ActivationTimelineEvent::createFromDiscriminatorValue)); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
@@ -313,6 +395,7 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         deserializerMap.put("tenDlcDraft", (n) -> { this.setTenDlcDraft(n.getObjectValue(BusinessActivationStateTenDlcDraft::createFromDiscriminatorValue)); });
         deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(TenDlcApplicationStatus::forValue)); });
         deserializerMap.put("updatedAt", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("websiteGenerationResult", (n) -> { this.setWebsiteGenerationResult(n.getStringValue()); });
         deserializerMap.put("websiteNeeds", (n) -> { this.setWebsiteNeeds(n.getStringValue()); });
         deserializerMap.put("websiteStatus", (n) -> { this.setWebsiteStatus(n.getEnumValue(WebsiteLifecycleStatus::forValue)); });
         deserializerMap.put("websiteUrl", (n) -> { this.setWebsiteUrl(n.getStringValue()); });
@@ -495,6 +578,14 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         return this.updatedAt;
     }
     /**
+     * Gets the websiteGenerationResult property value. The latest persisted website generation progress message.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getWebsiteGenerationResult() {
+        return this.websiteGenerationResult;
+    }
+    /**
      * Gets the websiteNeeds property value. The website needs value for this business activation state.
      * @return a {@link String}
      */
@@ -525,6 +616,7 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("activatedAt", this.getActivatedAt());
+        writer.writeIntegerValue("availableDomainCount", this.getAvailableDomainCount());
         writer.writeEnumValue("billingSubscriptionStatus", this.getBillingSubscriptionStatus());
         writer.writeStringValue("businessDescription", this.getBusinessDescription());
         writer.writeStringValue("complianceNotes", this.getComplianceNotes());
@@ -533,6 +625,11 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("customerFacingStatus", this.getCustomerFacingStatus());
         writer.writeOffsetDateTimeValue("domainApprovedAt", this.getDomainApprovedAt());
         writer.writeCollectionOfObjectValues("domainOptions", this.getDomainOptions());
+        writer.writeOffsetDateTimeValue("domainPurchasedAt", this.getDomainPurchasedAt());
+        writer.writeIntegerValue("domainSearchAttempt", this.getDomainSearchAttempt());
+        writer.writeStringValue("domainSearchId", this.getDomainSearchId());
+        writer.writeEnumValue("domainSearchStage", this.getDomainSearchStage());
+        writer.writeOffsetDateTimeValue("domainSearchUpdatedAt", this.getDomainSearchUpdatedAt());
         writer.writeCollectionOfObjectValues("events", this.getEvents());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("industry", this.getIndustry());
@@ -557,6 +654,7 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("tenDlcDraft", this.getTenDlcDraft());
         writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
         writer.writeOffsetDateTimeValue("updatedAt", this.getUpdatedAt());
+        writer.writeStringValue("websiteGenerationResult", this.getWebsiteGenerationResult());
         writer.writeStringValue("websiteNeeds", this.getWebsiteNeeds());
         writer.writeEnumValue("websiteStatus", this.getWebsiteStatus());
         writer.writeStringValue("websiteUrl", this.getWebsiteUrl());
@@ -575,6 +673,13 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the availableDomainCount property value. The number of registrar-verified domains found by the current search.
+     * @param value Value to set for the availableDomainCount property.
+     */
+    public void setAvailableDomainCount(@jakarta.annotation.Nullable final Integer value) {
+        this.availableDomainCount = value;
     }
     /**
      * Sets the billingSubscriptionStatus property value. The current billing subscription status for this business activation state.
@@ -631,6 +736,41 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     public void setDomainOptions(@jakarta.annotation.Nullable final java.util.List<ActivationDomainOption> value) {
         this.domainOptions = value;
+    }
+    /**
+     * Sets the domainPurchasedAt property value. The date and time the selected domain was purchased.
+     * @param value Value to set for the domainPurchasedAt property.
+     */
+    public void setDomainPurchasedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.domainPurchasedAt = value;
+    }
+    /**
+     * Sets the domainSearchAttempt property value. The current domain generation attempt.
+     * @param value Value to set for the domainSearchAttempt property.
+     */
+    public void setDomainSearchAttempt(@jakarta.annotation.Nullable final Integer value) {
+        this.domainSearchAttempt = value;
+    }
+    /**
+     * Sets the domainSearchId property value. Identifies the active domain search run.
+     * @param value Value to set for the domainSearchId property.
+     */
+    public void setDomainSearchId(@jakarta.annotation.Nullable final String value) {
+        this.domainSearchId = value;
+    }
+    /**
+     * Sets the domainSearchStage property value. Defines the stages of a domain search.
+     * @param value Value to set for the domainSearchStage property.
+     */
+    public void setDomainSearchStage(@jakarta.annotation.Nullable final BusinessActivationStateDomainSearchStage value) {
+        this.domainSearchStage = value;
+    }
+    /**
+     * Sets the domainSearchUpdatedAt property value. The last time domain search progress changed.
+     * @param value Value to set for the domainSearchUpdatedAt property.
+     */
+    public void setDomainSearchUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.domainSearchUpdatedAt = value;
     }
     /**
      * Sets the events property value. The events included with this business activation state.
@@ -799,6 +939,13 @@ public class BusinessActivationState implements AdditionalDataHolder, Parsable {
      */
     public void setUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.updatedAt = value;
+    }
+    /**
+     * Sets the websiteGenerationResult property value. The latest persisted website generation progress message.
+     * @param value Value to set for the websiteGenerationResult property.
+     */
+    public void setWebsiteGenerationResult(@jakarta.annotation.Nullable final String value) {
+        this.websiteGenerationResult = value;
     }
     /**
      * Sets the websiteNeeds property value. The website needs value for this business activation state.

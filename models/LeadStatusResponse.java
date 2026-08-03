@@ -8,6 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Represents a configurable status that can be assigned to leads.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -15,35 +18,35 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The businessId property
+     * Identifier of the business that owns the lead status.
      */
     private String businessId;
     /**
-     * Controlled disposition categories used for reporting, automation, and analytics.
+     * Disposition category represented by the lead status.
      */
     private DispositionCategory category;
     /**
-     * The color property
+     * Display color assigned to the lead status.
      */
     private String color;
     /**
-     * The id property
+     * Unique identifier for the lead status.
      */
     private String id;
     /**
-     * The isArchived property
+     * Indicates whether the lead status has been archived.
      */
     private Boolean isArchived;
     /**
-     * The modifiedAt property
+     * Date and time when the lead status was last modified.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The name property
+     * Display name of the lead status.
      */
     private String name;
     /**
-     * The sortOrder property
+     * Relative display order of the lead status.
      */
     private Integer sortOrder;
     /**
@@ -71,7 +74,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the businessId property value. The businessId property
+     * Gets the businessId property value. Identifier of the business that owns the lead status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +82,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.businessId;
     }
     /**
-     * Gets the category property value. Controlled disposition categories used for reporting, automation, and analytics.
+     * Gets the category property value. Disposition category represented by the lead status.
      * @return a {@link DispositionCategory}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +90,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the color property value. The color property
+     * Gets the color property value. Display color assigned to the lead status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -112,7 +115,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique identifier for the lead status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -120,7 +123,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Indicates whether the lead status has been archived.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -128,7 +131,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.isArchived;
     }
     /**
-     * Gets the modifiedAt property value. The modifiedAt property
+     * Gets the modifiedAt property value. Date and time when the lead status was last modified.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -136,7 +139,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Display name of the lead status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -144,7 +147,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the sortOrder property value. The sortOrder property
+     * Gets the sortOrder property value. Relative display order of the lead status.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -175,56 +178,56 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the businessId property value. The businessId property
+     * Sets the businessId property value. Identifier of the business that owns the lead status.
      * @param value Value to set for the businessId property.
      */
     public void setBusinessId(@jakarta.annotation.Nullable final String value) {
         this.businessId = value;
     }
     /**
-     * Sets the category property value. Controlled disposition categories used for reporting, automation, and analytics.
+     * Sets the category property value. Disposition category represented by the lead status.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final DispositionCategory value) {
         this.category = value;
     }
     /**
-     * Sets the color property value. The color property
+     * Sets the color property value. Display color assigned to the lead status.
      * @param value Value to set for the color property.
      */
     public void setColor(@jakarta.annotation.Nullable final String value) {
         this.color = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique identifier for the lead status.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Indicates whether the lead status has been archived.
      * @param value Value to set for the isArchived property.
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {
         this.isArchived = value;
     }
     /**
-     * Sets the modifiedAt property value. The modifiedAt property
+     * Sets the modifiedAt property value. Date and time when the lead status was last modified.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Display name of the lead status.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the sortOrder property value. The sortOrder property
+     * Sets the sortOrder property value. Relative display order of the lead status.
      * @param value Value to set for the sortOrder property.
      */
     public void setSortOrder(@jakarta.annotation.Nullable final Integer value) {

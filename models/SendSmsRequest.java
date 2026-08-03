@@ -30,6 +30,10 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
+     * Public HTTPS media URLs to attach. Supplying at least one URL sends the message as MMS.
+     */
+    private java.util.List<String> mediaUrls;
+    /**
      * Idempotency key used to prevent duplicate outbound delivery.
      */
     private String outboundIdempotencyKey;
@@ -99,10 +103,11 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
+        deserializerMap.put("mediaUrls", (n) -> { this.setMediaUrls(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("outboundIdempotencyKey", (n) -> { this.setOutboundIdempotencyKey(n.getStringValue()); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsEventId", (n) -> { this.setSmsEventId(n.getStringValue()); });
@@ -118,6 +123,14 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getFromPhoneNumberId() {
         return this.fromPhoneNumberId;
+    }
+    /**
+     * Gets the mediaUrls property value. Public HTTPS media URLs to attach. Supplying at least one URL sends the message as MMS.
+     * @return a {@link java.util.List<String>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<String> getMediaUrls() {
+        return this.mediaUrls;
     }
     /**
      * Gets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
@@ -176,6 +189,7 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("campaignId", this.getCampaignId());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
+        writer.writeCollectionOfPrimitiveValues("mediaUrls", this.getMediaUrls());
         writer.writeStringValue("outboundIdempotencyKey", this.getOutboundIdempotencyKey());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
         writer.writeStringValue("smsEventId", this.getSmsEventId());
@@ -211,6 +225,13 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     public void setFromPhoneNumberId(@jakarta.annotation.Nullable final String value) {
         this.fromPhoneNumberId = value;
+    }
+    /**
+     * Sets the mediaUrls property value. Public HTTPS media URLs to attach. Supplying at least one URL sends the message as MMS.
+     * @param value Value to set for the mediaUrls property.
+     */
+    public void setMediaUrls(@jakarta.annotation.Nullable final java.util.List<String> value) {
+        this.mediaUrls = value;
     }
     /**
      * Sets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.

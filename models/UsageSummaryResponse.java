@@ -52,7 +52,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     /**
      * The usage record count for this usage summary.
      */
-    private Integer usageRecordCount;
+    private Integer transactionCount;
     /**
      * Instantiates a new {@link UsageSummaryResponse} and sets the default values.
      */
@@ -124,7 +124,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("pendingInvoiceCount", (n) -> { this.setPendingInvoiceCount(n.getIntegerValue()); });
         deserializerMap.put("periodEnd", (n) -> { this.setPeriodEnd(n.getOffsetDateTimeValue()); });
         deserializerMap.put("periodStart", (n) -> { this.setPeriodStart(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("usageRecordCount", (n) -> { this.setUsageRecordCount(n.getIntegerValue()); });
+        deserializerMap.put("transactionCount", (n) -> { this.setTransactionCount(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -160,12 +160,12 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         return this.periodStart;
     }
     /**
-     * Gets the usageRecordCount property value. The usage record count for this usage summary.
+     * Gets the transactionCount property value. The usage record count for this usage summary.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public Integer getUsageRecordCount() {
-        return this.usageRecordCount;
+    public Integer getTransactionCount() {
+        return this.transactionCount;
     }
     /**
      * Serializes information the current object
@@ -181,7 +181,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("pendingInvoiceCount", this.getPendingInvoiceCount());
         writer.writeOffsetDateTimeValue("periodEnd", this.getPeriodEnd());
         writer.writeOffsetDateTimeValue("periodStart", this.getPeriodStart());
-        writer.writeIntegerValue("usageRecordCount", this.getUsageRecordCount());
+        writer.writeIntegerValue("transactionCount", this.getTransactionCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -248,10 +248,10 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         this.periodStart = value;
     }
     /**
-     * Sets the usageRecordCount property value. The usage record count for this usage summary.
-     * @param value Value to set for the usageRecordCount property.
+     * Sets the transactionCount property value. The usage record count for this usage summary.
+     * @param value Value to set for the transactionCount property.
      */
-    public void setUsageRecordCount(@jakarta.annotation.Nullable final Integer value) {
-        this.usageRecordCount = value;
+    public void setTransactionCount(@jakarta.annotation.Nullable final Integer value) {
+        this.transactionCount = value;
     }
 }

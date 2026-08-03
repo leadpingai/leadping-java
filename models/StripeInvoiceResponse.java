@@ -18,27 +18,27 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The amount property
+     * Total invoice amount in the invoice currency.
      */
     private Double amount;
     /**
-     * The createdAt property
+     * Date and time when the invoice was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * The hasPdf property
+     * Indicates whether a downloadable PDF is available for the invoice.
      */
     private Boolean hasPdf;
     /**
-     * The id property
+     * Provider identifier for the invoice.
      */
     private String id;
     /**
-     * The number property
+     * Human-readable invoice number, when assigned.
      */
     private String number;
     /**
-     * The status property
+     * Current provider-reported invoice status.
      */
     private String status;
     /**
@@ -66,7 +66,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the amount property value. The amount property
+     * Gets the amount property value. Total invoice amount in the invoice currency.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -74,7 +74,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         return this.amount;
     }
     /**
-     * Gets the createdAt property value. The createdAt property
+     * Gets the createdAt property value. Date and time when the invoice was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -97,7 +97,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the hasPdf property value. The hasPdf property
+     * Gets the hasPdf property value. Indicates whether a downloadable PDF is available for the invoice.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -105,7 +105,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         return this.hasPdf;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Provider identifier for the invoice.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -113,7 +113,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the number property value. The number property
+     * Gets the number property value. Human-readable invoice number, when assigned.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Current provider-reported invoice status.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -150,42 +150,42 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the amount property value. The amount property
+     * Sets the amount property value. Total invoice amount in the invoice currency.
      * @param value Value to set for the amount property.
      */
     public void setAmount(@jakarta.annotation.Nullable final Double value) {
         this.amount = value;
     }
     /**
-     * Sets the createdAt property value. The createdAt property
+     * Sets the createdAt property value. Date and time when the invoice was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the hasPdf property value. The hasPdf property
+     * Sets the hasPdf property value. Indicates whether a downloadable PDF is available for the invoice.
      * @param value Value to set for the hasPdf property.
      */
     public void setHasPdf(@jakarta.annotation.Nullable final Boolean value) {
         this.hasPdf = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Provider identifier for the invoice.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the number property value. The number property
+     * Sets the number property value. Human-readable invoice number, when assigned.
      * @param value Value to set for the number property.
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
     }
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Current provider-reported invoice status.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {

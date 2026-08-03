@@ -22,6 +22,18 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double amount;
     /**
+     * Defines the supported Billable Unit values.
+     */
+    private TransactionTableRowBillableUnit billableUnit;
+    /**
+     * The billedAmount property
+     */
+    private Double billedAmount;
+    /**
+     * Defines the supported Usage Channel values.
+     */
+    private TransactionTableRowBillingChannel billingChannel;
+    /**
      * The ID and name for this business.
      */
     private TransactionTableRowBusiness business;
@@ -50,6 +62,22 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private String paymentMethodDisplay;
     /**
+     * The pricingVersion property
+     */
+    private String pricingVersion;
+    /**
+     * The quantity property
+     */
+    private Double quantity;
+    /**
+     * The sourceEventId property
+     */
+    private String sourceEventId;
+    /**
+     * The sourceEventType property
+     */
+    private String sourceEventType;
+    /**
      * Processing status for this wallet transaction.
      */
     private TransactionStatus transactionStatus;
@@ -57,6 +85,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * Debit or credit classification for this wallet transaction.
      */
     private TransactionType transactionType;
+    /**
+     * The unitPrice property
+     */
+    private Double unitPrice;
     /**
      * Instantiates a new {@link TransactionTableRow} and sets the default values.
      */
@@ -90,6 +122,30 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.amount;
     }
     /**
+     * Gets the billableUnit property value. Defines the supported Billable Unit values.
+     * @return a {@link TransactionTableRowBillableUnit}
+     */
+    @jakarta.annotation.Nullable
+    public TransactionTableRowBillableUnit getBillableUnit() {
+        return this.billableUnit;
+    }
+    /**
+     * Gets the billedAmount property value. The billedAmount property
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getBilledAmount() {
+        return this.billedAmount;
+    }
+    /**
+     * Gets the billingChannel property value. Defines the supported Usage Channel values.
+     * @return a {@link TransactionTableRowBillingChannel}
+     */
+    @jakarta.annotation.Nullable
+    public TransactionTableRowBillingChannel getBillingChannel() {
+        return this.billingChannel;
+    }
+    /**
      * Gets the business property value. The ID and name for this business.
      * @return a {@link TransactionTableRowBusiness}
      */
@@ -119,8 +175,11 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
+        deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionTableRowBillableUnit::forValue)); });
+        deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
+        deserializerMap.put("billingChannel", (n) -> { this.setBillingChannel(n.getEnumValue(TransactionTableRowBillingChannel::forValue)); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(TransactionTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -128,8 +187,13 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionTableRowLead::createFromDiscriminatorValue)); });
         deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("paymentMethodDisplay", (n) -> { this.setPaymentMethodDisplay(n.getStringValue()); });
+        deserializerMap.put("pricingVersion", (n) -> { this.setPricingVersion(n.getStringValue()); });
+        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
+        deserializerMap.put("sourceEventId", (n) -> { this.setSourceEventId(n.getStringValue()); });
+        deserializerMap.put("sourceEventType", (n) -> { this.setSourceEventType(n.getStringValue()); });
         deserializerMap.put("transactionStatus", (n) -> { this.setTransactionStatus(n.getEnumValue(TransactionStatus::forValue)); });
         deserializerMap.put("transactionType", (n) -> { this.setTransactionType(n.getEnumValue(TransactionType::forValue)); });
+        deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getDoubleValue()); });
         return deserializerMap;
     }
     /**
@@ -165,6 +229,38 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.paymentMethodDisplay;
     }
     /**
+     * Gets the pricingVersion property value. The pricingVersion property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getPricingVersion() {
+        return this.pricingVersion;
+    }
+    /**
+     * Gets the quantity property value. The quantity property
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getQuantity() {
+        return this.quantity;
+    }
+    /**
+     * Gets the sourceEventId property value. The sourceEventId property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getSourceEventId() {
+        return this.sourceEventId;
+    }
+    /**
+     * Gets the sourceEventType property value. The sourceEventType property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getSourceEventType() {
+        return this.sourceEventType;
+    }
+    /**
      * Gets the transactionStatus property value. Processing status for this wallet transaction.
      * @return a {@link TransactionStatus}
      */
@@ -181,12 +277,23 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.transactionType;
     }
     /**
+     * Gets the unitPrice property value. The unitPrice property
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getUnitPrice() {
+        return this.unitPrice;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeDoubleValue("amount", this.getAmount());
+        writer.writeEnumValue("billableUnit", this.getBillableUnit());
+        writer.writeDoubleValue("billedAmount", this.getBilledAmount());
+        writer.writeEnumValue("billingChannel", this.getBillingChannel());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
@@ -194,8 +301,13 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("lead", this.getLead());
         writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeStringValue("paymentMethodDisplay", this.getPaymentMethodDisplay());
+        writer.writeStringValue("pricingVersion", this.getPricingVersion());
+        writer.writeDoubleValue("quantity", this.getQuantity());
+        writer.writeStringValue("sourceEventId", this.getSourceEventId());
+        writer.writeStringValue("sourceEventType", this.getSourceEventType());
         writer.writeEnumValue("transactionStatus", this.getTransactionStatus());
         writer.writeEnumValue("transactionType", this.getTransactionType());
+        writer.writeDoubleValue("unitPrice", this.getUnitPrice());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -211,6 +323,27 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAmount(@jakarta.annotation.Nullable final Double value) {
         this.amount = value;
+    }
+    /**
+     * Sets the billableUnit property value. Defines the supported Billable Unit values.
+     * @param value Value to set for the billableUnit property.
+     */
+    public void setBillableUnit(@jakarta.annotation.Nullable final TransactionTableRowBillableUnit value) {
+        this.billableUnit = value;
+    }
+    /**
+     * Sets the billedAmount property value. The billedAmount property
+     * @param value Value to set for the billedAmount property.
+     */
+    public void setBilledAmount(@jakarta.annotation.Nullable final Double value) {
+        this.billedAmount = value;
+    }
+    /**
+     * Sets the billingChannel property value. Defines the supported Usage Channel values.
+     * @param value Value to set for the billingChannel property.
+     */
+    public void setBillingChannel(@jakarta.annotation.Nullable final TransactionTableRowBillingChannel value) {
+        this.billingChannel = value;
     }
     /**
      * Sets the business property value. The ID and name for this business.
@@ -262,6 +395,34 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.paymentMethodDisplay = value;
     }
     /**
+     * Sets the pricingVersion property value. The pricingVersion property
+     * @param value Value to set for the pricingVersion property.
+     */
+    public void setPricingVersion(@jakarta.annotation.Nullable final String value) {
+        this.pricingVersion = value;
+    }
+    /**
+     * Sets the quantity property value. The quantity property
+     * @param value Value to set for the quantity property.
+     */
+    public void setQuantity(@jakarta.annotation.Nullable final Double value) {
+        this.quantity = value;
+    }
+    /**
+     * Sets the sourceEventId property value. The sourceEventId property
+     * @param value Value to set for the sourceEventId property.
+     */
+    public void setSourceEventId(@jakarta.annotation.Nullable final String value) {
+        this.sourceEventId = value;
+    }
+    /**
+     * Sets the sourceEventType property value. The sourceEventType property
+     * @param value Value to set for the sourceEventType property.
+     */
+    public void setSourceEventType(@jakarta.annotation.Nullable final String value) {
+        this.sourceEventType = value;
+    }
+    /**
      * Sets the transactionStatus property value. Processing status for this wallet transaction.
      * @param value Value to set for the transactionStatus property.
      */
@@ -274,5 +435,12 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setTransactionType(@jakarta.annotation.Nullable final TransactionType value) {
         this.transactionType = value;
+    }
+    /**
+     * Sets the unitPrice property value. The unitPrice property
+     * @param value Value to set for the unitPrice property.
+     */
+    public void setUnitPrice(@jakarta.annotation.Nullable final Double value) {
+        this.unitPrice = value;
     }
 }

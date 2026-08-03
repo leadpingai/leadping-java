@@ -55,7 +55,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
-     * @param body The request body
+     * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link LeadStatusResponse}
      */
     @jakarta.annotation.Nullable
@@ -64,7 +64,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
-     * @param body The request body
+     * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
      */
@@ -96,7 +96,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
-     * @param body The request body
+     * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -105,7 +105,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
-     * @param body The request body
+     * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -114,7 +114,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.PUT, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PutRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/json, text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
     }

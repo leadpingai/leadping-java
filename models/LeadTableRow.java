@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -73,7 +72,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Lead price or transaction price supplied to the Leadping API.
      */
-    private UntypedNode price;
+    private Double price;
     /**
      * The ID and name for this source.
      */
@@ -202,7 +201,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getObjectValue(LeadTableRowSource::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("statusTone", (n) -> { this.setStatusTone(n.getStringValue()); });
@@ -252,10 +251,10 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPrice() {
+    public Double getPrice() {
         return this.price;
     }
     /**
@@ -317,7 +316,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeObjectValue("price", this.getPrice());
+        writer.writeDoubleValue("price", this.getPrice());
         writer.writeObjectValue("source", this.getSource());
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("statusTone", this.getStatusTone());
@@ -427,7 +426,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      * Sets the price property value. Lead price or transaction price supplied to the Leadping API.
      * @param value Value to set for the price property.
      */
-    public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPrice(@jakarta.annotation.Nullable final Double value) {
         this.price = value;
     }
     /**

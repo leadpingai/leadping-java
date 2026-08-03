@@ -58,6 +58,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime lastEventAt;
     /**
+     * Indicates that the most recent conversation activity is an internal note.
+     */
+    private Boolean lastEventIsInternalNote;
+    /**
      * Last name of the lead, user, or contact represented by this conversation response.
      */
     private String lastName;
@@ -163,7 +167,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -174,6 +178,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("isUnread", (n) -> { this.setIsUnread(n.getBooleanValue()); });
         deserializerMap.put("lastEventAt", (n) -> { this.setLastEventAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("lastEventIsInternalNote", (n) -> { this.setLastEventIsInternalNote(n.getBooleanValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("lastSnippet", (n) -> { this.setLastSnippet(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
@@ -224,6 +229,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getLastEventAt() {
         return this.lastEventAt;
+    }
+    /**
+     * Gets the lastEventIsInternalNote property value. Indicates that the most recent conversation activity is an internal note.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getLastEventIsInternalNote() {
+        return this.lastEventIsInternalNote;
     }
     /**
      * Gets the lastName property value. Last name of the lead, user, or contact represented by this conversation response.
@@ -313,6 +326,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeBooleanValue("isUnread", this.getIsUnread());
         writer.writeOffsetDateTimeValue("lastEventAt", this.getLastEventAt());
+        writer.writeBooleanValue("lastEventIsInternalNote", this.getLastEventIsInternalNote());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("lastSnippet", this.getLastSnippet());
         writer.writeStringValue("leadId", this.getLeadId());
@@ -400,6 +414,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLastEventAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastEventAt = value;
+    }
+    /**
+     * Sets the lastEventIsInternalNote property value. Indicates that the most recent conversation activity is an internal note.
+     * @param value Value to set for the lastEventIsInternalNote property.
+     */
+    public void setLastEventIsInternalNote(@jakarta.annotation.Nullable final Boolean value) {
+        this.lastEventIsInternalNote = value;
     }
     /**
      * Sets the lastName property value. Last name of the lead, user, or contact represented by this conversation response.

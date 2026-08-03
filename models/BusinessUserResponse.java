@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +44,7 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
     /**
      * The quantity on the shared business user license item after this change.
      */
-    private UntypedNode licenseQuantity;
+    private Long licenseQuantity;
     /**
      * The renewal date used for this user&apos;s license proration.
      */
@@ -139,7 +138,7 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lastUsedAt", (n) -> { this.setLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
-        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getLongValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
@@ -176,10 +175,10 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the licenseQuantity property value. The quantity on the shared business user license item after this change.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getLicenseQuantity() {
+    public Long getLicenseQuantity() {
         return this.licenseQuantity;
     }
     /**
@@ -258,7 +257,7 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("lastUsedAt", this.getLastUsedAt());
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
-        writer.writeObjectValue("licenseQuantity", this.getLicenseQuantity());
+        writer.writeLongValue("licenseQuantity", this.getLicenseQuantity());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
@@ -322,7 +321,7 @@ public class BusinessUserResponse implements AdditionalDataHolder, Parsable {
      * Sets the licenseQuantity property value. The quantity on the shared business user license item after this change.
      * @param value Value to set for the licenseQuantity property.
      */
-    public void setLicenseQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setLicenseQuantity(@jakarta.annotation.Nullable final Long value) {
         this.licenseQuantity = value;
     }
     /**

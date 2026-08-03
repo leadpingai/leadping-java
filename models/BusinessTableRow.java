@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +16,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The account balance value for this business.
      */
-    private UntypedNode accountBalance;
+    private Double accountBalance;
     /**
      * Defines the supported Customer Activation Status values.
      */
@@ -42,6 +41,10 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      * The date and time this business API key was last used.
      */
     private OffsetDateTime apiKeyLastUsedAt;
+    /**
+     * WorkOS permission slugs granted to this business API key.
+     */
+    private java.util.List<String> apiKeyPermissions;
     /**
      * The masked API key preview owned by this business.
      */
@@ -144,10 +147,10 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the accountBalance property value. The account balance value for this business.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAccountBalance() {
+    public Double getAccountBalance() {
         return this.accountBalance;
     }
     /**
@@ -199,6 +202,14 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
         return this.apiKeyLastUsedAt;
     }
     /**
+     * Gets the apiKeyPermissions property value. WorkOS permission slugs granted to this business API key.
+     * @return a {@link java.util.List<String>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<String> getApiKeyPermissions() {
+        return this.apiKeyPermissions;
+    }
+    /**
      * Gets the apiKeyPreview property value. The masked API key preview owned by this business.
      * @return a {@link String}
      */
@@ -244,13 +255,14 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
-        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
+        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(BusinessTableRowActivationStatus::forValue)); });
         deserializerMap.put("apiKeyExpiresAt", (n) -> { this.setApiKeyExpiresAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyFirstUsedAt", (n) -> { this.setApiKeyFirstUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyIssuedAt", (n) -> { this.setApiKeyIssuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("apiKeyPermissions", (n) -> { this.setApiKeyPermissions(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BusinessTableRowBillingPlan::forValue)); });
@@ -408,12 +420,13 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("accountBalance", this.getAccountBalance());
+        writer.writeDoubleValue("accountBalance", this.getAccountBalance());
         writer.writeEnumValue("activationStatus", this.getActivationStatus());
         writer.writeOffsetDateTimeValue("apiKeyExpiresAt", this.getApiKeyExpiresAt());
         writer.writeOffsetDateTimeValue("apiKeyFirstUsedAt", this.getApiKeyFirstUsedAt());
         writer.writeOffsetDateTimeValue("apiKeyIssuedAt", this.getApiKeyIssuedAt());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
+        writer.writeCollectionOfPrimitiveValues("apiKeyPermissions", this.getApiKeyPermissions());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
@@ -441,7 +454,7 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      * Sets the accountBalance property value. The account balance value for this business.
      * @param value Value to set for the accountBalance property.
      */
-    public void setAccountBalance(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAccountBalance(@jakarta.annotation.Nullable final Double value) {
         this.accountBalance = value;
     }
     /**
@@ -485,6 +498,13 @@ public class BusinessTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setApiKeyLastUsedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.apiKeyLastUsedAt = value;
+    }
+    /**
+     * Sets the apiKeyPermissions property value. WorkOS permission slugs granted to this business API key.
+     * @param value Value to set for the apiKeyPermissions property.
+     */
+    public void setApiKeyPermissions(@jakarta.annotation.Nullable final java.util.List<String> value) {
+        this.apiKeyPermissions = value;
     }
     /**
      * Sets the apiKeyPreview property value. The masked API key preview owned by this business.

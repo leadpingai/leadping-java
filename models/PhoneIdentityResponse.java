@@ -46,6 +46,10 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
+     * Lossless provider response retained for administrative diagnostics.
+     */
+    private PhoneIdentityResponseProviderEnrichment providerEnrichment;
+    /**
      * Instantiates a new {@link PhoneIdentityResponse} and sets the default values.
      */
     public PhoneIdentityResponse() {
@@ -83,7 +87,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lastEnrichedAt", (n) -> { this.setLastEnrichedAt(n.getOffsetDateTimeValue()); });
@@ -91,6 +95,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("providerEnrichment", (n) -> { this.setProviderEnrichment(n.getObjectValue(PhoneIdentityResponseProviderEnrichment::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -142,6 +147,14 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the providerEnrichment property value. Lossless provider response retained for administrative diagnostics.
+     * @return a {@link PhoneIdentityResponseProviderEnrichment}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneIdentityResponseProviderEnrichment getProviderEnrichment() {
+        return this.providerEnrichment;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -154,6 +167,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeObjectValue("providerEnrichment", this.getProviderEnrichment());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -211,5 +225,12 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the providerEnrichment property value. Lossless provider response retained for administrative diagnostics.
+     * @param value Value to set for the providerEnrichment property.
+     */
+    public void setProviderEnrichment(@jakarta.annotation.Nullable final PhoneIdentityResponseProviderEnrichment value) {
+        this.providerEnrichment = value;
     }
 }

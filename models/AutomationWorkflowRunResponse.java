@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +44,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     /**
      * Current step order associated with this Leadping automation workflow run.
      */
-    private UntypedNode currentStepOrder;
+    private Integer currentStepOrder;
     /**
      * Collection of events included with this Leadping automation workflow run.
      */
@@ -200,10 +199,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     }
     /**
      * Gets the currentStepOrder property value. Current step order associated with this Leadping automation workflow run.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCurrentStepOrder() {
+    public Integer getCurrentStepOrder() {
         return this.currentStepOrder;
     }
     /**
@@ -235,7 +234,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         deserializerMap.put("cancelledAt", (n) -> { this.setCancelledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentStep", (n) -> { this.setCurrentStep(n.getObjectValue(AutomationWorkflowRunResponseCurrentStep::createFromDiscriminatorValue)); });
-        deserializerMap.put("currentStepOrder", (n) -> { this.setCurrentStepOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentStepOrder", (n) -> { this.setCurrentStepOrder(n.getIntegerValue()); });
         deserializerMap.put("events", (n) -> { this.setEvents(n.getCollectionOfObjectValues(AutomationWorkflowEventResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -414,7 +413,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         writer.writeOffsetDateTimeValue("cancelledAt", this.getCancelledAt());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeObjectValue("currentStep", this.getCurrentStep());
-        writer.writeObjectValue("currentStepOrder", this.getCurrentStepOrder());
+        writer.writeIntegerValue("currentStepOrder", this.getCurrentStepOrder());
         writer.writeCollectionOfObjectValues("events", this.getEvents());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("id", this.getId());
@@ -490,7 +489,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      * Sets the currentStepOrder property value. Current step order associated with this Leadping automation workflow run.
      * @param value Value to set for the currentStepOrder property.
      */
-    public void setCurrentStepOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCurrentStepOrder(@jakarta.annotation.Nullable final Integer value) {
         this.currentStepOrder = value;
     }
     /**

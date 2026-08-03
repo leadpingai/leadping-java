@@ -14,9 +14,6 @@ public enum OutboundQueueItemReasonCode implements ValuedEnum {
     Phone_number_daily_limit_reached("phone_number_daily_limit_reached"),
     Phone_number_hourly_limit_reached("phone_number_hourly_limit_reached"),
     Phone_number_minute_limit_reached("phone_number_minute_limit_reached"),
-    Business_daily_limit_reached("business_daily_limit_reached"),
-    Business_hourly_limit_reached("business_hourly_limit_reached"),
-    Business_minute_limit_reached("business_minute_limit_reached"),
     Lead_daily_limit_reached("lead_daily_limit_reached"),
     Lead_hourly_limit_reached("lead_hourly_limit_reached"),
     Lead_recently_contacted("lead_recently_contacted"),
@@ -47,9 +44,6 @@ public enum OutboundQueueItemReasonCode implements ValuedEnum {
             case "phone_number_daily_limit_reached": return Phone_number_daily_limit_reached;
             case "phone_number_hourly_limit_reached": return Phone_number_hourly_limit_reached;
             case "phone_number_minute_limit_reached": return Phone_number_minute_limit_reached;
-            case "business_daily_limit_reached": return Business_daily_limit_reached;
-            case "business_hourly_limit_reached": return Business_hourly_limit_reached;
-            case "business_minute_limit_reached": return Business_minute_limit_reached;
             case "lead_daily_limit_reached": return Lead_daily_limit_reached;
             case "lead_hourly_limit_reached": return Lead_hourly_limit_reached;
             case "lead_recently_contacted": return Lead_recently_contacted;

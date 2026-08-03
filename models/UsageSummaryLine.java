@@ -39,7 +39,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
     /**
      * The current status for this usage summary line.
      */
-    private UsageRecordStatus status;
+    private UsageStatus status;
     /**
      * Instantiates a new {@link UsageSummaryLine} and sets the default values.
      */
@@ -100,7 +100,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
         deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
         deserializerMap.put("recordCount", (n) -> { this.setRecordCount(n.getIntegerValue()); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageRecordStatus::forValue)); });
+        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageStatus::forValue)); });
         return deserializerMap;
     }
     /**
@@ -121,10 +121,10 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the status property value. The current status for this usage summary line.
-     * @return a {@link UsageRecordStatus}
+     * @return a {@link UsageStatus}
      */
     @jakarta.annotation.Nullable
-    public UsageRecordStatus getStatus() {
+    public UsageStatus getStatus() {
         return this.status;
     }
     /**
@@ -187,7 +187,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      * Sets the status property value. The current status for this usage summary line.
      * @param value Value to set for the status property.
      */
-    public void setStatus(@jakarta.annotation.Nullable final UsageRecordStatus value) {
+    public void setStatus(@jakarta.annotation.Nullable final UsageStatus value) {
         this.status = value;
     }
 }

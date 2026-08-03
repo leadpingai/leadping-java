@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,15 +20,15 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     /**
      * Amount of wallet credit purchased in this deposit.
      */
-    private UntypedNode amountPurchased;
+    private Double amountPurchased;
     /**
      * Amount of wallet credit still available for future usage.
      */
-    private UntypedNode amountRemaining;
+    private Double amountRemaining;
     /**
      * Wallet or account balance after this transaction is applied.
      */
-    private UntypedNode balance;
+    private Double balance;
     /**
      * UTC timestamp when Leadping last calculated the wallet balance.
      */
@@ -53,7 +52,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     /**
      * Amount of wallet credit that has expired.
      */
-    private UntypedNode expiredCreditAmount;
+    private Double expiredCreditAmount;
     /**
      * UTC timestamp when the wallet credit expires.
      */
@@ -77,7 +76,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     /**
      * Amount of wallet credit scheduled to expire next.
      */
-    private UntypedNode nextExpiringCreditAmount;
+    private Double nextExpiringCreditAmount;
     /**
      * Original wallet transaction ID referenced by a reversal, refund, or adjustment.
      */
@@ -116,26 +115,26 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the amountPurchased property value. Amount of wallet credit purchased in this deposit.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAmountPurchased() {
+    public Double getAmountPurchased() {
         return this.amountPurchased;
     }
     /**
      * Gets the amountRemaining property value. Amount of wallet credit still available for future usage.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAmountRemaining() {
+    public Double getAmountRemaining() {
         return this.amountRemaining;
     }
     /**
      * Gets the balance property value. Wallet or account balance after this transaction is applied.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBalance() {
+    public Double getBalance() {
         return this.balance;
     }
     /**
@@ -180,10 +179,10 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the expiredCreditAmount property value. Amount of wallet credit that has expired.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getExpiredCreditAmount() {
+    public Double getExpiredCreditAmount() {
         return this.expiredCreditAmount;
     }
     /**
@@ -201,21 +200,21 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
-        deserializerMap.put("amountPurchased", (n) -> { this.setAmountPurchased(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("amountRemaining", (n) -> { this.setAmountRemaining(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("balance", (n) -> { this.setBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("amountPurchased", (n) -> { this.setAmountPurchased(n.getDoubleValue()); });
+        deserializerMap.put("amountRemaining", (n) -> { this.setAmountRemaining(n.getDoubleValue()); });
+        deserializerMap.put("balance", (n) -> { this.setBalance(n.getDoubleValue()); });
         deserializerMap.put("balanceCalculatedAt", (n) -> { this.setBalanceCalculatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("creditStatus", (n) -> { this.setCreditStatus(n.getEnumValue(WalletResponseCreditStatus::forValue)); });
         deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
-        deserializerMap.put("expiredCreditAmount", (n) -> { this.setExpiredCreditAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("expiredCreditAmount", (n) -> { this.setExpiredCreditAmount(n.getDoubleValue()); });
         deserializerMap.put("expiresAt", (n) -> { this.setExpiresAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("nextCreditExpirationAt", (n) -> { this.setNextCreditExpirationAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("nextExpiringCreditAmount", (n) -> { this.setNextExpiringCreditAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("nextExpiringCreditAmount", (n) -> { this.setNextExpiringCreditAmount(n.getDoubleValue()); });
         deserializerMap.put("originalTransactionId", (n) -> { this.setOriginalTransactionId(n.getStringValue()); });
         deserializerMap.put("purchasedAt", (n) -> { this.setPurchasedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("sourceType", (n) -> { this.setSourceType(n.getEnumValue(WalletResponseSourceType::forValue)); });
@@ -255,10 +254,10 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the nextExpiringCreditAmount property value. Amount of wallet credit scheduled to expire next.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getNextExpiringCreditAmount() {
+    public Double getNextExpiringCreditAmount() {
         return this.nextExpiringCreditAmount;
     }
     /**
@@ -291,21 +290,21 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("amountPurchased", this.getAmountPurchased());
-        writer.writeObjectValue("amountRemaining", this.getAmountRemaining());
-        writer.writeObjectValue("balance", this.getBalance());
+        writer.writeDoubleValue("amountPurchased", this.getAmountPurchased());
+        writer.writeDoubleValue("amountRemaining", this.getAmountRemaining());
+        writer.writeDoubleValue("balance", this.getBalance());
         writer.writeOffsetDateTimeValue("balanceCalculatedAt", this.getBalanceCalculatedAt());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeEnumValue("creditStatus", this.getCreditStatus());
         writer.writeStringValue("currency", this.getCurrency());
-        writer.writeObjectValue("expiredCreditAmount", this.getExpiredCreditAmount());
+        writer.writeDoubleValue("expiredCreditAmount", this.getExpiredCreditAmount());
         writer.writeOffsetDateTimeValue("expiresAt", this.getExpiresAt());
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeOffsetDateTimeValue("nextCreditExpirationAt", this.getNextCreditExpirationAt());
-        writer.writeObjectValue("nextExpiringCreditAmount", this.getNextExpiringCreditAmount());
+        writer.writeDoubleValue("nextExpiringCreditAmount", this.getNextExpiringCreditAmount());
         writer.writeStringValue("originalTransactionId", this.getOriginalTransactionId());
         writer.writeOffsetDateTimeValue("purchasedAt", this.getPurchasedAt());
         writer.writeEnumValue("sourceType", this.getSourceType());
@@ -322,21 +321,21 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      * Sets the amountPurchased property value. Amount of wallet credit purchased in this deposit.
      * @param value Value to set for the amountPurchased property.
      */
-    public void setAmountPurchased(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAmountPurchased(@jakarta.annotation.Nullable final Double value) {
         this.amountPurchased = value;
     }
     /**
      * Sets the amountRemaining property value. Amount of wallet credit still available for future usage.
      * @param value Value to set for the amountRemaining property.
      */
-    public void setAmountRemaining(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAmountRemaining(@jakarta.annotation.Nullable final Double value) {
         this.amountRemaining = value;
     }
     /**
      * Sets the balance property value. Wallet or account balance after this transaction is applied.
      * @param value Value to set for the balance property.
      */
-    public void setBalance(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBalance(@jakarta.annotation.Nullable final Double value) {
         this.balance = value;
     }
     /**
@@ -378,7 +377,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      * Sets the expiredCreditAmount property value. Amount of wallet credit that has expired.
      * @param value Value to set for the expiredCreditAmount property.
      */
-    public void setExpiredCreditAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setExpiredCreditAmount(@jakarta.annotation.Nullable final Double value) {
         this.expiredCreditAmount = value;
     }
     /**
@@ -420,7 +419,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      * Sets the nextExpiringCreditAmount property value. Amount of wallet credit scheduled to expire next.
      * @param value Value to set for the nextExpiringCreditAmount property.
      */
-    public void setNextExpiringCreditAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setNextExpiringCreditAmount(@jakarta.annotation.Nullable final Double value) {
         this.nextExpiringCreditAmount = value;
     }
     /**

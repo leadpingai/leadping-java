@@ -34,6 +34,10 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<AutomationConditionGroup> conditionGroups;
     /**
+     * Directed connections between nodes in this automation graph.
+     */
+    private java.util.List<AutomationConnection> connections;
+    /**
      * The date and time when the entity was created.
      */
     private OffsetDateTime createdAt;
@@ -158,6 +162,14 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.conditionGroups;
     }
     /**
+     * Gets the connections property value. Directed connections between nodes in this automation graph.
+     * @return a {@link java.util.List<AutomationConnection>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<AutomationConnection> getConnections() {
+        return this.connections;
+    }
+    /**
      * Gets the createdAt property value. The date and time when the entity was created.
      * @return a {@link OffsetDateTime}
      */
@@ -195,11 +207,12 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(AutomationResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
+        deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -333,6 +346,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeCollectionOfObjectValues("conditionGroups", this.getConditionGroups());
+        writer.writeCollectionOfObjectValues("connections", this.getConnections());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
         writer.writeStringValue("description", this.getDescription());
@@ -386,6 +400,13 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setConditionGroups(@jakarta.annotation.Nullable final java.util.List<AutomationConditionGroup> value) {
         this.conditionGroups = value;
+    }
+    /**
+     * Sets the connections property value. Directed connections between nodes in this automation graph.
+     * @param value Value to set for the connections property.
+     */
+    public void setConnections(@jakarta.annotation.Nullable final java.util.List<AutomationConnection> value) {
+        this.connections = value;
     }
     /**
      * Sets the createdAt property value. The date and time when the entity was created.

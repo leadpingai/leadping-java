@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
     /**
      * Average time, in minutes, before a lead receives a response.
      */
-    private UntypedNode averageResponseMinutes;
+    private Double averageResponseMinutes;
     /**
      * Current billing status for this Leadping customer analytics summary.
      */
@@ -48,7 +47,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
     /**
      * Median response minutes measured in minutes.
      */
-    private UntypedNode medianResponseMinutes;
+    private Double medianResponseMinutes;
     /**
      * Number of calls missed during the reporting period.
      */
@@ -111,10 +110,10 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the averageResponseMinutes property value. Average time, in minutes, before a lead receives a response.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAverageResponseMinutes() {
+    public Double getAverageResponseMinutes() {
         return this.averageResponseMinutes;
     }
     /**
@@ -156,14 +155,14 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
-        deserializerMap.put("averageResponseMinutes", (n) -> { this.setAverageResponseMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("averageResponseMinutes", (n) -> { this.setAverageResponseMinutes(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
         deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getIntegerValue()); });
         deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getIntegerValue()); });
         deserializerMap.put("leads", (n) -> { this.setLeads(n.getIntegerValue()); });
         deserializerMap.put("leadsComparison", (n) -> { this.setLeadsComparison(n.getObjectValue(AnalyticsComparison::createFromDiscriminatorValue)); });
-        deserializerMap.put("medianResponseMinutes", (n) -> { this.setMedianResponseMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("medianResponseMinutes", (n) -> { this.setMedianResponseMinutes(n.getDoubleValue()); });
         deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getIntegerValue()); });
         deserializerMap.put("missedLeads", (n) -> { this.setMissedLeads(n.getIntegerValue()); });
         deserializerMap.put("respondedWithinFiveMinutesPercent", (n) -> { this.setRespondedWithinFiveMinutesPercent(n.getDoubleValue()); });
@@ -193,10 +192,10 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the medianResponseMinutes property value. Median response minutes measured in minutes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMedianResponseMinutes() {
+    public Double getMedianResponseMinutes() {
         return this.medianResponseMinutes;
     }
     /**
@@ -277,14 +276,14 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("averageResponseMinutes", this.getAverageResponseMinutes());
+        writer.writeDoubleValue("averageResponseMinutes", this.getAverageResponseMinutes());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeDoubleValue("callMinutes", this.getCallMinutes());
         writer.writeIntegerValue("callsPlaced", this.getCallsPlaced());
         writer.writeIntegerValue("callsReceived", this.getCallsReceived());
         writer.writeIntegerValue("leads", this.getLeads());
         writer.writeObjectValue("leadsComparison", this.getLeadsComparison());
-        writer.writeObjectValue("medianResponseMinutes", this.getMedianResponseMinutes());
+        writer.writeDoubleValue("medianResponseMinutes", this.getMedianResponseMinutes());
         writer.writeIntegerValue("missedCalls", this.getMissedCalls());
         writer.writeIntegerValue("missedLeads", this.getMissedLeads());
         writer.writeDoubleValue("respondedWithinFiveMinutesPercent", this.getRespondedWithinFiveMinutesPercent());
@@ -307,7 +306,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      * Sets the averageResponseMinutes property value. Average time, in minutes, before a lead receives a response.
      * @param value Value to set for the averageResponseMinutes property.
      */
-    public void setAverageResponseMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAverageResponseMinutes(@jakarta.annotation.Nullable final Double value) {
         this.averageResponseMinutes = value;
     }
     /**
@@ -356,7 +355,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      * Sets the medianResponseMinutes property value. Median response minutes measured in minutes.
      * @param value Value to set for the medianResponseMinutes property.
      */
-    public void setMedianResponseMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMedianResponseMinutes(@jakarta.annotation.Nullable final Double value) {
         this.medianResponseMinutes = value;
     }
     /**

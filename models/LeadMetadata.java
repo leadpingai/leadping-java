@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +40,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     /**
      * Direct-post price supplied by the lead source during intake.
      */
-    private UntypedNode directPostPrice;
+    private Double directPostPrice;
     /**
      * External system identifier used to reconcile this lead attribution metadata across integrations.
      */
@@ -69,7 +68,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     /**
      * Lead price or transaction price supplied to the Leadping API.
      */
-    private UntypedNode price;
+    private Double price;
     /**
      * Product or offer associated with the lead or source.
      */
@@ -118,6 +117,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Affiliate or publisher sub ID captured for lead attribution.
      */
     private String subId;
+    /**
+     * UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     */
+    private OffsetDateTime trustedFormCheckedAt;
     /**
      * TrustedForm certificate URL used as proof of consumer consent.
      */
@@ -220,10 +223,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDirectPostPrice() {
+    public Double getDirectPostPrice() {
         return this.directPostPrice;
     }
     /**
@@ -240,20 +243,20 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("complianceBlockedReason", (n) -> { this.setComplianceBlockedReason(n.getStringValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("externalId", (n) -> { this.setExternalId(n.getStringValue()); });
         deserializerMap.put("importBatchId", (n) -> { this.setImportBatchId(n.getStringValue()); });
         deserializerMap.put("ipAddress", (n) -> { this.setIpAddress(n.getStringValue()); });
         deserializerMap.put("isImported", (n) -> { this.setIsImported(n.getBooleanValue()); });
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
         deserializerMap.put("origin", (n) -> { this.setOrigin(n.getStringValue()); });
-        deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("product", (n) -> { this.setProduct(n.getStringValue()); });
         deserializerMap.put("pubId", (n) -> { this.setPubId(n.getStringValue()); });
         deserializerMap.put("referrer", (n) -> { this.setReferrer(n.getStringValue()); });
@@ -266,6 +269,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("smsOptOutAt", (n) -> { this.setSmsOptOutAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("sourceMetadata", (n) -> { this.setSourceMetadata(n.getObjectValue(LeadMetadataSourceMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("subId", (n) -> { this.setSubId(n.getStringValue()); });
+        deserializerMap.put("trustedFormCheckedAt", (n) -> { this.setTrustedFormCheckedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("trustedFormUrl", (n) -> { this.setTrustedFormUrl(n.getStringValue()); });
         deserializerMap.put("userAgent", (n) -> { this.setUserAgent(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
@@ -319,10 +323,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPrice() {
+    public Double getPrice() {
         return this.price;
     }
     /**
@@ -422,6 +426,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.subId;
     }
     /**
+     * Gets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getTrustedFormCheckedAt() {
+        return this.trustedFormCheckedAt;
+    }
+    /**
      * Gets the trustedFormUrl property value. TrustedForm certificate URL used as proof of consumer consent.
      * @return a {@link String}
      */
@@ -504,14 +516,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("complianceBlockedReason", this.getComplianceBlockedReason());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeObjectValue("directPostPrice", this.getDirectPostPrice());
+        writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("externalId", this.getExternalId());
         writer.writeStringValue("importBatchId", this.getImportBatchId());
         writer.writeStringValue("ipAddress", this.getIpAddress());
         writer.writeBooleanValue("isImported", this.getIsImported());
         writer.writeStringValue("landingPage", this.getLandingPage());
         writer.writeStringValue("origin", this.getOrigin());
-        writer.writeObjectValue("price", this.getPrice());
+        writer.writeDoubleValue("price", this.getPrice());
         writer.writeStringValue("product", this.getProduct());
         writer.writeStringValue("pubId", this.getPubId());
         writer.writeStringValue("referrer", this.getReferrer());
@@ -524,6 +536,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("smsOptOutAt", this.getSmsOptOutAt());
         writer.writeObjectValue("sourceMetadata", this.getSourceMetadata());
         writer.writeStringValue("subId", this.getSubId());
+        writer.writeOffsetDateTimeValue("trustedFormCheckedAt", this.getTrustedFormCheckedAt());
         writer.writeStringValue("trustedFormUrl", this.getTrustedFormUrl());
         writer.writeStringValue("userAgent", this.getUserAgent());
         writer.writeStringValue("userId", this.getUserId());
@@ -581,7 +594,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Sets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
      * @param value Value to set for the directPostPrice property.
      */
-    public void setDirectPostPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDirectPostPrice(@jakarta.annotation.Nullable final Double value) {
         this.directPostPrice = value;
     }
     /**
@@ -630,7 +643,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Sets the price property value. Lead price or transaction price supplied to the Leadping API.
      * @param value Value to set for the price property.
      */
-    public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPrice(@jakarta.annotation.Nullable final Double value) {
         this.price = value;
     }
     /**
@@ -716,6 +729,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setSubId(@jakarta.annotation.Nullable final String value) {
         this.subId = value;
+    }
+    /**
+     * Sets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * @param value Value to set for the trustedFormCheckedAt property.
+     */
+    public void setTrustedFormCheckedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.trustedFormCheckedAt = value;
     }
     /**
      * Sets the trustedFormUrl property value. TrustedForm certificate URL used as proof of consumer consent.

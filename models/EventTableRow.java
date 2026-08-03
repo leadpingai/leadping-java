@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -114,6 +113,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      * Lead ID associated with this timeline event.
      */
     private String leadId;
+    /**
+     * Media attached to an MMS timeline event.
+     */
+    private java.util.List<MessageMediaAttachment> media;
     /**
      * UTC timestamp when Leadping will retry this event timeline table row.
      */
@@ -252,10 +255,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -392,11 +395,11 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(46);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(47);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
@@ -417,6 +420,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
+        deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
@@ -472,6 +476,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLeadId() {
         return this.leadId;
+    }
+    /**
+     * Gets the media property value. Media attached to an MMS timeline event.
+     * @return a {@link java.util.List<MessageMediaAttachment>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<MessageMediaAttachment> getMedia() {
+        return this.media;
     }
     /**
      * Gets the nextRetryAt property value. UTC timestamp when Leadping will retry this event timeline table row.
@@ -658,7 +670,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorEmail", this.getActorEmail());
         writer.writeStringValue("actorUserId", this.getActorUserId());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
         writer.writeStringValue("campaignId", this.getCampaignId());
@@ -679,6 +691,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("leadId", this.getLeadId());
+        writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
@@ -735,7 +748,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
@@ -877,6 +890,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLeadId(@jakarta.annotation.Nullable final String value) {
         this.leadId = value;
+    }
+    /**
+     * Sets the media property value. Media attached to an MMS timeline event.
+     * @param value Value to set for the media property.
+     */
+    public void setMedia(@jakarta.annotation.Nullable final java.util.List<MessageMediaAttachment> value) {
+        this.media = value;
     }
     /**
      * Sets the nextRetryAt property value. UTC timestamp when Leadping will retry this event timeline table row.

@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum UsageChannel implements ValuedEnum {
+    Lead("lead"),
     Sms("sms"),
     Mms("mms"),
     Email("email"),
@@ -15,6 +16,7 @@ public enum UsageChannel implements ValuedEnum {
     Phone_number("phone_number"),
     Warmup("warmup"),
     Website("website"),
+    Openai("openai"),
     Domain("domain"),
     OneZerodlc("10dlc"),
     Connection("connection"),
@@ -29,6 +31,7 @@ public enum UsageChannel implements ValuedEnum {
     public static UsageChannel forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "lead": return Lead;
             case "sms": return Sms;
             case "mms": return Mms;
             case "email": return Email;
@@ -36,6 +39,7 @@ public enum UsageChannel implements ValuedEnum {
             case "phone_number": return Phone_number;
             case "warmup": return Warmup;
             case "website": return Website;
+            case "openai": return Openai;
             case "domain": return Domain;
             case "10dlc": return OneZerodlc;
             case "connection": return Connection;

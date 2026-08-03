@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +44,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
     /**
      * Configured cost charged when this source creates a billable lead.
      */
-    private UntypedNode costPerLead;
+    private Double costPerLead;
     /**
      * The date and time when the entity was created.
      */
@@ -176,10 +175,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCostPerLead() {
+    public Double getCostPerLead() {
         return this.costPerLead;
     }
     /**
@@ -243,7 +242,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(SourceResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
-        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUser", (n) -> { this.setCreatedByUser(n.getObjectValue(SourceResponseCreatedByUser::createFromDiscriminatorValue)); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -336,7 +335,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
-        writer.writeObjectValue("costPerLead", this.getCostPerLead());
+        writer.writeDoubleValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("createdByUser", this.getCreatedByUser());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
@@ -406,7 +405,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.
      * @param value Value to set for the costPerLead property.
      */
-    public void setCostPerLead(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCostPerLead(@jakarta.annotation.Nullable final Double value) {
         this.costPerLead = value;
     }
     /**

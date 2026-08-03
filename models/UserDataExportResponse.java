@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -69,7 +68,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     /**
      * File size in bytes.
      */
-    private UntypedNode sizeBytes;
+    private Long sizeBytes;
     /**
      * Date and time when the user data export started.
      */
@@ -169,7 +168,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("maxDownloadCount", (n) -> { this.setMaxDownloadCount(n.getIntegerValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("requestedAt", (n) -> { this.setRequestedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("sizeBytes", (n) -> { this.setSizeBytes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("sizeBytes", (n) -> { this.setSizeBytes(n.getLongValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UserDataExportStatuses::forValue)); });
         return deserializerMap;
@@ -224,10 +223,10 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the sizeBytes property value. File size in bytes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSizeBytes() {
+    public Long getSizeBytes() {
         return this.sizeBytes;
     }
     /**
@@ -264,7 +263,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("maxDownloadCount", this.getMaxDownloadCount());
         writer.writeStringValue("message", this.getMessage());
         writer.writeOffsetDateTimeValue("requestedAt", this.getRequestedAt());
-        writer.writeObjectValue("sizeBytes", this.getSizeBytes());
+        writer.writeLongValue("sizeBytes", this.getSizeBytes());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -364,7 +363,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      * Sets the sizeBytes property value. File size in bytes.
      * @param value Value to set for the sizeBytes property.
      */
-    public void setSizeBytes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSizeBytes(@jakarta.annotation.Nullable final Long value) {
         this.sizeBytes = value;
     }
     /**

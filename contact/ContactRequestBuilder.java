@@ -1,5 +1,6 @@
 package ai.leadping.openapi.contact;
 
+import ai.leadping.openapi.contact.website.WebsiteRequestBuilder;
 import ai.leadping.openapi.models.ContactRequest;
 import ai.leadping.openapi.models.ContactResponse;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -20,6 +21,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ContactRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The website property
+     * @return a {@link WebsiteRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public WebsiteRequestBuilder website() {
+        return new WebsiteRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Instantiates a new {@link ContactRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request

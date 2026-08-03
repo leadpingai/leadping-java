@@ -18,11 +18,11 @@ public class InvoicePdfAccessResponse implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The expiresAt property
+     * Date and time after which the download URL is no longer valid.
      */
     private OffsetDateTime expiresAt;
     /**
-     * The url property
+     * Short-lived URL that can be used to download the invoice PDF.
      */
     private String url;
     /**
@@ -50,7 +50,7 @@ public class InvoicePdfAccessResponse implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the expiresAt property value. The expiresAt property
+     * Gets the expiresAt property value. Date and time after which the download URL is no longer valid.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -69,7 +69,7 @@ public class InvoicePdfAccessResponse implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. Short-lived URL that can be used to download the invoice PDF.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -94,14 +94,14 @@ public class InvoicePdfAccessResponse implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the expiresAt property value. The expiresAt property
+     * Sets the expiresAt property value. Date and time after which the download URL is no longer valid.
      * @param value Value to set for the expiresAt property.
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.expiresAt = value;
     }
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. Short-lived URL that can be used to download the invoice PDF.
      * @param value Value to set for the url property.
      */
     public void setUrl(@jakarta.annotation.Nullable final String value) {

@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Updates the internal notes associated with a 10DLC application.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TenDlcNotesRequest implements AdditionalDataHolder, Parsable {
     /**
@@ -14,7 +17,7 @@ public class TenDlcNotesRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The notes property
+     * Notes to store with the 10DLC application, or null to clear them.
      */
     private String notes;
     /**
@@ -52,7 +55,7 @@ public class TenDlcNotesRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the notes property value. The notes property
+     * Gets the notes property value. Notes to store with the 10DLC application, or null to clear them.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -76,7 +79,7 @@ public class TenDlcNotesRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the notes property value. The notes property
+     * Sets the notes property value. Notes to store with the 10DLC application, or null to clear them.
      * @param value Value to set for the notes property.
      */
     public void setNotes(@jakarta.annotation.Nullable final String value) {

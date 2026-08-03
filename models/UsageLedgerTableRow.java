@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The billable seconds value for this usage ledger.
      */
-    private UntypedNode billableSeconds;
+    private Integer billableSeconds;
     /**
      * The billable unit value for this usage ledger.
      */
@@ -49,7 +48,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The duration seconds value for this usage ledger.
      */
-    private UntypedNode durationSeconds;
+    private Integer durationSeconds;
     /**
      * The unique ID for this usage ledger.
      */
@@ -77,11 +76,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The SMS segments value for this usage ledger.
      */
-    private UntypedNode smsSegments;
+    private Integer smsSegments;
     /**
      * The current status for this usage ledger.
      */
-    private UsageRecordStatus status;
+    private UsageStatus status;
     /**
      * The unit price value for this usage ledger.
      */
@@ -116,10 +115,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableSeconds property value. The billable seconds value for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableSeconds() {
+    public Integer getBillableSeconds() {
         return this.billableSeconds;
     }
     /**
@@ -172,10 +171,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the durationSeconds property value. The duration seconds value for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDurationSeconds() {
+    public Integer getDurationSeconds() {
         return this.durationSeconds;
     }
     /**
@@ -185,22 +184,22 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
-        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
         deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(UsageLedgerTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
-        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getIntegerValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isBillable", (n) -> { this.setIsBillable(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(UsageLedgerTableRowLead::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
-        deserializerMap.put("smsSegments", (n) -> { this.setSmsSegments(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageRecordStatus::forValue)); });
+        deserializerMap.put("smsSegments", (n) -> { this.setSmsSegments(n.getIntegerValue()); });
+        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageStatus::forValue)); });
         deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getDoubleValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(UsageLedgerTableRowUser::createFromDiscriminatorValue)); });
         return deserializerMap;
@@ -255,18 +254,18 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the smsSegments property value. The SMS segments value for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsSegments() {
+    public Integer getSmsSegments() {
         return this.smsSegments;
     }
     /**
      * Gets the status property value. The current status for this usage ledger.
-     * @return a {@link UsageRecordStatus}
+     * @return a {@link UsageStatus}
      */
     @jakarta.annotation.Nullable
-    public UsageRecordStatus getStatus() {
+    public UsageStatus getStatus() {
         return this.status;
     }
     /**
@@ -291,21 +290,21 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
+        writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
         writer.writeObjectValue("business", this.getBusiness());
         writer.writeEnumValue("channel", this.getChannel());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
         writer.writeStringValue("description", this.getDescription());
-        writer.writeObjectValue("durationSeconds", this.getDurationSeconds());
+        writer.writeIntegerValue("durationSeconds", this.getDurationSeconds());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isBillable", this.getIsBillable());
         writer.writeObjectValue("lead", this.getLead());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
         writer.writeDoubleValue("quantity", this.getQuantity());
-        writer.writeObjectValue("smsSegments", this.getSmsSegments());
+        writer.writeIntegerValue("smsSegments", this.getSmsSegments());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeDoubleValue("unitPrice", this.getUnitPrice());
         writer.writeObjectValue("user", this.getUser());
@@ -322,7 +321,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableSeconds property value. The billable seconds value for this usage ledger.
      * @param value Value to set for the billableSeconds property.
      */
-    public void setBillableSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.billableSeconds = value;
     }
     /**
@@ -371,7 +370,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the durationSeconds property value. The duration seconds value for this usage ledger.
      * @param value Value to set for the durationSeconds property.
      */
-    public void setDurationSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDurationSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.durationSeconds = value;
     }
     /**
@@ -420,14 +419,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the smsSegments property value. The SMS segments value for this usage ledger.
      * @param value Value to set for the smsSegments property.
      */
-    public void setSmsSegments(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsSegments(@jakarta.annotation.Nullable final Integer value) {
         this.smsSegments = value;
     }
     /**
      * Sets the status property value. The current status for this usage ledger.
      * @param value Value to set for the status property.
      */
-    public void setStatus(@jakarta.annotation.Nullable final UsageRecordStatus value) {
+    public void setStatus(@jakarta.annotation.Nullable final UsageStatus value) {
         this.status = value;
     }
     /**

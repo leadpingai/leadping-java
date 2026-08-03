@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +17,14 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
+    /**
+     * The current provider review status for the submitted brand.
+     */
+    private TenDlcRegistrationStatus brandStatus;
+    /**
+     * The current provider review status for the submitted campaign.
+     */
+    private TenDlcRegistrationStatus campaignStatus;
     /**
      * The company name value for this 10DLC application draft.
      */
@@ -45,7 +52,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     /**
      * The expected monthly volume value for this 10DLC application draft.
      */
-    private UntypedNode expectedMonthlyVolume;
+    private Integer expectedMonthlyVolume;
     /**
      * The industry value for this 10DLC application draft.
      */
@@ -131,6 +138,22 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the brandStatus property value. The current provider review status for the submitted brand.
+     * @return a {@link TenDlcRegistrationStatus}
+     */
+    @jakarta.annotation.Nullable
+    public TenDlcRegistrationStatus getBrandStatus() {
+        return this.brandStatus;
+    }
+    /**
+     * Gets the campaignStatus property value. The current provider review status for the submitted campaign.
+     * @return a {@link TenDlcRegistrationStatus}
+     */
+    @jakarta.annotation.Nullable
+    public TenDlcRegistrationStatus getCampaignStatus() {
+        return this.campaignStatus;
+    }
+    /**
      * Gets the companyName property value. The company name value for this 10DLC application draft.
      * @return a {@link String}
      */
@@ -180,10 +203,10 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the expectedMonthlyVolume property value. The expected monthly volume value for this 10DLC application draft.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getExpectedMonthlyVolume() {
+    public Integer getExpectedMonthlyVolume() {
         return this.expectedMonthlyVolume;
     }
     /**
@@ -192,14 +215,16 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        deserializerMap.put("brandStatus", (n) -> { this.setBrandStatus(n.getEnumValue(TenDlcRegistrationStatus::forValue)); });
+        deserializerMap.put("campaignStatus", (n) -> { this.setCampaignStatus(n.getEnumValue(TenDlcRegistrationStatus::forValue)); });
         deserializerMap.put("companyName", (n) -> { this.setCompanyName(n.getStringValue()); });
         deserializerMap.put("complianceWarnings", (n) -> { this.setComplianceWarnings(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("contactEmail", (n) -> { this.setContactEmail(n.getStringValue()); });
         deserializerMap.put("contactName", (n) -> { this.setContactName(n.getStringValue()); });
         deserializerMap.put("contactPhone", (n) -> { this.setContactPhone(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
-        deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getIntegerValue()); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
         deserializerMap.put("lastSubmittedAt", (n) -> { this.setLastSubmittedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("leadSource", (n) -> { this.setLeadSource(n.getStringValue()); });
@@ -343,13 +368,15 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeEnumValue("brandStatus", this.getBrandStatus());
+        writer.writeEnumValue("campaignStatus", this.getCampaignStatus());
         writer.writeStringValue("companyName", this.getCompanyName());
         writer.writeCollectionOfPrimitiveValues("complianceWarnings", this.getComplianceWarnings());
         writer.writeStringValue("contactEmail", this.getContactEmail());
         writer.writeStringValue("contactName", this.getContactName());
         writer.writeStringValue("contactPhone", this.getContactPhone());
         writer.writeStringValue("ein", this.getEin());
-        writer.writeObjectValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
+        writer.writeIntegerValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
         writer.writeStringValue("industry", this.getIndustry());
         writer.writeOffsetDateTimeValue("lastSubmittedAt", this.getLastSubmittedAt());
         writer.writeStringValue("leadSource", this.getLeadSource());
@@ -373,6 +400,20 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the brandStatus property value. The current provider review status for the submitted brand.
+     * @param value Value to set for the brandStatus property.
+     */
+    public void setBrandStatus(@jakarta.annotation.Nullable final TenDlcRegistrationStatus value) {
+        this.brandStatus = value;
+    }
+    /**
+     * Sets the campaignStatus property value. The current provider review status for the submitted campaign.
+     * @param value Value to set for the campaignStatus property.
+     */
+    public void setCampaignStatus(@jakarta.annotation.Nullable final TenDlcRegistrationStatus value) {
+        this.campaignStatus = value;
     }
     /**
      * Sets the companyName property value. The company name value for this 10DLC application draft.
@@ -420,7 +461,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      * Sets the expectedMonthlyVolume property value. The expected monthly volume value for this 10DLC application draft.
      * @param value Value to set for the expectedMonthlyVolume property.
      */
-    public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final Integer value) {
         this.expectedMonthlyVolume = value;
     }
     /**
