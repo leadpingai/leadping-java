@@ -26,10 +26,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private BillableUnit billableUnit;
     /**
-     * The ID and name for this business.
-     */
-    private UsageLedgerTableRowBusiness business;
-    /**
      * The channel value for this usage ledger.
      */
     private UsageChannel channel;
@@ -61,6 +57,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * The ID and name for this lead.
      */
     private UsageLedgerTableRowLead lead;
+    /**
+     * The ID and name for this organization.
+     */
+    private UsageLedgerTableRowOrganization organization;
     /**
      * The phone number associated with this usage ledger.
      */
@@ -130,14 +130,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the business property value. The ID and name for this business.
-     * @return a {@link UsageLedgerTableRowBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public UsageLedgerTableRowBusiness getBusiness() {
-        return this.business;
-    }
-    /**
      * Gets the channel property value. The channel value for this usage ledger.
      * @return a {@link UsageChannel}
      */
@@ -186,7 +178,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(UsageLedgerTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
@@ -195,6 +186,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isBillable", (n) -> { this.setIsBillable(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(UsageLedgerTableRowLead::createFromDiscriminatorValue)); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(UsageLedgerTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
@@ -227,6 +219,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public UsageLedgerTableRowLead getLead() {
         return this.lead;
+    }
+    /**
+     * Gets the organization property value. The ID and name for this organization.
+     * @return a {@link UsageLedgerTableRowOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public UsageLedgerTableRowOrganization getOrganization() {
+        return this.organization;
     }
     /**
      * Gets the phoneNumber property value. The phone number associated with this usage ledger.
@@ -292,7 +292,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
-        writer.writeObjectValue("business", this.getBusiness());
         writer.writeEnumValue("channel", this.getChannel());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
@@ -301,6 +300,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isBillable", this.getIsBillable());
         writer.writeObjectValue("lead", this.getLead());
+        writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
         writer.writeDoubleValue("quantity", this.getQuantity());
@@ -330,13 +330,6 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final BillableUnit value) {
         this.billableUnit = value;
-    }
-    /**
-     * Sets the business property value. The ID and name for this business.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final UsageLedgerTableRowBusiness value) {
-        this.business = value;
     }
     /**
      * Sets the channel property value. The channel value for this usage ledger.
@@ -393,6 +386,13 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLead(@jakarta.annotation.Nullable final UsageLedgerTableRowLead value) {
         this.lead = value;
+    }
+    /**
+     * Sets the organization property value. The ID and name for this organization.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final UsageLedgerTableRowOrganization value) {
+        this.organization = value;
     }
     /**
      * Sets the phoneNumber property value. The phone number associated with this usage ledger.

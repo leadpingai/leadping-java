@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /leads/{id}/archive
+ * Builds and executes requests for operations under /leads/{-id}/archive
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ArchiveRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public ArchiveRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/archive", pathParameters);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/archive", pathParameters);
     }
     /**
      * Instantiates a new {@link ArchiveRequestBuilder} and sets the default values.
@@ -33,7 +33,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public ArchiveRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/archive", rawUrl);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/archive", rawUrl);
     }
     /**
      * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.

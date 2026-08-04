@@ -46,7 +46,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/users/me", rawUrl);
     }
     /**
-     * Returns the current user&apos;s profile, roles, business context, billing state, and compliance settings for portal sessions.
+     * Returns the current user&apos;s profile, roles, organization context, billing state, and compliance settings for portal sessions.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -56,7 +56,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the current user&apos;s profile, roles, business context, billing state, and compliance settings for portal sessions.
+     * Returns the current user&apos;s profile, roles, organization context, billing state, and compliance settings for portal sessions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -71,7 +71,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates the current user&apos;s profile fields, contact details, preferences, or business context used across Leadping.
+     * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
      * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -82,7 +82,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates the current user&apos;s profile fields, contact details, preferences, or business context used across Leadping.
+     * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
      * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
@@ -99,7 +99,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the current user&apos;s profile, roles, business context, billing state, and compliance settings for portal sessions.
+     * Returns the current user&apos;s profile, roles, organization context, billing state, and compliance settings for portal sessions.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -107,7 +107,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the current user&apos;s profile, roles, business context, billing state, and compliance settings for portal sessions.
+     * Returns the current user&apos;s profile, roles, organization context, billing state, and compliance settings for portal sessions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -119,7 +119,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates the current user&apos;s profile fields, contact details, preferences, or business context used across Leadping.
+     * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
      * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -128,7 +128,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates the current user&apos;s profile fields, contact details, preferences, or business context used across Leadping.
+     * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
      * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

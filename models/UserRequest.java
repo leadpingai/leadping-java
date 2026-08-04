@@ -25,9 +25,9 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private UserRequestCompliance compliance;
     /**
-     * Business currently selected for the user session or profile.
+     * Organization currently selected for the user session or profile.
      */
-    private UserRequestCurrentBusiness currentBusiness;
+    private UserRequestCurrentOrganization currentOrganization;
     /**
      * Email address for the person represented by this user profile request.
      */
@@ -57,7 +57,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private UserRequestNotificationPreferences notificationPreferences;
     /**
-     * Phone details for the lead, user, or business represented by this user profile request.
+     * Phone details for the lead, user, or organization represented by this user profile request.
      */
     private String phone;
     /**
@@ -105,12 +105,12 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.compliance;
     }
     /**
-     * Gets the currentBusiness property value. Business currently selected for the user session or profile.
-     * @return a {@link UserRequestCurrentBusiness}
+     * Gets the currentOrganization property value. Organization currently selected for the user session or profile.
+     * @return a {@link UserRequestCurrentOrganization}
      */
     @jakarta.annotation.Nullable
-    public UserRequestCurrentBusiness getCurrentBusiness() {
-        return this.currentBusiness;
+    public UserRequestCurrentOrganization getCurrentOrganization() {
+        return this.currentOrganization;
     }
     /**
      * Gets the email property value. Email address for the person represented by this user profile request.
@@ -129,7 +129,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserRequestBillingPlan::forValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserRequestCompliance::createFromDiscriminatorValue)); });
-        deserializerMap.put("currentBusiness", (n) -> { this.setCurrentBusiness(n.getObjectValue(UserRequestCurrentBusiness::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentOrganization", (n) -> { this.setCurrentOrganization(n.getObjectValue(UserRequestCurrentOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -190,7 +190,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.notificationPreferences;
     }
     /**
-     * Gets the phone property value. Phone details for the lead, user, or business represented by this user profile request.
+     * Gets the phone property value. Phone details for the lead, user, or organization represented by this user profile request.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("compliance", this.getCompliance());
-        writer.writeObjectValue("currentBusiness", this.getCurrentBusiness());
+        writer.writeObjectValue("currentOrganization", this.getCurrentOrganization());
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
@@ -247,11 +247,11 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.compliance = value;
     }
     /**
-     * Sets the currentBusiness property value. Business currently selected for the user session or profile.
-     * @param value Value to set for the currentBusiness property.
+     * Sets the currentOrganization property value. Organization currently selected for the user session or profile.
+     * @param value Value to set for the currentOrganization property.
      */
-    public void setCurrentBusiness(@jakarta.annotation.Nullable final UserRequestCurrentBusiness value) {
-        this.currentBusiness = value;
+    public void setCurrentOrganization(@jakarta.annotation.Nullable final UserRequestCurrentOrganization value) {
+        this.currentOrganization = value;
     }
     /**
      * Sets the email property value. Email address for the person represented by this user profile request.
@@ -303,7 +303,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.notificationPreferences = value;
     }
     /**
-     * Sets the phone property value. Phone details for the lead, user, or business represented by this user profile request.
+     * Sets the phone property value. Phone details for the lead, user, or organization represented by this user profile request.
      * @param value Value to set for the phone property.
      */
     public void setPhone(@jakarta.annotation.Nullable final String value) {

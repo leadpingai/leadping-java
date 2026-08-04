@@ -34,10 +34,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private TransactionResponseBillingChannel billingChannel;
     /**
-     * The ID and name for this business.
-     */
-    private TransactionResponseBusiness business;
-    /**
      * The date and time when the entity was created.
      */
     private OffsetDateTime createdAt;
@@ -73,6 +69,10 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      * Additional billing notes that explain the transaction for admins or customers.
      */
     private String notes;
+    /**
+     * The ID and name for this organization.
+     */
+    private TransactionResponseOrganization organization;
     /**
      * Masked or human-readable payment method shown for this transaction.
      */
@@ -146,14 +146,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.billingChannel;
     }
     /**
-     * Gets the business property value. The ID and name for this business.
-     * @return a {@link TransactionResponseBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public TransactionResponseBusiness getBusiness() {
-        return this.business;
-    }
-    /**
      * Gets the createdAt property value. The date and time when the entity was created.
      * @return a {@link OffsetDateTime}
      */
@@ -180,7 +172,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionResponseBillableUnit::forValue)); });
         deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
         deserializerMap.put("billingChannel", (n) -> { this.setBillingChannel(n.getEnumValue(TransactionResponseBillingChannel::forValue)); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(TransactionResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("gatewayFeeAmount", (n) -> { this.setGatewayFeeAmount(n.getDoubleValue()); });
@@ -190,6 +181,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(TransactionResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("paymentMethodDisplay", (n) -> { this.setPaymentMethodDisplay(n.getStringValue()); });
         deserializerMap.put("platformFeeAmount", (n) -> { this.setPlatformFeeAmount(n.getDoubleValue()); });
         deserializerMap.put("transactionStatus", (n) -> { this.setTransactionStatus(n.getEnumValue(TransactionStatus::forValue)); });
@@ -253,6 +245,14 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.notes;
     }
     /**
+     * Gets the organization property value. The ID and name for this organization.
+     * @return a {@link TransactionResponseOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public TransactionResponseOrganization getOrganization() {
+        return this.organization;
+    }
+    /**
      * Gets the paymentMethodDisplay property value. Masked or human-readable payment method shown for this transaction.
      * @return a {@link String}
      */
@@ -294,7 +294,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
         writer.writeDoubleValue("billedAmount", this.getBilledAmount());
         writer.writeEnumValue("billingChannel", this.getBillingChannel());
-        writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
         writer.writeDoubleValue("gatewayFeeAmount", this.getGatewayFeeAmount());
@@ -304,6 +303,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeStringValue("notes", this.getNotes());
+        writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("paymentMethodDisplay", this.getPaymentMethodDisplay());
         writer.writeDoubleValue("platformFeeAmount", this.getPlatformFeeAmount());
         writer.writeEnumValue("transactionStatus", this.getTransactionStatus());
@@ -344,13 +344,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingChannel(@jakarta.annotation.Nullable final TransactionResponseBillingChannel value) {
         this.billingChannel = value;
-    }
-    /**
-     * Sets the business property value. The ID and name for this business.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final TransactionResponseBusiness value) {
-        this.business = value;
     }
     /**
      * Sets the createdAt property value. The date and time when the entity was created.
@@ -414,6 +407,13 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNotes(@jakarta.annotation.Nullable final String value) {
         this.notes = value;
+    }
+    /**
+     * Sets the organization property value. The ID and name for this organization.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final TransactionResponseOrganization value) {
+        this.organization = value;
     }
     /**
      * Sets the paymentMethodDisplay property value. Masked or human-readable payment method shown for this transaction.

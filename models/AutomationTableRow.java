@@ -22,14 +22,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Business summary connected to this automation table row.
-     */
-    private AutomationTableRowBusiness business;
-    /**
-     * Business ID that owns this automation.
-     */
-    private String businessId;
-    /**
      * Human-readable summary of the automation condition evaluation.
      */
     private String conditionSummary;
@@ -66,7 +58,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String lastRunStatus;
     /**
-     * Management level that controls whether Leadping or the business owns this automation setting.
+     * Management level that controls whether Leadping or the organization owns this automation setting.
      */
     private String managementLevel;
     /**
@@ -77,6 +69,14 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      * Display name for this automation table row in the Leadping API.
      */
     private String name;
+    /**
+     * Organization summary connected to this automation table row.
+     */
+    private AutomationTableRowOrganization organization;
+    /**
+     * Organization ID that owns this automation.
+     */
+    private String organizationId;
     /**
      * Human-readable explanation of the automation rule being evaluated.
      */
@@ -134,22 +134,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the business property value. Business summary connected to this automation table row.
-     * @return a {@link AutomationTableRowBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public AutomationTableRowBusiness getBusiness() {
-        return this.business;
-    }
-    /**
-     * Gets the businessId property value. Business ID that owns this automation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the conditionSummary property value. Human-readable summary of the automation condition evaluation.
      * @return a {@link String}
      */
@@ -189,8 +173,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("actionSummary", (n) -> { this.setActionSummary(n.getStringValue()); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(AutomationTableRowBusiness::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("conditionSummary", (n) -> { this.setConditionSummary(n.getStringValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -203,6 +185,8 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("managementLevel", (n) -> { this.setManagementLevel(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(AutomationTableRowOrganization::createFromDiscriminatorValue)); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("ruleSentence", (n) -> { this.setRuleSentence(n.getStringValue()); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggerSummary", (n) -> { this.setTriggerSummary(n.getStringValue()); });
@@ -252,7 +236,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.lastRunStatus;
     }
     /**
-     * Gets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
+     * Gets the managementLevel property value. Management level that controls whether Leadping or the organization owns this automation setting.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -274,6 +258,22 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
+    }
+    /**
+     * Gets the organization property value. Organization summary connected to this automation table row.
+     * @return a {@link AutomationTableRowOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationTableRowOrganization getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID that owns this automation.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the ruleSentence property value. Human-readable explanation of the automation rule being evaluated.
@@ -330,8 +330,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actionSummary", this.getActionSummary());
-        writer.writeObjectValue("business", this.getBusiness());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("conditionSummary", this.getConditionSummary());
         writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
         writer.writeStringValue("description", this.getDescription());
@@ -344,6 +342,8 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("managementLevel", this.getManagementLevel());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
+        writer.writeObjectValue("organization", this.getOrganization());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("ruleSentence", this.getRuleSentence());
         writer.writeStringValue("scope", this.getScope());
         writer.writeStringValue("triggerSummary", this.getTriggerSummary());
@@ -365,20 +365,6 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this automation table row.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final AutomationTableRowBusiness value) {
-        this.business = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this automation.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the conditionSummary property value. Human-readable summary of the automation condition evaluation.
@@ -444,7 +430,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         this.lastRunStatus = value;
     }
     /**
-     * Sets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
+     * Sets the managementLevel property value. Management level that controls whether Leadping or the organization owns this automation setting.
      * @param value Value to set for the managementLevel property.
      */
     public void setManagementLevel(@jakarta.annotation.Nullable final String value) {
@@ -463,6 +449,20 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the organization property value. Organization summary connected to this automation table row.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final AutomationTableRowOrganization value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this automation.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the ruleSentence property value. Human-readable explanation of the automation rule being evaluated.

@@ -21,10 +21,6 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * Business ID captured when the automation request snapshot was created.
-     */
-    private String businessId;
-    /**
      * Grouped automation conditions used to decide whether this workflow should run.
      */
     private java.util.List<AutomationConditionGroup> conditionGroups;
@@ -53,13 +49,17 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     private Boolean isSystemManaged;
     /**
-     * Management level that controls whether Leadping or the business owns this automation setting.
+     * Management level that controls whether Leadping or the organization owns this automation setting.
      */
     private String managementLevel;
     /**
      * Display name for this automation request snapshot in the Leadping API.
      */
     private String name;
+    /**
+     * Organization ID captured when the automation request snapshot was created.
+     */
+    private String organizationId;
     /**
      * Scope that limits where this automation request snapshot applies in Leadping.
      */
@@ -103,14 +103,6 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
         return this.additionalData;
-    }
-    /**
-     * Gets the businessId property value. Business ID captured when the automation request snapshot was created.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
     }
     /**
      * Gets the conditionGroups property value. Grouped automation conditions used to decide whether this workflow should run.
@@ -160,7 +152,6 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
         deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
@@ -170,6 +161,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         deserializerMap.put("isSystemManaged", (n) -> { this.setIsSystemManaged(n.getBooleanValue()); });
         deserializerMap.put("managementLevel", (n) -> { this.setManagementLevel(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
         deserializerMap.put("visibility", (n) -> { this.setVisibility(n.getStringValue()); });
@@ -192,7 +184,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         return this.isSystemManaged;
     }
     /**
-     * Gets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
+     * Gets the managementLevel property value. Management level that controls whether Leadping or the organization owns this automation setting.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -206,6 +198,14 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID captured when the automation request snapshot was created.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the scope property value. Scope that limits where this automation request snapshot applies in Leadping.
@@ -238,7 +238,6 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeCollectionOfObjectValues("conditionGroups", this.getConditionGroups());
         writer.writeCollectionOfObjectValues("connections", this.getConnections());
         writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
@@ -248,6 +247,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         writer.writeBooleanValue("isSystemManaged", this.getIsSystemManaged());
         writer.writeStringValue("managementLevel", this.getManagementLevel());
         writer.writeStringValue("name", this.getName());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
         writer.writeStringValue("visibility", this.getVisibility());
@@ -266,13 +266,6 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID captured when the automation request snapshot was created.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the conditionGroups property value. Grouped automation conditions used to decide whether this workflow should run.
@@ -324,7 +317,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         this.isSystemManaged = value;
     }
     /**
-     * Sets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
+     * Sets the managementLevel property value. Management level that controls whether Leadping or the organization owns this automation setting.
      * @param value Value to set for the managementLevel property.
      */
     public void setManagementLevel(@jakarta.annotation.Nullable final String value) {
@@ -336,6 +329,13 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID captured when the automation request snapshot was created.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the scope property value. Scope that limits where this automation request snapshot applies in Leadping.

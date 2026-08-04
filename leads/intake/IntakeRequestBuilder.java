@@ -172,7 +172,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public LocalDate birthDate;
         /**
-         * City for the lead or business postal address.
+         * City for the lead or organization postal address.
          */
         @jakarta.annotation.Nullable
         public String city;
@@ -217,7 +217,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String lastName;
         /**
-         * Phone details for the lead, user, or business represented by this lead intake request.
+         * Phone details for the lead, user, or organization represented by this lead intake request.
          */
         @jakarta.annotation.Nullable
         public String phone;
@@ -227,7 +227,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String phoneType;
         /**
-         * Postal code for the lead or business address.
+         * Postal code for the lead or organization address.
          */
         @jakarta.annotation.Nullable
         public String postalCode;
@@ -267,7 +267,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String sourceMetadata;
         /**
-         * State, province, or region for the lead or business postal address.
+         * State, province, or region for the lead or organization postal address.
          */
         @jakarta.annotation.Nullable
         public String state;

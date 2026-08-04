@@ -18,10 +18,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Business summary connected to this phone number.
-     */
-    private PhoneNumberResponseBusiness business;
-    /**
      * The date and time when the entity was created.
      */
     private OffsetDateTime createdAt;
@@ -49,6 +45,10 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      * E.164 phone number exposed by this phone number.
      */
     private String number;
+    /**
+     * Organization summary connected to this phone number.
+     */
+    private PhoneNumberResponseOrganization organization;
     /**
      * Identifier of the canonical phone identity for this number.
      */
@@ -86,14 +86,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the business property value. Business summary connected to this phone number.
-     * @return a {@link PhoneNumberResponseBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneNumberResponseBusiness getBusiness() {
-        return this.business;
-    }
-    /**
      * Gets the createdAt property value. The date and time when the entity was created.
      * @return a {@link OffsetDateTime}
      */
@@ -116,7 +108,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(PhoneNumberResponseBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -124,6 +115,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(PhoneNumberResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberReadiness::createFromDiscriminatorValue)); });
@@ -170,6 +162,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the organization property value. Organization summary connected to this phone number.
+     * @return a {@link PhoneNumberResponseOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberResponseOrganization getOrganization() {
+        return this.organization;
+    }
+    /**
      * Gets the phoneIdentityId property value. Identifier of the canonical phone identity for this number.
      * @return a {@link String}
      */
@@ -199,7 +199,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
@@ -207,6 +206,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeObjectValue("routing", this.getRouting());
         writer.writeObjectValue("warmup", this.getWarmup());
@@ -218,13 +218,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this phone number.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final PhoneNumberResponseBusiness value) {
-        this.business = value;
     }
     /**
      * Sets the createdAt property value. The date and time when the entity was created.
@@ -274,6 +267,13 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the organization property value. Organization summary connected to this phone number.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final PhoneNumberResponseOrganization value) {
+        this.organization = value;
     }
     /**
      * Sets the phoneIdentityId property value. Identifier of the canonical phone identity for this number.

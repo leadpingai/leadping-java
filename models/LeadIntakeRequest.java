@@ -30,7 +30,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private LocalDate birthDate;
     /**
-     * City for the lead or business postal address.
+     * City for the lead or organization postal address.
      */
     private String city;
     /**
@@ -66,7 +66,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * Phone details for the lead, user, or business represented by this lead intake request.
+     * Phone details for the lead, user, or organization represented by this lead intake request.
      */
     private String phone;
     /**
@@ -74,7 +74,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String phoneType;
     /**
-     * Postal code for the lead or business address.
+     * Postal code for the lead or organization address.
      */
     private String postalCode;
     /**
@@ -102,7 +102,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private LeadIntakeRequestSourceMetadata sourceMetadata;
     /**
-     * State, province, or region for the lead or business postal address.
+     * State, province, or region for the lead or organization postal address.
      */
     private String state;
     /**
@@ -198,7 +198,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.birthDate;
     }
     /**
-     * Gets the city property value. City for the lead or business postal address.
+     * Gets the city property value. City for the lead or organization postal address.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -312,7 +312,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the phone property value. Phone details for the lead, user, or business represented by this lead intake request.
+     * Gets the phone property value. Phone details for the lead, user, or organization represented by this lead intake request.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -328,7 +328,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.phoneType;
     }
     /**
-     * Gets the postalCode property value. Postal code for the lead or business address.
+     * Gets the postalCode property value. Postal code for the lead or organization address.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -384,7 +384,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.sourceMetadata;
     }
     /**
-     * Gets the state property value. State, province, or region for the lead or business postal address.
+     * Gets the state property value. State, province, or region for the lead or organization postal address.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -549,7 +549,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.birthDate = value;
     }
     /**
-     * Sets the city property value. City for the lead or business postal address.
+     * Sets the city property value. City for the lead or organization postal address.
      * @param value Value to set for the city property.
      */
     public void setCity(@jakarta.annotation.Nullable final String value) {
@@ -612,7 +612,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the phone property value. Phone details for the lead, user, or business represented by this lead intake request.
+     * Sets the phone property value. Phone details for the lead, user, or organization represented by this lead intake request.
      * @param value Value to set for the phone property.
      */
     public void setPhone(@jakarta.annotation.Nullable final String value) {
@@ -626,7 +626,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.phoneType = value;
     }
     /**
-     * Sets the postalCode property value. Postal code for the lead or business address.
+     * Sets the postalCode property value. Postal code for the lead or organization address.
      * @param value Value to set for the postalCode property.
      */
     public void setPostalCode(@jakarta.annotation.Nullable final String value) {
@@ -675,7 +675,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.sourceMetadata = value;
     }
     /**
-     * Sets the state property value. State, province, or region for the lead or business postal address.
+     * Sets the state property value. State, province, or region for the lead or organization postal address.
      * @param value Value to set for the state property.
      */
     public void setState(@jakarta.annotation.Nullable final String value) {

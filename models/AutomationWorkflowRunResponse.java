@@ -26,10 +26,6 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private AutomationWorkflowRunResponseAutomation automation;
     /**
-     * Unique identifier of the business associated with this Leadping automation workflow run.
-     */
-    private String businessId;
-    /**
      * Date and time when the automation workflow run was cancelled.
      */
     private OffsetDateTime cancelledAt;
@@ -89,6 +85,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      * Date and time when the next retry is scheduled.
      */
     private OffsetDateTime nextRetryAt;
+    /**
+     * Unique identifier of the organization associated with this Leadping automation workflow run.
+     */
+    private String organizationId;
     /**
      * Total number of retry records represented by this Leadping automation workflow run.
      */
@@ -166,14 +166,6 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.automation;
     }
     /**
-     * Gets the businessId property value. Unique identifier of the business associated with this Leadping automation workflow run.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the cancelledAt property value. Date and time when the automation workflow run was cancelled.
      * @return a {@link OffsetDateTime}
      */
@@ -230,7 +222,6 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationWorkflowActionResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("automation", (n) -> { this.setAutomation(n.getObjectValue(AutomationWorkflowRunResponseAutomation::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("cancelledAt", (n) -> { this.setCancelledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentStep", (n) -> { this.setCurrentStep(n.getObjectValue(AutomationWorkflowRunResponseCurrentStep::createFromDiscriminatorValue)); });
@@ -246,6 +237,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         deserializerMap.put("maxRetryCount", (n) -> { this.setMaxRetryCount(n.getIntegerValue()); });
         deserializerMap.put("nextExecutionAt", (n) -> { this.setNextExecutionAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getIntegerValue()); });
         deserializerMap.put("skipReasonCode", (n) -> { this.setSkipReasonCode(n.getStringValue()); });
         deserializerMap.put("skipReasonDisplay", (n) -> { this.setSkipReasonDisplay(n.getStringValue()); });
@@ -330,6 +322,14 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.nextRetryAt;
     }
     /**
+     * Gets the organizationId property value. Unique identifier of the organization associated with this Leadping automation workflow run.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Gets the retryCount property value. Total number of retry records represented by this Leadping automation workflow run.
      * @return a {@link Integer}
      */
@@ -409,7 +409,6 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
         writer.writeObjectValue("automation", this.getAutomation());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeOffsetDateTimeValue("cancelledAt", this.getCancelledAt());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeObjectValue("currentStep", this.getCurrentStep());
@@ -425,6 +424,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         writer.writeIntegerValue("maxRetryCount", this.getMaxRetryCount());
         writer.writeOffsetDateTimeValue("nextExecutionAt", this.getNextExecutionAt());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeIntegerValue("retryCount", this.getRetryCount());
         writer.writeStringValue("skipReasonCode", this.getSkipReasonCode());
         writer.writeStringValue("skipReasonDisplay", this.getSkipReasonDisplay());
@@ -456,13 +456,6 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     public void setAutomation(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseAutomation value) {
         this.automation = value;
-    }
-    /**
-     * Sets the businessId property value. Unique identifier of the business associated with this Leadping automation workflow run.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the cancelledAt property value. Date and time when the automation workflow run was cancelled.
@@ -568,6 +561,13 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     public void setNextRetryAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.nextRetryAt = value;
+    }
+    /**
+     * Sets the organizationId property value. Unique identifier of the organization associated with this Leadping automation workflow run.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the retryCount property value. Total number of retry records represented by this Leadping automation workflow run.

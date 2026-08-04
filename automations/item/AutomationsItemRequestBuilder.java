@@ -37,7 +37,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations/{id}", rawUrl);
     }
     /**
-     * Deletes an automation for the current business so it no longer schedules follow-up or routing work for captured leads.
+     * Deletes an automation for the current organization so it no longer schedules follow-up or routing work for captured leads.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -47,7 +47,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Deletes an automation for the current business so it no longer schedules follow-up or routing work for captured leads.
+     * Deletes an automation for the current organization so it no longer schedules follow-up or routing work for captured leads.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
@@ -62,7 +62,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
-     * Returns one automation for the current business, including trigger criteria, message steps, routing settings, and enabled state.
+     * Returns one automation for the current organization, including trigger criteria, message steps, routing settings, and enabled state.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -72,7 +72,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns one automation for the current business, including trigger criteria, message steps, routing settings, and enabled state.
+     * Returns one automation for the current organization, including trigger criteria, message steps, routing settings, and enabled state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -87,7 +87,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates an automation for current-business leads, changing triggers, message steps, routing, or active follow-up settings.
+     * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -99,7 +99,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates an automation for current-business leads, changing triggers, message steps, routing, or active follow-up settings.
+     * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationResponse}
@@ -118,7 +118,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationResponse::createFromDiscriminatorValue);
     }
     /**
-     * Deletes an automation for the current business so it no longer schedules follow-up or routing work for captured leads.
+     * Deletes an automation for the current organization so it no longer schedules follow-up or routing work for captured leads.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -126,7 +126,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Deletes an automation for the current business so it no longer schedules follow-up or routing work for captured leads.
+     * Deletes an automation for the current organization so it no longer schedules follow-up or routing work for captured leads.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -138,7 +138,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Returns one automation for the current business, including trigger criteria, message steps, routing settings, and enabled state.
+     * Returns one automation for the current organization, including trigger criteria, message steps, routing settings, and enabled state.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -146,7 +146,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns one automation for the current business, including trigger criteria, message steps, routing settings, and enabled state.
+     * Returns one automation for the current organization, including trigger criteria, message steps, routing settings, and enabled state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -158,7 +158,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates an automation for current-business leads, changing triggers, message steps, routing, or active follow-up settings.
+     * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -167,7 +167,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates an automation for current-business leads, changing triggers, message steps, routing, or active follow-up settings.
+     * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

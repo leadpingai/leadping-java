@@ -38,7 +38,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/usage/summary/my{?periodEnd*,periodStart*}", rawUrl);
     }
     /**
-     * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
+     * Returns current-organization usage totals for the active billing period, including spend, limits, and event summary data.
      * @return a {@link UsageSummaryResponse}
      * @throws ProblemDetails When receiving a 401 status code
      */
@@ -47,7 +47,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
+     * Returns current-organization usage totals for the active billing period, including spend, limits, and event summary data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UsageSummaryResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -60,7 +60,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, UsageSummaryResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
+     * Returns current-organization usage totals for the active billing period, including spend, limits, and event summary data.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -68,7 +68,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
+     * Returns current-organization usage totals for the active billing period, including spend, limits, and event summary data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -90,7 +90,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return new MyRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns current-business usage totals for the active billing period, including spend, limits, and event summary data.
+     * Returns current-organization usage totals for the active billing period, including spend, limits, and event summary data.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

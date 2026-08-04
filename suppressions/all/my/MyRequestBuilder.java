@@ -37,7 +37,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/all/my", rawUrl);
     }
     /**
-     * Get all for current business
+     * Get all for current organization
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfSuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -47,7 +47,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Get all for current business
+     * Get all for current organization
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfSuppressionEntryResponse}
@@ -62,7 +62,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfSuppressionEntryResponse::createFromDiscriminatorValue);
     }
     /**
-     * Get all for current business
+     * Get all for current organization
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link RequestInformation}
      */
@@ -71,7 +71,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Get all for current business
+     * Get all for current organization
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

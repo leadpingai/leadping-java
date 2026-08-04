@@ -42,9 +42,9 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * Current disposition summary that describes the lead outcome.
+     * Current lead status change summary that describes the lead outcome.
      */
-    private LeadResponseCurrentDisposition currentDisposition;
+    private LeadResponseCurrentLeadStatus currentLeadStatus;
     /**
      * Demographic profile details for the lead represented by this lead response.
      */
@@ -150,12 +150,12 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentDisposition property value. Current disposition summary that describes the lead outcome.
-     * @return a {@link LeadResponseCurrentDisposition}
+     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * @return a {@link LeadResponseCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
-    public LeadResponseCurrentDisposition getCurrentDisposition() {
-        return this.currentDisposition;
+    public LeadResponseCurrentLeadStatus getCurrentLeadStatus() {
+        return this.currentLeadStatus;
     }
     /**
      * Gets the customer property value. Demographic profile details for the lead represented by this lead response.
@@ -186,7 +186,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("contact", (n) -> { this.setContact(n.getObjectValue(LeadContact::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("currentDisposition", (n) -> { this.setCurrentDisposition(n.getObjectValue(LeadResponseCurrentDisposition::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(LeadResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("customer", (n) -> { this.setCustomer(n.getObjectValue(LeadProfile::createFromDiscriminatorValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -257,7 +257,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
         writer.writeObjectValue("contact", this.getContact());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeObjectValue("currentDisposition", this.getCurrentDisposition());
+        writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeObjectValue("customer", this.getCustomer());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
@@ -318,11 +318,11 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentDisposition property value. Current disposition summary that describes the lead outcome.
-     * @param value Value to set for the currentDisposition property.
+     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * @param value Value to set for the currentLeadStatus property.
      */
-    public void setCurrentDisposition(@jakarta.annotation.Nullable final LeadResponseCurrentDisposition value) {
-        this.currentDisposition = value;
+    public void setCurrentLeadStatus(@jakarta.annotation.Nullable final LeadResponseCurrentLeadStatus value) {
+        this.currentLeadStatus = value;
     }
     /**
      * Sets the customer property value. Demographic profile details for the lead represented by this lead response.

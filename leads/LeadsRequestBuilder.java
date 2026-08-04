@@ -2,7 +2,7 @@ package ai.leadping.openapi.leads;
 
 import ai.leadping.openapi.leads.all.AllRequestBuilder;
 import ai.leadping.openapi.leads.intake.IntakeRequestBuilder;
-import ai.leadping.openapi.leads.item.LeadsItemRequestBuilder;
+import ai.leadping.openapi.leads.item.ItemRequestBuilder;
 import ai.leadping.openapi.models.LeadRequest;
 import ai.leadping.openapi.models.LeadResponse;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -43,14 +43,14 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the ai.leadping.openapi.leads.item collection
      * @param id The ID of the lead to retrieve.
-     * @return a {@link LeadsItemRequestBuilder}
+     * @return a {@link ItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public LeadsItemRequestBuilder byId(@jakarta.annotation.Nonnull final String id) {
+    public ItemRequestBuilder byId(@jakarta.annotation.Nonnull final String id) {
         Objects.requireNonNull(id);
         final HashMap<String, Object> urlTplParams = new HashMap<String, Object>(this.pathParameters);
-        urlTplParams.put("id", id);
-        return new LeadsItemRequestBuilder(urlTplParams, requestAdapter);
+        urlTplParams.put("%2Did", id);
+        return new ItemRequestBuilder(urlTplParams, requestAdapter);
     }
     /**
      * Instantiates a new {@link LeadsRequestBuilder} and sets the default values.

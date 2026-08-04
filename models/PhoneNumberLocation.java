@@ -41,7 +41,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     private String location;
     /**
-     * State, province, or region for the lead or business postal address.
+     * State, province, or region for the lead or organization postal address.
      */
     private String state;
     /**
@@ -143,7 +143,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         return this.location;
     }
     /**
-     * Gets the state property value. State, province, or region for the lead or business postal address.
+     * Gets the state property value. State, province, or region for the lead or organization postal address.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -233,7 +233,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         this.location = value;
     }
     /**
-     * Sets the state property value. State, province, or region for the lead or business postal address.
+     * Sets the state property value. State, province, or region for the lead or organization postal address.
      * @param value Value to set for the state property.
      */
     public void setState(@jakarta.annotation.Nullable final String value) {

@@ -36,7 +36,7 @@ public class OverviewRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/outbound/overview", rawUrl);
     }
     /**
-     * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
+     * Returns current-organization outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
      * @return a {@link OutboundCapacityOverview}
      * @throws ProblemDetails When receiving a 401 status code
      */
@@ -45,7 +45,7 @@ public class OverviewRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
+     * Returns current-organization outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OutboundCapacityOverview}
      * @throws ProblemDetails When receiving a 401 status code
@@ -58,7 +58,7 @@ public class OverviewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OutboundCapacityOverview::createFromDiscriminatorValue);
     }
     /**
-     * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
+     * Returns current-organization outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -66,7 +66,7 @@ public class OverviewRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns current-business outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
+     * Returns current-organization outbound capacity, scheduled work, and pacing decisions used to control lead communication delivery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

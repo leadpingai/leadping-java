@@ -49,7 +49,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/lead-statuses", rawUrl);
     }
     /**
-     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
+     * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @return a {@link java.util.List<LeadStatusResponse>}
      */
     @jakarta.annotation.Nullable
@@ -57,7 +57,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
+     * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<LeadStatusResponse>}
      */
@@ -67,7 +67,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
+     * Creates a reusable lead status for the current organization to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link LeadStatusResponse}
      */
@@ -76,7 +76,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
+     * Creates a reusable lead status for the current organization to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
@@ -88,7 +88,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
+     * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -96,7 +96,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Lists the current business&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
+     * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -108,7 +108,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
+     * Creates a reusable lead status for the current organization to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link RequestInformation}
      */
@@ -117,7 +117,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates a reusable lead status for the current business to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
+     * Creates a reusable lead status for the current organization to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

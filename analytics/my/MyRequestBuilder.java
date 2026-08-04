@@ -38,7 +38,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/analytics/my{?days*,endAt*,startAt*}", rawUrl);
     }
     /**
-     * Returns current-business analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
      * @return a {@link CustomerAnalyticsResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns current-business analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link CustomerAnalyticsResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, CustomerAnalyticsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns current-business analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -74,7 +74,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns current-business analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -96,7 +96,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return new MyRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns current-business analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

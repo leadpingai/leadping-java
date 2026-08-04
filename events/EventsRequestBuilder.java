@@ -1,11 +1,11 @@
 package ai.leadping.openapi.events;
 
 import ai.leadping.openapi.events.all.AllRequestBuilder;
-import ai.leadping.openapi.events.businesses.BusinessesRequestBuilder;
 import ai.leadping.openapi.events.calls.CallsRequestBuilder;
 import ai.leadping.openapi.events.conversations.ConversationsRequestBuilder;
 import ai.leadping.openapi.events.item.WithEventItemRequestBuilder;
 import ai.leadping.openapi.events.leads.LeadsRequestBuilder;
+import ai.leadping.openapi.events.organizations.OrganizationsRequestBuilder;
 import ai.leadping.openapi.events.sms.SmsRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -23,14 +23,6 @@ public class EventsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public AllRequestBuilder all() {
         return new AllRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
-     * The businesses property
-     * @return a {@link BusinessesRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public BusinessesRequestBuilder businesses() {
-        return new BusinessesRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The calls property
@@ -55,6 +47,14 @@ public class EventsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public LeadsRequestBuilder leads() {
         return new LeadsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The organizations property
+     * @return a {@link OrganizationsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public OrganizationsRequestBuilder organizations() {
+        return new OrganizationsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The sms property

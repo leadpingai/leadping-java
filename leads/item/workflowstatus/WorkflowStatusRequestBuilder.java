@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /leads/{id}/workflow-status
+ * Builds and executes requests for operations under /leads/{-id}/workflow-status
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class WorkflowStatusRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class WorkflowStatusRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public WorkflowStatusRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/workflow-status", pathParameters);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/workflow-status", pathParameters);
     }
     /**
      * Instantiates a new {@link WorkflowStatusRequestBuilder} and sets the default values.
@@ -33,10 +33,10 @@ public class WorkflowStatusRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public WorkflowStatusRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/workflow-status", rawUrl);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/workflow-status", rawUrl);
     }
     /**
-     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current business.
+     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current organization.
      * @return a {@link AutomationWorkflowStatusResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -46,7 +46,7 @@ public class WorkflowStatusRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current business.
+     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationWorkflowStatusResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -61,7 +61,7 @@ public class WorkflowStatusRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationWorkflowStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current business.
+     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current organization.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +69,7 @@ public class WorkflowStatusRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current business.
+     * Returns automation workflow status for one lead, including active runs, paused state, and follow-up progress for the current organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

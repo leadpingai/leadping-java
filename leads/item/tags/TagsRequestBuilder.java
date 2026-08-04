@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /leads/{id}/tags
+ * Builds and executes requests for operations under /leads/{-id}/tags
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TagsRequestBuilder extends BaseRequestBuilder {
@@ -39,7 +39,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public TagsRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/tags", pathParameters);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/tags", pathParameters);
     }
     /**
      * Instantiates a new {@link TagsRequestBuilder} and sets the default values.
@@ -47,10 +47,10 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public TagsRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/tags", rawUrl);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/tags", rawUrl);
     }
     /**
-     * Adds one or more current-business tags to a lead so users can segment, filter, route, and review follow-up work.
+     * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -62,7 +62,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Adds one or more current-business tags to a lead so users can segment, filter, route, and review follow-up work.
+     * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
@@ -81,7 +81,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Replaces all tags on a lead with the supplied current-business tags, keeping segmentation and routing labels in sync.
+     * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -93,7 +93,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Replaces all tags on a lead with the supplied current-business tags, keeping segmentation and routing labels in sync.
+     * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
@@ -112,7 +112,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Adds one or more current-business tags to a lead so users can segment, filter, route, and review follow-up work.
+     * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -121,7 +121,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Adds one or more current-business tags to a lead so users can segment, filter, route, and review follow-up work.
+     * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
@@ -136,7 +136,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Replaces all tags on a lead with the supplied current-business tags, keeping segmentation and routing labels in sync.
+     * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -145,7 +145,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Replaces all tags on a lead with the supplied current-business tags, keeping segmentation and routing labels in sync.
+     * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
      * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

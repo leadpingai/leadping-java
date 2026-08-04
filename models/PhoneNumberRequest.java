@@ -17,10 +17,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Business ID that owns the phone number being created or updated.
-     */
-    private String businessId;
-    /**
      * Indicates whether this phone number update request is active and available in the Leadping API.
      */
     private Boolean enabled;
@@ -36,6 +32,10 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      * E.164 phone number exposed by this phone number update request.
      */
     private String number;
+    /**
+     * Organization ID that owns the phone number being created or updated.
+     */
+    private String organizationId;
     /**
      * Instantiates a new {@link PhoneNumberRequest} and sets the default values.
      */
@@ -61,14 +61,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the businessId property value. Business ID that owns the phone number being created or updated.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the enabled property value. Indicates whether this phone number update request is active and available in the Leadping API.
      * @return a {@link Boolean}
      */
@@ -83,11 +75,11 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -115,16 +107,24 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the organizationId property value. Organization ID that owns the phone number being created or updated.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -133,13 +133,6 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns the phone number being created or updated.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the enabled property value. Indicates whether this phone number update request is active and available in the Leadping API.
@@ -168,5 +161,12 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns the phone number being created or updated.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
 }

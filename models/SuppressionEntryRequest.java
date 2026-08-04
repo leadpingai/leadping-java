@@ -17,10 +17,6 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The business ID associated with this ion entry.
-     */
-    private String businessId;
-    /**
      * The channel value for this ion entry.
      */
     private String channel;
@@ -28,6 +24,10 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      * The email address associated with this ion entry.
      */
     private String email;
+    /**
+     * The organization ID associated with this ion entry.
+     */
+    private String organizationId;
     /**
      * The phone number associated with this ion entry.
      */
@@ -65,14 +65,6 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the businessId property value. The business ID associated with this ion entry.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the channel property value. The channel value for this ion entry.
      * @return a {@link String}
      */
@@ -95,13 +87,21 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
         deserializerMap.put("recipientIdentifier", (n) -> { this.setRecipientIdentifier(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the organizationId property value. The organization ID associated with this ion entry.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the phoneNumber property value. The phone number associated with this ion entry.
@@ -133,9 +133,9 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("email", this.getEmail());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("reason", this.getReason());
         writer.writeStringValue("recipientIdentifier", this.getRecipientIdentifier());
@@ -147,13 +147,6 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the businessId property value. The business ID associated with this ion entry.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the channel property value. The channel value for this ion entry.
@@ -168,6 +161,13 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     public void setEmail(@jakarta.annotation.Nullable final String value) {
         this.email = value;
+    }
+    /**
+     * Sets the organizationId property value. The organization ID associated with this ion entry.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the phoneNumber property value. The phone number associated with this ion entry.

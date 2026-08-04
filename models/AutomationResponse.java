@@ -22,14 +22,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Business summary connected to this automation configuration response.
-     */
-    private AutomationResponseBusiness business;
-    /**
-     * Business ID that owns this automation.
-     */
-    private String businessId;
-    /**
      * Grouped automation conditions used to decide whether this workflow should run.
      */
     private java.util.List<AutomationConditionGroup> conditionGroups;
@@ -70,7 +62,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private String lastRunStatus;
     /**
-     * Management level that controls whether Leadping or the business owns this automation setting.
+     * Management level that controls whether Leadping or the organization owns this automation setting.
      */
     private String managementLevel;
     /**
@@ -81,6 +73,14 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      * The display name for the entity.
      */
     private String name;
+    /**
+     * Organization summary connected to this automation configuration response.
+     */
+    private AutomationResponseOrganization organization;
+    /**
+     * Organization ID that owns this automation.
+     */
+    private String organizationId;
     /**
      * Recent automation runs returned for history and troubleshooting.
      */
@@ -138,22 +138,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the business property value. Business summary connected to this automation configuration response.
-     * @return a {@link AutomationResponseBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public AutomationResponseBusiness getBusiness() {
-        return this.business;
-    }
-    /**
-     * Gets the businessId property value. Business ID that owns this automation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the conditionGroups property value. Grouped automation conditions used to decide whether this workflow should run.
      * @return a {@link java.util.List<AutomationConditionGroup>}
      */
@@ -209,8 +193,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(AutomationResponseBusiness::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
         deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -224,6 +206,8 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("managementLevel", (n) -> { this.setManagementLevel(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(AutomationResponseOrganization::createFromDiscriminatorValue)); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("recentRuns", (n) -> { this.setRecentRuns(n.getCollectionOfObjectValues(AutomationRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
@@ -265,7 +249,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.lastRunStatus;
     }
     /**
-     * Gets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
+     * Gets the managementLevel property value. Management level that controls whether Leadping or the organization owns this automation setting.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -287,6 +271,22 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
+    }
+    /**
+     * Gets the organization property value. Organization summary connected to this automation configuration response.
+     * @return a {@link AutomationResponseOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationResponseOrganization getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID that owns this automation.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the recentRuns property value. Recent automation runs returned for history and troubleshooting.
@@ -343,8 +343,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
-        writer.writeObjectValue("business", this.getBusiness());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeCollectionOfObjectValues("conditionGroups", this.getConditionGroups());
         writer.writeCollectionOfObjectValues("connections", this.getConnections());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
@@ -358,6 +356,8 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("managementLevel", this.getManagementLevel());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
+        writer.writeObjectValue("organization", this.getOrganization());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeCollectionOfObjectValues("recentRuns", this.getRecentRuns());
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
@@ -379,20 +379,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this automation configuration response.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final AutomationResponseBusiness value) {
-        this.business = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this automation.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the conditionGroups property value. Grouped automation conditions used to decide whether this workflow should run.
@@ -465,7 +451,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.lastRunStatus = value;
     }
     /**
-     * Sets the managementLevel property value. Management level that controls whether Leadping or the business owns this automation setting.
+     * Sets the managementLevel property value. Management level that controls whether Leadping or the organization owns this automation setting.
      * @param value Value to set for the managementLevel property.
      */
     public void setManagementLevel(@jakarta.annotation.Nullable final String value) {
@@ -484,6 +470,20 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the organization property value. Organization summary connected to this automation configuration response.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final AutomationResponseOrganization value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this automation.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the recentRuns property value. Recent automation runs returned for history and troubleshooting.

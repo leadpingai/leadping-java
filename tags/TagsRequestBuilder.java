@@ -51,7 +51,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/tags{?includeArchived*}", rawUrl);
     }
     /**
-     * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
+     * Lists tags for the current organization, optionally including archived tags, for lead segmentation, filters, and routing labels.
      * @return a {@link java.util.List<TagResponse>}
      * @throws ProblemDetails When receiving a 401 status code
      */
@@ -60,7 +60,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
+     * Lists tags for the current organization, optionally including archived tags, for lead segmentation, filters, and routing labels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<TagResponse>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -73,7 +73,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, TagResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates a tag for the current business so leads can be segmented, filtered, routed, and reviewed by label.
+     * Creates a tag for the current organization so leads can be segmented, filtered, routed, and reviewed by label.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @return a {@link TagResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -84,7 +84,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates a tag for the current business so leads can be segmented, filtered, routed, and reviewed by label.
+     * Creates a tag for the current organization so leads can be segmented, filtered, routed, and reviewed by label.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TagResponse}
@@ -101,7 +101,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, TagResponse::createFromDiscriminatorValue);
     }
     /**
-     * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
+     * Lists tags for the current organization, optionally including archived tags, for lead segmentation, filters, and routing labels.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -109,7 +109,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
+     * Lists tags for the current organization, optionally including archived tags, for lead segmentation, filters, and routing labels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -121,7 +121,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Creates a tag for the current business so leads can be segmented, filtered, routed, and reviewed by label.
+     * Creates a tag for the current organization so leads can be segmented, filtered, routed, and reviewed by label.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -130,7 +130,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates a tag for the current business so leads can be segmented, filtered, routed, and reviewed by label.
+     * Creates a tag for the current organization so leads can be segmented, filtered, routed, and reviewed by label.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
@@ -155,7 +155,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         return new TagsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Lists tags for the current business, optionally including archived tags, for lead segmentation, filters, and routing labels.
+     * Lists tags for the current organization, optionally including archived tags, for lead segmentation, filters, and routing labels.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

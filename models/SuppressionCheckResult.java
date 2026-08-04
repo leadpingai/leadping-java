@@ -22,10 +22,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     private Boolean allowed;
     /**
-     * The business ID associated with this ion check result.
-     */
-    private String businessId;
-    /**
      * The channel value for this ion check result.
      */
     private String channel;
@@ -41,6 +37,10 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      * The phone number associated with this ion check result.
      */
     private String normalizedPhoneNumber;
+    /**
+     * The organization ID associated with this ion check result.
+     */
+    private String organizationId;
     /**
      * The recipient identifier value for this ion check result.
      */
@@ -90,14 +90,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.allowed;
     }
     /**
-     * Gets the businessId property value. The business ID associated with this ion check result.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the channel property value. The channel value for this ion check result.
      * @return a {@link String}
      */
@@ -121,11 +113,11 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("allowed", (n) -> { this.setAllowed(n.getBooleanValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("customerReason", (n) -> { this.setCustomerReason(n.getStringValue()); });
         deserializerMap.put("normalizedEmail", (n) -> { this.setNormalizedEmail(n.getStringValue()); });
         deserializerMap.put("normalizedPhoneNumber", (n) -> { this.setNormalizedPhoneNumber(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("recipientIdentifier", (n) -> { this.setRecipientIdentifier(n.getStringValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getStringValue()); });
         deserializerMap.put("suppressedAt", (n) -> { this.setSuppressedAt(n.getOffsetDateTimeValue()); });
@@ -147,6 +139,14 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getNormalizedPhoneNumber() {
         return this.normalizedPhoneNumber;
+    }
+    /**
+     * Gets the organizationId property value. The organization ID associated with this ion check result.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the recipientIdentifier property value. The recipient identifier value for this ion check result.
@@ -187,11 +187,11 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeBooleanValue("allowed", this.getAllowed());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("customerReason", this.getCustomerReason());
         writer.writeStringValue("normalizedEmail", this.getNormalizedEmail());
         writer.writeStringValue("normalizedPhoneNumber", this.getNormalizedPhoneNumber());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("recipientIdentifier", this.getRecipientIdentifier());
         writer.writeStringValue("source", this.getSource());
         writer.writeOffsetDateTimeValue("suppressedAt", this.getSuppressedAt());
@@ -211,13 +211,6 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     public void setAllowed(@jakarta.annotation.Nullable final Boolean value) {
         this.allowed = value;
-    }
-    /**
-     * Sets the businessId property value. The business ID associated with this ion check result.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the channel property value. The channel value for this ion check result.
@@ -246,6 +239,13 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     public void setNormalizedPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.normalizedPhoneNumber = value;
+    }
+    /**
+     * Sets the organizationId property value. The organization ID associated with this ion check result.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the recipientIdentifier property value. The recipient identifier value for this ion check result.

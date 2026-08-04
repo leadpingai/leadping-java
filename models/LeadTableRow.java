@@ -30,17 +30,13 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
-     * The ID and name for this business.
-     */
-    private LeadTableRowBusiness business;
-    /**
      * UTC timestamp when this lead table row was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * Current disposition summary that describes the lead outcome.
+     * Current lead status change summary that describes the lead outcome.
      */
-    private LeadTableRowCurrentDisposition currentDisposition;
+    private LeadTableRowCurrentLeadStatus currentLeadStatus;
     /**
      * Email address for the person represented by this lead table row.
      */
@@ -66,7 +62,11 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * Phone details for the lead, user, or business represented by this lead table row.
+     * The ID and name for this organization.
+     */
+    private LeadTableRowOrganization organization;
+    /**
+     * Phone details for the lead, user, or organization represented by this lead table row.
      */
     private String phone;
     /**
@@ -142,14 +142,6 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
-     * Gets the business property value. The ID and name for this business.
-     * @return a {@link LeadTableRowBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public LeadTableRowBusiness getBusiness() {
-        return this.business;
-    }
-    /**
      * Gets the createdAt property value. UTC timestamp when this lead table row was created.
      * @return a {@link OffsetDateTime}
      */
@@ -158,12 +150,12 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentDisposition property value. Current disposition summary that describes the lead outcome.
-     * @return a {@link LeadTableRowCurrentDisposition}
+     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * @return a {@link LeadTableRowCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
-    public LeadTableRowCurrentDisposition getCurrentDisposition() {
-        return this.currentDisposition;
+    public LeadTableRowCurrentLeadStatus getCurrentLeadStatus() {
+        return this.currentLeadStatus;
     }
     /**
      * Gets the email property value. Email address for the person represented by this lead table row.
@@ -191,15 +183,15 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(LeadTableRowBusiness::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("currentDisposition", (n) -> { this.setCurrentDisposition(n.getObjectValue(LeadTableRowCurrentDisposition::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(LeadTableRowCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(LeadTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getObjectValue(LeadTableRowSource::createFromDiscriminatorValue)); });
@@ -242,7 +234,15 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the phone property value. Phone details for the lead, user, or business represented by this lead table row.
+     * Gets the organization property value. The ID and name for this organization.
+     * @return a {@link LeadTableRowOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public LeadTableRowOrganization getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the phone property value. Phone details for the lead, user, or organization represented by this lead table row.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -306,15 +306,15 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
-        writer.writeObjectValue("business", this.getBusiness());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeObjectValue("currentDisposition", this.getCurrentDisposition());
+        writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeStringValue("lastName", this.getLastName());
+        writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phone", this.getPhone());
         writer.writeDoubleValue("price", this.getPrice());
         writer.writeObjectValue("source", this.getSource());
@@ -353,13 +353,6 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
-     * Sets the business property value. The ID and name for this business.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final LeadTableRowBusiness value) {
-        this.business = value;
-    }
-    /**
      * Sets the createdAt property value. UTC timestamp when this lead table row was created.
      * @param value Value to set for the createdAt property.
      */
@@ -367,11 +360,11 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentDisposition property value. Current disposition summary that describes the lead outcome.
-     * @param value Value to set for the currentDisposition property.
+     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * @param value Value to set for the currentLeadStatus property.
      */
-    public void setCurrentDisposition(@jakarta.annotation.Nullable final LeadTableRowCurrentDisposition value) {
-        this.currentDisposition = value;
+    public void setCurrentLeadStatus(@jakarta.annotation.Nullable final LeadTableRowCurrentLeadStatus value) {
+        this.currentLeadStatus = value;
     }
     /**
      * Sets the email property value. Email address for the person represented by this lead table row.
@@ -416,7 +409,14 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the phone property value. Phone details for the lead, user, or business represented by this lead table row.
+     * Sets the organization property value. The ID and name for this organization.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final LeadTableRowOrganization value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the phone property value. Phone details for the lead, user, or organization represented by this lead table row.
      * @param value Value to set for the phone property.
      */
     public void setPhone(@jakarta.annotation.Nullable final String value) {

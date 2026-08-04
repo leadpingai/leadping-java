@@ -2,15 +2,15 @@ package ai.leadping.openapi;
 
 import ai.leadping.openapi.analytics.AnalyticsRequestBuilder;
 import ai.leadping.openapi.automations.AutomationsRequestBuilder;
-import ai.leadping.openapi.businesses.BusinessesRequestBuilder;
 import ai.leadping.openapi.contact.ContactRequestBuilder;
 import ai.leadping.openapi.conversations.ConversationsRequestBuilder;
-import ai.leadping.openapi.dispositions.DispositionsRequestBuilder;
 import ai.leadping.openapi.events.EventsRequestBuilder;
 import ai.leadping.openapi.feedback.FeedbackRequestBuilder;
 import ai.leadping.openapi.leads.LeadsRequestBuilder;
+import ai.leadping.openapi.leadstatuschanges.LeadStatusChangesRequestBuilder;
 import ai.leadping.openapi.leadstatuses.LeadStatusesRequestBuilder;
 import ai.leadping.openapi.notifications.NotificationsRequestBuilder;
+import ai.leadping.openapi.organizations.OrganizationsRequestBuilder;
 import ai.leadping.openapi.outbound.OutboundRequestBuilder;
 import ai.leadping.openapi.paymentmethods.PaymentMethodsRequestBuilder;
 import ai.leadping.openapi.phonecall.PhoneCallRequestBuilder;
@@ -61,14 +61,6 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
         return new AutomationsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * The businesses property
-     * @return a {@link BusinessesRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public BusinessesRequestBuilder businesses() {
-        return new BusinessesRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
      * The contact property
      * @return a {@link ContactRequestBuilder}
      */
@@ -83,14 +75,6 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public ConversationsRequestBuilder conversations() {
         return new ConversationsRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
-     * The dispositions property
-     * @return a {@link DispositionsRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public DispositionsRequestBuilder dispositions() {
-        return new DispositionsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The events property
@@ -117,6 +101,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
         return new LeadsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
+     * The leadStatusChanges property
+     * @return a {@link LeadStatusChangesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public LeadStatusChangesRequestBuilder leadStatusChanges() {
+        return new LeadStatusChangesRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The leadStatuses property
      * @return a {@link LeadStatusesRequestBuilder}
      */
@@ -131,6 +123,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public NotificationsRequestBuilder notifications() {
         return new NotificationsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The organizations property
+     * @return a {@link OrganizationsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public OrganizationsRequestBuilder organizations() {
+        return new OrganizationsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The outbound property

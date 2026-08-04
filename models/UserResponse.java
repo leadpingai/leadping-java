@@ -23,7 +23,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UserResponseBillingPlan billingPlan;
     /**
-     * Customer-safe billing state for the user&apos;s currently selected business.
+     * Customer-safe billing state for the user&apos;s currently selected organization.
      */
     private UserResponseBillingState billingState;
     /**
@@ -35,9 +35,9 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * The current business value for this user.
+     * The current organization value for this user.
      */
-    private UserResponseCurrentBusiness currentBusiness;
+    private UserResponseCurrentOrganization currentOrganization;
     /**
      * The email address associated with this user.
      */
@@ -143,7 +143,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the billingState property value. Customer-safe billing state for the user&apos;s currently selected business.
+     * Gets the billingState property value. Customer-safe billing state for the user&apos;s currently selected organization.
      * @return a {@link UserResponseBillingState}
      */
     @jakarta.annotation.Nullable
@@ -167,12 +167,12 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentBusiness property value. The current business value for this user.
-     * @return a {@link UserResponseCurrentBusiness}
+     * Gets the currentOrganization property value. The current organization value for this user.
+     * @return a {@link UserResponseCurrentOrganization}
      */
     @jakarta.annotation.Nullable
-    public UserResponseCurrentBusiness getCurrentBusiness() {
-        return this.currentBusiness;
+    public UserResponseCurrentOrganization getCurrentOrganization() {
+        return this.currentOrganization;
     }
     /**
      * Gets the email property value. The email address associated with this user.
@@ -193,7 +193,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("currentBusiness", (n) -> { this.setCurrentBusiness(n.getObjectValue(UserResponseCurrentBusiness::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentOrganization", (n) -> { this.setCurrentOrganization(n.getObjectValue(UserResponseCurrentOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -360,7 +360,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("billingState", this.getBillingState());
         writer.writeObjectValue("compliance", this.getCompliance());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeObjectValue("currentBusiness", this.getCurrentBusiness());
+        writer.writeObjectValue("currentOrganization", this.getCurrentOrganization());
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
@@ -396,7 +396,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.billingPlan = value;
     }
     /**
-     * Sets the billingState property value. Customer-safe billing state for the user&apos;s currently selected business.
+     * Sets the billingState property value. Customer-safe billing state for the user&apos;s currently selected organization.
      * @param value Value to set for the billingState property.
      */
     public void setBillingState(@jakarta.annotation.Nullable final UserResponseBillingState value) {
@@ -417,11 +417,11 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentBusiness property value. The current business value for this user.
-     * @param value Value to set for the currentBusiness property.
+     * Sets the currentOrganization property value. The current organization value for this user.
+     * @param value Value to set for the currentOrganization property.
      */
-    public void setCurrentBusiness(@jakarta.annotation.Nullable final UserResponseCurrentBusiness value) {
-        this.currentBusiness = value;
+    public void setCurrentOrganization(@jakarta.annotation.Nullable final UserResponseCurrentOrganization value) {
+        this.currentOrganization = value;
     }
     /**
      * Sets the email property value. The email address associated with this user.

@@ -26,10 +26,6 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
      */
     private String area;
     /**
-     * Business ID connected to the feedback item, when the feedback came from a business workspace.
-     */
-    private String businessId;
-    /**
      * Client application version that submitted this feedback item response.
      */
     private String clientVersion;
@@ -45,6 +41,10 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
      * Message text supplied by the user or returned by the Leadping API for this feedback item response.
      */
     private String message;
+    /**
+     * Organization ID connected to the feedback item, when the feedback came from an organization workspace.
+     */
+    private String organizationId;
     /**
      * Application route where this feedback item response originated or should direct the user.
      */
@@ -102,14 +102,6 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         return this.area;
     }
     /**
-     * Gets the businessId property value. Business ID connected to the feedback item, when the feedback came from a business workspace.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the clientVersion property value. Client application version that submitted this feedback item response.
      * @return a {@link String}
      */
@@ -134,11 +126,11 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("allowContact", (n) -> { this.setAllowContact(n.getBooleanValue()); });
         deserializerMap.put("area", (n) -> { this.setArea(n.getStringValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("clientVersion", (n) -> { this.setClientVersion(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("route", (n) -> { this.setRoute(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(FeedbackStatus::forValue)); });
         deserializerMap.put("type", (n) -> { this.setType(n.getEnumValue(FeedbackType::forValue)); });
@@ -160,6 +152,14 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getMessage() {
         return this.message;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID connected to the feedback item, when the feedback came from an organization workspace.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the route property value. Application route where this feedback item response originated or should direct the user.
@@ -201,11 +201,11 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeBooleanValue("allowContact", this.getAllowContact());
         writer.writeStringValue("area", this.getArea());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("clientVersion", this.getClientVersion());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("message", this.getMessage());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("route", this.getRoute());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeEnumValue("type", this.getType());
@@ -234,13 +234,6 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         this.area = value;
     }
     /**
-     * Sets the businessId property value. Business ID connected to the feedback item, when the feedback came from a business workspace.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
      * Sets the clientVersion property value. Client application version that submitted this feedback item response.
      * @param value Value to set for the clientVersion property.
      */
@@ -267,6 +260,13 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
      */
     public void setMessage(@jakarta.annotation.Nullable final String value) {
         this.message = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID connected to the feedback item, when the feedback came from an organization workspace.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the route property value. Application route where this feedback item response originated or should direct the user.

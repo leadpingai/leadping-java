@@ -30,9 +30,9 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
-     * Current disposition summary that describes the lead outcome.
+     * Current lead status change summary that describes the lead outcome.
      */
-    private ConversationResponseCurrentDisposition currentDisposition;
+    private ConversationResponseCurrentLeadStatus currentLeadStatus;
     /**
      * Email address used to resolve the lead&apos;s avatar when available.
      */
@@ -146,12 +146,12 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
-     * Gets the currentDisposition property value. Current disposition summary that describes the lead outcome.
-     * @return a {@link ConversationResponseCurrentDisposition}
+     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * @return a {@link ConversationResponseCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
-    public ConversationResponseCurrentDisposition getCurrentDisposition() {
-        return this.currentDisposition;
+    public ConversationResponseCurrentLeadStatus getCurrentLeadStatus() {
+        return this.currentLeadStatus;
     }
     /**
      * Gets the email property value. Email address used to resolve the lead&apos;s avatar when available.
@@ -171,7 +171,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
-        deserializerMap.put("currentDisposition", (n) -> { this.setCurrentDisposition(n.getObjectValue(ConversationResponseCurrentDisposition::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(ConversationResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -319,7 +319,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("activeOutboundPhoneNumberId", this.getActiveOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
-        writer.writeObjectValue("currentDisposition", this.getCurrentDisposition());
+        writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
@@ -367,11 +367,11 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
-     * Sets the currentDisposition property value. Current disposition summary that describes the lead outcome.
-     * @param value Value to set for the currentDisposition property.
+     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * @param value Value to set for the currentLeadStatus property.
      */
-    public void setCurrentDisposition(@jakarta.annotation.Nullable final ConversationResponseCurrentDisposition value) {
-        this.currentDisposition = value;
+    public void setCurrentLeadStatus(@jakarta.annotation.Nullable final ConversationResponseCurrentLeadStatus value) {
+        this.currentLeadStatus = value;
     }
     /**
      * Sets the email property value. Email address used to resolve the lead&apos;s avatar when available.

@@ -36,7 +36,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/wallets/me", rawUrl);
     }
     /**
-     * Returns the current business wallet, including balance and funding status used for communication delivery and billing.
+     * Returns the current organization wallet, including balance and funding status used for communication delivery and billing.
      * @return a {@link WalletResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -47,7 +47,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the current business wallet, including balance and funding status used for communication delivery and billing.
+     * Returns the current organization wallet, including balance and funding status used for communication delivery and billing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link WalletResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -64,7 +64,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, WalletResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the current business wallet, including balance and funding status used for communication delivery and billing.
+     * Returns the current organization wallet, including balance and funding status used for communication delivery and billing.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the current business wallet, including balance and funding status used for communication delivery and billing.
+     * Returns the current organization wallet, including balance and funding status used for communication delivery and billing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

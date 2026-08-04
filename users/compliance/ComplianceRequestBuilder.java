@@ -37,7 +37,7 @@ public class ComplianceRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/users/compliance", rawUrl);
     }
     /**
-     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and business account setup.
+     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and organization account setup.
      * @param body Request payload for compliance update.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class ComplianceRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and business account setup.
+     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and organization account setup.
      * @param body Request payload for compliance update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
@@ -65,7 +65,7 @@ public class ComplianceRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and business account setup.
+     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and organization account setup.
      * @param body Request payload for compliance update.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class ComplianceRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and business account setup.
+     * Updates current-user compliance settings used for messaging eligibility, billing readiness, and organization account setup.
      * @param body Request payload for compliance update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

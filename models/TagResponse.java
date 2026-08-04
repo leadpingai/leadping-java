@@ -22,10 +22,6 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime archivedAt;
     /**
-     * Business ID that owns this tag.
-     */
-    private String businessId;
-    /**
      * Hex color used to display this tag or status in Leadping clients.
      */
     private String color;
@@ -62,6 +58,10 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
      */
     private String normalizedName;
     /**
+     * Organization ID that owns this tag.
+     */
+    private String organizationId;
+    /**
      * Instantiates a new {@link TagResponse} and sets the default values.
      */
     public TagResponse() {
@@ -92,14 +92,6 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getArchivedAt() {
         return this.archivedAt;
-    }
-    /**
-     * Gets the businessId property value. Business ID that owns this tag.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
     }
     /**
      * Gets the color property value. Hex color used to display this tag or status in Leadping clients.
@@ -141,7 +133,6 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("color", (n) -> { this.setColor(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
@@ -151,6 +142,7 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("normalizedName", (n) -> { this.setNormalizedName(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -194,13 +186,20 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
         return this.normalizedName;
     }
     /**
+     * Gets the organizationId property value. Organization ID that owns this tag.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("color", this.getColor());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
@@ -210,6 +209,7 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("normalizedName", this.getNormalizedName());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -225,13 +225,6 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
      */
     public void setArchivedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.archivedAt = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this tag.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the color property value. Hex color used to display this tag or status in Leadping clients.
@@ -295,5 +288,12 @@ public class TagResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNormalizedName(@jakarta.annotation.Nullable final String value) {
         this.normalizedName = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this tag.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
 }

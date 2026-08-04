@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Controlled disposition categories used for reporting, automation, and analytics.
+ * Controlled lead status change categories used for reporting, automation, and analytics.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum LeadStatusRequestCategory implements ValuedEnum {

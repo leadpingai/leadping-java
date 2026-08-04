@@ -34,18 +34,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String billingStatus;
     /**
-     * Business summary connected to this call event table row.
-     */
-    private String business;
-    /**
-     * Business ID associated with this call event.
-     */
-    private String businessId;
-    /**
-     * Display name for the business associated with this call event.
-     */
-    private String businessName;
-    /**
      * Caller ID phone number presented during the outbound call.
      */
     private String callerId;
@@ -89,6 +77,18 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Display name for the lead associated with this call event.
      */
     private String leadName;
+    /**
+     * Organization summary connected to this call event table row.
+     */
+    private String organization;
+    /**
+     * Organization ID associated with this call event.
+     */
+    private String organizationId;
+    /**
+     * Display name for the organization associated with this call event.
+     */
+    private String organizationName;
     /**
      * URL for the call recording, when the provider makes one available.
      */
@@ -170,30 +170,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.billingStatus;
     }
     /**
-     * Gets the business property value. Business summary connected to this call event table row.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusiness() {
-        return this.business;
-    }
-    /**
-     * Gets the businessId property value. Business ID associated with this call event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the businessName property value. Display name for the business associated with this call event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
-    }
-    /**
      * Gets the callerId property value. Caller ID phone number presented during the outbound call.
      * @return a {@link String}
      */
@@ -252,9 +228,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -266,6 +239,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
+        deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
         deserializerMap.put("recordingUrl", (n) -> { this.setRecordingUrl(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(CallEventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
@@ -313,6 +289,30 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLeadName() {
         return this.leadName;
+    }
+    /**
+     * Gets the organization property value. Organization summary connected to this call event table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID associated with this call event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
+     * Gets the organizationName property value. Display name for the organization associated with this call event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationName() {
+        return this.organizationName;
     }
     /**
      * Gets the recordingUrl property value. URL for the call recording, when the provider makes one available.
@@ -372,9 +372,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
-        writer.writeStringValue("business", this.getBusiness());
-        writer.writeStringValue("businessId", this.getBusinessId());
-        writer.writeStringValue("businessName", this.getBusinessName());
         writer.writeStringValue("callerId", this.getCallerId());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
@@ -386,6 +383,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
+        writer.writeStringValue("organization", this.getOrganization());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
+        writer.writeStringValue("organizationName", this.getOrganizationName());
         writer.writeStringValue("recordingUrl", this.getRecordingUrl());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
@@ -428,27 +428,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setBillingStatus(@jakarta.annotation.Nullable final String value) {
         this.billingStatus = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this call event table row.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final String value) {
-        this.business = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID associated with this call event.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the businessName property value. Display name for the business associated with this call event.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
     }
     /**
      * Sets the callerId property value. Caller ID phone number presented during the outbound call.
@@ -526,6 +505,27 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLeadName(@jakarta.annotation.Nullable final String value) {
         this.leadName = value;
+    }
+    /**
+     * Sets the organization property value. Organization summary connected to this call event table row.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final String value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID associated with this call event.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
+    }
+    /**
+     * Sets the organizationName property value. Display name for the organization associated with this call event.
+     * @param value Value to set for the organizationName property.
+     */
+    public void setOrganizationName(@jakarta.annotation.Nullable final String value) {
+        this.organizationName = value;
     }
     /**
      * Sets the recordingUrl property value. URL for the call recording, when the provider makes one available.

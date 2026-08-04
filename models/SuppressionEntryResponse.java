@@ -22,10 +22,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private java.util.List<SuppressionEntryAudit> audit;
     /**
-     * The business ID associated with this ion entry.
-     */
-    private String businessId;
-    /**
      * The channel value for this ion entry.
      */
     private String channel;
@@ -41,6 +37,10 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      * The phone number associated with this ion entry.
      */
     private String normalizedPhoneNumber;
+    /**
+     * The organization ID associated with this ion entry.
+     */
+    private String organizationId;
     /**
      * The human-readable reason explaining this ion entry.
      */
@@ -98,14 +98,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.audit;
     }
     /**
-     * Gets the businessId property value. The business ID associated with this ion entry.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the channel property value. The channel value for this ion entry.
      * @return a {@link String}
      */
@@ -121,11 +113,11 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("audit", (n) -> { this.setAudit(n.getCollectionOfObjectValues(SuppressionEntryAudit::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("normalizedEmail", (n) -> { this.setNormalizedEmail(n.getStringValue()); });
         deserializerMap.put("normalizedPhoneNumber", (n) -> { this.setNormalizedPhoneNumber(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
         deserializerMap.put("recipientIdentifier", (n) -> { this.setRecipientIdentifier(n.getStringValue()); });
         deserializerMap.put("releasedAt", (n) -> { this.setReleasedAt(n.getOffsetDateTimeValue()); });
@@ -157,6 +149,14 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getNormalizedPhoneNumber() {
         return this.normalizedPhoneNumber;
+    }
+    /**
+     * Gets the organizationId property value. The organization ID associated with this ion entry.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the reason property value. The human-readable reason explaining this ion entry.
@@ -213,11 +213,11 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("audit", this.getAudit());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("normalizedEmail", this.getNormalizedEmail());
         writer.writeStringValue("normalizedPhoneNumber", this.getNormalizedPhoneNumber());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("reason", this.getReason());
         writer.writeStringValue("recipientIdentifier", this.getRecipientIdentifier());
         writer.writeOffsetDateTimeValue("releasedAt", this.getReleasedAt());
@@ -239,13 +239,6 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     public void setAudit(@jakarta.annotation.Nullable final java.util.List<SuppressionEntryAudit> value) {
         this.audit = value;
-    }
-    /**
-     * Sets the businessId property value. The business ID associated with this ion entry.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the channel property value. The channel value for this ion entry.
@@ -274,6 +267,13 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     public void setNormalizedPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.normalizedPhoneNumber = value;
+    }
+    /**
+     * Sets the organizationId property value. The organization ID associated with this ion entry.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the reason property value. The human-readable reason explaining this ion entry.

@@ -54,7 +54,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private Integer expectedMonthlyVolume;
     /**
-     * The industry value for this 10DLC application draft.
+     * The Telnyx brand vertical for this 10DLC application draft. The JSON name is retained for backward compatibility.
      */
     private String industry;
     /**
@@ -243,7 +243,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the industry property value. The industry value for this 10DLC application draft.
+     * Gets the industry property value. The Telnyx brand vertical for this 10DLC application draft. The JSON name is retained for backward compatibility.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -465,7 +465,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.expectedMonthlyVolume = value;
     }
     /**
-     * Sets the industry property value. The industry value for this 10DLC application draft.
+     * Sets the industry property value. The Telnyx brand vertical for this 10DLC application draft. The JSON name is retained for backward compatibility.
      * @param value Value to set for the industry property.
      */
     public void setIndustry(@jakarta.annotation.Nullable final String value) {

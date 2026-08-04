@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /leads/{id}/tags/{tagId}
+ * Builds and executes requests for operations under /leads/{-id}/tags/{tagId}
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class WithTagItemRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public WithTagItemRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/tags/{tagId}", pathParameters);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/tags/{tagId}", pathParameters);
     }
     /**
      * Instantiates a new {@link WithTagItemRequestBuilder} and sets the default values.
@@ -33,10 +33,10 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public WithTagItemRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/tags/{tagId}", rawUrl);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/tags/{tagId}", rawUrl);
     }
     /**
-     * Removes one current-business tag from a lead while leaving the lead record, other tags, and communication history intact.
+     * Removes one current-organization tag from a lead while leaving the lead record, other tags, and communication history intact.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -46,7 +46,7 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Removes one current-business tag from a lead while leaving the lead record, other tags, and communication history intact.
+     * Removes one current-organization tag from a lead while leaving the lead record, other tags, and communication history intact.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -61,7 +61,7 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Removes one current-business tag from a lead while leaving the lead record, other tags, and communication history intact.
+     * Removes one current-organization tag from a lead while leaving the lead record, other tags, and communication history intact.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +69,7 @@ public class WithTagItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Removes one current-business tag from a lead while leaving the lead record, other tags, and communication history intact.
+     * Removes one current-organization tag from a lead while leaving the lead record, other tags, and communication history intact.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

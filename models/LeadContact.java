@@ -33,7 +33,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * Phone details for the lead, user, or business represented by this lead contact profile.
+     * Phone details for the lead, user, or organization represented by this lead contact profile.
      */
     private LeadContactPhone phone;
     /**
@@ -117,7 +117,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the phone property value. Phone details for the lead, user, or business represented by this lead contact profile.
+     * Gets the phone property value. Phone details for the lead, user, or organization represented by this lead contact profile.
      * @return a {@link LeadContactPhone}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the phone property value. Phone details for the lead, user, or business represented by this lead contact profile.
+     * Sets the phone property value. Phone details for the lead, user, or organization represented by this lead contact profile.
      * @param value Value to set for the phone property.
      */
     public void setPhone(@jakarta.annotation.Nullable final LeadContactPhone value) {

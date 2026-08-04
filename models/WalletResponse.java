@@ -34,10 +34,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime balanceCalculatedAt;
     /**
-     * Business ID that owns this wallet balance or credit.
-     */
-    private String businessId;
-    /**
      * The date and time when the entity was created.
      */
     private OffsetDateTime createdAt;
@@ -77,6 +73,10 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      * Amount of wallet credit scheduled to expire next.
      */
     private Double nextExpiringCreditAmount;
+    /**
+     * Organization ID that owns this wallet balance or credit.
+     */
+    private String organizationId;
     /**
      * Original wallet transaction ID referenced by a reversal, refund, or adjustment.
      */
@@ -146,14 +146,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         return this.balanceCalculatedAt;
     }
     /**
-     * Gets the businessId property value. Business ID that owns this wallet balance or credit.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the createdAt property value. The date and time when the entity was created.
      * @return a {@link OffsetDateTime}
      */
@@ -204,7 +196,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("amountRemaining", (n) -> { this.setAmountRemaining(n.getDoubleValue()); });
         deserializerMap.put("balance", (n) -> { this.setBalance(n.getDoubleValue()); });
         deserializerMap.put("balanceCalculatedAt", (n) -> { this.setBalanceCalculatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("creditStatus", (n) -> { this.setCreditStatus(n.getEnumValue(WalletResponseCreditStatus::forValue)); });
         deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
@@ -215,6 +206,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("nextCreditExpirationAt", (n) -> { this.setNextCreditExpirationAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("nextExpiringCreditAmount", (n) -> { this.setNextExpiringCreditAmount(n.getDoubleValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("originalTransactionId", (n) -> { this.setOriginalTransactionId(n.getStringValue()); });
         deserializerMap.put("purchasedAt", (n) -> { this.setPurchasedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("sourceType", (n) -> { this.setSourceType(n.getEnumValue(WalletResponseSourceType::forValue)); });
@@ -261,6 +253,14 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         return this.nextExpiringCreditAmount;
     }
     /**
+     * Gets the organizationId property value. Organization ID that owns this wallet balance or credit.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Gets the originalTransactionId property value. Original wallet transaction ID referenced by a reversal, refund, or adjustment.
      * @return a {@link String}
      */
@@ -294,7 +294,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("amountRemaining", this.getAmountRemaining());
         writer.writeDoubleValue("balance", this.getBalance());
         writer.writeOffsetDateTimeValue("balanceCalculatedAt", this.getBalanceCalculatedAt());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeEnumValue("creditStatus", this.getCreditStatus());
         writer.writeStringValue("currency", this.getCurrency());
@@ -305,6 +304,7 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeOffsetDateTimeValue("nextCreditExpirationAt", this.getNextCreditExpirationAt());
         writer.writeDoubleValue("nextExpiringCreditAmount", this.getNextExpiringCreditAmount());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("originalTransactionId", this.getOriginalTransactionId());
         writer.writeOffsetDateTimeValue("purchasedAt", this.getPurchasedAt());
         writer.writeEnumValue("sourceType", this.getSourceType());
@@ -344,13 +344,6 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBalanceCalculatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.balanceCalculatedAt = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this wallet balance or credit.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the createdAt property value. The date and time when the entity was created.
@@ -421,6 +414,13 @@ public class WalletResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNextExpiringCreditAmount(@jakarta.annotation.Nullable final Double value) {
         this.nextExpiringCreditAmount = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this wallet balance or credit.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the originalTransactionId property value. Original wallet transaction ID referenced by a reversal, refund, or adjustment.

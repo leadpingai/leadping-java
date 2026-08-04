@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Phone details for the lead, user, or business represented by this lead contact profile.
+ * Phone details for the lead, user, or organization represented by this lead contact profile.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadContactPhone extends Phone implements Parsable {

@@ -58,7 +58,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/payment-methods", rawUrl);
     }
     /**
-     * Lists the payment methods available to the current business for billing, invoice payments, and wallet funding.
+     * Lists the payment methods available to the current organization for billing, invoice payments, and wallet funding.
      * @return a {@link java.util.List<StripePaymentMethodResponse>}
      * @throws ProblemDetails When receiving a 401 status code
      */
@@ -67,7 +67,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Lists the payment methods available to the current business for billing, invoice payments, and wallet funding.
+     * Lists the payment methods available to the current organization for billing, invoice payments, and wallet funding.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripePaymentMethodResponse>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -80,7 +80,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, StripePaymentMethodResponse::createFromDiscriminatorValue);
     }
     /**
-     * Lists the payment methods available to the current business for billing, invoice payments, and wallet funding.
+     * Lists the payment methods available to the current organization for billing, invoice payments, and wallet funding.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -88,7 +88,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Lists the payment methods available to the current business for billing, invoice payments, and wallet funding.
+     * Lists the payment methods available to the current organization for billing, invoice payments, and wallet funding.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

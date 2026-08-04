@@ -69,7 +69,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private String sourceId;
     /**
-     * Team ID used to determine this phone number&apos;s outbound eligibility.
+     * Organization ID used to determine this phone number&apos;s outbound eligibility.
      */
     private String teamId;
     /**
@@ -224,7 +224,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.sourceId;
     }
     /**
-     * Gets the teamId property value. Team ID used to determine this phone number&apos;s outbound eligibility.
+     * Gets the teamId property value. Organization ID used to determine this phone number&apos;s outbound eligibility.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -352,7 +352,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         this.sourceId = value;
     }
     /**
-     * Sets the teamId property value. Team ID used to determine this phone number&apos;s outbound eligibility.
+     * Sets the teamId property value. Organization ID used to determine this phone number&apos;s outbound eligibility.
      * @param value Value to set for the teamId property.
      */
     public void setTeamId(@jakarta.annotation.Nullable final String value) {

@@ -41,7 +41,7 @@ public class OutgoingNumberSelectionRequest implements AdditionalDataHolder, Par
      */
     private String sourceId;
     /**
-     * Team ID used to choose the best outgoing sender number.
+     * Organization ID used to choose the best outgoing sender number.
      */
     private String teamId;
     /**
@@ -133,7 +133,7 @@ public class OutgoingNumberSelectionRequest implements AdditionalDataHolder, Par
         return this.sourceId;
     }
     /**
-     * Gets the teamId property value. Team ID used to choose the best outgoing sender number.
+     * Gets the teamId property value. Organization ID used to choose the best outgoing sender number.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -205,7 +205,7 @@ public class OutgoingNumberSelectionRequest implements AdditionalDataHolder, Par
         this.sourceId = value;
     }
     /**
-     * Sets the teamId property value. Team ID used to choose the best outgoing sender number.
+     * Sets the teamId property value. Organization ID used to choose the best outgoing sender number.
      * @param value Value to set for the teamId property.
      */
     public void setTeamId(@jakarta.annotation.Nullable final String value) {

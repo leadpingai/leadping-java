@@ -37,7 +37,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/feedback", rawUrl);
     }
     /**
-     * Creates product feedback for the current business, capturing category, message, and context for operator review.
+     * Creates product feedback for the current organization, capturing category, message, and context for operator review.
      * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
      * @return a {@link FeedbackResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -48,7 +48,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates product feedback for the current business, capturing category, message, and context for operator review.
+     * Creates product feedback for the current organization, capturing category, message, and context for operator review.
      * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link FeedbackResponse}
@@ -65,7 +65,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, FeedbackResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates product feedback for the current business, capturing category, message, and context for operator review.
+     * Creates product feedback for the current organization, capturing category, message, and context for operator review.
      * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +74,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates product feedback for the current business, capturing category, message, and context for operator review.
+     * Creates product feedback for the current organization, capturing category, message, and context for operator review.
      * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

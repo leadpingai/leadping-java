@@ -36,7 +36,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/lead-statuses/{id}", rawUrl);
     }
     /**
-     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
+     * Archives a lead status for the current organization so it is unavailable for new assignments while existing lead history is preserved.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -44,7 +44,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
+     * Archives a lead status for the current organization so it is unavailable for new assignments while existing lead history is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      */
@@ -54,7 +54,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, null, Boolean.class);
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
+     * Updates the name, color, and display order of a lead status owned by the current organization so pipeline stages remain clear and consistently organized.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link LeadStatusResponse}
      */
@@ -63,7 +63,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
+     * Updates the name, color, and display order of a lead status owned by the current organization so pipeline stages remain clear and consistently organized.
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
@@ -75,7 +75,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
-     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
+     * Archives a lead status for the current organization so it is unavailable for new assignments while existing lead history is preserved.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -83,7 +83,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Archives a lead status for the current business so it is unavailable for new assignments while existing lead history is preserved.
+     * Archives a lead status for the current organization so it is unavailable for new assignments while existing lead history is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -95,7 +95,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
+     * Updates the name, color, and display order of a lead status owned by the current organization so pipeline stages remain clear and consistently organized.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link RequestInformation}
      */
@@ -104,7 +104,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates the name, color, and display order of a lead status owned by the current business so pipeline stages remain clear and consistently organized.
+     * Updates the name, color, and display order of a lead status owned by the current organization so pipeline stages remain clear and consistently organized.
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

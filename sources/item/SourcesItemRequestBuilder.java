@@ -46,7 +46,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sources/{id}", rawUrl);
     }
     /**
-     * Deletes a lead source from the current business so it can no longer accept or route newly captured leads.
+     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
      */
@@ -54,7 +54,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         delete(null);
     }
     /**
-     * Deletes a lead source from the current business so it can no longer accept or route newly captured leads.
+     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -67,7 +67,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**
-     * Returns one lead source for the current business, including intake settings, credentials metadata, and routing context.
+     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
      * @return a {@link SourceResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -77,7 +77,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns one lead source for the current business, including intake settings, credentials metadata, and routing context.
+     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SourceResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -92,7 +92,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SourceResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates a lead source for the current business, changing intake settings, credentials, routing context, or active status.
+     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
      * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
      * @return a {@link SourceResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -103,7 +103,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates a lead source for the current business, changing intake settings, credentials, routing context, or active status.
+     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
      * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SourceResponse}
@@ -120,7 +120,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SourceResponse::createFromDiscriminatorValue);
     }
     /**
-     * Deletes a lead source from the current business so it can no longer accept or route newly captured leads.
+     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -128,7 +128,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Deletes a lead source from the current business so it can no longer accept or route newly captured leads.
+     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -140,7 +140,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Returns one lead source for the current business, including intake settings, credentials metadata, and routing context.
+     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -148,7 +148,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns one lead source for the current business, including intake settings, credentials metadata, and routing context.
+     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -160,7 +160,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates a lead source for the current business, changing intake settings, credentials, routing context, or active status.
+     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
      * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -169,7 +169,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates a lead source for the current business, changing intake settings, credentials, routing context, or active status.
+     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
      * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -18,13 +18,9 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Phone number ID assigned to the lead, business, or source.
+     * Phone number ID assigned to the lead, organization, or source.
      */
     private String assignedPhoneNumberId;
-    /**
-     * Business ID that owns this lead&apos;s attribution metadata.
-     */
-    private String businessId;
     /**
      * Reason Leadping blocked this operation for compliance.
      */
@@ -61,6 +57,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Landing page URL where the lead submitted their information.
      */
     private String landingPage;
+    /**
+     * Organization ID that owns this lead&apos;s attribution metadata.
+     */
+    private String organizationId;
     /**
      * System or workflow that created this event.
      */
@@ -182,20 +182,12 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the assignedPhoneNumberId property value. Phone number ID assigned to the lead, business, or source.
+     * Gets the assignedPhoneNumberId property value. Phone number ID assigned to the lead, organization, or source.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getAssignedPhoneNumberId() {
         return this.assignedPhoneNumberId;
-    }
-    /**
-     * Gets the businessId property value. Business ID that owns this lead&apos;s attribution metadata.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
     }
     /**
      * Gets the complianceBlockedReason property value. Reason Leadping blocked this operation for compliance.
@@ -245,7 +237,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("complianceBlockedReason", (n) -> { this.setComplianceBlockedReason(n.getStringValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -255,6 +246,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("ipAddress", (n) -> { this.setIpAddress(n.getStringValue()); });
         deserializerMap.put("isImported", (n) -> { this.setIsImported(n.getBooleanValue()); });
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("origin", (n) -> { this.setOrigin(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("product", (n) -> { this.setProduct(n.getStringValue()); });
@@ -312,6 +304,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLandingPage() {
         return this.landingPage;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID that owns this lead&apos;s attribution metadata.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the origin property value. System or workflow that created this event.
@@ -512,7 +512,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("assignedPhoneNumberId", this.getAssignedPhoneNumberId());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeStringValue("complianceBlockedReason", this.getComplianceBlockedReason());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
@@ -522,6 +521,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("ipAddress", this.getIpAddress());
         writer.writeBooleanValue("isImported", this.getIsImported());
         writer.writeStringValue("landingPage", this.getLandingPage());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("origin", this.getOrigin());
         writer.writeDoubleValue("price", this.getPrice());
         writer.writeStringValue("product", this.getProduct());
@@ -556,18 +556,11 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the assignedPhoneNumberId property value. Phone number ID assigned to the lead, business, or source.
+     * Sets the assignedPhoneNumberId property value. Phone number ID assigned to the lead, organization, or source.
      * @param value Value to set for the assignedPhoneNumberId property.
      */
     public void setAssignedPhoneNumberId(@jakarta.annotation.Nullable final String value) {
         this.assignedPhoneNumberId = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this lead&apos;s attribution metadata.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the complianceBlockedReason property value. Reason Leadping blocked this operation for compliance.
@@ -631,6 +624,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setLandingPage(@jakarta.annotation.Nullable final String value) {
         this.landingPage = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this lead&apos;s attribution metadata.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the origin property value. System or workflow that created this event.

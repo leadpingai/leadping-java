@@ -69,7 +69,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**
-     * Returns one payment method for the current user or business, including card metadata used for billing management.
+     * Returns one payment method for the current user or organization, including card metadata used for billing management.
      * @return a {@link StripePaymentMethodResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -80,7 +80,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns one payment method for the current user or business, including card metadata used for billing management.
+     * Returns one payment method for the current user or organization, including card metadata used for billing management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link StripePaymentMethodResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -117,7 +117,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Returns one payment method for the current user or business, including card metadata used for billing management.
+     * Returns one payment method for the current user or organization, including card metadata used for billing management.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -125,7 +125,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns one payment method for the current user or business, including card metadata used for billing management.
+     * Returns one payment method for the current user or organization, including card metadata used for billing management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

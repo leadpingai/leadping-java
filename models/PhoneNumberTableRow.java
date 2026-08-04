@@ -17,14 +17,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Business summary connected to this phone number table row.
-     */
-    private String business;
-    /**
-     * Unique Leadping business identifier connected to this phone number table row.
-     */
-    private String businessId;
-    /**
      * Indicates whether this phone number table row is active and available in the Leadping API.
      */
     private Boolean enabled;
@@ -41,6 +33,14 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
+     * Organization summary connected to this phone number table row.
+     */
+    private String organization;
+    /**
+     * Unique Leadping organization identifier connected to this phone number table row.
+     */
+    private String organizationId;
+    /**
      * Ownership classification for this phone number, such as Leadping-owned or customer-owned.
      */
     private String ownership;
@@ -49,7 +49,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String routingSummary;
     /**
-     * Indicates whether SMS messaging is ready for this business or phone number.
+     * Indicates whether SMS messaging is ready for this organization or phone number.
      */
     private Boolean smsReady;
     /**
@@ -61,7 +61,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String type;
     /**
-     * Indicates whether voice calling is ready for this business or phone number.
+     * Indicates whether voice calling is ready for this organization or phone number.
      */
     private Boolean voiceReady;
     /**
@@ -93,22 +93,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the business property value. Business summary connected to this phone number table row.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusiness() {
-        return this.business;
-    }
-    /**
-     * Gets the businessId property value. Unique Leadping business identifier connected to this phone number table row.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the enabled property value. Indicates whether this phone number table row is active and available in the Leadping API.
      * @return a {@link Boolean}
      */
@@ -123,12 +107,12 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("ownership", (n) -> { this.setOwnership(n.getStringValue()); });
         deserializerMap.put("routingSummary", (n) -> { this.setRoutingSummary(n.getStringValue()); });
         deserializerMap.put("smsReady", (n) -> { this.setSmsReady(n.getBooleanValue()); });
@@ -163,6 +147,22 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the organization property value. Organization summary connected to this phone number table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the organizationId property value. Unique Leadping organization identifier connected to this phone number table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Gets the ownership property value. Ownership classification for this phone number, such as Leadping-owned or customer-owned.
      * @return a {@link String}
      */
@@ -179,7 +179,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.routingSummary;
     }
     /**
-     * Gets the smsReady property value. Indicates whether SMS messaging is ready for this business or phone number.
+     * Gets the smsReady property value. Indicates whether SMS messaging is ready for this organization or phone number.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -203,7 +203,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.type;
     }
     /**
-     * Gets the voiceReady property value. Indicates whether voice calling is ready for this business or phone number.
+     * Gets the voiceReady property value. Indicates whether voice calling is ready for this organization or phone number.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -224,12 +224,12 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("business", this.getBusiness());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeStringValue("organization", this.getOrganization());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("ownership", this.getOwnership());
         writer.writeStringValue("routingSummary", this.getRoutingSummary());
         writer.writeBooleanValue("smsReady", this.getSmsReady());
@@ -245,20 +245,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this phone number table row.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final String value) {
-        this.business = value;
-    }
-    /**
-     * Sets the businessId property value. Unique Leadping business identifier connected to this phone number table row.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the enabled property value. Indicates whether this phone number table row is active and available in the Leadping API.
@@ -289,6 +275,20 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
+     * Sets the organization property value. Organization summary connected to this phone number table row.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final String value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the organizationId property value. Unique Leadping organization identifier connected to this phone number table row.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
+    }
+    /**
      * Sets the ownership property value. Ownership classification for this phone number, such as Leadping-owned or customer-owned.
      * @param value Value to set for the ownership property.
      */
@@ -303,7 +303,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.routingSummary = value;
     }
     /**
-     * Sets the smsReady property value. Indicates whether SMS messaging is ready for this business or phone number.
+     * Sets the smsReady property value. Indicates whether SMS messaging is ready for this organization or phone number.
      * @param value Value to set for the smsReady property.
      */
     public void setSmsReady(@jakarta.annotation.Nullable final Boolean value) {
@@ -324,7 +324,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.type = value;
     }
     /**
-     * Sets the voiceReady property value. Indicates whether voice calling is ready for this business or phone number.
+     * Sets the voiceReady property value. Indicates whether voice calling is ready for this organization or phone number.
      * @param value Value to set for the voiceReady property.
      */
     public void setVoiceReady(@jakarta.annotation.Nullable final Boolean value) {

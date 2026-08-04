@@ -86,7 +86,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-numbers", rawUrl);
     }
     /**
-     * Purchases or creates a phone number for the current business so it can be assigned to messaging, calls, and lead follow-up.
+     * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -98,7 +98,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Purchases or creates a phone number for the current business so it can be assigned to messaging, calls, and lead follow-up.
+     * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberResponse}
@@ -117,7 +117,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberResponse::createFromDiscriminatorValue);
     }
     /**
-     * Purchases or creates a phone number for the current business so it can be assigned to messaging, calls, and lead follow-up.
+     * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -126,7 +126,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Purchases or creates a phone number for the current business so it can be assigned to messaging, calls, and lead follow-up.
+     * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
      * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -38,14 +38,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime blockedAt;
     /**
-     * Business summary connected to this SMS event table row.
-     */
-    private String business;
-    /**
-     * Business display name shown for this SMS event.
-     */
-    private String businessName;
-    /**
      * UTC timestamp when this delivery or workflow was canceled.
      */
     private OffsetDateTime canceledAt;
@@ -109,6 +101,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      * Media attached to this SMS/MMS event.
      */
     private java.util.List<MessageMediaAttachment> media;
+    /**
+     * Organization summary connected to this SMS event table row.
+     */
+    private String organization;
+    /**
+     * Organization display name shown for this SMS event.
+     */
+    private String organizationName;
     /**
      * Phone number ID selected for outbound delivery.
      */
@@ -242,22 +242,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.blockedAt;
     }
     /**
-     * Gets the business property value. Business summary connected to this SMS event table row.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusiness() {
-        return this.business;
-    }
-    /**
-     * Gets the businessName property value. Business display name shown for this SMS event.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessName() {
-        return this.businessName;
-    }
-    /**
      * Gets the canceledAt property value. UTC timestamp when this delivery or workflow was canceled.
      * @return a {@link OffsetDateTime}
      */
@@ -349,8 +333,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getStringValue()); });
-        deserializerMap.put("businessName", (n) -> { this.setBusinessName(n.getStringValue()); });
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("cancelReason", (n) -> { this.setCancelReason(n.getStringValue()); });
         deserializerMap.put("complianceAction", (n) -> { this.setComplianceAction(n.getStringValue()); });
@@ -367,6 +349,8 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
+        deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(SmsEventTableRowOutboundSource::forValue)); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
@@ -433,6 +417,22 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public java.util.List<MessageMediaAttachment> getMedia() {
         return this.media;
+    }
+    /**
+     * Gets the organization property value. Organization summary connected to this SMS event table row.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the organizationName property value. Organization display name shown for this SMS event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationName() {
+        return this.organizationName;
     }
     /**
      * Gets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.
@@ -581,8 +581,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
-        writer.writeStringValue("business", this.getBusiness());
-        writer.writeStringValue("businessName", this.getBusinessName());
         writer.writeOffsetDateTimeValue("canceledAt", this.getCanceledAt());
         writer.writeStringValue("cancelReason", this.getCancelReason());
         writer.writeStringValue("complianceAction", this.getComplianceAction());
@@ -599,6 +597,8 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
         writer.writeObjectValue("lead", this.getLead());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
+        writer.writeStringValue("organization", this.getOrganization());
+        writer.writeStringValue("organizationName", this.getOrganizationName());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeEnumValue("outboundSource", this.getOutboundSource());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
@@ -659,20 +659,6 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setBlockedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.blockedAt = value;
-    }
-    /**
-     * Sets the business property value. Business summary connected to this SMS event table row.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final String value) {
-        this.business = value;
-    }
-    /**
-     * Sets the businessName property value. Business display name shown for this SMS event.
-     * @param value Value to set for the businessName property.
-     */
-    public void setBusinessName(@jakarta.annotation.Nullable final String value) {
-        this.businessName = value;
     }
     /**
      * Sets the canceledAt property value. UTC timestamp when this delivery or workflow was canceled.
@@ -785,6 +771,20 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setMedia(@jakarta.annotation.Nullable final java.util.List<MessageMediaAttachment> value) {
         this.media = value;
+    }
+    /**
+     * Sets the organization property value. Organization summary connected to this SMS event table row.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final String value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the organizationName property value. Organization display name shown for this SMS event.
+     * @param value Value to set for the organizationName property.
+     */
+    public void setOrganizationName(@jakarta.annotation.Nullable final String value) {
+        this.organizationName = value;
     }
     /**
      * Sets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.

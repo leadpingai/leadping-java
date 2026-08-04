@@ -29,7 +29,7 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
      */
     private String sourceId;
     /**
-     * Team ID used to route calls and messages for this phone number.
+     * Organization ID used to route calls and messages for this phone number.
      */
     private String teamId;
     /**
@@ -104,7 +104,7 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         return this.sourceId;
     }
     /**
-     * Gets the teamId property value. Team ID used to route calls and messages for this phone number.
+     * Gets the teamId property value. Organization ID used to route calls and messages for this phone number.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +170,7 @@ public class PhoneNumberRoutingMetadata implements AdditionalDataHolder, Parsabl
         this.sourceId = value;
     }
     /**
-     * Sets the teamId property value. Team ID used to route calls and messages for this phone number.
+     * Sets the teamId property value. Organization ID used to route calls and messages for this phone number.
      * @param value Value to set for the teamId property.
      */
     public void setTeamId(@jakarta.annotation.Nullable final String value) {

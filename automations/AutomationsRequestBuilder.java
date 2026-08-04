@@ -68,7 +68,7 @@ public class AutomationsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations", rawUrl);
     }
     /**
-     * Creates an automation for current-business leads, configuring triggers, message steps, and follow-up behavior.
+     * Creates an automation for current-organization leads, configuring triggers, message steps, and follow-up behavior.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -79,7 +79,7 @@ public class AutomationsRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates an automation for current-business leads, configuring triggers, message steps, and follow-up behavior.
+     * Creates an automation for current-organization leads, configuring triggers, message steps, and follow-up behavior.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationResponse}
@@ -96,7 +96,7 @@ public class AutomationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationResponse::createFromDiscriminatorValue);
     }
     /**
-     * Creates an automation for current-business leads, configuring triggers, message steps, and follow-up behavior.
+     * Creates an automation for current-organization leads, configuring triggers, message steps, and follow-up behavior.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -105,7 +105,7 @@ public class AutomationsRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates an automation for current-business leads, configuring triggers, message steps, and follow-up behavior.
+     * Creates an automation for current-organization leads, configuring triggers, message steps, and follow-up behavior.
      * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

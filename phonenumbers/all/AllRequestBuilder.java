@@ -1,6 +1,6 @@
 package ai.leadping.openapi.phonenumbers.all;
 
-import ai.leadping.openapi.phonenumbers.all.business.BusinessRequestBuilder;
+import ai.leadping.openapi.phonenumbers.all.organization.OrganizationRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
 import java.util.HashMap;
@@ -11,12 +11,12 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AllRequestBuilder extends BaseRequestBuilder {
     /**
-     * The business property
-     * @return a {@link BusinessRequestBuilder}
+     * The organization property
+     * @return a {@link OrganizationRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public BusinessRequestBuilder business() {
-        return new BusinessRequestBuilder(pathParameters, requestAdapter);
+    public OrganizationRequestBuilder organization() {
+        return new OrganizationRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * Instantiates a new {@link AllRequestBuilder} and sets the default values.

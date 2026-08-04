@@ -37,7 +37,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sms/send", rawUrl);
     }
     /**
-     * Sends an SMS message to a lead or phone number, applying current-business sender selection, scheduling, and delivery rules.
+     * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
      * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -49,7 +49,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Sends an SMS message to a lead or phone number, applying current-business sender selection, scheduling, and delivery rules.
+     * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
      * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SmsResponse}
@@ -68,7 +68,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SmsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Sends an SMS message to a lead or phone number, applying current-business sender selection, scheduling, and delivery rules.
+     * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
      * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -77,7 +77,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Sends an SMS message to a lead or phone number, applying current-business sender selection, scheduling, and delivery rules.
+     * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
      * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

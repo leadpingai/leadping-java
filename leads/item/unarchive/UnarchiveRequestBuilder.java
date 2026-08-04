@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /leads/{id}/unarchive
+ * Builds and executes requests for operations under /leads/{-id}/unarchive
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UnarchiveRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class UnarchiveRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public UnarchiveRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/unarchive", pathParameters);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/unarchive", pathParameters);
     }
     /**
      * Instantiates a new {@link UnarchiveRequestBuilder} and sets the default values.
@@ -33,7 +33,7 @@ public class UnarchiveRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public UnarchiveRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/{id}/unarchive", rawUrl);
+        super(requestAdapter, "{+baseurl}/leads/{%2Did}/unarchive", rawUrl);
     }
     /**
      * Restores an archived lead to active pipeline views so follow-up, communication, and routing workflows can resume.

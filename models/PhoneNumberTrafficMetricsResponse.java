@@ -38,6 +38,14 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
      */
     private Integer callShortCount;
     /**
+     * Number of MMS messages that failed during this metrics window.
+     */
+    private Integer mmsFailedCount;
+    /**
+     * Number of MMS messages sent during this metrics window.
+     */
+    private Integer mmsSentCount;
+    /**
      * Number of SMS messages that failed during this metrics window.
      */
     private Integer smsFailedCount;
@@ -127,18 +135,36 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("callConnectedCount", (n) -> { this.setCallConnectedCount(n.getIntegerValue()); });
         deserializerMap.put("callFailedCount", (n) -> { this.setCallFailedCount(n.getIntegerValue()); });
         deserializerMap.put("callInvalidNumberCount", (n) -> { this.setCallInvalidNumberCount(n.getIntegerValue()); });
         deserializerMap.put("callPlacedCount", (n) -> { this.setCallPlacedCount(n.getIntegerValue()); });
         deserializerMap.put("callShortCount", (n) -> { this.setCallShortCount(n.getIntegerValue()); });
+        deserializerMap.put("mmsFailedCount", (n) -> { this.setMmsFailedCount(n.getIntegerValue()); });
+        deserializerMap.put("mmsSentCount", (n) -> { this.setMmsSentCount(n.getIntegerValue()); });
         deserializerMap.put("smsFailedCount", (n) -> { this.setSmsFailedCount(n.getIntegerValue()); });
         deserializerMap.put("smsSentCount", (n) -> { this.setSmsSentCount(n.getIntegerValue()); });
         deserializerMap.put("trend", (n) -> { this.setTrend(n.getCollectionOfObjectValues(PhoneNumberTrafficTrendPoint::createFromDiscriminatorValue)); });
         deserializerMap.put("windowDays", (n) -> { this.setWindowDays(n.getIntegerValue()); });
         deserializerMap.put("windowStartedAt", (n) -> { this.setWindowStartedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the mmsFailedCount property value. Number of MMS messages that failed during this metrics window.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getMmsFailedCount() {
+        return this.mmsFailedCount;
+    }
+    /**
+     * Gets the mmsSentCount property value. Number of MMS messages sent during this metrics window.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getMmsSentCount() {
+        return this.mmsSentCount;
     }
     /**
      * Gets the smsFailedCount property value. Number of SMS messages that failed during this metrics window.
@@ -191,6 +217,8 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
         writer.writeIntegerValue("callInvalidNumberCount", this.getCallInvalidNumberCount());
         writer.writeIntegerValue("callPlacedCount", this.getCallPlacedCount());
         writer.writeIntegerValue("callShortCount", this.getCallShortCount());
+        writer.writeIntegerValue("mmsFailedCount", this.getMmsFailedCount());
+        writer.writeIntegerValue("mmsSentCount", this.getMmsSentCount());
         writer.writeIntegerValue("smsFailedCount", this.getSmsFailedCount());
         writer.writeIntegerValue("smsSentCount", this.getSmsSentCount());
         writer.writeCollectionOfObjectValues("trend", this.getTrend());
@@ -239,6 +267,20 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
      */
     public void setCallShortCount(@jakarta.annotation.Nullable final Integer value) {
         this.callShortCount = value;
+    }
+    /**
+     * Sets the mmsFailedCount property value. Number of MMS messages that failed during this metrics window.
+     * @param value Value to set for the mmsFailedCount property.
+     */
+    public void setMmsFailedCount(@jakarta.annotation.Nullable final Integer value) {
+        this.mmsFailedCount = value;
+    }
+    /**
+     * Sets the mmsSentCount property value. Number of MMS messages sent during this metrics window.
+     * @param value Value to set for the mmsSentCount property.
+     */
+    public void setMmsSentCount(@jakarta.annotation.Nullable final Integer value) {
+        this.mmsSentCount = value;
     }
     /**
      * Sets the smsFailedCount property value. Number of SMS messages that failed during this metrics window.

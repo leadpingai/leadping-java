@@ -37,7 +37,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/tags/{id}", rawUrl);
     }
     /**
-     * Archives a tag for the current business so it stops being used for new segmentation while historical lead labels remain available.
+     * Archives a tag for the current organization so it stops being used for new segmentation while historical lead labels remain available.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -47,7 +47,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Archives a tag for the current business so it stops being used for new segmentation while historical lead labels remain available.
+     * Archives a tag for the current organization so it stops being used for new segmentation while historical lead labels remain available.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
@@ -62,7 +62,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
-     * Updates a current-business tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
+     * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @return a {@link TagResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -74,7 +74,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates a current-business tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
+     * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TagResponse}
@@ -93,7 +93,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, TagResponse::createFromDiscriminatorValue);
     }
     /**
-     * Archives a tag for the current business so it stops being used for new segmentation while historical lead labels remain available.
+     * Archives a tag for the current organization so it stops being used for new segmentation while historical lead labels remain available.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -101,7 +101,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Archives a tag for the current business so it stops being used for new segmentation while historical lead labels remain available.
+     * Archives a tag for the current organization so it stops being used for new segmentation while historical lead labels remain available.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -113,7 +113,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates a current-business tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
+     * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @return a {@link RequestInformation}
      */
@@ -122,7 +122,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates a current-business tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
+     * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
      * @param body Request schema for the Leadping API tag request, including the fields clients can send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -55,7 +55,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-numbers/{phoneNumber%2Did}", rawUrl);
     }
     /**
-     * Deletes a phone number from the current business when it should no longer be used for lead communication.
+     * Deletes a phone number from the current organization when it should no longer be used for lead communication.
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -65,7 +65,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         delete(null);
     }
     /**
-     * Deletes a phone number from the current business when it should no longer be used for lead communication.
+     * Deletes a phone number from the current organization when it should no longer be used for lead communication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -141,7 +141,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberResponse::createFromDiscriminatorValue);
     }
     /**
-     * Deletes a phone number from the current business when it should no longer be used for lead communication.
+     * Deletes a phone number from the current organization when it should no longer be used for lead communication.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -149,7 +149,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Deletes a phone number from the current business when it should no longer be used for lead communication.
+     * Deletes a phone number from the current organization when it should no longer be used for lead communication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

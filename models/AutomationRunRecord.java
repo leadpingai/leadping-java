@@ -26,10 +26,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     private String automationId;
     /**
-     * Business ID that owns this automation run.
-     */
-    private String businessId;
-    /**
      * UTC timestamp when processing completed for this automation run record.
      */
     private OffsetDateTime completedAt;
@@ -53,6 +49,10 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      * Lead ID that triggered this automation run, when the run is lead-based.
      */
     private String leadId;
+    /**
+     * Organization ID that owns this automation run.
+     */
+    private String organizationId;
     /**
      * Number of processing attempts made for this workflow or delivery request.
      */
@@ -114,14 +114,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         return this.automationId;
     }
     /**
-     * Gets the businessId property value. Business ID that owns this automation run.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
      * Gets the completedAt property value. UTC timestamp when processing completed for this automation run record.
      * @return a {@link OffsetDateTime}
      */
@@ -154,13 +146,13 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationActionRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("executionMode", (n) -> { this.setExecutionMode(n.getStringValue()); });
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lastAttemptAt", (n) -> { this.setLastAttemptAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("skippedReason", (n) -> { this.setSkippedReason(n.getStringValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
@@ -191,6 +183,14 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLeadId() {
         return this.leadId;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID that owns this automation run.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
@@ -240,13 +240,13 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
         writer.writeStringValue("automationId", this.getAutomationId());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeStringValue("executionMode", this.getExecutionMode());
         writer.writeStringValue("failureCode", this.getFailureCode());
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("lastAttemptAt", this.getLastAttemptAt());
         writer.writeStringValue("leadId", this.getLeadId());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeStringValue("skippedReason", this.getSkippedReason());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
@@ -274,13 +274,6 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setAutomationId(@jakarta.annotation.Nullable final String value) {
         this.automationId = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this automation run.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
     }
     /**
      * Sets the completedAt property value. UTC timestamp when processing completed for this automation run record.
@@ -323,6 +316,13 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setLeadId(@jakarta.annotation.Nullable final String value) {
         this.leadId = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this automation run.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.

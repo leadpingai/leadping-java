@@ -48,7 +48,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/payment-methods/invoices", rawUrl);
     }
     /**
-     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
+     * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
      */
     @jakarta.annotation.Nullable
@@ -56,7 +56,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
+     * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
      */
@@ -66,7 +66,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, null, StripeInvoiceResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
+     * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -74,7 +74,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the current business&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
+     * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

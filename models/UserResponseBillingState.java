@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Customer-safe billing state for the user&apos;s currently selected business.
+ * Customer-safe billing state for the user&apos;s currently selected organization.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class UserResponseBillingState extends BusinessBillingState implements Parsable {
+public class UserResponseBillingState extends OrganizationBillingState implements Parsable {
     /**
      * Instantiates a new {@link UserResponseBillingState} and sets the default values.
      */

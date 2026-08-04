@@ -14,7 +14,7 @@ public enum EventDetailResponseTimelineType implements ValuedEnum {
     Call("Call"),
     Voicemail("Voicemail"),
     Note("Note"),
-    Disposition("Disposition"),
+    LeadStatusChange("LeadStatusChange"),
     LeadCreated("LeadCreated"),
     LeadUpdated("LeadUpdated"),
     Notification("Notification"),
@@ -36,7 +36,7 @@ public enum EventDetailResponseTimelineType implements ValuedEnum {
             case "Call": return Call;
             case "Voicemail": return Voicemail;
             case "Note": return Note;
-            case "Disposition": return Disposition;
+            case "LeadStatusChange": return LeadStatusChange;
             case "LeadCreated": return LeadCreated;
             case "LeadUpdated": return LeadUpdated;
             case "Notification": return Notification;

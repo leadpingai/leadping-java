@@ -37,7 +37,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/usage/all/my", rawUrl);
     }
     /**
-     * Lists current-business usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
+     * Lists current-organization usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfUsageLedgerTableRow}
      * @throws ProblemDetails When receiving a 401 status code
@@ -47,7 +47,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Lists current-business usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
+     * Lists current-organization usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfUsageLedgerTableRow}
@@ -62,7 +62,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfUsageLedgerTableRow::createFromDiscriminatorValue);
     }
     /**
-     * Lists current-business usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
+     * Lists current-organization usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link RequestInformation}
      */
@@ -71,7 +71,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Lists current-business usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
+     * Lists current-organization usage ledger entries with paging, sorting, and filters for messaging, billing, and wallet review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -26,7 +26,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
      */
     private String apiKey;
     /**
@@ -42,15 +42,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private Long apiKeyTotalUses;
     /**
-     * Business summary connected to this lead source table row.
-     */
-    private SourceTableRowBusiness business;
-    /**
-     * Business ID that owns this lead source.
-     */
-    private String businessId;
-    /**
-     * Indicates whether the business or sender passed compliance review.
+     * Indicates whether the organization or sender passed compliance review.
      */
     private Boolean complianceApproved;
     /**
@@ -106,6 +98,14 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
+     * Organization summary connected to this lead source table row.
+     */
+    private SourceTableRowOrganization organization;
+    /**
+     * Organization ID that owns this lead source.
+     */
+    private String organizationId;
+    /**
      * Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
      */
     private Boolean requiresTrustedForm;
@@ -154,7 +154,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -186,23 +186,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.apiKeyTotalUses;
     }
     /**
-     * Gets the business property value. Business summary connected to this lead source table row.
-     * @return a {@link SourceTableRowBusiness}
-     */
-    @jakarta.annotation.Nullable
-    public SourceTableRowBusiness getBusiness() {
-        return this.business;
-    }
-    /**
-     * Gets the businessId property value. Business ID that owns this lead source.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the complianceApproved property value. Indicates whether the business or sender passed compliance review.
+     * Gets the complianceApproved property value. Indicates whether the organization or sender passed compliance review.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -278,8 +262,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
-        deserializerMap.put("business", (n) -> { this.setBusiness(n.getObjectValue(SourceTableRowBusiness::createFromDiscriminatorValue)); });
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -294,6 +276,8 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedByUser", (n) -> { this.setModifiedByUser(n.getObjectValue(SourceTableRowModifiedByUser::createFromDiscriminatorValue)); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(SourceTableRowOrganization::createFromDiscriminatorValue)); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("requiresTrustedForm", (n) -> { this.setRequiresTrustedForm(n.getBooleanValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(SourceTableRowUser::createFromDiscriminatorValue)); });
         return deserializerMap;
@@ -347,6 +331,22 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
+     * Gets the organization property value. Organization summary connected to this lead source table row.
+     * @return a {@link SourceTableRowOrganization}
+     */
+    @jakarta.annotation.Nullable
+    public SourceTableRowOrganization getOrganization() {
+        return this.organization;
+    }
+    /**
+     * Gets the organizationId property value. Organization ID that owns this lead source.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Gets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
      * @return a {@link Boolean}
      */
@@ -374,8 +374,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
-        writer.writeObjectValue("business", this.getBusiness());
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
         writer.writeDoubleValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
@@ -390,6 +388,8 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeObjectValue("modifiedByUser", this.getModifiedByUser());
         writer.writeStringValue("name", this.getName());
+        writer.writeObjectValue("organization", this.getOrganization());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeBooleanValue("requiresTrustedForm", this.getRequiresTrustedForm());
         writer.writeObjectValue("user", this.getUser());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -416,7 +416,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.allowedStates = value;
     }
     /**
-     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike a business API key, this value remains available to authorized source users.
+     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
      * @param value Value to set for the apiKey property.
      */
     public void setApiKey(@jakarta.annotation.Nullable final String value) {
@@ -444,21 +444,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.apiKeyTotalUses = value;
     }
     /**
-     * Sets the business property value. Business summary connected to this lead source table row.
-     * @param value Value to set for the business property.
-     */
-    public void setBusiness(@jakarta.annotation.Nullable final SourceTableRowBusiness value) {
-        this.business = value;
-    }
-    /**
-     * Sets the businessId property value. Business ID that owns this lead source.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the complianceApproved property value. Indicates whether the business or sender passed compliance review.
+     * Sets the complianceApproved property value. Indicates whether the organization or sender passed compliance review.
      * @param value Value to set for the complianceApproved property.
      */
     public void setComplianceApproved(@jakarta.annotation.Nullable final Boolean value) {
@@ -554,6 +540,20 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the organization property value. Organization summary connected to this lead source table row.
+     * @param value Value to set for the organization property.
+     */
+    public void setOrganization(@jakarta.annotation.Nullable final SourceTableRowOrganization value) {
+        this.organization = value;
+    }
+    /**
+     * Sets the organizationId property value. Organization ID that owns this lead source.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm certificate for consent proof.

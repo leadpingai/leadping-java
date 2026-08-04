@@ -18,13 +18,9 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifier of the business that owns the lead status.
+     * LeadStatusChange category represented by the lead status.
      */
-    private String businessId;
-    /**
-     * Disposition category represented by the lead status.
-     */
-    private DispositionCategory category;
+    private LeadStatusCategory category;
     /**
      * Display color assigned to the lead status.
      */
@@ -45,6 +41,10 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      * Display name of the lead status.
      */
     private String name;
+    /**
+     * Identifier of the organization that owns the lead status.
+     */
+    private String organizationId;
     /**
      * Relative display order of the lead status.
      */
@@ -74,19 +74,11 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the businessId property value. Identifier of the business that owns the lead status.
-     * @return a {@link String}
+     * Gets the category property value. LeadStatusChange category represented by the lead status.
+     * @return a {@link LeadStatusCategory}
      */
     @jakarta.annotation.Nullable
-    public String getBusinessId() {
-        return this.businessId;
-    }
-    /**
-     * Gets the category property value. Disposition category represented by the lead status.
-     * @return a {@link DispositionCategory}
-     */
-    @jakarta.annotation.Nullable
-    public DispositionCategory getCategory() {
+    public LeadStatusCategory getCategory() {
         return this.category;
     }
     /**
@@ -104,13 +96,13 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("businessId", (n) -> { this.setBusinessId(n.getStringValue()); });
-        deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(DispositionCategory::forValue)); });
+        deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(LeadStatusCategory::forValue)); });
         deserializerMap.put("color", (n) -> { this.setColor(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getIntegerValue()); });
         return deserializerMap;
     }
@@ -147,6 +139,14 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
+     * Gets the organizationId property value. Identifier of the organization that owns the lead status.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
+    }
+    /**
      * Gets the sortOrder property value. Relative display order of the lead status.
      * @return a {@link Integer}
      */
@@ -160,13 +160,13 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("businessId", this.getBusinessId());
         writer.writeEnumValue("category", this.getCategory());
         writer.writeStringValue("color", this.getColor());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeIntegerValue("sortOrder", this.getSortOrder());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -178,17 +178,10 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the businessId property value. Identifier of the business that owns the lead status.
-     * @param value Value to set for the businessId property.
-     */
-    public void setBusinessId(@jakarta.annotation.Nullable final String value) {
-        this.businessId = value;
-    }
-    /**
-     * Sets the category property value. Disposition category represented by the lead status.
+     * Sets the category property value. LeadStatusChange category represented by the lead status.
      * @param value Value to set for the category property.
      */
-    public void setCategory(@jakarta.annotation.Nullable final DispositionCategory value) {
+    public void setCategory(@jakarta.annotation.Nullable final LeadStatusCategory value) {
         this.category = value;
     }
     /**
@@ -225,6 +218,13 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the organizationId property value. Identifier of the organization that owns the lead status.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the sortOrder property value. Relative display order of the lead status.
