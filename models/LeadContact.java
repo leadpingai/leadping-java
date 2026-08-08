@@ -17,6 +17,10 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Optional profile image URL for the contact. Clients fall back to Gravatarand then initials when this value is not supplied.
+     */
+    private String avatarUrl;
+    /**
      * Latitude and longitude coordinate for this lead contact profile.
      */
     private LeadContactCoordinate coordinate;
@@ -69,6 +73,14 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the avatarUrl property value. Optional profile image URL for the contact. Clients fall back to Gravatarand then initials when this value is not supplied.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+    /**
      * Gets the coordinate property value. Latitude and longitude coordinate for this lead contact profile.
      * @return a {@link LeadContactCoordinate}
      */
@@ -90,7 +102,8 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
         deserializerMap.put("coordinate", (n) -> { this.setCoordinate(n.getObjectValue(LeadContactCoordinate::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
@@ -146,6 +159,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("avatarUrl", this.getAvatarUrl());
         writer.writeObjectValue("coordinate", this.getCoordinate());
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
@@ -161,6 +175,13 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the avatarUrl property value. Optional profile image URL for the contact. Clients fall back to Gravatarand then initials when this value is not supplied.
+     * @param value Value to set for the avatarUrl property.
+     */
+    public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.avatarUrl = value;
     }
     /**
      * Sets the coordinate property value. Latitude and longitude coordinate for this lead contact profile.

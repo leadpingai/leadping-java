@@ -30,6 +30,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
+     * Optional profile image URL explicitly associated with the lead.
+     */
+    private String avatarUrl;
+    /**
      * Current lead status change summary that describes the lead outcome.
      */
     private ConversationResponseCurrentLeadStatus currentLeadStatus;
@@ -146,6 +150,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
+     * Gets the avatarUrl property value. Optional profile image URL explicitly associated with the lead.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+    /**
      * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
      * @return a {@link ConversationResponseCurrentLeadStatus}
      */
@@ -167,10 +179,11 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
+        deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(ConversationResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
@@ -319,6 +332,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("activeOutboundPhoneNumberId", this.getActiveOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
+        writer.writeStringValue("avatarUrl", this.getAvatarUrl());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
@@ -365,6 +379,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setArchiveReason(@jakarta.annotation.Nullable final Integer value) {
         this.archiveReason = value;
+    }
+    /**
+     * Sets the avatarUrl property value. Optional profile image URL explicitly associated with the lead.
+     * @param value Value to set for the avatarUrl property.
+     */
+    public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.avatarUrl = value;
     }
     /**
      * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
