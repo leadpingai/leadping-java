@@ -58,6 +58,10 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private NotificationPriority priority;
     /**
+     * Whether this notification should also be delivered as a device push notification.
+     */
+    private Boolean pushEnabled;
+    /**
      * The date and time for the read at value on this notification.
      */
     private OffsetDateTime readAt;
@@ -139,7 +143,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
         deserializerMap.put("actionButtonText", (n) -> { this.setActionButtonText(n.getStringValue()); });
         deserializerMap.put("actionUrl", (n) -> { this.setActionUrl(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -150,6 +154,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("priority", (n) -> { this.setPriority(n.getEnumValue(NotificationPriority::forValue)); });
+        deserializerMap.put("pushEnabled", (n) -> { this.setPushEnabled(n.getBooleanValue()); });
         deserializerMap.put("readAt", (n) -> { this.setReadAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("relatedEntityId", (n) -> { this.setRelatedEntityId(n.getStringValue()); });
         deserializerMap.put("relatedEntityType", (n) -> { this.setRelatedEntityType(n.getStringValue()); });
@@ -204,6 +209,14 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public NotificationPriority getPriority() {
         return this.priority;
+    }
+    /**
+     * Gets the pushEnabled property value. Whether this notification should also be delivered as a device push notification.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getPushEnabled() {
+        return this.pushEnabled;
     }
     /**
      * Gets the readAt property value. The date and time for the read at value on this notification.
@@ -261,6 +274,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeEnumValue("priority", this.getPriority());
+        writer.writeBooleanValue("pushEnabled", this.getPushEnabled());
         writer.writeOffsetDateTimeValue("readAt", this.getReadAt());
         writer.writeStringValue("relatedEntityId", this.getRelatedEntityId());
         writer.writeStringValue("relatedEntityType", this.getRelatedEntityType());
@@ -344,6 +358,13 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setPriority(@jakarta.annotation.Nullable final NotificationPriority value) {
         this.priority = value;
+    }
+    /**
+     * Sets the pushEnabled property value. Whether this notification should also be delivered as a device push notification.
+     * @param value Value to set for the pushEnabled property.
+     */
+    public void setPushEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.pushEnabled = value;
     }
     /**
      * Sets the readAt property value. The date and time for the read at value on this notification.

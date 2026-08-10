@@ -4,6 +4,7 @@ import ai.leadping.openapi.notifications.announcements.AnnouncementsRequestBuild
 import ai.leadping.openapi.notifications.item.NotificationsItemRequestBuilder;
 import ai.leadping.openapi.notifications.markallread.MarkAllReadRequestBuilder;
 import ai.leadping.openapi.notifications.me.MeRequestBuilder;
+import ai.leadping.openapi.notifications.push.PushRequestBuilder;
 import ai.leadping.openapi.notifications.unreadcount.UnreadCountRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -37,6 +38,14 @@ public class NotificationsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public MeRequestBuilder me() {
         return new MeRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The push property
+     * @return a {@link PushRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public PushRequestBuilder push() {
+        return new PushRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The unreadCount property
