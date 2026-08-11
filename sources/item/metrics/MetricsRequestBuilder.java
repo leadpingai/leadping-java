@@ -38,7 +38,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sources/{id}/metrics{?days*,endAt*,startAt*}", rawUrl);
     }
     /**
-     * Returns lead creation metrics for one organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
+     * View lead creation metrics for an organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts.
      * @return a {@link SourceMetricsResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -48,7 +48,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns lead creation metrics for one organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
+     * View lead creation metrics for an organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SourceMetricsResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -63,7 +63,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SourceMetricsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns lead creation metrics for one organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
+     * View lead creation metrics for an organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -71,7 +71,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns lead creation metrics for one organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
+     * View lead creation metrics for an organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -93,7 +93,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
         return new MetricsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns lead creation metrics for one organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts for monitoring.
+     * View lead creation metrics for an organization intake source, including accepted, rejected, duplicate, validation, and recent activity counts.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
