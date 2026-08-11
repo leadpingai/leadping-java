@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,15 +53,15 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     /**
      * Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      */
-    private Integer smsLimitThisHour;
+    private UntypedNode smsLimitThisHour;
     /**
      * SMS limit for one rolling minute.
      */
-    private Integer smsLimitThisMinute;
+    private UntypedNode smsLimitThisMinute;
     /**
      * Number of SMS limit today represented by this Leadping outbound phone number capacity.
      */
-    private Integer smsLimitToday;
+    private UntypedNode smsLimitToday;
     /**
      * The next time SMS capacity becomes available in the rolling minute window.
      */
@@ -72,27 +73,27 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     /**
      * SMS remaining this hour for the applicable messaging or voice capacity window.
      */
-    private Integer smsRemainingThisHour;
+    private UntypedNode smsRemainingThisHour;
     /**
      * SMS remaining in the current rolling minute.
      */
-    private Integer smsRemainingThisMinute;
+    private UntypedNode smsRemainingThisMinute;
     /**
      * SMS remaining today for the applicable messaging or voice capacity window.
      */
-    private Integer smsRemainingToday;
+    private UntypedNode smsRemainingToday;
     /**
      * SMS used this hour for the applicable messaging or voice capacity window.
      */
-    private Integer smsUsedThisHour;
+    private UntypedNode smsUsedThisHour;
     /**
      * SMS used in the current rolling minute.
      */
-    private Integer smsUsedThisMinute;
+    private UntypedNode smsUsedThisMinute;
     /**
      * SMS used today for the applicable messaging or voice capacity window.
      */
-    private Integer smsUsedToday;
+    private UntypedNode smsUsedToday;
     /**
      * Next midnight Eastern time, when voice daily capacity resets.
      */
@@ -104,15 +105,15 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     /**
      * Voice limit this hour associated with this Leadping outbound phone number capacity.
      */
-    private Integer voiceLimitThisHour;
+    private UntypedNode voiceLimitThisHour;
     /**
      * Voice limit for one rolling minute.
      */
-    private Integer voiceLimitThisMinute;
+    private UntypedNode voiceLimitThisMinute;
     /**
      * Voice limit today associated with this Leadping outbound phone number capacity.
      */
-    private Integer voiceLimitToday;
+    private UntypedNode voiceLimitToday;
     /**
      * The next time voice capacity becomes available in the rolling minute window.
      */
@@ -124,27 +125,27 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     /**
      * Voice remaining this hour for the applicable messaging or voice capacity window.
      */
-    private Integer voiceRemainingThisHour;
+    private UntypedNode voiceRemainingThisHour;
     /**
      * Voice remaining in the current rolling minute.
      */
-    private Integer voiceRemainingThisMinute;
+    private UntypedNode voiceRemainingThisMinute;
     /**
      * Voice remaining today for the applicable messaging or voice capacity window.
      */
-    private Integer voiceRemainingToday;
+    private UntypedNode voiceRemainingToday;
     /**
      * Voice used this hour for the applicable messaging or voice capacity window.
      */
-    private Integer voiceUsedThisHour;
+    private UntypedNode voiceUsedThisHour;
     /**
      * Voice used in the current rolling minute.
      */
-    private Integer voiceUsedThisMinute;
+    private UntypedNode voiceUsedThisMinute;
     /**
      * Voice used today for the applicable messaging or voice capacity window.
      */
-    private Integer voiceUsedToday;
+    private UntypedNode voiceUsedToday;
     /**
      * Instantiates a new {@link OutboundPhoneNumberCapacity} and sets the default values.
      */
@@ -192,30 +193,30 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         deserializerMap.put("smsApproved", (n) -> { this.setSmsApproved(n.getBooleanValue()); });
         deserializerMap.put("smsDailyResetsAt", (n) -> { this.setSmsDailyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsHourlyResetsAt", (n) -> { this.setSmsHourlyResetsAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("smsLimitThisHour", (n) -> { this.setSmsLimitThisHour(n.getIntegerValue()); });
-        deserializerMap.put("smsLimitThisMinute", (n) -> { this.setSmsLimitThisMinute(n.getIntegerValue()); });
-        deserializerMap.put("smsLimitToday", (n) -> { this.setSmsLimitToday(n.getIntegerValue()); });
+        deserializerMap.put("smsLimitThisHour", (n) -> { this.setSmsLimitThisHour(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsLimitThisMinute", (n) -> { this.setSmsLimitThisMinute(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsLimitToday", (n) -> { this.setSmsLimitToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("smsMinutelyResetsAt", (n) -> { this.setSmsMinutelyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsRamping", (n) -> { this.setSmsRamping(n.getBooleanValue()); });
-        deserializerMap.put("smsRemainingThisHour", (n) -> { this.setSmsRemainingThisHour(n.getIntegerValue()); });
-        deserializerMap.put("smsRemainingThisMinute", (n) -> { this.setSmsRemainingThisMinute(n.getIntegerValue()); });
-        deserializerMap.put("smsRemainingToday", (n) -> { this.setSmsRemainingToday(n.getIntegerValue()); });
-        deserializerMap.put("smsUsedThisHour", (n) -> { this.setSmsUsedThisHour(n.getIntegerValue()); });
-        deserializerMap.put("smsUsedThisMinute", (n) -> { this.setSmsUsedThisMinute(n.getIntegerValue()); });
-        deserializerMap.put("smsUsedToday", (n) -> { this.setSmsUsedToday(n.getIntegerValue()); });
+        deserializerMap.put("smsRemainingThisHour", (n) -> { this.setSmsRemainingThisHour(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsRemainingThisMinute", (n) -> { this.setSmsRemainingThisMinute(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsRemainingToday", (n) -> { this.setSmsRemainingToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsUsedThisHour", (n) -> { this.setSmsUsedThisHour(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsUsedThisMinute", (n) -> { this.setSmsUsedThisMinute(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsUsedToday", (n) -> { this.setSmsUsedToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("voiceDailyResetsAt", (n) -> { this.setVoiceDailyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("voiceHourlyResetsAt", (n) -> { this.setVoiceHourlyResetsAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("voiceLimitThisHour", (n) -> { this.setVoiceLimitThisHour(n.getIntegerValue()); });
-        deserializerMap.put("voiceLimitThisMinute", (n) -> { this.setVoiceLimitThisMinute(n.getIntegerValue()); });
-        deserializerMap.put("voiceLimitToday", (n) -> { this.setVoiceLimitToday(n.getIntegerValue()); });
+        deserializerMap.put("voiceLimitThisHour", (n) -> { this.setVoiceLimitThisHour(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceLimitThisMinute", (n) -> { this.setVoiceLimitThisMinute(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceLimitToday", (n) -> { this.setVoiceLimitToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("voiceMinutelyResetsAt", (n) -> { this.setVoiceMinutelyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("voiceRamping", (n) -> { this.setVoiceRamping(n.getBooleanValue()); });
-        deserializerMap.put("voiceRemainingThisHour", (n) -> { this.setVoiceRemainingThisHour(n.getIntegerValue()); });
-        deserializerMap.put("voiceRemainingThisMinute", (n) -> { this.setVoiceRemainingThisMinute(n.getIntegerValue()); });
-        deserializerMap.put("voiceRemainingToday", (n) -> { this.setVoiceRemainingToday(n.getIntegerValue()); });
-        deserializerMap.put("voiceUsedThisHour", (n) -> { this.setVoiceUsedThisHour(n.getIntegerValue()); });
-        deserializerMap.put("voiceUsedThisMinute", (n) -> { this.setVoiceUsedThisMinute(n.getIntegerValue()); });
-        deserializerMap.put("voiceUsedToday", (n) -> { this.setVoiceUsedToday(n.getIntegerValue()); });
+        deserializerMap.put("voiceRemainingThisHour", (n) -> { this.setVoiceRemainingThisHour(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceRemainingThisMinute", (n) -> { this.setVoiceRemainingThisMinute(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceRemainingToday", (n) -> { this.setVoiceRemainingToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceUsedThisHour", (n) -> { this.setVoiceUsedThisHour(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceUsedThisMinute", (n) -> { this.setVoiceUsedThisMinute(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceUsedToday", (n) -> { this.setVoiceUsedToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -276,26 +277,26 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the smsLimitThisHour property value. Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsLimitThisHour() {
+    public UntypedNode getSmsLimitThisHour() {
         return this.smsLimitThisHour;
     }
     /**
      * Gets the smsLimitThisMinute property value. SMS limit for one rolling minute.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsLimitThisMinute() {
+    public UntypedNode getSmsLimitThisMinute() {
         return this.smsLimitThisMinute;
     }
     /**
      * Gets the smsLimitToday property value. Number of SMS limit today represented by this Leadping outbound phone number capacity.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsLimitToday() {
+    public UntypedNode getSmsLimitToday() {
         return this.smsLimitToday;
     }
     /**
@@ -316,50 +317,50 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the smsRemainingThisHour property value. SMS remaining this hour for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsRemainingThisHour() {
+    public UntypedNode getSmsRemainingThisHour() {
         return this.smsRemainingThisHour;
     }
     /**
      * Gets the smsRemainingThisMinute property value. SMS remaining in the current rolling minute.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsRemainingThisMinute() {
+    public UntypedNode getSmsRemainingThisMinute() {
         return this.smsRemainingThisMinute;
     }
     /**
      * Gets the smsRemainingToday property value. SMS remaining today for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsRemainingToday() {
+    public UntypedNode getSmsRemainingToday() {
         return this.smsRemainingToday;
     }
     /**
      * Gets the smsUsedThisHour property value. SMS used this hour for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsUsedThisHour() {
+    public UntypedNode getSmsUsedThisHour() {
         return this.smsUsedThisHour;
     }
     /**
      * Gets the smsUsedThisMinute property value. SMS used in the current rolling minute.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsUsedThisMinute() {
+    public UntypedNode getSmsUsedThisMinute() {
         return this.smsUsedThisMinute;
     }
     /**
      * Gets the smsUsedToday property value. SMS used today for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsUsedToday() {
+    public UntypedNode getSmsUsedToday() {
         return this.smsUsedToday;
     }
     /**
@@ -380,26 +381,26 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the voiceLimitThisHour property value. Voice limit this hour associated with this Leadping outbound phone number capacity.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceLimitThisHour() {
+    public UntypedNode getVoiceLimitThisHour() {
         return this.voiceLimitThisHour;
     }
     /**
      * Gets the voiceLimitThisMinute property value. Voice limit for one rolling minute.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceLimitThisMinute() {
+    public UntypedNode getVoiceLimitThisMinute() {
         return this.voiceLimitThisMinute;
     }
     /**
      * Gets the voiceLimitToday property value. Voice limit today associated with this Leadping outbound phone number capacity.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceLimitToday() {
+    public UntypedNode getVoiceLimitToday() {
         return this.voiceLimitToday;
     }
     /**
@@ -420,50 +421,50 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the voiceRemainingThisHour property value. Voice remaining this hour for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceRemainingThisHour() {
+    public UntypedNode getVoiceRemainingThisHour() {
         return this.voiceRemainingThisHour;
     }
     /**
      * Gets the voiceRemainingThisMinute property value. Voice remaining in the current rolling minute.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceRemainingThisMinute() {
+    public UntypedNode getVoiceRemainingThisMinute() {
         return this.voiceRemainingThisMinute;
     }
     /**
      * Gets the voiceRemainingToday property value. Voice remaining today for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceRemainingToday() {
+    public UntypedNode getVoiceRemainingToday() {
         return this.voiceRemainingToday;
     }
     /**
      * Gets the voiceUsedThisHour property value. Voice used this hour for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceUsedThisHour() {
+    public UntypedNode getVoiceUsedThisHour() {
         return this.voiceUsedThisHour;
     }
     /**
      * Gets the voiceUsedThisMinute property value. Voice used in the current rolling minute.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceUsedThisMinute() {
+    public UntypedNode getVoiceUsedThisMinute() {
         return this.voiceUsedThisMinute;
     }
     /**
      * Gets the voiceUsedToday property value. Voice used today for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceUsedToday() {
+    public UntypedNode getVoiceUsedToday() {
         return this.voiceUsedToday;
     }
     /**
@@ -480,30 +481,30 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("smsApproved", this.getSmsApproved());
         writer.writeOffsetDateTimeValue("smsDailyResetsAt", this.getSmsDailyResetsAt());
         writer.writeOffsetDateTimeValue("smsHourlyResetsAt", this.getSmsHourlyResetsAt());
-        writer.writeIntegerValue("smsLimitThisHour", this.getSmsLimitThisHour());
-        writer.writeIntegerValue("smsLimitThisMinute", this.getSmsLimitThisMinute());
-        writer.writeIntegerValue("smsLimitToday", this.getSmsLimitToday());
+        writer.writeObjectValue("smsLimitThisHour", this.getSmsLimitThisHour());
+        writer.writeObjectValue("smsLimitThisMinute", this.getSmsLimitThisMinute());
+        writer.writeObjectValue("smsLimitToday", this.getSmsLimitToday());
         writer.writeOffsetDateTimeValue("smsMinutelyResetsAt", this.getSmsMinutelyResetsAt());
         writer.writeBooleanValue("smsRamping", this.getSmsRamping());
-        writer.writeIntegerValue("smsRemainingThisHour", this.getSmsRemainingThisHour());
-        writer.writeIntegerValue("smsRemainingThisMinute", this.getSmsRemainingThisMinute());
-        writer.writeIntegerValue("smsRemainingToday", this.getSmsRemainingToday());
-        writer.writeIntegerValue("smsUsedThisHour", this.getSmsUsedThisHour());
-        writer.writeIntegerValue("smsUsedThisMinute", this.getSmsUsedThisMinute());
-        writer.writeIntegerValue("smsUsedToday", this.getSmsUsedToday());
+        writer.writeObjectValue("smsRemainingThisHour", this.getSmsRemainingThisHour());
+        writer.writeObjectValue("smsRemainingThisMinute", this.getSmsRemainingThisMinute());
+        writer.writeObjectValue("smsRemainingToday", this.getSmsRemainingToday());
+        writer.writeObjectValue("smsUsedThisHour", this.getSmsUsedThisHour());
+        writer.writeObjectValue("smsUsedThisMinute", this.getSmsUsedThisMinute());
+        writer.writeObjectValue("smsUsedToday", this.getSmsUsedToday());
         writer.writeOffsetDateTimeValue("voiceDailyResetsAt", this.getVoiceDailyResetsAt());
         writer.writeOffsetDateTimeValue("voiceHourlyResetsAt", this.getVoiceHourlyResetsAt());
-        writer.writeIntegerValue("voiceLimitThisHour", this.getVoiceLimitThisHour());
-        writer.writeIntegerValue("voiceLimitThisMinute", this.getVoiceLimitThisMinute());
-        writer.writeIntegerValue("voiceLimitToday", this.getVoiceLimitToday());
+        writer.writeObjectValue("voiceLimitThisHour", this.getVoiceLimitThisHour());
+        writer.writeObjectValue("voiceLimitThisMinute", this.getVoiceLimitThisMinute());
+        writer.writeObjectValue("voiceLimitToday", this.getVoiceLimitToday());
         writer.writeOffsetDateTimeValue("voiceMinutelyResetsAt", this.getVoiceMinutelyResetsAt());
         writer.writeBooleanValue("voiceRamping", this.getVoiceRamping());
-        writer.writeIntegerValue("voiceRemainingThisHour", this.getVoiceRemainingThisHour());
-        writer.writeIntegerValue("voiceRemainingThisMinute", this.getVoiceRemainingThisMinute());
-        writer.writeIntegerValue("voiceRemainingToday", this.getVoiceRemainingToday());
-        writer.writeIntegerValue("voiceUsedThisHour", this.getVoiceUsedThisHour());
-        writer.writeIntegerValue("voiceUsedThisMinute", this.getVoiceUsedThisMinute());
-        writer.writeIntegerValue("voiceUsedToday", this.getVoiceUsedToday());
+        writer.writeObjectValue("voiceRemainingThisHour", this.getVoiceRemainingThisHour());
+        writer.writeObjectValue("voiceRemainingThisMinute", this.getVoiceRemainingThisMinute());
+        writer.writeObjectValue("voiceRemainingToday", this.getVoiceRemainingToday());
+        writer.writeObjectValue("voiceUsedThisHour", this.getVoiceUsedThisHour());
+        writer.writeObjectValue("voiceUsedThisMinute", this.getVoiceUsedThisMinute());
+        writer.writeObjectValue("voiceUsedToday", this.getVoiceUsedToday());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -573,21 +574,21 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * Sets the smsLimitThisHour property value. Number of SMS limit this hour represented by this Leadping outbound phone number capacity.
      * @param value Value to set for the smsLimitThisHour property.
      */
-    public void setSmsLimitThisHour(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsLimitThisHour(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsLimitThisHour = value;
     }
     /**
      * Sets the smsLimitThisMinute property value. SMS limit for one rolling minute.
      * @param value Value to set for the smsLimitThisMinute property.
      */
-    public void setSmsLimitThisMinute(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsLimitThisMinute(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsLimitThisMinute = value;
     }
     /**
      * Sets the smsLimitToday property value. Number of SMS limit today represented by this Leadping outbound phone number capacity.
      * @param value Value to set for the smsLimitToday property.
      */
-    public void setSmsLimitToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsLimitToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsLimitToday = value;
     }
     /**
@@ -608,42 +609,42 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * Sets the smsRemainingThisHour property value. SMS remaining this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsRemainingThisHour property.
      */
-    public void setSmsRemainingThisHour(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsRemainingThisHour(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsRemainingThisHour = value;
     }
     /**
      * Sets the smsRemainingThisMinute property value. SMS remaining in the current rolling minute.
      * @param value Value to set for the smsRemainingThisMinute property.
      */
-    public void setSmsRemainingThisMinute(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsRemainingThisMinute(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsRemainingThisMinute = value;
     }
     /**
      * Sets the smsRemainingToday property value. SMS remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsRemainingToday property.
      */
-    public void setSmsRemainingToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsRemainingToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsRemainingToday = value;
     }
     /**
      * Sets the smsUsedThisHour property value. SMS used this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsUsedThisHour property.
      */
-    public void setSmsUsedThisHour(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsUsedThisHour(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsUsedThisHour = value;
     }
     /**
      * Sets the smsUsedThisMinute property value. SMS used in the current rolling minute.
      * @param value Value to set for the smsUsedThisMinute property.
      */
-    public void setSmsUsedThisMinute(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsUsedThisMinute(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsUsedThisMinute = value;
     }
     /**
      * Sets the smsUsedToday property value. SMS used today for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsUsedToday property.
      */
-    public void setSmsUsedToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsUsedToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsUsedToday = value;
     }
     /**
@@ -664,21 +665,21 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * Sets the voiceLimitThisHour property value. Voice limit this hour associated with this Leadping outbound phone number capacity.
      * @param value Value to set for the voiceLimitThisHour property.
      */
-    public void setVoiceLimitThisHour(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceLimitThisHour(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceLimitThisHour = value;
     }
     /**
      * Sets the voiceLimitThisMinute property value. Voice limit for one rolling minute.
      * @param value Value to set for the voiceLimitThisMinute property.
      */
-    public void setVoiceLimitThisMinute(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceLimitThisMinute(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceLimitThisMinute = value;
     }
     /**
      * Sets the voiceLimitToday property value. Voice limit today associated with this Leadping outbound phone number capacity.
      * @param value Value to set for the voiceLimitToday property.
      */
-    public void setVoiceLimitToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceLimitToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceLimitToday = value;
     }
     /**
@@ -699,42 +700,42 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * Sets the voiceRemainingThisHour property value. Voice remaining this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceRemainingThisHour property.
      */
-    public void setVoiceRemainingThisHour(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceRemainingThisHour(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceRemainingThisHour = value;
     }
     /**
      * Sets the voiceRemainingThisMinute property value. Voice remaining in the current rolling minute.
      * @param value Value to set for the voiceRemainingThisMinute property.
      */
-    public void setVoiceRemainingThisMinute(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceRemainingThisMinute(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceRemainingThisMinute = value;
     }
     /**
      * Sets the voiceRemainingToday property value. Voice remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceRemainingToday property.
      */
-    public void setVoiceRemainingToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceRemainingToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceRemainingToday = value;
     }
     /**
      * Sets the voiceUsedThisHour property value. Voice used this hour for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceUsedThisHour property.
      */
-    public void setVoiceUsedThisHour(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceUsedThisHour(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceUsedThisHour = value;
     }
     /**
      * Sets the voiceUsedThisMinute property value. Voice used in the current rolling minute.
      * @param value Value to set for the voiceUsedThisMinute property.
      */
-    public void setVoiceUsedThisMinute(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceUsedThisMinute(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceUsedThisMinute = value;
     }
     /**
      * Sets the voiceUsedToday property value. Voice used today for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceUsedToday property.
      */
-    public void setVoiceUsedToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceUsedToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceUsedToday = value;
     }
 }

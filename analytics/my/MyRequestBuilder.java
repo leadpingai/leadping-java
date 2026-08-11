@@ -104,7 +104,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
          * Optional number of recent days to include when explicit timestamps are not supplied.
          */
         @jakarta.annotation.Nullable
-        public Integer days;
+        public String days;
         /**
          * Optional exclusive end timestamp for the analytics period.
          */

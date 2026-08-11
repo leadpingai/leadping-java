@@ -101,7 +101,7 @@ public class MetricsRequestBuilder extends BaseRequestBuilder {
          * Optional rolling day count when explicit dates are not provided.
          */
         @jakarta.annotation.Nullable
-        public Integer days;
+        public String days;
         /**
          * Optional end date/time for the metric range.
          */

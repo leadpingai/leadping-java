@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,11 +20,11 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
     /**
      * Latitude of the geographic coordinate in decimal degrees, from -90 through 90.
      */
-    private Double latitude;
+    private UntypedNode latitude;
     /**
      * Longitude of the geographic coordinate in decimal degrees, from -180 through 180.
      */
-    private Double longitude;
+    private UntypedNode longitude;
     /**
      * Instantiates a new {@link Coordinate} and sets the default values.
      */
@@ -55,24 +56,24 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("latitude", (n) -> { this.setLatitude(n.getDoubleValue()); });
-        deserializerMap.put("longitude", (n) -> { this.setLongitude(n.getDoubleValue()); });
+        deserializerMap.put("latitude", (n) -> { this.setLatitude(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("longitude", (n) -> { this.setLongitude(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
      * Gets the latitude property value. Latitude of the geographic coordinate in decimal degrees, from -90 through 90.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getLatitude() {
+    public UntypedNode getLatitude() {
         return this.latitude;
     }
     /**
      * Gets the longitude property value. Longitude of the geographic coordinate in decimal degrees, from -180 through 180.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getLongitude() {
+    public UntypedNode getLongitude() {
         return this.longitude;
     }
     /**
@@ -81,8 +82,8 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeDoubleValue("latitude", this.getLatitude());
-        writer.writeDoubleValue("longitude", this.getLongitude());
+        writer.writeObjectValue("latitude", this.getLatitude());
+        writer.writeObjectValue("longitude", this.getLongitude());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -96,14 +97,14 @@ public class Coordinate implements AdditionalDataHolder, Parsable {
      * Sets the latitude property value. Latitude of the geographic coordinate in decimal degrees, from -90 through 90.
      * @param value Value to set for the latitude property.
      */
-    public void setLatitude(@jakarta.annotation.Nullable final Double value) {
+    public void setLatitude(@jakarta.annotation.Nullable final UntypedNode value) {
         this.latitude = value;
     }
     /**
      * Sets the longitude property value. Longitude of the geographic coordinate in decimal degrees, from -180 through 180.
      * @param value Value to set for the longitude property.
      */
-    public void setLongitude(@jakarta.annotation.Nullable final Double value) {
+    public void setLongitude(@jakarta.annotation.Nullable final UntypedNode value) {
         this.longitude = value;
     }
 }

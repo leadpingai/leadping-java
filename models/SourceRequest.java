@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -31,7 +32,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
     /**
      * Configured cost charged when this source creates a billable lead.
      */
-    private Double costPerLead;
+    private UntypedNode costPerLead;
     /**
      * Tag IDs automatically assigned to leads created by this source.
      */
@@ -114,10 +115,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getCostPerLead() {
+    public UntypedNode getCostPerLead() {
         return this.costPerLead;
     }
     /**
@@ -162,7 +163,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
-        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
+        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -214,7 +215,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeStringValue("apiKey", this.getApiKey());
-        writer.writeDoubleValue("costPerLead", this.getCostPerLead());
+        writer.writeObjectValue("costPerLead", this.getCostPerLead());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
         writer.writeStringValue("description", this.getDescription());
@@ -257,7 +258,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.
      * @param value Value to set for the costPerLead property.
      */
-    public void setCostPerLead(@jakarta.annotation.Nullable final Double value) {
+    public void setCostPerLead(@jakarta.annotation.Nullable final UntypedNode value) {
         this.costPerLead = value;
     }
     /**

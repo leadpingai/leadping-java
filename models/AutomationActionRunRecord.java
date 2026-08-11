@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,11 +53,11 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
     /**
      * Sort order used to evaluate or display this automation action run record.
      */
-    private Integer order;
+    private UntypedNode order;
     /**
      * Number of processing attempts made for this workflow or delivery request.
      */
-    private Integer processingAttempts;
+    private UntypedNode processingAttempts;
     /**
      * UTC timestamp when this automation action run record was scheduled.
      */
@@ -156,8 +157,8 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("order", (n) -> { this.setOrder(n.getIntegerValue()); });
-        deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
+        deserializerMap.put("order", (n) -> { this.setOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("scheduledAt", (n) -> { this.setScheduledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
@@ -181,18 +182,18 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
     }
     /**
      * Gets the order property value. Sort order used to evaluate or display this automation action run record.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getOrder() {
+    public UntypedNode getOrder() {
         return this.order;
     }
     /**
      * Gets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getProcessingAttempts() {
+    public UntypedNode getProcessingAttempts() {
         return this.processingAttempts;
     }
     /**
@@ -233,8 +234,8 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         writer.writeStringValue("failureCode", this.getFailureCode());
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
-        writer.writeIntegerValue("order", this.getOrder());
-        writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
+        writer.writeObjectValue("order", this.getOrder());
+        writer.writeObjectValue("processingAttempts", this.getProcessingAttempts());
         writer.writeOffsetDateTimeValue("scheduledAt", this.getScheduledAt());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
@@ -307,14 +308,14 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      * Sets the order property value. Sort order used to evaluate or display this automation action run record.
      * @param value Value to set for the order property.
      */
-    public void setOrder(@jakarta.annotation.Nullable final Integer value) {
+    public void setOrder(@jakarta.annotation.Nullable final UntypedNode value) {
         this.order = value;
     }
     /**
      * Sets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
      * @param value Value to set for the processingAttempts property.
      */
-    public void setProcessingAttempts(@jakarta.annotation.Nullable final Integer value) {
+    public void setProcessingAttempts(@jakarta.annotation.Nullable final UntypedNode value) {
         this.processingAttempts = value;
     }
     /**

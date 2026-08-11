@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +53,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     /**
      * Expected monthly volume for this 10DLC application draft.
      */
-    private Integer expectedMonthlyVolume;
+    private UntypedNode expectedMonthlyVolume;
     /**
      * The Telnyx brand vertical for this 10DLC application draft. The JSON name is retained for backward compatibility.
      */
@@ -104,7 +105,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     /**
      * Version for this 10DLC application draft.
      */
-    private Integer version;
+    private UntypedNode version;
     /**
      * Public business website URL submitted to carriers during brand review.
      */
@@ -199,10 +200,10 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the expectedMonthlyVolume property value. Expected monthly volume for this 10DLC application draft.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getExpectedMonthlyVolume() {
+    public UntypedNode getExpectedMonthlyVolume() {
         return this.expectedMonthlyVolume;
     }
     /**
@@ -220,7 +221,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         deserializerMap.put("contactName", (n) -> { this.setContactName(n.getStringValue()); });
         deserializerMap.put("contactPhone", (n) -> { this.setContactPhone(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
-        deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getIntegerValue()); });
+        deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
         deserializerMap.put("lastSubmittedAt", (n) -> { this.setLastSubmittedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("messageExamples", (n) -> { this.setMessageExamples(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -233,7 +234,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         deserializerMap.put("updatedAt", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("useCase", (n) -> { this.setUseCase(n.getStringValue()); });
         deserializerMap.put("useCaseDescription", (n) -> { this.setUseCaseDescription(n.getStringValue()); });
-        deserializerMap.put("version", (n) -> { this.setVersion(n.getIntegerValue()); });
+        deserializerMap.put("version", (n) -> { this.setVersion(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("websiteUrl", (n) -> { this.setWebsiteUrl(n.getStringValue()); });
         return deserializerMap;
     }
@@ -335,10 +336,10 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the version property value. Version for this 10DLC application draft.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVersion() {
+    public UntypedNode getVersion() {
         return this.version;
     }
     /**
@@ -363,7 +364,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("contactName", this.getContactName());
         writer.writeStringValue("contactPhone", this.getContactPhone());
         writer.writeStringValue("ein", this.getEin());
-        writer.writeIntegerValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
+        writer.writeObjectValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
         writer.writeStringValue("industry", this.getIndustry());
         writer.writeOffsetDateTimeValue("lastSubmittedAt", this.getLastSubmittedAt());
         writer.writeCollectionOfPrimitiveValues("messageExamples", this.getMessageExamples());
@@ -376,7 +377,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("updatedAt", this.getUpdatedAt());
         writer.writeStringValue("useCase", this.getUseCase());
         writer.writeStringValue("useCaseDescription", this.getUseCaseDescription());
-        writer.writeIntegerValue("version", this.getVersion());
+        writer.writeObjectValue("version", this.getVersion());
         writer.writeStringValue("websiteUrl", this.getWebsiteUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -447,7 +448,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      * Sets the expectedMonthlyVolume property value. Expected monthly volume for this 10DLC application draft.
      * @param value Value to set for the expectedMonthlyVolume property.
      */
-    public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final Integer value) {
+    public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final UntypedNode value) {
         this.expectedMonthlyVolume = value;
     }
     /**
@@ -538,7 +539,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      * Sets the version property value. Version for this 10DLC application draft.
      * @param value Value to set for the version property.
      */
-    public void setVersion(@jakarta.annotation.Nullable final Integer value) {
+    public void setVersion(@jakarta.annotation.Nullable final UntypedNode value) {
         this.version = value;
     }
     /**

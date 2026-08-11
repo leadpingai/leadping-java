@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class OrganizationInvitationTableRow implements AdditionalDataHolder, Par
     /**
      * The quantity on the shared organization user license subscription item after this change.
      */
-    private Long licenseQuantity;
+    private UntypedNode licenseQuantity;
     /**
      * The date and time this invitation&apos;s paid license was released.
      */
@@ -155,7 +156,7 @@ public class OrganizationInvitationTableRow implements AdditionalDataHolder, Par
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("licenseActivatedAt", (n) -> { this.setLicenseActivatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
-        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getLongValue()); });
+        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("licenseReleasedAt", (n) -> { this.setLicenseReleasedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
@@ -193,10 +194,10 @@ public class OrganizationInvitationTableRow implements AdditionalDataHolder, Par
     }
     /**
      * Gets the licenseQuantity property value. The quantity on the shared organization user license subscription item after this change.
-     * @return a {@link Long}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Long getLicenseQuantity() {
+    public UntypedNode getLicenseQuantity() {
         return this.licenseQuantity;
     }
     /**
@@ -284,7 +285,7 @@ public class OrganizationInvitationTableRow implements AdditionalDataHolder, Par
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("licenseActivatedAt", this.getLicenseActivatedAt());
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
-        writer.writeLongValue("licenseQuantity", this.getLicenseQuantity());
+        writer.writeObjectValue("licenseQuantity", this.getLicenseQuantity());
         writer.writeOffsetDateTimeValue("licenseReleasedAt", this.getLicenseReleasedAt());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeObjectValue("organization", this.getOrganization());
@@ -356,7 +357,7 @@ public class OrganizationInvitationTableRow implements AdditionalDataHolder, Par
      * Sets the licenseQuantity property value. The quantity on the shared organization user license subscription item after this change.
      * @param value Value to set for the licenseQuantity property.
      */
-    public void setLicenseQuantity(@jakarta.annotation.Nullable final Long value) {
+    public void setLicenseQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
         this.licenseQuantity = value;
     }
     /**

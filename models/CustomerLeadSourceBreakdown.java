@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,11 +20,11 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
     /**
      * Number of leads represented by this Leadping customer lead source breakdown.
      */
-    private Integer leads;
+    private UntypedNode leads;
     /**
      * Percent expressed as a percentage.
      */
-    private Double percent;
+    private UntypedNode percent;
     /**
      * Source classification for this Leadping customer lead source breakdown.
      */
@@ -59,25 +60,25 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
-        deserializerMap.put("leads", (n) -> { this.setLeads(n.getIntegerValue()); });
-        deserializerMap.put("percent", (n) -> { this.setPercent(n.getDoubleValue()); });
+        deserializerMap.put("leads", (n) -> { this.setLeads(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("percent", (n) -> { this.setPercent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getStringValue()); });
         return deserializerMap;
     }
     /**
      * Gets the leads property value. Number of leads represented by this Leadping customer lead source breakdown.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getLeads() {
+    public UntypedNode getLeads() {
         return this.leads;
     }
     /**
      * Gets the percent property value. Percent expressed as a percentage.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getPercent() {
+    public UntypedNode getPercent() {
         return this.percent;
     }
     /**
@@ -94,8 +95,8 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeIntegerValue("leads", this.getLeads());
-        writer.writeDoubleValue("percent", this.getPercent());
+        writer.writeObjectValue("leads", this.getLeads());
+        writer.writeObjectValue("percent", this.getPercent());
         writer.writeStringValue("source", this.getSource());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -110,14 +111,14 @@ public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsab
      * Sets the leads property value. Number of leads represented by this Leadping customer lead source breakdown.
      * @param value Value to set for the leads property.
      */
-    public void setLeads(@jakarta.annotation.Nullable final Integer value) {
+    public void setLeads(@jakarta.annotation.Nullable final UntypedNode value) {
         this.leads = value;
     }
     /**
      * Sets the percent property value. Percent expressed as a percentage.
      * @param value Value to set for the percent property.
      */
-    public void setPercent(@jakarta.annotation.Nullable final Double value) {
+    public void setPercent(@jakarta.annotation.Nullable final UntypedNode value) {
         this.percent = value;
     }
     /**

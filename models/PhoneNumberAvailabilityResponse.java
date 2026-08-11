@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -35,7 +36,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
     /**
      * Lead price or transaction price supplied to the Leadping API.
      */
-    private Double price;
+    private UntypedNode price;
     /**
      * Instantiates a new {@link PhoneNumberAvailabilityResponse} and sets the default values.
      */
@@ -79,7 +80,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
         deserializerMap.put("isAvailable", (n) -> { this.setIsAvailable(n.getBooleanValue()); });
         deserializerMap.put("location", (n) -> { this.setLocation(n.getObjectValue(PhoneNumberAvailabilityResponseLocation::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
-        deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
+        deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -108,10 +109,10 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
     }
     /**
      * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getPrice() {
+    public UntypedNode getPrice() {
         return this.price;
     }
     /**
@@ -124,7 +125,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
         writer.writeBooleanValue("isAvailable", this.getIsAvailable());
         writer.writeObjectValue("location", this.getLocation());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
-        writer.writeDoubleValue("price", this.getPrice());
+        writer.writeObjectValue("price", this.getPrice());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -166,7 +167,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
      * Sets the price property value. Lead price or transaction price supplied to the Leadping API.
      * @param value Value to set for the price property.
      */
-    public void setPrice(@jakarta.annotation.Nullable final Double value) {
+    public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
         this.price = value;
     }
 }

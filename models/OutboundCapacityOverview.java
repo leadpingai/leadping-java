@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,19 +20,19 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     /**
      * Total number of blocked records represented by this Leadping outbound capacity overview.
      */
-    private Integer blockedCount;
+    private UntypedNode blockedCount;
     /**
      * Number of cooling phone numbers represented by this Leadping outbound capacity overview.
      */
-    private Integer coolingPhoneNumbers;
+    private UntypedNode coolingPhoneNumbers;
     /**
      * Number of healthy phone numbers represented by this Leadping outbound capacity overview.
      */
-    private Integer healthyPhoneNumbers;
+    private UntypedNode healthyPhoneNumbers;
     /**
      * Number of limited phone numbers represented by this Leadping outbound capacity overview.
      */
-    private Integer limitedPhoneNumbers;
+    private UntypedNode limitedPhoneNumbers;
     /**
      * Collection of phone numbers included with this Leadping outbound capacity overview.
      */
@@ -39,7 +40,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     /**
      * Number of phone numbers whose SMS or calling capacity is still ramping up.
      */
-    private Integer rampingPhoneNumbers;
+    private UntypedNode rampingPhoneNumbers;
     /**
      * Collection of recent decisions included with this Leadping outbound capacity overview.
      */
@@ -47,15 +48,15 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     /**
      * Total number of scheduled records represented by this Leadping outbound capacity overview.
      */
-    private Integer scheduledCount;
+    private UntypedNode scheduledCount;
     /**
      * SMS capacity remaining today for the applicable messaging or voice capacity window.
      */
-    private Integer smsCapacityRemainingToday;
+    private UntypedNode smsCapacityRemainingToday;
     /**
      * Voice capacity remaining today for the applicable messaging or voice capacity window.
      */
-    private Integer voiceCapacityRemainingToday;
+    private UntypedNode voiceCapacityRemainingToday;
     /**
      * Instantiates a new {@link OutboundCapacityOverview} and sets the default values.
      */
@@ -82,18 +83,18 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the blockedCount property value. Total number of blocked records represented by this Leadping outbound capacity overview.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getBlockedCount() {
+    public UntypedNode getBlockedCount() {
         return this.blockedCount;
     }
     /**
      * Gets the coolingPhoneNumbers property value. Number of cooling phone numbers represented by this Leadping outbound capacity overview.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getCoolingPhoneNumbers() {
+    public UntypedNode getCoolingPhoneNumbers() {
         return this.coolingPhoneNumbers;
     }
     /**
@@ -103,32 +104,32 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
-        deserializerMap.put("blockedCount", (n) -> { this.setBlockedCount(n.getIntegerValue()); });
-        deserializerMap.put("coolingPhoneNumbers", (n) -> { this.setCoolingPhoneNumbers(n.getIntegerValue()); });
-        deserializerMap.put("healthyPhoneNumbers", (n) -> { this.setHealthyPhoneNumbers(n.getIntegerValue()); });
-        deserializerMap.put("limitedPhoneNumbers", (n) -> { this.setLimitedPhoneNumbers(n.getIntegerValue()); });
+        deserializerMap.put("blockedCount", (n) -> { this.setBlockedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("coolingPhoneNumbers", (n) -> { this.setCoolingPhoneNumbers(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("healthyPhoneNumbers", (n) -> { this.setHealthyPhoneNumbers(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("limitedPhoneNumbers", (n) -> { this.setLimitedPhoneNumbers(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneNumbers", (n) -> { this.setPhoneNumbers(n.getCollectionOfObjectValues(OutboundPhoneNumberCapacity::createFromDiscriminatorValue)); });
-        deserializerMap.put("rampingPhoneNumbers", (n) -> { this.setRampingPhoneNumbers(n.getIntegerValue()); });
+        deserializerMap.put("rampingPhoneNumbers", (n) -> { this.setRampingPhoneNumbers(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("recentDecisions", (n) -> { this.setRecentDecisions(n.getCollectionOfObjectValues(OutboundQueueItem::createFromDiscriminatorValue)); });
-        deserializerMap.put("scheduledCount", (n) -> { this.setScheduledCount(n.getIntegerValue()); });
-        deserializerMap.put("smsCapacityRemainingToday", (n) -> { this.setSmsCapacityRemainingToday(n.getIntegerValue()); });
-        deserializerMap.put("voiceCapacityRemainingToday", (n) -> { this.setVoiceCapacityRemainingToday(n.getIntegerValue()); });
+        deserializerMap.put("scheduledCount", (n) -> { this.setScheduledCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsCapacityRemainingToday", (n) -> { this.setSmsCapacityRemainingToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("voiceCapacityRemainingToday", (n) -> { this.setVoiceCapacityRemainingToday(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
      * Gets the healthyPhoneNumbers property value. Number of healthy phone numbers represented by this Leadping outbound capacity overview.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getHealthyPhoneNumbers() {
+    public UntypedNode getHealthyPhoneNumbers() {
         return this.healthyPhoneNumbers;
     }
     /**
      * Gets the limitedPhoneNumbers property value. Number of limited phone numbers represented by this Leadping outbound capacity overview.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getLimitedPhoneNumbers() {
+    public UntypedNode getLimitedPhoneNumbers() {
         return this.limitedPhoneNumbers;
     }
     /**
@@ -141,10 +142,10 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the rampingPhoneNumbers property value. Number of phone numbers whose SMS or calling capacity is still ramping up.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getRampingPhoneNumbers() {
+    public UntypedNode getRampingPhoneNumbers() {
         return this.rampingPhoneNumbers;
     }
     /**
@@ -157,26 +158,26 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the scheduledCount property value. Total number of scheduled records represented by this Leadping outbound capacity overview.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getScheduledCount() {
+    public UntypedNode getScheduledCount() {
         return this.scheduledCount;
     }
     /**
      * Gets the smsCapacityRemainingToday property value. SMS capacity remaining today for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSmsCapacityRemainingToday() {
+    public UntypedNode getSmsCapacityRemainingToday() {
         return this.smsCapacityRemainingToday;
     }
     /**
      * Gets the voiceCapacityRemainingToday property value. Voice capacity remaining today for the applicable messaging or voice capacity window.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getVoiceCapacityRemainingToday() {
+    public UntypedNode getVoiceCapacityRemainingToday() {
         return this.voiceCapacityRemainingToday;
     }
     /**
@@ -185,16 +186,16 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeIntegerValue("blockedCount", this.getBlockedCount());
-        writer.writeIntegerValue("coolingPhoneNumbers", this.getCoolingPhoneNumbers());
-        writer.writeIntegerValue("healthyPhoneNumbers", this.getHealthyPhoneNumbers());
-        writer.writeIntegerValue("limitedPhoneNumbers", this.getLimitedPhoneNumbers());
+        writer.writeObjectValue("blockedCount", this.getBlockedCount());
+        writer.writeObjectValue("coolingPhoneNumbers", this.getCoolingPhoneNumbers());
+        writer.writeObjectValue("healthyPhoneNumbers", this.getHealthyPhoneNumbers());
+        writer.writeObjectValue("limitedPhoneNumbers", this.getLimitedPhoneNumbers());
         writer.writeCollectionOfObjectValues("phoneNumbers", this.getPhoneNumbers());
-        writer.writeIntegerValue("rampingPhoneNumbers", this.getRampingPhoneNumbers());
+        writer.writeObjectValue("rampingPhoneNumbers", this.getRampingPhoneNumbers());
         writer.writeCollectionOfObjectValues("recentDecisions", this.getRecentDecisions());
-        writer.writeIntegerValue("scheduledCount", this.getScheduledCount());
-        writer.writeIntegerValue("smsCapacityRemainingToday", this.getSmsCapacityRemainingToday());
-        writer.writeIntegerValue("voiceCapacityRemainingToday", this.getVoiceCapacityRemainingToday());
+        writer.writeObjectValue("scheduledCount", this.getScheduledCount());
+        writer.writeObjectValue("smsCapacityRemainingToday", this.getSmsCapacityRemainingToday());
+        writer.writeObjectValue("voiceCapacityRemainingToday", this.getVoiceCapacityRemainingToday());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -208,28 +209,28 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      * Sets the blockedCount property value. Total number of blocked records represented by this Leadping outbound capacity overview.
      * @param value Value to set for the blockedCount property.
      */
-    public void setBlockedCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setBlockedCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.blockedCount = value;
     }
     /**
      * Sets the coolingPhoneNumbers property value. Number of cooling phone numbers represented by this Leadping outbound capacity overview.
      * @param value Value to set for the coolingPhoneNumbers property.
      */
-    public void setCoolingPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
+    public void setCoolingPhoneNumbers(@jakarta.annotation.Nullable final UntypedNode value) {
         this.coolingPhoneNumbers = value;
     }
     /**
      * Sets the healthyPhoneNumbers property value. Number of healthy phone numbers represented by this Leadping outbound capacity overview.
      * @param value Value to set for the healthyPhoneNumbers property.
      */
-    public void setHealthyPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
+    public void setHealthyPhoneNumbers(@jakarta.annotation.Nullable final UntypedNode value) {
         this.healthyPhoneNumbers = value;
     }
     /**
      * Sets the limitedPhoneNumbers property value. Number of limited phone numbers represented by this Leadping outbound capacity overview.
      * @param value Value to set for the limitedPhoneNumbers property.
      */
-    public void setLimitedPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
+    public void setLimitedPhoneNumbers(@jakarta.annotation.Nullable final UntypedNode value) {
         this.limitedPhoneNumbers = value;
     }
     /**
@@ -243,7 +244,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      * Sets the rampingPhoneNumbers property value. Number of phone numbers whose SMS or calling capacity is still ramping up.
      * @param value Value to set for the rampingPhoneNumbers property.
      */
-    public void setRampingPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
+    public void setRampingPhoneNumbers(@jakarta.annotation.Nullable final UntypedNode value) {
         this.rampingPhoneNumbers = value;
     }
     /**
@@ -257,21 +258,21 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      * Sets the scheduledCount property value. Total number of scheduled records represented by this Leadping outbound capacity overview.
      * @param value Value to set for the scheduledCount property.
      */
-    public void setScheduledCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setScheduledCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.scheduledCount = value;
     }
     /**
      * Sets the smsCapacityRemainingToday property value. SMS capacity remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the smsCapacityRemainingToday property.
      */
-    public void setSmsCapacityRemainingToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setSmsCapacityRemainingToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.smsCapacityRemainingToday = value;
     }
     /**
      * Sets the voiceCapacityRemainingToday property value. Voice capacity remaining today for the applicable messaging or voice capacity window.
      * @param value Value to set for the voiceCapacityRemainingToday property.
      */
-    public void setVoiceCapacityRemainingToday(@jakarta.annotation.Nullable final Integer value) {
+    public void setVoiceCapacityRemainingToday(@jakarta.annotation.Nullable final UntypedNode value) {
         this.voiceCapacityRemainingToday = value;
     }
 }

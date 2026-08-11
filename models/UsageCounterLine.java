@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -27,7 +28,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
     /**
      * The display order for this usage counter.
      */
-    private Integer sortOrder;
+    private UntypedNode sortOrder;
     /**
      * The unit label for this usage counter.
      */
@@ -35,7 +36,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
     /**
      * Numeric for this usage counter.
      */
-    private Double value;
+    private UntypedNode value;
     /**
      * Instantiates a new {@link UsageCounterLine} and sets the default values.
      */
@@ -69,9 +70,9 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("key", (n) -> { this.setKey(n.getStringValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
-        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getIntegerValue()); });
+        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("unit", (n) -> { this.setUnit(n.getStringValue()); });
-        deserializerMap.put("value", (n) -> { this.setValue(n.getDoubleValue()); });
+        deserializerMap.put("value", (n) -> { this.setValue(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -92,10 +93,10 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the sortOrder property value. The display order for this usage counter.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getSortOrder() {
+    public UntypedNode getSortOrder() {
         return this.sortOrder;
     }
     /**
@@ -108,10 +109,10 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the value property value. Numeric for this usage counter.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getValue() {
+    public UntypedNode getValue() {
         return this.value;
     }
     /**
@@ -122,9 +123,9 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("key", this.getKey());
         writer.writeStringValue("label", this.getLabel());
-        writer.writeIntegerValue("sortOrder", this.getSortOrder());
+        writer.writeObjectValue("sortOrder", this.getSortOrder());
         writer.writeStringValue("unit", this.getUnit());
-        writer.writeDoubleValue("value", this.getValue());
+        writer.writeObjectValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -152,7 +153,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
      * Sets the sortOrder property value. The display order for this usage counter.
      * @param value Value to set for the sortOrder property.
      */
-    public void setSortOrder(@jakarta.annotation.Nullable final Integer value) {
+    public void setSortOrder(@jakarta.annotation.Nullable final UntypedNode value) {
         this.sortOrder = value;
     }
     /**
@@ -166,7 +167,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
      * Sets the value property value. Numeric for this usage counter.
      * @param value Value to set for the value property.
      */
-    public void setValue(@jakarta.annotation.Nullable final Double value) {
+    public void setValue(@jakarta.annotation.Nullable final UntypedNode value) {
         this.value = value;
     }
 }

@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -27,15 +28,15 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
     /**
      * The monetary customer charge amount for this usage summary line.
      */
-    private Double customerChargeAmount;
+    private UntypedNode customerChargeAmount;
     /**
      * Quantity for this usage summary line.
      */
-    private Double quantity;
+    private UntypedNode quantity;
     /**
      * The record count for this usage summary line.
      */
-    private Integer recordCount;
+    private UntypedNode recordCount;
     /**
      * The current status for this usage summary line.
      */
@@ -82,10 +83,10 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the customerChargeAmount property value. The monetary customer charge amount for this usage summary line.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getCustomerChargeAmount() {
+    public UntypedNode getCustomerChargeAmount() {
         return this.customerChargeAmount;
     }
     /**
@@ -97,26 +98,26 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
-        deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
-        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
-        deserializerMap.put("recordCount", (n) -> { this.setRecordCount(n.getIntegerValue()); });
+        deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("recordCount", (n) -> { this.setRecordCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageStatus::forValue)); });
         return deserializerMap;
     }
     /**
      * Gets the quantity property value. Quantity for this usage summary line.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getQuantity() {
+    public UntypedNode getQuantity() {
         return this.quantity;
     }
     /**
      * Gets the recordCount property value. The record count for this usage summary line.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getRecordCount() {
+    public UntypedNode getRecordCount() {
         return this.recordCount;
     }
     /**
@@ -135,9 +136,9 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
         writer.writeEnumValue("channel", this.getChannel());
-        writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
-        writer.writeDoubleValue("quantity", this.getQuantity());
-        writer.writeIntegerValue("recordCount", this.getRecordCount());
+        writer.writeObjectValue("customerChargeAmount", this.getCustomerChargeAmount());
+        writer.writeObjectValue("quantity", this.getQuantity());
+        writer.writeObjectValue("recordCount", this.getRecordCount());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -166,21 +167,21 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      * Sets the customerChargeAmount property value. The monetary customer charge amount for this usage summary line.
      * @param value Value to set for the customerChargeAmount property.
      */
-    public void setCustomerChargeAmount(@jakarta.annotation.Nullable final Double value) {
+    public void setCustomerChargeAmount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.customerChargeAmount = value;
     }
     /**
      * Sets the quantity property value. Quantity for this usage summary line.
      * @param value Value to set for the quantity property.
      */
-    public void setQuantity(@jakarta.annotation.Nullable final Double value) {
+    public void setQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
         this.quantity = value;
     }
     /**
      * Sets the recordCount property value. The record count for this usage summary line.
      * @param value Value to set for the recordCount property.
      */
-    public void setRecordCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setRecordCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.recordCount = value;
     }
     /**

@@ -111,7 +111,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
          * The window days.
          */
         @jakarta.annotation.Nullable
-        public Integer windowDays;
+        public String windowDays;
         /**
          * Extracts the query parameters into a map for the URI template parsing.
          * @return a {@link Map<String, Object>}

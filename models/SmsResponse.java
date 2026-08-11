@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private Double billableAmount;
+    private UntypedNode billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -112,7 +113,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     /**
      * Number of retry attempts already made for this SMS message.
      */
-    private Integer retryCount;
+    private UntypedNode retryCount;
     /**
      * UTC timestamp when Leadping is scheduled to send this SMS message.
      */
@@ -187,10 +188,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getBillableAmount() {
+    public UntypedNode getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -296,7 +297,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
@@ -319,7 +320,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getIntegerValue()); });
+        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
         deserializerMap.put("scheduledReason", (n) -> { this.setScheduledReason(n.getStringValue()); });
         deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(SmsResponseSelectionReason::forValue)); });
@@ -416,10 +417,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the retryCount property value. Number of retry attempts already made for this SMS message.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getRetryCount() {
+    public UntypedNode getRetryCount() {
         return this.retryCount;
     }
     /**
@@ -524,7 +525,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
+        writer.writeObjectValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
         writer.writeStringValue("campaignId", this.getCampaignId());
@@ -547,7 +548,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
-        writer.writeIntegerValue("retryCount", this.getRetryCount());
+        writer.writeObjectValue("retryCount", this.getRetryCount());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
         writer.writeStringValue("scheduledReason", this.getScheduledReason());
         writer.writeEnumValue("selectionReason", this.getSelectionReason());
@@ -573,7 +574,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.billableAmount = value;
     }
     /**
@@ -734,7 +735,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      * Sets the retryCount property value. Number of retry attempts already made for this SMS message.
      * @param value Value to set for the retryCount property.
      */
-    public void setRetryCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setRetryCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.retryCount = value;
     }
     /**

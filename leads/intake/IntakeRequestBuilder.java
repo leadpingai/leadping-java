@@ -185,7 +185,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
          * Direct-post price supplied by the lead source during intake.
          */
         @jakarta.annotation.Nullable
-        public Double directPostPrice;
+        public String directPostPrice;
         /**
          * Email address for the person represented by this lead intake request.
          */
@@ -235,7 +235,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
          * Lead price or transaction price supplied to the Leadping API.
          */
         @jakarta.annotation.Nullable
-        public Double price;
+        public String price;
         /**
          * Product or offer associated with the lead or source.
          */

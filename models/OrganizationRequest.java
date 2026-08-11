@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -23,7 +24,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
-    private Double autoRefillAmount;
+    private UntypedNode autoRefillAmount;
     /**
      * Indicates whether automatic wallet refill is enabled for the organization.
      */
@@ -31,7 +32,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     /**
      * Wallet balance threshold that triggers automatic refill.
      */
-    private Double autoRefillTrigger;
+    private UntypedNode autoRefillTrigger;
     /**
      * Postal address used for invoices, receipts, and payment processor billing records.
      */
@@ -134,10 +135,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAutoRefillAmount() {
+    public UntypedNode getAutoRefillAmount() {
         return this.autoRefillAmount;
     }
     /**
@@ -150,10 +151,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAutoRefillTrigger() {
+    public UntypedNode getAutoRefillTrigger() {
         return this.autoRefillTrigger;
     }
     /**
@@ -228,9 +229,9 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationRequestAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
+        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
-        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
+        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(OrganizationRequestBillingAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingTaxId", (n) -> { this.setBillingTaxId(n.getStringValue()); });
@@ -329,9 +330,9 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("address", this.getAddress());
-        writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
+        writer.writeObjectValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
-        writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
+        writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
         writer.writeStringValue("billingName", this.getBillingName());
         writer.writeStringValue("billingTaxId", this.getBillingTaxId());
@@ -369,7 +370,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
      * @param value Value to set for the autoRefillAmount property.
      */
-    public void setAutoRefillAmount(@jakarta.annotation.Nullable final Double value) {
+    public void setAutoRefillAmount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.autoRefillAmount = value;
     }
     /**
@@ -383,7 +384,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      * Sets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
      * @param value Value to set for the autoRefillTrigger property.
      */
-    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final Double value) {
+    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final UntypedNode value) {
         this.autoRefillTrigger = value;
     }
     /**

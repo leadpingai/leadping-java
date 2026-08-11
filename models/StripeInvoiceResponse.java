@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
     /**
      * Total invoice amount in the invoice currency.
      */
-    private Double amount;
+    private UntypedNode amount;
     /**
      * Date and time when the invoice was created.
      */
@@ -67,10 +68,10 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the amount property value. Total invoice amount in the invoice currency.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAmount() {
+    public UntypedNode getAmount() {
         return this.amount;
     }
     /**
@@ -88,7 +89,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
-        deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
+        deserializerMap.put("amount", (n) -> { this.setAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("hasPdf", (n) -> { this.setHasPdf(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -134,7 +135,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeDoubleValue("amount", this.getAmount());
+        writer.writeObjectValue("amount", this.getAmount());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeBooleanValue("hasPdf", this.getHasPdf());
         writer.writeStringValue("id", this.getId());
@@ -153,7 +154,7 @@ public class StripeInvoiceResponse implements AdditionalDataHolder, Parsable {
      * Sets the amount property value. Total invoice amount in the invoice currency.
      * @param value Value to set for the amount property.
      */
-    public void setAmount(@jakarta.annotation.Nullable final Double value) {
+    public void setAmount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.amount = value;
     }
     /**

@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -27,7 +28,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
     /**
      * Total number of total records represented by this Leadping customer lead trend.
      */
-    private Integer total;
+    private UntypedNode total;
     /**
      * Instantiates a new {@link CustomerLeadTrend} and sets the default values.
      */
@@ -69,7 +70,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("comparison", (n) -> { this.setComparison(n.getObjectValue(AnalyticsComparison::createFromDiscriminatorValue)); });
         deserializerMap.put("points", (n) -> { this.setPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
-        deserializerMap.put("total", (n) -> { this.setTotal(n.getIntegerValue()); });
+        deserializerMap.put("total", (n) -> { this.setTotal(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -82,10 +83,10 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the total property value. Total number of total records represented by this Leadping customer lead trend.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getTotal() {
+    public UntypedNode getTotal() {
         return this.total;
     }
     /**
@@ -96,7 +97,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("comparison", this.getComparison());
         writer.writeCollectionOfObjectValues("points", this.getPoints());
-        writer.writeIntegerValue("total", this.getTotal());
+        writer.writeObjectValue("total", this.getTotal());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -124,7 +125,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      * Sets the total property value. Total number of total records represented by this Leadping customer lead trend.
      * @param value Value to set for the total property.
      */
-    public void setTotal(@jakarta.annotation.Nullable final Integer value) {
+    public void setTotal(@jakarta.annotation.Nullable final UntypedNode value) {
         this.total = value;
     }
 }

@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -19,7 +20,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
     /**
      * The health score metric for this SMS warmup status.
      */
-    private Integer healthScore;
+    private UntypedNode healthScore;
     /**
      * The current delivery-health assessment for this SMS warmup status.
      */
@@ -35,7 +36,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
     /**
      * The progress percent metric for this SMS warmup status.
      */
-    private Integer progressPercent;
+    private UntypedNode progressPercent;
     /**
      * The current state for this SMS warmup status.
      */
@@ -79,11 +80,11 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getIntegerValue()); });
+        deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(SmsReadinessHealthStatus::forValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getIntegerValue()); });
+        deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(SmsReadinessState::forValue)); });
         deserializerMap.put("uiState", (n) -> { this.setUiState(n.getObjectValue(SmsReadinessUiState::createFromDiscriminatorValue)); });
         deserializerMap.put("warmupEnabled", (n) -> { this.setWarmupEnabled(n.getBooleanValue()); });
@@ -91,10 +92,10 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
     }
     /**
      * Gets the healthScore property value. The health score metric for this SMS warmup status.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getHealthScore() {
+    public UntypedNode getHealthScore() {
         return this.healthScore;
     }
     /**
@@ -123,10 +124,10 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
     }
     /**
      * Gets the progressPercent property value. The progress percent metric for this SMS warmup status.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getProgressPercent() {
+    public UntypedNode getProgressPercent() {
         return this.progressPercent;
     }
     /**
@@ -159,11 +160,11 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeIntegerValue("healthScore", this.getHealthScore());
+        writer.writeObjectValue("healthScore", this.getHealthScore());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
-        writer.writeIntegerValue("progressPercent", this.getProgressPercent());
+        writer.writeObjectValue("progressPercent", this.getProgressPercent());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeObjectValue("uiState", this.getUiState());
         writer.writeBooleanValue("warmupEnabled", this.getWarmupEnabled());
@@ -180,7 +181,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
      * Sets the healthScore property value. The health score metric for this SMS warmup status.
      * @param value Value to set for the healthScore property.
      */
-    public void setHealthScore(@jakarta.annotation.Nullable final Integer value) {
+    public void setHealthScore(@jakarta.annotation.Nullable final UntypedNode value) {
         this.healthScore = value;
     }
     /**
@@ -208,7 +209,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
      * Sets the progressPercent property value. The progress percent metric for this SMS warmup status.
      * @param value Value to set for the progressPercent property.
      */
-    public void setProgressPercent(@jakarta.annotation.Nullable final Integer value) {
+    public void setProgressPercent(@jakarta.annotation.Nullable final UntypedNode value) {
         this.progressPercent = value;
     }
     /**

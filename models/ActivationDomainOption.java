@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -27,7 +28,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
     /**
      * Estimated annual cost for this activation domain option.
      */
-    private Double estimatedAnnualCost;
+    private UntypedNode estimatedAnnualCost;
     /**
      * Industry relevance for this activation domain option.
      */
@@ -86,10 +87,10 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the estimatedAnnualCost property value. Estimated annual cost for this activation domain option.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getEstimatedAnnualCost() {
+    public UntypedNode getEstimatedAnnualCost() {
         return this.estimatedAnnualCost;
     }
     /**
@@ -101,7 +102,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("availabilityStatus", (n) -> { this.setAvailabilityStatus(n.getStringValue()); });
         deserializerMap.put("domainName", (n) -> { this.setDomainName(n.getStringValue()); });
-        deserializerMap.put("estimatedAnnualCost", (n) -> { this.setEstimatedAnnualCost(n.getDoubleValue()); });
+        deserializerMap.put("estimatedAnnualCost", (n) -> { this.setEstimatedAnnualCost(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("industryRelevance", (n) -> { this.setIndustryRelevance(n.getStringValue()); });
         deserializerMap.put("recommended", (n) -> { this.setRecommended(n.getBooleanValue()); });
         deserializerMap.put("trustConcerns", (n) -> { this.setTrustConcerns(n.getStringValue()); });
@@ -148,7 +149,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("availabilityStatus", this.getAvailabilityStatus());
         writer.writeStringValue("domainName", this.getDomainName());
-        writer.writeDoubleValue("estimatedAnnualCost", this.getEstimatedAnnualCost());
+        writer.writeObjectValue("estimatedAnnualCost", this.getEstimatedAnnualCost());
         writer.writeStringValue("industryRelevance", this.getIndustryRelevance());
         writer.writeBooleanValue("recommended", this.getRecommended());
         writer.writeStringValue("trustConcerns", this.getTrustConcerns());
@@ -180,7 +181,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
      * Sets the estimatedAnnualCost property value. Estimated annual cost for this activation domain option.
      * @param value Value to set for the estimatedAnnualCost property.
      */
-    public void setEstimatedAnnualCost(@jakarta.annotation.Nullable final Double value) {
+    public void setEstimatedAnnualCost(@jakarta.annotation.Nullable final UntypedNode value) {
         this.estimatedAnnualCost = value;
     }
     /**

@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     /**
      * The billable quantity total for this usage summary.
      */
-    private Double billableQuantityTotal;
+    private UntypedNode billableQuantityTotal;
     /**
      * The named usage counters included with this usage summary.
      */
@@ -28,11 +29,11 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     /**
      * The customer charge total for this usage summary.
      */
-    private Double customerChargeTotal;
+    private UntypedNode customerChargeTotal;
     /**
      * The failed count for this usage summary.
      */
-    private Integer failedCount;
+    private UntypedNode failedCount;
     /**
      * The lines included with this usage summary.
      */
@@ -40,7 +41,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     /**
      * The pending invoice count for this usage summary.
      */
-    private Integer pendingInvoiceCount;
+    private UntypedNode pendingInvoiceCount;
     /**
      * UTC timestamp for period end on this usage summary.
      */
@@ -52,7 +53,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     /**
      * The usage record count for this usage summary.
      */
-    private Integer transactionCount;
+    private UntypedNode transactionCount;
     /**
      * Instantiates a new {@link UsageSummaryResponse} and sets the default values.
      */
@@ -79,10 +80,10 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableQuantityTotal property value. The billable quantity total for this usage summary.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getBillableQuantityTotal() {
+    public UntypedNode getBillableQuantityTotal() {
         return this.billableQuantityTotal;
     }
     /**
@@ -95,18 +96,18 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the customerChargeTotal property value. The customer charge total for this usage summary.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getCustomerChargeTotal() {
+    public UntypedNode getCustomerChargeTotal() {
         return this.customerChargeTotal;
     }
     /**
      * Gets the failedCount property value. The failed count for this usage summary.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getFailedCount() {
+    public UntypedNode getFailedCount() {
         return this.failedCount;
     }
     /**
@@ -116,15 +117,15 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
-        deserializerMap.put("billableQuantityTotal", (n) -> { this.setBillableQuantityTotal(n.getDoubleValue()); });
+        deserializerMap.put("billableQuantityTotal", (n) -> { this.setBillableQuantityTotal(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("counters", (n) -> { this.setCounters(n.getCollectionOfObjectValues(UsageCounterLine::createFromDiscriminatorValue)); });
-        deserializerMap.put("customerChargeTotal", (n) -> { this.setCustomerChargeTotal(n.getDoubleValue()); });
-        deserializerMap.put("failedCount", (n) -> { this.setFailedCount(n.getIntegerValue()); });
+        deserializerMap.put("customerChargeTotal", (n) -> { this.setCustomerChargeTotal(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("failedCount", (n) -> { this.setFailedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("lines", (n) -> { this.setLines(n.getCollectionOfObjectValues(UsageSummaryLine::createFromDiscriminatorValue)); });
-        deserializerMap.put("pendingInvoiceCount", (n) -> { this.setPendingInvoiceCount(n.getIntegerValue()); });
+        deserializerMap.put("pendingInvoiceCount", (n) -> { this.setPendingInvoiceCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("periodEnd", (n) -> { this.setPeriodEnd(n.getOffsetDateTimeValue()); });
         deserializerMap.put("periodStart", (n) -> { this.setPeriodStart(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("transactionCount", (n) -> { this.setTransactionCount(n.getIntegerValue()); });
+        deserializerMap.put("transactionCount", (n) -> { this.setTransactionCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -137,10 +138,10 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the pendingInvoiceCount property value. The pending invoice count for this usage summary.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getPendingInvoiceCount() {
+    public UntypedNode getPendingInvoiceCount() {
         return this.pendingInvoiceCount;
     }
     /**
@@ -161,10 +162,10 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the transactionCount property value. The usage record count for this usage summary.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getTransactionCount() {
+    public UntypedNode getTransactionCount() {
         return this.transactionCount;
     }
     /**
@@ -173,15 +174,15 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeDoubleValue("billableQuantityTotal", this.getBillableQuantityTotal());
+        writer.writeObjectValue("billableQuantityTotal", this.getBillableQuantityTotal());
         writer.writeCollectionOfObjectValues("counters", this.getCounters());
-        writer.writeDoubleValue("customerChargeTotal", this.getCustomerChargeTotal());
-        writer.writeIntegerValue("failedCount", this.getFailedCount());
+        writer.writeObjectValue("customerChargeTotal", this.getCustomerChargeTotal());
+        writer.writeObjectValue("failedCount", this.getFailedCount());
         writer.writeCollectionOfObjectValues("lines", this.getLines());
-        writer.writeIntegerValue("pendingInvoiceCount", this.getPendingInvoiceCount());
+        writer.writeObjectValue("pendingInvoiceCount", this.getPendingInvoiceCount());
         writer.writeOffsetDateTimeValue("periodEnd", this.getPeriodEnd());
         writer.writeOffsetDateTimeValue("periodStart", this.getPeriodStart());
-        writer.writeIntegerValue("transactionCount", this.getTransactionCount());
+        writer.writeObjectValue("transactionCount", this.getTransactionCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -195,7 +196,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      * Sets the billableQuantityTotal property value. The billable quantity total for this usage summary.
      * @param value Value to set for the billableQuantityTotal property.
      */
-    public void setBillableQuantityTotal(@jakarta.annotation.Nullable final Double value) {
+    public void setBillableQuantityTotal(@jakarta.annotation.Nullable final UntypedNode value) {
         this.billableQuantityTotal = value;
     }
     /**
@@ -209,14 +210,14 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      * Sets the customerChargeTotal property value. The customer charge total for this usage summary.
      * @param value Value to set for the customerChargeTotal property.
      */
-    public void setCustomerChargeTotal(@jakarta.annotation.Nullable final Double value) {
+    public void setCustomerChargeTotal(@jakarta.annotation.Nullable final UntypedNode value) {
         this.customerChargeTotal = value;
     }
     /**
      * Sets the failedCount property value. The failed count for this usage summary.
      * @param value Value to set for the failedCount property.
      */
-    public void setFailedCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setFailedCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.failedCount = value;
     }
     /**
@@ -230,7 +231,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      * Sets the pendingInvoiceCount property value. The pending invoice count for this usage summary.
      * @param value Value to set for the pendingInvoiceCount property.
      */
-    public void setPendingInvoiceCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setPendingInvoiceCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.pendingInvoiceCount = value;
     }
     /**
@@ -251,7 +252,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      * Sets the transactionCount property value. The usage record count for this usage summary.
      * @param value Value to set for the transactionCount property.
      */
-    public void setTransactionCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setTransactionCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.transactionCount = value;
     }
 }

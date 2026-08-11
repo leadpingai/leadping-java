@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
     /**
      * Total number of leads records represented by this Leadping source metrics.
      */
-    private Integer totalLeads;
+    private UntypedNode totalLeads;
     /**
      * Instantiates a new {@link SourceMetricsResponse} and sets the default values.
      */
@@ -67,7 +68,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("generatedAt", (n) -> { this.setGeneratedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("points", (n) -> { this.setPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
         deserializerMap.put("range", (n) -> { this.setRange(n.getObjectValue(AnalyticsDateRange::createFromDiscriminatorValue)); });
-        deserializerMap.put("totalLeads", (n) -> { this.setTotalLeads(n.getIntegerValue()); });
+        deserializerMap.put("totalLeads", (n) -> { this.setTotalLeads(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -96,10 +97,10 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the totalLeads property value. Total number of leads records represented by this Leadping source metrics.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getTotalLeads() {
+    public UntypedNode getTotalLeads() {
         return this.totalLeads;
     }
     /**
@@ -111,7 +112,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("generatedAt", this.getGeneratedAt());
         writer.writeCollectionOfObjectValues("points", this.getPoints());
         writer.writeObjectValue("range", this.getRange());
-        writer.writeIntegerValue("totalLeads", this.getTotalLeads());
+        writer.writeObjectValue("totalLeads", this.getTotalLeads());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -146,7 +147,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      * Sets the totalLeads property value. Total number of leads records represented by this Leadping source metrics.
      * @param value Value to set for the totalLeads property.
      */
-    public void setTotalLeads(@jakarta.annotation.Nullable final Integer value) {
+    public void setTotalLeads(@jakarta.annotation.Nullable final UntypedNode value) {
         this.totalLeads = value;
     }
 }

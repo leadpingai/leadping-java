@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Account balance for this organization.
      */
-    private Double accountBalance;
+    private UntypedNode accountBalance;
     /**
      * Defines the supported Customer Activation Status values.
      */
@@ -52,7 +53,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The total number of tracked uses for this organization API key.
      */
-    private Long apiKeyTotalUses;
+    private UntypedNode apiKeyTotalUses;
     /**
      * Defines the supported Billing Plan values.
      */
@@ -120,7 +121,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The user count for this organization.
      */
-    private Integer userCount;
+    private UntypedNode userCount;
     /**
      * The website URL associated with this organization.
      */
@@ -147,10 +148,10 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the accountBalance property value. Account balance for this organization.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAccountBalance() {
+    public UntypedNode getAccountBalance() {
         return this.accountBalance;
     }
     /**
@@ -219,10 +220,10 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the apiKeyTotalUses property value. The total number of tracked uses for this organization API key.
-     * @return a {@link Long}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Long getApiKeyTotalUses() {
+    public UntypedNode getApiKeyTotalUses() {
         return this.apiKeyTotalUses;
     }
     /**
@@ -248,7 +249,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
-        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
+        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(OrganizationTableRowActivationStatus::forValue)); });
         deserializerMap.put("apiKeyExpiresAt", (n) -> { this.setApiKeyExpiresAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyFirstUsedAt", (n) -> { this.setApiKeyFirstUsedAt(n.getOffsetDateTimeValue()); });
@@ -256,7 +257,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPermissions", (n) -> { this.setApiKeyPermissions(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
-        deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
+        deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(OrganizationTableRowBillingPlan::forValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -273,7 +274,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("subscriptionCancelAt", (n) -> { this.setSubscriptionCancelAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(OrganizationTableRowSubscriptionStatus::forValue)); });
         deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(OrganizationTableRowTenDlcStatus::forValue)); });
-        deserializerMap.put("userCount", (n) -> { this.setUserCount(n.getIntegerValue()); });
+        deserializerMap.put("userCount", (n) -> { this.setUserCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
         deserializerMap.put("websiteStatus", (n) -> { this.setWebsiteStatus(n.getEnumValue(OrganizationTableRowWebsiteStatus::forValue)); });
         return deserializerMap;
@@ -392,10 +393,10 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the userCount property value. The user count for this organization.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getUserCount() {
+    public UntypedNode getUserCount() {
         return this.userCount;
     }
     /**
@@ -420,7 +421,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeDoubleValue("accountBalance", this.getAccountBalance());
+        writer.writeObjectValue("accountBalance", this.getAccountBalance());
         writer.writeEnumValue("activationStatus", this.getActivationStatus());
         writer.writeOffsetDateTimeValue("apiKeyExpiresAt", this.getApiKeyExpiresAt());
         writer.writeOffsetDateTimeValue("apiKeyFirstUsedAt", this.getApiKeyFirstUsedAt());
@@ -428,7 +429,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeCollectionOfPrimitiveValues("apiKeyPermissions", this.getApiKeyPermissions());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
-        writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
+        writer.writeObjectValue("apiKeyTotalUses", this.getApiKeyTotalUses());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
@@ -445,7 +446,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("subscriptionCancelAt", this.getSubscriptionCancelAt());
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
-        writer.writeIntegerValue("userCount", this.getUserCount());
+        writer.writeObjectValue("userCount", this.getUserCount());
         writer.writeStringValue("website", this.getWebsite());
         writer.writeEnumValue("websiteStatus", this.getWebsiteStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -454,7 +455,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      * Sets the accountBalance property value. Account balance for this organization.
      * @param value Value to set for the accountBalance property.
      */
-    public void setAccountBalance(@jakarta.annotation.Nullable final Double value) {
+    public void setAccountBalance(@jakarta.annotation.Nullable final UntypedNode value) {
         this.accountBalance = value;
     }
     /**
@@ -517,7 +518,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      * Sets the apiKeyTotalUses property value. The total number of tracked uses for this organization API key.
      * @param value Value to set for the apiKeyTotalUses property.
      */
-    public void setApiKeyTotalUses(@jakarta.annotation.Nullable final Long value) {
+    public void setApiKeyTotalUses(@jakarta.annotation.Nullable final UntypedNode value) {
         this.apiKeyTotalUses = value;
     }
     /**
@@ -636,7 +637,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      * Sets the userCount property value. The user count for this organization.
      * @param value Value to set for the userCount property.
      */
-    public void setUserCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setUserCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.userCount = value;
     }
     /**

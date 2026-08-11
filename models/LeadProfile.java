@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     /**
      * Lead credit score range or score supplied by the intake source.
      */
-    private Integer creditScore;
+    private UntypedNode creditScore;
     /**
      * Defines the supported Employment Type values.
      */
@@ -44,11 +45,11 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     /**
      * Lead height provided for qualification workflows that require demographic details.
      */
-    private Integer height;
+    private UntypedNode height;
     /**
      * Lead income amount or range supplied for qualification workflows.
      */
-    private Integer income;
+    private UntypedNode income;
     /**
      * Indicates whether the lead owns their home.
      */
@@ -60,15 +61,15 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     /**
      * Number of months the lead has lived at the current residence.
      */
-    private Integer monthsAtResidence;
+    private UntypedNode monthsAtResidence;
     /**
      * Number of dependents reported by the lead.
      */
-    private Integer numberOfDependents;
+    private UntypedNode numberOfDependents;
     /**
      * Relative weighting used to rank or score this lead demographic profile.
      */
-    private Integer weight;
+    private UntypedNode weight;
     /**
      * Instantiates a new {@link LeadProfile} and sets the default values.
      */
@@ -103,10 +104,10 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the creditScore property value. Lead credit score range or score supplied by the intake source.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getCreditScore() {
+    public UntypedNode getCreditScore() {
         return this.creditScore;
     }
     /**
@@ -125,18 +126,18 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("birthDate", (n) -> { this.setBirthDate(n.getLocalDateValue()); });
-        deserializerMap.put("creditScore", (n) -> { this.setCreditScore(n.getIntegerValue()); });
+        deserializerMap.put("creditScore", (n) -> { this.setCreditScore(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("employmentType", (n) -> { this.setEmploymentType(n.getEnumValue(LeadProfileEmploymentType::forValue)); });
         deserializerMap.put("gender", (n) -> { this.setGender(n.getEnumValue(LeadProfileGender::forValue)); });
         deserializerMap.put("hasBankruptcy", (n) -> { this.setHasBankruptcy(n.getBooleanValue()); });
         deserializerMap.put("hasMedicalCondition", (n) -> { this.setHasMedicalCondition(n.getBooleanValue()); });
-        deserializerMap.put("height", (n) -> { this.setHeight(n.getIntegerValue()); });
-        deserializerMap.put("income", (n) -> { this.setIncome(n.getIntegerValue()); });
+        deserializerMap.put("height", (n) -> { this.setHeight(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("income", (n) -> { this.setIncome(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("isHomeowner", (n) -> { this.setIsHomeowner(n.getBooleanValue()); });
         deserializerMap.put("maritalStatus", (n) -> { this.setMaritalStatus(n.getEnumValue(LeadProfileMaritalStatus::forValue)); });
-        deserializerMap.put("monthsAtResidence", (n) -> { this.setMonthsAtResidence(n.getIntegerValue()); });
-        deserializerMap.put("numberOfDependents", (n) -> { this.setNumberOfDependents(n.getIntegerValue()); });
-        deserializerMap.put("weight", (n) -> { this.setWeight(n.getIntegerValue()); });
+        deserializerMap.put("monthsAtResidence", (n) -> { this.setMonthsAtResidence(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("numberOfDependents", (n) -> { this.setNumberOfDependents(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("weight", (n) -> { this.setWeight(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -165,18 +166,18 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the height property value. Lead height provided for qualification workflows that require demographic details.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getHeight() {
+    public UntypedNode getHeight() {
         return this.height;
     }
     /**
      * Gets the income property value. Lead income amount or range supplied for qualification workflows.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getIncome() {
+    public UntypedNode getIncome() {
         return this.income;
     }
     /**
@@ -197,26 +198,26 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the monthsAtResidence property value. Number of months the lead has lived at the current residence.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getMonthsAtResidence() {
+    public UntypedNode getMonthsAtResidence() {
         return this.monthsAtResidence;
     }
     /**
      * Gets the numberOfDependents property value. Number of dependents reported by the lead.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getNumberOfDependents() {
+    public UntypedNode getNumberOfDependents() {
         return this.numberOfDependents;
     }
     /**
      * Gets the weight property value. Relative weighting used to rank or score this lead demographic profile.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getWeight() {
+    public UntypedNode getWeight() {
         return this.weight;
     }
     /**
@@ -226,18 +227,18 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeLocalDateValue("birthDate", this.getBirthDate());
-        writer.writeIntegerValue("creditScore", this.getCreditScore());
+        writer.writeObjectValue("creditScore", this.getCreditScore());
         writer.writeEnumValue("employmentType", this.getEmploymentType());
         writer.writeEnumValue("gender", this.getGender());
         writer.writeBooleanValue("hasBankruptcy", this.getHasBankruptcy());
         writer.writeBooleanValue("hasMedicalCondition", this.getHasMedicalCondition());
-        writer.writeIntegerValue("height", this.getHeight());
-        writer.writeIntegerValue("income", this.getIncome());
+        writer.writeObjectValue("height", this.getHeight());
+        writer.writeObjectValue("income", this.getIncome());
         writer.writeBooleanValue("isHomeowner", this.getIsHomeowner());
         writer.writeEnumValue("maritalStatus", this.getMaritalStatus());
-        writer.writeIntegerValue("monthsAtResidence", this.getMonthsAtResidence());
-        writer.writeIntegerValue("numberOfDependents", this.getNumberOfDependents());
-        writer.writeIntegerValue("weight", this.getWeight());
+        writer.writeObjectValue("monthsAtResidence", this.getMonthsAtResidence());
+        writer.writeObjectValue("numberOfDependents", this.getNumberOfDependents());
+        writer.writeObjectValue("weight", this.getWeight());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -258,7 +259,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
      * Sets the creditScore property value. Lead credit score range or score supplied by the intake source.
      * @param value Value to set for the creditScore property.
      */
-    public void setCreditScore(@jakarta.annotation.Nullable final Integer value) {
+    public void setCreditScore(@jakarta.annotation.Nullable final UntypedNode value) {
         this.creditScore = value;
     }
     /**
@@ -293,14 +294,14 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
      * Sets the height property value. Lead height provided for qualification workflows that require demographic details.
      * @param value Value to set for the height property.
      */
-    public void setHeight(@jakarta.annotation.Nullable final Integer value) {
+    public void setHeight(@jakarta.annotation.Nullable final UntypedNode value) {
         this.height = value;
     }
     /**
      * Sets the income property value. Lead income amount or range supplied for qualification workflows.
      * @param value Value to set for the income property.
      */
-    public void setIncome(@jakarta.annotation.Nullable final Integer value) {
+    public void setIncome(@jakarta.annotation.Nullable final UntypedNode value) {
         this.income = value;
     }
     /**
@@ -321,21 +322,21 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
      * Sets the monthsAtResidence property value. Number of months the lead has lived at the current residence.
      * @param value Value to set for the monthsAtResidence property.
      */
-    public void setMonthsAtResidence(@jakarta.annotation.Nullable final Integer value) {
+    public void setMonthsAtResidence(@jakarta.annotation.Nullable final UntypedNode value) {
         this.monthsAtResidence = value;
     }
     /**
      * Sets the numberOfDependents property value. Number of dependents reported by the lead.
      * @param value Value to set for the numberOfDependents property.
      */
-    public void setNumberOfDependents(@jakarta.annotation.Nullable final Integer value) {
+    public void setNumberOfDependents(@jakarta.annotation.Nullable final UntypedNode value) {
         this.numberOfDependents = value;
     }
     /**
      * Sets the weight property value. Relative weighting used to rank or score this lead demographic profile.
      * @param value Value to set for the weight property.
      */
-    public void setWeight(@jakarta.annotation.Nullable final Integer value) {
+    public void setWeight(@jakarta.annotation.Nullable final UntypedNode value) {
         this.weight = value;
     }
 }

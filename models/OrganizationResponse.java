@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     /**
      * Current wallet balance available to the organization.
      */
-    private Double accountBalance;
+    private UntypedNode accountBalance;
     /**
      * Organization activation state covering site, billing, compliance, and telephony readiness.
      */
@@ -32,7 +33,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
-    private Double autoRefillAmount;
+    private UntypedNode autoRefillAmount;
     /**
      * Indicates whether automatic wallet refill is enabled for the organization.
      */
@@ -40,7 +41,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     /**
      * Wallet balance threshold that triggers automatic refill.
      */
-    private Double autoRefillTrigger;
+    private UntypedNode autoRefillTrigger;
     /**
      * Postal address used for invoices, receipts, and payment processor billing records.
      */
@@ -163,10 +164,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the accountBalance property value. Current wallet balance available to the organization.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAccountBalance() {
+    public UntypedNode getAccountBalance() {
         return this.accountBalance;
     }
     /**
@@ -195,10 +196,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAutoRefillAmount() {
+    public UntypedNode getAutoRefillAmount() {
         return this.autoRefillAmount;
     }
     /**
@@ -211,10 +212,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
-     * @return a {@link Double}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Double getAutoRefillTrigger() {
+    public UntypedNode getAutoRefillTrigger() {
         return this.autoRefillTrigger;
     }
     /**
@@ -320,12 +321,12 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
-        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
+        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
+        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
-        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
+        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(OrganizationResponseBillingAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(OrganizationResponseBillingPlan::forValue)); });
@@ -472,12 +473,12 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeDoubleValue("accountBalance", this.getAccountBalance());
+        writer.writeObjectValue("accountBalance", this.getAccountBalance());
         writer.writeObjectValue("activation", this.getActivation());
         writer.writeObjectValue("address", this.getAddress());
-        writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
+        writer.writeObjectValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
-        writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
+        writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
         writer.writeStringValue("billingName", this.getBillingName());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
@@ -510,7 +511,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Sets the accountBalance property value. Current wallet balance available to the organization.
      * @param value Value to set for the accountBalance property.
      */
-    public void setAccountBalance(@jakarta.annotation.Nullable final Double value) {
+    public void setAccountBalance(@jakarta.annotation.Nullable final UntypedNode value) {
         this.accountBalance = value;
     }
     /**
@@ -538,7 +539,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
      * @param value Value to set for the autoRefillAmount property.
      */
-    public void setAutoRefillAmount(@jakarta.annotation.Nullable final Double value) {
+    public void setAutoRefillAmount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.autoRefillAmount = value;
     }
     /**
@@ -552,7 +553,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Sets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
      * @param value Value to set for the autoRefillTrigger property.
      */
-    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final Double value) {
+    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final UntypedNode value) {
         this.autoRefillTrigger = value;
     }
     /**

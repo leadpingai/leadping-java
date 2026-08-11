@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -35,7 +36,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
     /**
      * Maximum items to return in one page
      */
-    private Integer pageSize;
+    private UntypedNode pageSize;
     /**
      * Advanced range-based filters (e.g., Price &gt; 50 and Price &lt;= 200).
      */
@@ -91,7 +92,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         deserializerMap.put("filters", (n) -> { this.setFilters(n.getCollectionOfObjectValues(ExactMatchFilter::createFromDiscriminatorValue)); });
         deserializerMap.put("includeCount", (n) -> { this.setIncludeCount(n.getBooleanValue()); });
         deserializerMap.put("orderBy", (n) -> { this.setOrderBy(n.getCollectionOfObjectValues(OrderByOption::createFromDiscriminatorValue)); });
-        deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getIntegerValue()); });
+        deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("rangeFilters", (n) -> { this.setRangeFilters(n.getCollectionOfObjectValues(RangeFilter::createFromDiscriminatorValue)); });
         deserializerMap.put("search", (n) -> { this.setSearch(n.getStringValue()); });
         deserializerMap.put("searchFields", (n) -> { this.setSearchFields(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -123,10 +124,10 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the pageSize property value. Maximum items to return in one page
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getPageSize() {
+    public UntypedNode getPageSize() {
         return this.pageSize;
     }
     /**
@@ -163,7 +164,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("filters", this.getFilters());
         writer.writeBooleanValue("includeCount", this.getIncludeCount());
         writer.writeCollectionOfObjectValues("orderBy", this.getOrderBy());
-        writer.writeIntegerValue("pageSize", this.getPageSize());
+        writer.writeObjectValue("pageSize", this.getPageSize());
         writer.writeCollectionOfObjectValues("rangeFilters", this.getRangeFilters());
         writer.writeStringValue("search", this.getSearch());
         writer.writeCollectionOfPrimitiveValues("searchFields", this.getSearchFields());
@@ -208,7 +209,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
      * Sets the pageSize property value. Maximum items to return in one page
      * @param value Value to set for the pageSize property.
      */
-    public void setPageSize(@jakarta.annotation.Nullable final Integer value) {
+    public void setPageSize(@jakarta.annotation.Nullable final UntypedNode value) {
         this.pageSize = value;
     }
     /**

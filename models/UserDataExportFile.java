@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -31,7 +32,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
     /**
      * Total number of row records represented by this Leadping user data export file.
      */
-    private Integer rowCount;
+    private UntypedNode rowCount;
     /**
      * Instantiates a new {@link UserDataExportFile} and sets the default values.
      */
@@ -82,7 +83,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("contentType", (n) -> { this.setContentType(n.getStringValue()); });
         deserializerMap.put("fileName", (n) -> { this.setFileName(n.getStringValue()); });
-        deserializerMap.put("rowCount", (n) -> { this.setRowCount(n.getIntegerValue()); });
+        deserializerMap.put("rowCount", (n) -> { this.setRowCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -95,10 +96,10 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the rowCount property value. Total number of row records represented by this Leadping user data export file.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getRowCount() {
+    public UntypedNode getRowCount() {
         return this.rowCount;
     }
     /**
@@ -110,7 +111,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("category", this.getCategory());
         writer.writeStringValue("contentType", this.getContentType());
         writer.writeStringValue("fileName", this.getFileName());
-        writer.writeIntegerValue("rowCount", this.getRowCount());
+        writer.writeObjectValue("rowCount", this.getRowCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -145,7 +146,7 @@ public class UserDataExportFile implements AdditionalDataHolder, Parsable {
      * Sets the rowCount property value. Total number of row records represented by this Leadping user data export file.
      * @param value Value to set for the rowCount property.
      */
-    public void setRowCount(@jakarta.annotation.Nullable final Integer value) {
+    public void setRowCount(@jakarta.annotation.Nullable final UntypedNode value) {
         this.rowCount = value;
     }
 }

@@ -9,6 +9,7 @@ import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,31 +37,31 @@ public class MarkAllReadRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Marks all notifications for the current user as read and returns the number updated for notification center refreshes.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public Integer post() {
+    public UntypedNode post() {
         return post(null);
     }
     /**
      * Marks all notifications for the current user as read and returns the number updated for notification center refreshes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public Integer post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+    public UntypedNode post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toPostRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Integer.class);
+        return this.requestAdapter.send(requestInfo, errorMapping, UntypedNode::createFromDiscriminatorValue);
     }
     /**
      * Marks all notifications for the current user as read and returns the number updated for notification center refreshes.

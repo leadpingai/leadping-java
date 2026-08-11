@@ -5,6 +5,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,7 +29,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
     /**
      * HTTP status code returned for the problem.
      */
-    private Integer status;
+    private UntypedNode status;
     /**
      * Short, human-readable summary of the problem.
      */
@@ -78,7 +79,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("detail", (n) -> { this.setDetail(n.getStringValue()); });
         deserializerMap.put("instance", (n) -> { this.setInstance(n.getStringValue()); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getIntegerValue()); });
+        deserializerMap.put("status", (n) -> { this.setStatus(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         return deserializerMap;
@@ -102,10 +103,10 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
     }
     /**
      * Gets the status property value. HTTP status code returned for the problem.
-     * @return a {@link Integer}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Integer getStatus() {
+    public UntypedNode getStatus() {
         return this.status;
     }
     /**
@@ -132,7 +133,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         Objects.requireNonNull(writer);
         writer.writeStringValue("detail", this.getDetail());
         writer.writeStringValue("instance", this.getInstance());
-        writer.writeIntegerValue("status", this.getStatus());
+        writer.writeObjectValue("status", this.getStatus());
         writer.writeStringValue("title", this.getTitle());
         writer.writeStringValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -162,7 +163,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
      * Sets the status property value. HTTP status code returned for the problem.
      * @param value Value to set for the status property.
      */
-    public void setStatus(@jakarta.annotation.Nullable final Integer value) {
+    public void setStatus(@jakarta.annotation.Nullable final UntypedNode value) {
         this.status = value;
     }
     /**

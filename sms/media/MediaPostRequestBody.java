@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -32,7 +33,7 @@ public class MediaPostRequestBody implements AdditionalDataHolder, Parsable {
     /**
      * The Length property
      */
-    private Long length;
+    private UntypedNode length;
     /**
      * The Name property
      */
@@ -88,7 +89,7 @@ public class MediaPostRequestBody implements AdditionalDataHolder, Parsable {
         deserializerMap.put("ContentType", (n) -> { this.setContentType(n.getStringValue()); });
         deserializerMap.put("FileName", (n) -> { this.setFileName(n.getStringValue()); });
         deserializerMap.put("Headers", (n) -> { this.setHeaders(n.getObjectValue(MediaPostRequestBodyHeaders::createFromDiscriminatorValue)); });
-        deserializerMap.put("Length", (n) -> { this.setLength(n.getLongValue()); });
+        deserializerMap.put("Length", (n) -> { this.setLength(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("Name", (n) -> { this.setName(n.getStringValue()); });
         return deserializerMap;
     }
@@ -110,10 +111,10 @@ public class MediaPostRequestBody implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the Length property value. The Length property
-     * @return a {@link Long}
+     * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
-    public Long getLength() {
+    public UntypedNode getLength() {
         return this.length;
     }
     /**
@@ -134,7 +135,7 @@ public class MediaPostRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("ContentType", this.getContentType());
         writer.writeStringValue("FileName", this.getFileName());
         writer.writeObjectValue("Headers", this.getHeaders());
-        writer.writeLongValue("Length", this.getLength());
+        writer.writeObjectValue("Length", this.getLength());
         writer.writeStringValue("Name", this.getName());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -177,7 +178,7 @@ public class MediaPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the Length property value. The Length property
      * @param value Value to set for the Length property.
      */
-    public void setLength(@jakarta.annotation.Nullable final Long value) {
+    public void setLength(@jakarta.annotation.Nullable final UntypedNode value) {
         this.length = value;
     }
     /**
