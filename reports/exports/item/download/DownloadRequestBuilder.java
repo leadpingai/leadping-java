@@ -94,6 +94,9 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
+        /**
+         * The short-lived download token issued for this export.
+         */
         @jakarta.annotation.Nullable
         public String token;
         /**

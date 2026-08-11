@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number traffic metrics response returned to authenticated clients.
+ * Describes phone number traffic metrics data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, Parsable {

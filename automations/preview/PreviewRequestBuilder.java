@@ -38,7 +38,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Previews automation execution for a sample lead, showing matched steps and messages without creating follow-up events.
-     * @param body Request schema for the Leadping API automation preview request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation preview.
      * @return a {@link AutomationPreviewResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Previews automation execution for a sample lead, showing matched steps and messages without creating follow-up events.
-     * @param body Request schema for the Leadping API automation preview request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation preview.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationPreviewResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Previews automation execution for a sample lead, showing matched steps and messages without creating follow-up events.
-     * @param body Request schema for the Leadping API automation preview request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation preview.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class PreviewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Previews automation execution for a sample lead, showing matched steps and messages without creating follow-up events.
-     * @param body Request schema for the Leadping API automation preview request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation preview.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

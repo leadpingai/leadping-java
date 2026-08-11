@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number availability result returned to authenticated clients.
+ * Reports whether a phone number is available for purchase or assignment and explains any blocking condition.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Parsable {

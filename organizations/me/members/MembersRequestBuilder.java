@@ -74,7 +74,7 @@ public class MembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds an existing user to the current organization with the requested role for shared lead communication and account access.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @return a {@link OrganizationMemberResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -86,7 +86,7 @@ public class MembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds an existing user to the current organization with the requested role for shared lead communication and account access.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationMemberResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -125,7 +125,7 @@ public class MembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds an existing user to the current organization with the requested role for shared lead communication and account access.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -134,7 +134,7 @@ public class MembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds an existing user to the current organization with the requested role for shared lead communication and account access.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

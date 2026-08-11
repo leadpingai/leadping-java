@@ -62,7 +62,7 @@ public class WithUserItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes a user&apos;s role in the current organization, updating access to lead, automation, billing, and admin workflows.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @return a {@link OrganizationMemberResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -74,7 +74,7 @@ public class WithUserItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes a user&apos;s role in the current organization, updating access to lead, automation, billing, and admin workflows.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationMemberResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -113,7 +113,7 @@ public class WithUserItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes a user&apos;s role in the current organization, updating access to lead, automation, billing, and admin workflows.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -122,7 +122,7 @@ public class WithUserItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes a user&apos;s role in the current organization, updating access to lead, automation, billing, and admin workflows.
-     * @param body Request schema for the Leadping API organization user request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API billing transaction table row results shown in searchable tables.
+ * Summarizes billing transaction data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TransactionTableRow implements AdditionalDataHolder, Parsable {
@@ -26,7 +26,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private TransactionTableRowBillableUnit billableUnit;
     /**
-     * The billedAmount property
+     * Customer-facing amount billed for the metered usage or wallet transaction.
      */
     private Double billedAmount;
     /**
@@ -46,7 +46,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The ID and name for this lead.
+     * Identifier and display name of the related lead.
      */
     private TransactionTableRowLead lead;
     /**
@@ -54,7 +54,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double netAmount;
     /**
-     * The ID and name for this organization.
+     * Identifier and display name of the related organization.
      */
     private TransactionTableRowOrganization organization;
     /**
@@ -62,19 +62,19 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private String paymentMethodDisplay;
     /**
-     * The pricingVersion property
+     * Version of the pricing rules used to calculate the billed amount.
      */
     private String pricingVersion;
     /**
-     * The quantity property
+     * Number of billable units measured for this transaction, when usage-based pricing applies.
      */
     private Double quantity;
     /**
-     * The sourceEventId property
+     * Identifier of the event that created this billing transaction, when available.
      */
     private String sourceEventId;
     /**
-     * The sourceEventType property
+     * Event type that created this billing transaction, when available.
      */
     private String sourceEventType;
     /**
@@ -86,7 +86,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private TransactionType transactionType;
     /**
-     * The unitPrice property
+     * Price charged per billable unit when usage-based pricing applies.
      */
     private Double unitPrice;
     /**
@@ -130,7 +130,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the billedAmount property value. The billedAmount property
+     * Gets the billedAmount property value. Customer-facing amount billed for the metered usage or wallet transaction.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -197,7 +197,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the lead property value. The ID and name for this lead.
+     * Gets the lead property value. Identifier and display name of the related lead.
      * @return a {@link TransactionTableRowLead}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.netAmount;
     }
     /**
-     * Gets the organization property value. The ID and name for this organization.
+     * Gets the organization property value. Identifier and display name of the related organization.
      * @return a {@link TransactionTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -229,7 +229,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.paymentMethodDisplay;
     }
     /**
-     * Gets the pricingVersion property value. The pricingVersion property
+     * Gets the pricingVersion property value. Version of the pricing rules used to calculate the billed amount.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -237,7 +237,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.pricingVersion;
     }
     /**
-     * Gets the quantity property value. The quantity property
+     * Gets the quantity property value. Number of billable units measured for this transaction, when usage-based pricing applies.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -245,7 +245,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.quantity;
     }
     /**
-     * Gets the sourceEventId property value. The sourceEventId property
+     * Gets the sourceEventId property value. Identifier of the event that created this billing transaction, when available.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -253,7 +253,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.sourceEventId;
     }
     /**
-     * Gets the sourceEventType property value. The sourceEventType property
+     * Gets the sourceEventType property value. Event type that created this billing transaction, when available.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -277,7 +277,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.transactionType;
     }
     /**
-     * Gets the unitPrice property value. The unitPrice property
+     * Gets the unitPrice property value. Price charged per billable unit when usage-based pricing applies.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -332,7 +332,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.billableUnit = value;
     }
     /**
-     * Sets the billedAmount property value. The billedAmount property
+     * Sets the billedAmount property value. Customer-facing amount billed for the metered usage or wallet transaction.
      * @param value Value to set for the billedAmount property.
      */
     public void setBilledAmount(@jakarta.annotation.Nullable final Double value) {
@@ -367,7 +367,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the lead property value. The ID and name for this lead.
+     * Sets the lead property value. Identifier and display name of the related lead.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final TransactionTableRowLead value) {
@@ -381,7 +381,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.netAmount = value;
     }
     /**
-     * Sets the organization property value. The ID and name for this organization.
+     * Sets the organization property value. Identifier and display name of the related organization.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final TransactionTableRowOrganization value) {
@@ -395,28 +395,28 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.paymentMethodDisplay = value;
     }
     /**
-     * Sets the pricingVersion property value. The pricingVersion property
+     * Sets the pricingVersion property value. Version of the pricing rules used to calculate the billed amount.
      * @param value Value to set for the pricingVersion property.
      */
     public void setPricingVersion(@jakarta.annotation.Nullable final String value) {
         this.pricingVersion = value;
     }
     /**
-     * Sets the quantity property value. The quantity property
+     * Sets the quantity property value. Number of billable units measured for this transaction, when usage-based pricing applies.
      * @param value Value to set for the quantity property.
      */
     public void setQuantity(@jakarta.annotation.Nullable final Double value) {
         this.quantity = value;
     }
     /**
-     * Sets the sourceEventId property value. The sourceEventId property
+     * Sets the sourceEventId property value. Identifier of the event that created this billing transaction, when available.
      * @param value Value to set for the sourceEventId property.
      */
     public void setSourceEventId(@jakarta.annotation.Nullable final String value) {
         this.sourceEventId = value;
     }
     /**
-     * Sets the sourceEventType property value. The sourceEventType property
+     * Sets the sourceEventType property value. Event type that created this billing transaction, when available.
      * @param value Value to set for the sourceEventType property.
      */
     public void setSourceEventType(@jakarta.annotation.Nullable final String value) {
@@ -437,7 +437,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.transactionType = value;
     }
     /**
-     * Sets the unitPrice property value. The unitPrice property
+     * Sets the unitPrice property value. Price charged per billable unit when usage-based pricing applies.
      * @param value Value to set for the unitPrice property.
      */
     public void setUnitPrice(@jakarta.annotation.Nullable final Double value) {

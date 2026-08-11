@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request payload for create note.
+ * Defines the input used for create note.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateNoteRequest implements AdditionalDataHolder, Parsable {
@@ -17,7 +17,7 @@ public class CreateNoteRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The text value for this note.
+     * Plain-text note content to add to the conversation timeline.
      */
     private String text;
     /**
@@ -55,7 +55,7 @@ public class CreateNoteRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the text property value. The text value for this note.
+     * Gets the text property value. Plain-text note content to add to the conversation timeline.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class CreateNoteRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the text property value. The text value for this note.
+     * Sets the text property value. Plain-text note content to add to the conversation timeline.
      * @param value Value to set for the text property.
      */
     public void setText(@jakarta.annotation.Nullable final String value) {

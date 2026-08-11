@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing Leadping mobile preferences for a single user device.
+ * Describes notification and calling preferences saved for one of the user&apos;s mobile devices.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
@@ -18,7 +18,7 @@ public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The ID and name for this device.
+     * Identifier and display name of the related device.
      */
     private IdNamePair device;
     /**
@@ -54,7 +54,7 @@ public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the device property value. The ID and name for this device.
+     * Gets the device property value. Identifier and display name of the related device.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the device property value. The ID and name for this device.
+     * Sets the device property value. Identifier and display name of the related device.
      * @param value Value to set for the device property.
      */
     public void setDevice(@jakarta.annotation.Nullable final IdNamePair value) {

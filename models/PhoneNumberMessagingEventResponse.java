@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number messaging event returned to authenticated clients.
+ * Describes a messaging event used to calculate delivery, failure, and opt-out metrics for a phone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, Parsable {

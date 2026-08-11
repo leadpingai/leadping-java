@@ -38,7 +38,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates product feedback for the current organization, capturing category, message, and context for operator review.
-     * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with feedback creation.
      * @return a {@link FeedbackResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates product feedback for the current organization, capturing category, message, and context for operator review.
-     * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with feedback creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link FeedbackResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates product feedback for the current organization, capturing category, message, and context for operator review.
-     * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with feedback creation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class FeedbackRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates product feedback for the current organization, capturing category, message, and context for operator review.
-     * @param body Request schema for the Leadping API feedback creation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with feedback creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

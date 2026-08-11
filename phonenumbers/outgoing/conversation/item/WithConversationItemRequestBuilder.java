@@ -47,7 +47,7 @@ public class WithConversationItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Selects the outgoing phone number for an existing conversation, considering assignments, overrides, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number selection request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number selection.
      * @return a {@link OutgoingNumberSelectionResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -58,7 +58,7 @@ public class WithConversationItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Selects the outgoing phone number for an existing conversation, considering assignments, overrides, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number selection request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number selection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OutgoingNumberSelectionResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -75,7 +75,7 @@ public class WithConversationItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Selects the outgoing phone number for an existing conversation, considering assignments, overrides, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number selection request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number selection.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -84,7 +84,7 @@ public class WithConversationItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Selects the outgoing phone number for an existing conversation, considering assignments, overrides, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number selection request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number selection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

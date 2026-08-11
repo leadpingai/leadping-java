@@ -93,7 +93,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead source.
      * @return a {@link SourceResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -104,7 +104,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SourceResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -161,7 +161,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead source.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -170,7 +170,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Request schema for the Leadping API lead source request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API call event table row results shown in searchable tables.
+ * Summarizes call event data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CallEventTableRow implements AdditionalDataHolder, Parsable {

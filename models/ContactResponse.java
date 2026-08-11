@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API contact form response returned to authenticated clients.
+ * Describes contact form data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ContactResponse implements AdditionalDataHolder, Parsable {

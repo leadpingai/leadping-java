@@ -38,7 +38,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
-     * @param body Request payload for suppression entry.
+     * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
-     * @param body Request payload for suppression entry.
+     * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
-     * @param body Request payload for suppression entry.
+     * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
-     * @param body Request payload for suppression entry.
+     * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

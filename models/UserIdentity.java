@@ -17,15 +17,15 @@ public class UserIdentity implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Gets or sets the identity provider that issued the sign-in identity (e.g., &quot;contoso.com&quot; or &quot;facebook.com&quot;).
+     * Identity provider or tenant that issued the user&apos;s sign-in identity.
      */
     private String issuer;
     /**
-     * Gets or sets the unique identifier assigned to the user by the identity provider.
+     * Unique user identifier assigned by the identity provider.
      */
     private String issuerAssignedId;
     /**
-     * Gets or sets the method of sign-in used by the identity (e.g., &quot;emailAddress&quot;, &quot;userName&quot;, or &quot;federated&quot;).
+     * Sign-in method represented by the identity, such as email address, username, or federated login.
      */
     private String signInType;
     /**
@@ -65,7 +65,7 @@ public class UserIdentity implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the issuer property value. Gets or sets the identity provider that issued the sign-in identity (e.g., &quot;contoso.com&quot; or &quot;facebook.com&quot;).
+     * Gets the issuer property value. Identity provider or tenant that issued the user&apos;s sign-in identity.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -73,7 +73,7 @@ public class UserIdentity implements AdditionalDataHolder, Parsable {
         return this.issuer;
     }
     /**
-     * Gets the issuerAssignedId property value. Gets or sets the unique identifier assigned to the user by the identity provider.
+     * Gets the issuerAssignedId property value. Unique user identifier assigned by the identity provider.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -81,7 +81,7 @@ public class UserIdentity implements AdditionalDataHolder, Parsable {
         return this.issuerAssignedId;
     }
     /**
-     * Gets the signInType property value. Gets or sets the method of sign-in used by the identity (e.g., &quot;emailAddress&quot;, &quot;userName&quot;, or &quot;federated&quot;).
+     * Gets the signInType property value. Sign-in method represented by the identity, such as email address, username, or federated login.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,21 +107,21 @@ public class UserIdentity implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the issuer property value. Gets or sets the identity provider that issued the sign-in identity (e.g., &quot;contoso.com&quot; or &quot;facebook.com&quot;).
+     * Sets the issuer property value. Identity provider or tenant that issued the user&apos;s sign-in identity.
      * @param value Value to set for the issuer property.
      */
     public void setIssuer(@jakarta.annotation.Nullable final String value) {
         this.issuer = value;
     }
     /**
-     * Sets the issuerAssignedId property value. Gets or sets the unique identifier assigned to the user by the identity provider.
+     * Sets the issuerAssignedId property value. Unique user identifier assigned by the identity provider.
      * @param value Value to set for the issuerAssignedId property.
      */
     public void setIssuerAssignedId(@jakarta.annotation.Nullable final String value) {
         this.issuerAssignedId = value;
     }
     /**
-     * Sets the signInType property value. Gets or sets the method of sign-in used by the identity (e.g., &quot;emailAddress&quot;, &quot;userName&quot;, or &quot;federated&quot;).
+     * Sets the signInType property value. Sign-in method represented by the identity, such as email address, username, or federated login.
      * @param value Value to set for the signInType property.
      */
     public void setSignInType(@jakarta.annotation.Nullable final String value) {

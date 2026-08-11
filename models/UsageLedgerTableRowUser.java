@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this user.
+ * Identifier and display name of the related user.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UsageLedgerTableRowUser extends IdNamePair implements Parsable {

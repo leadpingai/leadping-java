@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The safe metadata key-value data carried with this ion entry audit; values must be safe to expose in API responses.
+ * Non-sensitive metadata that provides additional audit context.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionEntryAuditSafeMetadata implements AdditionalDataHolder, Parsable {

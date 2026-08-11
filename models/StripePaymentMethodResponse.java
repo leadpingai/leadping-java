@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing stripe payment method data used by Leadping API contracts.
+ * Describes stripe payment method data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsable {
@@ -18,23 +18,23 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * The brand value for this Stripe payment method.
+     * Card network brand, such as Visa, Mastercard, or American Express.
      */
     private String brand;
     /**
-     * The date and time for the created at value on this Stripe payment method.
+     * UTC timestamp for created at on this Stripe payment method.
      */
     private OffsetDateTime createdAt;
     /**
-     * The exp month value for this Stripe payment method.
+     * Two-digit month when the card expires.
      */
     private Integer expMonth;
     /**
-     * The exp year value for this Stripe payment method.
+     * Four-digit year when the card expires.
      */
     private Integer expYear;
     /**
-     * The unique ID for this Stripe payment method.
+     * Unique Leadping identifier for this Stripe payment method.
      */
     private String id;
     /**
@@ -42,7 +42,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      */
     private Boolean isDefault;
     /**
-     * The date and time for the last4 value on this Stripe payment method.
+     * UTC timestamp for last4 on this Stripe payment method.
      */
     private String last4;
     /**
@@ -70,7 +70,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
-     * Gets the brand property value. The brand value for this Stripe payment method.
+     * Gets the brand property value. Card network brand, such as Visa, Mastercard, or American Express.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -78,7 +78,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.brand;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this Stripe payment method.
+     * Gets the createdAt property value. UTC timestamp for created at on this Stripe payment method.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -86,7 +86,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.createdAt;
     }
     /**
-     * Gets the expMonth property value. The exp month value for this Stripe payment method.
+     * Gets the expMonth property value. Two-digit month when the card expires.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -94,7 +94,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.expMonth;
     }
     /**
-     * Gets the expYear property value. The exp year value for this Stripe payment method.
+     * Gets the expYear property value. Four-digit year when the card expires.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -118,7 +118,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this Stripe payment method.
+     * Gets the id property value. Unique Leadping identifier for this Stripe payment method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.isDefault;
     }
     /**
-     * Gets the last4 property value. The date and time for the last4 value on this Stripe payment method.
+     * Gets the last4 property value. UTC timestamp for last4 on this Stripe payment method.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -164,35 +164,35 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the brand property value. The brand value for this Stripe payment method.
+     * Sets the brand property value. Card network brand, such as Visa, Mastercard, or American Express.
      * @param value Value to set for the brand property.
      */
     public void setBrand(@jakarta.annotation.Nullable final String value) {
         this.brand = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this Stripe payment method.
+     * Sets the createdAt property value. UTC timestamp for created at on this Stripe payment method.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the expMonth property value. The exp month value for this Stripe payment method.
+     * Sets the expMonth property value. Two-digit month when the card expires.
      * @param value Value to set for the expMonth property.
      */
     public void setExpMonth(@jakarta.annotation.Nullable final Integer value) {
         this.expMonth = value;
     }
     /**
-     * Sets the expYear property value. The exp year value for this Stripe payment method.
+     * Sets the expYear property value. Four-digit year when the card expires.
      * @param value Value to set for the expYear property.
      */
     public void setExpYear(@jakarta.annotation.Nullable final Integer value) {
         this.expYear = value;
     }
     /**
-     * Sets the id property value. The unique ID for this Stripe payment method.
+     * Sets the id property value. Unique Leadping identifier for this Stripe payment method.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -206,7 +206,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         this.isDefault = value;
     }
     /**
-     * Sets the last4 property value. The date and time for the last4 value on this Stripe payment method.
+     * Sets the last4 property value. UTC timestamp for last4 on this Stripe payment method.
      * @param value Value to set for the last4 property.
      */
     public void setLast4(@jakarta.annotation.Nullable final String value) {

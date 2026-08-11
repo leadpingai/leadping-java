@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this device.
+ * Identifier and display name of the related device.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TelephonyLoginRequestDevice extends IdNamePair implements Parsable {

@@ -36,7 +36,7 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sms/media", rawUrl);
     }
     /**
-     * Uploads media for a subsequent MMS send.
+     * Uploads and validates one media attachment, returning the metadata needed to include the asset in a subsequent Leadping MMS send.
      * @param body The request body
      * @return a {@link MessageMediaAttachment}
      * @throws ProblemDetails When receiving a 400 status code
@@ -46,7 +46,7 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Uploads media for a subsequent MMS send.
+     * Uploads and validates one media attachment, returning the metadata needed to include the asset in a subsequent Leadping MMS send.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link MessageMediaAttachment}
@@ -61,7 +61,7 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, MessageMediaAttachment::createFromDiscriminatorValue);
     }
     /**
-     * Uploads media for a subsequent MMS send.
+     * Uploads and validates one media attachment, returning the metadata needed to include the asset in a subsequent Leadping MMS send.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -70,7 +70,7 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Uploads media for a subsequent MMS send.
+     * Uploads and validates one media attachment, returning the metadata needed to include the asset in a subsequent Leadping MMS send.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

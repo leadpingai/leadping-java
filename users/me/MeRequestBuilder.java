@@ -72,7 +72,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
-     * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with user profile.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -83,7 +83,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
-     * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with user profile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -120,7 +120,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
-     * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with user profile.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -129,7 +129,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates the current user&apos;s profile fields, contact details, preferences, or organization context used across Leadping.
-     * @param body Request schema for the Leadping API user profile request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with user profile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

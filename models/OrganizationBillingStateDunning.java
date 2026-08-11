@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Gets or sets the customer-safe payment recovery state for the organization.
+ * Customer-safe payment recovery state for the organization.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationBillingStateDunning extends OrganizationDunningInfo implements Parsable {

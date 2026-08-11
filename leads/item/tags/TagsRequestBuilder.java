@@ -23,7 +23,7 @@ import java.util.Objects;
 public class TagsRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the ai.leadping.openapi.leads.item.tags.item collection
-     * @param tagId Unique identifier of the item
+     * @param tagId The unique identifier of the organization tag to remove.
      * @return a {@link WithTagItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -51,7 +51,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -63,7 +63,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -82,7 +82,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -94,7 +94,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -113,7 +113,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -122,7 +122,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Adds one or more current-organization tags to a lead so users can segment, filter, route, and review follow-up work.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -137,7 +137,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -146,7 +146,7 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Replaces all tags on a lead with the supplied current-organization tags, keeping segmentation and routing labels in sync.
-     * @param body Request schema for the Leadping API lead tag update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead tag update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

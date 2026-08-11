@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing organization user data used by Leadping API contracts.
+ * Describes organization user data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsable {
@@ -18,11 +18,11 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time for the created at value on this organization user.
+     * UTC timestamp for created at on this organization user.
      */
     private OffsetDateTime createdAt;
     /**
-     * The unique ID for this organization user.
+     * Unique Leadping identifier for this organization user.
      */
     private String id;
     /**
@@ -34,15 +34,15 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * The role value for this organization user.
+     * Role for this organization user.
      */
     private OrganizationMemberRole role;
     /**
-     * The ID and name for this user.
+     * Identifier and display name of the related user.
      */
     private IdNamePair user;
     /**
-     * The user email value for this organization user.
+     * User email for this organization user.
      */
     private String userEmail;
     /**
@@ -70,7 +70,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this organization user.
+     * Gets the createdAt property value. UTC timestamp for created at on this organization user.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -94,7 +94,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this organization user.
+     * Gets the id property value. Unique Leadping identifier for this organization user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -118,7 +118,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.licenseRenewalDate;
     }
     /**
-     * Gets the role property value. The role value for this organization user.
+     * Gets the role property value. Role for this organization user.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -126,7 +126,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.role;
     }
     /**
-     * Gets the user property value. The ID and name for this user.
+     * Gets the user property value. Identifier and display name of the related user.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.user;
     }
     /**
-     * Gets the userEmail property value. The user email value for this organization user.
+     * Gets the userEmail property value. User email for this organization user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -164,14 +164,14 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this organization user.
+     * Sets the createdAt property value. UTC timestamp for created at on this organization user.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the id property value. The unique ID for this organization user.
+     * Sets the id property value. Unique Leadping identifier for this organization user.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -192,21 +192,21 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         this.licenseRenewalDate = value;
     }
     /**
-     * Sets the role property value. The role value for this organization user.
+     * Sets the role property value. Role for this organization user.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
     }
     /**
-     * Sets the user property value. The ID and name for this user.
+     * Sets the user property value. Identifier and display name of the related user.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final IdNamePair value) {
         this.user = value;
     }
     /**
-     * Sets the userEmail property value. The user email value for this organization user.
+     * Sets the userEmail property value. User email for this organization user.
      * @param value Value to set for the userEmail property.
      */
     public void setUserEmail(@jakarta.annotation.Nullable final String value) {

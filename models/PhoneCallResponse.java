@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone call returned to authenticated clients.
+ * Describes a Leadping phone call, including participants, direction, provider state, timing, recording, and billing details.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneCallResponse implements AdditionalDataHolder, Parsable {

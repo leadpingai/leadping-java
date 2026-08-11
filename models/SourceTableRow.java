@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API lead source table row results shown in searchable tables.
+ * Summarizes lead source data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SourceTableRow implements AdditionalDataHolder, Parsable {

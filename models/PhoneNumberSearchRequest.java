@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request schema for the Leadping API phone number search request, including the fields clients can send.
+ * Defines the fields clients can send when working with phone number search.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberSearchRequest implements AdditionalDataHolder, Parsable {

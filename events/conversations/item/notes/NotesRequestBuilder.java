@@ -38,7 +38,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a note event on a conversation so users can document lead context, handoffs, and follow-up details.
-     * @param body Request payload for create note.
+     * @param body Defines the input used for create note.
      * @return a {@link EventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a note event on a conversation so users can document lead context, handoffs, and follow-up details.
-     * @param body Request payload for create note.
+     * @param body Defines the input used for create note.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link EventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a note event on a conversation so users can document lead context, handoffs, and follow-up details.
-     * @param body Request payload for create note.
+     * @param body Defines the input used for create note.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a note event on a conversation so users can document lead context, handoffs, and follow-up details.
-     * @param body Request payload for create note.
+     * @param body Defines the input used for create note.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

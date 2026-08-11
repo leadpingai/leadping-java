@@ -68,7 +68,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead from a flat intake payload, capturing contact fields, metadata, and automation-ready lead details.
-     * @param body Request schema for the Leadping API lead intake request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead intake.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -80,7 +80,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead from a flat intake payload, capturing contact fields, metadata, and automation-ready lead details.
-     * @param body Request schema for the Leadping API lead intake request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead intake.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -119,7 +119,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead from a flat intake payload, capturing contact fields, metadata, and automation-ready lead details.
-     * @param body Request schema for the Leadping API lead intake request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead intake.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -128,7 +128,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead from a flat intake payload, capturing contact fields, metadata, and automation-ready lead details.
-     * @param body Request schema for the Leadping API lead intake request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead intake.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

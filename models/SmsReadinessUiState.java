@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing SMS readiness UI state data used by Leadping API contracts.
+ * Describes SMS readiness UI state data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
@@ -25,7 +25,7 @@ public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
      */
     private SmsReadinessState label;
     /**
-     * The tone value for this SMS readiness UI state.
+     * Tone for this SMS readiness UI state.
      */
     private String tone;
     /**
@@ -81,7 +81,7 @@ public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
         return this.label;
     }
     /**
-     * Gets the tone property value. The tone value for this SMS readiness UI state.
+     * Gets the tone property value. Tone for this SMS readiness UI state.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
         this.label = value;
     }
     /**
-     * Sets the tone property value. The tone value for this SMS readiness UI state.
+     * Sets the tone property value. Tone for this SMS readiness UI state.
      * @param value Value to set for the tone property.
      */
     public void setTone(@jakarta.annotation.Nullable final String value) {

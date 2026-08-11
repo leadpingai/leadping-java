@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing suppression check result data returned to callers.
+ * Reports whether Leadping may contact a recipient and identifies the active suppression when contact is blocked.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
@@ -18,31 +18,31 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Whether this ion check result allows ed.
+     * Whether outreach to the recipient is allowed for the requested channel.
      */
     private Boolean allowed;
     /**
-     * The channel value for this ion check result.
+     * Communication channel evaluated by the suppression check.
      */
     private String channel;
     /**
-     * The human-readable customer reason explaining this ion check result.
+     * Customer-safe explanation of why contact is blocked or allowed.
      */
     private String customerReason;
     /**
-     * The normalized email value for this ion check result.
+     * Email address used for matching, normalized for comparison.
      */
     private String normalizedEmail;
     /**
-     * The phone number associated with this ion check result.
+     * Phone number used for matching, normalized to a consistent format.
      */
     private String normalizedPhoneNumber;
     /**
-     * The organization ID associated with this ion check result.
+     * Identifier of the organization whose suppression list was checked.
      */
     private String organizationId;
     /**
-     * The recipient identifier value for this ion check result.
+     * Provider or customer identifier used to match the recipient.
      */
     private String recipientIdentifier;
     /**
@@ -54,7 +54,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime suppressedAt;
     /**
-     * The suppression entry ID associated with this ion check result.
+     * Identifier of the active suppression that blocked contact, when one matched.
      */
     private String suppressionEntryId;
     /**
@@ -82,7 +82,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the allowed property value. Whether this ion check result allows ed.
+     * Gets the allowed property value. Whether outreach to the recipient is allowed for the requested channel.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -90,7 +90,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.allowed;
     }
     /**
-     * Gets the channel property value. The channel value for this ion check result.
+     * Gets the channel property value. Communication channel evaluated by the suppression check.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -98,7 +98,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.channel;
     }
     /**
-     * Gets the customerReason property value. The human-readable customer reason explaining this ion check result.
+     * Gets the customerReason property value. Customer-safe explanation of why contact is blocked or allowed.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -125,7 +125,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the normalizedEmail property value. The normalized email value for this ion check result.
+     * Gets the normalizedEmail property value. Email address used for matching, normalized for comparison.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -133,7 +133,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.normalizedEmail;
     }
     /**
-     * Gets the normalizedPhoneNumber property value. The phone number associated with this ion check result.
+     * Gets the normalizedPhoneNumber property value. Phone number used for matching, normalized to a consistent format.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -141,7 +141,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.normalizedPhoneNumber;
     }
     /**
-     * Gets the organizationId property value. The organization ID associated with this ion check result.
+     * Gets the organizationId property value. Identifier of the organization whose suppression list was checked.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +149,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.organizationId;
     }
     /**
-     * Gets the recipientIdentifier property value. The recipient identifier value for this ion check result.
+     * Gets the recipientIdentifier property value. Provider or customer identifier used to match the recipient.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -173,7 +173,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         return this.suppressedAt;
     }
     /**
-     * Gets the suppressionEntryId property value. The suppression entry ID associated with this ion check result.
+     * Gets the suppressionEntryId property value. Identifier of the active suppression that blocked contact, when one matched.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -206,49 +206,49 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the allowed property value. Whether this ion check result allows ed.
+     * Sets the allowed property value. Whether outreach to the recipient is allowed for the requested channel.
      * @param value Value to set for the allowed property.
      */
     public void setAllowed(@jakarta.annotation.Nullable final Boolean value) {
         this.allowed = value;
     }
     /**
-     * Sets the channel property value. The channel value for this ion check result.
+     * Sets the channel property value. Communication channel evaluated by the suppression check.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final String value) {
         this.channel = value;
     }
     /**
-     * Sets the customerReason property value. The human-readable customer reason explaining this ion check result.
+     * Sets the customerReason property value. Customer-safe explanation of why contact is blocked or allowed.
      * @param value Value to set for the customerReason property.
      */
     public void setCustomerReason(@jakarta.annotation.Nullable final String value) {
         this.customerReason = value;
     }
     /**
-     * Sets the normalizedEmail property value. The normalized email value for this ion check result.
+     * Sets the normalizedEmail property value. Email address used for matching, normalized for comparison.
      * @param value Value to set for the normalizedEmail property.
      */
     public void setNormalizedEmail(@jakarta.annotation.Nullable final String value) {
         this.normalizedEmail = value;
     }
     /**
-     * Sets the normalizedPhoneNumber property value. The phone number associated with this ion check result.
+     * Sets the normalizedPhoneNumber property value. Phone number used for matching, normalized to a consistent format.
      * @param value Value to set for the normalizedPhoneNumber property.
      */
     public void setNormalizedPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.normalizedPhoneNumber = value;
     }
     /**
-     * Sets the organizationId property value. The organization ID associated with this ion check result.
+     * Sets the organizationId property value. Identifier of the organization whose suppression list was checked.
      * @param value Value to set for the organizationId property.
      */
     public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
         this.organizationId = value;
     }
     /**
-     * Sets the recipientIdentifier property value. The recipient identifier value for this ion check result.
+     * Sets the recipientIdentifier property value. Provider or customer identifier used to match the recipient.
      * @param value Value to set for the recipientIdentifier property.
      */
     public void setRecipientIdentifier(@jakarta.annotation.Nullable final String value) {
@@ -269,7 +269,7 @@ public class SuppressionCheckResult implements AdditionalDataHolder, Parsable {
         this.suppressedAt = value;
     }
     /**
-     * Sets the suppressionEntryId property value. The suppression entry ID associated with this ion check result.
+     * Sets the suppressionEntryId property value. Identifier of the active suppression that blocked contact, when one matched.
      * @param value Value to set for the suppressionEntryId property.
      */
     public void setSuppressionEntryId(@jakarta.annotation.Nullable final String value) {

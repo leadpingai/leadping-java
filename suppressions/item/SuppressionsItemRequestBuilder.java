@@ -36,7 +36,7 @@ public class SuppressionsItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/{id}", rawUrl);
     }
     /**
-     * Get
+     * Returns one suppression entry for the current organization, including its recipient, channel, reason, status, and audit timestamps.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -46,7 +46,7 @@ public class SuppressionsItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Get
+     * Returns one suppression entry for the current organization, including its recipient, channel, reason, status, and audit timestamps.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -61,7 +61,7 @@ public class SuppressionsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionEntryResponse::createFromDiscriminatorValue);
     }
     /**
-     * Get
+     * Returns one suppression entry for the current organization, including its recipient, channel, reason, status, and audit timestamps.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +69,7 @@ public class SuppressionsItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Get
+     * Returns one suppression entry for the current organization, including its recipient, channel, reason, status, and audit timestamps.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

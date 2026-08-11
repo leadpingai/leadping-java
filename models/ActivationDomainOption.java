@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing activation domain option data used by Leadping API contracts.
+ * Describes activation domain option data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
@@ -25,11 +25,11 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
      */
     private String domainName;
     /**
-     * The estimated annual cost value for this activation domain option.
+     * Estimated annual cost for this activation domain option.
      */
     private Double estimatedAnnualCost;
     /**
-     * The industry relevance value for this activation domain option.
+     * Industry relevance for this activation domain option.
      */
     private String industryRelevance;
     /**
@@ -37,11 +37,11 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
      */
     private Boolean recommended;
     /**
-     * The trust concerns value for this activation domain option.
+     * Trust concerns for this activation domain option.
      */
     private String trustConcerns;
     /**
-     * The why it fits value for this activation domain option.
+     * Why it fits for this activation domain option.
      */
     private String whyItFits;
     /**
@@ -85,7 +85,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         return this.domainName;
     }
     /**
-     * Gets the estimatedAnnualCost property value. The estimated annual cost value for this activation domain option.
+     * Gets the estimatedAnnualCost property value. Estimated annual cost for this activation domain option.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -109,7 +109,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the industryRelevance property value. The industry relevance value for this activation domain option.
+     * Gets the industryRelevance property value. Industry relevance for this activation domain option.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -125,7 +125,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         return this.recommended;
     }
     /**
-     * Gets the trustConcerns property value. The trust concerns value for this activation domain option.
+     * Gets the trustConcerns property value. Trust concerns for this activation domain option.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -133,7 +133,7 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         return this.trustConcerns;
     }
     /**
-     * Gets the whyItFits property value. The why it fits value for this activation domain option.
+     * Gets the whyItFits property value. Why it fits for this activation domain option.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -177,14 +177,14 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         this.domainName = value;
     }
     /**
-     * Sets the estimatedAnnualCost property value. The estimated annual cost value for this activation domain option.
+     * Sets the estimatedAnnualCost property value. Estimated annual cost for this activation domain option.
      * @param value Value to set for the estimatedAnnualCost property.
      */
     public void setEstimatedAnnualCost(@jakarta.annotation.Nullable final Double value) {
         this.estimatedAnnualCost = value;
     }
     /**
-     * Sets the industryRelevance property value. The industry relevance value for this activation domain option.
+     * Sets the industryRelevance property value. Industry relevance for this activation domain option.
      * @param value Value to set for the industryRelevance property.
      */
     public void setIndustryRelevance(@jakarta.annotation.Nullable final String value) {
@@ -198,14 +198,14 @@ public class ActivationDomainOption implements AdditionalDataHolder, Parsable {
         this.recommended = value;
     }
     /**
-     * Sets the trustConcerns property value. The trust concerns value for this activation domain option.
+     * Sets the trustConcerns property value. Trust concerns for this activation domain option.
      * @param value Value to set for the trustConcerns property.
      */
     public void setTrustConcerns(@jakarta.annotation.Nullable final String value) {
         this.trustConcerns = value;
     }
     /**
-     * Sets the whyItFits property value. The why it fits value for this activation domain option.
+     * Sets the whyItFits property value. Why it fits for this activation domain option.
      * @param value Value to set for the whyItFits property.
      */
     public void setWhyItFits(@jakarta.annotation.Nullable final String value) {

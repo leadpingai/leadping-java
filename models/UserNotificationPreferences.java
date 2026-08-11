@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing user notification preferences data used by Leadping API contracts.
+ * Describes user notification preferences data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserNotificationPreferences implements AdditionalDataHolder, Parsable {

@@ -107,6 +107,9 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {
+        /**
+         * Optional filter selecting active, archived, or all lead conversations.
+         */
         @jakarta.annotation.Nullable
         public String archiveFilter;
         /**

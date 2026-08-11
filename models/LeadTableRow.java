@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API lead table row results shown in searchable tables.
+ * Summarizes lead data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadTableRow implements AdditionalDataHolder, Parsable {
@@ -62,7 +62,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * The ID and name for this organization.
+     * Identifier and display name of the related organization.
      */
     private LeadTableRowOrganization organization;
     /**
@@ -74,7 +74,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double price;
     /**
-     * The ID and name for this source.
+     * Identifier and display name of the related source.
      */
     private LeadTableRowSource source;
     /**
@@ -234,7 +234,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the organization property value. The ID and name for this organization.
+     * Gets the organization property value. Identifier and display name of the related organization.
      * @return a {@link LeadTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -258,7 +258,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.price;
     }
     /**
-     * Gets the source property value. The ID and name for this source.
+     * Gets the source property value. Identifier and display name of the related source.
      * @return a {@link LeadTableRowSource}
      */
     @jakarta.annotation.Nullable
@@ -409,7 +409,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the organization property value. The ID and name for this organization.
+     * Sets the organization property value. Identifier and display name of the related organization.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final LeadTableRowOrganization value) {
@@ -430,7 +430,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.price = value;
     }
     /**
-     * Sets the source property value. The ID and name for this source.
+     * Sets the source property value. Identifier and display name of the related source.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final LeadTableRowSource value) {

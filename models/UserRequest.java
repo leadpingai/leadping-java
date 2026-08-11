@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request schema for the Leadping API user profile request, including the fields clients can send.
+ * Defines the fields clients can send when working with user profile.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserRequest implements AdditionalDataHolder, Parsable {

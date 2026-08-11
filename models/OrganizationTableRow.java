@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing organization data used by Leadping API contracts.
+ * Describes organization data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
     /**
-     * The account balance value for this organization.
+     * Account balance for this organization.
      */
     private Double accountBalance;
     /**
@@ -62,11 +62,11 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique ID for this organization.
+     * Unique Leadping identifier for this organization.
      */
     private String id;
     /**
-     * The industry value for this organization.
+     * Industry for this organization.
      */
     private String industry;
     /**
@@ -74,7 +74,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime lastSubscriptionEventAt;
     /**
-     * The date and time for the modified at value on this organization.
+     * UTC timestamp for modified at on this organization.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -86,7 +86,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean needsAdminReview;
     /**
-     * The ID and name for this organization.
+     * Identifier and display name of the related organization.
      */
     private OrganizationTableRowOrganization organization;
     /**
@@ -146,7 +146,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return new OrganizationTableRow();
     }
     /**
-     * Gets the accountBalance property value. The account balance value for this organization.
+     * Gets the accountBalance property value. Account balance for this organization.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -279,7 +279,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this organization.
+     * Gets the id property value. Unique Leadping identifier for this organization.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -287,7 +287,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the industry property value. The industry value for this organization.
+     * Gets the industry property value. Industry for this organization.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -303,7 +303,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.lastSubscriptionEventAt;
     }
     /**
-     * Gets the modifiedAt property value. The date and time for the modified at value on this organization.
+     * Gets the modifiedAt property value. UTC timestamp for modified at on this organization.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -327,7 +327,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.needsAdminReview;
     }
     /**
-     * Gets the organization property value. The ID and name for this organization.
+     * Gets the organization property value. Identifier and display name of the related organization.
      * @return a {@link OrganizationTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -451,7 +451,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the accountBalance property value. The account balance value for this organization.
+     * Sets the accountBalance property value. Account balance for this organization.
      * @param value Value to set for the accountBalance property.
      */
     public void setAccountBalance(@jakarta.annotation.Nullable final Double value) {
@@ -535,14 +535,14 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique ID for this organization.
+     * Sets the id property value. Unique Leadping identifier for this organization.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the industry property value. The industry value for this organization.
+     * Sets the industry property value. Industry for this organization.
      * @param value Value to set for the industry property.
      */
     public void setIndustry(@jakarta.annotation.Nullable final String value) {
@@ -556,7 +556,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.lastSubscriptionEventAt = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time for the modified at value on this organization.
+     * Sets the modifiedAt property value. UTC timestamp for modified at on this organization.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -577,7 +577,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.needsAdminReview = value;
     }
     /**
-     * Sets the organization property value. The ID and name for this organization.
+     * Sets the organization property value. Identifier and display name of the related organization.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final OrganizationTableRowOrganization value) {

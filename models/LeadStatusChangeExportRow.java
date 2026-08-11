@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing lead status change export row data returned to callers.
+ * Describes lead status change export row data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable {
@@ -18,11 +18,11 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time for the appointment end at value on this lead status change export row.
+     * UTC timestamp for appointment end at on this lead status change export row.
      */
     private OffsetDateTime appointmentEndAt;
     /**
-     * The date and time for the appointment start at value on this lead status change export row.
+     * UTC timestamp for appointment start at on this lead status change export row.
      */
     private OffsetDateTime appointmentStartAt;
     /**
@@ -30,7 +30,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
      */
     private String assignedToUserId;
     /**
-     * The date and time for the callback at value on this lead status change export row.
+     * UTC timestamp for callback at on this lead status change export row.
      */
     private OffsetDateTime callbackAt;
     /**
@@ -54,7 +54,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
      */
     private LeadStatusChangeExportRowChangeSource changeSource;
     /**
-     * The date and time for the created at value on this lead status change export row.
+     * UTC timestamp for created at on this lead status change export row.
      */
     private OffsetDateTime createdAt;
     /**
@@ -94,7 +94,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
      */
     private String oldLeadStatusChangeType;
     /**
-     * The outcome value for this lead status change export row.
+     * Result of the interaction or workflow step represented by this exported row.
      */
     private String outcome;
     /**
@@ -110,15 +110,15 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
      */
     private String sourceId;
     /**
-     * The date and time for the task due at value on this lead status change export row.
+     * UTC timestamp for task due at on this lead status change export row.
      */
     private OffsetDateTime taskDueAt;
     /**
-     * The type classification for this lead status change export row.
+     * Category of status change represented by this exported row.
      */
     private String type;
     /**
-     * The date and time for the updated at value on this lead status change export row.
+     * UTC timestamp for updated at on this lead status change export row.
      */
     private OffsetDateTime updatedAt;
     /**
@@ -146,7 +146,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
-     * Gets the appointmentEndAt property value. The date and time for the appointment end at value on this lead status change export row.
+     * Gets the appointmentEndAt property value. UTC timestamp for appointment end at on this lead status change export row.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -154,7 +154,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.appointmentEndAt;
     }
     /**
-     * Gets the appointmentStartAt property value. The date and time for the appointment start at value on this lead status change export row.
+     * Gets the appointmentStartAt property value. UTC timestamp for appointment start at on this lead status change export row.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +170,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.assignedToUserId;
     }
     /**
-     * Gets the callbackAt property value. The date and time for the callback at value on this lead status change export row.
+     * Gets the callbackAt property value. UTC timestamp for callback at on this lead status change export row.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -218,7 +218,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.changeSource;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this lead status change export row.
+     * Gets the createdAt property value. UTC timestamp for created at on this lead status change export row.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -333,7 +333,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.oldLeadStatusChangeType;
     }
     /**
-     * Gets the outcome property value. The outcome value for this lead status change export row.
+     * Gets the outcome property value. Result of the interaction or workflow step represented by this exported row.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -365,7 +365,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.sourceId;
     }
     /**
-     * Gets the taskDueAt property value. The date and time for the task due at value on this lead status change export row.
+     * Gets the taskDueAt property value. UTC timestamp for task due at on this lead status change export row.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -373,7 +373,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.taskDueAt;
     }
     /**
-     * Gets the type property value. The type classification for this lead status change export row.
+     * Gets the type property value. Category of status change represented by this exported row.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -381,7 +381,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         return this.type;
     }
     /**
-     * Gets the updatedAt property value. The date and time for the updated at value on this lead status change export row.
+     * Gets the updatedAt property value. UTC timestamp for updated at on this lead status change export row.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -430,14 +430,14 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the appointmentEndAt property value. The date and time for the appointment end at value on this lead status change export row.
+     * Sets the appointmentEndAt property value. UTC timestamp for appointment end at on this lead status change export row.
      * @param value Value to set for the appointmentEndAt property.
      */
     public void setAppointmentEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.appointmentEndAt = value;
     }
     /**
-     * Sets the appointmentStartAt property value. The date and time for the appointment start at value on this lead status change export row.
+     * Sets the appointmentStartAt property value. UTC timestamp for appointment start at on this lead status change export row.
      * @param value Value to set for the appointmentStartAt property.
      */
     public void setAppointmentStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -451,7 +451,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         this.assignedToUserId = value;
     }
     /**
-     * Sets the callbackAt property value. The date and time for the callback at value on this lead status change export row.
+     * Sets the callbackAt property value. UTC timestamp for callback at on this lead status change export row.
      * @param value Value to set for the callbackAt property.
      */
     public void setCallbackAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -493,7 +493,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         this.changeSource = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this lead status change export row.
+     * Sets the createdAt property value. UTC timestamp for created at on this lead status change export row.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -563,7 +563,7 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         this.oldLeadStatusChangeType = value;
     }
     /**
-     * Sets the outcome property value. The outcome value for this lead status change export row.
+     * Sets the outcome property value. Result of the interaction or workflow step represented by this exported row.
      * @param value Value to set for the outcome property.
      */
     public void setOutcome(@jakarta.annotation.Nullable final String value) {
@@ -591,21 +591,21 @@ public class LeadStatusChangeExportRow implements AdditionalDataHolder, Parsable
         this.sourceId = value;
     }
     /**
-     * Sets the taskDueAt property value. The date and time for the task due at value on this lead status change export row.
+     * Sets the taskDueAt property value. UTC timestamp for task due at on this lead status change export row.
      * @param value Value to set for the taskDueAt property.
      */
     public void setTaskDueAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.taskDueAt = value;
     }
     /**
-     * Sets the type property value. The type classification for this lead status change export row.
+     * Sets the type property value. Category of status change represented by this exported row.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final String value) {
         this.type = value;
     }
     /**
-     * Sets the updatedAt property value. The date and time for the updated at value on this lead status change export row.
+     * Sets the updatedAt property value. UTC timestamp for updated at on this lead status change export row.
      * @param value Value to set for the updatedAt property.
      */
     public void setUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

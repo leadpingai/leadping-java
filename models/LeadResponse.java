@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API lead response returned to authenticated clients.
+ * Describes lead data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadResponse implements AdditionalDataHolder, Parsable {

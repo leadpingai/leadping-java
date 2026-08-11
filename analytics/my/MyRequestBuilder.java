@@ -100,10 +100,19 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
+        /**
+         * Optional number of recent days to include when explicit timestamps are not supplied.
+         */
         @jakarta.annotation.Nullable
         public Integer days;
+        /**
+         * Optional exclusive end timestamp for the analytics period.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime endAt;
+        /**
+         * Optional inclusive start timestamp for the analytics period.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime startAt;
         /**

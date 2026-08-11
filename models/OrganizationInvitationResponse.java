@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing organization invitation data returned to callers.
+ * Describes organization invitation data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationInvitationResponse implements AdditionalDataHolder, Parsable {
     /**
-     * The date and time for the accepted at value on this organization invitation.
+     * UTC timestamp for accepted at on this organization invitation.
      */
     private OffsetDateTime acceptedAt;
     /**
@@ -22,7 +22,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time for the created at value on this organization invitation.
+     * UTC timestamp for created at on this organization invitation.
      */
     private OffsetDateTime createdAt;
     /**
@@ -30,11 +30,11 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private String email;
     /**
-     * The date and time for the expires at value on this organization invitation.
+     * UTC timestamp for expires at on this organization invitation.
      */
     private OffsetDateTime expiresAt;
     /**
-     * The unique ID for this organization invitation.
+     * Unique Leadping identifier for this organization invitation.
      */
     private String id;
     /**
@@ -58,23 +58,23 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * The ID and name for this organization.
+     * Identifier and display name of the related organization.
      */
     private IdNamePair organization;
     /**
-     * The date and time for the resent at value on this organization invitation.
+     * UTC timestamp for resent at on this organization invitation.
      */
     private OffsetDateTime resentAt;
     /**
-     * The date and time for the revoked at value on this organization invitation.
+     * UTC timestamp for revoked at on this organization invitation.
      */
     private OffsetDateTime revokedAt;
     /**
-     * The role value for this organization invitation.
+     * Role for this organization invitation.
      */
     private OrganizationMemberRole role;
     /**
-     * The safe message value for this organization invitation.
+     * Safe message for this organization invitation.
      */
     private String safeMessage;
     /**
@@ -82,7 +82,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private String sendFailureReason;
     /**
-     * The date and time for the sent at value on this organization invitation.
+     * UTC timestamp for sent at on this organization invitation.
      */
     private OffsetDateTime sentAt;
     /**
@@ -106,7 +106,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return new OrganizationInvitationResponse();
     }
     /**
-     * Gets the acceptedAt property value. The date and time for the accepted at value on this organization invitation.
+     * Gets the acceptedAt property value. UTC timestamp for accepted at on this organization invitation.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this organization invitation.
+     * Gets the createdAt property value. UTC timestamp for created at on this organization invitation.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.email;
     }
     /**
-     * Gets the expiresAt property value. The date and time for the expires at value on this organization invitation.
+     * Gets the expiresAt property value. UTC timestamp for expires at on this organization invitation.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -173,7 +173,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this organization invitation.
+     * Gets the id property value. Unique Leadping identifier for this organization invitation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -221,7 +221,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.licenseRenewalDate;
     }
     /**
-     * Gets the organization property value. The ID and name for this organization.
+     * Gets the organization property value. Identifier and display name of the related organization.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -229,7 +229,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.organization;
     }
     /**
-     * Gets the resentAt property value. The date and time for the resent at value on this organization invitation.
+     * Gets the resentAt property value. UTC timestamp for resent at on this organization invitation.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -237,7 +237,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.resentAt;
     }
     /**
-     * Gets the revokedAt property value. The date and time for the revoked at value on this organization invitation.
+     * Gets the revokedAt property value. UTC timestamp for revoked at on this organization invitation.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -245,7 +245,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.revokedAt;
     }
     /**
-     * Gets the role property value. The role value for this organization invitation.
+     * Gets the role property value. Role for this organization invitation.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -253,7 +253,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.role;
     }
     /**
-     * Gets the safeMessage property value. The safe message value for this organization invitation.
+     * Gets the safeMessage property value. Safe message for this organization invitation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -269,7 +269,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.sendFailureReason;
     }
     /**
-     * Gets the sentAt property value. The date and time for the sent at value on this organization invitation.
+     * Gets the sentAt property value. UTC timestamp for sent at on this organization invitation.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -311,7 +311,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the acceptedAt property value. The date and time for the accepted at value on this organization invitation.
+     * Sets the acceptedAt property value. UTC timestamp for accepted at on this organization invitation.
      * @param value Value to set for the acceptedAt property.
      */
     public void setAcceptedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -325,7 +325,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this organization invitation.
+     * Sets the createdAt property value. UTC timestamp for created at on this organization invitation.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -339,14 +339,14 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.email = value;
     }
     /**
-     * Sets the expiresAt property value. The date and time for the expires at value on this organization invitation.
+     * Sets the expiresAt property value. UTC timestamp for expires at on this organization invitation.
      * @param value Value to set for the expiresAt property.
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.expiresAt = value;
     }
     /**
-     * Sets the id property value. The unique ID for this organization invitation.
+     * Sets the id property value. Unique Leadping identifier for this organization invitation.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -388,35 +388,35 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.licenseRenewalDate = value;
     }
     /**
-     * Sets the organization property value. The ID and name for this organization.
+     * Sets the organization property value. Identifier and display name of the related organization.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {
         this.organization = value;
     }
     /**
-     * Sets the resentAt property value. The date and time for the resent at value on this organization invitation.
+     * Sets the resentAt property value. UTC timestamp for resent at on this organization invitation.
      * @param value Value to set for the resentAt property.
      */
     public void setResentAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.resentAt = value;
     }
     /**
-     * Sets the revokedAt property value. The date and time for the revoked at value on this organization invitation.
+     * Sets the revokedAt property value. UTC timestamp for revoked at on this organization invitation.
      * @param value Value to set for the revokedAt property.
      */
     public void setRevokedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.revokedAt = value;
     }
     /**
-     * Sets the role property value. The role value for this organization invitation.
+     * Sets the role property value. Role for this organization invitation.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
     }
     /**
-     * Sets the safeMessage property value. The safe message value for this organization invitation.
+     * Sets the safeMessage property value. Safe message for this organization invitation.
      * @param value Value to set for the safeMessage property.
      */
     public void setSafeMessage(@jakarta.annotation.Nullable final String value) {
@@ -430,7 +430,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.sendFailureReason = value;
     }
     /**
-     * Sets the sentAt property value. The date and time for the sent at value on this organization invitation.
+     * Sets the sentAt property value. UTC timestamp for sent at on this organization invitation.
      * @param value Value to set for the sentAt property.
      */
     public void setSentAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

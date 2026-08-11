@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing organization switch option data used by Leadping API contracts.
+ * Describes organization switch option data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable {
@@ -18,7 +18,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private OrganizationSwitchOptionActivationStatus activationStatus;
     /**
-     * The activation summary value for this organization switch option.
+     * Activation summary for this organization switch option.
      */
     private String activationSummary;
     /**
@@ -30,7 +30,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean hasPaymentMethod;
     /**
-     * The unique ID for this organization switch option.
+     * Unique Leadping identifier for this organization switch option.
      */
     private String id;
     /**
@@ -38,7 +38,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean isCurrent;
     /**
-     * The date and time for the last used at value on this organization switch option.
+     * UTC timestamp for last used at on this organization switch option.
      */
     private OffsetDateTime lastUsedAt;
     /**
@@ -58,7 +58,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean readyForCustomerTraffic;
     /**
-     * The role value for this organization switch option.
+     * Role for this organization switch option.
      */
     private OrganizationMemberRole role;
     /**
@@ -90,7 +90,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.activationStatus;
     }
     /**
-     * Gets the activationSummary property value. The activation summary value for this organization switch option.
+     * Gets the activationSummary property value. Activation summary for this organization switch option.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.hasPaymentMethod;
     }
     /**
-     * Gets the id property value. The unique ID for this organization switch option.
+     * Gets the id property value. Unique Leadping identifier for this organization switch option.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -151,7 +151,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.isCurrent;
     }
     /**
-     * Gets the lastUsedAt property value. The date and time for the last used at value on this organization switch option.
+     * Gets the lastUsedAt property value. UTC timestamp for last used at on this organization switch option.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.readyForCustomerTraffic;
     }
     /**
-     * Gets the role property value. The role value for this organization switch option.
+     * Gets the role property value. Role for this organization switch option.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -234,7 +234,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.activationStatus = value;
     }
     /**
-     * Sets the activationSummary property value. The activation summary value for this organization switch option.
+     * Sets the activationSummary property value. Activation summary for this organization switch option.
      * @param value Value to set for the activationSummary property.
      */
     public void setActivationSummary(@jakarta.annotation.Nullable final String value) {
@@ -255,7 +255,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.hasPaymentMethod = value;
     }
     /**
-     * Sets the id property value. The unique ID for this organization switch option.
+     * Sets the id property value. Unique Leadping identifier for this organization switch option.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -269,7 +269,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.isCurrent = value;
     }
     /**
-     * Sets the lastUsedAt property value. The date and time for the last used at value on this organization switch option.
+     * Sets the lastUsedAt property value. UTC timestamp for last used at on this organization switch option.
      * @param value Value to set for the lastUsedAt property.
      */
     public void setLastUsedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -304,7 +304,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.readyForCustomerTraffic = value;
     }
     /**
-     * Sets the role property value. The role value for this organization switch option.
+     * Sets the role property value. Role for this organization switch option.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {

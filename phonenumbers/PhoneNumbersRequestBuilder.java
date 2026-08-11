@@ -87,7 +87,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
-     * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number update.
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -99,7 +99,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
-     * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -118,7 +118,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
-     * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number update.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -127,7 +127,7 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Purchases or creates a phone number for the current organization so it can be assigned to messaging, calls, and lead follow-up.
-     * @param body Request schema for the Leadping API phone number update request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number update.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

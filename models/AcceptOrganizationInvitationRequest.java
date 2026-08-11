@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request payload for accept organization invitation.
+ * Defines the input used for accept organization invitation.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AcceptOrganizationInvitationRequest implements AdditionalDataHolder, Parsable {
@@ -21,11 +21,11 @@ public class AcceptOrganizationInvitationRequest implements AdditionalDataHolder
      */
     private String email;
     /**
-     * The first name value for this organization invitation.
+     * First name for this organization invitation.
      */
     private String firstName;
     /**
-     * The date and time for the last name value on this organization invitation.
+     * UTC timestamp for last name on this organization invitation.
      */
     private String lastName;
     /**
@@ -78,7 +78,7 @@ public class AcceptOrganizationInvitationRequest implements AdditionalDataHolder
         return deserializerMap;
     }
     /**
-     * Gets the firstName property value. The first name value for this organization invitation.
+     * Gets the firstName property value. First name for this organization invitation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -86,7 +86,7 @@ public class AcceptOrganizationInvitationRequest implements AdditionalDataHolder
         return this.firstName;
     }
     /**
-     * Gets the lastName property value. The date and time for the last name value on this organization invitation.
+     * Gets the lastName property value. UTC timestamp for last name on this organization invitation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -128,14 +128,14 @@ public class AcceptOrganizationInvitationRequest implements AdditionalDataHolder
         this.email = value;
     }
     /**
-     * Sets the firstName property value. The first name value for this organization invitation.
+     * Sets the firstName property value. First name for this organization invitation.
      * @param value Value to set for the firstName property.
      */
     public void setFirstName(@jakarta.annotation.Nullable final String value) {
         this.firstName = value;
     }
     /**
-     * Sets the lastName property value. The date and time for the last name value on this organization invitation.
+     * Sets the lastName property value. UTC timestamp for last name on this organization invitation.
      * @param value Value to set for the lastName property.
      */
     public void setLastName(@jakarta.annotation.Nullable final String value) {

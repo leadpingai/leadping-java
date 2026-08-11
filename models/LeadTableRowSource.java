@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this source.
+ * Identifier and display name of the related source.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadTableRowSource extends IdNamePair implements Parsable {

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request schema for the Leadping API lead tag update request, including the fields clients can send.
+ * Defines the fields clients can send when working with lead tag update.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadTagsRequest implements AdditionalDataHolder, Parsable {

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request schema for the Leadping API contact form request, including the fields clients can send.
+ * Defines the fields clients can send when working with contact form.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ContactRequest implements AdditionalDataHolder, Parsable {

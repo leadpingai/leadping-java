@@ -17,47 +17,47 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The appBuild property
+     * The application build number reported by the client.
      */
     private String appBuild;
     /**
-     * The appIdentifier property
+     * The application bundle identifier or package name.
      */
     private String appIdentifier;
     /**
-     * The appName property
+     * The human-readable application name reported by the client.
      */
     private String appName;
     /**
-     * The appVersion property
+     * The semantic application version reported by the client.
      */
     private String appVersion;
     /**
-     * The deviceModel property
+     * The device model reported by the client.
      */
     private String deviceModel;
     /**
-     * The devicePlatform property
+     * The mobile operating-system platform reported by the device.
      */
     private String devicePlatform;
     /**
-     * The deviceVersion property
+     * The mobile operating-system version reported by the device.
      */
     private String deviceVersion;
     /**
-     * The installationId property
+     * The stable installation identifier assigned by the mobile client.
      */
     private String installationId;
     /**
-     * The metadata property
+     * Optional client metadata stored with the push installation.
      */
     private PushInstallationRequestMetadata metadata;
     /**
-     * The platform property
+     * The Azure Notification Hubs platform name, such as apns or fcmv1.
      */
     private String platform;
     /**
-     * The pushChannel property
+     * The provider-issued push token or channel used to deliver notifications.
      */
     private String pushChannel;
     /**
@@ -85,7 +85,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the appBuild property value. The appBuild property
+     * Gets the appBuild property value. The application build number reported by the client.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.appBuild;
     }
     /**
-     * Gets the appIdentifier property value. The appIdentifier property
+     * Gets the appIdentifier property value. The application bundle identifier or package name.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -101,7 +101,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.appIdentifier;
     }
     /**
-     * Gets the appName property value. The appName property
+     * Gets the appName property value. The human-readable application name reported by the client.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -109,7 +109,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.appName;
     }
     /**
-     * Gets the appVersion property value. The appVersion property
+     * Gets the appVersion property value. The semantic application version reported by the client.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -117,7 +117,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.appVersion;
     }
     /**
-     * Gets the deviceModel property value. The deviceModel property
+     * Gets the deviceModel property value. The device model reported by the client.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -125,7 +125,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.deviceModel;
     }
     /**
-     * Gets the devicePlatform property value. The devicePlatform property
+     * Gets the devicePlatform property value. The mobile operating-system platform reported by the device.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -133,7 +133,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.devicePlatform;
     }
     /**
-     * Gets the deviceVersion property value. The deviceVersion property
+     * Gets the deviceVersion property value. The mobile operating-system version reported by the device.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -161,7 +161,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the installationId property value. The installationId property
+     * Gets the installationId property value. The stable installation identifier assigned by the mobile client.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -169,7 +169,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.installationId;
     }
     /**
-     * Gets the metadata property value. The metadata property
+     * Gets the metadata property value. Optional client metadata stored with the push installation.
      * @return a {@link PushInstallationRequestMetadata}
      */
     @jakarta.annotation.Nullable
@@ -177,7 +177,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.metadata;
     }
     /**
-     * Gets the platform property value. The platform property
+     * Gets the platform property value. The Azure Notification Hubs platform name, such as apns or fcmv1.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -185,7 +185,7 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         return this.platform;
     }
     /**
-     * Gets the pushChannel property value. The pushChannel property
+     * Gets the pushChannel property value. The provider-issued push token or channel used to deliver notifications.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -219,77 +219,77 @@ public class PushInstallationRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the appBuild property value. The appBuild property
+     * Sets the appBuild property value. The application build number reported by the client.
      * @param value Value to set for the appBuild property.
      */
     public void setAppBuild(@jakarta.annotation.Nullable final String value) {
         this.appBuild = value;
     }
     /**
-     * Sets the appIdentifier property value. The appIdentifier property
+     * Sets the appIdentifier property value. The application bundle identifier or package name.
      * @param value Value to set for the appIdentifier property.
      */
     public void setAppIdentifier(@jakarta.annotation.Nullable final String value) {
         this.appIdentifier = value;
     }
     /**
-     * Sets the appName property value. The appName property
+     * Sets the appName property value. The human-readable application name reported by the client.
      * @param value Value to set for the appName property.
      */
     public void setAppName(@jakarta.annotation.Nullable final String value) {
         this.appName = value;
     }
     /**
-     * Sets the appVersion property value. The appVersion property
+     * Sets the appVersion property value. The semantic application version reported by the client.
      * @param value Value to set for the appVersion property.
      */
     public void setAppVersion(@jakarta.annotation.Nullable final String value) {
         this.appVersion = value;
     }
     /**
-     * Sets the deviceModel property value. The deviceModel property
+     * Sets the deviceModel property value. The device model reported by the client.
      * @param value Value to set for the deviceModel property.
      */
     public void setDeviceModel(@jakarta.annotation.Nullable final String value) {
         this.deviceModel = value;
     }
     /**
-     * Sets the devicePlatform property value. The devicePlatform property
+     * Sets the devicePlatform property value. The mobile operating-system platform reported by the device.
      * @param value Value to set for the devicePlatform property.
      */
     public void setDevicePlatform(@jakarta.annotation.Nullable final String value) {
         this.devicePlatform = value;
     }
     /**
-     * Sets the deviceVersion property value. The deviceVersion property
+     * Sets the deviceVersion property value. The mobile operating-system version reported by the device.
      * @param value Value to set for the deviceVersion property.
      */
     public void setDeviceVersion(@jakarta.annotation.Nullable final String value) {
         this.deviceVersion = value;
     }
     /**
-     * Sets the installationId property value. The installationId property
+     * Sets the installationId property value. The stable installation identifier assigned by the mobile client.
      * @param value Value to set for the installationId property.
      */
     public void setInstallationId(@jakarta.annotation.Nullable final String value) {
         this.installationId = value;
     }
     /**
-     * Sets the metadata property value. The metadata property
+     * Sets the metadata property value. Optional client metadata stored with the push installation.
      * @param value Value to set for the metadata property.
      */
     public void setMetadata(@jakarta.annotation.Nullable final PushInstallationRequestMetadata value) {
         this.metadata = value;
     }
     /**
-     * Sets the platform property value. The platform property
+     * Sets the platform property value. The Azure Notification Hubs platform name, such as apns or fcmv1.
      * @param value Value to set for the platform property.
      */
     public void setPlatform(@jakarta.annotation.Nullable final String value) {
         this.platform = value;
     }
     /**
-     * Sets the pushChannel property value. The pushChannel property
+     * Sets the pushChannel property value. The provider-issued push token or channel used to deliver notifications.
      * @param value Value to set for the pushChannel property.
      */
     public void setPushChannel(@jakarta.annotation.Nullable final String value) {

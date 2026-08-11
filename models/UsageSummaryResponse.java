@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing usage summary response data.
+ * Describes usage summary response data used by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
@@ -42,11 +42,11 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer pendingInvoiceCount;
     /**
-     * The date and time for the period end value on this usage summary.
+     * UTC timestamp for period end on this usage summary.
      */
     private OffsetDateTime periodEnd;
     /**
-     * The date and time for the period start value on this usage summary.
+     * UTC timestamp for period start on this usage summary.
      */
     private OffsetDateTime periodStart;
     /**
@@ -144,7 +144,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         return this.pendingInvoiceCount;
     }
     /**
-     * Gets the periodEnd property value. The date and time for the period end value on this usage summary.
+     * Gets the periodEnd property value. UTC timestamp for period end on this usage summary.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -152,7 +152,7 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         return this.periodEnd;
     }
     /**
-     * Gets the periodStart property value. The date and time for the period start value on this usage summary.
+     * Gets the periodStart property value. UTC timestamp for period start on this usage summary.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -234,14 +234,14 @@ public class UsageSummaryResponse implements AdditionalDataHolder, Parsable {
         this.pendingInvoiceCount = value;
     }
     /**
-     * Sets the periodEnd property value. The date and time for the period end value on this usage summary.
+     * Sets the periodEnd property value. UTC timestamp for period end on this usage summary.
      * @param value Value to set for the periodEnd property.
      */
     public void setPeriodEnd(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.periodEnd = value;
     }
     /**
-     * Sets the periodStart property value. The date and time for the period start value on this usage summary.
+     * Sets the periodStart property value. UTC timestamp for period start on this usage summary.
      * @param value Value to set for the periodStart property.
      */
     public void setPeriodStart(@jakarta.annotation.Nullable final OffsetDateTime value) {

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API organization profile response returned to authenticated clients.
+ * Describes organization profile data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationResponse implements AdditionalDataHolder, Parsable {

@@ -101,12 +101,24 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {
+        /**
+         * Optional filter selecting active, archived, or all leads.
+         */
         @jakarta.annotation.Nullable
         public String archiveFilter;
+        /**
+         * Optional tag identifiers used to filter the lead list.
+         */
         @jakarta.annotation.Nullable
         public String[] tagIds;
+        /**
+         * Whether a lead must contain every supplied tag instead of any supplied tag.
+         */
         @jakarta.annotation.Nullable
         public Boolean tagMatchAll;
+        /**
+         * Whether to include only leads that have no tags.
+         */
         @jakarta.annotation.Nullable
         public Boolean untagged;
         /**

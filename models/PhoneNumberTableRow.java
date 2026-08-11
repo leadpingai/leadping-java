@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API phone number table row results shown in searchable tables.
+ * Summarizes phone number data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {

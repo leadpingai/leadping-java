@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request payload for organization invitation.
+ * Defines the input used for organization invitation.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationInvitationRequest implements AdditionalDataHolder, Parsable {
@@ -21,7 +21,7 @@ public class OrganizationInvitationRequest implements AdditionalDataHolder, Pars
      */
     private String email;
     /**
-     * The role value for this organization invitation.
+     * Role for this organization invitation.
      */
     private OrganizationMemberRole role;
     /**
@@ -68,7 +68,7 @@ public class OrganizationInvitationRequest implements AdditionalDataHolder, Pars
         return deserializerMap;
     }
     /**
-     * Gets the role property value. The role value for this organization invitation.
+     * Gets the role property value. Role for this organization invitation.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class OrganizationInvitationRequest implements AdditionalDataHolder, Pars
         this.email = value;
     }
     /**
-     * Sets the role property value. The role value for this organization invitation.
+     * Sets the role property value. Role for this organization invitation.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this organization.
+ * Identifier and display name of the related organization.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadTableRowOrganization extends IdNamePair implements Parsable {

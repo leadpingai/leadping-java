@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API automation table row results shown in searchable tables.
+ * Summarizes automation data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationTableRow implements AdditionalDataHolder, Parsable {

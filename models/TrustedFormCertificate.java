@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing trusted form certificate data used by Leadping API contracts.
+ * Describes trusted form certificate data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
@@ -18,15 +18,15 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time for the created at value on this TrustedForm certificate.
+     * UTC timestamp for created at on this TrustedForm certificate.
      */
     private OffsetDateTime createdAt;
     /**
-     * The unique ID for this TrustedForm certificate.
+     * Unique Leadping identifier for this TrustedForm certificate.
      */
     private String id;
     /**
-     * The source value for this TrustedForm certificate.
+     * Source for this TrustedForm certificate.
      */
     private String source;
     /**
@@ -58,7 +58,7 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this TrustedForm certificate.
+     * Gets the createdAt property value. UTC timestamp for created at on this TrustedForm certificate.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this TrustedForm certificate.
+     * Gets the id property value. Unique Leadping identifier for this TrustedForm certificate.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the source property value. The source value for this TrustedForm certificate.
+     * Gets the source property value. Source for this TrustedForm certificate.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -122,21 +122,21 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this TrustedForm certificate.
+     * Sets the createdAt property value. UTC timestamp for created at on this TrustedForm certificate.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the id property value. The unique ID for this TrustedForm certificate.
+     * Sets the id property value. Unique Leadping identifier for this TrustedForm certificate.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the source property value. The source value for this TrustedForm certificate.
+     * Sets the source property value. Source for this TrustedForm certificate.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {

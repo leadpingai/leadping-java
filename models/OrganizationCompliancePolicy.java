@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing organization compliance policy data used by Leadping API contracts.
+ * Describes organization compliance policy data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsable {

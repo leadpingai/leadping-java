@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The notification preferences value for this user.
+ * Notification preferences for this user.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserResponseNotificationPreferences extends UserNotificationPreferences implements Parsable {

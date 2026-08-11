@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number warmup status returned to authenticated clients.
+ * Describes a phone number&apos;s current warmup stage, limits, progress, and readiness for production traffic.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable {

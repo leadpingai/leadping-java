@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number search response returned to authenticated clients.
+ * Describes phone number search data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberSearchResponse implements AdditionalDataHolder, Parsable {

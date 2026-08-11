@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing activation timeline event data used by Leadping API contracts.
+ * Describes activation timeline event data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
     /**
-     * The ID and name for this actor.
+     * Identifier and display name of the related actor.
      */
     private ActivationTimelineEventActor actor;
     /**
@@ -22,11 +22,11 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time for the created at value on this activation timeline event.
+     * UTC timestamp for created at on this activation timeline event.
      */
     private OffsetDateTime createdAt;
     /**
-     * The details value for this activation timeline event.
+     * Details for this activation timeline event.
      */
     private String details;
     /**
@@ -34,7 +34,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
      */
     private String failureReason;
     /**
-     * The unique ID for this activation timeline event.
+     * Unique Leadping identifier for this activation timeline event.
      */
     private String id;
     /**
@@ -42,7 +42,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
      */
     private String status;
     /**
-     * The title value for this activation timeline event.
+     * Title for this activation timeline event.
      */
     private String title;
     /**
@@ -66,7 +66,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return new ActivationTimelineEvent();
     }
     /**
-     * Gets the actor property value. The ID and name for this actor.
+     * Gets the actor property value. Identifier and display name of the related actor.
      * @return a {@link ActivationTimelineEventActor}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this activation timeline event.
+     * Gets the createdAt property value. UTC timestamp for created at on this activation timeline event.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -90,7 +90,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the details property value. The details value for this activation timeline event.
+     * Gets the details property value. Details for this activation timeline event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -123,7 +123,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this activation timeline event.
+     * Gets the id property value. Unique Leadping identifier for this activation timeline event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -139,7 +139,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the title property value. The title value for this activation timeline event.
+     * Gets the title property value. Title for this activation timeline event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -171,7 +171,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actor property value. The ID and name for this actor.
+     * Sets the actor property value. Identifier and display name of the related actor.
      * @param value Value to set for the actor property.
      */
     public void setActor(@jakarta.annotation.Nullable final ActivationTimelineEventActor value) {
@@ -185,14 +185,14 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this activation timeline event.
+     * Sets the createdAt property value. UTC timestamp for created at on this activation timeline event.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the details property value. The details value for this activation timeline event.
+     * Sets the details property value. Details for this activation timeline event.
      * @param value Value to set for the details property.
      */
     public void setDetails(@jakarta.annotation.Nullable final String value) {
@@ -206,7 +206,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         this.failureReason = value;
     }
     /**
-     * Sets the id property value. The unique ID for this activation timeline event.
+     * Sets the id property value. Unique Leadping identifier for this activation timeline event.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -220,7 +220,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         this.status = value;
     }
     /**
-     * Sets the title property value. The title value for this activation timeline event.
+     * Sets the title property value. Title for this activation timeline event.
      * @param value Value to set for the title property.
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {

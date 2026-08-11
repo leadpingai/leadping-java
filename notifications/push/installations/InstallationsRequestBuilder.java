@@ -21,7 +21,7 @@ public class InstallationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.notifications.push.installations.item collection
-     * @param installationId Unique identifier of the item
+     * @param installationId The stable mobile installation identifier to unregister.
      * @return a {@link WithInstallationItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

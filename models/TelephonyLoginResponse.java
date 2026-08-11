@@ -18,19 +18,19 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The callback token value for this telephony login.
+     * Callback token for this telephony login.
      */
     private String callbackToken;
     /**
-     * The date and time for the expires at value on this telephony login.
+     * UTC timestamp for expires at on this telephony login.
      */
     private OffsetDateTime expiresAt;
     /**
-     * The password value for this telephony login.
+     * Password for this telephony login.
      */
     private String password;
     /**
-     * The username value for this telephony login.
+     * Username for this telephony login.
      */
     private String username;
     /**
@@ -58,7 +58,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the callbackToken property value. The callback token value for this telephony login.
+     * Gets the callbackToken property value. Callback token for this telephony login.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -66,7 +66,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         return this.callbackToken;
     }
     /**
-     * Gets the expiresAt property value. The date and time for the expires at value on this telephony login.
+     * Gets the expiresAt property value. UTC timestamp for expires at on this telephony login.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the password property value. The password value for this telephony login.
+     * Gets the password property value. Password for this telephony login.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -95,7 +95,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         return this.password;
     }
     /**
-     * Gets the username property value. The username value for this telephony login.
+     * Gets the username property value. Username for this telephony login.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -122,28 +122,28 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the callbackToken property value. The callback token value for this telephony login.
+     * Sets the callbackToken property value. Callback token for this telephony login.
      * @param value Value to set for the callbackToken property.
      */
     public void setCallbackToken(@jakarta.annotation.Nullable final String value) {
         this.callbackToken = value;
     }
     /**
-     * Sets the expiresAt property value. The date and time for the expires at value on this telephony login.
+     * Sets the expiresAt property value. UTC timestamp for expires at on this telephony login.
      * @param value Value to set for the expiresAt property.
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.expiresAt = value;
     }
     /**
-     * Sets the password property value. The password value for this telephony login.
+     * Sets the password property value. Password for this telephony login.
      * @param value Value to set for the password property.
      */
     public void setPassword(@jakarta.annotation.Nullable final String value) {
         this.password = value;
     }
     /**
-     * Sets the username property value. The username value for this telephony login.
+     * Sets the username property value. Username for this telephony login.
      * @param value Value to set for the username property.
      */
     public void setUsername(@jakarta.annotation.Nullable final String value) {

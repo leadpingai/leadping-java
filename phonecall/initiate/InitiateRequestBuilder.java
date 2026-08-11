@@ -38,7 +38,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
-     * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone call initiation.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
-     * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone call initiation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
-     * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone call initiation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
-     * @param body Request schema for the Leadping API phone call initiation request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone call initiation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

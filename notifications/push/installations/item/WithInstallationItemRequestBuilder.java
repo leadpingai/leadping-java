@@ -35,7 +35,7 @@ public class WithInstallationItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/notifications/push/installations/{installationId}", rawUrl);
     }
     /**
-     * Unregister the current user&apos;s mobile push installation.
+     * Removes a mobile push installation from the authenticated user&apos;s account so Leadping no longer sends notifications to that device.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      */
@@ -44,7 +44,7 @@ public class WithInstallationItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Unregister the current user&apos;s mobile push installation.
+     * Removes a mobile push installation from the authenticated user&apos;s account so Leadping no longer sends notifications to that device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
@@ -57,7 +57,7 @@ public class WithInstallationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
-     * Unregister the current user&apos;s mobile push installation.
+     * Removes a mobile push installation from the authenticated user&apos;s account so Leadping no longer sends notifications to that device.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -65,7 +65,7 @@ public class WithInstallationItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Unregister the current user&apos;s mobile push installation.
+     * Removes a mobile push installation from the authenticated user&apos;s account so Leadping no longer sends notifications to that device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

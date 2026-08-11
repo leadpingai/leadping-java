@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this actor.
+ * Identifier and display name of the related actor.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ActivationTimelineEventActor extends IdNamePair implements Parsable {

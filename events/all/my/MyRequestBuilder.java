@@ -105,10 +105,19 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {
+        /**
+         * Optional event category used to narrow the results.
+         */
         @jakarta.annotation.Nullable
         public String category;
+        /**
+         * Optional exclusive end timestamp for event occurrence.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime endAt;
+        /**
+         * Optional inclusive start timestamp for event occurrence.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime startAt;
         /**

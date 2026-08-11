@@ -102,8 +102,14 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {
+        /**
+         * Optional exclusive end timestamp for transaction creation.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime endAt;
+        /**
+         * Optional inclusive start timestamp for transaction creation.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime startAt;
         /**

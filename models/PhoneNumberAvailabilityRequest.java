@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request schema for checking phone number availability before purchase or assignment.
+ * Defines the phone number and capability requirements Leadping should verify before purchase or assignment.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberAvailabilityRequest implements AdditionalDataHolder, Parsable {

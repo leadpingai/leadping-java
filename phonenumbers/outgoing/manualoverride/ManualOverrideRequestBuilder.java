@@ -38,7 +38,7 @@ public class ManualOverrideRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Validates a manual outgoing-number override before use, checking ownership, destination, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number manual override request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number manual override.
      * @return a {@link OutgoingNumberSelectionResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class ManualOverrideRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Validates a manual outgoing-number override before use, checking ownership, destination, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number manual override request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number manual override.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OutgoingNumberSelectionResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -66,7 +66,7 @@ public class ManualOverrideRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Validates a manual outgoing-number override before use, checking ownership, destination, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number manual override request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number manual override.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class ManualOverrideRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Validates a manual outgoing-number override before use, checking ownership, destination, and delivery eligibility.
-     * @param body Request schema for the Leadping API outgoing number manual override request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with outgoing number manual override.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

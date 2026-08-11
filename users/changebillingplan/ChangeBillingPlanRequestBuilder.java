@@ -38,7 +38,7 @@ public class ChangeBillingPlanRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes the current user&apos;s billing plan selection, updating account billing state and plan-specific capabilities.
-     * @param body Request payload for change billing plan.
+     * @param body Defines the input used for change billing plan.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class ChangeBillingPlanRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes the current user&apos;s billing plan selection, updating account billing state and plan-specific capabilities.
-     * @param body Request payload for change billing plan.
+     * @param body Defines the input used for change billing plan.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -69,7 +69,7 @@ public class ChangeBillingPlanRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes the current user&apos;s billing plan selection, updating account billing state and plan-specific capabilities.
-     * @param body Request payload for change billing plan.
+     * @param body Defines the input used for change billing plan.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class ChangeBillingPlanRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Changes the current user&apos;s billing plan selection, updating account billing state and plan-specific capabilities.
-     * @param body Request payload for change billing plan.
+     * @param body Defines the input used for change billing plan.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

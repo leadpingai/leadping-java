@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API phone number opt-out metrics response returned to authenticated clients.
+ * Describes phone number opt-out metrics data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberOptOutMetricsResponse implements AdditionalDataHolder, Parsable {

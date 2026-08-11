@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing organization user data returned to callers.
+ * Describes organization user data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationMemberResponse implements AdditionalDataHolder, Parsable {
@@ -30,7 +30,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String id;
     /**
-     * The date and time for the last used at value on this organization user.
+     * UTC timestamp for last used at on this organization user.
      */
     private OffsetDateTime lastUsedAt;
     /**
@@ -54,11 +54,11 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String name;
     /**
-     * The organization value for this organization user.
+     * Organization for this organization user.
      */
     private IdNamePair organization;
     /**
-     * The date and time for the removed at value on this organization user.
+     * UTC timestamp for removed at on this organization user.
      */
     private OffsetDateTime removedAt;
     /**
@@ -66,15 +66,15 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String removedByUserId;
     /**
-     * The role value for this organization user.
+     * Role for this organization user.
      */
     private OrganizationMemberRole role;
     /**
-     * The user value for this organization user.
+     * User for this organization user.
      */
     private IdNamePair user;
     /**
-     * The user email value for this organization user.
+     * User email for this organization user.
      */
     private String userEmail;
     /**
@@ -150,7 +150,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.id;
     }
     /**
-     * Gets the lastUsedAt property value. The date and time for the last used at value on this organization user.
+     * Gets the lastUsedAt property value. UTC timestamp for last used at on this organization user.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -198,7 +198,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.name;
     }
     /**
-     * Gets the organization property value. The organization value for this organization user.
+     * Gets the organization property value. Organization for this organization user.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -206,7 +206,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.organization;
     }
     /**
-     * Gets the removedAt property value. The date and time for the removed at value on this organization user.
+     * Gets the removedAt property value. UTC timestamp for removed at on this organization user.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -222,7 +222,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.removedByUserId;
     }
     /**
-     * Gets the role property value. The role value for this organization user.
+     * Gets the role property value. Role for this organization user.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -230,7 +230,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.role;
     }
     /**
-     * Gets the user property value. The user value for this organization user.
+     * Gets the user property value. User for this organization user.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -238,7 +238,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.user;
     }
     /**
-     * Gets the userEmail property value. The user email value for this organization user.
+     * Gets the userEmail property value. User email for this organization user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -297,7 +297,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.id = value;
     }
     /**
-     * Sets the lastUsedAt property value. The date and time for the last used at value on this organization user.
+     * Sets the lastUsedAt property value. UTC timestamp for last used at on this organization user.
      * @param value Value to set for the lastUsedAt property.
      */
     public void setLastUsedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -339,14 +339,14 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.name = value;
     }
     /**
-     * Sets the organization property value. The organization value for this organization user.
+     * Sets the organization property value. Organization for this organization user.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {
         this.organization = value;
     }
     /**
-     * Sets the removedAt property value. The date and time for the removed at value on this organization user.
+     * Sets the removedAt property value. UTC timestamp for removed at on this organization user.
      * @param value Value to set for the removedAt property.
      */
     public void setRemovedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -360,21 +360,21 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.removedByUserId = value;
     }
     /**
-     * Sets the role property value. The role value for this organization user.
+     * Sets the role property value. Role for this organization user.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
     }
     /**
-     * Sets the user property value. The user value for this organization user.
+     * Sets the user property value. User for this organization user.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final IdNamePair value) {
         this.user = value;
     }
     /**
-     * Sets the userEmail property value. The user email value for this organization user.
+     * Sets the userEmail property value. User email for this organization user.
      * @param value Value to set for the userEmail property.
      */
     public void setUserEmail(@jakarta.annotation.Nullable final String value) {

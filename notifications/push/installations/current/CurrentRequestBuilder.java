@@ -36,7 +36,7 @@ public class CurrentRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/notifications/push/installations/current", rawUrl);
     }
     /**
-     * Register or refresh the current user&apos;s mobile push installation.
+     * Registers or refreshes the authenticated user&apos;s mobile push installation so Leadping can deliver account and workflow notifications to the device.
      * @param body Describes a mobile push installation. Identity and Azure tags are derived by the API.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 400 status code
@@ -47,7 +47,7 @@ public class CurrentRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Register or refresh the current user&apos;s mobile push installation.
+     * Registers or refreshes the authenticated user&apos;s mobile push installation so Leadping can deliver account and workflow notifications to the device.
      * @param body Describes a mobile push installation. Identity and Azure tags are derived by the API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
@@ -64,7 +64,7 @@ public class CurrentRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
-     * Register or refresh the current user&apos;s mobile push installation.
+     * Registers or refreshes the authenticated user&apos;s mobile push installation so Leadping can deliver account and workflow notifications to the device.
      * @param body Describes a mobile push installation. Identity and Azure tags are derived by the API.
      * @return a {@link RequestInformation}
      */
@@ -73,7 +73,7 @@ public class CurrentRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Register or refresh the current user&apos;s mobile push installation.
+     * Registers or refreshes the authenticated user&apos;s mobile push installation so Leadping can deliver account and workflow notifications to the device.
      * @param body Describes a mobile push installation. Identity and Azure tags are derived by the API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

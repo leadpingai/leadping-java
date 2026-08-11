@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API SMS event table row results shown in searchable tables.
+ * Summarizes SMS event data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
@@ -94,7 +94,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isAutomated;
     /**
-     * The ID and name for this lead.
+     * Identifier and display name of the related lead.
      */
     private IdNamePair lead;
     /**
@@ -403,7 +403,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.isAutomated;
     }
     /**
-     * Gets the lead property value. The ID and name for this lead.
+     * Gets the lead property value. Identifier and display name of the related lead.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -759,7 +759,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.isAutomated = value;
     }
     /**
-     * Sets the lead property value. The ID and name for this lead.
+     * Sets the lead property value. Identifier and display name of the related lead.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final IdNamePair value) {

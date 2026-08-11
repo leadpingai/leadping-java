@@ -38,7 +38,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Switches the authenticated user&apos;s active organization context so subsequent lead, billing, and communication requests target that organization.
-     * @param body Request schema for the Leadping API organization switch request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization switch.
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -49,7 +49,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Switches the authenticated user&apos;s active organization context so subsequent lead, billing, and communication requests target that organization.
-     * @param body Request schema for the Leadping API organization switch request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization switch.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -66,7 +66,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Switches the authenticated user&apos;s active organization context so subsequent lead, billing, and communication requests target that organization.
-     * @param body Request schema for the Leadping API organization switch request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization switch.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Switches the authenticated user&apos;s active organization context so subsequent lead, billing, and communication requests target that organization.
-     * @param body Request schema for the Leadping API organization switch request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with organization switch.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -38,7 +38,7 @@ public class SearchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Searches available phone numbers for purchase, applying country, area, and capability filters for lead communication setup.
-     * @param body Request schema for the Leadping API phone number search request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number search.
      * @return a {@link PhoneNumberSearchResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class SearchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Searches available phone numbers for purchase, applying country, area, and capability filters for lead communication setup.
-     * @param body Request schema for the Leadping API phone number search request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberSearchResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -69,7 +69,7 @@ public class SearchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Searches available phone numbers for purchase, applying country, area, and capability filters for lead communication setup.
-     * @param body Request schema for the Leadping API phone number search request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number search.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class SearchRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Searches available phone numbers for purchase, applying country, area, and capability filters for lead communication setup.
-     * @param body Request schema for the Leadping API phone number search request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with phone number search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

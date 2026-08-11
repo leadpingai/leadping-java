@@ -38,7 +38,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
-     * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with SMS send.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
-     * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with SMS send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -69,7 +69,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
-     * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with SMS send.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class SendRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sends an SMS message to a lead or phone number, applying current-organization sender selection, scheduling, and delivery rules.
-     * @param body Request schema for the Leadping API SMS send request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with SMS send.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

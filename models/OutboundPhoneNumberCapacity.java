@@ -22,6 +22,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private Boolean capacityAvailable;
     /**
+     * Human-readable reason for the current phone-number health state.
+     */
+    private String healthReason;
+    /**
      * Current health status for this Leadping outbound phone number capacity.
      */
     private PhoneNumberOutboundHealthStatus healthStatus;
@@ -33,6 +37,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * Unique identifier of the phone number associated with this Leadping outbound phone number capacity.
      */
     private String phoneNumberId;
+    /**
+     * Indicates whether this phone number has an approved 10DLC messaging campaign assignment.
+     */
+    private Boolean smsApproved;
     /**
      * Next midnight Eastern time, when SMS daily capacity resets.
      */
@@ -57,6 +65,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * The next time SMS capacity becomes available in the rolling minute window.
      */
     private OffsetDateTime smsMinutelyResetsAt;
+    /**
+     * Indicates whether SMS limits for this phone number are still ramping up.
+     */
+    private Boolean smsRamping;
     /**
      * SMS remaining this hour for the applicable messaging or voice capacity window.
      */
@@ -105,6 +117,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * The next time voice capacity becomes available in the rolling minute window.
      */
     private OffsetDateTime voiceMinutelyResetsAt;
+    /**
+     * Indicates whether call limits for this phone number are still ramping up.
+     */
+    private Boolean voiceRamping;
     /**
      * Voice remaining this hour for the applicable messaging or voice capacity window.
      */
@@ -167,17 +183,20 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
         deserializerMap.put("capacityAvailable", (n) -> { this.setCapacityAvailable(n.getBooleanValue()); });
+        deserializerMap.put("healthReason", (n) -> { this.setHealthReason(n.getStringValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberOutboundHealthStatus::forValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
+        deserializerMap.put("smsApproved", (n) -> { this.setSmsApproved(n.getBooleanValue()); });
         deserializerMap.put("smsDailyResetsAt", (n) -> { this.setSmsDailyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsHourlyResetsAt", (n) -> { this.setSmsHourlyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsLimitThisHour", (n) -> { this.setSmsLimitThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsLimitThisMinute", (n) -> { this.setSmsLimitThisMinute(n.getIntegerValue()); });
         deserializerMap.put("smsLimitToday", (n) -> { this.setSmsLimitToday(n.getIntegerValue()); });
         deserializerMap.put("smsMinutelyResetsAt", (n) -> { this.setSmsMinutelyResetsAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("smsRamping", (n) -> { this.setSmsRamping(n.getBooleanValue()); });
         deserializerMap.put("smsRemainingThisHour", (n) -> { this.setSmsRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsRemainingThisMinute", (n) -> { this.setSmsRemainingThisMinute(n.getIntegerValue()); });
         deserializerMap.put("smsRemainingToday", (n) -> { this.setSmsRemainingToday(n.getIntegerValue()); });
@@ -190,6 +209,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         deserializerMap.put("voiceLimitThisMinute", (n) -> { this.setVoiceLimitThisMinute(n.getIntegerValue()); });
         deserializerMap.put("voiceLimitToday", (n) -> { this.setVoiceLimitToday(n.getIntegerValue()); });
         deserializerMap.put("voiceMinutelyResetsAt", (n) -> { this.setVoiceMinutelyResetsAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("voiceRamping", (n) -> { this.setVoiceRamping(n.getBooleanValue()); });
         deserializerMap.put("voiceRemainingThisHour", (n) -> { this.setVoiceRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("voiceRemainingThisMinute", (n) -> { this.setVoiceRemainingThisMinute(n.getIntegerValue()); });
         deserializerMap.put("voiceRemainingToday", (n) -> { this.setVoiceRemainingToday(n.getIntegerValue()); });
@@ -197,6 +217,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         deserializerMap.put("voiceUsedThisMinute", (n) -> { this.setVoiceUsedThisMinute(n.getIntegerValue()); });
         deserializerMap.put("voiceUsedToday", (n) -> { this.setVoiceUsedToday(n.getIntegerValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the healthReason property value. Human-readable reason for the current phone-number health state.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getHealthReason() {
+        return this.healthReason;
     }
     /**
      * Gets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.
@@ -221,6 +249,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public String getPhoneNumberId() {
         return this.phoneNumberId;
+    }
+    /**
+     * Gets the smsApproved property value. Indicates whether this phone number has an approved 10DLC messaging campaign assignment.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsApproved() {
+        return this.smsApproved;
     }
     /**
      * Gets the smsDailyResetsAt property value. Next midnight Eastern time, when SMS daily capacity resets.
@@ -269,6 +305,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public OffsetDateTime getSmsMinutelyResetsAt() {
         return this.smsMinutelyResetsAt;
+    }
+    /**
+     * Gets the smsRamping property value. Indicates whether SMS limits for this phone number are still ramping up.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsRamping() {
+        return this.smsRamping;
     }
     /**
      * Gets the smsRemainingThisHour property value. SMS remaining this hour for the applicable messaging or voice capacity window.
@@ -367,6 +411,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceMinutelyResetsAt;
     }
     /**
+     * Gets the voiceRamping property value. Indicates whether call limits for this phone number are still ramping up.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getVoiceRamping() {
+        return this.voiceRamping;
+    }
+    /**
      * Gets the voiceRemainingThisHour property value. Voice remaining this hour for the applicable messaging or voice capacity window.
      * @return a {@link Integer}
      */
@@ -421,15 +473,18 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeBooleanValue("capacityAvailable", this.getCapacityAvailable());
+        writer.writeStringValue("healthReason", this.getHealthReason());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
+        writer.writeBooleanValue("smsApproved", this.getSmsApproved());
         writer.writeOffsetDateTimeValue("smsDailyResetsAt", this.getSmsDailyResetsAt());
         writer.writeOffsetDateTimeValue("smsHourlyResetsAt", this.getSmsHourlyResetsAt());
         writer.writeIntegerValue("smsLimitThisHour", this.getSmsLimitThisHour());
         writer.writeIntegerValue("smsLimitThisMinute", this.getSmsLimitThisMinute());
         writer.writeIntegerValue("smsLimitToday", this.getSmsLimitToday());
         writer.writeOffsetDateTimeValue("smsMinutelyResetsAt", this.getSmsMinutelyResetsAt());
+        writer.writeBooleanValue("smsRamping", this.getSmsRamping());
         writer.writeIntegerValue("smsRemainingThisHour", this.getSmsRemainingThisHour());
         writer.writeIntegerValue("smsRemainingThisMinute", this.getSmsRemainingThisMinute());
         writer.writeIntegerValue("smsRemainingToday", this.getSmsRemainingToday());
@@ -442,6 +497,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeIntegerValue("voiceLimitThisMinute", this.getVoiceLimitThisMinute());
         writer.writeIntegerValue("voiceLimitToday", this.getVoiceLimitToday());
         writer.writeOffsetDateTimeValue("voiceMinutelyResetsAt", this.getVoiceMinutelyResetsAt());
+        writer.writeBooleanValue("voiceRamping", this.getVoiceRamping());
         writer.writeIntegerValue("voiceRemainingThisHour", this.getVoiceRemainingThisHour());
         writer.writeIntegerValue("voiceRemainingThisMinute", this.getVoiceRemainingThisMinute());
         writer.writeIntegerValue("voiceRemainingToday", this.getVoiceRemainingToday());
@@ -465,6 +521,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.capacityAvailable = value;
     }
     /**
+     * Sets the healthReason property value. Human-readable reason for the current phone-number health state.
+     * @param value Value to set for the healthReason property.
+     */
+    public void setHealthReason(@jakarta.annotation.Nullable final String value) {
+        this.healthReason = value;
+    }
+    /**
      * Sets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.
      * @param value Value to set for the healthStatus property.
      */
@@ -484,6 +547,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setPhoneNumberId(@jakarta.annotation.Nullable final String value) {
         this.phoneNumberId = value;
+    }
+    /**
+     * Sets the smsApproved property value. Indicates whether this phone number has an approved 10DLC messaging campaign assignment.
+     * @param value Value to set for the smsApproved property.
+     */
+    public void setSmsApproved(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsApproved = value;
     }
     /**
      * Sets the smsDailyResetsAt property value. Next midnight Eastern time, when SMS daily capacity resets.
@@ -526,6 +596,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setSmsMinutelyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.smsMinutelyResetsAt = value;
+    }
+    /**
+     * Sets the smsRamping property value. Indicates whether SMS limits for this phone number are still ramping up.
+     * @param value Value to set for the smsRamping property.
+     */
+    public void setSmsRamping(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsRamping = value;
     }
     /**
      * Sets the smsRemainingThisHour property value. SMS remaining this hour for the applicable messaging or voice capacity window.
@@ -610,6 +687,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setVoiceMinutelyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.voiceMinutelyResetsAt = value;
+    }
+    /**
+     * Sets the voiceRamping property value. Indicates whether call limits for this phone number are still ramping up.
+     * @param value Value to set for the voiceRamping property.
+     */
+    public void setVoiceRamping(@jakarta.annotation.Nullable final Boolean value) {
+        this.voiceRamping = value;
     }
     /**
      * Sets the voiceRemainingThisHour property value. Voice remaining this hour for the applicable messaging or voice capacity window.

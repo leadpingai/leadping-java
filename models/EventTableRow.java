@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * List item schema for Leadping API event timeline table row results shown in searchable tables.
+ * Summarizes event timeline data in paginated and searchable results.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class EventTableRow implements AdditionalDataHolder, Parsable {

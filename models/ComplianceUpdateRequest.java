@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request payload for compliance update.
+ * Defines the input used for compliance update.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
@@ -17,11 +17,11 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The compliance value for this compliance update.
+     * Compliance for this compliance update.
      */
     private ComplianceUpdateRequestCompliance compliance;
     /**
-     * The source value for this compliance update.
+     * Source for this compliance update.
      */
     private String source;
     /**
@@ -49,7 +49,7 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the compliance property value. The compliance value for this compliance update.
+     * Gets the compliance property value. Compliance for this compliance update.
      * @return a {@link ComplianceUpdateRequestCompliance}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the source property value. The source value for this compliance update.
+     * Gets the source property value. Source for this compliance update.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the compliance property value. The compliance value for this compliance update.
+     * Sets the compliance property value. Compliance for this compliance update.
      * @param value Value to set for the compliance property.
      */
     public void setCompliance(@jakarta.annotation.Nullable final ComplianceUpdateRequestCompliance value) {
         this.compliance = value;
     }
     /**
-     * Sets the source property value. The source value for this compliance update.
+     * Sets the source property value. Source for this compliance update.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {

@@ -22,7 +22,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private Map<String, Object> additionalData;
     /**
-     * The ID and name for this automation.
+     * Identifier and display name of the related automation.
      */
     private AutomationWorkflowRunResponseAutomation automation;
     /**
@@ -34,7 +34,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private OffsetDateTime completedAt;
     /**
-     * The ID and name for this currentStep.
+     * Identifier and display name of the workflow step currently awaiting or performing work.
      */
     private AutomationWorkflowRunResponseCurrentStep currentStep;
     /**
@@ -58,7 +58,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private String lastActionSummary;
     /**
-     * Reason or diagnostic code that explains the current outcome for this Leadping automation workflow run.
+     * Machine-readable code for the most recent workflow execution error.
      */
     private String lastErrorCode;
     /**
@@ -94,7 +94,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private Integer retryCount;
     /**
-     * Reason or diagnostic code that explains the current outcome for this Leadping automation workflow run.
+     * Machine-readable code explaining why the workflow run or action was skipped.
      */
     private String skipReasonCode;
     /**
@@ -158,7 +158,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.additionalData;
     }
     /**
-     * Gets the automation property value. The ID and name for this automation.
+     * Gets the automation property value. Identifier and display name of the related automation.
      * @return a {@link AutomationWorkflowRunResponseAutomation}
      */
     @jakarta.annotation.Nullable
@@ -182,7 +182,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.completedAt;
     }
     /**
-     * Gets the currentStep property value. The ID and name for this currentStep.
+     * Gets the currentStep property value. Identifier and display name of the workflow step currently awaiting or performing work.
      * @return a {@link AutomationWorkflowRunResponseCurrentStep}
      */
     @jakarta.annotation.Nullable
@@ -266,7 +266,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.lastActionSummary;
     }
     /**
-     * Gets the lastErrorCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow run.
+     * Gets the lastErrorCode property value. Machine-readable code for the most recent workflow execution error.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -338,7 +338,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.retryCount;
     }
     /**
-     * Gets the skipReasonCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow run.
+     * Gets the skipReasonCode property value. Machine-readable code explaining why the workflow run or action was skipped.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -451,7 +451,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.additionalData = value;
     }
     /**
-     * Sets the automation property value. The ID and name for this automation.
+     * Sets the automation property value. Identifier and display name of the related automation.
      * @param value Value to set for the automation property.
      */
     public void setAutomation(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseAutomation value) {
@@ -472,7 +472,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.completedAt = value;
     }
     /**
-     * Sets the currentStep property value. The ID and name for this currentStep.
+     * Sets the currentStep property value. Identifier and display name of the workflow step currently awaiting or performing work.
      * @param value Value to set for the currentStep property.
      */
     public void setCurrentStep(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseCurrentStep value) {
@@ -514,7 +514,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.lastActionSummary = value;
     }
     /**
-     * Sets the lastErrorCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow run.
+     * Sets the lastErrorCode property value. Machine-readable code for the most recent workflow execution error.
      * @param value Value to set for the lastErrorCode property.
      */
     public void setLastErrorCode(@jakarta.annotation.Nullable final String value) {
@@ -577,7 +577,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.retryCount = value;
     }
     /**
-     * Sets the skipReasonCode property value. Reason or diagnostic code that explains the current outcome for this Leadping automation workflow run.
+     * Sets the skipReasonCode property value. Machine-readable code explaining why the workflow run or action was skipped.
      * @param value Value to set for the skipReasonCode property.
      */
     public void setSkipReasonCode(@jakarta.annotation.Nullable final String value) {

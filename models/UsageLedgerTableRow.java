@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing usage ledger data used by Leadping API contracts.
+ * Describes usage ledger data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
@@ -18,19 +18,19 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The billable seconds value for this usage ledger.
+     * Billable seconds for this usage ledger.
      */
     private Integer billableSeconds;
     /**
-     * The billable unit value for this usage ledger.
+     * Billable unit for this usage ledger.
      */
     private BillableUnit billableUnit;
     /**
-     * The channel value for this usage ledger.
+     * Channel for this usage ledger.
      */
     private UsageChannel channel;
     /**
-     * The date and time for the created at value on this usage ledger.
+     * UTC timestamp for created at on this usage ledger.
      */
     private OffsetDateTime createdAt;
     /**
@@ -42,11 +42,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private String description;
     /**
-     * The duration seconds value for this usage ledger.
+     * Duration seconds for this usage ledger.
      */
     private Integer durationSeconds;
     /**
-     * The unique ID for this usage ledger.
+     * Unique Leadping identifier for this usage ledger.
      */
     private String id;
     /**
@@ -54,11 +54,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isBillable;
     /**
-     * The ID and name for this lead.
+     * Identifier and display name of the related lead.
      */
     private UsageLedgerTableRowLead lead;
     /**
-     * The ID and name for this organization.
+     * Identifier and display name of the related organization.
      */
     private UsageLedgerTableRowOrganization organization;
     /**
@@ -70,11 +70,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private String phoneNumberId;
     /**
-     * The quantity value for this usage ledger.
+     * Quantity for this usage ledger.
      */
     private Double quantity;
     /**
-     * The SMS segments value for this usage ledger.
+     * SMS segments for this usage ledger.
      */
     private Integer smsSegments;
     /**
@@ -82,11 +82,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private UsageStatus status;
     /**
-     * The unit price value for this usage ledger.
+     * Unit price for this usage ledger.
      */
     private Double unitPrice;
     /**
-     * The ID and name for this user.
+     * Identifier and display name of the related user.
      */
     private UsageLedgerTableRowUser user;
     /**
@@ -114,7 +114,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billableSeconds property value. The billable seconds value for this usage ledger.
+     * Gets the billableSeconds property value. Billable seconds for this usage ledger.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableSeconds;
     }
     /**
-     * Gets the billableUnit property value. The billable unit value for this usage ledger.
+     * Gets the billableUnit property value. Billable unit for this usage ledger.
      * @return a {@link BillableUnit}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the channel property value. The channel value for this usage ledger.
+     * Gets the channel property value. Channel for this usage ledger.
      * @return a {@link UsageChannel}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.channel;
     }
     /**
-     * Gets the createdAt property value. The date and time for the created at value on this usage ledger.
+     * Gets the createdAt property value. UTC timestamp for created at on this usage ledger.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -162,7 +162,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.description;
     }
     /**
-     * Gets the durationSeconds property value. The duration seconds value for this usage ledger.
+     * Gets the durationSeconds property value. Duration seconds for this usage ledger.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -197,7 +197,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this usage ledger.
+     * Gets the id property value. Unique Leadping identifier for this usage ledger.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.isBillable;
     }
     /**
-     * Gets the lead property value. The ID and name for this lead.
+     * Gets the lead property value. Identifier and display name of the related lead.
      * @return a {@link UsageLedgerTableRowLead}
      */
     @jakarta.annotation.Nullable
@@ -221,7 +221,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.lead;
     }
     /**
-     * Gets the organization property value. The ID and name for this organization.
+     * Gets the organization property value. Identifier and display name of the related organization.
      * @return a {@link UsageLedgerTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -245,7 +245,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.phoneNumberId;
     }
     /**
-     * Gets the quantity property value. The quantity value for this usage ledger.
+     * Gets the quantity property value. Quantity for this usage ledger.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -253,7 +253,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.quantity;
     }
     /**
-     * Gets the smsSegments property value. The SMS segments value for this usage ledger.
+     * Gets the smsSegments property value. SMS segments for this usage ledger.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -269,7 +269,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the unitPrice property value. The unit price value for this usage ledger.
+     * Gets the unitPrice property value. Unit price for this usage ledger.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -277,7 +277,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.unitPrice;
     }
     /**
-     * Gets the user property value. The ID and name for this user.
+     * Gets the user property value. Identifier and display name of the related user.
      * @return a {@link UsageLedgerTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -318,28 +318,28 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billableSeconds property value. The billable seconds value for this usage ledger.
+     * Sets the billableSeconds property value. Billable seconds for this usage ledger.
      * @param value Value to set for the billableSeconds property.
      */
     public void setBillableSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.billableSeconds = value;
     }
     /**
-     * Sets the billableUnit property value. The billable unit value for this usage ledger.
+     * Sets the billableUnit property value. Billable unit for this usage ledger.
      * @param value Value to set for the billableUnit property.
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final BillableUnit value) {
         this.billableUnit = value;
     }
     /**
-     * Sets the channel property value. The channel value for this usage ledger.
+     * Sets the channel property value. Channel for this usage ledger.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final UsageChannel value) {
         this.channel = value;
     }
     /**
-     * Sets the createdAt property value. The date and time for the created at value on this usage ledger.
+     * Sets the createdAt property value. UTC timestamp for created at on this usage ledger.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -360,14 +360,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.description = value;
     }
     /**
-     * Sets the durationSeconds property value. The duration seconds value for this usage ledger.
+     * Sets the durationSeconds property value. Duration seconds for this usage ledger.
      * @param value Value to set for the durationSeconds property.
      */
     public void setDurationSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.durationSeconds = value;
     }
     /**
-     * Sets the id property value. The unique ID for this usage ledger.
+     * Sets the id property value. Unique Leadping identifier for this usage ledger.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -381,14 +381,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.isBillable = value;
     }
     /**
-     * Sets the lead property value. The ID and name for this lead.
+     * Sets the lead property value. Identifier and display name of the related lead.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final UsageLedgerTableRowLead value) {
         this.lead = value;
     }
     /**
-     * Sets the organization property value. The ID and name for this organization.
+     * Sets the organization property value. Identifier and display name of the related organization.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final UsageLedgerTableRowOrganization value) {
@@ -409,14 +409,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.phoneNumberId = value;
     }
     /**
-     * Sets the quantity property value. The quantity value for this usage ledger.
+     * Sets the quantity property value. Quantity for this usage ledger.
      * @param value Value to set for the quantity property.
      */
     public void setQuantity(@jakarta.annotation.Nullable final Double value) {
         this.quantity = value;
     }
     /**
-     * Sets the smsSegments property value. The SMS segments value for this usage ledger.
+     * Sets the smsSegments property value. SMS segments for this usage ledger.
      * @param value Value to set for the smsSegments property.
      */
     public void setSmsSegments(@jakarta.annotation.Nullable final Integer value) {
@@ -430,14 +430,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.status = value;
     }
     /**
-     * Sets the unitPrice property value. The unit price value for this usage ledger.
+     * Sets the unitPrice property value. Unit price for this usage ledger.
      * @param value Value to set for the unitPrice property.
      */
     public void setUnitPrice(@jakarta.annotation.Nullable final Double value) {
         this.unitPrice = value;
     }
     /**
-     * Sets the user property value. The ID and name for this user.
+     * Sets the user property value. Identifier and display name of the related user.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final UsageLedgerTableRowUser value) {

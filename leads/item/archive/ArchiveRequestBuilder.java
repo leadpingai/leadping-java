@@ -37,7 +37,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
-     * @param body Request schema for the Leadping API lead archive request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead archive.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
-     * @param body Request schema for the Leadping API lead archive request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead archive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -68,7 +68,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
-     * @param body Request schema for the Leadping API lead archive request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead archive.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -77,7 +77,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
-     * @param body Request schema for the Leadping API lead archive request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead archive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

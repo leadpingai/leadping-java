@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API billing wallet response returned to authenticated clients.
+ * Describes billing wallet data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class WalletResponse implements AdditionalDataHolder, Parsable {

@@ -18,23 +18,23 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * The lookupType property
+     * The provider lookup product or operation that produced this snapshot.
      */
     private String lookupType;
     /**
-     * The provider property
+     * The provider that supplied the phone lookup record.
      */
     private String provider;
     /**
-     * The rawRecordJson property
+     * The complete provider response serialized as JSON for lossless audit and replay.
      */
     private String rawRecordJson;
     /**
-     * The retrievedAt property
+     * The UTC timestamp when Leadping retrieved the provider record.
      */
     private OffsetDateTime retrievedAt;
     /**
-     * The schemaVersion property
+     * The Leadping schema version used to interpret the stored provider record.
      */
     private Integer schemaVersion;
     /**
@@ -76,7 +76,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         return deserializerMap;
     }
     /**
-     * Gets the lookupType property value. The lookupType property
+     * Gets the lookupType property value. The provider lookup product or operation that produced this snapshot.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -84,7 +84,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         return this.lookupType;
     }
     /**
-     * Gets the provider property value. The provider property
+     * Gets the provider property value. The provider that supplied the phone lookup record.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +92,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         return this.provider;
     }
     /**
-     * Gets the rawRecordJson property value. The rawRecordJson property
+     * Gets the rawRecordJson property value. The complete provider response serialized as JSON for lossless audit and replay.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         return this.rawRecordJson;
     }
     /**
-     * Gets the retrievedAt property value. The retrievedAt property
+     * Gets the retrievedAt property value. The UTC timestamp when Leadping retrieved the provider record.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         return this.retrievedAt;
     }
     /**
-     * Gets the schemaVersion property value. The schemaVersion property
+     * Gets the schemaVersion property value. The Leadping schema version used to interpret the stored provider record.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -136,35 +136,35 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the lookupType property value. The lookupType property
+     * Sets the lookupType property value. The provider lookup product or operation that produced this snapshot.
      * @param value Value to set for the lookupType property.
      */
     public void setLookupType(@jakarta.annotation.Nullable final String value) {
         this.lookupType = value;
     }
     /**
-     * Sets the provider property value. The provider property
+     * Sets the provider property value. The provider that supplied the phone lookup record.
      * @param value Value to set for the provider property.
      */
     public void setProvider(@jakarta.annotation.Nullable final String value) {
         this.provider = value;
     }
     /**
-     * Sets the rawRecordJson property value. The rawRecordJson property
+     * Sets the rawRecordJson property value. The complete provider response serialized as JSON for lossless audit and replay.
      * @param value Value to set for the rawRecordJson property.
      */
     public void setRawRecordJson(@jakarta.annotation.Nullable final String value) {
         this.rawRecordJson = value;
     }
     /**
-     * Sets the retrievedAt property value. The retrievedAt property
+     * Sets the retrievedAt property value. The UTC timestamp when Leadping retrieved the provider record.
      * @param value Value to set for the retrievedAt property.
      */
     public void setRetrievedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.retrievedAt = value;
     }
     /**
-     * Sets the schemaVersion property value. The schemaVersion property
+     * Sets the schemaVersion property value. The Leadping schema version used to interpret the stored provider record.
      * @param value Value to set for the schemaVersion property.
      */
     public void setSchemaVersion(@jakarta.annotation.Nullable final Integer value) {

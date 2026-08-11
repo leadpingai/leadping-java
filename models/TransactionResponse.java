@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API billing transaction response returned to authenticated clients.
+ * Describes billing transaction data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TransactionResponse implements AdditionalDataHolder, Parsable {
@@ -26,7 +26,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private TransactionResponseBillableUnit billableUnit;
     /**
-     * The billedAmount property
+     * Customer-facing amount billed for the transaction.
      */
     private Double billedAmount;
     /**
@@ -54,7 +54,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The ID and name for this lead.
+     * Identifier and display name of the related lead.
      */
     private TransactionResponseLead lead;
     /**
@@ -70,7 +70,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private String notes;
     /**
-     * The ID and name for this organization.
+     * Identifier and display name of the related organization.
      */
     private TransactionResponseOrganization organization;
     /**
@@ -130,7 +130,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the billedAmount property value. The billedAmount property
+     * Gets the billedAmount property value. Customer-facing amount billed for the transaction.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the lead property value. The ID and name for this lead.
+     * Gets the lead property value. Identifier and display name of the related lead.
      * @return a {@link TransactionResponseLead}
      */
     @jakarta.annotation.Nullable
@@ -245,7 +245,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.notes;
     }
     /**
-     * Gets the organization property value. The ID and name for this organization.
+     * Gets the organization property value. Identifier and display name of the related organization.
      * @return a {@link TransactionResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -332,7 +332,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.billableUnit = value;
     }
     /**
-     * Sets the billedAmount property value. The billedAmount property
+     * Sets the billedAmount property value. Customer-facing amount billed for the transaction.
      * @param value Value to set for the billedAmount property.
      */
     public void setBilledAmount(@jakarta.annotation.Nullable final Double value) {
@@ -381,7 +381,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the lead property value. The ID and name for this lead.
+     * Sets the lead property value. Identifier and display name of the related lead.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final TransactionResponseLead value) {
@@ -409,7 +409,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.notes = value;
     }
     /**
-     * Sets the organization property value. The ID and name for this organization.
+     * Sets the organization property value. Identifier and display name of the related organization.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final TransactionResponseOrganization value) {

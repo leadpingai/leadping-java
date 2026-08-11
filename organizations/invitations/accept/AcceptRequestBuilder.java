@@ -38,7 +38,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Accepts an organization invitation for the signed-in user, creating membership and setting organization access context.
-     * @param body Request payload for accept organization invitation.
+     * @param body Defines the input used for accept organization invitation.
      * @return a {@link OrganizationInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      */
@@ -48,7 +48,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Accepts an organization invitation for the signed-in user, creating membership and setting organization access context.
-     * @param body Request payload for accept organization invitation.
+     * @param body Defines the input used for accept organization invitation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -63,7 +63,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Accepts an organization invitation for the signed-in user, creating membership and setting organization access context.
-     * @param body Request payload for accept organization invitation.
+     * @param body Defines the input used for accept organization invitation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Accepts an organization invitation for the signed-in user, creating membership and setting organization access context.
-     * @param body Request payload for accept organization invitation.
+     * @param body Defines the input used for accept organization invitation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

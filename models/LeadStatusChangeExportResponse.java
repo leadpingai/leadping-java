@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing lead status change export data returned to callers.
+ * Describes lead status change export data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusChangeExportResponse implements AdditionalDataHolder, Parsable {
@@ -17,15 +17,15 @@ public class LeadStatusChangeExportResponse implements AdditionalDataHolder, Par
      */
     private Map<String, Object> additionalData;
     /**
-     * The content type classification for this lead status change export.
+     * MIME content type of the exported document.
      */
     private String contentType;
     /**
-     * The csv value for this lead status change export.
+     * Complete comma-separated values content encoded as text.
      */
     private String csv;
     /**
-     * The file name value for this lead status change export.
+     * Suggested file name for the exported CSV document.
      */
     private String fileName;
     /**
@@ -57,7 +57,7 @@ public class LeadStatusChangeExportResponse implements AdditionalDataHolder, Par
         return this.additionalData;
     }
     /**
-     * Gets the contentType property value. The content type classification for this lead status change export.
+     * Gets the contentType property value. MIME content type of the exported document.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -65,7 +65,7 @@ public class LeadStatusChangeExportResponse implements AdditionalDataHolder, Par
         return this.contentType;
     }
     /**
-     * Gets the csv property value. The csv value for this lead status change export.
+     * Gets the csv property value. Complete comma-separated values content encoded as text.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -86,7 +86,7 @@ public class LeadStatusChangeExportResponse implements AdditionalDataHolder, Par
         return deserializerMap;
     }
     /**
-     * Gets the fileName property value. The file name value for this lead status change export.
+     * Gets the fileName property value. Suggested file name for the exported CSV document.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -121,21 +121,21 @@ public class LeadStatusChangeExportResponse implements AdditionalDataHolder, Par
         this.additionalData = value;
     }
     /**
-     * Sets the contentType property value. The content type classification for this lead status change export.
+     * Sets the contentType property value. MIME content type of the exported document.
      * @param value Value to set for the contentType property.
      */
     public void setContentType(@jakarta.annotation.Nullable final String value) {
         this.contentType = value;
     }
     /**
-     * Sets the csv property value. The csv value for this lead status change export.
+     * Sets the csv property value. Complete comma-separated values content encoded as text.
      * @param value Value to set for the csv property.
      */
     public void setCsv(@jakarta.annotation.Nullable final String value) {
         this.csv = value;
     }
     /**
-     * Sets the fileName property value. The file name value for this lead status change export.
+     * Sets the fileName property value. Suggested file name for the exported CSV document.
      * @param value Value to set for the fileName property.
      */
     public void setFileName(@jakarta.annotation.Nullable final String value) {

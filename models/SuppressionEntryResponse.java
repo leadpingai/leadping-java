@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing suppression entry data returned to callers.
+ * Describes a recipient suppression that prevents outreach through one or more communication channels.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable {
@@ -18,51 +18,51 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The audit included with this ion entry.
+     * Chronological audit history of suppression and release changes.
      */
     private java.util.List<SuppressionEntryAudit> audit;
     /**
-     * The channel value for this ion entry.
+     * Communication channel affected by the suppression, such as SMS, voice, email, or all channels.
      */
     private String channel;
     /**
-     * The unique ID for this ion entry.
+     * Unique Leadping identifier for the suppression entry.
      */
     private String id;
     /**
-     * The normalized email value for this ion entry.
+     * Suppressed email address normalized for matching.
      */
     private String normalizedEmail;
     /**
-     * The phone number associated with this ion entry.
+     * Suppressed phone number normalized to a consistent format.
      */
     private String normalizedPhoneNumber;
     /**
-     * The organization ID associated with this ion entry.
+     * Identifier of the organization that owns the suppression entry.
      */
     private String organizationId;
     /**
-     * The human-readable reason explaining this ion entry.
+     * Human-readable reason the recipient was suppressed or subsequently released.
      */
     private String reason;
     /**
-     * The recipient identifier value for this ion entry.
+     * Provider or customer identifier used to recognize the suppressed recipient.
      */
     private String recipientIdentifier;
     /**
-     * The date and time for the released at value on this ion entry.
+     * UTC timestamp when the suppression was released, or while it remains active.
      */
     private OffsetDateTime releasedAt;
     /**
-     * The source value for this ion entry.
+     * System or workflow that created the suppression.
      */
     private String source;
     /**
-     * The current status for this ion entry.
+     * Current lifecycle state, such as active or released.
      */
     private String status;
     /**
-     * The date and time for the suppressed at value on this ion entry.
+     * UTC timestamp when the suppression became active.
      */
     private OffsetDateTime suppressedAt;
     /**
@@ -90,7 +90,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the audit property value. The audit included with this ion entry.
+     * Gets the audit property value. Chronological audit history of suppression and release changes.
      * @return a {@link java.util.List<SuppressionEntryAudit>}
      */
     @jakarta.annotation.Nullable
@@ -98,7 +98,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.audit;
     }
     /**
-     * Gets the channel property value. The channel value for this ion entry.
+     * Gets the channel property value. Communication channel affected by the suppression, such as SMS, voice, email, or all channels.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -127,7 +127,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this ion entry.
+     * Gets the id property value. Unique Leadping identifier for the suppression entry.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.id;
     }
     /**
-     * Gets the normalizedEmail property value. The normalized email value for this ion entry.
+     * Gets the normalizedEmail property value. Suppressed email address normalized for matching.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -143,7 +143,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.normalizedEmail;
     }
     /**
-     * Gets the normalizedPhoneNumber property value. The phone number associated with this ion entry.
+     * Gets the normalizedPhoneNumber property value. Suppressed phone number normalized to a consistent format.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -151,7 +151,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.normalizedPhoneNumber;
     }
     /**
-     * Gets the organizationId property value. The organization ID associated with this ion entry.
+     * Gets the organizationId property value. Identifier of the organization that owns the suppression entry.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -159,7 +159,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.organizationId;
     }
     /**
-     * Gets the reason property value. The human-readable reason explaining this ion entry.
+     * Gets the reason property value. Human-readable reason the recipient was suppressed or subsequently released.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -167,7 +167,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.reason;
     }
     /**
-     * Gets the recipientIdentifier property value. The recipient identifier value for this ion entry.
+     * Gets the recipientIdentifier property value. Provider or customer identifier used to recognize the suppressed recipient.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -175,7 +175,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.recipientIdentifier;
     }
     /**
-     * Gets the releasedAt property value. The date and time for the released at value on this ion entry.
+     * Gets the releasedAt property value. UTC timestamp when the suppression was released, or while it remains active.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -183,7 +183,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.releasedAt;
     }
     /**
-     * Gets the source property value. The source value for this ion entry.
+     * Gets the source property value. System or workflow that created the suppression.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.source;
     }
     /**
-     * Gets the status property value. The current status for this ion entry.
+     * Gets the status property value. Current lifecycle state, such as active or released.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -199,7 +199,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.status;
     }
     /**
-     * Gets the suppressedAt property value. The date and time for the suppressed at value on this ion entry.
+     * Gets the suppressedAt property value. UTC timestamp when the suppression became active.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -234,84 +234,84 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the audit property value. The audit included with this ion entry.
+     * Sets the audit property value. Chronological audit history of suppression and release changes.
      * @param value Value to set for the audit property.
      */
     public void setAudit(@jakarta.annotation.Nullable final java.util.List<SuppressionEntryAudit> value) {
         this.audit = value;
     }
     /**
-     * Sets the channel property value. The channel value for this ion entry.
+     * Sets the channel property value. Communication channel affected by the suppression, such as SMS, voice, email, or all channels.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final String value) {
         this.channel = value;
     }
     /**
-     * Sets the id property value. The unique ID for this ion entry.
+     * Sets the id property value. Unique Leadping identifier for the suppression entry.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the normalizedEmail property value. The normalized email value for this ion entry.
+     * Sets the normalizedEmail property value. Suppressed email address normalized for matching.
      * @param value Value to set for the normalizedEmail property.
      */
     public void setNormalizedEmail(@jakarta.annotation.Nullable final String value) {
         this.normalizedEmail = value;
     }
     /**
-     * Sets the normalizedPhoneNumber property value. The phone number associated with this ion entry.
+     * Sets the normalizedPhoneNumber property value. Suppressed phone number normalized to a consistent format.
      * @param value Value to set for the normalizedPhoneNumber property.
      */
     public void setNormalizedPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.normalizedPhoneNumber = value;
     }
     /**
-     * Sets the organizationId property value. The organization ID associated with this ion entry.
+     * Sets the organizationId property value. Identifier of the organization that owns the suppression entry.
      * @param value Value to set for the organizationId property.
      */
     public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
         this.organizationId = value;
     }
     /**
-     * Sets the reason property value. The human-readable reason explaining this ion entry.
+     * Sets the reason property value. Human-readable reason the recipient was suppressed or subsequently released.
      * @param value Value to set for the reason property.
      */
     public void setReason(@jakarta.annotation.Nullable final String value) {
         this.reason = value;
     }
     /**
-     * Sets the recipientIdentifier property value. The recipient identifier value for this ion entry.
+     * Sets the recipientIdentifier property value. Provider or customer identifier used to recognize the suppressed recipient.
      * @param value Value to set for the recipientIdentifier property.
      */
     public void setRecipientIdentifier(@jakarta.annotation.Nullable final String value) {
         this.recipientIdentifier = value;
     }
     /**
-     * Sets the releasedAt property value. The date and time for the released at value on this ion entry.
+     * Sets the releasedAt property value. UTC timestamp when the suppression was released, or while it remains active.
      * @param value Value to set for the releasedAt property.
      */
     public void setReleasedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.releasedAt = value;
     }
     /**
-     * Sets the source property value. The source value for this ion entry.
+     * Sets the source property value. System or workflow that created the suppression.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {
         this.source = value;
     }
     /**
-     * Sets the status property value. The current status for this ion entry.
+     * Sets the status property value. Current lifecycle state, such as active or released.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {
         this.status = value;
     }
     /**
-     * Sets the suppressedAt property value. The date and time for the suppressed at value on this ion entry.
+     * Sets the suppressedAt property value. UTC timestamp when the suppression became active.
      * @param value Value to set for the suppressedAt property.
      */
     public void setSuppressedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

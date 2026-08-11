@@ -37,7 +37,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/lead-status-changes/all/my", rawUrl);
     }
     /**
-     * Get all for current organization
+     * Returns a filtered, paginated history of lead status changes for the current organization for workflow analysis, reporting, and audit review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link PagedResultOfLeadStatusChangeResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -47,7 +47,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Get all for current organization
+     * Returns a filtered, paginated history of lead status changes for the current organization for workflow analysis, reporting, and audit review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfLeadStatusChangeResponse}
@@ -62,7 +62,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfLeadStatusChangeResponse::createFromDiscriminatorValue);
     }
     /**
-     * Get all for current organization
+     * Returns a filtered, paginated history of lead status changes for the current organization for workflow analysis, reporting, and audit review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @return a {@link RequestInformation}
      */
@@ -71,7 +71,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Get all for current organization
+     * Returns a filtered, paginated history of lead status changes for the current organization for workflow analysis, reporting, and audit review.
      * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

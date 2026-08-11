@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing ion entry audit data used by Leadping API contracts.
+ * Records one auditable change to a recipient suppression entry.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
     /**
-     * The actor ID associated with this ion entry audit.
+     * Identifier of the user or system actor responsible for the change.
      */
     private String actorId;
     /**
@@ -22,27 +22,27 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The unique ID for this ion entry audit.
+     * Unique identifier for this suppression audit record.
      */
     private String id;
     /**
-     * The human-readable reason explaining this ion entry audit.
+     * Human-readable reason recorded for the suppression change.
      */
     private String reason;
     /**
-     * The safe metadata key-value data carried with this ion entry audit; values must be safe to expose in API responses.
+     * Non-sensitive metadata that provides additional audit context.
      */
     private SuppressionEntryAuditSafeMetadata safeMetadata;
     /**
-     * The source value for this ion entry audit.
+     * System or workflow that initiated the change.
      */
     private String source;
     /**
-     * The current status for this ion entry audit.
+     * Suppression status established by this change, such as active or released.
      */
     private String status;
     /**
-     * The date and time for the timestamp value on this ion entry audit.
+     * UTC timestamp when the suppression change occurred.
      */
     private OffsetDateTime timestamp;
     /**
@@ -62,7 +62,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return new SuppressionEntryAudit();
     }
     /**
-     * Gets the actorId property value. The actor ID associated with this ion entry audit.
+     * Gets the actorId property value. Identifier of the user or system actor responsible for the change.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -94,7 +94,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique ID for this ion entry audit.
+     * Gets the id property value. Unique identifier for this suppression audit record.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -102,7 +102,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the reason property value. The human-readable reason explaining this ion entry audit.
+     * Gets the reason property value. Human-readable reason recorded for the suppression change.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -110,7 +110,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return this.reason;
     }
     /**
-     * Gets the safeMetadata property value. The safe metadata key-value data carried with this ion entry audit; values must be safe to expose in API responses.
+     * Gets the safeMetadata property value. Non-sensitive metadata that provides additional audit context.
      * @return a {@link SuppressionEntryAuditSafeMetadata}
      */
     @jakarta.annotation.Nullable
@@ -118,7 +118,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return this.safeMetadata;
     }
     /**
-     * Gets the source property value. The source value for this ion entry audit.
+     * Gets the source property value. System or workflow that initiated the change.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -126,7 +126,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return this.source;
     }
     /**
-     * Gets the status property value. The current status for this ion entry audit.
+     * Gets the status property value. Suppression status established by this change, such as active or released.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the timestamp property value. The date and time for the timestamp value on this ion entry audit.
+     * Gets the timestamp property value. UTC timestamp when the suppression change occurred.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -157,7 +157,7 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actorId property value. The actor ID associated with this ion entry audit.
+     * Sets the actorId property value. Identifier of the user or system actor responsible for the change.
      * @param value Value to set for the actorId property.
      */
     public void setActorId(@jakarta.annotation.Nullable final String value) {
@@ -171,42 +171,42 @@ public class SuppressionEntryAudit implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the id property value. The unique ID for this ion entry audit.
+     * Sets the id property value. Unique identifier for this suppression audit record.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the reason property value. The human-readable reason explaining this ion entry audit.
+     * Sets the reason property value. Human-readable reason recorded for the suppression change.
      * @param value Value to set for the reason property.
      */
     public void setReason(@jakarta.annotation.Nullable final String value) {
         this.reason = value;
     }
     /**
-     * Sets the safeMetadata property value. The safe metadata key-value data carried with this ion entry audit; values must be safe to expose in API responses.
+     * Sets the safeMetadata property value. Non-sensitive metadata that provides additional audit context.
      * @param value Value to set for the safeMetadata property.
      */
     public void setSafeMetadata(@jakarta.annotation.Nullable final SuppressionEntryAuditSafeMetadata value) {
         this.safeMetadata = value;
     }
     /**
-     * Sets the source property value. The source value for this ion entry audit.
+     * Sets the source property value. System or workflow that initiated the change.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {
         this.source = value;
     }
     /**
-     * Sets the status property value. The current status for this ion entry audit.
+     * Sets the status property value. Suppression status established by this change, such as active or released.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {
         this.status = value;
     }
     /**
-     * Sets the timestamp property value. The date and time for the timestamp value on this ion entry audit.
+     * Sets the timestamp property value. UTC timestamp when the suppression change occurred.
      * @param value Value to set for the timestamp property.
      */
     public void setTimestamp(@jakarta.annotation.Nullable final OffsetDateTime value) {

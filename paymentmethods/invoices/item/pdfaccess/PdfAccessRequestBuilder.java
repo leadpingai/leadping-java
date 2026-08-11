@@ -93,6 +93,9 @@ public class PdfAccessRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
+        /**
+         * Whether the secure URL should download the PDF instead of displaying it inline.
+         */
         @jakarta.annotation.Nullable
         public Boolean download;
         /**

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The 10DLC draft value for this organization activation state.
+ * 10DLC draft for this organization activation state.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationActivationStateTenDlcDraft extends TenDlcApplicationDraft implements Parsable {

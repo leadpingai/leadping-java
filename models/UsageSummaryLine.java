@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing usage summary line data used by Leadping API contracts.
+ * Describes usage summary line data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
@@ -17,11 +17,11 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The billable unit value for this usage summary line.
+     * Billable unit for this usage summary line.
      */
     private BillableUnit billableUnit;
     /**
-     * The channel value for this usage summary line.
+     * Channel for this usage summary line.
      */
     private UsageChannel channel;
     /**
@@ -29,7 +29,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     private Double customerChargeAmount;
     /**
-     * The quantity value for this usage summary line.
+     * Quantity for this usage summary line.
      */
     private Double quantity;
     /**
@@ -65,7 +65,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billableUnit property value. The billable unit value for this usage summary line.
+     * Gets the billableUnit property value. Billable unit for this usage summary line.
      * @return a {@link BillableUnit}
      */
     @jakarta.annotation.Nullable
@@ -73,7 +73,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the channel property value. The channel value for this usage summary line.
+     * Gets the channel property value. Channel for this usage summary line.
      * @return a {@link UsageChannel}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +104,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the quantity property value. The quantity value for this usage summary line.
+     * Gets the quantity property value. Quantity for this usage summary line.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -149,14 +149,14 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billableUnit property value. The billable unit value for this usage summary line.
+     * Sets the billableUnit property value. Billable unit for this usage summary line.
      * @param value Value to set for the billableUnit property.
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final BillableUnit value) {
         this.billableUnit = value;
     }
     /**
-     * Sets the channel property value. The channel value for this usage summary line.
+     * Sets the channel property value. Channel for this usage summary line.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final UsageChannel value) {
@@ -170,7 +170,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         this.customerChargeAmount = value;
     }
     /**
-     * Sets the quantity property value. The quantity value for this usage summary line.
+     * Sets the quantity property value. Quantity for this usage summary line.
      * @param value Value to set for the quantity property.
      */
     public void setQuantity(@jakarta.annotation.Nullable final Double value) {

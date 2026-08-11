@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing a named usage counter shown in usage summaries.
+ * Describes one named usage total displayed in organization billing and activity summaries.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UsageCounterLine implements AdditionalDataHolder, Parsable {
@@ -33,7 +33,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
      */
     private String unit;
     /**
-     * The numeric value for this usage counter.
+     * Numeric for this usage counter.
      */
     private Double value;
     /**
@@ -107,7 +107,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
         return this.unit;
     }
     /**
-     * Gets the value property value. The numeric value for this usage counter.
+     * Gets the value property value. Numeric for this usage counter.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -163,7 +163,7 @@ public class UsageCounterLine implements AdditionalDataHolder, Parsable {
         this.unit = value;
     }
     /**
-     * Sets the value property value. The numeric value for this usage counter.
+     * Sets the value property value. Numeric for this usage counter.
      * @param value Value to set for the value property.
      */
     public void setValue(@jakarta.annotation.Nullable final Double value) {

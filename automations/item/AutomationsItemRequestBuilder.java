@@ -88,7 +88,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
-     * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation configuration.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -100,7 +100,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
-     * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -159,7 +159,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
-     * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation configuration.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -168,7 +168,7 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates an automation for current-organization leads, changing triggers, message steps, routing, or active follow-up settings.
-     * @param body Request schema for the Leadping API automation configuration request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with automation configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

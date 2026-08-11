@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing ten dlc application draft data used by Leadping API contracts.
+ * Describes ten dlc application draft data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
@@ -26,7 +26,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private TenDlcRegistrationStatus campaignStatus;
     /**
-     * The company name value for this 10DLC application draft.
+     * Company name for this 10DLC application draft.
      */
     private String companyName;
     /**
@@ -34,23 +34,23 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> complianceWarnings;
     /**
-     * The contact email value for this 10DLC application draft.
+     * Contact email for this 10DLC application draft.
      */
     private String contactEmail;
     /**
-     * The contact name value for this 10DLC application draft.
+     * Contact name for this 10DLC application draft.
      */
     private String contactName;
     /**
-     * The contact phone value for this 10DLC application draft.
+     * Contact phone for this 10DLC application draft.
      */
     private String contactPhone;
     /**
-     * The EIN value for this 10DLC application draft.
+     * EIN for this 10DLC application draft.
      */
     private String ein;
     /**
-     * The expected monthly volume value for this 10DLC application draft.
+     * Expected monthly volume for this 10DLC application draft.
      */
     private Integer expectedMonthlyVolume;
     /**
@@ -58,13 +58,9 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private String industry;
     /**
-     * The date and time for the last submitted at value on this 10DLC application draft.
+     * UTC timestamp for last submitted at on this 10DLC application draft.
      */
     private OffsetDateTime lastSubmittedAt;
-    /**
-     * The lead source value for this 10DLC application draft.
-     */
-    private String leadSource;
     /**
      * The message examples included with this 10DLC application draft.
      */
@@ -74,11 +70,11 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> missingFields;
     /**
-     * The opt in language value for this 10DLC application draft.
+     * Opt in language for this 10DLC application draft.
      */
     private String optInLanguage;
     /**
-     * The URL associated with this 10DLC application draft.
+     * Public privacy-policy URL that explains how messaging recipient data is handled.
      */
     private String privacyPolicyUrl;
     /**
@@ -86,7 +82,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private String rejectionReason;
     /**
-     * The URL associated with this 10DLC application draft.
+     * Public terms-of-service URL governing the messaging program.
      */
     private String termsUrl;
     /**
@@ -94,23 +90,23 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private Boolean trustedFormRequired;
     /**
-     * The date and time for the updated at value on this 10DLC application draft.
+     * UTC timestamp for updated at on this 10DLC application draft.
      */
     private OffsetDateTime updatedAt;
     /**
-     * The use case value for this 10DLC application draft.
+     * Use case for this 10DLC application draft.
      */
     private String useCase;
     /**
-     * The use case description value for this 10DLC application draft.
+     * Use case description for this 10DLC application draft.
      */
     private String useCaseDescription;
     /**
-     * The version value for this 10DLC application draft.
+     * Version for this 10DLC application draft.
      */
     private Integer version;
     /**
-     * The URL associated with this 10DLC application draft.
+     * Public business website URL submitted to carriers during brand review.
      */
     private String websiteUrl;
     /**
@@ -154,7 +150,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.campaignStatus;
     }
     /**
-     * Gets the companyName property value. The company name value for this 10DLC application draft.
+     * Gets the companyName property value. Company name for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +166,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.complianceWarnings;
     }
     /**
-     * Gets the contactEmail property value. The contact email value for this 10DLC application draft.
+     * Gets the contactEmail property value. Contact email for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +174,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.contactEmail;
     }
     /**
-     * Gets the contactName property value. The contact name value for this 10DLC application draft.
+     * Gets the contactName property value. Contact name for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -186,7 +182,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.contactName;
     }
     /**
-     * Gets the contactPhone property value. The contact phone value for this 10DLC application draft.
+     * Gets the contactPhone property value. Contact phone for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -194,7 +190,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.contactPhone;
     }
     /**
-     * Gets the ein property value. The EIN value for this 10DLC application draft.
+     * Gets the ein property value. EIN for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -202,7 +198,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.ein;
     }
     /**
-     * Gets the expectedMonthlyVolume property value. The expected monthly volume value for this 10DLC application draft.
+     * Gets the expectedMonthlyVolume property value. Expected monthly volume for this 10DLC application draft.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -215,7 +211,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("brandStatus", (n) -> { this.setBrandStatus(n.getEnumValue(TenDlcRegistrationStatus::forValue)); });
         deserializerMap.put("campaignStatus", (n) -> { this.setCampaignStatus(n.getEnumValue(TenDlcRegistrationStatus::forValue)); });
         deserializerMap.put("companyName", (n) -> { this.setCompanyName(n.getStringValue()); });
@@ -227,7 +223,6 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getIntegerValue()); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
         deserializerMap.put("lastSubmittedAt", (n) -> { this.setLastSubmittedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("leadSource", (n) -> { this.setLeadSource(n.getStringValue()); });
         deserializerMap.put("messageExamples", (n) -> { this.setMessageExamples(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("missingFields", (n) -> { this.setMissingFields(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("optInLanguage", (n) -> { this.setOptInLanguage(n.getStringValue()); });
@@ -251,20 +246,12 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.industry;
     }
     /**
-     * Gets the lastSubmittedAt property value. The date and time for the last submitted at value on this 10DLC application draft.
+     * Gets the lastSubmittedAt property value. UTC timestamp for last submitted at on this 10DLC application draft.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getLastSubmittedAt() {
         return this.lastSubmittedAt;
-    }
-    /**
-     * Gets the leadSource property value. The lead source value for this 10DLC application draft.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLeadSource() {
-        return this.leadSource;
     }
     /**
      * Gets the messageExamples property value. The message examples included with this 10DLC application draft.
@@ -283,7 +270,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.missingFields;
     }
     /**
-     * Gets the optInLanguage property value. The opt in language value for this 10DLC application draft.
+     * Gets the optInLanguage property value. Opt in language for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -291,7 +278,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.optInLanguage;
     }
     /**
-     * Gets the privacyPolicyUrl property value. The URL associated with this 10DLC application draft.
+     * Gets the privacyPolicyUrl property value. Public privacy-policy URL that explains how messaging recipient data is handled.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -307,7 +294,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.rejectionReason;
     }
     /**
-     * Gets the termsUrl property value. The URL associated with this 10DLC application draft.
+     * Gets the termsUrl property value. Public terms-of-service URL governing the messaging program.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -323,7 +310,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.trustedFormRequired;
     }
     /**
-     * Gets the updatedAt property value. The date and time for the updated at value on this 10DLC application draft.
+     * Gets the updatedAt property value. UTC timestamp for updated at on this 10DLC application draft.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -331,7 +318,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.updatedAt;
     }
     /**
-     * Gets the useCase property value. The use case value for this 10DLC application draft.
+     * Gets the useCase property value. Use case for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -339,7 +326,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.useCase;
     }
     /**
-     * Gets the useCaseDescription property value. The use case description value for this 10DLC application draft.
+     * Gets the useCaseDescription property value. Use case description for this 10DLC application draft.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -347,7 +334,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.useCaseDescription;
     }
     /**
-     * Gets the version property value. The version value for this 10DLC application draft.
+     * Gets the version property value. Version for this 10DLC application draft.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -355,7 +342,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.version;
     }
     /**
-     * Gets the websiteUrl property value. The URL associated with this 10DLC application draft.
+     * Gets the websiteUrl property value. Public business website URL submitted to carriers during brand review.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -379,7 +366,6 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
         writer.writeStringValue("industry", this.getIndustry());
         writer.writeOffsetDateTimeValue("lastSubmittedAt", this.getLastSubmittedAt());
-        writer.writeStringValue("leadSource", this.getLeadSource());
         writer.writeCollectionOfPrimitiveValues("messageExamples", this.getMessageExamples());
         writer.writeCollectionOfPrimitiveValues("missingFields", this.getMissingFields());
         writer.writeStringValue("optInLanguage", this.getOptInLanguage());
@@ -416,7 +402,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.campaignStatus = value;
     }
     /**
-     * Sets the companyName property value. The company name value for this 10DLC application draft.
+     * Sets the companyName property value. Company name for this 10DLC application draft.
      * @param value Value to set for the companyName property.
      */
     public void setCompanyName(@jakarta.annotation.Nullable final String value) {
@@ -430,35 +416,35 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.complianceWarnings = value;
     }
     /**
-     * Sets the contactEmail property value. The contact email value for this 10DLC application draft.
+     * Sets the contactEmail property value. Contact email for this 10DLC application draft.
      * @param value Value to set for the contactEmail property.
      */
     public void setContactEmail(@jakarta.annotation.Nullable final String value) {
         this.contactEmail = value;
     }
     /**
-     * Sets the contactName property value. The contact name value for this 10DLC application draft.
+     * Sets the contactName property value. Contact name for this 10DLC application draft.
      * @param value Value to set for the contactName property.
      */
     public void setContactName(@jakarta.annotation.Nullable final String value) {
         this.contactName = value;
     }
     /**
-     * Sets the contactPhone property value. The contact phone value for this 10DLC application draft.
+     * Sets the contactPhone property value. Contact phone for this 10DLC application draft.
      * @param value Value to set for the contactPhone property.
      */
     public void setContactPhone(@jakarta.annotation.Nullable final String value) {
         this.contactPhone = value;
     }
     /**
-     * Sets the ein property value. The EIN value for this 10DLC application draft.
+     * Sets the ein property value. EIN for this 10DLC application draft.
      * @param value Value to set for the ein property.
      */
     public void setEin(@jakarta.annotation.Nullable final String value) {
         this.ein = value;
     }
     /**
-     * Sets the expectedMonthlyVolume property value. The expected monthly volume value for this 10DLC application draft.
+     * Sets the expectedMonthlyVolume property value. Expected monthly volume for this 10DLC application draft.
      * @param value Value to set for the expectedMonthlyVolume property.
      */
     public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final Integer value) {
@@ -472,18 +458,11 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.industry = value;
     }
     /**
-     * Sets the lastSubmittedAt property value. The date and time for the last submitted at value on this 10DLC application draft.
+     * Sets the lastSubmittedAt property value. UTC timestamp for last submitted at on this 10DLC application draft.
      * @param value Value to set for the lastSubmittedAt property.
      */
     public void setLastSubmittedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastSubmittedAt = value;
-    }
-    /**
-     * Sets the leadSource property value. The lead source value for this 10DLC application draft.
-     * @param value Value to set for the leadSource property.
-     */
-    public void setLeadSource(@jakarta.annotation.Nullable final String value) {
-        this.leadSource = value;
     }
     /**
      * Sets the messageExamples property value. The message examples included with this 10DLC application draft.
@@ -500,14 +479,14 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.missingFields = value;
     }
     /**
-     * Sets the optInLanguage property value. The opt in language value for this 10DLC application draft.
+     * Sets the optInLanguage property value. Opt in language for this 10DLC application draft.
      * @param value Value to set for the optInLanguage property.
      */
     public void setOptInLanguage(@jakarta.annotation.Nullable final String value) {
         this.optInLanguage = value;
     }
     /**
-     * Sets the privacyPolicyUrl property value. The URL associated with this 10DLC application draft.
+     * Sets the privacyPolicyUrl property value. Public privacy-policy URL that explains how messaging recipient data is handled.
      * @param value Value to set for the privacyPolicyUrl property.
      */
     public void setPrivacyPolicyUrl(@jakarta.annotation.Nullable final String value) {
@@ -521,7 +500,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.rejectionReason = value;
     }
     /**
-     * Sets the termsUrl property value. The URL associated with this 10DLC application draft.
+     * Sets the termsUrl property value. Public terms-of-service URL governing the messaging program.
      * @param value Value to set for the termsUrl property.
      */
     public void setTermsUrl(@jakarta.annotation.Nullable final String value) {
@@ -535,35 +514,35 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.trustedFormRequired = value;
     }
     /**
-     * Sets the updatedAt property value. The date and time for the updated at value on this 10DLC application draft.
+     * Sets the updatedAt property value. UTC timestamp for updated at on this 10DLC application draft.
      * @param value Value to set for the updatedAt property.
      */
     public void setUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.updatedAt = value;
     }
     /**
-     * Sets the useCase property value. The use case value for this 10DLC application draft.
+     * Sets the useCase property value. Use case for this 10DLC application draft.
      * @param value Value to set for the useCase property.
      */
     public void setUseCase(@jakarta.annotation.Nullable final String value) {
         this.useCase = value;
     }
     /**
-     * Sets the useCaseDescription property value. The use case description value for this 10DLC application draft.
+     * Sets the useCaseDescription property value. Use case description for this 10DLC application draft.
      * @param value Value to set for the useCaseDescription property.
      */
     public void setUseCaseDescription(@jakarta.annotation.Nullable final String value) {
         this.useCaseDescription = value;
     }
     /**
-     * Sets the version property value. The version value for this 10DLC application draft.
+     * Sets the version property value. Version for this 10DLC application draft.
      * @param value Value to set for the version property.
      */
     public void setVersion(@jakarta.annotation.Nullable final Integer value) {
         this.version = value;
     }
     /**
-     * Sets the websiteUrl property value. The URL associated with this 10DLC application draft.
+     * Sets the websiteUrl property value. Public business website URL submitted to carriers during brand review.
      * @param value Value to set for the websiteUrl property.
      */
     public void setWebsiteUrl(@jakarta.annotation.Nullable final String value) {

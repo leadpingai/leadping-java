@@ -26,7 +26,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private PhoneLookup_carrier carrier;
     /**
-     * Gets or sets created at.
+     * UTC timestamp when the phone lookup record was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -34,7 +34,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private String fraud;
     /**
-     * Gets or sets id.
+     * Unique Leadping identifier for the saved phone lookup record.
      */
     private String id;
     /**
@@ -50,7 +50,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private PhoneLookupLocation location;
     /**
-     * Gets or sets modified at.
+     * UTC timestamp when the phone lookup record was last updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -110,7 +110,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.carrier;
     }
     /**
-     * Gets the createdAt property value. Gets or sets created at.
+     * Gets the createdAt property value. UTC timestamp when the phone lookup record was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -148,7 +148,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.fraud;
     }
     /**
-     * Gets the id property value. Gets or sets id.
+     * Gets the id property value. Unique Leadping identifier for the saved phone lookup record.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.location;
     }
     /**
-     * Gets the modifiedAt property value. Gets or sets modified at.
+     * Gets the modifiedAt property value. UTC timestamp when the phone lookup record was last updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -262,7 +262,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.carrier = value;
     }
     /**
-     * Sets the createdAt property value. Gets or sets created at.
+     * Sets the createdAt property value. UTC timestamp when the phone lookup record was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -276,7 +276,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.fraud = value;
     }
     /**
-     * Sets the id property value. Gets or sets id.
+     * Sets the id property value. Unique Leadping identifier for the saved phone lookup record.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -304,7 +304,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.location = value;
     }
     /**
-     * Sets the modifiedAt property value. Gets or sets modified at.
+     * Sets the modifiedAt property value. UTC timestamp when the phone lookup record was last updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

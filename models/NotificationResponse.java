@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing notification data used by Leadping API contracts.
+ * Describes notification data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class NotificationResponse implements AdditionalDataHolder, Parsable {
     /**
-     * The action button text value for this notification.
+     * Action button text for this notification.
      */
     private String actionButtonText;
     /**
@@ -30,7 +30,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * The details value for this notification.
+     * Optional supporting details displayed beneath the notification message.
      */
     private String details;
     /**
@@ -42,7 +42,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isRead;
     /**
-     * The message value for this notification.
+     * Message for this notification.
      */
     private String message;
     /**
@@ -54,7 +54,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * The priority value for this notification.
+     * Priority for this notification.
      */
     private NotificationPriority priority;
     /**
@@ -62,7 +62,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean pushEnabled;
     /**
-     * The date and time for the read at value on this notification.
+     * UTC timestamp for read at on this notification.
      */
     private OffsetDateTime readAt;
     /**
@@ -98,7 +98,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return new NotificationResponse();
     }
     /**
-     * Gets the actionButtonText property value. The action button text value for this notification.
+     * Gets the actionButtonText property value. Action button text for this notification.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the details property value. The details value for this notification.
+     * Gets the details property value. Optional supporting details displayed beneath the notification message.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -179,7 +179,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.isRead;
     }
     /**
-     * Gets the message property value. The message value for this notification.
+     * Gets the message property value. Message for this notification.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -203,7 +203,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the priority property value. The priority value for this notification.
+     * Gets the priority property value. Priority for this notification.
      * @return a {@link NotificationPriority}
      */
     @jakarta.annotation.Nullable
@@ -219,7 +219,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.pushEnabled;
     }
     /**
-     * Gets the readAt property value. The date and time for the read at value on this notification.
+     * Gets the readAt property value. UTC timestamp for read at on this notification.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -283,7 +283,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actionButtonText property value. The action button text value for this notification.
+     * Sets the actionButtonText property value. Action button text for this notification.
      * @param value Value to set for the actionButtonText property.
      */
     public void setActionButtonText(@jakarta.annotation.Nullable final String value) {
@@ -311,7 +311,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the details property value. The details value for this notification.
+     * Sets the details property value. Optional supporting details displayed beneath the notification message.
      * @param value Value to set for the details property.
      */
     public void setDetails(@jakarta.annotation.Nullable final String value) {
@@ -332,7 +332,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.isRead = value;
     }
     /**
-     * Sets the message property value. The message value for this notification.
+     * Sets the message property value. Message for this notification.
      * @param value Value to set for the message property.
      */
     public void setMessage(@jakarta.annotation.Nullable final String value) {
@@ -353,7 +353,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the priority property value. The priority value for this notification.
+     * Sets the priority property value. Priority for this notification.
      * @param value Value to set for the priority property.
      */
     public void setPriority(@jakarta.annotation.Nullable final NotificationPriority value) {
@@ -367,7 +367,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.pushEnabled = value;
     }
     /**
-     * Sets the readAt property value. The date and time for the read at value on this notification.
+     * Sets the readAt property value. UTC timestamp for read at on this notification.
      * @param value Value to set for the readAt property.
      */
     public void setReadAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

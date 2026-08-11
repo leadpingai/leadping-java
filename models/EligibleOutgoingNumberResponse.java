@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API eligible outgoing phone number returned to authenticated clients.
+ * Describes a Leadping phone number that is eligible to send an outbound message or place a call.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Parsable {

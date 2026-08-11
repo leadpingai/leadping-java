@@ -38,7 +38,7 @@ public class IsAvailableForPurchaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Checks whether a phone number can be purchased for the current organization before creating or assigning it.
-     * @param body Request schema for checking phone number availability before purchase or assignment.
+     * @param body Defines the phone number and capability requirements Leadping should verify before purchase or assignment.
      * @return a {@link PhoneNumberAvailabilityResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class IsAvailableForPurchaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Checks whether a phone number can be purchased for the current organization before creating or assigning it.
-     * @param body Request schema for checking phone number availability before purchase or assignment.
+     * @param body Defines the phone number and capability requirements Leadping should verify before purchase or assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberAvailabilityResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -69,7 +69,7 @@ public class IsAvailableForPurchaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Checks whether a phone number can be purchased for the current organization before creating or assigning it.
-     * @param body Request schema for checking phone number availability before purchase or assignment.
+     * @param body Defines the phone number and capability requirements Leadping should verify before purchase or assignment.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class IsAvailableForPurchaseRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Checks whether a phone number can be purchased for the current organization before creating or assigning it.
-     * @param body Request schema for checking phone number availability before purchase or assignment.
+     * @param body Defines the phone number and capability requirements Leadping should verify before purchase or assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

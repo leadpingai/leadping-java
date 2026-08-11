@@ -22,11 +22,11 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     private OffsetDateTime billingPlanChangeEffectiveAt;
     /**
-     * Gets or sets when the active subscription is scheduled to cancel.
+     * UTC timestamp when the active subscription is scheduled to cancel.
      */
     private OffsetDateTime cancelAt;
     /**
-     * Gets or sets the customer-safe payment recovery state for the organization.
+     * Customer-safe payment recovery state for the organization.
      */
     private OrganizationBillingStateDunning dunning;
     /**
@@ -38,19 +38,19 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     private Boolean hasStripeCustomer;
     /**
-     * Gets or sets when Leadping last processed a payment-method event for the organization.
+     * UTC timestamp when Leadping last processed a payment-method event for the organization.
      */
     private OffsetDateTime lastPaymentMethodEventAt;
     /**
-     * Gets or sets when Leadping last processed a subscription event for the organization.
+     * UTC timestamp when Leadping last processed a subscription event for the organization.
      */
     private OffsetDateTime lastSubscriptionEventAt;
     /**
-     * Gets or sets the number of user licenses currently assigned by the organization.
+     * Number of user licenses currently assigned to organization members.
      */
     private Long organizationMemberAssignedQuantity;
     /**
-     * Gets or sets the number of user licenses included in the organization subscription.
+     * Number of user licenses included in the organization&apos;s subscription plan.
      */
     private Long organizationMemberQuantity;
     /**
@@ -58,7 +58,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     private OrganizationBillingStatePendingBillingPlan pendingBillingPlan;
     /**
-     * Gets or sets the number of phone numbers included in the organization subscription.
+     * Number of phone numbers included in the organization&apos;s subscription plan.
      */
     private Long phoneNumberQuantity;
     /**
@@ -102,7 +102,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.billingPlanChangeEffectiveAt;
     }
     /**
-     * Gets the cancelAt property value. Gets or sets when the active subscription is scheduled to cancel.
+     * Gets the cancelAt property value. UTC timestamp when the active subscription is scheduled to cancel.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -110,7 +110,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.cancelAt;
     }
     /**
-     * Gets the dunning property value. Gets or sets the customer-safe payment recovery state for the organization.
+     * Gets the dunning property value. Customer-safe payment recovery state for the organization.
      * @return a {@link OrganizationBillingStateDunning}
      */
     @jakarta.annotation.Nullable
@@ -156,7 +156,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.hasStripeCustomer;
     }
     /**
-     * Gets the lastPaymentMethodEventAt property value. Gets or sets when Leadping last processed a payment-method event for the organization.
+     * Gets the lastPaymentMethodEventAt property value. UTC timestamp when Leadping last processed a payment-method event for the organization.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -164,7 +164,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.lastPaymentMethodEventAt;
     }
     /**
-     * Gets the lastSubscriptionEventAt property value. Gets or sets when Leadping last processed a subscription event for the organization.
+     * Gets the lastSubscriptionEventAt property value. UTC timestamp when Leadping last processed a subscription event for the organization.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -172,7 +172,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.lastSubscriptionEventAt;
     }
     /**
-     * Gets the organizationMemberAssignedQuantity property value. Gets or sets the number of user licenses currently assigned by the organization.
+     * Gets the organizationMemberAssignedQuantity property value. Number of user licenses currently assigned to organization members.
      * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.organizationMemberAssignedQuantity;
     }
     /**
-     * Gets the organizationMemberQuantity property value. Gets or sets the number of user licenses included in the organization subscription.
+     * Gets the organizationMemberQuantity property value. Number of user licenses included in the organization&apos;s subscription plan.
      * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
@@ -196,7 +196,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.pendingBillingPlan;
     }
     /**
-     * Gets the phoneNumberQuantity property value. Gets or sets the number of phone numbers included in the organization subscription.
+     * Gets the phoneNumberQuantity property value. Number of phone numbers included in the organization&apos;s subscription plan.
      * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
@@ -255,14 +255,14 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         this.billingPlanChangeEffectiveAt = value;
     }
     /**
-     * Sets the cancelAt property value. Gets or sets when the active subscription is scheduled to cancel.
+     * Sets the cancelAt property value. UTC timestamp when the active subscription is scheduled to cancel.
      * @param value Value to set for the cancelAt property.
      */
     public void setCancelAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.cancelAt = value;
     }
     /**
-     * Sets the dunning property value. Gets or sets the customer-safe payment recovery state for the organization.
+     * Sets the dunning property value. Customer-safe payment recovery state for the organization.
      * @param value Value to set for the dunning property.
      */
     public void setDunning(@jakarta.annotation.Nullable final OrganizationBillingStateDunning value) {
@@ -283,28 +283,28 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         this.hasStripeCustomer = value;
     }
     /**
-     * Sets the lastPaymentMethodEventAt property value. Gets or sets when Leadping last processed a payment-method event for the organization.
+     * Sets the lastPaymentMethodEventAt property value. UTC timestamp when Leadping last processed a payment-method event for the organization.
      * @param value Value to set for the lastPaymentMethodEventAt property.
      */
     public void setLastPaymentMethodEventAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastPaymentMethodEventAt = value;
     }
     /**
-     * Sets the lastSubscriptionEventAt property value. Gets or sets when Leadping last processed a subscription event for the organization.
+     * Sets the lastSubscriptionEventAt property value. UTC timestamp when Leadping last processed a subscription event for the organization.
      * @param value Value to set for the lastSubscriptionEventAt property.
      */
     public void setLastSubscriptionEventAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastSubscriptionEventAt = value;
     }
     /**
-     * Sets the organizationMemberAssignedQuantity property value. Gets or sets the number of user licenses currently assigned by the organization.
+     * Sets the organizationMemberAssignedQuantity property value. Number of user licenses currently assigned to organization members.
      * @param value Value to set for the organizationMemberAssignedQuantity property.
      */
     public void setOrganizationMemberAssignedQuantity(@jakarta.annotation.Nullable final Long value) {
         this.organizationMemberAssignedQuantity = value;
     }
     /**
-     * Sets the organizationMemberQuantity property value. Gets or sets the number of user licenses included in the organization subscription.
+     * Sets the organizationMemberQuantity property value. Number of user licenses included in the organization&apos;s subscription plan.
      * @param value Value to set for the organizationMemberQuantity property.
      */
     public void setOrganizationMemberQuantity(@jakarta.annotation.Nullable final Long value) {
@@ -318,7 +318,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         this.pendingBillingPlan = value;
     }
     /**
-     * Sets the phoneNumberQuantity property value. Gets or sets the number of phone numbers included in the organization subscription.
+     * Sets the phoneNumberQuantity property value. Number of phone numbers included in the organization&apos;s subscription plan.
      * @param value Value to set for the phoneNumberQuantity property.
      */
     public void setPhoneNumberQuantity(@jakarta.annotation.Nullable final Long value) {

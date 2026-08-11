@@ -7,6 +7,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Optional client metadata stored with the push installation.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PushInstallationRequestMetadata implements AdditionalDataHolder, Parsable {
     /**

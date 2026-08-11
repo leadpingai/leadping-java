@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API event detail response returned to authenticated clients.
+ * Describes event detail data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class EventDetailResponse implements AdditionalDataHolder, Parsable {

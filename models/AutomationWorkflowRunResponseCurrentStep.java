@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this currentStep.
+ * Identifier and display name of the workflow step currently awaiting or performing work.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationWorkflowRunResponseCurrentStep extends IdNamePair implements Parsable {

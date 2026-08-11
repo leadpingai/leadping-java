@@ -66,7 +66,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime requestedAt;
     /**
-     * File size in bytes.
+     * Size of the generated export archive in bytes, when the export is ready.
      */
     private Long sizeBytes;
     /**
@@ -222,7 +222,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.requestedAt;
     }
     /**
-     * Gets the sizeBytes property value. File size in bytes.
+     * Gets the sizeBytes property value. Size of the generated export archive in bytes, when the export is ready.
      * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
@@ -360,7 +360,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         this.requestedAt = value;
     }
     /**
-     * Sets the sizeBytes property value. File size in bytes.
+     * Sets the sizeBytes property value. Size of the generated export archive in bytes, when the export is ready.
      * @param value Value to set for the sizeBytes property.
      */
     public void setSizeBytes(@jakarta.annotation.Nullable final Long value) {

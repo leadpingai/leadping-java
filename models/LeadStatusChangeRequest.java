@@ -18,15 +18,15 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time for the appointment end at value on this lead status change.
+     * UTC timestamp for appointment end at on this lead status change.
      */
     private OffsetDateTime appointmentEndAt;
     /**
-     * The appointment notes value for this lead status change.
+     * Additional scheduling or preparation notes for the related appointment.
      */
     private String appointmentNotes;
     /**
-     * The date and time for the appointment start at value on this lead status change.
+     * UTC timestamp for appointment start at on this lead status change.
      */
     private OffsetDateTime appointmentStartAt;
     /**
@@ -34,7 +34,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private String assignedToUserId;
     /**
-     * The date and time for the callback at value on this lead status change.
+     * UTC timestamp for callback at on this lead status change.
      */
     private OffsetDateTime callbackAt;
     /**
@@ -62,7 +62,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private String notes;
     /**
-     * The outcome value for this lead status change.
+     * Result of the interaction or workflow step that caused the status change.
      */
     private String outcome;
     /**
@@ -78,15 +78,15 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * The date and time for the task due at value on this lead status change.
+     * UTC timestamp for task due at on this lead status change.
      */
     private OffsetDateTime taskDueAt;
     /**
-     * The date and time for the timestamp value on this lead status change.
+     * UTC timestamp for timestamp on this lead status change.
      */
     private OffsetDateTime timestamp;
     /**
-     * The type classification for this lead status change.
+     * Category of status change being recorded for the lead.
      */
     private String type;
     /**
@@ -114,7 +114,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the appointmentEndAt property value. The date and time for the appointment end at value on this lead status change.
+     * Gets the appointmentEndAt property value. UTC timestamp for appointment end at on this lead status change.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.appointmentEndAt;
     }
     /**
-     * Gets the appointmentNotes property value. The appointment notes value for this lead status change.
+     * Gets the appointmentNotes property value. Additional scheduling or preparation notes for the related appointment.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.appointmentNotes;
     }
     /**
-     * Gets the appointmentStartAt property value. The date and time for the appointment start at value on this lead status change.
+     * Gets the appointmentStartAt property value. UTC timestamp for appointment start at on this lead status change.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +146,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.assignedToUserId;
     }
     /**
-     * Gets the callbackAt property value. The date and time for the callback at value on this lead status change.
+     * Gets the callbackAt property value. UTC timestamp for callback at on this lead status change.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -229,7 +229,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.notes;
     }
     /**
-     * Gets the outcome property value. The outcome value for this lead status change.
+     * Gets the outcome property value. Result of the interaction or workflow step that caused the status change.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -261,7 +261,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the taskDueAt property value. The date and time for the task due at value on this lead status change.
+     * Gets the taskDueAt property value. UTC timestamp for task due at on this lead status change.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -269,7 +269,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.taskDueAt;
     }
     /**
-     * Gets the timestamp property value. The date and time for the timestamp value on this lead status change.
+     * Gets the timestamp property value. UTC timestamp for timestamp on this lead status change.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -277,7 +277,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.timestamp;
     }
     /**
-     * Gets the type property value. The type classification for this lead status change.
+     * Gets the type property value. Category of status change being recorded for the lead.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -318,21 +318,21 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the appointmentEndAt property value. The date and time for the appointment end at value on this lead status change.
+     * Sets the appointmentEndAt property value. UTC timestamp for appointment end at on this lead status change.
      * @param value Value to set for the appointmentEndAt property.
      */
     public void setAppointmentEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.appointmentEndAt = value;
     }
     /**
-     * Sets the appointmentNotes property value. The appointment notes value for this lead status change.
+     * Sets the appointmentNotes property value. Additional scheduling or preparation notes for the related appointment.
      * @param value Value to set for the appointmentNotes property.
      */
     public void setAppointmentNotes(@jakarta.annotation.Nullable final String value) {
         this.appointmentNotes = value;
     }
     /**
-     * Sets the appointmentStartAt property value. The date and time for the appointment start at value on this lead status change.
+     * Sets the appointmentStartAt property value. UTC timestamp for appointment start at on this lead status change.
      * @param value Value to set for the appointmentStartAt property.
      */
     public void setAppointmentStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -346,7 +346,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.assignedToUserId = value;
     }
     /**
-     * Sets the callbackAt property value. The date and time for the callback at value on this lead status change.
+     * Sets the callbackAt property value. UTC timestamp for callback at on this lead status change.
      * @param value Value to set for the callbackAt property.
      */
     public void setCallbackAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -395,7 +395,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.notes = value;
     }
     /**
-     * Sets the outcome property value. The outcome value for this lead status change.
+     * Sets the outcome property value. Result of the interaction or workflow step that caused the status change.
      * @param value Value to set for the outcome property.
      */
     public void setOutcome(@jakarta.annotation.Nullable final String value) {
@@ -423,21 +423,21 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the taskDueAt property value. The date and time for the task due at value on this lead status change.
+     * Sets the taskDueAt property value. UTC timestamp for task due at on this lead status change.
      * @param value Value to set for the taskDueAt property.
      */
     public void setTaskDueAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.taskDueAt = value;
     }
     /**
-     * Sets the timestamp property value. The date and time for the timestamp value on this lead status change.
+     * Sets the timestamp property value. UTC timestamp for timestamp on this lead status change.
      * @param value Value to set for the timestamp property.
      */
     public void setTimestamp(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.timestamp = value;
     }
     /**
-     * Sets the type property value. The type classification for this lead status change.
+     * Sets the type property value. Category of status change being recorded for the lead.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final String value) {

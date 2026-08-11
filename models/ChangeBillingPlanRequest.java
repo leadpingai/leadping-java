@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request payload for change billing plan.
+ * Defines the input used for change billing plan.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable {
@@ -17,7 +17,7 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The billing plan value for this billing plan.
+     * Billing plan for this billing plan.
      */
     private BillingPlan billingPlan;
     /**
@@ -49,7 +49,7 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the billingPlan property value. The billing plan value for this billing plan.
+     * Gets the billingPlan property value. Billing plan for this billing plan.
      * @return a {@link BillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the billingPlan property value. The billing plan value for this billing plan.
+     * Sets the billingPlan property value. Billing plan for this billing plan.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final BillingPlan value) {

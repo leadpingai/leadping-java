@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The current organization value for this user.
+ * Current organization for this user.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserResponseCurrentOrganization extends IdNamePair implements Parsable {

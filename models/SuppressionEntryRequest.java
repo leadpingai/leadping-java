@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request payload for suppression entry.
+ * Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
@@ -17,27 +17,27 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The channel value for this ion entry.
+     * Communication channel affected by the suppression, such as SMS, voice, email, or all channels.
      */
     private String channel;
     /**
-     * The email address associated with this ion entry.
+     * Recipient email address to suppress or check.
      */
     private String email;
     /**
-     * The organization ID associated with this ion entry.
+     * Organization whose suppression list should be used.
      */
     private String organizationId;
     /**
-     * The phone number associated with this ion entry.
+     * Recipient phone number to suppress or check, preferably in E.164 format.
      */
     private String phoneNumber;
     /**
-     * The human-readable reason explaining this ion entry.
+     * Human-readable reason for creating or releasing the suppression.
      */
     private String reason;
     /**
-     * The recipient identifier value for this ion entry.
+     * Optional provider or customer identifier that uniquely identifies the recipient.
      */
     private String recipientIdentifier;
     /**
@@ -65,7 +65,7 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the channel property value. The channel value for this ion entry.
+     * Gets the channel property value. Communication channel affected by the suppression, such as SMS, voice, email, or all channels.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -73,7 +73,7 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return this.channel;
     }
     /**
-     * Gets the email property value. The email address associated with this ion entry.
+     * Gets the email property value. Recipient email address to suppress or check.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the organizationId property value. The organization ID associated with this ion entry.
+     * Gets the organizationId property value. Organization whose suppression list should be used.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +104,7 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return this.organizationId;
     }
     /**
-     * Gets the phoneNumber property value. The phone number associated with this ion entry.
+     * Gets the phoneNumber property value. Recipient phone number to suppress or check, preferably in E.164 format.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -112,7 +112,7 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return this.phoneNumber;
     }
     /**
-     * Gets the reason property value. The human-readable reason explaining this ion entry.
+     * Gets the reason property value. Human-readable reason for creating or releasing the suppression.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -120,7 +120,7 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         return this.reason;
     }
     /**
-     * Gets the recipientIdentifier property value. The recipient identifier value for this ion entry.
+     * Gets the recipientIdentifier property value. Optional provider or customer identifier that uniquely identifies the recipient.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -149,42 +149,42 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the channel property value. The channel value for this ion entry.
+     * Sets the channel property value. Communication channel affected by the suppression, such as SMS, voice, email, or all channels.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final String value) {
         this.channel = value;
     }
     /**
-     * Sets the email property value. The email address associated with this ion entry.
+     * Sets the email property value. Recipient email address to suppress or check.
      * @param value Value to set for the email property.
      */
     public void setEmail(@jakarta.annotation.Nullable final String value) {
         this.email = value;
     }
     /**
-     * Sets the organizationId property value. The organization ID associated with this ion entry.
+     * Sets the organizationId property value. Organization whose suppression list should be used.
      * @param value Value to set for the organizationId property.
      */
     public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
         this.organizationId = value;
     }
     /**
-     * Sets the phoneNumber property value. The phone number associated with this ion entry.
+     * Sets the phoneNumber property value. Recipient phone number to suppress or check, preferably in E.164 format.
      * @param value Value to set for the phoneNumber property.
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.phoneNumber = value;
     }
     /**
-     * Sets the reason property value. The human-readable reason explaining this ion entry.
+     * Sets the reason property value. Human-readable reason for creating or releasing the suppression.
      * @param value Value to set for the reason property.
      */
     public void setReason(@jakarta.annotation.Nullable final String value) {
         this.reason = value;
     }
     /**
-     * Sets the recipientIdentifier property value. The recipient identifier value for this ion entry.
+     * Sets the recipientIdentifier property value. Optional provider or customer identifier that uniquely identifies the recipient.
      * @param value Value to set for the recipientIdentifier property.
      */
     public void setRecipientIdentifier(@jakarta.annotation.Nullable final String value) {

@@ -21,7 +21,7 @@ import java.util.Objects;
 public class InvoicesRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the ai.leadping.openapi.paymentMethods.invoices.item collection
-     * @param invoiceId Unique identifier of the item
+     * @param invoiceId The Stripe invoice identifier whose PDF should be accessed.
      * @return a {@link WithInvoiceItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

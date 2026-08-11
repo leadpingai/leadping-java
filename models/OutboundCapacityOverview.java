@@ -37,6 +37,10 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      */
     private java.util.List<OutboundPhoneNumberCapacity> phoneNumbers;
     /**
+     * Number of phone numbers whose SMS or calling capacity is still ramping up.
+     */
+    private Integer rampingPhoneNumbers;
+    /**
      * Collection of recent decisions included with this Leadping outbound capacity overview.
      */
     private java.util.List<OutboundQueueItem> recentDecisions;
@@ -98,12 +102,13 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("blockedCount", (n) -> { this.setBlockedCount(n.getIntegerValue()); });
         deserializerMap.put("coolingPhoneNumbers", (n) -> { this.setCoolingPhoneNumbers(n.getIntegerValue()); });
         deserializerMap.put("healthyPhoneNumbers", (n) -> { this.setHealthyPhoneNumbers(n.getIntegerValue()); });
         deserializerMap.put("limitedPhoneNumbers", (n) -> { this.setLimitedPhoneNumbers(n.getIntegerValue()); });
         deserializerMap.put("phoneNumbers", (n) -> { this.setPhoneNumbers(n.getCollectionOfObjectValues(OutboundPhoneNumberCapacity::createFromDiscriminatorValue)); });
+        deserializerMap.put("rampingPhoneNumbers", (n) -> { this.setRampingPhoneNumbers(n.getIntegerValue()); });
         deserializerMap.put("recentDecisions", (n) -> { this.setRecentDecisions(n.getCollectionOfObjectValues(OutboundQueueItem::createFromDiscriminatorValue)); });
         deserializerMap.put("scheduledCount", (n) -> { this.setScheduledCount(n.getIntegerValue()); });
         deserializerMap.put("smsCapacityRemainingToday", (n) -> { this.setSmsCapacityRemainingToday(n.getIntegerValue()); });
@@ -133,6 +138,14 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public java.util.List<OutboundPhoneNumberCapacity> getPhoneNumbers() {
         return this.phoneNumbers;
+    }
+    /**
+     * Gets the rampingPhoneNumbers property value. Number of phone numbers whose SMS or calling capacity is still ramping up.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getRampingPhoneNumbers() {
+        return this.rampingPhoneNumbers;
     }
     /**
      * Gets the recentDecisions property value. Collection of recent decisions included with this Leadping outbound capacity overview.
@@ -177,6 +190,7 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
         writer.writeIntegerValue("healthyPhoneNumbers", this.getHealthyPhoneNumbers());
         writer.writeIntegerValue("limitedPhoneNumbers", this.getLimitedPhoneNumbers());
         writer.writeCollectionOfObjectValues("phoneNumbers", this.getPhoneNumbers());
+        writer.writeIntegerValue("rampingPhoneNumbers", this.getRampingPhoneNumbers());
         writer.writeCollectionOfObjectValues("recentDecisions", this.getRecentDecisions());
         writer.writeIntegerValue("scheduledCount", this.getScheduledCount());
         writer.writeIntegerValue("smsCapacityRemainingToday", this.getSmsCapacityRemainingToday());
@@ -224,6 +238,13 @@ public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable 
      */
     public void setPhoneNumbers(@jakarta.annotation.Nullable final java.util.List<OutboundPhoneNumberCapacity> value) {
         this.phoneNumbers = value;
+    }
+    /**
+     * Sets the rampingPhoneNumbers property value. Number of phone numbers whose SMS or calling capacity is still ramping up.
+     * @param value Value to set for the rampingPhoneNumbers property.
+     */
+    public void setRampingPhoneNumbers(@jakarta.annotation.Nullable final Integer value) {
+        this.rampingPhoneNumbers = value;
     }
     /**
      * Sets the recentDecisions property value. Collection of recent decisions included with this Leadping outbound capacity overview.

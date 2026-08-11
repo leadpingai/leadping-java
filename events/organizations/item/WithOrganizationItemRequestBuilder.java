@@ -105,8 +105,14 @@ public class WithOrganizationItemRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {
+        /**
+         * Optional exclusive end timestamp for event occurrence.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime endAt;
+        /**
+         * Optional inclusive start timestamp for event occurrence.
+         */
         @jakarta.annotation.Nullable
         public OffsetDateTime startAt;
         /**

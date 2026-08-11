@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The ID and name for this lead.
+ * Identifier and display name of the related lead.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UsageLedgerTableRowLead extends IdNamePair implements Parsable {

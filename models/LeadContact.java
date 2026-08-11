@@ -17,7 +17,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Optional profile image URL for the contact. Clients fall back to Gravatarand then initials when this value is not supplied.
+     * Optional profile image URL for the contact. Clients fall back to Gravatar and then initials when this value is not supplied.
      */
     private String avatarUrl;
     /**
@@ -73,7 +73,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the avatarUrl property value. Optional profile image URL for the contact. Clients fall back to Gravatarand then initials when this value is not supplied.
+     * Gets the avatarUrl property value. Optional profile image URL for the contact. Clients fall back to Gravatar and then initials when this value is not supplied.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -177,7 +177,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the avatarUrl property value. Optional profile image URL for the contact. Clients fall back to Gravatarand then initials when this value is not supplied.
+     * Sets the avatarUrl property value. Optional profile image URL for the contact. Clients fall back to Gravatar and then initials when this value is not supplied.
      * @param value Value to set for the avatarUrl property.
      */
     public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {

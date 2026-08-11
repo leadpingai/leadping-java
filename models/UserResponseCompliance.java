@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The compliance value for this user.
+ * Compliance for this user.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserResponseCompliance extends UserCompliance implements Parsable {

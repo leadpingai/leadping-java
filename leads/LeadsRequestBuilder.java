@@ -70,7 +70,7 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead captured outside Leadping, starting follow-up, routing, and automation from structured lead data.
-     * @param body Request schema for the Leadping API lead request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -83,7 +83,7 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead captured outside Leadping, starting follow-up, routing, and automation from structured lead data.
-     * @param body Request schema for the Leadping API lead request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -104,7 +104,7 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead captured outside Leadping, starting follow-up, routing, and automation from structured lead data.
-     * @param body Request schema for the Leadping API lead request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -113,7 +113,7 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates a source-authenticated lead captured outside Leadping, starting follow-up, routing, and automation from structured lead data.
-     * @param body Request schema for the Leadping API lead request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with lead.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

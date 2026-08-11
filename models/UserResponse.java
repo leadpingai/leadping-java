@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API response containing user data returned to callers.
+ * Describes user data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserResponse implements AdditionalDataHolder, Parsable {
@@ -27,7 +27,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UserResponseBillingState billingState;
     /**
-     * The compliance value for this user.
+     * Compliance for this user.
      */
     private UserResponseCompliance compliance;
     /**
@@ -35,7 +35,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * The current organization value for this user.
+     * Current organization for this user.
      */
     private UserResponseCurrentOrganization currentOrganization;
     /**
@@ -43,7 +43,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String email;
     /**
-     * The first name value for this user.
+     * First name for this user.
      */
     private String firstName;
     /**
@@ -59,7 +59,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime lastLoggedInAt;
     /**
-     * The date and time for the last name value on this user.
+     * UTC timestamp for last name on this user.
      */
     private String lastName;
     /**
@@ -75,11 +75,11 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * The notification preferences value for this user.
+     * Notification preferences for this user.
      */
     private UserResponseNotificationPreferences notificationPreferences;
     /**
-     * The date and time for the personal data deleted at value on this user.
+     * UTC timestamp for personal data deleted at on this user.
      */
     private OffsetDateTime personalDataDeletedAt;
     /**
@@ -87,7 +87,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String personalDataDeletionReason;
     /**
-     * The date and time for the personal data deletion requested at value on this user.
+     * UTC timestamp for personal data deletion requested at on this user.
      */
     private OffsetDateTime personalDataDeletionRequestedAt;
     /**
@@ -151,7 +151,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingState;
     }
     /**
-     * Gets the compliance property value. The compliance value for this user.
+     * Gets the compliance property value. Compliance for this user.
      * @return a {@link UserResponseCompliance}
      */
     @jakarta.annotation.Nullable
@@ -167,7 +167,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentOrganization property value. The current organization value for this user.
+     * Gets the currentOrganization property value. Current organization for this user.
      * @return a {@link UserResponseCurrentOrganization}
      */
     @jakarta.annotation.Nullable
@@ -215,7 +215,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the firstName property value. The first name value for this user.
+     * Gets the firstName property value. First name for this user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -247,7 +247,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.lastLoggedInAt;
     }
     /**
-     * Gets the lastName property value. The date and time for the last name value on this user.
+     * Gets the lastName property value. UTC timestamp for last name on this user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -279,7 +279,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the notificationPreferences property value. The notification preferences value for this user.
+     * Gets the notificationPreferences property value. Notification preferences for this user.
      * @return a {@link UserResponseNotificationPreferences}
      */
     @jakarta.annotation.Nullable
@@ -287,7 +287,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.notificationPreferences;
     }
     /**
-     * Gets the personalDataDeletedAt property value. The date and time for the personal data deleted at value on this user.
+     * Gets the personalDataDeletedAt property value. UTC timestamp for personal data deleted at on this user.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -303,7 +303,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.personalDataDeletionReason;
     }
     /**
-     * Gets the personalDataDeletionRequestedAt property value. The date and time for the personal data deletion requested at value on this user.
+     * Gets the personalDataDeletionRequestedAt property value. UTC timestamp for personal data deletion requested at on this user.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -403,7 +403,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.billingState = value;
     }
     /**
-     * Sets the compliance property value. The compliance value for this user.
+     * Sets the compliance property value. Compliance for this user.
      * @param value Value to set for the compliance property.
      */
     public void setCompliance(@jakarta.annotation.Nullable final UserResponseCompliance value) {
@@ -417,7 +417,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentOrganization property value. The current organization value for this user.
+     * Sets the currentOrganization property value. Current organization for this user.
      * @param value Value to set for the currentOrganization property.
      */
     public void setCurrentOrganization(@jakarta.annotation.Nullable final UserResponseCurrentOrganization value) {
@@ -431,7 +431,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.email = value;
     }
     /**
-     * Sets the firstName property value. The first name value for this user.
+     * Sets the firstName property value. First name for this user.
      * @param value Value to set for the firstName property.
      */
     public void setFirstName(@jakarta.annotation.Nullable final String value) {
@@ -459,7 +459,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.lastLoggedInAt = value;
     }
     /**
-     * Sets the lastName property value. The date and time for the last name value on this user.
+     * Sets the lastName property value. UTC timestamp for last name on this user.
      * @param value Value to set for the lastName property.
      */
     public void setLastName(@jakarta.annotation.Nullable final String value) {
@@ -487,14 +487,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the notificationPreferences property value. The notification preferences value for this user.
+     * Sets the notificationPreferences property value. Notification preferences for this user.
      * @param value Value to set for the notificationPreferences property.
      */
     public void setNotificationPreferences(@jakarta.annotation.Nullable final UserResponseNotificationPreferences value) {
         this.notificationPreferences = value;
     }
     /**
-     * Sets the personalDataDeletedAt property value. The date and time for the personal data deleted at value on this user.
+     * Sets the personalDataDeletedAt property value. UTC timestamp for personal data deleted at on this user.
      * @param value Value to set for the personalDataDeletedAt property.
      */
     public void setPersonalDataDeletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -508,7 +508,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.personalDataDeletionReason = value;
     }
     /**
-     * Sets the personalDataDeletionRequestedAt property value. The date and time for the personal data deletion requested at value on this user.
+     * Sets the personalDataDeletionRequestedAt property value. UTC timestamp for personal data deletion requested at on this user.
      * @param value Value to set for the personalDataDeletionRequestedAt property.
      */
     public void setPersonalDataDeletionRequestedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

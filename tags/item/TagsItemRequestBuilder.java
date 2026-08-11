@@ -63,7 +63,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
-     * @param body Request schema for the Leadping API tag request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with tag.
      * @return a {@link TagResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -75,7 +75,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
-     * @param body Request schema for the Leadping API tag request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with tag.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TagResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -114,7 +114,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
-     * @param body Request schema for the Leadping API tag request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with tag.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -123,7 +123,7 @@ public class TagsItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a current-organization tag&apos;s name, color, or archived state so lead segmentation and filters stay consistent.
-     * @param body Request schema for the Leadping API tag request, including the fields clients can send.
+     * @param body Defines the fields clients can send when working with tag.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

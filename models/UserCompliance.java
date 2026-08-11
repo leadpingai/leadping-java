@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * API DTO containing user compliance data used by Leadping API contracts.
+ * Describes user compliance data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserCompliance implements AdditionalDataHolder, Parsable {

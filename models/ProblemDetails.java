@@ -8,6 +8,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Standard problem-details response containing machine-readable and human-readable information about an HTTP API error.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ProblemDetails extends ApiException implements AdditionalDataHolder, Parsable {
     /**

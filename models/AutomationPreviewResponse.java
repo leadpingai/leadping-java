@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for the Leadping API automation preview response returned to authenticated clients.
+ * Describes automation preview data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationPreviewResponse implements AdditionalDataHolder, Parsable {

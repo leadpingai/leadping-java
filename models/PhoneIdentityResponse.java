@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response schema for a canonical phone identity returned by the Leadping API.
+ * Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
@@ -33,6 +33,10 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      * Provider lookup and enrichment data for the number.
      */
     private PhoneIdentityResponseLookup lookup;
+    /**
+     * Lookup, enrichment, and reputation actions performed for this identity.
+     */
+    private java.util.List<PhoneIdentityLookupAction> lookupActions;
     /**
      * The date and time when the entity was last modified, if applicable.
      */
@@ -87,11 +91,12 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lastEnrichedAt", (n) -> { this.setLastEnrichedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lookup", (n) -> { this.setLookup(n.getObjectValue(PhoneIdentityResponseLookup::createFromDiscriminatorValue)); });
+        deserializerMap.put("lookupActions", (n) -> { this.setLookupActions(n.getCollectionOfObjectValues(PhoneIdentityLookupAction::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
@@ -121,6 +126,14 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public PhoneIdentityResponseLookup getLookup() {
         return this.lookup;
+    }
+    /**
+     * Gets the lookupActions property value. Lookup, enrichment, and reputation actions performed for this identity.
+     * @return a {@link java.util.List<PhoneIdentityLookupAction>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<PhoneIdentityLookupAction> getLookupActions() {
+        return this.lookupActions;
     }
     /**
      * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
@@ -164,6 +177,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("lastEnrichedAt", this.getLastEnrichedAt());
         writer.writeObjectValue("lookup", this.getLookup());
+        writer.writeCollectionOfObjectValues("lookupActions", this.getLookupActions());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
@@ -204,6 +218,13 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLookup(@jakarta.annotation.Nullable final PhoneIdentityResponseLookup value) {
         this.lookup = value;
+    }
+    /**
+     * Sets the lookupActions property value. Lookup, enrichment, and reputation actions performed for this identity.
+     * @param value Value to set for the lookupActions property.
+     */
+    public void setLookupActions(@jakarta.annotation.Nullable final java.util.List<PhoneIdentityLookupAction> value) {
+        this.lookupActions = value;
     }
     /**
      * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.

@@ -74,7 +74,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates an invitation for the current organization so another user can join with the requested role and account access.
-     * @param body Request payload for organization invitation.
+     * @param body Defines the input used for organization invitation.
      * @return a {@link OrganizationInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -85,7 +85,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates an invitation for the current organization so another user can join with the requested role and account access.
-     * @param body Request payload for organization invitation.
+     * @param body Defines the input used for organization invitation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -122,7 +122,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates an invitation for the current organization so another user can join with the requested role and account access.
-     * @param body Request payload for organization invitation.
+     * @param body Defines the input used for organization invitation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -131,7 +131,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Creates an invitation for the current organization so another user can join with the requested role and account access.
-     * @param body Request payload for organization invitation.
+     * @param body Defines the input used for organization invitation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

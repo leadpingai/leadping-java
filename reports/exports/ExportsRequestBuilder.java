@@ -21,7 +21,7 @@ public class ExportsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.reports.exports.item collection
-     * @param exportId Unique identifier of the item
+     * @param exportId The unique identifier of the current user&apos;s data export.
      * @return a {@link WithExportItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

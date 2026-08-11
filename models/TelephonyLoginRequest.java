@@ -17,7 +17,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The ID and name for this device.
+     * Identifier and display name of the related device.
      */
     private TelephonyLoginRequestDevice device;
     /**
@@ -45,7 +45,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the device property value. The ID and name for this device.
+     * Gets the device property value. Identifier and display name of the related device.
      * @return a {@link TelephonyLoginRequestDevice}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the device property value. The ID and name for this device.
+     * Sets the device property value. Identifier and display name of the related device.
      * @param value Value to set for the device property.
      */
     public void setDevice(@jakarta.annotation.Nullable final TelephonyLoginRequestDevice value) {
