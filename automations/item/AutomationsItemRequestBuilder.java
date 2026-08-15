@@ -1,5 +1,7 @@
 package ai.leadping.openapi.automations.item;
 
+import ai.leadping.openapi.automations.item.run.RunRequestBuilder;
+import ai.leadping.openapi.automations.item.runs.RunsRequestBuilder;
 import ai.leadping.openapi.models.AutomationRequest;
 import ai.leadping.openapi.models.AutomationResponse;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -20,6 +22,22 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The run property
+     * @return a {@link RunRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public RunRequestBuilder run() {
+        return new RunRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The runs property
+     * @return a {@link RunsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public RunsRequestBuilder runs() {
+        return new RunsRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Instantiates a new {@link AutomationsItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request

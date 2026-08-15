@@ -111,9 +111,17 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String user;
     /**
+     * Email address for the person or agent who initiated this call event.
+     */
+    private String userEmail;
+    /**
      * User ID associated with the person or agent who initiated this call event.
      */
     private String userId;
+    /**
+     * Display name for the person or agent who initiated this call event.
+     */
+    private String userName;
     /**
      * Instantiates a new {@link CallEventTableRow} and sets the default values.
      */
@@ -224,7 +232,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
@@ -248,7 +256,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getStringValue()); });
+        deserializerMap.put("userEmail", (n) -> { this.setUserEmail(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
+        deserializerMap.put("userName", (n) -> { this.setUserName(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -356,12 +366,28 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.user;
     }
     /**
+     * Gets the userEmail property value. Email address for the person or agent who initiated this call event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getUserEmail() {
+        return this.userEmail;
+    }
+    /**
      * Gets the userId property value. User ID associated with the person or agent who initiated this call event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getUserId() {
         return this.userId;
+    }
+    /**
+     * Gets the userName property value. Display name for the person or agent who initiated this call event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getUserName() {
+        return this.userName;
     }
     /**
      * Serializes information the current object
@@ -392,7 +418,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
         writer.writeStringValue("user", this.getUser());
+        writer.writeStringValue("userEmail", this.getUserEmail());
         writer.writeStringValue("userId", this.getUserId());
+        writer.writeStringValue("userName", this.getUserName());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -564,10 +592,24 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         this.user = value;
     }
     /**
+     * Sets the userEmail property value. Email address for the person or agent who initiated this call event.
+     * @param value Value to set for the userEmail property.
+     */
+    public void setUserEmail(@jakarta.annotation.Nullable final String value) {
+        this.userEmail = value;
+    }
+    /**
      * Sets the userId property value. User ID associated with the person or agent who initiated this call event.
      * @param value Value to set for the userId property.
      */
     public void setUserId(@jakarta.annotation.Nullable final String value) {
         this.userId = value;
+    }
+    /**
+     * Sets the userName property value. Display name for the person or agent who initiated this call event.
+     * @param value Value to set for the userName property.
+     */
+    public void setUserName(@jakarta.annotation.Nullable final String value) {
+        this.userName = value;
     }
 }

@@ -19,6 +19,7 @@ public enum TransactionTableRowBillingChannel implements ValuedEnum {
     Openai("openai"),
     Domain("domain"),
     OneZerodlc("10dlc"),
+    Payment("payment"),
     Connection("connection"),
     Automation("automation");
     public final String value;
@@ -42,6 +43,7 @@ public enum TransactionTableRowBillingChannel implements ValuedEnum {
             case "openai": return Openai;
             case "domain": return Domain;
             case "10dlc": return OneZerodlc;
+            case "payment": return Payment;
             case "connection": return Connection;
             case "automation": return Automation;
             default: return null;

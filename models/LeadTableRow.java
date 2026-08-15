@@ -75,6 +75,18 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private UntypedNode price;
     /**
+     * Defines the asynchronous verification and enrichment lifecycle for a lead.
+     */
+    private LeadTableRowProcessingStatus processingStatus;
+    /**
+     * UTC timestamp when the processing stage last changed.
+     */
+    private OffsetDateTime processingStatusChangedAt;
+    /**
+     * Explanation when asynchronous lead processing is blocked or fails.
+     */
+    private String processingStatusReason;
+    /**
      * Identifier and display name of the related source.
      */
     private LeadTableRowSource source;
@@ -180,7 +192,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -195,6 +207,9 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(LeadTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("processingStatus", (n) -> { this.setProcessingStatus(n.getEnumValue(LeadTableRowProcessingStatus::forValue)); });
+        deserializerMap.put("processingStatusChangedAt", (n) -> { this.setProcessingStatusChangedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("processingStatusReason", (n) -> { this.setProcessingStatusReason(n.getStringValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getObjectValue(LeadTableRowSource::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("statusTone", (n) -> { this.setStatusTone(n.getStringValue()); });
@@ -259,6 +274,30 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.price;
     }
     /**
+     * Gets the processingStatus property value. Defines the asynchronous verification and enrichment lifecycle for a lead.
+     * @return a {@link LeadTableRowProcessingStatus}
+     */
+    @jakarta.annotation.Nullable
+    public LeadTableRowProcessingStatus getProcessingStatus() {
+        return this.processingStatus;
+    }
+    /**
+     * Gets the processingStatusChangedAt property value. UTC timestamp when the processing stage last changed.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getProcessingStatusChangedAt() {
+        return this.processingStatusChangedAt;
+    }
+    /**
+     * Gets the processingStatusReason property value. Explanation when asynchronous lead processing is blocked or fails.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getProcessingStatusReason() {
+        return this.processingStatusReason;
+    }
+    /**
      * Gets the source property value. Identifier and display name of the related source.
      * @return a {@link LeadTableRowSource}
      */
@@ -318,6 +357,9 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phone", this.getPhone());
         writer.writeObjectValue("price", this.getPrice());
+        writer.writeEnumValue("processingStatus", this.getProcessingStatus());
+        writer.writeOffsetDateTimeValue("processingStatusChangedAt", this.getProcessingStatusChangedAt());
+        writer.writeStringValue("processingStatusReason", this.getProcessingStatusReason());
         writer.writeObjectValue("source", this.getSource());
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("statusTone", this.getStatusTone());
@@ -429,6 +471,27 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
         this.price = value;
+    }
+    /**
+     * Sets the processingStatus property value. Defines the asynchronous verification and enrichment lifecycle for a lead.
+     * @param value Value to set for the processingStatus property.
+     */
+    public void setProcessingStatus(@jakarta.annotation.Nullable final LeadTableRowProcessingStatus value) {
+        this.processingStatus = value;
+    }
+    /**
+     * Sets the processingStatusChangedAt property value. UTC timestamp when the processing stage last changed.
+     * @param value Value to set for the processingStatusChangedAt property.
+     */
+    public void setProcessingStatusChangedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.processingStatusChangedAt = value;
+    }
+    /**
+     * Sets the processingStatusReason property value. Explanation when asynchronous lead processing is blocked or fails.
+     * @param value Value to set for the processingStatusReason property.
+     */
+    public void setProcessingStatusReason(@jakarta.annotation.Nullable final String value) {
+        this.processingStatusReason = value;
     }
     /**
      * Sets the source property value. Identifier and display name of the related source.

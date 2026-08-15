@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +30,14 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
      * The provider that performed the phone identity lookup.
      */
     private String provider;
+    /**
+     * The provider cost incurred by this lookup action, in USD.
+     */
+    private UntypedNode providerCostAmount;
+    /**
+     * The provider pricing version used to calculate the lookup cost.
+     */
+    private String providerPricingVersion;
     /**
      * Identifies the outcome of a phone identity lookup action.
      */
@@ -67,10 +76,12 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("occurredAt", (n) -> { this.setOccurredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("provider", (n) -> { this.setProvider(n.getStringValue()); });
+        deserializerMap.put("providerCostAmount", (n) -> { this.setProviderCostAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("providerPricingVersion", (n) -> { this.setProviderPricingVersion(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(PhoneIdentityLookupActionStatus::forValue)); });
         deserializerMap.put("type", (n) -> { this.setType(n.getEnumValue(PhoneIdentityLookupActionType::forValue)); });
         return deserializerMap;
@@ -100,6 +111,22 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         return this.provider;
     }
     /**
+     * Gets the providerCostAmount property value. The provider cost incurred by this lookup action, in USD.
+     * @return a {@link UntypedNode}
+     */
+    @jakarta.annotation.Nullable
+    public UntypedNode getProviderCostAmount() {
+        return this.providerCostAmount;
+    }
+    /**
+     * Gets the providerPricingVersion property value. The provider pricing version used to calculate the lookup cost.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getProviderPricingVersion() {
+        return this.providerPricingVersion;
+    }
+    /**
      * Gets the status property value. Identifies the outcome of a phone identity lookup action.
      * @return a {@link PhoneIdentityLookupActionStatus}
      */
@@ -124,6 +151,8 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("occurredAt", this.getOccurredAt());
         writer.writeStringValue("provider", this.getProvider());
+        writer.writeObjectValue("providerCostAmount", this.getProviderCostAmount());
+        writer.writeStringValue("providerPricingVersion", this.getProviderPricingVersion());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeEnumValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -155,6 +184,20 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
      */
     public void setProvider(@jakarta.annotation.Nullable final String value) {
         this.provider = value;
+    }
+    /**
+     * Sets the providerCostAmount property value. The provider cost incurred by this lookup action, in USD.
+     * @param value Value to set for the providerCostAmount property.
+     */
+    public void setProviderCostAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+        this.providerCostAmount = value;
+    }
+    /**
+     * Sets the providerPricingVersion property value. The provider pricing version used to calculate the lookup cost.
+     * @param value Value to set for the providerPricingVersion property.
+     */
+    public void setProviderPricingVersion(@jakarta.annotation.Nullable final String value) {
+        this.providerPricingVersion = value;
     }
     /**
      * Sets the status property value. Identifies the outcome of a phone identity lookup action.

@@ -51,6 +51,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private SourceResponseCreatedByUser createdByUser;
     /**
+     * Email used to resolve the creator&apos;s avatar.
+     */
+    private String createdByUserEmail;
+    /**
      * Tag IDs automatically assigned to leads created by this source.
      */
     private java.util.List<String> defaultTagIds;
@@ -191,6 +195,14 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.createdByUser;
     }
     /**
+     * Gets the createdByUserEmail property value. Email used to resolve the creator&apos;s avatar.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCreatedByUserEmail() {
+        return this.createdByUserEmail;
+    }
+    /**
      * Gets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.
      * @return a {@link java.util.List<String>}
      */
@@ -228,7 +240,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
@@ -237,6 +249,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUser", (n) -> { this.setCreatedByUser(n.getObjectValue(SourceResponseCreatedByUser::createFromDiscriminatorValue)); });
+        deserializerMap.put("createdByUserEmail", (n) -> { this.setCreatedByUserEmail(n.getStringValue()); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTags", (n) -> { this.setDefaultTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -338,6 +351,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("createdByUser", this.getCreatedByUser());
+        writer.writeStringValue("createdByUserEmail", this.getCreatedByUserEmail());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfObjectValues("defaultTags", this.getDefaultTags());
         writer.writeStringValue("description", this.getDescription());
@@ -415,6 +429,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setCreatedByUser(@jakarta.annotation.Nullable final SourceResponseCreatedByUser value) {
         this.createdByUser = value;
+    }
+    /**
+     * Sets the createdByUserEmail property value. Email used to resolve the creator&apos;s avatar.
+     * @param value Value to set for the createdByUserEmail property.
+     */
+    public void setCreatedByUserEmail(@jakarta.annotation.Nullable final String value) {
+        this.createdByUserEmail = value;
     }
     /**
      * Sets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.

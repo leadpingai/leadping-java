@@ -138,6 +138,10 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private EventDetailResponseUser user;
     /**
+     * Email address for the user connected to this event detail response.
+     */
+    private String userEmail;
+    /**
      * User ID associated with the activity that created this event.
      */
     private String userId;
@@ -251,7 +255,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
@@ -282,6 +286,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
         deserializerMap.put("undeliverableAt", (n) -> { this.setUndeliverableAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(EventDetailResponseUser::createFromDiscriminatorValue)); });
+        deserializerMap.put("userEmail", (n) -> { this.setUserEmail(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         return deserializerMap;
     }
@@ -446,6 +451,14 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.user;
     }
     /**
+     * Gets the userEmail property value. Email address for the user connected to this event detail response.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getUserEmail() {
+        return this.userEmail;
+    }
+    /**
      * Gets the userId property value. User ID associated with the activity that created this event.
      * @return a {@link String}
      */
@@ -489,6 +502,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
         writer.writeOffsetDateTimeValue("undeliverableAt", this.getUndeliverableAt());
         writer.writeObjectValue("user", this.getUser());
+        writer.writeStringValue("userEmail", this.getUserEmail());
         writer.writeStringValue("userId", this.getUserId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -708,6 +722,13 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     public void setUser(@jakarta.annotation.Nullable final EventDetailResponseUser value) {
         this.user = value;
+    }
+    /**
+     * Sets the userEmail property value. Email address for the user connected to this event detail response.
+     * @param value Value to set for the userEmail property.
+     */
+    public void setUserEmail(@jakarta.annotation.Nullable final String value) {
+        this.userEmail = value;
     }
     /**
      * Sets the userId property value. User ID associated with the activity that created this event.

@@ -21,6 +21,8 @@ public enum TransactionResponseBillableUnit implements ValuedEnum {
     Openai_operation("openai_operation"),
     Domain_registration("domain_registration"),
     OneZerodlc_application("10dlc_application"),
+    OneZerodlc_campaign_month("10dlc_campaign_month"),
+    Payment_processing_fee("payment_processing_fee"),
     Connection_action("connection_action"),
     Automation_run("automation_run");
     public final String value;
@@ -46,6 +48,8 @@ public enum TransactionResponseBillableUnit implements ValuedEnum {
             case "openai_operation": return Openai_operation;
             case "domain_registration": return Domain_registration;
             case "10dlc_application": return OneZerodlc_application;
+            case "10dlc_campaign_month": return OneZerodlc_campaign_month;
+            case "payment_processing_fee": return Payment_processing_fee;
             case "connection_action": return Connection_action;
             case "automation_run": return Automation_run;
             default: return null;
