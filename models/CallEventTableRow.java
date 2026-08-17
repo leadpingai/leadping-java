@@ -39,6 +39,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String callerId;
     /**
+     * Ordered diagnostic entries recorded while Leadping processed this call.
+     */
+    private java.util.List<CommunicationConsoleEntry> consoleEntries;
+    /**
      * Conversation ID that links this call event table row to the Leadping inbox thread.
      */
     private String conversationId;
@@ -187,6 +191,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.callerId;
     }
     /**
+     * Gets the consoleEntries property value. Ordered diagnostic entries recorded while Leadping processed this call.
+     * @return a {@link java.util.List<CommunicationConsoleEntry>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<CommunicationConsoleEntry> getConsoleEntries() {
+        return this.consoleEntries;
+    }
+    /**
      * Gets the conversationId property value. Conversation ID that links this call event table row to the Leadping inbox thread.
      * @return a {@link String}
      */
@@ -232,12 +244,13 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
+        deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
@@ -400,6 +413,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeStringValue("callerId", this.getCallerId());
+        writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("direction", this.getDirection());
@@ -464,6 +478,13 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setCallerId(@jakarta.annotation.Nullable final String value) {
         this.callerId = value;
+    }
+    /**
+     * Sets the consoleEntries property value. Ordered diagnostic entries recorded while Leadping processed this call.
+     * @param value Value to set for the consoleEntries property.
+     */
+    public void setConsoleEntries(@jakarta.annotation.Nullable final java.util.List<CommunicationConsoleEntry> value) {
+        this.consoleEntries = value;
     }
     /**
      * Sets the conversationId property value. Conversation ID that links this call event table row to the Leadping inbox thread.

@@ -47,6 +47,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String complianceAction;
     /**
+     * Ordered diagnostic entries recorded while Leadping processed this message.
+     */
+    private java.util.List<CommunicationConsoleEntry> consoleEntries;
+    /**
      * Conversation ID that links this SMS message to the Leadping inbox thread.
      */
     private String conversationId;
@@ -243,6 +247,14 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.complianceAction;
     }
     /**
+     * Gets the consoleEntries property value. Ordered diagnostic entries recorded while Leadping processed this message.
+     * @return a {@link java.util.List<CommunicationConsoleEntry>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<CommunicationConsoleEntry> getConsoleEntries() {
+        return this.consoleEntries;
+    }
+    /**
      * Gets the conversationId property value. Conversation ID that links this SMS message to the Leadping inbox thread.
      * @return a {@link String}
      */
@@ -296,7 +308,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(37);
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
@@ -304,6 +316,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("cancelReason", (n) -> { this.setCancelReason(n.getStringValue()); });
         deserializerMap.put("complianceAction", (n) -> { this.setComplianceAction(n.getStringValue()); });
+        deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("deliveredAt", (n) -> { this.setDeliveredAt(n.getOffsetDateTimeValue()); });
@@ -532,6 +545,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("canceledAt", this.getCanceledAt());
         writer.writeStringValue("cancelReason", this.getCancelReason());
         writer.writeStringValue("complianceAction", this.getComplianceAction());
+        writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeOffsetDateTimeValue("deliveredAt", this.getDeliveredAt());
@@ -618,6 +632,13 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setComplianceAction(@jakarta.annotation.Nullable final String value) {
         this.complianceAction = value;
+    }
+    /**
+     * Sets the consoleEntries property value. Ordered diagnostic entries recorded while Leadping processed this message.
+     * @param value Value to set for the consoleEntries property.
+     */
+    public void setConsoleEntries(@jakarta.annotation.Nullable final java.util.List<CommunicationConsoleEntry> value) {
+        this.consoleEntries = value;
     }
     /**
      * Sets the conversationId property value. Conversation ID that links this SMS message to the Leadping inbox thread.

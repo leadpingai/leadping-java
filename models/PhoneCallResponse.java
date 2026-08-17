@@ -39,6 +39,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String campaignId;
     /**
+     * Ordered diagnostic entries recorded while Leadping processed this call.
+     */
+    private java.util.List<CommunicationConsoleEntry> consoleEntries;
+    /**
      * Conversation ID that links this phone call to the Leadping inbox thread.
      */
     private String conversationId;
@@ -183,6 +187,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.campaignId;
     }
     /**
+     * Gets the consoleEntries property value. Ordered diagnostic entries recorded while Leadping processed this call.
+     * @return a {@link java.util.List<CommunicationConsoleEntry>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<CommunicationConsoleEntry> getConsoleEntries() {
+        return this.consoleEntries;
+    }
+    /**
      * Gets the conversationId property value. Conversation ID that links this phone call to the Leadping inbox thread.
      * @return a {@link String}
      */
@@ -228,12 +240,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
+        deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
@@ -387,6 +400,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeStringValue("callerId", this.getCallerId());
         writer.writeStringValue("campaignId", this.getCampaignId());
+        writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("direction", this.getDirection());
@@ -450,6 +464,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setCampaignId(@jakarta.annotation.Nullable final String value) {
         this.campaignId = value;
+    }
+    /**
+     * Sets the consoleEntries property value. Ordered diagnostic entries recorded while Leadping processed this call.
+     * @param value Value to set for the consoleEntries property.
+     */
+    public void setConsoleEntries(@jakarta.annotation.Nullable final java.util.List<CommunicationConsoleEntry> value) {
+        this.consoleEntries = value;
     }
     /**
      * Sets the conversationId property value. Conversation ID that links this phone call to the Leadping inbox thread.
