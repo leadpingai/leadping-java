@@ -28,7 +28,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public IntakeRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/intake{?Address1*,Address2*,BirthDate*,City*,DateOfBirth*,DirectPostPrice*,Email*,ExternalId*,FirstName*,Gender*,LandingPage*,LastName*,Phone*,PhoneType*,PostalCode*,Price*,Product*,Referrer*,SellerLeadId*,SellerLeadIdentifier*,SourceMetadata*,State*,SubId*,TagIds*,TagNames*,TrustedFormUrl*,UtmCampaign*,UtmContent*,UtmMedium*,UtmSource*,UtmTerm*,Vertical*,Zip*,sourceKey*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/leads/intake{?Address1*,Address2*,BirthDate*,City*,DateOfBirth*,DirectPostPrice*,Email*,ExternalId*,FirstName*,Gender*,LandingPage*,LastName*,Phone*,PhoneType*,PostalCode*,Price*,Product*,Referrer*,SellerLeadId*,SellerLeadIdentifier*,SourceMetadata*,State*,SubId*,TagIds*,TagNames*,TrustedFormUrl*,UtmCampaign*,UtmContent*,UtmMedium*,UtmSource*,UtmTerm*,Vertical*,Zip*}", pathParameters);
     }
     /**
      * Instantiates a new {@link IntakeRequestBuilder} and sets the default values.
@@ -36,7 +36,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public IntakeRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/leads/intake{?Address1*,Address2*,BirthDate*,City*,DateOfBirth*,DirectPostPrice*,Email*,ExternalId*,FirstName*,Gender*,LandingPage*,LastName*,Phone*,PhoneType*,PostalCode*,Price*,Product*,Referrer*,SellerLeadId*,SellerLeadIdentifier*,SourceMetadata*,State*,SubId*,TagIds*,TagNames*,TrustedFormUrl*,UtmCampaign*,UtmContent*,UtmMedium*,UtmSource*,UtmTerm*,Vertical*,Zip*,sourceKey*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/leads/intake{?Address1*,Address2*,BirthDate*,City*,DateOfBirth*,DirectPostPrice*,Email*,ExternalId*,FirstName*,Gender*,LandingPage*,LastName*,Phone*,PhoneType*,PostalCode*,Price*,Product*,Referrer*,SellerLeadId*,SellerLeadIdentifier*,SourceMetadata*,State*,SubId*,TagIds*,TagNames*,TrustedFormUrl*,UtmCampaign*,UtmContent*,UtmMedium*,UtmSource*,UtmTerm*,Vertical*,Zip*}", rawUrl);
     }
     /**
      * Creates a source-authenticated lead from query parameters, supporting simple form posts, tracking metadata, and follow-up automation.
@@ -142,7 +142,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final LeadIntakeRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
-        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new, x -> x.queryParameters);
+        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
         requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
@@ -263,11 +263,6 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String sellerLeadIdentifier;
         /**
-         * The Leadping source key supplied as a query string parameter, or omitted when supplied as Authorization: Bearer lp_src_...
-         */
-        @jakarta.annotation.Nullable
-        public String sourceKey;
-        /**
          * Source-provided key-value metadata retained for lead attribution and integration troubleshooting.
          */
         @jakarta.annotation.Nullable
@@ -359,7 +354,6 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
             allQueryParams.put("Referrer", referrer);
             allQueryParams.put("SellerLeadId", sellerLeadId);
             allQueryParams.put("SellerLeadIdentifier", sellerLeadIdentifier);
-            allQueryParams.put("sourceKey", sourceKey);
             allQueryParams.put("SourceMetadata", sourceMetadata);
             allQueryParams.put("State", state);
             allQueryParams.put("SubId", subId);
@@ -388,35 +382,9 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         public GetQueryParameters queryParameters = new GetQueryParameters();
     }
     /**
-     * Creates a source-authenticated lead from a flat intake payload, capturing contact fields, metadata, and automation-ready lead details.
-     */
-    @jakarta.annotation.Generated("com.microsoft.kiota")
-    public class PostQueryParameters implements QueryParameters {
-        /**
-         * The Leadping source key supplied as a query string parameter, or omitted when supplied as Authorization: Bearer lp_src_...
-         */
-        @jakarta.annotation.Nullable
-        public String sourceKey;
-        /**
-         * Extracts the query parameters into a map for the URI template parsing.
-         * @return a {@link Map<String, Object>}
-         */
-        @jakarta.annotation.Nonnull
-        public Map<String, Object> toQueryParameters() {
-            final Map<String, Object> allQueryParams = new HashMap();
-            allQueryParams.put("sourceKey", sourceKey);
-            return allQueryParams;
-        }
-    }
-    /**
      * Configuration for the request such as headers, query parameters, and middleware options.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostRequestConfiguration extends BaseRequestConfiguration {
-        /**
-         * Request query parameters
-         */
-        @jakarta.annotation.Nullable
-        public PostQueryParameters queryParameters = new PostQueryParameters();
     }
 }
