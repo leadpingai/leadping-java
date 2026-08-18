@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request model for telephony login token generation.
+ * Identifies the Leadping user and calling context for which a short-lived telephony client token should be issued.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {

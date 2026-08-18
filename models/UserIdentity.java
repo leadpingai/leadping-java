@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents a user&apos;s sign-in identity, including information about the identity provider and method of authentication.
+ * Identifies an external sign-in identity linked to a Leadping user, including its provider, provider-assigned user identifier, and authentication method.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserIdentity implements AdditionalDataHolder, Parsable {

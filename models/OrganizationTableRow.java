@@ -18,7 +18,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double accountBalance;
     /**
-     * Defines the supported Customer Activation Status values.
+     * Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      */
     private OrganizationTableRowActivationStatus activationStatus;
     /**
@@ -54,7 +54,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Long apiKeyTotalUses;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private OrganizationTableRowBillingPlan billingPlan;
     /**
@@ -98,11 +98,11 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String phone;
     /**
-     * Defines the supported Organization Setup Step values.
+     * Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      */
     private OrganizationTableRowSetupStep setupStep;
     /**
-     * Defines the supported Organization Status values.
+     * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      */
     private OrganizationTableRowStatus status;
     /**
@@ -110,11 +110,11 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime subscriptionCancelAt;
     /**
-     * Defines the supported Subscription Status values.
+     * Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      */
     private OrganizationTableRowSubscriptionStatus subscriptionStatus;
     /**
-     * Defines the supported 10DLC Application Status values.
+     * Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      */
     private OrganizationTableRowTenDlcStatus tenDlcStatus;
     /**
@@ -126,7 +126,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String website;
     /**
-     * Defines the supported Website Lifecycle Status values.
+     * Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
      */
     private OrganizationTableRowWebsiteStatus websiteStatus;
     /**
@@ -154,7 +154,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.accountBalance;
     }
     /**
-     * Gets the activationStatus property value. Defines the supported Customer Activation Status values.
+     * Gets the activationStatus property value. Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      * @return a {@link OrganizationTableRowActivationStatus}
      */
     @jakarta.annotation.Nullable
@@ -226,7 +226,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.apiKeyTotalUses;
     }
     /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link OrganizationTableRowBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -351,7 +351,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.phone;
     }
     /**
-     * Gets the setupStep property value. Defines the supported Organization Setup Step values.
+     * Gets the setupStep property value. Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      * @return a {@link OrganizationTableRowSetupStep}
      */
     @jakarta.annotation.Nullable
@@ -359,7 +359,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.setupStep;
     }
     /**
-     * Gets the status property value. Defines the supported Organization Status values.
+     * Gets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @return a {@link OrganizationTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -375,7 +375,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.subscriptionCancelAt;
     }
     /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Gets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @return a {@link OrganizationTableRowSubscriptionStatus}
      */
     @jakarta.annotation.Nullable
@@ -383,7 +383,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.subscriptionStatus;
     }
     /**
-     * Gets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
+     * Gets the tenDlcStatus property value. Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      * @return a {@link OrganizationTableRowTenDlcStatus}
      */
     @jakarta.annotation.Nullable
@@ -407,7 +407,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         return this.website;
     }
     /**
-     * Gets the websiteStatus property value. Defines the supported Website Lifecycle Status values.
+     * Gets the websiteStatus property value. Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
      * @return a {@link OrganizationTableRowWebsiteStatus}
      */
     @jakarta.annotation.Nullable
@@ -458,7 +458,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.accountBalance = value;
     }
     /**
-     * Sets the activationStatus property value. Defines the supported Customer Activation Status values.
+     * Sets the activationStatus property value. Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      * @param value Value to set for the activationStatus property.
      */
     public void setActivationStatus(@jakarta.annotation.Nullable final OrganizationTableRowActivationStatus value) {
@@ -521,7 +521,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.apiKeyTotalUses = value;
     }
     /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final OrganizationTableRowBillingPlan value) {
@@ -598,14 +598,14 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.phone = value;
     }
     /**
-     * Sets the setupStep property value. Defines the supported Organization Setup Step values.
+     * Sets the setupStep property value. Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      * @param value Value to set for the setupStep property.
      */
     public void setSetupStep(@jakarta.annotation.Nullable final OrganizationTableRowSetupStep value) {
         this.setupStep = value;
     }
     /**
-     * Sets the status property value. Defines the supported Organization Status values.
+     * Sets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OrganizationTableRowStatus value) {
@@ -619,14 +619,14 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.subscriptionCancelAt = value;
     }
     /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Sets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @param value Value to set for the subscriptionStatus property.
      */
     public void setSubscriptionStatus(@jakarta.annotation.Nullable final OrganizationTableRowSubscriptionStatus value) {
         this.subscriptionStatus = value;
     }
     /**
-     * Sets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
+     * Sets the tenDlcStatus property value. Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      * @param value Value to set for the tenDlcStatus property.
      */
     public void setTenDlcStatus(@jakarta.annotation.Nullable final OrganizationTableRowTenDlcStatus value) {
@@ -647,7 +647,7 @@ public class OrganizationTableRow implements AdditionalDataHolder, Parsable {
         this.website = value;
     }
     /**
-     * Sets the websiteStatus property value. Defines the supported Website Lifecycle Status values.
+     * Sets the websiteStatus property value. Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
      * @param value Value to set for the websiteStatus property.
      */
     public void setWebsiteStatus(@jakarta.annotation.Nullable final OrganizationTableRowWebsiteStatus value) {

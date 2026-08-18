@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer communication usage point data exposed by Leadping analytics.
+ * Measures organization messaging and calling activity within one analytics time bucket.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Parsable {

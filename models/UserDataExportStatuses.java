@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported user data export statuses values.
+ * Identifies the preparation, availability, failure, expiration, or deletion stage of a Leadping user-data export.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum UserDataExportStatuses implements ValuedEnum {

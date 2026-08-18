@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Transaction Status values.
+ * Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum TransactionStatus implements ValuedEnum {

@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Organization Status values.
+ * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationRequestStatus implements ValuedEnum {

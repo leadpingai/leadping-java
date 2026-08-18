@@ -17,7 +17,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private UserRequestBillingPlan billingPlan;
     /**
@@ -89,7 +89,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link UserRequestBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -233,7 +233,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final UserRequestBillingPlan value) {

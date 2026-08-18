@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Event status values.
+ * Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum EventDetailResponseStatus implements ValuedEnum {

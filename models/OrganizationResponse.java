@@ -50,7 +50,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String billingName;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private OrganizationResponseBillingPlan billingPlan;
     /**
@@ -114,11 +114,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String secondaryName;
     /**
-     * Defines the supported User Setup Status values.
+     * Describes a user&apos;s progress through required Leadping profile and account setup tasks.
      */
     private OrganizationResponseSetupStatus setupStatus;
     /**
-     * Defines the supported Organization Setup Step values.
+     * Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      */
     private OrganizationResponseSetupStep setupStep;
     /**
@@ -126,11 +126,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseSite site;
     /**
-     * Defines the supported Organization Status values.
+     * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      */
     private OrganizationResponseStatus status;
     /**
-     * Defines the supported Subscription Status values.
+     * Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      */
     private OrganizationResponseSubscriptionStatus subscriptionStatus;
     /**
@@ -234,7 +234,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingName;
     }
     /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link OrganizationResponseBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -403,7 +403,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.secondaryName;
     }
     /**
-     * Gets the setupStatus property value. Defines the supported User Setup Status values.
+     * Gets the setupStatus property value. Describes a user&apos;s progress through required Leadping profile and account setup tasks.
      * @return a {@link OrganizationResponseSetupStatus}
      */
     @jakarta.annotation.Nullable
@@ -411,7 +411,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.setupStatus;
     }
     /**
-     * Gets the setupStep property value. Defines the supported Organization Setup Step values.
+     * Gets the setupStep property value. Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      * @return a {@link OrganizationResponseSetupStep}
      */
     @jakarta.annotation.Nullable
@@ -427,7 +427,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.site;
     }
     /**
-     * Gets the status property value. Defines the supported Organization Status values.
+     * Gets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @return a {@link OrganizationResponseStatus}
      */
     @jakarta.annotation.Nullable
@@ -435,7 +435,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Gets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @return a {@link OrganizationResponseSubscriptionStatus}
      */
     @jakarta.annotation.Nullable
@@ -570,7 +570,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.billingName = value;
     }
     /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final OrganizationResponseBillingPlan value) {
@@ -682,14 +682,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.secondaryName = value;
     }
     /**
-     * Sets the setupStatus property value. Defines the supported User Setup Status values.
+     * Sets the setupStatus property value. Describes a user&apos;s progress through required Leadping profile and account setup tasks.
      * @param value Value to set for the setupStatus property.
      */
     public void setSetupStatus(@jakarta.annotation.Nullable final OrganizationResponseSetupStatus value) {
         this.setupStatus = value;
     }
     /**
-     * Sets the setupStep property value. Defines the supported Organization Setup Step values.
+     * Sets the setupStep property value. Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      * @param value Value to set for the setupStep property.
      */
     public void setSetupStep(@jakarta.annotation.Nullable final OrganizationResponseSetupStep value) {
@@ -703,14 +703,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.site = value;
     }
     /**
-     * Sets the status property value. Defines the supported Organization Status values.
+     * Sets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OrganizationResponseStatus value) {
         this.status = value;
     }
     /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Sets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @param value Value to set for the subscriptionStatus property.
      */
     public void setSubscriptionStatus(@jakarta.annotation.Nullable final OrganizationResponseSubscriptionStatus value) {

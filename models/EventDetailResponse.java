@@ -106,7 +106,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime sentAt;
     /**
-     * Defines the supported Event status values.
+     * Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
      */
     private EventDetailResponseStatus status;
     /**
@@ -122,7 +122,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String timelineCategory;
     /**
-     * Defines the supported Event timeline type values.
+     * Classifies the kind of activity displayed in a lead or conversation event timeline.
      */
     private EventDetailResponseTimelineType timelineType;
     /**
@@ -387,7 +387,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.sentAt;
     }
     /**
-     * Gets the status property value. Defines the supported Event status values.
+     * Gets the status property value. Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
      * @return a {@link EventDetailResponseStatus}
      */
     @jakarta.annotation.Nullable
@@ -419,7 +419,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.timelineCategory;
     }
     /**
-     * Gets the timelineType property value. Defines the supported Event timeline type values.
+     * Gets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @return a {@link EventDetailResponseTimelineType}
      */
     @jakarta.annotation.Nullable
@@ -668,7 +668,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.sentAt = value;
     }
     /**
-     * Sets the status property value. Defines the supported Event status values.
+     * Sets the status property value. Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final EventDetailResponseStatus value) {
@@ -696,7 +696,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.timelineCategory = value;
     }
     /**
-     * Sets the timelineType property value. Defines the supported Event timeline type values.
+     * Sets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @param value Value to set for the timelineType property.
      */
     public void setTimelineType(@jakarta.annotation.Nullable final EventDetailResponseTimelineType value) {

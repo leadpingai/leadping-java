@@ -154,7 +154,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String scheduledReason;
     /**
-     * Defines the supported Outgoing Number Selection Reason values.
+     * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      */
     private EventTableRowSelectionReason selectionReason;
     /**
@@ -170,7 +170,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * Defines the supported Event timeline status values.
+     * Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
      */
     private EventTableRowStatus status;
     /**
@@ -194,7 +194,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String toPhoneNumber;
     /**
-     * Defines the supported SMS Traffic Type values.
+     * Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      */
     private EventTableRowTrafficType trafficType;
     /**
@@ -558,7 +558,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.scheduledReason;
     }
     /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Gets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @return a {@link EventTableRowSelectionReason}
      */
     @jakarta.annotation.Nullable
@@ -590,7 +590,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the status property value. Defines the supported Event timeline status values.
+     * Gets the status property value. Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
      * @return a {@link EventTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -638,7 +638,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.toPhoneNumber;
     }
     /**
-     * Gets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Gets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @return a {@link EventTableRowTrafficType}
      */
     @jakarta.annotation.Nullable
@@ -962,7 +962,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.scheduledReason = value;
     }
     /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Sets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @param value Value to set for the selectionReason property.
      */
     public void setSelectionReason(@jakarta.annotation.Nullable final EventTableRowSelectionReason value) {
@@ -990,7 +990,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the status property value. Defines the supported Event timeline status values.
+     * Sets the status property value. Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final EventTableRowStatus value) {
@@ -1032,7 +1032,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.toPhoneNumber = value;
     }
     /**
-     * Sets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Sets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @param value Value to set for the trafficType property.
      */
     public void setTrafficType(@jakarta.annotation.Nullable final EventTableRowTrafficType value) {

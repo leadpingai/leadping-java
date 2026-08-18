@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer automation health data exposed by Leadping analytics.
+ * Summarizes automation coverage, execution success, failures, and workflows requiring organization attention.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable {

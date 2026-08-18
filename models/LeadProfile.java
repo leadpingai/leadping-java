@@ -26,11 +26,11 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
      */
     private Integer creditScore;
     /**
-     * Defines the supported Employment Type values.
+     * Classifies a lead&apos;s reported employment arrangement for qualification and demographic workflows.
      */
     private LeadProfileEmploymentType employmentType;
     /**
-     * Represents a gender classification used for demographic or identification purposes.
+     * Classifies a lead&apos;s self-reported gender when required by a qualification, demographic, or integration workflow.
      */
     private LeadProfileGender gender;
     /**
@@ -54,7 +54,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
      */
     private Boolean isHomeowner;
     /**
-     * Defines the supported Marital Status Type values.
+     * Classifies a lead&apos;s reported marital status when required by a qualification or integration workflow.
      */
     private LeadProfileMaritalStatus maritalStatus;
     /**
@@ -110,7 +110,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
         return this.creditScore;
     }
     /**
-     * Gets the employmentType property value. Defines the supported Employment Type values.
+     * Gets the employmentType property value. Classifies a lead&apos;s reported employment arrangement for qualification and demographic workflows.
      * @return a {@link LeadProfileEmploymentType}
      */
     @jakarta.annotation.Nullable
@@ -140,7 +140,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the gender property value. Represents a gender classification used for demographic or identification purposes.
+     * Gets the gender property value. Classifies a lead&apos;s self-reported gender when required by a qualification, demographic, or integration workflow.
      * @return a {@link LeadProfileGender}
      */
     @jakarta.annotation.Nullable
@@ -188,7 +188,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
         return this.isHomeowner;
     }
     /**
-     * Gets the maritalStatus property value. Defines the supported Marital Status Type values.
+     * Gets the maritalStatus property value. Classifies a lead&apos;s reported marital status when required by a qualification or integration workflow.
      * @return a {@link LeadProfileMaritalStatus}
      */
     @jakarta.annotation.Nullable
@@ -262,14 +262,14 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
         this.creditScore = value;
     }
     /**
-     * Sets the employmentType property value. Defines the supported Employment Type values.
+     * Sets the employmentType property value. Classifies a lead&apos;s reported employment arrangement for qualification and demographic workflows.
      * @param value Value to set for the employmentType property.
      */
     public void setEmploymentType(@jakarta.annotation.Nullable final LeadProfileEmploymentType value) {
         this.employmentType = value;
     }
     /**
-     * Sets the gender property value. Represents a gender classification used for demographic or identification purposes.
+     * Sets the gender property value. Classifies a lead&apos;s self-reported gender when required by a qualification, demographic, or integration workflow.
      * @param value Value to set for the gender property.
      */
     public void setGender(@jakarta.annotation.Nullable final LeadProfileGender value) {
@@ -311,7 +311,7 @@ public class LeadProfile implements AdditionalDataHolder, Parsable {
         this.isHomeowner = value;
     }
     /**
-     * Sets the maritalStatus property value. Defines the supported Marital Status Type values.
+     * Sets the maritalStatus property value. Classifies a lead&apos;s reported marital status when required by a qualification or integration workflow.
      * @param value Value to set for the maritalStatus property.
      */
     public void setMaritalStatus(@jakarta.annotation.Nullable final LeadProfileMaritalStatus value) {

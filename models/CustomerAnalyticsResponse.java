@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response model containing customer analytics data returned by the Leadping API.
+ * Aggregates an organization&apos;s lead performance, response speed, communication usage, automation health, and activation insights.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable {

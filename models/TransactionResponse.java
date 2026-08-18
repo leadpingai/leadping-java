@@ -22,7 +22,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private Double amount;
     /**
-     * Defines the supported Billable Unit values.
+     * Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      */
     private TransactionResponseBillableUnit billableUnit;
     /**
@@ -30,7 +30,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private Double billedAmount;
     /**
-     * Defines the supported Usage Channel values.
+     * Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      */
     private TransactionResponseBillingChannel billingChannel;
     /**
@@ -122,7 +122,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.amount;
     }
     /**
-     * Gets the billableUnit property value. Defines the supported Billable Unit values.
+     * Gets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @return a {@link TransactionResponseBillableUnit}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.billedAmount;
     }
     /**
-     * Gets the billingChannel property value. Defines the supported Usage Channel values.
+     * Gets the billingChannel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @return a {@link TransactionResponseBillingChannel}
      */
     @jakarta.annotation.Nullable
@@ -325,7 +325,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.amount = value;
     }
     /**
-     * Sets the billableUnit property value. Defines the supported Billable Unit values.
+     * Sets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @param value Value to set for the billableUnit property.
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final TransactionResponseBillableUnit value) {
@@ -339,7 +339,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.billedAmount = value;
     }
     /**
-     * Sets the billingChannel property value. Defines the supported Usage Channel values.
+     * Sets the billingChannel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @param value Value to set for the billingChannel property.
      */
     public void setBillingChannel(@jakarta.annotation.Nullable final TransactionResponseBillingChannel value) {

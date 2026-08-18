@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents analytics comparison data exposed by Leadping analytics.
+ * Compares a metric with the preceding period and reports its absolute and percentage change.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AnalyticsComparison implements AdditionalDataHolder, Parsable {

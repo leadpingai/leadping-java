@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported SMS Traffic Type values.
+ * Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum SmsEventTableRowTrafficType implements ValuedEnum {

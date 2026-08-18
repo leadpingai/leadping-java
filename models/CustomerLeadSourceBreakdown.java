@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer lead source breakdown data exposed by Leadping analytics.
+ * Attributes an organization&apos;s lead volume, qualification, and conversion outcomes to a specific acquisition source.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerLeadSourceBreakdown implements AdditionalDataHolder, Parsable {

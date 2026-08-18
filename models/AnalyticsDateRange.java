@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents analytics date range data exposed by Leadping analytics.
+ * Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {

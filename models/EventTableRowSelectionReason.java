@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Outgoing Number Selection Reason values.
+ * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum EventTableRowSelectionReason implements ValuedEnum {

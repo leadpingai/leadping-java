@@ -89,7 +89,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private String secondaryName;
     /**
-     * Defines the supported Organization Status values.
+     * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      */
     private OrganizationRequestStatus status;
     /**
@@ -299,7 +299,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.secondaryName;
     }
     /**
-     * Gets the status property value. Defines the supported Organization Status values.
+     * Gets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @return a {@link OrganizationRequestStatus}
      */
     @jakarta.annotation.Nullable
@@ -485,7 +485,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.secondaryName = value;
     }
     /**
-     * Sets the status property value. Defines the supported Organization Status values.
+     * Sets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OrganizationRequestStatus value) {

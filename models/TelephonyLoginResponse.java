@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response model for telephony login token generation.
+ * Provides the short-lived access token and client configuration required to initialize an authenticated Leadping calling session.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {

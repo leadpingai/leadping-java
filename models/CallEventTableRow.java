@@ -98,7 +98,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String recordingUrl;
     /**
-     * Defines the supported Phone Call Status values.
+     * Describes the durable business outcome of a Leadping phone call after provider status normalization.
      */
     private CallEventTableRowStatus status;
     /**
@@ -346,7 +346,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.recordingUrl;
     }
     /**
-     * Gets the status property value. Defines the supported Phone Call Status values.
+     * Gets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @return a {@link CallEventTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -584,7 +584,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         this.recordingUrl = value;
     }
     /**
-     * Sets the status property value. Defines the supported Phone Call Status values.
+     * Sets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final CallEventTableRowStatus value) {

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents outbound phone number capacity data used by Leadping.
+ * Reports the sending capacity, current load, and availability of a phone number considered for outbound delivery.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsable {

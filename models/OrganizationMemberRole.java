@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Organization User Role values.
+ * Identifies an organization member&apos;s access level and permission scope within Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationMemberRole implements ValuedEnum {

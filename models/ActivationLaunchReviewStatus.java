@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Activation Launch Review Status values.
+ * Describes the administrative review decision that determines whether an organization can launch Leadping workflows.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ActivationLaunchReviewStatus implements ValuedEnum {

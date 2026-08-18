@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents analytics trend point data exposed by Leadping analytics.
+ * Associates a typed analytics value with one normalized time bucket in a trend series.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable {

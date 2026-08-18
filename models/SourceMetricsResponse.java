@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response model containing source metrics data returned by the Leadping API.
+ * Aggregates lead volume, conversion, delivery, and activity metrics attributed to a Leadping source over the requested reporting period.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {

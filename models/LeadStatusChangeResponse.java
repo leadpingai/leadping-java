@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response model for lead status change data.
+ * Describes an auditable lead status transition, including the previous and new status, source, actor, and effective time.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable {

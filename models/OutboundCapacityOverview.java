@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents outbound capacity overview data used by Leadping.
+ * Summarizes organization-wide SMS and voice sending capacity, phone-number health, and recent outbound pacing decisions.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OutboundCapacityOverview implements AdditionalDataHolder, Parsable {

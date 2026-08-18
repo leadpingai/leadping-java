@@ -150,7 +150,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime sentAt;
     /**
-     * Defines the supported SMS Message Status values.
+     * Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      */
     private SmsEventTableRowStatus status;
     /**
@@ -166,7 +166,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String toPhoneNumber;
     /**
-     * Defines the supported SMS Traffic Type values.
+     * Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      */
     private SmsEventTableRowTrafficType trafficType;
     /**
@@ -520,7 +520,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.sentAt;
     }
     /**
-     * Gets the status property value. Defines the supported SMS Message Status values.
+     * Gets the status property value. Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      * @return a {@link SmsEventTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -552,7 +552,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.toPhoneNumber;
     }
     /**
-     * Gets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Gets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @return a {@link SmsEventTableRowTrafficType}
      */
     @jakarta.annotation.Nullable
@@ -871,7 +871,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.sentAt = value;
     }
     /**
-     * Sets the status property value. Defines the supported SMS Message Status values.
+     * Sets the status property value. Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final SmsEventTableRowStatus value) {
@@ -899,7 +899,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.toPhoneNumber = value;
     }
     /**
-     * Sets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Sets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @param value Value to set for the trafficType property.
      */
     public void setTrafficType(@jakarta.annotation.Nullable final SmsEventTableRowTrafficType value) {

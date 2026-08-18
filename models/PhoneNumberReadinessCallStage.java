@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported voice call warmup stages for a Leadping-managed phone number.
+ * Identifies the current traffic-ramp stage of controlled voice warmup for a Leadping-managed phone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum PhoneNumberReadinessCallStage implements ValuedEnum {

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents a configurable status that can be assigned to leads.
+ * Describes an organization-defined lead status used to classify pipeline progress, drive automation, and report lifecycle outcomes.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusResponse implements AdditionalDataHolder, Parsable {

@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Subscription Status values.
+ * Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationTableRowSubscriptionStatus implements ValuedEnum {

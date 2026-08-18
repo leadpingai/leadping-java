@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Notification Priority values.
+ * Ranks the urgency and presentation importance of a Leadping user notification.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum NotificationPriority implements ValuedEnum {

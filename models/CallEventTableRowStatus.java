@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Phone Call Status values.
+ * Describes the durable business outcome of a Leadping phone call after provider status normalization.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum CallEventTableRowStatus implements ValuedEnum {

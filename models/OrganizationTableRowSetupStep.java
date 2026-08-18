@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Organization Setup Step values.
+ * Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationTableRowSetupStep implements ValuedEnum {

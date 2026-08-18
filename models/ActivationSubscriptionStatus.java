@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Activation Subscription Status values.
+ * Describes whether an organization&apos;s subscription is ready, blocked, or still incomplete during activation.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ActivationSubscriptionStatus implements ValuedEnum {

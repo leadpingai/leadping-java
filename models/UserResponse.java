@@ -18,7 +18,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private UserResponseBillingPlan billingPlan;
     /**
@@ -102,7 +102,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> roles;
     /**
-     * Defines the supported Subscription Status values.
+     * Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      */
     private UserResponseSubscriptionStatus subscriptionStatus;
     /**
@@ -134,7 +134,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link UserResponseBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -334,7 +334,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.roles;
     }
     /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Gets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @return a {@link UserResponseSubscriptionStatus}
      */
     @jakarta.annotation.Nullable
@@ -388,7 +388,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final UserResponseBillingPlan value) {
@@ -535,7 +535,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.roles = value;
     }
     /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Sets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @param value Value to set for the subscriptionStatus property.
      */
     public void setSubscriptionStatus(@jakarta.annotation.Nullable final UserResponseSubscriptionStatus value) {

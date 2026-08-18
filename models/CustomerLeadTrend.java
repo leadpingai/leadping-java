@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer lead trend data exposed by Leadping analytics.
+ * Measures lead creation, qualification, and conversion activity within one reporting time bucket.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {

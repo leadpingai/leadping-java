@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported 10DLC Application Status values.
+ * Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum TenDlcApplicationStatus implements ValuedEnum {

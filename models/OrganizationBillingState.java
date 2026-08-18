@@ -54,7 +54,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     private Long organizationMemberQuantity;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private OrganizationBillingStatePendingBillingPlan pendingBillingPlan;
     /**
@@ -188,7 +188,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.organizationMemberQuantity;
     }
     /**
-     * Gets the pendingBillingPlan property value. Defines the supported Billing Plan values.
+     * Gets the pendingBillingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link OrganizationBillingStatePendingBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -311,7 +311,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         this.organizationMemberQuantity = value;
     }
     /**
-     * Sets the pendingBillingPlan property value. Defines the supported Billing Plan values.
+     * Sets the pendingBillingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the pendingBillingPlan property.
      */
     public void setPendingBillingPlan(@jakarta.annotation.Nullable final OrganizationBillingStatePendingBillingPlan value) {

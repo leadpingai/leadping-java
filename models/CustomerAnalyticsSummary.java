@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer analytics summary data exposed by Leadping analytics.
+ * Summarizes an organization&apos;s primary lead, response, communication, and conversion KPIs for the selected period.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable {

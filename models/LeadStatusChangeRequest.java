@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request model for creating or updating a lead status change.
+ * Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {

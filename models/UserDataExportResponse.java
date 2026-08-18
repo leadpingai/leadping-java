@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response model containing user data export data returned by the Leadping API.
+ * Describes the lifecycle, scope, progress, retention, and downloadable artifacts of a Leadping user-data export request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserDataExportResponse implements AdditionalDataHolder, Parsable {

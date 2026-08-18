@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents outbound queue item data used by Leadping.
+ * Describes a queued or recently evaluated outbound delivery request and the pacing decision that controls when it may be sent.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OutboundQueueItem implements AdditionalDataHolder, Parsable {

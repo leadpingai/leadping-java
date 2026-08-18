@@ -96,7 +96,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @return a {@link LeadStatusChangeResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -110,7 +110,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusChangeResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -173,7 +173,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -182,7 +182,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

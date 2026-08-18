@@ -14,7 +14,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable {
     /**
-     * Defines the supported Customer Activation Status values.
+     * Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      */
     private OrganizationSwitchOptionActivationStatus activationStatus;
     /**
@@ -50,7 +50,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean needsAdminReview;
     /**
-     * Defines the supported Organization Status values.
+     * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      */
     private OrganizationSwitchOptionOrganizationStatus organizationStatus;
     /**
@@ -62,7 +62,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private OrganizationMemberRole role;
     /**
-     * Defines the supported 10DLC Application Status values.
+     * Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      */
     private OrganizationSwitchOptionTenDlcStatus tenDlcStatus;
     /**
@@ -82,7 +82,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return new OrganizationSwitchOption();
     }
     /**
-     * Gets the activationStatus property value. Defines the supported Customer Activation Status values.
+     * Gets the activationStatus property value. Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      * @return a {@link OrganizationSwitchOptionActivationStatus}
      */
     @jakarta.annotation.Nullable
@@ -175,7 +175,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.needsAdminReview;
     }
     /**
-     * Gets the organizationStatus property value. Defines the supported Organization Status values.
+     * Gets the organizationStatus property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @return a {@link OrganizationSwitchOptionOrganizationStatus}
      */
     @jakarta.annotation.Nullable
@@ -199,7 +199,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.role;
     }
     /**
-     * Gets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
+     * Gets the tenDlcStatus property value. Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      * @return a {@link OrganizationSwitchOptionTenDlcStatus}
      */
     @jakarta.annotation.Nullable
@@ -227,7 +227,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the activationStatus property value. Defines the supported Customer Activation Status values.
+     * Sets the activationStatus property value. Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      * @param value Value to set for the activationStatus property.
      */
     public void setActivationStatus(@jakarta.annotation.Nullable final OrganizationSwitchOptionActivationStatus value) {
@@ -290,7 +290,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.needsAdminReview = value;
     }
     /**
-     * Sets the organizationStatus property value. Defines the supported Organization Status values.
+     * Sets the organizationStatus property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @param value Value to set for the organizationStatus property.
      */
     public void setOrganizationStatus(@jakarta.annotation.Nullable final OrganizationSwitchOptionOrganizationStatus value) {
@@ -311,7 +311,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.role = value;
     }
     /**
-     * Sets the tenDlcStatus property value. Defines the supported 10DLC Application Status values.
+     * Sets the tenDlcStatus property value. Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      * @param value Value to set for the tenDlcStatus property.
      */
     public void setTenDlcStatus(@jakarta.annotation.Nullable final OrganizationSwitchOptionTenDlcStatus value) {

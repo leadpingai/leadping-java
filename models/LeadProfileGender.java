@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Represents a gender classification used for demographic or identification purposes.
+ * Classifies a lead&apos;s self-reported gender when required by a qualification, demographic, or integration workflow.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum LeadProfileGender implements ValuedEnum {

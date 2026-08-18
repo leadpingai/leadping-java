@@ -98,7 +98,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime ringingAt;
     /**
-     * Defines the supported Outgoing Number Selection Reason values.
+     * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      */
     private PhoneCallResponseSelectionReason selectionReason;
     /**
@@ -341,7 +341,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.ringingAt;
     }
     /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Gets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @return a {@link PhoneCallResponseSelectionReason}
      */
     @jakarta.annotation.Nullable
@@ -570,7 +570,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.ringingAt = value;
     }
     /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Sets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @param value Value to set for the selectionReason property.
      */
     public void setSelectionReason(@jakarta.annotation.Nullable final PhoneCallResponseSelectionReason value) {

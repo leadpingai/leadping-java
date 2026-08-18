@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Activation Telephony Status values.
+ * Describes whether phone numbers, calling, messaging, and provider resources are ready for organization launch.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ActivationTelephonyStatus implements ValuedEnum {
