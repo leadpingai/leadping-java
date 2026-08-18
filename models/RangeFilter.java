@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A generic object for handling range filtering during querying
+ * Selects records by applying inclusive or exclusive lower and upper bounds to a named comparable field.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class RangeFilter implements AdditionalDataHolder, Parsable {
@@ -18,23 +18,23 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The field to filter by.
+     * Serializable field name to evaluate; supported names are determined by the queried resource.
      */
     private String field;
     /**
-     * The exclusive lower bound for the field value.
+     * Exclusive lower bound; matching field values must be greater than this value.
      */
     private UntypedNode greaterThan;
     /**
-     * The inclusive lower bound for the field value.
+     * Inclusive lower bound; matching field values must be greater than or equal to this value.
      */
     private UntypedNode greaterThanOrEqual;
     /**
-     * The exclusive upper bound for the field value.
+     * Exclusive upper bound; matching field values must be less than this value.
      */
     private UntypedNode lessThan;
     /**
-     * The inclusive upper bound for the field value.
+     * Inclusive upper bound; matching field values must be less than or equal to this value.
      */
     private UntypedNode lessThanOrEqual;
     /**
@@ -62,7 +62,7 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the field property value. The field to filter by.
+     * Gets the field property value. Serializable field name to evaluate; supported names are determined by the queried resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -84,7 +84,7 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the greaterThan property value. The exclusive lower bound for the field value.
+     * Gets the greaterThan property value. Exclusive lower bound; matching field values must be greater than this value.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +92,7 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
         return this.greaterThan;
     }
     /**
-     * Gets the greaterThanOrEqual property value. The inclusive lower bound for the field value.
+     * Gets the greaterThanOrEqual property value. Inclusive lower bound; matching field values must be greater than or equal to this value.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
         return this.greaterThanOrEqual;
     }
     /**
-     * Gets the lessThan property value. The exclusive upper bound for the field value.
+     * Gets the lessThan property value. Exclusive upper bound; matching field values must be less than this value.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
         return this.lessThan;
     }
     /**
-     * Gets the lessThanOrEqual property value. The inclusive upper bound for the field value.
+     * Gets the lessThanOrEqual property value. Inclusive upper bound; matching field values must be less than or equal to this value.
      * @return a {@link UntypedNode}
      */
     @jakarta.annotation.Nullable
@@ -136,35 +136,35 @@ public class RangeFilter implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the field property value. The field to filter by.
+     * Sets the field property value. Serializable field name to evaluate; supported names are determined by the queried resource.
      * @param value Value to set for the field property.
      */
     public void setField(@jakarta.annotation.Nullable final String value) {
         this.field = value;
     }
     /**
-     * Sets the greaterThan property value. The exclusive lower bound for the field value.
+     * Sets the greaterThan property value. Exclusive lower bound; matching field values must be greater than this value.
      * @param value Value to set for the greaterThan property.
      */
     public void setGreaterThan(@jakarta.annotation.Nullable final UntypedNode value) {
         this.greaterThan = value;
     }
     /**
-     * Sets the greaterThanOrEqual property value. The inclusive lower bound for the field value.
+     * Sets the greaterThanOrEqual property value. Inclusive lower bound; matching field values must be greater than or equal to this value.
      * @param value Value to set for the greaterThanOrEqual property.
      */
     public void setGreaterThanOrEqual(@jakarta.annotation.Nullable final UntypedNode value) {
         this.greaterThanOrEqual = value;
     }
     /**
-     * Sets the lessThan property value. The exclusive upper bound for the field value.
+     * Sets the lessThan property value. Exclusive upper bound; matching field values must be less than this value.
      * @param value Value to set for the lessThan property.
      */
     public void setLessThan(@jakarta.annotation.Nullable final UntypedNode value) {
         this.lessThan = value;
     }
     /**
-     * Sets the lessThanOrEqual property value. The inclusive upper bound for the field value.
+     * Sets the lessThanOrEqual property value. Inclusive upper bound; matching field values must be less than or equal to this value.
      * @param value Value to set for the lessThanOrEqual property.
      */
     public void setLessThanOrEqual(@jakarta.annotation.Nullable final UntypedNode value) {

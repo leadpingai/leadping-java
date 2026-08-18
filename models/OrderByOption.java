@@ -17,7 +17,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * An enumerator for sort direction during querying
+     * Identifies whether query results are ordered from lower to higher values or from higher to lower values.
      */
     private OrderByOptionDirection direction;
     /**
@@ -49,7 +49,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the direction property value. An enumerator for sort direction during querying
+     * Gets the direction property value. Identifies whether query results are ordered from lower to higher values or from higher to lower values.
      * @return a {@link OrderByOptionDirection}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the direction property value. An enumerator for sort direction during querying
+     * Sets the direction property value. Identifies whether query results are ordered from lower to higher values or from higher to lower values.
      * @param value Value to set for the direction property.
      */
     public void setDirection(@jakarta.annotation.Nullable final OrderByOptionDirection value) {

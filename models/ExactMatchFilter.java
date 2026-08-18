@@ -18,7 +18,7 @@ public class ExactMatchFilter implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The field to filter by.
+     * Serializable field name to evaluate; supported names are determined by the queried resource.
      */
     private String field;
     /**
@@ -50,7 +50,7 @@ public class ExactMatchFilter implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the field property value. The field to filter by.
+     * Gets the field property value. Serializable field name to evaluate; supported names are determined by the queried resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -94,7 +94,7 @@ public class ExactMatchFilter implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the field property value. The field to filter by.
+     * Sets the field property value. Serializable field name to evaluate; supported names are determined by the queried resource.
      * @param value Value to set for the field property.
      */
     public void setField(@jakarta.annotation.Nullable final String value) {
