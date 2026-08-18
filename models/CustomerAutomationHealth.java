@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,15 +19,15 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     /**
      * Total number of automation records represented by this Leadping customer automation health.
      */
-    private UntypedNode automationCount;
+    private Integer automationCount;
     /**
      * Total number of enabled records represented by this Leadping customer automation health.
      */
-    private UntypedNode enabledCount;
+    private Integer enabledCount;
     /**
      * Number of executions represented by this Leadping customer automation health.
      */
-    private UntypedNode executions;
+    private Integer executions;
     /**
      * Collection of failing automations included with this Leadping customer automation health.
      */
@@ -36,7 +35,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     /**
      * Total number of failure records represented by this Leadping customer automation health.
      */
-    private UntypedNode failureCount;
+    private Integer failureCount;
     /**
      * Last failure associated with this Leadping customer automation health.
      */
@@ -44,7 +43,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     /**
      * Total number of success records represented by this Leadping customer automation health.
      */
-    private UntypedNode successCount;
+    private Integer successCount;
     /**
      * Instantiates a new {@link CustomerAutomationHealth} and sets the default values.
      */
@@ -71,26 +70,26 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the automationCount property value. Total number of automation records represented by this Leadping customer automation health.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAutomationCount() {
+    public Integer getAutomationCount() {
         return this.automationCount;
     }
     /**
      * Gets the enabledCount property value. Total number of enabled records represented by this Leadping customer automation health.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getEnabledCount() {
+    public Integer getEnabledCount() {
         return this.enabledCount;
     }
     /**
      * Gets the executions property value. Number of executions represented by this Leadping customer automation health.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getExecutions() {
+    public Integer getExecutions() {
         return this.executions;
     }
     /**
@@ -103,10 +102,10 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the failureCount property value. Total number of failure records represented by this Leadping customer automation health.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getFailureCount() {
+    public Integer getFailureCount() {
         return this.failureCount;
     }
     /**
@@ -116,13 +115,13 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
-        deserializerMap.put("automationCount", (n) -> { this.setAutomationCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("enabledCount", (n) -> { this.setEnabledCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("executions", (n) -> { this.setExecutions(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("automationCount", (n) -> { this.setAutomationCount(n.getIntegerValue()); });
+        deserializerMap.put("enabledCount", (n) -> { this.setEnabledCount(n.getIntegerValue()); });
+        deserializerMap.put("executions", (n) -> { this.setExecutions(n.getIntegerValue()); });
         deserializerMap.put("failingAutomations", (n) -> { this.setFailingAutomations(n.getCollectionOfObjectValues(CustomerFailingAutomation::createFromDiscriminatorValue)); });
-        deserializerMap.put("failureCount", (n) -> { this.setFailureCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("failureCount", (n) -> { this.setFailureCount(n.getIntegerValue()); });
         deserializerMap.put("lastFailure", (n) -> { this.setLastFailure(n.getObjectValue(CustomerAutomationHealthLastFailure::createFromDiscriminatorValue)); });
-        deserializerMap.put("successCount", (n) -> { this.setSuccessCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("successCount", (n) -> { this.setSuccessCount(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -135,10 +134,10 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the successCount property value. Total number of success records represented by this Leadping customer automation health.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSuccessCount() {
+    public Integer getSuccessCount() {
         return this.successCount;
     }
     /**
@@ -147,13 +146,13 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("automationCount", this.getAutomationCount());
-        writer.writeObjectValue("enabledCount", this.getEnabledCount());
-        writer.writeObjectValue("executions", this.getExecutions());
+        writer.writeIntegerValue("automationCount", this.getAutomationCount());
+        writer.writeIntegerValue("enabledCount", this.getEnabledCount());
+        writer.writeIntegerValue("executions", this.getExecutions());
         writer.writeCollectionOfObjectValues("failingAutomations", this.getFailingAutomations());
-        writer.writeObjectValue("failureCount", this.getFailureCount());
+        writer.writeIntegerValue("failureCount", this.getFailureCount());
         writer.writeObjectValue("lastFailure", this.getLastFailure());
-        writer.writeObjectValue("successCount", this.getSuccessCount());
+        writer.writeIntegerValue("successCount", this.getSuccessCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -167,21 +166,21 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      * Sets the automationCount property value. Total number of automation records represented by this Leadping customer automation health.
      * @param value Value to set for the automationCount property.
      */
-    public void setAutomationCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAutomationCount(@jakarta.annotation.Nullable final Integer value) {
         this.automationCount = value;
     }
     /**
      * Sets the enabledCount property value. Total number of enabled records represented by this Leadping customer automation health.
      * @param value Value to set for the enabledCount property.
      */
-    public void setEnabledCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setEnabledCount(@jakarta.annotation.Nullable final Integer value) {
         this.enabledCount = value;
     }
     /**
      * Sets the executions property value. Number of executions represented by this Leadping customer automation health.
      * @param value Value to set for the executions property.
      */
-    public void setExecutions(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setExecutions(@jakarta.annotation.Nullable final Integer value) {
         this.executions = value;
     }
     /**
@@ -195,7 +194,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      * Sets the failureCount property value. Total number of failure records represented by this Leadping customer automation health.
      * @param value Value to set for the failureCount property.
      */
-    public void setFailureCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setFailureCount(@jakarta.annotation.Nullable final Integer value) {
         this.failureCount = value;
     }
     /**
@@ -209,7 +208,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      * Sets the successCount property value. Total number of success records represented by this Leadping customer automation health.
      * @param value Value to set for the successCount property.
      */
-    public void setSuccessCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSuccessCount(@jakarta.annotation.Nullable final Integer value) {
         this.successCount = value;
     }
 }

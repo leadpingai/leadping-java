@@ -18,23 +18,23 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * The id property
+     * Unique identifier of this diagnostic console entry.
      */
     private String id;
     /**
-     * The message property
+     * User-safe diagnostic message describing what occurred at this stage.
      */
     private String message;
     /**
-     * The occurredAt property
+     * UTC timestamp when this communication-processing event occurred.
      */
     private OffsetDateTime occurredAt;
     /**
-     * The stage property
+     * Communication-processing stage that produced the entry, such as validation, routing, or provider delivery.
      */
     private String stage;
     /**
-     * The status property
+     * Outcome or state recorded for this processing stage.
      */
     private String status;
     /**
@@ -76,7 +76,7 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique identifier of this diagnostic console entry.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -84,7 +84,7 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         return this.id;
     }
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. User-safe diagnostic message describing what occurred at this stage.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +92,7 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         return this.message;
     }
     /**
-     * Gets the occurredAt property value. The occurredAt property
+     * Gets the occurredAt property value. UTC timestamp when this communication-processing event occurred.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         return this.occurredAt;
     }
     /**
-     * Gets the stage property value. The stage property
+     * Gets the stage property value. Communication-processing stage that produced the entry, such as validation, routing, or provider delivery.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         return this.stage;
     }
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Outcome or state recorded for this processing stage.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -136,35 +136,35 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique identifier of this diagnostic console entry.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. User-safe diagnostic message describing what occurred at this stage.
      * @param value Value to set for the message property.
      */
     public void setMessage(@jakarta.annotation.Nullable final String value) {
         this.message = value;
     }
     /**
-     * Sets the occurredAt property value. The occurredAt property
+     * Sets the occurredAt property value. UTC timestamp when this communication-processing event occurred.
      * @param value Value to set for the occurredAt property.
      */
     public void setOccurredAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.occurredAt = value;
     }
     /**
-     * Sets the stage property value. The stage property
+     * Sets the stage property value. Communication-processing stage that produced the entry, such as validation, routing, or provider delivery.
      * @param value Value to set for the stage property.
      */
     public void setStage(@jakarta.annotation.Nullable final String value) {
         this.stage = value;
     }
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Outcome or state recorded for this processing stage.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {

@@ -3,6 +3,7 @@ package ai.leadping.openapi.leadstatuses;
 import ai.leadping.openapi.leadstatuses.item.LeadStatusesItemRequestBuilder;
 import ai.leadping.openapi.models.LeadStatusRequest;
 import ai.leadping.openapi.models.LeadStatusResponse;
+import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -51,6 +52,9 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
     /**
      * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @return a {@link java.util.List<LeadStatusResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<LeadStatusResponse> get() {
@@ -60,16 +64,26 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
      * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<LeadStatusResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<LeadStatusResponse> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.sendCollection(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendCollection(requestInfo, errorMapping, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
      * Creates a reusable lead status for the current organization to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link LeadStatusResponse}
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadStatusResponse post(@jakarta.annotation.Nonnull final LeadStatusRequest body) {
@@ -80,12 +94,19 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadStatusResponse post(@jakarta.annotation.Nonnull final LeadStatusRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, LeadStatusResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, LeadStatusResponse::createFromDiscriminatorValue);
     }
     /**
      * Lists the current organization&apos;s active lead statuses for organizing and tracking leads through the sales workflow.

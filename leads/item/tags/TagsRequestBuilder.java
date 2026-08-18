@@ -55,7 +55,9 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse post(@jakarta.annotation.Nonnull final LeadTagsRequest body) {
@@ -68,7 +70,9 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse post(@jakarta.annotation.Nonnull final LeadTagsRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -77,7 +81,9 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
@@ -86,7 +92,9 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse put(@jakarta.annotation.Nonnull final LeadTagsRequest body) {
@@ -99,7 +107,9 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse put(@jakarta.annotation.Nonnull final LeadTagsRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -108,7 +118,9 @@ public class TagsRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**

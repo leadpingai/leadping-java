@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -32,7 +31,7 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
     /**
      * Size of the media attachment in bytes.
      */
-    private UntypedNode size;
+    private Long size;
     /**
      * URL from which the media attachment can be retrieved.
      */
@@ -79,7 +78,7 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
         deserializerMap.put("contentType", (n) -> { this.setContentType(n.getStringValue()); });
         deserializerMap.put("fileName", (n) -> { this.setFileName(n.getStringValue()); });
         deserializerMap.put("sha256", (n) -> { this.setSha256(n.getStringValue()); });
-        deserializerMap.put("size", (n) -> { this.setSize(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("size", (n) -> { this.setSize(n.getLongValue()); });
         deserializerMap.put("url", (n) -> { this.setUrl(n.getStringValue()); });
         return deserializerMap;
     }
@@ -101,10 +100,10 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the size property value. Size of the media attachment in bytes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSize() {
+    public Long getSize() {
         return this.size;
     }
     /**
@@ -124,7 +123,7 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("contentType", this.getContentType());
         writer.writeStringValue("fileName", this.getFileName());
         writer.writeStringValue("sha256", this.getSha256());
-        writer.writeObjectValue("size", this.getSize());
+        writer.writeLongValue("size", this.getSize());
         writer.writeStringValue("url", this.getUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -160,7 +159,7 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      * Sets the size property value. Size of the media attachment in bytes.
      * @param value Value to set for the size property.
      */
-    public void setSize(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSize(@jakarta.annotation.Nullable final Long value) {
         this.size = value;
     }
     /**

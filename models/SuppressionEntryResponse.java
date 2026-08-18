@@ -50,7 +50,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private String recipientIdentifier;
     /**
-     * UTC timestamp when the suppression was released, or while it remains active.
+     * UTC timestamp when the suppression was released, or null while it remains active.
      */
     private OffsetDateTime releasedAt;
     /**
@@ -175,7 +175,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.recipientIdentifier;
     }
     /**
-     * Gets the releasedAt property value. UTC timestamp when the suppression was released, or while it remains active.
+     * Gets the releasedAt property value. UTC timestamp when the suppression was released, or null while it remains active.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -290,7 +290,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         this.recipientIdentifier = value;
     }
     /**
-     * Sets the releasedAt property value. UTC timestamp when the suppression was released, or while it remains active.
+     * Sets the releasedAt property value. UTC timestamp when the suppression was released, or null while it remains active.
      * @param value Value to set for the releasedAt property.
      */
     public void setReleasedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

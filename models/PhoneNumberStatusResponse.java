@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,11 +19,11 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     /**
      * Indicates whether this phone number can currently place outbound calls.
      */
-    private UntypedNode callsPossible;
+    private Integer callsPossible;
     /**
      * Indicates whether this phone number can currently send SMS messages.
      */
-    private UntypedNode messagesPossible;
+    private Integer messagesPossible;
     /**
      * E.164 phone number exposed by this phone number warmup status.
      */
@@ -75,10 +74,10 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     }
     /**
      * Gets the callsPossible property value. Indicates whether this phone number can currently place outbound calls.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallsPossible() {
+    public Integer getCallsPossible() {
         return this.callsPossible;
     }
     /**
@@ -88,8 +87,8 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("callsPossible", (n) -> { this.setCallsPossible(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("messagesPossible", (n) -> { this.setMessagesPossible(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("callsPossible", (n) -> { this.setCallsPossible(n.getIntegerValue()); });
+        deserializerMap.put("messagesPossible", (n) -> { this.setMessagesPossible(n.getIntegerValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("optOutMetrics", (n) -> { this.setOptOutMetrics(n.getObjectValue(PhoneNumberOptOutMetricsResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("outboundCapacity", (n) -> { this.setOutboundCapacity(n.getObjectValue(PhoneNumberStatusResponseOutboundCapacity::createFromDiscriminatorValue)); });
@@ -100,10 +99,10 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     }
     /**
      * Gets the messagesPossible property value. Indicates whether this phone number can currently send SMS messages.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMessagesPossible() {
+    public Integer getMessagesPossible() {
         return this.messagesPossible;
     }
     /**
@@ -160,8 +159,8 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("callsPossible", this.getCallsPossible());
-        writer.writeObjectValue("messagesPossible", this.getMessagesPossible());
+        writer.writeIntegerValue("callsPossible", this.getCallsPossible());
+        writer.writeIntegerValue("messagesPossible", this.getMessagesPossible());
         writer.writeStringValue("number", this.getNumber());
         writer.writeObjectValue("optOutMetrics", this.getOptOutMetrics());
         writer.writeObjectValue("outboundCapacity", this.getOutboundCapacity());
@@ -181,14 +180,14 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      * Sets the callsPossible property value. Indicates whether this phone number can currently place outbound calls.
      * @param value Value to set for the callsPossible property.
      */
-    public void setCallsPossible(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallsPossible(@jakarta.annotation.Nullable final Integer value) {
         this.callsPossible = value;
     }
     /**
      * Sets the messagesPossible property value. Indicates whether this phone number can currently send SMS messages.
      * @param value Value to set for the messagesPossible property.
      */
-    public void setMessagesPossible(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMessagesPossible(@jakarta.annotation.Nullable final Integer value) {
         this.messagesPossible = value;
     }
     /**

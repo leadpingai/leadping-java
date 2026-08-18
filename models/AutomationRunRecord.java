@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +56,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
     /**
      * Number of processing attempts made for this workflow or delivery request.
      */
-    private UntypedNode processingAttempts;
+    private Integer processingAttempts;
     /**
      * Human-readable reason explaining why Leadping skipped this automation run.
      */
@@ -154,7 +153,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lastAttemptAt", (n) -> { this.setLastAttemptAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
-        deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("skippedReason", (n) -> { this.setSkippedReason(n.getStringValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
@@ -195,10 +194,10 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getProcessingAttempts() {
+    public Integer getProcessingAttempts() {
         return this.processingAttempts;
     }
     /**
@@ -248,7 +247,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("lastAttemptAt", this.getLastAttemptAt());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("organizationId", this.getOrganizationId());
-        writer.writeObjectValue("processingAttempts", this.getProcessingAttempts());
+        writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeStringValue("skippedReason", this.getSkippedReason());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
@@ -329,7 +328,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      * Sets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
      * @param value Value to set for the processingAttempts property.
      */
-    public void setProcessingAttempts(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setProcessingAttempts(@jakarta.annotation.Nullable final Integer value) {
         this.processingAttempts = value;
     }
     /**

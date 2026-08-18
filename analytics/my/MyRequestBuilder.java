@@ -43,6 +43,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public CustomerAnalyticsResponse get() {
@@ -55,6 +56,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public CustomerAnalyticsResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -63,6 +65,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, CustomerAnalyticsResponse::createFromDiscriminatorValue);
     }
     /**
@@ -104,7 +107,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
          * Optional number of recent days to include when explicit timestamps are not supplied.
          */
         @jakarta.annotation.Nullable
-        public String days;
+        public Integer days;
         /**
          * Optional exclusive end timestamp for the analytics period.
          */

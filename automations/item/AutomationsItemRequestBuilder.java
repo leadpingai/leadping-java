@@ -58,7 +58,9 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
      * Deletes an automation for the current organization so it no longer schedules follow-up or routing work for captured leads.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public Boolean delete() {
@@ -69,21 +71,27 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public Boolean delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
      * Returns one automation for the current organization, including trigger criteria, message steps, routing settings, and enabled state.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationResponse get() {
@@ -94,14 +102,18 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationResponse::createFromDiscriminatorValue);
     }
     /**
@@ -110,7 +122,9 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationResponse put(@jakarta.annotation.Nonnull final AutomationRequest body) {
@@ -123,7 +137,9 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link AutomationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationResponse put(@jakarta.annotation.Nonnull final AutomationRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -132,7 +148,9 @@ public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationResponse::createFromDiscriminatorValue);
     }
     /**

@@ -40,6 +40,7 @@ public class PaymentmethodRequestBuilder extends BaseRequestBuilder {
      * @return a {@link StripePaymentMethodResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public StripePaymentMethodResponse get() {
@@ -51,6 +52,7 @@ public class PaymentmethodRequestBuilder extends BaseRequestBuilder {
      * @return a {@link StripePaymentMethodResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public StripePaymentMethodResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -58,6 +60,7 @@ public class PaymentmethodRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, StripePaymentMethodResponse::createFromDiscriminatorValue);
     }
     /**

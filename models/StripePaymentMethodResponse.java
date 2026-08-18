@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,11 +28,11 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
     /**
      * Two-digit month when the card expires.
      */
-    private UntypedNode expMonth;
+    private Integer expMonth;
     /**
      * Four-digit year when the card expires.
      */
-    private UntypedNode expYear;
+    private Integer expYear;
     /**
      * Unique Leadping identifier for this Stripe payment method.
      */
@@ -88,18 +87,18 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the expMonth property value. Two-digit month when the card expires.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getExpMonth() {
+    public Integer getExpMonth() {
         return this.expMonth;
     }
     /**
      * Gets the expYear property value. Four-digit year when the card expires.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getExpYear() {
+    public Integer getExpYear() {
         return this.expYear;
     }
     /**
@@ -111,8 +110,8 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("brand", (n) -> { this.setBrand(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("expMonth", (n) -> { this.setExpMonth(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("expYear", (n) -> { this.setExpYear(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("expMonth", (n) -> { this.setExpMonth(n.getIntegerValue()); });
+        deserializerMap.put("expYear", (n) -> { this.setExpYear(n.getIntegerValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDefault", (n) -> { this.setIsDefault(n.getBooleanValue()); });
         deserializerMap.put("last4", (n) -> { this.setLast4(n.getStringValue()); });
@@ -150,8 +149,8 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         Objects.requireNonNull(writer);
         writer.writeStringValue("brand", this.getBrand());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeObjectValue("expMonth", this.getExpMonth());
-        writer.writeObjectValue("expYear", this.getExpYear());
+        writer.writeIntegerValue("expMonth", this.getExpMonth());
+        writer.writeIntegerValue("expYear", this.getExpYear());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDefault", this.getIsDefault());
         writer.writeStringValue("last4", this.getLast4());
@@ -182,14 +181,14 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      * Sets the expMonth property value. Two-digit month when the card expires.
      * @param value Value to set for the expMonth property.
      */
-    public void setExpMonth(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setExpMonth(@jakarta.annotation.Nullable final Integer value) {
         this.expMonth = value;
     }
     /**
      * Sets the expYear property value. Four-digit year when the card expires.
      * @param value Value to set for the expYear property.
      */
-    public void setExpYear(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setExpYear(@jakarta.annotation.Nullable final Integer value) {
         this.expYear = value;
     }
     /**

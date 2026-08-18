@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,39 +20,39 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
     /**
      * Number of outbound calls that connected during this metrics window.
      */
-    private UntypedNode callConnectedCount;
+    private Integer callConnectedCount;
     /**
      * Number of outbound calls that failed during this metrics window.
      */
-    private UntypedNode callFailedCount;
+    private Integer callFailedCount;
     /**
      * Number of outbound calls that failed because the destination number was invalid during this metrics window.
      */
-    private UntypedNode callInvalidNumberCount;
+    private Integer callInvalidNumberCount;
     /**
      * Number of outbound calls placed during this metrics window.
      */
-    private UntypedNode callPlacedCount;
+    private Integer callPlacedCount;
     /**
      * Number of connected outbound calls shorter than 30 seconds during this metrics window.
      */
-    private UntypedNode callShortCount;
+    private Integer callShortCount;
     /**
      * Number of MMS messages that failed during this metrics window.
      */
-    private UntypedNode mmsFailedCount;
+    private Integer mmsFailedCount;
     /**
      * Number of MMS messages sent during this metrics window.
      */
-    private UntypedNode mmsSentCount;
+    private Integer mmsSentCount;
     /**
      * Number of SMS messages that failed during this metrics window.
      */
-    private UntypedNode smsFailedCount;
+    private Integer smsFailedCount;
     /**
      * Number of SMS messages sent during this metrics window.
      */
-    private UntypedNode smsSentCount;
+    private Integer smsSentCount;
     /**
      * Time-series buckets that show how the metric changes across the reporting window.
      */
@@ -61,7 +60,7 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
     /**
      * Number of days included in the metrics reporting window.
      */
-    private UntypedNode windowDays;
+    private Integer windowDays;
     /**
      * UTC timestamp when the metrics reporting window starts.
      */
@@ -92,42 +91,42 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
     }
     /**
      * Gets the callConnectedCount property value. Number of outbound calls that connected during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallConnectedCount() {
+    public Integer getCallConnectedCount() {
         return this.callConnectedCount;
     }
     /**
      * Gets the callFailedCount property value. Number of outbound calls that failed during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallFailedCount() {
+    public Integer getCallFailedCount() {
         return this.callFailedCount;
     }
     /**
      * Gets the callInvalidNumberCount property value. Number of outbound calls that failed because the destination number was invalid during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallInvalidNumberCount() {
+    public Integer getCallInvalidNumberCount() {
         return this.callInvalidNumberCount;
     }
     /**
      * Gets the callPlacedCount property value. Number of outbound calls placed during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallPlacedCount() {
+    public Integer getCallPlacedCount() {
         return this.callPlacedCount;
     }
     /**
      * Gets the callShortCount property value. Number of connected outbound calls shorter than 30 seconds during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallShortCount() {
+    public Integer getCallShortCount() {
         return this.callShortCount;
     }
     /**
@@ -137,50 +136,50 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
-        deserializerMap.put("callConnectedCount", (n) -> { this.setCallConnectedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callFailedCount", (n) -> { this.setCallFailedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callInvalidNumberCount", (n) -> { this.setCallInvalidNumberCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callPlacedCount", (n) -> { this.setCallPlacedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callShortCount", (n) -> { this.setCallShortCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("mmsFailedCount", (n) -> { this.setMmsFailedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("mmsSentCount", (n) -> { this.setMmsSentCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("smsFailedCount", (n) -> { this.setSmsFailedCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("smsSentCount", (n) -> { this.setSmsSentCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("callConnectedCount", (n) -> { this.setCallConnectedCount(n.getIntegerValue()); });
+        deserializerMap.put("callFailedCount", (n) -> { this.setCallFailedCount(n.getIntegerValue()); });
+        deserializerMap.put("callInvalidNumberCount", (n) -> { this.setCallInvalidNumberCount(n.getIntegerValue()); });
+        deserializerMap.put("callPlacedCount", (n) -> { this.setCallPlacedCount(n.getIntegerValue()); });
+        deserializerMap.put("callShortCount", (n) -> { this.setCallShortCount(n.getIntegerValue()); });
+        deserializerMap.put("mmsFailedCount", (n) -> { this.setMmsFailedCount(n.getIntegerValue()); });
+        deserializerMap.put("mmsSentCount", (n) -> { this.setMmsSentCount(n.getIntegerValue()); });
+        deserializerMap.put("smsFailedCount", (n) -> { this.setSmsFailedCount(n.getIntegerValue()); });
+        deserializerMap.put("smsSentCount", (n) -> { this.setSmsSentCount(n.getIntegerValue()); });
         deserializerMap.put("trend", (n) -> { this.setTrend(n.getCollectionOfObjectValues(PhoneNumberTrafficTrendPoint::createFromDiscriminatorValue)); });
-        deserializerMap.put("windowDays", (n) -> { this.setWindowDays(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("windowDays", (n) -> { this.setWindowDays(n.getIntegerValue()); });
         deserializerMap.put("windowStartedAt", (n) -> { this.setWindowStartedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
     }
     /**
      * Gets the mmsFailedCount property value. Number of MMS messages that failed during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMmsFailedCount() {
+    public Integer getMmsFailedCount() {
         return this.mmsFailedCount;
     }
     /**
      * Gets the mmsSentCount property value. Number of MMS messages sent during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMmsSentCount() {
+    public Integer getMmsSentCount() {
         return this.mmsSentCount;
     }
     /**
      * Gets the smsFailedCount property value. Number of SMS messages that failed during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsFailedCount() {
+    public Integer getSmsFailedCount() {
         return this.smsFailedCount;
     }
     /**
      * Gets the smsSentCount property value. Number of SMS messages sent during this metrics window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsSentCount() {
+    public Integer getSmsSentCount() {
         return this.smsSentCount;
     }
     /**
@@ -193,10 +192,10 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
     }
     /**
      * Gets the windowDays property value. Number of days included in the metrics reporting window.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getWindowDays() {
+    public Integer getWindowDays() {
         return this.windowDays;
     }
     /**
@@ -213,17 +212,17 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("callConnectedCount", this.getCallConnectedCount());
-        writer.writeObjectValue("callFailedCount", this.getCallFailedCount());
-        writer.writeObjectValue("callInvalidNumberCount", this.getCallInvalidNumberCount());
-        writer.writeObjectValue("callPlacedCount", this.getCallPlacedCount());
-        writer.writeObjectValue("callShortCount", this.getCallShortCount());
-        writer.writeObjectValue("mmsFailedCount", this.getMmsFailedCount());
-        writer.writeObjectValue("mmsSentCount", this.getMmsSentCount());
-        writer.writeObjectValue("smsFailedCount", this.getSmsFailedCount());
-        writer.writeObjectValue("smsSentCount", this.getSmsSentCount());
+        writer.writeIntegerValue("callConnectedCount", this.getCallConnectedCount());
+        writer.writeIntegerValue("callFailedCount", this.getCallFailedCount());
+        writer.writeIntegerValue("callInvalidNumberCount", this.getCallInvalidNumberCount());
+        writer.writeIntegerValue("callPlacedCount", this.getCallPlacedCount());
+        writer.writeIntegerValue("callShortCount", this.getCallShortCount());
+        writer.writeIntegerValue("mmsFailedCount", this.getMmsFailedCount());
+        writer.writeIntegerValue("mmsSentCount", this.getMmsSentCount());
+        writer.writeIntegerValue("smsFailedCount", this.getSmsFailedCount());
+        writer.writeIntegerValue("smsSentCount", this.getSmsSentCount());
         writer.writeCollectionOfObjectValues("trend", this.getTrend());
-        writer.writeObjectValue("windowDays", this.getWindowDays());
+        writer.writeIntegerValue("windowDays", this.getWindowDays());
         writer.writeOffsetDateTimeValue("windowStartedAt", this.getWindowStartedAt());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -238,63 +237,63 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
      * Sets the callConnectedCount property value. Number of outbound calls that connected during this metrics window.
      * @param value Value to set for the callConnectedCount property.
      */
-    public void setCallConnectedCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallConnectedCount(@jakarta.annotation.Nullable final Integer value) {
         this.callConnectedCount = value;
     }
     /**
      * Sets the callFailedCount property value. Number of outbound calls that failed during this metrics window.
      * @param value Value to set for the callFailedCount property.
      */
-    public void setCallFailedCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallFailedCount(@jakarta.annotation.Nullable final Integer value) {
         this.callFailedCount = value;
     }
     /**
      * Sets the callInvalidNumberCount property value. Number of outbound calls that failed because the destination number was invalid during this metrics window.
      * @param value Value to set for the callInvalidNumberCount property.
      */
-    public void setCallInvalidNumberCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallInvalidNumberCount(@jakarta.annotation.Nullable final Integer value) {
         this.callInvalidNumberCount = value;
     }
     /**
      * Sets the callPlacedCount property value. Number of outbound calls placed during this metrics window.
      * @param value Value to set for the callPlacedCount property.
      */
-    public void setCallPlacedCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallPlacedCount(@jakarta.annotation.Nullable final Integer value) {
         this.callPlacedCount = value;
     }
     /**
      * Sets the callShortCount property value. Number of connected outbound calls shorter than 30 seconds during this metrics window.
      * @param value Value to set for the callShortCount property.
      */
-    public void setCallShortCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallShortCount(@jakarta.annotation.Nullable final Integer value) {
         this.callShortCount = value;
     }
     /**
      * Sets the mmsFailedCount property value. Number of MMS messages that failed during this metrics window.
      * @param value Value to set for the mmsFailedCount property.
      */
-    public void setMmsFailedCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMmsFailedCount(@jakarta.annotation.Nullable final Integer value) {
         this.mmsFailedCount = value;
     }
     /**
      * Sets the mmsSentCount property value. Number of MMS messages sent during this metrics window.
      * @param value Value to set for the mmsSentCount property.
      */
-    public void setMmsSentCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMmsSentCount(@jakarta.annotation.Nullable final Integer value) {
         this.mmsSentCount = value;
     }
     /**
      * Sets the smsFailedCount property value. Number of SMS messages that failed during this metrics window.
      * @param value Value to set for the smsFailedCount property.
      */
-    public void setSmsFailedCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsFailedCount(@jakarta.annotation.Nullable final Integer value) {
         this.smsFailedCount = value;
     }
     /**
      * Sets the smsSentCount property value. Number of SMS messages sent during this metrics window.
      * @param value Value to set for the smsSentCount property.
      */
-    public void setSmsSentCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsSentCount(@jakarta.annotation.Nullable final Integer value) {
         this.smsSentCount = value;
     }
     /**
@@ -308,7 +307,7 @@ public class PhoneNumberTrafficMetricsResponse implements AdditionalDataHolder, 
      * Sets the windowDays property value. Number of days included in the metrics reporting window.
      * @param value Value to set for the windowDays property.
      */
-    public void setWindowDays(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setWindowDays(@jakarta.annotation.Nullable final Integer value) {
         this.windowDays = value;
     }
     /**

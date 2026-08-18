@@ -1,4 +1,4 @@
-package ai.leadping.openapi.events.item.detail;
+package ai.leadping.openapi.events.detail.item;
 
 import ai.leadping.openapi.models.EventDetailResponse;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -15,31 +15,33 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /events/{eventId}/detail
+ * Builds and executes requests for operations under /events/detail/{eventId}
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class DetailRequestBuilder extends BaseRequestBuilder {
+public class WithEventItemRequestBuilder extends BaseRequestBuilder {
     /**
-     * Instantiates a new {@link DetailRequestBuilder} and sets the default values.
+     * Instantiates a new {@link WithEventItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public DetailRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/events/{eventId}/detail", pathParameters);
+    public WithEventItemRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/events/detail/{eventId}", pathParameters);
     }
     /**
-     * Instantiates a new {@link DetailRequestBuilder} and sets the default values.
+     * Instantiates a new {@link WithEventItemRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public DetailRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/events/{eventId}/detail", rawUrl);
+    public WithEventItemRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/events/detail/{eventId}", rawUrl);
     }
     /**
      * Returns detailed event data by ID, including the full JSON payload for debugging, audit review, and workflow inspection.
      * @return a {@link EventDetailResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public EventDetailResponse get() {
@@ -50,14 +52,18 @@ public class DetailRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link EventDetailResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public EventDetailResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, EventDetailResponse::createFromDiscriminatorValue);
     }
     /**
@@ -83,12 +89,12 @@ public class DetailRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a {@link DetailRequestBuilder}
+     * @return a {@link WithEventItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public DetailRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+    public WithEventItemRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
         Objects.requireNonNull(rawUrl);
-        return new DetailRequestBuilder(rawUrl, requestAdapter);
+        return new WithEventItemRequestBuilder(rawUrl, requestAdapter);
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

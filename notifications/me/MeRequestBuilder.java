@@ -44,6 +44,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link PagedResultOfNotificationTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
@@ -57,6 +58,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link PagedResultOfNotificationTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
@@ -66,6 +68,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfNotificationTableRow::createFromDiscriminatorValue);
     }

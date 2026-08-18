@@ -38,6 +38,7 @@ public class WebsiteRequestBuilder extends BaseRequestBuilder {
      * Delivers the inquiry to the generated website&apos;s provisioned support address, then redirects the visitor to the site&apos;s confirmation state.
      * @param body The request body
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     public void post(@jakarta.annotation.Nonnull final WebsitePostRequestBody body) {
         post(body, null);
@@ -47,12 +48,14 @@ public class WebsiteRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     public void post(@jakarta.annotation.Nonnull final WebsitePostRequestBody body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**
@@ -75,7 +78,7 @@ public class WebsiteRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/json, text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json, application/problem+json, text/plain;q=0.9");
         requestInfo.setContentFromParsable(requestAdapter, "application/x-www-form-urlencoded", body);
         return requestInfo;
     }

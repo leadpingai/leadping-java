@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -73,7 +72,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Lead price or transaction price supplied to the Leadping API.
      */
-    private UntypedNode price;
+    private Double price;
     /**
      * Defines the asynchronous verification and enrichment lifecycle for a lead.
      */
@@ -206,7 +205,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(LeadTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("processingStatus", (n) -> { this.setProcessingStatus(n.getEnumValue(LeadTableRowProcessingStatus::forValue)); });
         deserializerMap.put("processingStatusChangedAt", (n) -> { this.setProcessingStatusChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("processingStatusReason", (n) -> { this.setProcessingStatusReason(n.getStringValue()); });
@@ -267,10 +266,10 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPrice() {
+    public Double getPrice() {
         return this.price;
     }
     /**
@@ -356,7 +355,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeObjectValue("price", this.getPrice());
+        writer.writeDoubleValue("price", this.getPrice());
         writer.writeEnumValue("processingStatus", this.getProcessingStatus());
         writer.writeOffsetDateTimeValue("processingStatusChangedAt", this.getProcessingStatusChangedAt());
         writer.writeStringValue("processingStatusReason", this.getProcessingStatusReason());
@@ -469,7 +468,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      * Sets the price property value. Lead price or transaction price supplied to the Leadping API.
      * @param value Value to set for the price property.
      */
-    public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPrice(@jakarta.annotation.Nullable final Double value) {
         this.price = value;
     }
     /**

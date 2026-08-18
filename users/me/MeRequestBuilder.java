@@ -50,6 +50,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse get() {
@@ -61,6 +62,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -68,6 +70,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**
@@ -76,6 +79,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse put(@jakarta.annotation.Nonnull final UserRequest body) {
@@ -88,6 +92,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse put(@jakarta.annotation.Nonnull final UserRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -96,6 +101,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**

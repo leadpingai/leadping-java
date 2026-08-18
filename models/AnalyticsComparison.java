@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,11 +19,11 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
     /**
      * Percentage change between the current and previous reporting periods.
      */
-    private UntypedNode changePercent;
+    private Double changePercent;
     /**
      * Metric value for the current reporting period.
      */
-    private UntypedNode current;
+    private Double current;
     /**
      * Direction classification for this Leadping analytics comparison.
      */
@@ -32,7 +31,7 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
     /**
      * Metric value for the preceding comparison period.
      */
-    private UntypedNode previous;
+    private Double previous;
     /**
      * Instantiates a new {@link AnalyticsComparison} and sets the default values.
      */
@@ -59,18 +58,18 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the changePercent property value. Percentage change between the current and previous reporting periods.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getChangePercent() {
+    public Double getChangePercent() {
         return this.changePercent;
     }
     /**
      * Gets the current property value. Metric value for the current reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCurrent() {
+    public Double getCurrent() {
         return this.current;
     }
     /**
@@ -88,18 +87,18 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
-        deserializerMap.put("changePercent", (n) -> { this.setChangePercent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("current", (n) -> { this.setCurrent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("changePercent", (n) -> { this.setChangePercent(n.getDoubleValue()); });
+        deserializerMap.put("current", (n) -> { this.setCurrent(n.getDoubleValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
-        deserializerMap.put("previous", (n) -> { this.setPrevious(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("previous", (n) -> { this.setPrevious(n.getDoubleValue()); });
         return deserializerMap;
     }
     /**
      * Gets the previous property value. Metric value for the preceding comparison period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPrevious() {
+    public Double getPrevious() {
         return this.previous;
     }
     /**
@@ -108,10 +107,10 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("changePercent", this.getChangePercent());
-        writer.writeObjectValue("current", this.getCurrent());
+        writer.writeDoubleValue("changePercent", this.getChangePercent());
+        writer.writeDoubleValue("current", this.getCurrent());
         writer.writeStringValue("direction", this.getDirection());
-        writer.writeObjectValue("previous", this.getPrevious());
+        writer.writeDoubleValue("previous", this.getPrevious());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -125,14 +124,14 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
      * Sets the changePercent property value. Percentage change between the current and previous reporting periods.
      * @param value Value to set for the changePercent property.
      */
-    public void setChangePercent(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setChangePercent(@jakarta.annotation.Nullable final Double value) {
         this.changePercent = value;
     }
     /**
      * Sets the current property value. Metric value for the current reporting period.
      * @param value Value to set for the current property.
      */
-    public void setCurrent(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCurrent(@jakarta.annotation.Nullable final Double value) {
         this.current = value;
     }
     /**
@@ -146,7 +145,7 @@ public class AnalyticsComparison implements AdditionalDataHolder, Parsable {
      * Sets the previous property value. Metric value for the preceding comparison period.
      * @param value Value to set for the previous property.
      */
-    public void setPrevious(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPrevious(@jakarta.annotation.Nullable final Double value) {
         this.previous = value;
     }
 }

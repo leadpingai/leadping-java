@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,11 +48,11 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
     /**
      * Number of user licenses currently assigned to organization members.
      */
-    private UntypedNode organizationMemberAssignedQuantity;
+    private Long organizationMemberAssignedQuantity;
     /**
      * Number of user licenses included in the organization&apos;s subscription plan.
      */
-    private UntypedNode organizationMemberQuantity;
+    private Long organizationMemberQuantity;
     /**
      * Defines the supported Billing Plan values.
      */
@@ -61,7 +60,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
     /**
      * Number of phone numbers included in the organization&apos;s subscription plan.
      */
-    private UntypedNode phoneNumberQuantity;
+    private Long phoneNumberQuantity;
     /**
      * Start of the current plan billing period.
      */
@@ -132,10 +131,10 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         deserializerMap.put("hasStripeCustomer", (n) -> { this.setHasStripeCustomer(n.getBooleanValue()); });
         deserializerMap.put("lastPaymentMethodEventAt", (n) -> { this.setLastPaymentMethodEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastSubscriptionEventAt", (n) -> { this.setLastSubscriptionEventAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("organizationMemberAssignedQuantity", (n) -> { this.setOrganizationMemberAssignedQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("organizationMemberQuantity", (n) -> { this.setOrganizationMemberQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("organizationMemberAssignedQuantity", (n) -> { this.setOrganizationMemberAssignedQuantity(n.getLongValue()); });
+        deserializerMap.put("organizationMemberQuantity", (n) -> { this.setOrganizationMemberQuantity(n.getLongValue()); });
         deserializerMap.put("pendingBillingPlan", (n) -> { this.setPendingBillingPlan(n.getEnumValue(OrganizationBillingStatePendingBillingPlan::forValue)); });
-        deserializerMap.put("phoneNumberQuantity", (n) -> { this.setPhoneNumberQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("phoneNumberQuantity", (n) -> { this.setPhoneNumberQuantity(n.getLongValue()); });
         deserializerMap.put("planPeriodStartAt", (n) -> { this.setPlanPeriodStartAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("planRenewalAt", (n) -> { this.setPlanRenewalAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
@@ -174,18 +173,18 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the organizationMemberAssignedQuantity property value. Number of user licenses currently assigned to organization members.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getOrganizationMemberAssignedQuantity() {
+    public Long getOrganizationMemberAssignedQuantity() {
         return this.organizationMemberAssignedQuantity;
     }
     /**
      * Gets the organizationMemberQuantity property value. Number of user licenses included in the organization&apos;s subscription plan.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getOrganizationMemberQuantity() {
+    public Long getOrganizationMemberQuantity() {
         return this.organizationMemberQuantity;
     }
     /**
@@ -198,10 +197,10 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the phoneNumberQuantity property value. Number of phone numbers included in the organization&apos;s subscription plan.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPhoneNumberQuantity() {
+    public Long getPhoneNumberQuantity() {
         return this.phoneNumberQuantity;
     }
     /**
@@ -233,10 +232,10 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         writer.writeBooleanValue("hasStripeCustomer", this.getHasStripeCustomer());
         writer.writeOffsetDateTimeValue("lastPaymentMethodEventAt", this.getLastPaymentMethodEventAt());
         writer.writeOffsetDateTimeValue("lastSubscriptionEventAt", this.getLastSubscriptionEventAt());
-        writer.writeObjectValue("organizationMemberAssignedQuantity", this.getOrganizationMemberAssignedQuantity());
-        writer.writeObjectValue("organizationMemberQuantity", this.getOrganizationMemberQuantity());
+        writer.writeLongValue("organizationMemberAssignedQuantity", this.getOrganizationMemberAssignedQuantity());
+        writer.writeLongValue("organizationMemberQuantity", this.getOrganizationMemberQuantity());
         writer.writeEnumValue("pendingBillingPlan", this.getPendingBillingPlan());
-        writer.writeObjectValue("phoneNumberQuantity", this.getPhoneNumberQuantity());
+        writer.writeLongValue("phoneNumberQuantity", this.getPhoneNumberQuantity());
         writer.writeOffsetDateTimeValue("planPeriodStartAt", this.getPlanPeriodStartAt());
         writer.writeOffsetDateTimeValue("planRenewalAt", this.getPlanRenewalAt());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -301,14 +300,14 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      * Sets the organizationMemberAssignedQuantity property value. Number of user licenses currently assigned to organization members.
      * @param value Value to set for the organizationMemberAssignedQuantity property.
      */
-    public void setOrganizationMemberAssignedQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setOrganizationMemberAssignedQuantity(@jakarta.annotation.Nullable final Long value) {
         this.organizationMemberAssignedQuantity = value;
     }
     /**
      * Sets the organizationMemberQuantity property value. Number of user licenses included in the organization&apos;s subscription plan.
      * @param value Value to set for the organizationMemberQuantity property.
      */
-    public void setOrganizationMemberQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setOrganizationMemberQuantity(@jakarta.annotation.Nullable final Long value) {
         this.organizationMemberQuantity = value;
     }
     /**
@@ -322,7 +321,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      * Sets the phoneNumberQuantity property value. Number of phone numbers included in the organization&apos;s subscription plan.
      * @param value Value to set for the phoneNumberQuantity property.
      */
-    public void setPhoneNumberQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPhoneNumberQuantity(@jakarta.annotation.Nullable final Long value) {
         this.phoneNumberQuantity = value;
     }
     /**

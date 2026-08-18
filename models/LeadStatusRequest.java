@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -32,7 +31,7 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
     /**
      * Relative display order for the lead status.
      */
-    private UntypedNode sortOrder;
+    private Integer sortOrder;
     /**
      * Instantiates a new {@link LeadStatusRequest} and sets the default values.
      */
@@ -83,7 +82,7 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(LeadStatusRequestCategory::forValue)); });
         deserializerMap.put("color", (n) -> { this.setColor(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
-        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -96,10 +95,10 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the sortOrder property value. Relative display order for the lead status.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSortOrder() {
+    public Integer getSortOrder() {
         return this.sortOrder;
     }
     /**
@@ -111,7 +110,7 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("category", this.getCategory());
         writer.writeStringValue("color", this.getColor());
         writer.writeStringValue("name", this.getName());
-        writer.writeObjectValue("sortOrder", this.getSortOrder());
+        writer.writeIntegerValue("sortOrder", this.getSortOrder());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -146,7 +145,7 @@ public class LeadStatusRequest implements AdditionalDataHolder, Parsable {
      * Sets the sortOrder property value. Relative display order for the lead status.
      * @param value Value to set for the sortOrder property.
      */
-    public void setSortOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSortOrder(@jakarta.annotation.Nullable final Integer value) {
         this.sortOrder = value;
     }
 }

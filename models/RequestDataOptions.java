@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Opaque Cosmos DB continuation token.  on the **first** request.  Client must echo back the NextToken it received from the previous page.
+     * Opaque Cosmos DB continuation token.  null on the **first** request.  Client must echo back the NextToken it received from the previous page.
      */
     private String continuationToken;
     /**
@@ -36,13 +35,13 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
     /**
      * Maximum items to return in one page
      */
-    private UntypedNode pageSize;
+    private Integer pageSize;
     /**
      * Advanced range-based filters (e.g., Price &gt; 50 and Price &lt;= 200).
      */
     private java.util.List<RangeFilter> rangeFilters;
     /**
-     * The search term to filter results (applied to ).
+     * The search term to filter results (applied to SearchFields).
      */
     private String search;
     /**
@@ -74,7 +73,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the continuationToken property value. Opaque Cosmos DB continuation token.  on the **first** request.  Client must echo back the NextToken it received from the previous page.
+     * Gets the continuationToken property value. Opaque Cosmos DB continuation token.  null on the **first** request.  Client must echo back the NextToken it received from the previous page.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -92,7 +91,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         deserializerMap.put("filters", (n) -> { this.setFilters(n.getCollectionOfObjectValues(ExactMatchFilter::createFromDiscriminatorValue)); });
         deserializerMap.put("includeCount", (n) -> { this.setIncludeCount(n.getBooleanValue()); });
         deserializerMap.put("orderBy", (n) -> { this.setOrderBy(n.getCollectionOfObjectValues(OrderByOption::createFromDiscriminatorValue)); });
-        deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getIntegerValue()); });
         deserializerMap.put("rangeFilters", (n) -> { this.setRangeFilters(n.getCollectionOfObjectValues(RangeFilter::createFromDiscriminatorValue)); });
         deserializerMap.put("search", (n) -> { this.setSearch(n.getStringValue()); });
         deserializerMap.put("searchFields", (n) -> { this.setSearchFields(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -124,10 +123,10 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the pageSize property value. Maximum items to return in one page
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPageSize() {
+    public Integer getPageSize() {
         return this.pageSize;
     }
     /**
@@ -139,7 +138,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.rangeFilters;
     }
     /**
-     * Gets the search property value. The search term to filter results (applied to ).
+     * Gets the search property value. The search term to filter results (applied to SearchFields).
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -164,7 +163,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("filters", this.getFilters());
         writer.writeBooleanValue("includeCount", this.getIncludeCount());
         writer.writeCollectionOfObjectValues("orderBy", this.getOrderBy());
-        writer.writeObjectValue("pageSize", this.getPageSize());
+        writer.writeIntegerValue("pageSize", this.getPageSize());
         writer.writeCollectionOfObjectValues("rangeFilters", this.getRangeFilters());
         writer.writeStringValue("search", this.getSearch());
         writer.writeCollectionOfPrimitiveValues("searchFields", this.getSearchFields());
@@ -178,7 +177,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the continuationToken property value. Opaque Cosmos DB continuation token.  on the **first** request.  Client must echo back the NextToken it received from the previous page.
+     * Sets the continuationToken property value. Opaque Cosmos DB continuation token.  null on the **first** request.  Client must echo back the NextToken it received from the previous page.
      * @param value Value to set for the continuationToken property.
      */
     public void setContinuationToken(@jakarta.annotation.Nullable final String value) {
@@ -209,7 +208,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
      * Sets the pageSize property value. Maximum items to return in one page
      * @param value Value to set for the pageSize property.
      */
-    public void setPageSize(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPageSize(@jakarta.annotation.Nullable final Integer value) {
         this.pageSize = value;
     }
     /**
@@ -220,7 +219,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         this.rangeFilters = value;
     }
     /**
-     * Sets the search property value. The search term to filter results (applied to ).
+     * Sets the search property value. The search term to filter results (applied to SearchFields).
      * @param value Value to set for the search property.
      */
     public void setSearch(@jakarta.annotation.Nullable final String value) {

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +24,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     /**
      * The number of registrar-verified domains found by the current search.
      */
-    private UntypedNode availableDomainCount;
+    private Integer availableDomainCount;
     /**
      * The current billing subscription status for this organization activation state.
      */
@@ -61,7 +60,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     /**
      * The current domain generation attempt.
      */
-    private UntypedNode domainSearchAttempt;
+    private Integer domainSearchAttempt;
     /**
      * Identifies the active domain search run.
      */
@@ -224,10 +223,10 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the availableDomainCount property value. The number of registrar-verified domains found by the current search.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAvailableDomainCount() {
+    public Integer getAvailableDomainCount() {
         return this.availableDomainCount;
     }
     /**
@@ -296,10 +295,10 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the domainSearchAttempt property value. The current domain generation attempt.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDomainSearchAttempt() {
+    public Integer getDomainSearchAttempt() {
         return this.domainSearchAttempt;
     }
     /**
@@ -350,7 +349,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(43);
         deserializerMap.put("activatedAt", (n) -> { this.setActivatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("availableDomainCount", (n) -> { this.setAvailableDomainCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("availableDomainCount", (n) -> { this.setAvailableDomainCount(n.getIntegerValue()); });
         deserializerMap.put("billingSubscriptionStatus", (n) -> { this.setBillingSubscriptionStatus(n.getEnumValue(ActivationSubscriptionStatus::forValue)); });
         deserializerMap.put("complianceNotes", (n) -> { this.setComplianceNotes(n.getStringValue()); });
         deserializerMap.put("controlledLaunch", (n) -> { this.setControlledLaunch(n.getBooleanValue()); });
@@ -359,7 +358,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         deserializerMap.put("domainApprovedAt", (n) -> { this.setDomainApprovedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("domainOptions", (n) -> { this.setDomainOptions(n.getCollectionOfObjectValues(ActivationDomainOption::createFromDiscriminatorValue)); });
         deserializerMap.put("domainPurchasedAt", (n) -> { this.setDomainPurchasedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("domainSearchAttempt", (n) -> { this.setDomainSearchAttempt(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("domainSearchAttempt", (n) -> { this.setDomainSearchAttempt(n.getIntegerValue()); });
         deserializerMap.put("domainSearchId", (n) -> { this.setDomainSearchId(n.getStringValue()); });
         deserializerMap.put("domainSearchStage", (n) -> { this.setDomainSearchStage(n.getEnumValue(OrganizationActivationStateDomainSearchStage::forValue)); });
         deserializerMap.put("domainSearchUpdatedAt", (n) -> { this.setDomainSearchUpdatedAt(n.getOffsetDateTimeValue()); });
@@ -617,7 +616,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("activatedAt", this.getActivatedAt());
-        writer.writeObjectValue("availableDomainCount", this.getAvailableDomainCount());
+        writer.writeIntegerValue("availableDomainCount", this.getAvailableDomainCount());
         writer.writeEnumValue("billingSubscriptionStatus", this.getBillingSubscriptionStatus());
         writer.writeStringValue("complianceNotes", this.getComplianceNotes());
         writer.writeBooleanValue("controlledLaunch", this.getControlledLaunch());
@@ -626,7 +625,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         writer.writeOffsetDateTimeValue("domainApprovedAt", this.getDomainApprovedAt());
         writer.writeCollectionOfObjectValues("domainOptions", this.getDomainOptions());
         writer.writeOffsetDateTimeValue("domainPurchasedAt", this.getDomainPurchasedAt());
-        writer.writeObjectValue("domainSearchAttempt", this.getDomainSearchAttempt());
+        writer.writeIntegerValue("domainSearchAttempt", this.getDomainSearchAttempt());
         writer.writeStringValue("domainSearchId", this.getDomainSearchId());
         writer.writeEnumValue("domainSearchStage", this.getDomainSearchStage());
         writer.writeOffsetDateTimeValue("domainSearchUpdatedAt", this.getDomainSearchUpdatedAt());
@@ -679,7 +678,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      * Sets the availableDomainCount property value. The number of registrar-verified domains found by the current search.
      * @param value Value to set for the availableDomainCount property.
      */
-    public void setAvailableDomainCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAvailableDomainCount(@jakarta.annotation.Nullable final Integer value) {
         this.availableDomainCount = value;
     }
     /**
@@ -742,7 +741,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      * Sets the domainSearchAttempt property value. The current domain generation attempt.
      * @param value Value to set for the domainSearchAttempt property.
      */
-    public void setDomainSearchAttempt(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDomainSearchAttempt(@jakarta.annotation.Nullable final Integer value) {
         this.domainSearchAttempt = value;
     }
     /**

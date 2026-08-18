@@ -50,6 +50,7 @@ public class ContactRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the fields clients can send when working with contact form.
      * @return a {@link ContactResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public ContactResponse post(@jakarta.annotation.Nonnull final ContactRequest body) {
@@ -61,6 +62,7 @@ public class ContactRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link ContactResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public ContactResponse post(@jakarta.annotation.Nonnull final ContactRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -68,6 +70,7 @@ public class ContactRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, ContactResponse::createFromDiscriminatorValue);
     }
     /**

@@ -49,6 +49,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     public void delete() {
         delete(null);
@@ -59,6 +60,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     public void delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
@@ -66,6 +68,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**
@@ -74,6 +77,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public StripePaymentMethodResponse get() {
@@ -86,6 +90,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public StripePaymentMethodResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -94,6 +99,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, StripePaymentMethodResponse::createFromDiscriminatorValue);
     }
     /**
@@ -113,7 +119,7 @@ public class PaymentMethodsItemRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toDeleteRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.DELETE, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, DeleteRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/json");
+        requestInfo.headers.tryAdd("Accept", "application/json, application/problem+json");
         return requestInfo;
     }
     /**

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,11 +20,11 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
     /**
      * Total connected call duration, in minutes, during the reporting period.
      */
-    private UntypedNode callMinutes;
+    private Double callMinutes;
     /**
      * Number of calls represented by this Leadping customer communication usage point.
      */
-    private UntypedNode calls;
+    private Integer calls;
     /**
      * Date and time when this Leadping customer communication usage point was end.
      */
@@ -37,15 +36,15 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
     /**
      * Number of SMS messages received during the reporting period.
      */
-    private UntypedNode smsReceived;
+    private Integer smsReceived;
     /**
      * Number of SMS messages sent during the reporting period.
      */
-    private UntypedNode smsSent;
+    private Integer smsSent;
     /**
      * Spend represented by this Leadping customer communication usage point.
      */
-    private UntypedNode spend;
+    private Double spend;
     /**
      * Date and time when this Leadping customer communication usage point was start.
      */
@@ -76,18 +75,18 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
     }
     /**
      * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallMinutes() {
+    public Double getCallMinutes() {
         return this.callMinutes;
     }
     /**
      * Gets the calls property value. Number of calls represented by this Leadping customer communication usage point.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCalls() {
+    public Integer getCalls() {
         return this.calls;
     }
     /**
@@ -105,13 +104,13 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("calls", (n) -> { this.setCalls(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
+        deserializerMap.put("calls", (n) -> { this.setCalls(n.getIntegerValue()); });
         deserializerMap.put("endAt", (n) -> { this.setEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
-        deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("spend", (n) -> { this.setSpend(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getIntegerValue()); });
+        deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getIntegerValue()); });
+        deserializerMap.put("spend", (n) -> { this.setSpend(n.getDoubleValue()); });
         deserializerMap.put("startAt", (n) -> { this.setStartAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
     }
@@ -125,26 +124,26 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
     }
     /**
      * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsReceived() {
+    public Integer getSmsReceived() {
         return this.smsReceived;
     }
     /**
      * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsSent() {
+    public Integer getSmsSent() {
         return this.smsSent;
     }
     /**
      * Gets the spend property value. Spend represented by this Leadping customer communication usage point.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSpend() {
+    public Double getSpend() {
         return this.spend;
     }
     /**
@@ -161,13 +160,13 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("callMinutes", this.getCallMinutes());
-        writer.writeObjectValue("calls", this.getCalls());
+        writer.writeDoubleValue("callMinutes", this.getCallMinutes());
+        writer.writeIntegerValue("calls", this.getCalls());
         writer.writeOffsetDateTimeValue("endAt", this.getEndAt());
         writer.writeStringValue("label", this.getLabel());
-        writer.writeObjectValue("smsReceived", this.getSmsReceived());
-        writer.writeObjectValue("smsSent", this.getSmsSent());
-        writer.writeObjectValue("spend", this.getSpend());
+        writer.writeIntegerValue("smsReceived", this.getSmsReceived());
+        writer.writeIntegerValue("smsSent", this.getSmsSent());
+        writer.writeDoubleValue("spend", this.getSpend());
         writer.writeOffsetDateTimeValue("startAt", this.getStartAt());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -182,14 +181,14 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @param value Value to set for the callMinutes property.
      */
-    public void setCallMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallMinutes(@jakarta.annotation.Nullable final Double value) {
         this.callMinutes = value;
     }
     /**
      * Sets the calls property value. Number of calls represented by this Leadping customer communication usage point.
      * @param value Value to set for the calls property.
      */
-    public void setCalls(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCalls(@jakarta.annotation.Nullable final Integer value) {
         this.calls = value;
     }
     /**
@@ -210,21 +209,21 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @param value Value to set for the smsReceived property.
      */
-    public void setSmsReceived(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.smsReceived = value;
     }
     /**
      * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
      * @param value Value to set for the smsSent property.
      */
-    public void setSmsSent(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {
         this.smsSent = value;
     }
     /**
      * Sets the spend property value. Spend represented by this Leadping customer communication usage point.
      * @param value Value to set for the spend property.
      */
-    public void setSpend(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSpend(@jakarta.annotation.Nullable final Double value) {
         this.spend = value;
     }
     /**

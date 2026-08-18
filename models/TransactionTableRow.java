@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount for this billing transaction or wallet operation.
      */
-    private UntypedNode amount;
+    private Double amount;
     /**
      * Defines the supported Billable Unit values.
      */
@@ -29,7 +28,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Customer-facing amount billed for the metered usage or wallet transaction.
      */
-    private UntypedNode billedAmount;
+    private Double billedAmount;
     /**
      * Defines the supported Usage Channel values.
      */
@@ -53,7 +52,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Net monetary amount after fees, credits, or adjustments.
      */
-    private UntypedNode netAmount;
+    private Double netAmount;
     /**
      * Identifier and display name of the related organization.
      */
@@ -69,7 +68,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Number of billable units measured for this transaction, when usage-based pricing applies.
      */
-    private UntypedNode quantity;
+    private Double quantity;
     /**
      * Identifier of the event that created this billing transaction, when available.
      */
@@ -89,7 +88,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Price charged per billable unit when usage-based pricing applies.
      */
-    private UntypedNode unitPrice;
+    private Double unitPrice;
     /**
      * Instantiates a new {@link TransactionTableRow} and sets the default values.
      */
@@ -116,10 +115,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the amount property value. Monetary amount for this billing transaction or wallet operation.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAmount() {
+    public Double getAmount() {
         return this.amount;
     }
     /**
@@ -132,10 +131,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billedAmount property value. Customer-facing amount billed for the metered usage or wallet transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBilledAmount() {
+    public Double getBilledAmount() {
         return this.billedAmount;
     }
     /**
@@ -169,24 +168,24 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
-        deserializerMap.put("amount", (n) -> { this.setAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionTableRowBillableUnit::forValue)); });
-        deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
         deserializerMap.put("billingChannel", (n) -> { this.setBillingChannel(n.getEnumValue(TransactionTableRowBillingChannel::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionTableRowLead::createFromDiscriminatorValue)); });
-        deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(TransactionTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("paymentMethodDisplay", (n) -> { this.setPaymentMethodDisplay(n.getStringValue()); });
         deserializerMap.put("pricingVersion", (n) -> { this.setPricingVersion(n.getStringValue()); });
-        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
         deserializerMap.put("sourceEventId", (n) -> { this.setSourceEventId(n.getStringValue()); });
         deserializerMap.put("sourceEventType", (n) -> { this.setSourceEventType(n.getStringValue()); });
         deserializerMap.put("transactionStatus", (n) -> { this.setTransactionStatus(n.getEnumValue(TransactionStatus::forValue)); });
         deserializerMap.put("transactionType", (n) -> { this.setTransactionType(n.getEnumValue(TransactionType::forValue)); });
-        deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getDoubleValue()); });
         return deserializerMap;
     }
     /**
@@ -207,10 +206,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getNetAmount() {
+    public Double getNetAmount() {
         return this.netAmount;
     }
     /**
@@ -239,10 +238,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the quantity property value. Number of billable units measured for this transaction, when usage-based pricing applies.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getQuantity() {
+    public Double getQuantity() {
         return this.quantity;
     }
     /**
@@ -279,10 +278,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the unitPrice property value. Price charged per billable unit when usage-based pricing applies.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getUnitPrice() {
+    public Double getUnitPrice() {
         return this.unitPrice;
     }
     /**
@@ -291,24 +290,24 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("amount", this.getAmount());
+        writer.writeDoubleValue("amount", this.getAmount());
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
-        writer.writeObjectValue("billedAmount", this.getBilledAmount());
+        writer.writeDoubleValue("billedAmount", this.getBilledAmount());
         writer.writeEnumValue("billingChannel", this.getBillingChannel());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("id", this.getId());
         writer.writeObjectValue("lead", this.getLead());
-        writer.writeObjectValue("netAmount", this.getNetAmount());
+        writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("paymentMethodDisplay", this.getPaymentMethodDisplay());
         writer.writeStringValue("pricingVersion", this.getPricingVersion());
-        writer.writeObjectValue("quantity", this.getQuantity());
+        writer.writeDoubleValue("quantity", this.getQuantity());
         writer.writeStringValue("sourceEventId", this.getSourceEventId());
         writer.writeStringValue("sourceEventType", this.getSourceEventType());
         writer.writeEnumValue("transactionStatus", this.getTransactionStatus());
         writer.writeEnumValue("transactionType", this.getTransactionType());
-        writer.writeObjectValue("unitPrice", this.getUnitPrice());
+        writer.writeDoubleValue("unitPrice", this.getUnitPrice());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -322,7 +321,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * Sets the amount property value. Monetary amount for this billing transaction or wallet operation.
      * @param value Value to set for the amount property.
      */
-    public void setAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAmount(@jakarta.annotation.Nullable final Double value) {
         this.amount = value;
     }
     /**
@@ -336,7 +335,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billedAmount property value. Customer-facing amount billed for the metered usage or wallet transaction.
      * @param value Value to set for the billedAmount property.
      */
-    public void setBilledAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBilledAmount(@jakarta.annotation.Nullable final Double value) {
         this.billedAmount = value;
     }
     /**
@@ -378,7 +377,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * Sets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
      * @param value Value to set for the netAmount property.
      */
-    public void setNetAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setNetAmount(@jakarta.annotation.Nullable final Double value) {
         this.netAmount = value;
     }
     /**
@@ -406,7 +405,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * Sets the quantity property value. Number of billable units measured for this transaction, when usage-based pricing applies.
      * @param value Value to set for the quantity property.
      */
-    public void setQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setQuantity(@jakarta.annotation.Nullable final Double value) {
         this.quantity = value;
     }
     /**
@@ -441,7 +440,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      * Sets the unitPrice property value. Price charged per billable unit when usage-based pricing applies.
      * @param value Value to set for the unitPrice property.
      */
-    public void setUnitPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setUnitPrice(@jakarta.annotation.Nullable final Double value) {
         this.unitPrice = value;
     }
 }

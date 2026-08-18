@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +36,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
     /**
      * The Leadping schema version used to interpret the stored provider record.
      */
-    private UntypedNode schemaVersion;
+    private Integer schemaVersion;
     /**
      * Instantiates a new {@link PhoneLookupProviderSnapshot} and sets the default values.
      */
@@ -73,7 +72,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         deserializerMap.put("provider", (n) -> { this.setProvider(n.getStringValue()); });
         deserializerMap.put("rawRecordJson", (n) -> { this.setRawRecordJson(n.getStringValue()); });
         deserializerMap.put("retrievedAt", (n) -> { this.setRetrievedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("schemaVersion", (n) -> { this.setSchemaVersion(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("schemaVersion", (n) -> { this.setSchemaVersion(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -110,10 +109,10 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the schemaVersion property value. The Leadping schema version used to interpret the stored provider record.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSchemaVersion() {
+    public Integer getSchemaVersion() {
         return this.schemaVersion;
     }
     /**
@@ -126,7 +125,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
         writer.writeStringValue("provider", this.getProvider());
         writer.writeStringValue("rawRecordJson", this.getRawRecordJson());
         writer.writeOffsetDateTimeValue("retrievedAt", this.getRetrievedAt());
-        writer.writeObjectValue("schemaVersion", this.getSchemaVersion());
+        writer.writeIntegerValue("schemaVersion", this.getSchemaVersion());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -168,7 +167,7 @@ public class PhoneLookupProviderSnapshot implements AdditionalDataHolder, Parsab
      * Sets the schemaVersion property value. The Leadping schema version used to interpret the stored provider record.
      * @param value Value to set for the schemaVersion property.
      */
-    public void setSchemaVersion(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSchemaVersion(@jakarta.annotation.Nullable final Integer value) {
         this.schemaVersion = value;
     }
 }

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A minimal Record type with an (string), (string), and maximum JSON compatibility. The reason for this type (over something like KeyValuePair, dictionary) is because of JSON serialization support.
+ * A minimal Record type with an Id (string), Name (string), and maximum JSON compatibility. The reason for this type (over something like KeyValuePair, dictionary) is because of JSON serialization support.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class IdNamePair implements AdditionalDataHolder, Parsable {

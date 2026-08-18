@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -101,7 +100,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     /**
      * The roles included with this user.
      */
-    private UntypedNode roles;
+    private java.util.List<String> roles;
     /**
      * Defines the supported Subscription Status values.
      */
@@ -209,7 +208,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("personalDataDeletionRequestedAt", (n) -> { this.setPersonalDataDeletionRequestedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("personalDataDeletionStatus", (n) -> { this.setPersonalDataDeletionStatus(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("roles", (n) -> { this.setRoles(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("roles", (n) -> { this.setRoles(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(UserResponseSubscriptionStatus::forValue)); });
         deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         return deserializerMap;
@@ -328,10 +327,10 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the roles property value. The roles included with this user.
-     * @return a {@link UntypedNode}
+     * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRoles() {
+    public java.util.List<String> getRoles() {
         return this.roles;
     }
     /**
@@ -376,7 +375,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("personalDataDeletionRequestedAt", this.getPersonalDataDeletionRequestedAt());
         writer.writeStringValue("personalDataDeletionStatus", this.getPersonalDataDeletionStatus());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeObjectValue("roles", this.getRoles());
+        writer.writeCollectionOfPrimitiveValues("roles", this.getRoles());
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -532,7 +531,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      * Sets the roles property value. The roles included with this user.
      * @param value Value to set for the roles property.
      */
-    public void setRoles(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRoles(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.roles = value;
     }
     /**

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -101,7 +100,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     /**
      * Version number for this automation configuration response schema or saved configuration.
      */
-    private UntypedNode version;
+    private Integer version;
     /**
      * Visibility level that controls who can see this automation configuration response.
      */
@@ -213,7 +212,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(AutomationResponseUser::createFromDiscriminatorValue)); });
-        deserializerMap.put("version", (n) -> { this.setVersion(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("version", (n) -> { this.setVersion(n.getIntegerValue()); });
         deserializerMap.put("visibility", (n) -> { this.setVisibility(n.getStringValue()); });
         return deserializerMap;
     }
@@ -323,10 +322,10 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the version property value. Version number for this automation configuration response schema or saved configuration.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
     /**
@@ -363,7 +362,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
         writer.writeObjectValue("user", this.getUser());
-        writer.writeObjectValue("version", this.getVersion());
+        writer.writeIntegerValue("version", this.getVersion());
         writer.writeStringValue("visibility", this.getVisibility());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -518,7 +517,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      * Sets the version property value. Version number for this automation configuration response schema or saved configuration.
      * @param value Value to set for the version property.
      */
-    public void setVersion(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setVersion(@jakarta.annotation.Nullable final Integer value) {
         this.version = value;
     }
     /**

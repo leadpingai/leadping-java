@@ -61,6 +61,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
      * Lists the payment methods available to the current organization for billing, invoice payments, and wallet funding.
      * @return a {@link java.util.List<StripePaymentMethodResponse>}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<StripePaymentMethodResponse> get() {
@@ -71,12 +72,14 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripePaymentMethodResponse>}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<StripePaymentMethodResponse> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, StripePaymentMethodResponse::createFromDiscriminatorValue);
     }
     /**

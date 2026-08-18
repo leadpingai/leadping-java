@@ -49,6 +49,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link NotificationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public NotificationResponse get() {
@@ -60,6 +61,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link NotificationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public NotificationResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -67,6 +69,7 @@ public class NotificationsItemRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, NotificationResponse::createFromDiscriminatorValue);
     }
     /**

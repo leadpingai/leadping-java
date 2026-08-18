@@ -38,6 +38,7 @@ public class WithInstallationItemRequestBuilder extends BaseRequestBuilder {
      * Removes a mobile push installation from the authenticated user&apos;s account so Leadping no longer sends notifications to that device.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public Boolean delete() {
@@ -48,12 +49,14 @@ public class WithInstallationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public Boolean delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**

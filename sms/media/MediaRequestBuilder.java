@@ -5,6 +5,7 @@ import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
+import com.microsoft.kiota.MultipartBody;
 import com.microsoft.kiota.RequestAdapter;
 import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
@@ -40,9 +41,12 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @return a {@link MessageMediaAttachment}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public MessageMediaAttachment post(@jakarta.annotation.Nonnull final MediaPostRequestBody body) {
+    public MessageMediaAttachment post(@jakarta.annotation.Nonnull final MultipartBody body) {
         return post(body, null);
     }
     /**
@@ -51,13 +55,19 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link MessageMediaAttachment}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public MessageMediaAttachment post(@jakarta.annotation.Nonnull final MediaPostRequestBody body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+    public MessageMediaAttachment post(@jakarta.annotation.Nonnull final MultipartBody body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, MessageMediaAttachment::createFromDiscriminatorValue);
     }
     /**
@@ -66,7 +76,7 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
-    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final MediaPostRequestBody body) {
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final MultipartBody body) {
         return toPostRequestInformation(body, null);
     }
     /**
@@ -76,12 +86,12 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
-    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final MediaPostRequestBody body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final MultipartBody body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
         requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
-        requestInfo.setContentFromParsable(requestAdapter, "application/x-www-form-urlencoded", body);
+        requestInfo.setContentFromParsable(requestAdapter, "multipart/form-data", body);
         return requestInfo;
     }
     /**

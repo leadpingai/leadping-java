@@ -1,5 +1,6 @@
 package ai.leadping.openapi.paymentmethods.invoices;
 
+import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.StripeInvoiceResponse;
 import ai.leadping.openapi.paymentmethods.invoices.item.WithInvoiceItemRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -50,6 +51,8 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<StripeInvoiceResponse> get() {
@@ -59,11 +62,16 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
      * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
+     * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public java.util.List<StripeInvoiceResponse> get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.sendCollection(requestInfo, null, StripeInvoiceResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendCollection(requestInfo, errorMapping, StripeInvoiceResponse::createFromDiscriminatorValue);
     }
     /**
      * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.

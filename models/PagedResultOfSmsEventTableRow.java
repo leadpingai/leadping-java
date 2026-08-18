@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,11 +27,11 @@ public class PagedResultOfSmsEventTableRow implements AdditionalDataHolder, Pars
     /**
      * The number of items returned per page in the response. This may reflect the client&apos;s requested page size, or a server-defined default or limit.
      */
-    private UntypedNode pageSize;
+    private Integer pageSize;
     /**
      * The total number of items that match the query across all pages. May be null if the count is not computed or not applicable (e.g., in continuation-based pagination).
      */
-    private UntypedNode totalCount;
+    private Integer totalCount;
     /**
      * Instantiates a new {@link PagedResultOfSmsEventTableRow} and sets the default values.
      */
@@ -74,8 +73,8 @@ public class PagedResultOfSmsEventTableRow implements AdditionalDataHolder, Pars
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
         deserializerMap.put("continuationToken", (n) -> { this.setContinuationToken(n.getStringValue()); });
         deserializerMap.put("items", (n) -> { this.setItems(n.getCollectionOfObjectValues(SmsEventTableRow::createFromDiscriminatorValue)); });
-        deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("totalCount", (n) -> { this.setTotalCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getIntegerValue()); });
+        deserializerMap.put("totalCount", (n) -> { this.setTotalCount(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -88,18 +87,18 @@ public class PagedResultOfSmsEventTableRow implements AdditionalDataHolder, Pars
     }
     /**
      * Gets the pageSize property value. The number of items returned per page in the response. This may reflect the client&apos;s requested page size, or a server-defined default or limit.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPageSize() {
+    public Integer getPageSize() {
         return this.pageSize;
     }
     /**
      * Gets the totalCount property value. The total number of items that match the query across all pages. May be null if the count is not computed or not applicable (e.g., in continuation-based pagination).
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getTotalCount() {
+    public Integer getTotalCount() {
         return this.totalCount;
     }
     /**
@@ -110,8 +109,8 @@ public class PagedResultOfSmsEventTableRow implements AdditionalDataHolder, Pars
         Objects.requireNonNull(writer);
         writer.writeStringValue("continuationToken", this.getContinuationToken());
         writer.writeCollectionOfObjectValues("items", this.getItems());
-        writer.writeObjectValue("pageSize", this.getPageSize());
-        writer.writeObjectValue("totalCount", this.getTotalCount());
+        writer.writeIntegerValue("pageSize", this.getPageSize());
+        writer.writeIntegerValue("totalCount", this.getTotalCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -139,14 +138,14 @@ public class PagedResultOfSmsEventTableRow implements AdditionalDataHolder, Pars
      * Sets the pageSize property value. The number of items returned per page in the response. This may reflect the client&apos;s requested page size, or a server-defined default or limit.
      * @param value Value to set for the pageSize property.
      */
-    public void setPageSize(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPageSize(@jakarta.annotation.Nullable final Integer value) {
         this.pageSize = value;
     }
     /**
      * Sets the totalCount property value. The total number of items that match the query across all pages. May be null if the count is not computed or not applicable (e.g., in continuation-based pagination).
      * @param value Value to set for the totalCount property.
      */
-    public void setTotalCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setTotalCount(@jakarta.annotation.Nullable final Integer value) {
         this.totalCount = value;
     }
 }

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +24,11 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billable call duration in seconds.
      */
-    private UntypedNode billableSeconds;
+    private Integer billableSeconds;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -57,7 +56,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Call duration or processing duration represented by this call event table row.
      */
-    private UntypedNode duration;
+    private Integer duration;
     /**
      * UTC timestamp when the call ended.
      */
@@ -160,18 +159,18 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
      * Gets the billableSeconds property value. Billable call duration in seconds.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableSeconds() {
+    public Integer getBillableSeconds() {
         return this.billableSeconds;
     }
     /**
@@ -224,10 +223,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the duration property value. Call duration or processing duration represented by this call event table row.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDuration() {
+    public Integer getDuration() {
         return this.duration;
     }
     /**
@@ -246,15 +245,15 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
+        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
         deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
-        deserializerMap.put("duration", (n) -> { this.setDuration(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("duration", (n) -> { this.setDuration(n.getIntegerValue()); });
         deserializerMap.put("endedAt", (n) -> { this.setEndedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
@@ -409,15 +408,15 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("answeredAt", this.getAnsweredAt());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
-        writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
+        writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeStringValue("callerId", this.getCallerId());
         writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("direction", this.getDirection());
-        writer.writeObjectValue("duration", this.getDuration());
+        writer.writeIntegerValue("duration", this.getDuration());
         writer.writeOffsetDateTimeValue("endedAt", this.getEndedAt());
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
@@ -455,14 +454,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
      * Sets the billableSeconds property value. Billable call duration in seconds.
      * @param value Value to set for the billableSeconds property.
      */
-    public void setBillableSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.billableSeconds = value;
     }
     /**
@@ -511,7 +510,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the duration property value. Call duration or processing duration represented by this call event table row.
      * @param value Value to set for the duration property.
      */
-    public void setDuration(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDuration(@jakarta.annotation.Nullable final Integer value) {
         this.duration = value;
     }
     /**

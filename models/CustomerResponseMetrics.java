@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     /**
      * Average minutes measured in minutes.
      */
-    private UntypedNode averageMinutes;
+    private Double averageMinutes;
     /**
      * Collection of average minutes trend included with this Leadping customer response metrics.
      */
@@ -28,27 +27,27 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     /**
      * Median minutes measured in minutes.
      */
-    private UntypedNode medianMinutes;
+    private Double medianMinutes;
     /**
      * Number of calls missed during the reporting period.
      */
-    private UntypedNode missedCalls;
+    private Integer missedCalls;
     /**
      * Number of responded leads represented by this Leadping customer response metrics.
      */
-    private UntypedNode respondedLeads;
+    private Integer respondedLeads;
     /**
      * Responded within five minutes percent expressed as a percentage.
      */
-    private UntypedNode respondedWithinFiveMinutesPercent;
+    private Double respondedWithinFiveMinutesPercent;
     /**
      * Number of unread messages represented by this Leadping customer response metrics.
      */
-    private UntypedNode unreadMessages;
+    private Integer unreadMessages;
     /**
      * Number of unresponded leads represented by this Leadping customer response metrics.
      */
-    private UntypedNode unrespondedLeads;
+    private Integer unrespondedLeads;
     /**
      * Instantiates a new {@link CustomerResponseMetrics} and sets the default values.
      */
@@ -75,10 +74,10 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the averageMinutes property value. Average minutes measured in minutes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAverageMinutes() {
+    public Double getAverageMinutes() {
         return this.averageMinutes;
     }
     /**
@@ -96,62 +95,62 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("averageMinutes", (n) -> { this.setAverageMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("averageMinutes", (n) -> { this.setAverageMinutes(n.getDoubleValue()); });
         deserializerMap.put("averageMinutesTrend", (n) -> { this.setAverageMinutesTrend(n.getCollectionOfObjectValues(AnalyticsTrendPointOfdecimal::createFromDiscriminatorValue)); });
-        deserializerMap.put("medianMinutes", (n) -> { this.setMedianMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("respondedLeads", (n) -> { this.setRespondedLeads(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("respondedWithinFiveMinutesPercent", (n) -> { this.setRespondedWithinFiveMinutesPercent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("unreadMessages", (n) -> { this.setUnreadMessages(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("unrespondedLeads", (n) -> { this.setUnrespondedLeads(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("medianMinutes", (n) -> { this.setMedianMinutes(n.getDoubleValue()); });
+        deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getIntegerValue()); });
+        deserializerMap.put("respondedLeads", (n) -> { this.setRespondedLeads(n.getIntegerValue()); });
+        deserializerMap.put("respondedWithinFiveMinutesPercent", (n) -> { this.setRespondedWithinFiveMinutesPercent(n.getDoubleValue()); });
+        deserializerMap.put("unreadMessages", (n) -> { this.setUnreadMessages(n.getIntegerValue()); });
+        deserializerMap.put("unrespondedLeads", (n) -> { this.setUnrespondedLeads(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
      * Gets the medianMinutes property value. Median minutes measured in minutes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMedianMinutes() {
+    public Double getMedianMinutes() {
         return this.medianMinutes;
     }
     /**
      * Gets the missedCalls property value. Number of calls missed during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMissedCalls() {
+    public Integer getMissedCalls() {
         return this.missedCalls;
     }
     /**
      * Gets the respondedLeads property value. Number of responded leads represented by this Leadping customer response metrics.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRespondedLeads() {
+    public Integer getRespondedLeads() {
         return this.respondedLeads;
     }
     /**
      * Gets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRespondedWithinFiveMinutesPercent() {
+    public Double getRespondedWithinFiveMinutesPercent() {
         return this.respondedWithinFiveMinutesPercent;
     }
     /**
      * Gets the unreadMessages property value. Number of unread messages represented by this Leadping customer response metrics.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getUnreadMessages() {
+    public Integer getUnreadMessages() {
         return this.unreadMessages;
     }
     /**
      * Gets the unrespondedLeads property value. Number of unresponded leads represented by this Leadping customer response metrics.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getUnrespondedLeads() {
+    public Integer getUnrespondedLeads() {
         return this.unrespondedLeads;
     }
     /**
@@ -160,14 +159,14 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("averageMinutes", this.getAverageMinutes());
+        writer.writeDoubleValue("averageMinutes", this.getAverageMinutes());
         writer.writeCollectionOfObjectValues("averageMinutesTrend", this.getAverageMinutesTrend());
-        writer.writeObjectValue("medianMinutes", this.getMedianMinutes());
-        writer.writeObjectValue("missedCalls", this.getMissedCalls());
-        writer.writeObjectValue("respondedLeads", this.getRespondedLeads());
-        writer.writeObjectValue("respondedWithinFiveMinutesPercent", this.getRespondedWithinFiveMinutesPercent());
-        writer.writeObjectValue("unreadMessages", this.getUnreadMessages());
-        writer.writeObjectValue("unrespondedLeads", this.getUnrespondedLeads());
+        writer.writeDoubleValue("medianMinutes", this.getMedianMinutes());
+        writer.writeIntegerValue("missedCalls", this.getMissedCalls());
+        writer.writeIntegerValue("respondedLeads", this.getRespondedLeads());
+        writer.writeDoubleValue("respondedWithinFiveMinutesPercent", this.getRespondedWithinFiveMinutesPercent());
+        writer.writeIntegerValue("unreadMessages", this.getUnreadMessages());
+        writer.writeIntegerValue("unrespondedLeads", this.getUnrespondedLeads());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -181,7 +180,7 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      * Sets the averageMinutes property value. Average minutes measured in minutes.
      * @param value Value to set for the averageMinutes property.
      */
-    public void setAverageMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAverageMinutes(@jakarta.annotation.Nullable final Double value) {
         this.averageMinutes = value;
     }
     /**
@@ -195,42 +194,42 @@ public class CustomerResponseMetrics implements AdditionalDataHolder, Parsable {
      * Sets the medianMinutes property value. Median minutes measured in minutes.
      * @param value Value to set for the medianMinutes property.
      */
-    public void setMedianMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMedianMinutes(@jakarta.annotation.Nullable final Double value) {
         this.medianMinutes = value;
     }
     /**
      * Sets the missedCalls property value. Number of calls missed during the reporting period.
      * @param value Value to set for the missedCalls property.
      */
-    public void setMissedCalls(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMissedCalls(@jakarta.annotation.Nullable final Integer value) {
         this.missedCalls = value;
     }
     /**
      * Sets the respondedLeads property value. Number of responded leads represented by this Leadping customer response metrics.
      * @param value Value to set for the respondedLeads property.
      */
-    public void setRespondedLeads(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRespondedLeads(@jakarta.annotation.Nullable final Integer value) {
         this.respondedLeads = value;
     }
     /**
      * Sets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
      * @param value Value to set for the respondedWithinFiveMinutesPercent property.
      */
-    public void setRespondedWithinFiveMinutesPercent(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRespondedWithinFiveMinutesPercent(@jakarta.annotation.Nullable final Double value) {
         this.respondedWithinFiveMinutesPercent = value;
     }
     /**
      * Sets the unreadMessages property value. Number of unread messages represented by this Leadping customer response metrics.
      * @param value Value to set for the unreadMessages property.
      */
-    public void setUnreadMessages(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setUnreadMessages(@jakarta.annotation.Nullable final Integer value) {
         this.unreadMessages = value;
     }
     /**
      * Sets the unrespondedLeads property value. Number of unresponded leads represented by this Leadping customer response metrics.
      * @param value Value to set for the unrespondedLeads property.
      */
-    public void setUnrespondedLeads(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setUnrespondedLeads(@jakarta.annotation.Nullable final Integer value) {
         this.unrespondedLeads = value;
     }
 }

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +28,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     /**
      * Total number of download records represented by this Leadping user data export.
      */
-    private UntypedNode downloadCount;
+    private Integer downloadCount;
     /**
      * Temporary URL for downloading the completed Leadping data export.
      */
@@ -57,7 +56,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     /**
      * Total number of max download records represented by this Leadping user data export.
      */
-    private UntypedNode maxDownloadCount;
+    private Integer maxDownloadCount;
     /**
      * Human-readable message for this Leadping user data export.
      */
@@ -69,7 +68,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     /**
      * Size of the generated export archive in bytes, when the export is ready.
      */
-    private UntypedNode sizeBytes;
+    private Long sizeBytes;
     /**
      * Date and time when the user data export started.
      */
@@ -120,10 +119,10 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the downloadCount property value. Total number of download records represented by this Leadping user data export.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDownloadCount() {
+    public Integer getDownloadCount() {
         return this.downloadCount;
     }
     /**
@@ -159,17 +158,17 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("contentType", (n) -> { this.setContentType(n.getStringValue()); });
-        deserializerMap.put("downloadCount", (n) -> { this.setDownloadCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("downloadCount", (n) -> { this.setDownloadCount(n.getIntegerValue()); });
         deserializerMap.put("downloadUrl", (n) -> { this.setDownloadUrl(n.getStringValue()); });
         deserializerMap.put("expiresAt", (n) -> { this.setExpiresAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("fileName", (n) -> { this.setFileName(n.getStringValue()); });
         deserializerMap.put("files", (n) -> { this.setFiles(n.getCollectionOfObjectValues(UserDataExportFile::createFromDiscriminatorValue)); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("maxDownloadCount", (n) -> { this.setMaxDownloadCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("maxDownloadCount", (n) -> { this.setMaxDownloadCount(n.getIntegerValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("requestedAt", (n) -> { this.setRequestedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("sizeBytes", (n) -> { this.setSizeBytes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("sizeBytes", (n) -> { this.setSizeBytes(n.getLongValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UserDataExportStatuses::forValue)); });
         return deserializerMap;
@@ -200,10 +199,10 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the maxDownloadCount property value. Total number of max download records represented by this Leadping user data export.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMaxDownloadCount() {
+    public Integer getMaxDownloadCount() {
         return this.maxDownloadCount;
     }
     /**
@@ -224,10 +223,10 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the sizeBytes property value. Size of the generated export archive in bytes, when the export is ready.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSizeBytes() {
+    public Long getSizeBytes() {
         return this.sizeBytes;
     }
     /**
@@ -254,17 +253,17 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeStringValue("contentType", this.getContentType());
-        writer.writeObjectValue("downloadCount", this.getDownloadCount());
+        writer.writeIntegerValue("downloadCount", this.getDownloadCount());
         writer.writeStringValue("downloadUrl", this.getDownloadUrl());
         writer.writeOffsetDateTimeValue("expiresAt", this.getExpiresAt());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("fileName", this.getFileName());
         writer.writeCollectionOfObjectValues("files", this.getFiles());
         writer.writeStringValue("id", this.getId());
-        writer.writeObjectValue("maxDownloadCount", this.getMaxDownloadCount());
+        writer.writeIntegerValue("maxDownloadCount", this.getMaxDownloadCount());
         writer.writeStringValue("message", this.getMessage());
         writer.writeOffsetDateTimeValue("requestedAt", this.getRequestedAt());
-        writer.writeObjectValue("sizeBytes", this.getSizeBytes());
+        writer.writeLongValue("sizeBytes", this.getSizeBytes());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -294,7 +293,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      * Sets the downloadCount property value. Total number of download records represented by this Leadping user data export.
      * @param value Value to set for the downloadCount property.
      */
-    public void setDownloadCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDownloadCount(@jakarta.annotation.Nullable final Integer value) {
         this.downloadCount = value;
     }
     /**
@@ -343,7 +342,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      * Sets the maxDownloadCount property value. Total number of max download records represented by this Leadping user data export.
      * @param value Value to set for the maxDownloadCount property.
      */
-    public void setMaxDownloadCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMaxDownloadCount(@jakarta.annotation.Nullable final Integer value) {
         this.maxDownloadCount = value;
     }
     /**
@@ -364,7 +363,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      * Sets the sizeBytes property value. Size of the generated export archive in bytes, when the export is ready.
      * @param value Value to set for the sizeBytes property.
      */
-    public void setSizeBytes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSizeBytes(@jakarta.annotation.Nullable final Long value) {
         this.sizeBytes = value;
     }
     /**

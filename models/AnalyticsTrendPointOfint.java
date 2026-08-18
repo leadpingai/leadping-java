@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
     /**
      * Value associated with this Leadping analytics trend point.
      */
-    private UntypedNode value;
+    private Integer value;
     /**
      * Instantiates a new {@link AnalyticsTrendPointOfint} and sets the default values.
      */
@@ -76,7 +75,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         deserializerMap.put("endAt", (n) -> { this.setEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
         deserializerMap.put("startAt", (n) -> { this.setStartAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("value", (n) -> { this.setValue(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("value", (n) -> { this.setValue(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -97,10 +96,10 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
     }
     /**
      * Gets the value property value. Value associated with this Leadping analytics trend point.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getValue() {
+    public Integer getValue() {
         return this.value;
     }
     /**
@@ -112,7 +111,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
         writer.writeOffsetDateTimeValue("endAt", this.getEndAt());
         writer.writeStringValue("label", this.getLabel());
         writer.writeOffsetDateTimeValue("startAt", this.getStartAt());
-        writer.writeObjectValue("value", this.getValue());
+        writer.writeIntegerValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -147,7 +146,7 @@ public class AnalyticsTrendPointOfint implements AdditionalDataHolder, Parsable 
      * Sets the value property value. Value associated with this Leadping analytics trend point.
      * @param value Value to set for the value property.
      */
-    public void setValue(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setValue(@jakarta.annotation.Nullable final Integer value) {
         this.value = value;
     }
 }

@@ -58,7 +58,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
      * Deletes a phone number from the current organization when it should no longer be used for lead communication.
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     public void delete() {
@@ -69,7 +71,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     public void delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
@@ -77,7 +81,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
@@ -85,7 +91,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
      * Returns one phone number visible to the current user, including messaging status, assignment, warmup, and purchase metadata.
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneNumberResponse get() {
@@ -96,14 +104,18 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneNumberResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberResponse::createFromDiscriminatorValue);
     }
     /**
@@ -112,7 +124,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
@@ -126,7 +140,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link PhoneNumberResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
@@ -136,7 +152,9 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberResponse::createFromDiscriminatorValue);
     }
@@ -157,7 +175,7 @@ public class PhoneNumberItemRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toDeleteRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.DELETE, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, DeleteRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/json, text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json, application/problem+json, text/plain;q=0.9");
         return requestInfo;
     }
     /**

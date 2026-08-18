@@ -9,7 +9,6 @@ import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,31 +36,34 @@ public class UnreadCountRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Returns the current user&apos;s unread notification count for badge updates and notification center state.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public UntypedNode get() {
+    public Integer get() {
         return get(null);
     }
     /**
      * Returns the current user&apos;s unread notification count for badge updates and notification center state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public UntypedNode get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+    public Integer get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, UntypedNode::createFromDiscriminatorValue);
+        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Integer.class);
     }
     /**
      * Returns the current user&apos;s unread notification count for badge updates and notification center state.

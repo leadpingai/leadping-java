@@ -41,6 +41,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the input used for accept organization invitation.
      * @return a {@link OrganizationInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationInvitationResponse post(@jakarta.annotation.Nonnull final AcceptOrganizationInvitationRequest body) {
@@ -52,6 +53,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationInvitationResponse}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationInvitationResponse post(@jakarta.annotation.Nonnull final AcceptOrganizationInvitationRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -59,6 +61,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationInvitationResponse::createFromDiscriminatorValue);
     }
     /**

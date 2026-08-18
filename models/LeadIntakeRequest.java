@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +40,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     /**
      * Direct-post price supplied by the lead source during intake.
      */
-    private UntypedNode directPostPrice;
+    private Double directPostPrice;
     /**
      * Email address for the person represented by this lead intake request.
      */
@@ -81,7 +80,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     /**
      * Lead price or transaction price supplied to the Leadping API.
      */
-    private UntypedNode price;
+    private Double price;
     /**
      * Product or offer associated with the lead or source.
      */
@@ -216,10 +215,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDirectPostPrice() {
+    public Double getDirectPostPrice() {
         return this.directPostPrice;
     }
     /**
@@ -250,7 +249,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("birthDate", (n) -> { this.setBirthDate(n.getLocalDateValue()); });
         deserializerMap.put("city", (n) -> { this.setCity(n.getStringValue()); });
         deserializerMap.put("dateOfBirth", (n) -> { this.setDateOfBirth(n.getLocalDateValue()); });
-        deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("externalId", (n) -> { this.setExternalId(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
@@ -260,7 +259,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("phoneType", (n) -> { this.setPhoneType(n.getStringValue()); });
         deserializerMap.put("postalCode", (n) -> { this.setPostalCode(n.getStringValue()); });
-        deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("product", (n) -> { this.setProduct(n.getStringValue()); });
         deserializerMap.put("referrer", (n) -> { this.setReferrer(n.getStringValue()); });
         deserializerMap.put("sellerLeadId", (n) -> { this.setSellerLeadId(n.getStringValue()); });
@@ -338,10 +337,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPrice() {
+    public Double getPrice() {
         return this.price;
     }
     /**
@@ -491,7 +490,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeLocalDateValue("birthDate", this.getBirthDate());
         writer.writeStringValue("city", this.getCity());
         writer.writeLocalDateValue("dateOfBirth", this.getDateOfBirth());
-        writer.writeObjectValue("directPostPrice", this.getDirectPostPrice());
+        writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("externalId", this.getExternalId());
         writer.writeStringValue("firstName", this.getFirstName());
@@ -501,7 +500,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("phone", this.getPhone());
         writer.writeStringValue("phoneType", this.getPhoneType());
         writer.writeStringValue("postalCode", this.getPostalCode());
-        writer.writeObjectValue("price", this.getPrice());
+        writer.writeDoubleValue("price", this.getPrice());
         writer.writeStringValue("product", this.getProduct());
         writer.writeStringValue("referrer", this.getReferrer());
         writer.writeStringValue("sellerLeadId", this.getSellerLeadId());
@@ -567,7 +566,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      * Sets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
      * @param value Value to set for the directPostPrice property.
      */
-    public void setDirectPostPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDirectPostPrice(@jakarta.annotation.Nullable final Double value) {
         this.directPostPrice = value;
     }
     /**
@@ -637,7 +636,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      * Sets the price property value. Lead price or transaction price supplied to the Leadping API.
      * @param value Value to set for the price property.
      */
-    public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPrice(@jakarta.annotation.Nullable final Double value) {
         this.price = value;
     }
     /**

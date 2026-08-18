@@ -44,6 +44,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse get() {
@@ -56,6 +57,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -64,6 +66,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
@@ -73,6 +76,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse post(@jakarta.annotation.Nonnull final LeadIntakeRequest body) {
@@ -86,6 +90,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse post(@jakarta.annotation.Nonnull final LeadIntakeRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -95,6 +100,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
@@ -185,7 +191,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
          * Direct-post price supplied by the lead source during intake.
          */
         @jakarta.annotation.Nullable
-        public String directPostPrice;
+        public Double directPostPrice;
         /**
          * Email address for the person represented by this lead intake request.
          */
@@ -235,7 +241,7 @@ public class IntakeRequestBuilder extends BaseRequestBuilder {
          * Lead price or transaction price supplied to the Leadping API.
          */
         @jakarta.annotation.Nullable
-        public String price;
+        public Double price;
         /**
          * Product or offer associated with the lead or source.
          */

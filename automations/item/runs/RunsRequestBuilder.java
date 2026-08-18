@@ -22,7 +22,7 @@ import java.util.Objects;
 public class RunsRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the ai.leadping.openapi.automations.item.runs.item collection
-     * @param runId Unique identifier of the item
+     * @param runId The unique identifier of the persisted automation run.
      * @return a {@link WithRunItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -49,29 +49,35 @@ public class RunsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations/{id}/runs", rawUrl);
     }
     /**
-     * Gets recent persisted execution runs for an automation console.
+     * Returns recent execution history for the specified automation in the current organization, including run state and console details.
      * @return a {@link AutomationConsoleResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationConsoleResponse get() {
         return get(null);
     }
     /**
-     * Gets recent persisted execution runs for an automation console.
+     * Returns recent execution history for the specified automation in the current organization, including run state and console details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationConsoleResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationConsoleResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationConsoleResponse::createFromDiscriminatorValue);
     }
     /**
-     * Gets recent persisted execution runs for an automation console.
+     * Returns recent execution history for the specified automation in the current organization, including run state and console details.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -79,7 +85,7 @@ public class RunsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Gets recent persisted execution runs for an automation console.
+     * Returns recent execution history for the specified automation in the current organization, including run state and console details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
