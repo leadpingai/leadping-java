@@ -49,7 +49,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<MobileDevicePreferences> mobileDevicePreferences;
     /**
-     * The display name for the entity.
+     * Human-readable display name for the resource, subject to the API&apos;s maximum name length.
      */
     private String name;
     /**
@@ -174,7 +174,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.mobileDevicePreferences;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -289,7 +289,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.mobileDevicePreferences = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {

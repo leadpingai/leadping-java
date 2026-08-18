@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A minimal, serializable record type for physical mailing addresses, with support for international formats and compatibility with common APIs.
+ * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class StreetAddress implements AdditionalDataHolder, Parsable {
@@ -17,39 +17,39 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Optional additional notes or delivery instructions.
+     * Additional address context or delivery instructions that do not fit the structured fields.
      */
     private String additionalInfo;
     /**
-     * The city, town, or locality.
+     * City, town, village, or other postal locality.
      */
     private String city;
     /**
-     * The ISO 3166-1 alpha-2 country code (e.g., &quot;US&quot;, &quot;GB&quot;, &quot;CA&quot;).
+     * Two-letter ISO 3166-1 alpha-2 country code, such as US, GB, or CA.
      */
     private String country;
     /**
-     * The primary address line (e.g., street address, P.O. box, company name).
+     * Primary delivery line, such as a street address, post-office box, or company name.
      */
     private String line1;
     /**
-     * The secondary address line (e.g., apartment, suite, unit, or building).
+     * Secondary delivery line, such as an apartment, suite, unit, floor, or building.
      */
     private String line2;
     /**
-     * The postal or ZIP code.
+     * Postal routing code, such as a ZIP code or postcode, formatted according to the destination country.
      */
     private String postalCode;
     /**
-     * The province or territory, if distinct from state in your use case (optional, use with care).
+     * Province or territory when represented separately from State by the source or destination system.
      */
     private String province;
     /**
-     * The broader region, district, or administrative area (e.g., prefecture or county).
+     * Region, district, county, prefecture, or other administrative area not represented by state or province.
      */
     private String region;
     /**
-     * The state, province, or equivalent administrative region. Commonly used in countries like the US, Canada, and Australia.
+     * State or equivalent first-level administrative subdivision when that label is used by the country.
      */
     private String state;
     /**
@@ -77,7 +77,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the additionalInfo property value. Optional additional notes or delivery instructions.
+     * Gets the additionalInfo property value. Additional address context or delivery instructions that do not fit the structured fields.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -85,7 +85,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.additionalInfo;
     }
     /**
-     * Gets the city property value. The city, town, or locality.
+     * Gets the city property value. City, town, village, or other postal locality.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.city;
     }
     /**
-     * Gets the country property value. The ISO 3166-1 alpha-2 country code (e.g., &quot;US&quot;, &quot;GB&quot;, &quot;CA&quot;).
+     * Gets the country property value. Two-letter ISO 3166-1 alpha-2 country code, such as US, GB, or CA.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -119,7 +119,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the line1 property value. The primary address line (e.g., street address, P.O. box, company name).
+     * Gets the line1 property value. Primary delivery line, such as a street address, post-office box, or company name.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -127,7 +127,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.line1;
     }
     /**
-     * Gets the line2 property value. The secondary address line (e.g., apartment, suite, unit, or building).
+     * Gets the line2 property value. Secondary delivery line, such as an apartment, suite, unit, floor, or building.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.line2;
     }
     /**
-     * Gets the postalCode property value. The postal or ZIP code.
+     * Gets the postalCode property value. Postal routing code, such as a ZIP code or postcode, formatted according to the destination country.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -143,7 +143,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.postalCode;
     }
     /**
-     * Gets the province property value. The province or territory, if distinct from state in your use case (optional, use with care).
+     * Gets the province property value. Province or territory when represented separately from State by the source or destination system.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -151,7 +151,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.province;
     }
     /**
-     * Gets the region property value. The broader region, district, or administrative area (e.g., prefecture or county).
+     * Gets the region property value. Region, district, county, prefecture, or other administrative area not represented by state or province.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -159,7 +159,7 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         return this.region;
     }
     /**
-     * Gets the state property value. The state, province, or equivalent administrative region. Commonly used in countries like the US, Canada, and Australia.
+     * Gets the state property value. State or equivalent first-level administrative subdivision when that label is used by the country.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -191,63 +191,63 @@ public class StreetAddress implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the additionalInfo property value. Optional additional notes or delivery instructions.
+     * Sets the additionalInfo property value. Additional address context or delivery instructions that do not fit the structured fields.
      * @param value Value to set for the additionalInfo property.
      */
     public void setAdditionalInfo(@jakarta.annotation.Nullable final String value) {
         this.additionalInfo = value;
     }
     /**
-     * Sets the city property value. The city, town, or locality.
+     * Sets the city property value. City, town, village, or other postal locality.
      * @param value Value to set for the city property.
      */
     public void setCity(@jakarta.annotation.Nullable final String value) {
         this.city = value;
     }
     /**
-     * Sets the country property value. The ISO 3166-1 alpha-2 country code (e.g., &quot;US&quot;, &quot;GB&quot;, &quot;CA&quot;).
+     * Sets the country property value. Two-letter ISO 3166-1 alpha-2 country code, such as US, GB, or CA.
      * @param value Value to set for the country property.
      */
     public void setCountry(@jakarta.annotation.Nullable final String value) {
         this.country = value;
     }
     /**
-     * Sets the line1 property value. The primary address line (e.g., street address, P.O. box, company name).
+     * Sets the line1 property value. Primary delivery line, such as a street address, post-office box, or company name.
      * @param value Value to set for the line1 property.
      */
     public void setLine1(@jakarta.annotation.Nullable final String value) {
         this.line1 = value;
     }
     /**
-     * Sets the line2 property value. The secondary address line (e.g., apartment, suite, unit, or building).
+     * Sets the line2 property value. Secondary delivery line, such as an apartment, suite, unit, floor, or building.
      * @param value Value to set for the line2 property.
      */
     public void setLine2(@jakarta.annotation.Nullable final String value) {
         this.line2 = value;
     }
     /**
-     * Sets the postalCode property value. The postal or ZIP code.
+     * Sets the postalCode property value. Postal routing code, such as a ZIP code or postcode, formatted according to the destination country.
      * @param value Value to set for the postalCode property.
      */
     public void setPostalCode(@jakarta.annotation.Nullable final String value) {
         this.postalCode = value;
     }
     /**
-     * Sets the province property value. The province or territory, if distinct from state in your use case (optional, use with care).
+     * Sets the province property value. Province or territory when represented separately from State by the source or destination system.
      * @param value Value to set for the province property.
      */
     public void setProvince(@jakarta.annotation.Nullable final String value) {
         this.province = value;
     }
     /**
-     * Sets the region property value. The broader region, district, or administrative area (e.g., prefecture or county).
+     * Sets the region property value. Region, district, county, prefecture, or other administrative area not represented by state or province.
      * @param value Value to set for the region property.
      */
     public void setRegion(@jakarta.annotation.Nullable final String value) {
         this.region = value;
     }
     /**
-     * Sets the state property value. The state, province, or equivalent administrative region. Commonly used in countries like the US, Canada, and Australia.
+     * Sets the state property value. State or equivalent first-level administrative subdivision when that label is used by the country.
      * @param value Value to set for the state property.
      */
     public void setState(@jakarta.annotation.Nullable final String value) {

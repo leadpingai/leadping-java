@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * An object for ordering during querying
+ * Defines one field and direction used to order an API query result set.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrderByOption implements AdditionalDataHolder, Parsable {
@@ -21,7 +21,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
      */
     private OrderByOptionDirection direction;
     /**
-     * The field to sort by.
+     * Serializable field name used for sorting; supported names are determined by the queried resource.
      */
     private String field;
     /**
@@ -57,7 +57,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         return this.direction;
     }
     /**
-     * Gets the field property value. The field to sort by.
+     * Gets the field property value. Serializable field name used for sorting; supported names are determined by the queried resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         this.direction = value;
     }
     /**
-     * Sets the field property value. The field to sort by.
+     * Sets the field property value. Serializable field name used for sorting; supported names are determined by the queried resource.
      * @param value Value to set for the field property.
      */
     public void setField(@jakarta.annotation.Nullable final String value) {

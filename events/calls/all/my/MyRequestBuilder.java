@@ -38,7 +38,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists call events visible to the current user with paging, sorting, and filters for call history and lead follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link PagedResultOfCallEventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -51,7 +51,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists call events visible to the current user with paging, sorting, and filters for call history and lead follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfCallEventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
@@ -72,7 +72,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists call events visible to the current user with paging, sorting, and filters for call history and lead follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -81,7 +81,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists call events visible to the current user with paging, sorting, and filters for call history and lead follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

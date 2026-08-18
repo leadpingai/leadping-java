@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A minimal Record type with an Id (string), Name (string), nullable Value (string?) and maximum JSON compatibility
+ * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class IdNameValue implements AdditionalDataHolder, Parsable {
@@ -17,15 +17,15 @@ public class IdNameValue implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The unique identifier.
+     * Stable unique identifier of the referenced resource.
      */
     private String id;
     /**
-     * The display name.
+     * Human-readable display name of the referenced resource.
      */
     private String name;
     /**
-     * The optional value associated with the identifier and name.
+     * Optional machine-readable or display value associated with the referenced resource.
      */
     private String value;
     /**
@@ -65,7 +65,7 @@ public class IdNameValue implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier.
+     * Gets the id property value. Stable unique identifier of the referenced resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -73,7 +73,7 @@ public class IdNameValue implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the name property value. The display name.
+     * Gets the name property value. Human-readable display name of the referenced resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -81,7 +81,7 @@ public class IdNameValue implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the value property value. The optional value associated with the identifier and name.
+     * Gets the value property value. Optional machine-readable or display value associated with the referenced resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,21 +107,21 @@ public class IdNameValue implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the id property value. The unique identifier.
+     * Sets the id property value. Stable unique identifier of the referenced resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the name property value. The display name.
+     * Sets the name property value. Human-readable display name of the referenced resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the value property value. The optional value associated with the identifier and name.
+     * Sets the value property value. Optional machine-readable or display value associated with the referenced resource.
      * @param value Value to set for the value property.
      */
     public void setValue(@jakarta.annotation.Nullable final String value) {

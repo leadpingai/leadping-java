@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A minimal Record type with an Id (string), Name (string), and maximum JSON compatibility. The reason for this type (over something like KeyValuePair, dictionary) is because of JSON serialization support.
+ * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class IdNamePair implements AdditionalDataHolder, Parsable {
@@ -17,11 +17,11 @@ public class IdNamePair implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The unique identifier.
+     * Stable unique identifier of the referenced resource.
      */
     private String id;
     /**
-     * The display name.
+     * Human-readable display name of the referenced resource.
      */
     private String name;
     /**
@@ -60,7 +60,7 @@ public class IdNamePair implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier.
+     * Gets the id property value. Stable unique identifier of the referenced resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class IdNamePair implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the name property value. The display name.
+     * Gets the name property value. Human-readable display name of the referenced resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class IdNamePair implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the id property value. The unique identifier.
+     * Sets the id property value. Stable unique identifier of the referenced resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the name property value. The display name.
+     * Sets the name property value. Human-readable display name of the referenced resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {

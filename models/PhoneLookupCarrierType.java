@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * An enumerator describing carrier types
+ * Classifies a telephone number by the network service or carrier category that provides it.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum PhoneLookupCarrierType implements ValuedEnum {

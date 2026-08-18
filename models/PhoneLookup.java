@@ -26,7 +26,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private PhoneLookup_carrier carrier;
     /**
-     * UTC timestamp when the phone lookup record was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -34,7 +34,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private String fraud;
     /**
-     * Unique Leadping identifier for the saved phone lookup record.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -42,7 +42,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private Boolean isValid;
     /**
-     * An enumerator describing phone line types
+     * Classifies the access technology or service type associated with a telephone number.
      */
     private PhoneLookupLineType lineType;
     /**
@@ -50,7 +50,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private PhoneLookupLocation location;
     /**
-     * UTC timestamp when the phone lookup record was last updated.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -110,7 +110,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.carrier;
     }
     /**
-     * Gets the createdAt property value. UTC timestamp when the phone lookup record was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -148,7 +148,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.fraud;
     }
     /**
-     * Gets the id property value. Unique Leadping identifier for the saved phone lookup record.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -164,7 +164,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.isValid;
     }
     /**
-     * Gets the lineType property value. An enumerator describing phone line types
+     * Gets the lineType property value. Classifies the access technology or service type associated with a telephone number.
      * @return a {@link PhoneLookupLineType}
      */
     @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.location;
     }
     /**
-     * Gets the modifiedAt property value. UTC timestamp when the phone lookup record was last updated.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -262,7 +262,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.carrier = value;
     }
     /**
-     * Sets the createdAt property value. UTC timestamp when the phone lookup record was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -276,7 +276,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.fraud = value;
     }
     /**
-     * Sets the id property value. Unique Leadping identifier for the saved phone lookup record.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -290,7 +290,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.isValid = value;
     }
     /**
-     * Sets the lineType property value. An enumerator describing phone line types
+     * Sets the lineType property value. Classifies the access technology or service type associated with a telephone number.
      * @param value Value to set for the lineType property.
      */
     public void setLineType(@jakarta.annotation.Nullable final PhoneLookupLineType value) {
@@ -304,7 +304,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.location = value;
     }
     /**
-     * Sets the modifiedAt property value. UTC timestamp when the phone lookup record was last updated.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

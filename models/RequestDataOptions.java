@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+ * Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class RequestDataOptions implements AdditionalDataHolder, Parsable {
@@ -17,35 +17,35 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Opaque Cosmos DB continuation token.  null on the **first** request.  Client must echo back the NextToken it received from the previous page.
+     * Opaque cursor returned by the previous paged response; omit it when requesting the first page and do not parse or modify it.
      */
     private String continuationToken;
     /**
-     * Key-value exact match filters (e.g., Status = Active).
+     * Exact-match conditions that require each named field to equal its supplied value.
      */
     private java.util.List<ExactMatchFilter> filters;
     /**
-     * Whether to include the total count in the response (for pagination).
+     * Whether the response should include the total number of matching records; counting may increase query cost or latency.
      */
     private Boolean includeCount;
     /**
-     * List of sort instructions, in priority order.
+     * Sort instructions applied in priority order, with the first entry acting as the primary sort.
      */
     private java.util.List<OrderByOption> orderBy;
     /**
-     * Maximum items to return in one page
+     * Maximum number of items requested for one page; the server may enforce a lower maximum or apply a default.
      */
     private Integer pageSize;
     /**
-     * Advanced range-based filters (e.g., Price &gt; 50 and Price &lt;= 200).
+     * Range conditions that constrain comparable fields with inclusive or exclusive lower and upper bounds.
      */
     private java.util.List<RangeFilter> rangeFilters;
     /**
-     * The search term to filter results (applied to SearchFields).
+     * Free-text search term applied to the configured SearchFields.
      */
     private String search;
     /**
-     * The list of fields to apply the Search term to (must be string properties).
+     * Serializable string field names searched for Search; supported names are determined by the queried resource.
      */
     private java.util.List<String> searchFields;
     /**
@@ -73,7 +73,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the continuationToken property value. Opaque Cosmos DB continuation token.  null on the **first** request.  Client must echo back the NextToken it received from the previous page.
+     * Gets the continuationToken property value. Opaque cursor returned by the previous paged response; omit it when requesting the first page and do not parse or modify it.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -98,7 +98,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the filters property value. Key-value exact match filters (e.g., Status = Active).
+     * Gets the filters property value. Exact-match conditions that require each named field to equal its supplied value.
      * @return a {@link java.util.List<ExactMatchFilter>}
      */
     @jakarta.annotation.Nullable
@@ -106,7 +106,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.filters;
     }
     /**
-     * Gets the includeCount property value. Whether to include the total count in the response (for pagination).
+     * Gets the includeCount property value. Whether the response should include the total number of matching records; counting may increase query cost or latency.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.includeCount;
     }
     /**
-     * Gets the orderBy property value. List of sort instructions, in priority order.
+     * Gets the orderBy property value. Sort instructions applied in priority order, with the first entry acting as the primary sort.
      * @return a {@link java.util.List<OrderByOption>}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.orderBy;
     }
     /**
-     * Gets the pageSize property value. Maximum items to return in one page
+     * Gets the pageSize property value. Maximum number of items requested for one page; the server may enforce a lower maximum or apply a default.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.pageSize;
     }
     /**
-     * Gets the rangeFilters property value. Advanced range-based filters (e.g., Price &gt; 50 and Price &lt;= 200).
+     * Gets the rangeFilters property value. Range conditions that constrain comparable fields with inclusive or exclusive lower and upper bounds.
      * @return a {@link java.util.List<RangeFilter>}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.rangeFilters;
     }
     /**
-     * Gets the search property value. The search term to filter results (applied to SearchFields).
+     * Gets the search property value. Free-text search term applied to the configured SearchFields.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +146,7 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         return this.search;
     }
     /**
-     * Gets the searchFields property value. The list of fields to apply the Search term to (must be string properties).
+     * Gets the searchFields property value. Serializable string field names searched for Search; supported names are determined by the queried resource.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -177,56 +177,56 @@ public class RequestDataOptions implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the continuationToken property value. Opaque Cosmos DB continuation token.  null on the **first** request.  Client must echo back the NextToken it received from the previous page.
+     * Sets the continuationToken property value. Opaque cursor returned by the previous paged response; omit it when requesting the first page and do not parse or modify it.
      * @param value Value to set for the continuationToken property.
      */
     public void setContinuationToken(@jakarta.annotation.Nullable final String value) {
         this.continuationToken = value;
     }
     /**
-     * Sets the filters property value. Key-value exact match filters (e.g., Status = Active).
+     * Sets the filters property value. Exact-match conditions that require each named field to equal its supplied value.
      * @param value Value to set for the filters property.
      */
     public void setFilters(@jakarta.annotation.Nullable final java.util.List<ExactMatchFilter> value) {
         this.filters = value;
     }
     /**
-     * Sets the includeCount property value. Whether to include the total count in the response (for pagination).
+     * Sets the includeCount property value. Whether the response should include the total number of matching records; counting may increase query cost or latency.
      * @param value Value to set for the includeCount property.
      */
     public void setIncludeCount(@jakarta.annotation.Nullable final Boolean value) {
         this.includeCount = value;
     }
     /**
-     * Sets the orderBy property value. List of sort instructions, in priority order.
+     * Sets the orderBy property value. Sort instructions applied in priority order, with the first entry acting as the primary sort.
      * @param value Value to set for the orderBy property.
      */
     public void setOrderBy(@jakarta.annotation.Nullable final java.util.List<OrderByOption> value) {
         this.orderBy = value;
     }
     /**
-     * Sets the pageSize property value. Maximum items to return in one page
+     * Sets the pageSize property value. Maximum number of items requested for one page; the server may enforce a lower maximum or apply a default.
      * @param value Value to set for the pageSize property.
      */
     public void setPageSize(@jakarta.annotation.Nullable final Integer value) {
         this.pageSize = value;
     }
     /**
-     * Sets the rangeFilters property value. Advanced range-based filters (e.g., Price &gt; 50 and Price &lt;= 200).
+     * Sets the rangeFilters property value. Range conditions that constrain comparable fields with inclusive or exclusive lower and upper bounds.
      * @param value Value to set for the rangeFilters property.
      */
     public void setRangeFilters(@jakarta.annotation.Nullable final java.util.List<RangeFilter> value) {
         this.rangeFilters = value;
     }
     /**
-     * Sets the search property value. The search term to filter results (applied to SearchFields).
+     * Sets the search property value. Free-text search term applied to the configured SearchFields.
      * @param value Value to set for the search property.
      */
     public void setSearch(@jakarta.annotation.Nullable final String value) {
         this.search = value;
     }
     /**
-     * Sets the searchFields property value. The list of fields to apply the Search term to (must be string properties).
+     * Sets the searchFields property value. Serializable string field names searched for Search; supported names are determined by the queried resource.
      * @param value Value to set for the searchFields property.
      */
     public void setSearchFields(@jakarta.annotation.Nullable final java.util.List<String> value) {

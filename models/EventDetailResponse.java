@@ -30,7 +30,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String conversationId;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -66,7 +66,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -74,7 +74,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String leadId;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -194,7 +194,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.conversationId;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -307,7 +307,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -323,7 +323,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -535,7 +535,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.conversationId = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -598,7 +598,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -612,7 +612,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

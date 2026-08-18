@@ -18,7 +18,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -26,7 +26,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -34,11 +34,11 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean leadpingOwned;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
@@ -86,7 +86,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.leadpingOwned;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +146,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -220,7 +220,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -234,7 +234,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -248,14 +248,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.leadpingOwned = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
