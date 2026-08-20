@@ -30,10 +30,6 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime appointmentStartAt;
     /**
-     * The assigned to user ID associated with this lead status change.
-     */
-    private String assignedToUserId;
-    /**
      * UTC timestamp for callback at on this lead status change.
      */
     private OffsetDateTime callbackAt;
@@ -42,21 +38,9 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private LeadStatusChangeRequestCategory category;
     /**
-     * The automation that changed this lead status change, when applicable.
-     */
-    private String changedByAutomationId;
-    /**
-     * Known sources that can change a lead&apos;s current lead status change.
-     */
-    private LeadStatusChangeRequestChangeSource changeSource;
-    /**
      * The current follow up status for this lead status change.
      */
     private String followUpStatus;
-    /**
-     * Whether this lead status change is missed call follow up.
-     */
-    private Boolean isMissedCallFollowUp;
     /**
      * The operator or customer notes recorded for this lead status change.
      */
@@ -70,21 +54,9 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private String reason;
     /**
-     * The related call event ID associated with this lead status change.
-     */
-    private String relatedCallEventId;
-    /**
-     * The source ID associated with this lead status change.
-     */
-    private String sourceId;
-    /**
      * UTC timestamp for task due at on this lead status change.
      */
     private OffsetDateTime taskDueAt;
-    /**
-     * UTC timestamp for timestamp on this lead status change.
-     */
-    private OffsetDateTime timestamp;
     /**
      * Category of status change being recorded for the lead.
      */
@@ -138,14 +110,6 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.appointmentStartAt;
     }
     /**
-     * Gets the assignedToUserId property value. The assigned to user ID associated with this lead status change.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getAssignedToUserId() {
-        return this.assignedToUserId;
-    }
-    /**
      * Gets the callbackAt property value. UTC timestamp for callback at on this lead status change.
      * @return a {@link OffsetDateTime}
      */
@@ -162,45 +126,22 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the changedByAutomationId property value. The automation that changed this lead status change, when applicable.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getChangedByAutomationId() {
-        return this.changedByAutomationId;
-    }
-    /**
-     * Gets the changeSource property value. Known sources that can change a lead&apos;s current lead status change.
-     * @return a {@link LeadStatusChangeRequestChangeSource}
-     */
-    @jakarta.annotation.Nullable
-    public LeadStatusChangeRequestChangeSource getChangeSource() {
-        return this.changeSource;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
         deserializerMap.put("callbackAt", (n) -> { this.setCallbackAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(LeadStatusChangeRequestCategory::forValue)); });
-        deserializerMap.put("changedByAutomationId", (n) -> { this.setChangedByAutomationId(n.getStringValue()); });
-        deserializerMap.put("changeSource", (n) -> { this.setChangeSource(n.getEnumValue(LeadStatusChangeRequestChangeSource::forValue)); });
         deserializerMap.put("followUpStatus", (n) -> { this.setFollowUpStatus(n.getStringValue()); });
-        deserializerMap.put("isMissedCallFollowUp", (n) -> { this.setIsMissedCallFollowUp(n.getBooleanValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
         deserializerMap.put("outcome", (n) -> { this.setOutcome(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
-        deserializerMap.put("relatedCallEventId", (n) -> { this.setRelatedCallEventId(n.getStringValue()); });
-        deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("taskDueAt", (n) -> { this.setTaskDueAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("timestamp", (n) -> { this.setTimestamp(n.getOffsetDateTimeValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         return deserializerMap;
     }
@@ -211,14 +152,6 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getFollowUpStatus() {
         return this.followUpStatus;
-    }
-    /**
-     * Gets the isMissedCallFollowUp property value. Whether this lead status change is missed call follow up.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getIsMissedCallFollowUp() {
-        return this.isMissedCallFollowUp;
     }
     /**
      * Gets the notes property value. The operator or customer notes recorded for this lead status change.
@@ -245,36 +178,12 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.reason;
     }
     /**
-     * Gets the relatedCallEventId property value. The related call event ID associated with this lead status change.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getRelatedCallEventId() {
-        return this.relatedCallEventId;
-    }
-    /**
-     * Gets the sourceId property value. The source ID associated with this lead status change.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getSourceId() {
-        return this.sourceId;
-    }
-    /**
      * Gets the taskDueAt property value. UTC timestamp for task due at on this lead status change.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
     public OffsetDateTime getTaskDueAt() {
         return this.taskDueAt;
-    }
-    /**
-     * Gets the timestamp property value. UTC timestamp for timestamp on this lead status change.
-     * @return a {@link OffsetDateTime}
-     */
-    @jakarta.annotation.Nullable
-    public OffsetDateTime getTimestamp() {
-        return this.timestamp;
     }
     /**
      * Gets the type property value. Category of status change being recorded for the lead.
@@ -293,20 +202,13 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("appointmentEndAt", this.getAppointmentEndAt());
         writer.writeStringValue("appointmentNotes", this.getAppointmentNotes());
         writer.writeOffsetDateTimeValue("appointmentStartAt", this.getAppointmentStartAt());
-        writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
         writer.writeOffsetDateTimeValue("callbackAt", this.getCallbackAt());
         writer.writeEnumValue("category", this.getCategory());
-        writer.writeStringValue("changedByAutomationId", this.getChangedByAutomationId());
-        writer.writeEnumValue("changeSource", this.getChangeSource());
         writer.writeStringValue("followUpStatus", this.getFollowUpStatus());
-        writer.writeBooleanValue("isMissedCallFollowUp", this.getIsMissedCallFollowUp());
         writer.writeStringValue("notes", this.getNotes());
         writer.writeStringValue("outcome", this.getOutcome());
         writer.writeStringValue("reason", this.getReason());
-        writer.writeStringValue("relatedCallEventId", this.getRelatedCallEventId());
-        writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeOffsetDateTimeValue("taskDueAt", this.getTaskDueAt());
-        writer.writeOffsetDateTimeValue("timestamp", this.getTimestamp());
         writer.writeStringValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -339,13 +241,6 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.appointmentStartAt = value;
     }
     /**
-     * Sets the assignedToUserId property value. The assigned to user ID associated with this lead status change.
-     * @param value Value to set for the assignedToUserId property.
-     */
-    public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {
-        this.assignedToUserId = value;
-    }
-    /**
      * Sets the callbackAt property value. UTC timestamp for callback at on this lead status change.
      * @param value Value to set for the callbackAt property.
      */
@@ -360,32 +255,11 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.category = value;
     }
     /**
-     * Sets the changedByAutomationId property value. The automation that changed this lead status change, when applicable.
-     * @param value Value to set for the changedByAutomationId property.
-     */
-    public void setChangedByAutomationId(@jakarta.annotation.Nullable final String value) {
-        this.changedByAutomationId = value;
-    }
-    /**
-     * Sets the changeSource property value. Known sources that can change a lead&apos;s current lead status change.
-     * @param value Value to set for the changeSource property.
-     */
-    public void setChangeSource(@jakarta.annotation.Nullable final LeadStatusChangeRequestChangeSource value) {
-        this.changeSource = value;
-    }
-    /**
      * Sets the followUpStatus property value. The current follow up status for this lead status change.
      * @param value Value to set for the followUpStatus property.
      */
     public void setFollowUpStatus(@jakarta.annotation.Nullable final String value) {
         this.followUpStatus = value;
-    }
-    /**
-     * Sets the isMissedCallFollowUp property value. Whether this lead status change is missed call follow up.
-     * @param value Value to set for the isMissedCallFollowUp property.
-     */
-    public void setIsMissedCallFollowUp(@jakarta.annotation.Nullable final Boolean value) {
-        this.isMissedCallFollowUp = value;
     }
     /**
      * Sets the notes property value. The operator or customer notes recorded for this lead status change.
@@ -409,32 +283,11 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         this.reason = value;
     }
     /**
-     * Sets the relatedCallEventId property value. The related call event ID associated with this lead status change.
-     * @param value Value to set for the relatedCallEventId property.
-     */
-    public void setRelatedCallEventId(@jakarta.annotation.Nullable final String value) {
-        this.relatedCallEventId = value;
-    }
-    /**
-     * Sets the sourceId property value. The source ID associated with this lead status change.
-     * @param value Value to set for the sourceId property.
-     */
-    public void setSourceId(@jakarta.annotation.Nullable final String value) {
-        this.sourceId = value;
-    }
-    /**
      * Sets the taskDueAt property value. UTC timestamp for task due at on this lead status change.
      * @param value Value to set for the taskDueAt property.
      */
     public void setTaskDueAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.taskDueAt = value;
-    }
-    /**
-     * Sets the timestamp property value. UTC timestamp for timestamp on this lead status change.
-     * @param value Value to set for the timestamp property.
-     */
-    public void setTimestamp(@jakarta.annotation.Nullable final OffsetDateTime value) {
-        this.timestamp = value;
     }
     /**
      * Sets the type property value. Category of status change being recorded for the lead.

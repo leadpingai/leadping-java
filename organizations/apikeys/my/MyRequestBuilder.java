@@ -1,6 +1,6 @@
 package ai.leadping.openapi.organizations.apikeys.my;
 
-import ai.leadping.openapi.models.PagedResultOfOrganizationTableRow;
+import ai.leadping.openapi.models.OrganizationApiKeyListResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.RequestDataOptions;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -39,28 +39,28 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
-     * @return a {@link PagedResultOfOrganizationTableRow}
+     * @return a {@link OrganizationApiKeyListResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public PagedResultOfOrganizationTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
+    public OrganizationApiKeyListResponse post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
         return post(body, null);
     }
     /**
      * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link PagedResultOfOrganizationTableRow}
+     * @return a {@link OrganizationApiKeyListResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public PagedResultOfOrganizationTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+    public OrganizationApiKeyListResponse post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
@@ -68,7 +68,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfOrganizationTableRow::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyListResponse::createFromDiscriminatorValue);
     }
     /**
      * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.

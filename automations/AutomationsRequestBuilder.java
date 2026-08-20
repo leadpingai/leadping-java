@@ -41,7 +41,7 @@ public class AutomationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.automations.item collection
-     * @param id The ID of the automation.
+     * @param id Unique identifier of the item
      * @return a {@link AutomationsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

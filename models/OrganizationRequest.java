@@ -21,34 +21,6 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private OrganizationRequestAddress address;
     /**
-     * Wallet refill amount charged when automatic refill is triggered.
-     */
-    private Double autoRefillAmount;
-    /**
-     * Indicates whether automatic wallet refill is enabled for the organization.
-     */
-    private Boolean autoRefillEnabled;
-    /**
-     * Wallet balance threshold that triggers automatic refill.
-     */
-    private Double autoRefillTrigger;
-    /**
-     * Postal address used for invoices, receipts, and payment processor billing records.
-     */
-    private OrganizationRequestBillingAddress billingAddress;
-    /**
-     * Name used for invoices, receipts, and payment processor billing records.
-     */
-    private String billingName;
-    /**
-     * Tax identifier printed on billing documents. This may differ from the organization verification EIN.
-     */
-    private String billingTaxId;
-    /**
-     * Compliance policy configuration for the organization.
-     */
-    private OrganizationRequestCompliancePolicy compliancePolicy;
-    /**
      * Human-readable description that explains this organization profile request to API users.
      */
     private String description;
@@ -57,23 +29,11 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private String ein;
     /**
-     * Uploaded EIN document reference used for organization verification.
-     */
-    private OrganizationRequestEinDocument einDocument;
-    /**
-     * Indicates whether this organization profile request is active and available in the Leadping API.
-     */
-    private Boolean enabled;
-    /**
-     * Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     */
-    private String id;
-    /**
      * Indicates whether the organization serves customers younger than 90, for compliance and underwriting context.
      */
     private Boolean isYoungerThan90;
     /**
-     * Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Primary organization name.
      */
     private String name;
     /**
@@ -81,17 +41,9 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private String phone;
     /**
-     * Phone numbers assigned to this organization.
-     */
-    private java.util.List<IdNameValue> phones;
-    /**
      * Alternate organization name or DBA shown in Leadping.
      */
     private String secondaryName;
-    /**
-     * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
-     */
-    private OrganizationRequestStatus status;
     /**
      * Industry vertical used for lead routing, compliance review, and reporting.
      */
@@ -133,62 +85,6 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.address;
     }
     /**
-     * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getAutoRefillAmount() {
-        return this.autoRefillAmount;
-    }
-    /**
-     * Gets the autoRefillEnabled property value. Indicates whether automatic wallet refill is enabled for the organization.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getAutoRefillEnabled() {
-        return this.autoRefillEnabled;
-    }
-    /**
-     * Gets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getAutoRefillTrigger() {
-        return this.autoRefillTrigger;
-    }
-    /**
-     * Gets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
-     * @return a {@link OrganizationRequestBillingAddress}
-     */
-    @jakarta.annotation.Nullable
-    public OrganizationRequestBillingAddress getBillingAddress() {
-        return this.billingAddress;
-    }
-    /**
-     * Gets the billingName property value. Name used for invoices, receipts, and payment processor billing records.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBillingName() {
-        return this.billingName;
-    }
-    /**
-     * Gets the billingTaxId property value. Tax identifier printed on billing documents. This may differ from the organization verification EIN.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getBillingTaxId() {
-        return this.billingTaxId;
-    }
-    /**
-     * Gets the compliancePolicy property value. Compliance policy configuration for the organization.
-     * @return a {@link OrganizationRequestCompliancePolicy}
-     */
-    @jakarta.annotation.Nullable
-    public OrganizationRequestCompliancePolicy getCompliancePolicy() {
-        return this.compliancePolicy;
-    }
-    /**
      * Gets the description property value. Human-readable description that explains this organization profile request to API users.
      * @return a {@link String}
      */
@@ -205,58 +101,22 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.ein;
     }
     /**
-     * Gets the einDocument property value. Uploaded EIN document reference used for organization verification.
-     * @return a {@link OrganizationRequestEinDocument}
-     */
-    @jakarta.annotation.Nullable
-    public OrganizationRequestEinDocument getEinDocument() {
-        return this.einDocument;
-    }
-    /**
-     * Gets the enabled property value. Indicates whether this organization profile request is active and available in the Leadping API.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getEnabled() {
-        return this.enabled;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationRequestAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
-        deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
-        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
-        deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(OrganizationRequestBillingAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
-        deserializerMap.put("billingTaxId", (n) -> { this.setBillingTaxId(n.getStringValue()); });
-        deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(OrganizationRequestCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
-        deserializerMap.put("einDocument", (n) -> { this.setEinDocument(n.getObjectValue(OrganizationRequestEinDocument::createFromDiscriminatorValue)); });
-        deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
-        deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isYoungerThan90", (n) -> { this.setIsYoungerThan90(n.getBooleanValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("phones", (n) -> { this.setPhones(n.getCollectionOfObjectValues(IdNameValue::createFromDiscriminatorValue)); });
         deserializerMap.put("secondaryName", (n) -> { this.setSecondaryName(n.getStringValue()); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(OrganizationRequestStatus::forValue)); });
         deserializerMap.put("vertical", (n) -> { this.setVertical(n.getStringValue()); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
         return deserializerMap;
-    }
-    /**
-     * Gets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getId() {
-        return this.id;
     }
     /**
      * Gets the isYoungerThan90 property value. Indicates whether the organization serves customers younger than 90, for compliance and underwriting context.
@@ -267,7 +127,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.isYoungerThan90;
     }
     /**
-     * Gets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Gets the name property value. Primary organization name.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -283,28 +143,12 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.phone;
     }
     /**
-     * Gets the phones property value. Phone numbers assigned to this organization.
-     * @return a {@link java.util.List<IdNameValue>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<IdNameValue> getPhones() {
-        return this.phones;
-    }
-    /**
      * Gets the secondaryName property value. Alternate organization name or DBA shown in Leadping.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSecondaryName() {
         return this.secondaryName;
-    }
-    /**
-     * Gets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
-     * @return a {@link OrganizationRequestStatus}
-     */
-    @jakarta.annotation.Nullable
-    public OrganizationRequestStatus getStatus() {
-        return this.status;
     }
     /**
      * Gets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.
@@ -329,24 +173,12 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("address", this.getAddress());
-        writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
-        writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
-        writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
-        writer.writeObjectValue("billingAddress", this.getBillingAddress());
-        writer.writeStringValue("billingName", this.getBillingName());
-        writer.writeStringValue("billingTaxId", this.getBillingTaxId());
-        writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("ein", this.getEin());
-        writer.writeObjectValue("einDocument", this.getEinDocument());
-        writer.writeBooleanValue("enabled", this.getEnabled());
-        writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isYoungerThan90", this.getIsYoungerThan90());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeCollectionOfObjectValues("phones", this.getPhones());
         writer.writeStringValue("secondaryName", this.getSecondaryName());
-        writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("vertical", this.getVertical());
         writer.writeStringValue("website", this.getWebsite());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -366,55 +198,6 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.address = value;
     }
     /**
-     * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
-     * @param value Value to set for the autoRefillAmount property.
-     */
-    public void setAutoRefillAmount(@jakarta.annotation.Nullable final Double value) {
-        this.autoRefillAmount = value;
-    }
-    /**
-     * Sets the autoRefillEnabled property value. Indicates whether automatic wallet refill is enabled for the organization.
-     * @param value Value to set for the autoRefillEnabled property.
-     */
-    public void setAutoRefillEnabled(@jakarta.annotation.Nullable final Boolean value) {
-        this.autoRefillEnabled = value;
-    }
-    /**
-     * Sets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
-     * @param value Value to set for the autoRefillTrigger property.
-     */
-    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final Double value) {
-        this.autoRefillTrigger = value;
-    }
-    /**
-     * Sets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
-     * @param value Value to set for the billingAddress property.
-     */
-    public void setBillingAddress(@jakarta.annotation.Nullable final OrganizationRequestBillingAddress value) {
-        this.billingAddress = value;
-    }
-    /**
-     * Sets the billingName property value. Name used for invoices, receipts, and payment processor billing records.
-     * @param value Value to set for the billingName property.
-     */
-    public void setBillingName(@jakarta.annotation.Nullable final String value) {
-        this.billingName = value;
-    }
-    /**
-     * Sets the billingTaxId property value. Tax identifier printed on billing documents. This may differ from the organization verification EIN.
-     * @param value Value to set for the billingTaxId property.
-     */
-    public void setBillingTaxId(@jakarta.annotation.Nullable final String value) {
-        this.billingTaxId = value;
-    }
-    /**
-     * Sets the compliancePolicy property value. Compliance policy configuration for the organization.
-     * @param value Value to set for the compliancePolicy property.
-     */
-    public void setCompliancePolicy(@jakarta.annotation.Nullable final OrganizationRequestCompliancePolicy value) {
-        this.compliancePolicy = value;
-    }
-    /**
      * Sets the description property value. Human-readable description that explains this organization profile request to API users.
      * @param value Value to set for the description property.
      */
@@ -429,27 +212,6 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.ein = value;
     }
     /**
-     * Sets the einDocument property value. Uploaded EIN document reference used for organization verification.
-     * @param value Value to set for the einDocument property.
-     */
-    public void setEinDocument(@jakarta.annotation.Nullable final OrganizationRequestEinDocument value) {
-        this.einDocument = value;
-    }
-    /**
-     * Sets the enabled property value. Indicates whether this organization profile request is active and available in the Leadping API.
-     * @param value Value to set for the enabled property.
-     */
-    public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
-        this.enabled = value;
-    }
-    /**
-     * Sets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     * @param value Value to set for the id property.
-     */
-    public void setId(@jakarta.annotation.Nullable final String value) {
-        this.id = value;
-    }
-    /**
      * Sets the isYoungerThan90 property value. Indicates whether the organization serves customers younger than 90, for compliance and underwriting context.
      * @param value Value to set for the isYoungerThan90 property.
      */
@@ -457,7 +219,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.isYoungerThan90 = value;
     }
     /**
-     * Sets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Sets the name property value. Primary organization name.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -471,25 +233,11 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.phone = value;
     }
     /**
-     * Sets the phones property value. Phone numbers assigned to this organization.
-     * @param value Value to set for the phones property.
-     */
-    public void setPhones(@jakarta.annotation.Nullable final java.util.List<IdNameValue> value) {
-        this.phones = value;
-    }
-    /**
      * Sets the secondaryName property value. Alternate organization name or DBA shown in Leadping.
      * @param value Value to set for the secondaryName property.
      */
     public void setSecondaryName(@jakarta.annotation.Nullable final String value) {
         this.secondaryName = value;
-    }
-    /**
-     * Sets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
-     * @param value Value to set for the status property.
-     */
-    public void setStatus(@jakarta.annotation.Nullable final OrganizationRequestStatus value) {
-        this.status = value;
     }
     /**
      * Sets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.

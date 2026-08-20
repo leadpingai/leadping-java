@@ -1,5 +1,6 @@
 package ai.leadping.openapi.organizations.apikeys;
 
+import ai.leadping.openapi.organizations.apikeys.item.ApiKeysItemRequestBuilder;
 import ai.leadping.openapi.organizations.apikeys.my.MyRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -17,6 +18,18 @@ public class ApiKeysRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public MyRequestBuilder my() {
         return new MyRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * Gets an item from the ai.leadping.openapi.organizations.apiKeys.item collection
+     * @param id Unique identifier of the item
+     * @return a {@link ApiKeysItemRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public ApiKeysItemRequestBuilder byId(@jakarta.annotation.Nonnull final String id) {
+        Objects.requireNonNull(id);
+        final HashMap<String, Object> urlTplParams = new HashMap<String, Object>(this.pathParameters);
+        urlTplParams.put("id", id);
+        return new ApiKeysItemRequestBuilder(urlTplParams, requestAdapter);
     }
     /**
      * Instantiates a new {@link ApiKeysRequestBuilder} and sets the default values.

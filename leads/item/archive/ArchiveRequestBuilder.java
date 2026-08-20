@@ -36,7 +36,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/leads/{%2Did}/archive", rawUrl);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.The request body is intentionally optional. An empty body archives the lead with the default manually-archived reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -50,7 +50,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.The request body is intentionally optional. An empty body archives the lead with the default manually-archived reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
@@ -73,7 +73,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.The request body is intentionally optional. An empty body archives the lead with the default manually-archived reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @return a {@link RequestInformation}
      */
@@ -82,7 +82,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.The request body is intentionally optional. An empty body archives the lead with the default manually-archived reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -17,39 +17,15 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
-     */
-    private UserRequestBillingPlan billingPlan;
-    /**
-     * User compliance settings and attestations captured for Leadping account review.
-     */
-    private UserRequestCompliance compliance;
-    /**
-     * Organization currently selected for the user session or profile.
-     */
-    private UserRequestCurrentOrganization currentOrganization;
-    /**
-     * Email address for the person represented by this user profile request.
-     */
-    private String email;
-    /**
      * First name of the lead, user, or contact represented by this user profile request.
      */
     private String firstName;
-    /**
-     * Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     */
-    private String id;
     /**
      * Last name of the lead, user, or contact represented by this user profile request.
      */
     private String lastName;
     /**
-     * Mobile notification preferences configured for the user.
-     */
-    private java.util.List<MobileDevicePreferences> mobileDevicePreferences;
-    /**
-     * Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Display name for the user.
      */
     private String name;
     /**
@@ -89,52 +65,14 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
-     * @return a {@link UserRequestBillingPlan}
-     */
-    @jakarta.annotation.Nullable
-    public UserRequestBillingPlan getBillingPlan() {
-        return this.billingPlan;
-    }
-    /**
-     * Gets the compliance property value. User compliance settings and attestations captured for Leadping account review.
-     * @return a {@link UserRequestCompliance}
-     */
-    @jakarta.annotation.Nullable
-    public UserRequestCompliance getCompliance() {
-        return this.compliance;
-    }
-    /**
-     * Gets the currentOrganization property value. Organization currently selected for the user session or profile.
-     * @return a {@link UserRequestCurrentOrganization}
-     */
-    @jakarta.annotation.Nullable
-    public UserRequestCurrentOrganization getCurrentOrganization() {
-        return this.currentOrganization;
-    }
-    /**
-     * Gets the email property value. Email address for the person represented by this user profile request.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getEmail() {
-        return this.email;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
-        deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserRequestBillingPlan::forValue)); });
-        deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserRequestCompliance::createFromDiscriminatorValue)); });
-        deserializerMap.put("currentOrganization", (n) -> { this.setCurrentOrganization(n.getObjectValue(UserRequestCurrentOrganization::createFromDiscriminatorValue)); });
-        deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
-        deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
-        deserializerMap.put("mobileDevicePreferences", (n) -> { this.setMobileDevicePreferences(n.getCollectionOfObjectValues(MobileDevicePreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("notificationPreferences", (n) -> { this.setNotificationPreferences(n.getObjectValue(UserRequestNotificationPreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
@@ -150,14 +88,6 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.firstName;
     }
     /**
-     * Gets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getId() {
-        return this.id;
-    }
-    /**
      * Gets the lastName property value. Last name of the lead, user, or contact represented by this user profile request.
      * @return a {@link String}
      */
@@ -166,15 +96,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the mobileDevicePreferences property value. Mobile notification preferences configured for the user.
-     * @return a {@link java.util.List<MobileDevicePreferences>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<MobileDevicePreferences> getMobileDevicePreferences() {
-        return this.mobileDevicePreferences;
-    }
-    /**
-     * Gets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Gets the name property value. Display name for the user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -211,14 +133,8 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeEnumValue("billingPlan", this.getBillingPlan());
-        writer.writeObjectValue("compliance", this.getCompliance());
-        writer.writeObjectValue("currentOrganization", this.getCurrentOrganization());
-        writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
-        writer.writeStringValue("id", this.getId());
         writer.writeStringValue("lastName", this.getLastName());
-        writer.writeCollectionOfObjectValues("mobileDevicePreferences", this.getMobileDevicePreferences());
         writer.writeStringValue("name", this.getName());
         writer.writeObjectValue("notificationPreferences", this.getNotificationPreferences());
         writer.writeStringValue("phone", this.getPhone());
@@ -233,46 +149,11 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
-     * @param value Value to set for the billingPlan property.
-     */
-    public void setBillingPlan(@jakarta.annotation.Nullable final UserRequestBillingPlan value) {
-        this.billingPlan = value;
-    }
-    /**
-     * Sets the compliance property value. User compliance settings and attestations captured for Leadping account review.
-     * @param value Value to set for the compliance property.
-     */
-    public void setCompliance(@jakarta.annotation.Nullable final UserRequestCompliance value) {
-        this.compliance = value;
-    }
-    /**
-     * Sets the currentOrganization property value. Organization currently selected for the user session or profile.
-     * @param value Value to set for the currentOrganization property.
-     */
-    public void setCurrentOrganization(@jakarta.annotation.Nullable final UserRequestCurrentOrganization value) {
-        this.currentOrganization = value;
-    }
-    /**
-     * Sets the email property value. Email address for the person represented by this user profile request.
-     * @param value Value to set for the email property.
-     */
-    public void setEmail(@jakarta.annotation.Nullable final String value) {
-        this.email = value;
-    }
-    /**
      * Sets the firstName property value. First name of the lead, user, or contact represented by this user profile request.
      * @param value Value to set for the firstName property.
      */
     public void setFirstName(@jakarta.annotation.Nullable final String value) {
         this.firstName = value;
-    }
-    /**
-     * Sets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     * @param value Value to set for the id property.
-     */
-    public void setId(@jakarta.annotation.Nullable final String value) {
-        this.id = value;
     }
     /**
      * Sets the lastName property value. Last name of the lead, user, or contact represented by this user profile request.
@@ -282,14 +163,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the mobileDevicePreferences property value. Mobile notification preferences configured for the user.
-     * @param value Value to set for the mobileDevicePreferences property.
-     */
-    public void setMobileDevicePreferences(@jakarta.annotation.Nullable final java.util.List<MobileDevicePreferences> value) {
-        this.mobileDevicePreferences = value;
-    }
-    /**
-     * Sets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Sets the name property value. Display name for the user.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {

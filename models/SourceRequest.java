@@ -25,14 +25,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * Source API key used to authenticate inbound lead delivery to Leadping.
-     */
-    private String apiKey;
-    /**
-     * Configured cost charged when this source creates a billable lead.
-     */
-    private Double costPerLead;
-    /**
      * Tag IDs automatically assigned to leads created by this source.
      */
     private java.util.List<String> defaultTagIds;
@@ -45,21 +37,9 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private String description;
     /**
-     * Indicates whether this lead source request is active and available in the Leadping API.
-     */
-    private Boolean enabled;
-    /**
-     * Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     */
-    private String id;
-    /**
-     * Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Human-readable source name.
      */
     private String name;
-    /**
-     * Indicates whether Leadping should issue a new API key for this source.
-     */
-    private Boolean regenerateApiKey;
     /**
      * Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
      */
@@ -105,22 +85,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getApiKey() {
-        return this.apiKey;
-    }
-    /**
-     * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getCostPerLead() {
-        return this.costPerLead;
-    }
-    /**
      * Gets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.
      * @return a {@link java.util.List<String>}
      */
@@ -145,57 +109,28 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.description;
     }
     /**
-     * Gets the enabled property value. Indicates whether this lead source request is active and available in the Leadping API.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getEnabled() {
-        return this.enabled;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
-        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
-        deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
-        deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
-        deserializerMap.put("regenerateApiKey", (n) -> { this.setRegenerateApiKey(n.getBooleanValue()); });
         deserializerMap.put("requiresTrustedForm", (n) -> { this.setRequiresTrustedForm(n.getBooleanValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getId() {
-        return this.id;
-    }
-    /**
-     * Gets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Gets the name property value. Human-readable source name.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
-    }
-    /**
-     * Gets the regenerateApiKey property value. Indicates whether Leadping should issue a new API key for this source.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getRegenerateApiKey() {
-        return this.regenerateApiKey;
     }
     /**
      * Gets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
@@ -213,15 +148,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
-        writer.writeStringValue("apiKey", this.getApiKey());
-        writer.writeDoubleValue("costPerLead", this.getCostPerLead());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
         writer.writeStringValue("description", this.getDescription());
-        writer.writeBooleanValue("enabled", this.getEnabled());
-        writer.writeStringValue("id", this.getId());
         writer.writeStringValue("name", this.getName());
-        writer.writeBooleanValue("regenerateApiKey", this.getRegenerateApiKey());
         writer.writeBooleanValue("requiresTrustedForm", this.getRequiresTrustedForm());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -247,20 +177,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         this.allowedStates = value;
     }
     /**
-     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping.
-     * @param value Value to set for the apiKey property.
-     */
-    public void setApiKey(@jakarta.annotation.Nullable final String value) {
-        this.apiKey = value;
-    }
-    /**
-     * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.
-     * @param value Value to set for the costPerLead property.
-     */
-    public void setCostPerLead(@jakarta.annotation.Nullable final Double value) {
-        this.costPerLead = value;
-    }
-    /**
      * Sets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.
      * @param value Value to set for the defaultTagIds property.
      */
@@ -282,32 +198,11 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         this.description = value;
     }
     /**
-     * Sets the enabled property value. Indicates whether this lead source request is active and available in the Leadping API.
-     * @param value Value to set for the enabled property.
-     */
-    public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
-        this.enabled = value;
-    }
-    /**
-     * Sets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
-     * @param value Value to set for the id property.
-     */
-    public void setId(@jakarta.annotation.Nullable final String value) {
-        this.id = value;
-    }
-    /**
-     * Sets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
+     * Sets the name property value. Human-readable source name.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
-    }
-    /**
-     * Sets the regenerateApiKey property value. Indicates whether Leadping should issue a new API key for this source.
-     * @param value Value to set for the regenerateApiKey property.
-     */
-    public void setRegenerateApiKey(@jakarta.annotation.Nullable final Boolean value) {
-        this.regenerateApiKey = value;
     }
     /**
      * Sets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm certificate for consent proof.

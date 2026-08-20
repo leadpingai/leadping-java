@@ -57,7 +57,7 @@ public class NotificationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.notifications.item collection
-     * @param id The notification ID.
+     * @param id Unique identifier of the item
      * @return a {@link NotificationsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

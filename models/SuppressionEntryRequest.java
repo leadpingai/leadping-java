@@ -25,10 +25,6 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     private String email;
     /**
-     * Organization whose suppression list should be used.
-     */
-    private String organizationId;
-    /**
      * Recipient phone number to suppress or check, preferably in E.164 format.
      */
     private String phoneNumber;
@@ -86,22 +82,13 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
-        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
         deserializerMap.put("recipientIdentifier", (n) -> { this.setRecipientIdentifier(n.getStringValue()); });
         return deserializerMap;
-    }
-    /**
-     * Gets the organizationId property value. Organization whose suppression list should be used.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getOrganizationId() {
-        return this.organizationId;
     }
     /**
      * Gets the phoneNumber property value. Recipient phone number to suppress or check, preferably in E.164 format.
@@ -135,7 +122,6 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("email", this.getEmail());
-        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("reason", this.getReason());
         writer.writeStringValue("recipientIdentifier", this.getRecipientIdentifier());
@@ -161,13 +147,6 @@ public class SuppressionEntryRequest implements AdditionalDataHolder, Parsable {
      */
     public void setEmail(@jakarta.annotation.Nullable final String value) {
         this.email = value;
-    }
-    /**
-     * Sets the organizationId property value. Organization whose suppression list should be used.
-     * @param value Value to set for the organizationId property.
-     */
-    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
-        this.organizationId = value;
     }
     /**
      * Sets the phoneNumber property value. Recipient phone number to suppress or check, preferably in E.164 format.

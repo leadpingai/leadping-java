@@ -4,41 +4,42 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes how a phone location value was resolved.
+ * Confirms that an organization API key was revoked.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
+public class OrganizationApiKeyRevokeResponse implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
     /**
-     * The resolution method, such as Telnyx-city-state, coordinates, phone-number, or state-default.
+     * Unique identifier of the revoked API key.
      */
-    private String method;
+    private String id;
     /**
-     * The city, state, coordinates, phone number, or representative ZIP used by the method.
+     * Date and time when the API key was revoked.
      */
-    private String query;
+    private OffsetDateTime revokedAt;
     /**
-     * Instantiates a new {@link PhoneLocationSource} and sets the default values.
+     * Instantiates a new {@link OrganizationApiKeyRevokeResponse} and sets the default values.
      */
-    public PhoneLocationSource() {
+    public OrganizationApiKeyRevokeResponse() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link PhoneLocationSource}
+     * @return a {@link OrganizationApiKeyRevokeResponse}
      */
     @jakarta.annotation.Nonnull
-    public static PhoneLocationSource createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static OrganizationApiKeyRevokeResponse createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new PhoneLocationSource();
+        return new OrganizationApiKeyRevokeResponse();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -55,25 +56,25 @@ public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("method", (n) -> { this.setMethod(n.getStringValue()); });
-        deserializerMap.put("query", (n) -> { this.setQuery(n.getStringValue()); });
+        deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("revokedAt", (n) -> { this.setRevokedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the method property value. The resolution method, such as Telnyx-city-state, coordinates, phone-number, or state-default.
+     * Gets the id property value. Unique identifier of the revoked API key.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
-    public String getMethod() {
-        return this.method;
+    public String getId() {
+        return this.id;
     }
     /**
-     * Gets the query property value. The city, state, coordinates, phone number, or representative ZIP used by the method.
-     * @return a {@link String}
+     * Gets the revokedAt property value. Date and time when the API key was revoked.
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
-    public String getQuery() {
-        return this.query;
+    public OffsetDateTime getRevokedAt() {
+        return this.revokedAt;
     }
     /**
      * Serializes information the current object
@@ -81,8 +82,8 @@ public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("method", this.getMethod());
-        writer.writeStringValue("query", this.getQuery());
+        writer.writeStringValue("id", this.getId());
+        writer.writeOffsetDateTimeValue("revokedAt", this.getRevokedAt());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -93,17 +94,17 @@ public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the method property value. The resolution method, such as Telnyx-city-state, coordinates, phone-number, or state-default.
-     * @param value Value to set for the method property.
+     * Sets the id property value. Unique identifier of the revoked API key.
+     * @param value Value to set for the id property.
      */
-    public void setMethod(@jakarta.annotation.Nullable final String value) {
-        this.method = value;
+    public void setId(@jakarta.annotation.Nullable final String value) {
+        this.id = value;
     }
     /**
-     * Sets the query property value. The city, state, coordinates, phone number, or representative ZIP used by the method.
-     * @param value Value to set for the query property.
+     * Sets the revokedAt property value. Date and time when the API key was revoked.
+     * @param value Value to set for the revokedAt property.
      */
-    public void setQuery(@jakarta.annotation.Nullable final String value) {
-        this.query = value;
+    public void setRevokedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.revokedAt = value;
     }
 }

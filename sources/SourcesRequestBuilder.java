@@ -32,7 +32,7 @@ public class SourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.sources.item collection
-     * @param id The ID of the source to update.
+     * @param id Unique identifier of the item
      * @return a {@link SourcesItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

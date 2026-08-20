@@ -1,7 +1,6 @@
 package ai.leadping.openapi.organizations;
 
 import ai.leadping.openapi.organizations.apikeys.ApiKeysRequestBuilder;
-import ai.leadping.openapi.organizations.invitations.InvitationsRequestBuilder;
 import ai.leadping.openapi.organizations.me.MeRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -19,14 +18,6 @@ public class OrganizationsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public ApiKeysRequestBuilder apiKeys() {
         return new ApiKeysRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
-     * The invitations property
-     * @return a {@link InvitationsRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public InvitationsRequestBuilder invitations() {
-        return new InvitationsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The me property

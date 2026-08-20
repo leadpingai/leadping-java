@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes ten dlc application draft data used in Leadping API requests and responses.
+ * Describes 10DLC application draft data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {

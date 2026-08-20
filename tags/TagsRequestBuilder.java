@@ -24,7 +24,7 @@ import java.util.Objects;
 public class TagsRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the ai.leadping.openapi.tags.item collection
-     * @param id The unique identifier of the tag to update.
+     * @param id Unique identifier of the item
      * @return a {@link TagsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

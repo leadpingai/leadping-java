@@ -21,7 +21,7 @@ public class LeadStatusChangesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.leadStatusChanges.item collection
-     * @param id The ID of the lead status change.
+     * @param id Unique identifier of the item
      * @return a {@link LeadStatusChangesItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

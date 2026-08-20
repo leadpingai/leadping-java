@@ -21,10 +21,6 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
      */
     private BillingPlan billingPlan;
     /**
-     * The user ID associated with this billing plan.
-     */
-    private String userId;
-    /**
      * Instantiates a new {@link ChangeBillingPlanRequest} and sets the default values.
      */
     public ChangeBillingPlanRequest() {
@@ -62,18 +58,9 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(BillingPlan::forValue)); });
-        deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         return deserializerMap;
-    }
-    /**
-     * Gets the userId property value. The user ID associated with this billing plan.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserId() {
-        return this.userId;
     }
     /**
      * Serializes information the current object
@@ -82,7 +69,6 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
-        writer.writeStringValue("userId", this.getUserId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -98,12 +84,5 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final BillingPlan value) {
         this.billingPlan = value;
-    }
-    /**
-     * Sets the userId property value. The user ID associated with this billing plan.
-     * @param value Value to set for the userId property.
-     */
-    public void setUserId(@jakarta.annotation.Nullable final String value) {
-        this.userId = value;
     }
 }

@@ -1,9 +1,10 @@
-package ai.leadping.openapi.sources.item;
+package ai.leadping.openapi.organizations.apikeys.item;
 
+import ai.leadping.openapi.models.OrganizationApiKeyIssueResponse;
+import ai.leadping.openapi.models.OrganizationApiKeyPreviewResponse;
+import ai.leadping.openapi.models.OrganizationApiKeyRequest;
+import ai.leadping.openapi.models.OrganizationApiKeyRevokeResponse;
 import ai.leadping.openapi.models.ProblemDetails;
-import ai.leadping.openapi.models.SourceRequest;
-import ai.leadping.openapi.models.SourceResponse;
-import ai.leadping.openapi.sources.item.metrics.MetricsRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -17,128 +18,124 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /sources/{id}
+ * Builds and executes requests for operations under /organizations/api-keys/{id}
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class SourcesItemRequestBuilder extends BaseRequestBuilder {
+public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
     /**
-     * The metrics property
-     * @return a {@link MetricsRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public MetricsRequestBuilder metrics() {
-        return new MetricsRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
-     * Instantiates a new {@link SourcesItemRequestBuilder} and sets the default values.
+     * Instantiates a new {@link ApiKeysItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public SourcesItemRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/sources/{id}", pathParameters);
+    public ApiKeysItemRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/organizations/api-keys/{id}", pathParameters);
     }
     /**
-     * Instantiates a new {@link SourcesItemRequestBuilder} and sets the default values.
+     * Instantiates a new {@link ApiKeysItemRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public SourcesItemRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/sources/{id}", rawUrl);
+    public ApiKeysItemRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/organizations/api-keys/{id}", rawUrl);
     }
     /**
-     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
+     * Confirmation that identifies the revoked key.
+     * @return a {@link OrganizationApiKeyRevokeResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
-    public void delete() {
-        delete(null);
+    @jakarta.annotation.Nullable
+    public OrganizationApiKeyRevokeResponse delete() {
+        return delete(null);
     }
     /**
-     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
+     * Confirmation that identifies the revoked key.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link OrganizationApiKeyRevokeResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
-    public void delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
+    @jakarta.annotation.Nullable
+    public OrganizationApiKeyRevokeResponse delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
+        return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyRevokeResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
-     * @return a {@link SourceResponse}
+     * Returns the API key row with a safe token preview.
+     * @return a {@link OrganizationApiKeyPreviewResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public SourceResponse get() {
+    public OrganizationApiKeyPreviewResponse get() {
         return get(null);
     }
     /**
-     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
+     * Returns the API key row with a safe token preview.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link SourceResponse}
+     * @return a {@link OrganizationApiKeyPreviewResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public SourceResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+    public OrganizationApiKeyPreviewResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, SourceResponse::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyPreviewResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Defines the fields clients can send when working with lead source.
-     * @return a {@link SourceResponse}
+     * The one-time API token and safe key detail row.
+     * @param body Defines the display name and access configuration for a new Leadping organization API key.
+     * @return a {@link OrganizationApiKeyIssueResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
-     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public SourceResponse put(@jakarta.annotation.Nonnull final SourceRequest body) {
-        return put(body, null);
+    public OrganizationApiKeyIssueResponse post(@jakarta.annotation.Nonnull final OrganizationApiKeyRequest body) {
+        return post(body, null);
     }
     /**
-     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Defines the fields clients can send when working with lead source.
+     * The one-time API token and safe key detail row.
+     * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link SourceResponse}
+     * @return a {@link OrganizationApiKeyIssueResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
-     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public SourceResponse put(@jakarta.annotation.Nonnull final SourceRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
+    public OrganizationApiKeyIssueResponse post(@jakarta.annotation.Nonnull final OrganizationApiKeyRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
-        final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
+        final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
-        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, SourceResponse::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyIssueResponse::createFromDiscriminatorValue);
     }
     /**
-     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
+     * Confirmation that identifies the revoked key.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -146,7 +143,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Deletes a lead source from the current organization so it can no longer accept or route newly captured leads.
+     * Confirmation that identifies the revoked key.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -154,11 +151,11 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toDeleteRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.DELETE, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, DeleteRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/problem+json");
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     }
     /**
-     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
+     * Returns the API key row with a safe token preview.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -166,7 +163,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns one lead source for the current organization, including intake settings, credentials metadata, and routing context.
+     * Returns the API key row with a safe token preview.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -178,25 +175,25 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Defines the fields clients can send when working with lead source.
+     * The one-time API token and safe key detail row.
+     * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
-    public RequestInformation toPutRequestInformation(@jakarta.annotation.Nonnull final SourceRequest body) {
-        return toPutRequestInformation(body, null);
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final OrganizationApiKeyRequest body) {
+        return toPostRequestInformation(body, null);
     }
     /**
-     * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
-     * @param body Defines the fields clients can send when working with lead source.
+     * The one-time API token and safe key detail row.
+     * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
-    public RequestInformation toPutRequestInformation(@jakarta.annotation.Nonnull final SourceRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
+    public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final OrganizationApiKeyRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
-        final RequestInformation requestInfo = new RequestInformation(HttpMethod.PUT, urlTemplate, pathParameters);
-        requestInfo.configure(requestConfiguration, PutRequestConfiguration::new);
+        final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
+        requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
         requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
@@ -204,12 +201,12 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a {@link SourcesItemRequestBuilder}
+     * @return a {@link ApiKeysItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public SourcesItemRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+    public ApiKeysItemRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
         Objects.requireNonNull(rawUrl);
-        return new SourcesItemRequestBuilder(rawUrl, requestAdapter);
+        return new ApiKeysItemRequestBuilder(rawUrl, requestAdapter);
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.
@@ -227,6 +224,6 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
      * Configuration for the request such as headers, query parameters, and middleware options.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
-    public class PutRequestConfiguration extends BaseRequestConfiguration {
+    public class PostRequestConfiguration extends BaseRequestConfiguration {
     }
 }

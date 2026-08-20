@@ -8,37 +8,41 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Defines the fields clients can send when working with phone number update.
+ * Defines the display name and access configuration for a new Leadping organization API key.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
+public class OrganizationApiKeyRequest implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
     /**
-     * Human-readable label for the phone number.
+     * Number of days before the key expires. Null means no expiration.
+     */
+    private Integer expiresInDays;
+    /**
+     * Human-readable name used to identify the key.
      */
     private String name;
     /**
-     * E.164 phone number exposed by this phone number update request.
+     * WorkOS permission slugs granted to the API key.
      */
-    private String number;
+    private java.util.List<String> permissions;
     /**
-     * Instantiates a new {@link PhoneNumberRequest} and sets the default values.
+     * Instantiates a new {@link OrganizationApiKeyRequest} and sets the default values.
      */
-    public PhoneNumberRequest() {
+    public OrganizationApiKeyRequest() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link PhoneNumberRequest}
+     * @return a {@link OrganizationApiKeyRequest}
      */
     @jakarta.annotation.Nonnull
-    public static PhoneNumberRequest createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static OrganizationApiKeyRequest createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new PhoneNumberRequest();
+        return new OrganizationApiKeyRequest();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -49,18 +53,27 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the expiresInDays property value. Number of days before the key expires. Null means no expiration.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getExpiresInDays() {
+        return this.expiresInDays;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        deserializerMap.put("expiresInDays", (n) -> { this.setExpiresInDays(n.getIntegerValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
-        deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("permissions", (n) -> { this.setPermissions(n.getCollectionOfPrimitiveValues(String.class)); });
         return deserializerMap;
     }
     /**
-     * Gets the name property value. Human-readable label for the phone number.
+     * Gets the name property value. Human-readable name used to identify the key.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -68,12 +81,12 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the number property value. E.164 phone number exposed by this phone number update request.
-     * @return a {@link String}
+     * Gets the permissions property value. WorkOS permission slugs granted to the API key.
+     * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
-    public String getNumber() {
-        return this.number;
+    public java.util.List<String> getPermissions() {
+        return this.permissions;
     }
     /**
      * Serializes information the current object
@@ -81,8 +94,9 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeIntegerValue("expiresInDays", this.getExpiresInDays());
         writer.writeStringValue("name", this.getName());
-        writer.writeStringValue("number", this.getNumber());
+        writer.writeCollectionOfPrimitiveValues("permissions", this.getPermissions());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -93,17 +107,24 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the name property value. Human-readable label for the phone number.
+     * Sets the expiresInDays property value. Number of days before the key expires. Null means no expiration.
+     * @param value Value to set for the expiresInDays property.
+     */
+    public void setExpiresInDays(@jakarta.annotation.Nullable final Integer value) {
+        this.expiresInDays = value;
+    }
+    /**
+     * Sets the name property value. Human-readable name used to identify the key.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the number property value. E.164 phone number exposed by this phone number update request.
-     * @param value Value to set for the number property.
+     * Sets the permissions property value. WorkOS permission slugs granted to the API key.
+     * @param value Value to set for the permissions property.
      */
-    public void setNumber(@jakarta.annotation.Nullable final String value) {
-        this.number = value;
+    public void setPermissions(@jakarta.annotation.Nullable final java.util.List<String> value) {
+        this.permissions = value;
     }
 }

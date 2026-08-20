@@ -30,7 +30,7 @@ public class SmsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.sms.item collection
-     * @param smsEventId The sms event identifier.
+     * @param smsEventId The SMS event identifier.
      * @return a {@link WithSmsEventItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

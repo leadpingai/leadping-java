@@ -21,7 +21,7 @@ public class TransactionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.transactions.item collection
-     * @param id The ID of the transaction to retrieve.
+     * @param id Unique identifier of the item
      * @return a {@link TransactionsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

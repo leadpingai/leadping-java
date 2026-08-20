@@ -25,7 +25,7 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public DownloadRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download{?token*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download?token={token}", pathParameters);
     }
     /**
      * Instantiates a new {@link DownloadRequestBuilder} and sets the default values.
@@ -33,7 +33,7 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public DownloadRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download{?token*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download?token={token}", rawUrl);
     }
     /**
      * Validates an export download token and redirects to the generated file when the current-user report is ready.
@@ -76,7 +76,7 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, GetRequestConfiguration::new, x -> x.queryParameters);
-        requestInfo.headers.tryAdd("Accept", "application/json, text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/problem+json");
         return requestInfo;
     }
     /**
