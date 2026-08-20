@@ -42,7 +42,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      */
     private Boolean isDefault;
     /**
-     * UTC timestamp for last4 on this Stripe payment method.
+     * Last four digits of the payment card number.
      */
     private String last4;
     /**
@@ -134,7 +134,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.isDefault;
     }
     /**
-     * Gets the last4 property value. UTC timestamp for last4 on this Stripe payment method.
+     * Gets the last4 property value. Last four digits of the payment card number.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -206,7 +206,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         this.isDefault = value;
     }
     /**
-     * Sets the last4 property value. UTC timestamp for last4 on this Stripe payment method.
+     * Sets the last4 property value. Last four digits of the payment card number.
      * @param value Value to set for the last4 property.
      */
     public void setLast4(@jakarta.annotation.Nullable final String value) {

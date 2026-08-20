@@ -58,7 +58,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime lastLoggedInAt;
     /**
-     * UTC timestamp for last name on this user.
+     * Last name of the Leadping user.
      */
     private String lastName;
     /**
@@ -246,7 +246,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.lastLoggedInAt;
     }
     /**
-     * Gets the lastName property value. UTC timestamp for last name on this user.
+     * Gets the lastName property value. Last name of the Leadping user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -458,7 +458,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.lastLoggedInAt = value;
     }
     /**
-     * Sets the lastName property value. UTC timestamp for last name on this user.
+     * Sets the lastName property value. Last name of the Leadping user.
      * @param value Value to set for the lastName property.
      */
     public void setLastName(@jakarta.annotation.Nullable final String value) {

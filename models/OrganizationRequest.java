@@ -29,7 +29,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private String ein;
     /**
-     * Indicates whether the organization serves customers younger than 90, for compliance and underwriting context.
+     * Whether the organization was formed less than 90 days ago.
      */
     private Boolean isYoungerThan90;
     /**
@@ -119,7 +119,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the isYoungerThan90 property value. Indicates whether the organization serves customers younger than 90, for compliance and underwriting context.
+     * Gets the isYoungerThan90 property value. Whether the organization was formed less than 90 days ago.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -212,7 +212,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.ein = value;
     }
     /**
-     * Sets the isYoungerThan90 property value. Indicates whether the organization serves customers younger than 90, for compliance and underwriting context.
+     * Sets the isYoungerThan90 property value. Whether the organization was formed less than 90 days ago.
      * @param value Value to set for the isYoungerThan90 property.
      */
     public void setIsYoungerThan90(@jakarta.annotation.Nullable final Boolean value) {
