@@ -1,6 +1,7 @@
 package ai.leadping.openapi.reports.exports.item.download;
 
 import ai.leadping.openapi.models.ProblemDetails;
+import ai.leadping.openapi.models.UserDataExportDownloadResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -25,7 +26,7 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public DownloadRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download?token={token}", pathParameters);
+        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download?token={token}{&redirect*}", pathParameters);
     }
     /**
      * Instantiates a new {@link DownloadRequestBuilder} and sets the default values.
@@ -33,31 +34,35 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public DownloadRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download?token={token}", rawUrl);
+        super(requestAdapter, "{+baseurl}/reports/exports/{exportId}/download?token={token}{&redirect*}", rawUrl);
     }
     /**
      * Validates an export download token and redirects to the generated file when the current-user report is ready.
+     * @return a {@link UserDataExportDownloadResponse}
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 410 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
-    public void get() {
-        get(null);
+    @jakarta.annotation.Nullable
+    public UserDataExportDownloadResponse get() {
+        return get(null);
     }
     /**
      * Validates an export download token and redirects to the generated file when the current-user report is ready.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link UserDataExportDownloadResponse}
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 410 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
-    public void get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+    @jakarta.annotation.Nullable
+    public UserDataExportDownloadResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("410", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
+        return this.requestAdapter.send(requestInfo, errorMapping, UserDataExportDownloadResponse::createFromDiscriminatorValue);
     }
     /**
      * Validates an export download token and redirects to the generated file when the current-user report is ready.
@@ -76,7 +81,7 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, GetRequestConfiguration::new, x -> x.queryParameters);
-        requestInfo.headers.tryAdd("Accept", "application/problem+json");
+        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
         return requestInfo;
     }
     /**
@@ -95,6 +100,11 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
+         * Whether to redirect to the temporary file URL. Set to false to return the URL as JSON.
+         */
+        @jakarta.annotation.Nullable
+        public Boolean redirect;
+        /**
          * The short-lived download token issued for this export.
          */
         @jakarta.annotation.Nullable
@@ -106,6 +116,7 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nonnull
         public Map<String, Object> toQueryParameters() {
             final Map<String, Object> allQueryParams = new HashMap();
+            allQueryParams.put("redirect", redirect);
             allQueryParams.put("token", token);
             return allQueryParams;
         }
