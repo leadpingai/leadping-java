@@ -21,7 +21,7 @@ public class WalletsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.wallets.item collection
-     * @param id Unique identifier of the item
+     * @param id The ID of the wallet to retrieve.
      * @return a {@link WalletsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

@@ -21,7 +21,7 @@ public class ApiKeysRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.organizations.apiKeys.item collection
-     * @param id Unique identifier of the item
+     * @param id The API key ID.
      * @return a {@link ApiKeysItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

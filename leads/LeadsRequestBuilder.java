@@ -41,7 +41,7 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.leads.item collection
-     * @param id Unique identifier of the item
+     * @param id The ID of the lead to retrieve.
      * @return a {@link ItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

@@ -50,7 +50,7 @@ public class SuppressionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.suppressions.item collection
-     * @param id Unique identifier of the item
+     * @param id The unique identifier of the suppression entry to retrieve.
      * @return a {@link SuppressionsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

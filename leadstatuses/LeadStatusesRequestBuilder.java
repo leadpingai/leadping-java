@@ -23,7 +23,7 @@ import java.util.Objects;
 public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the ai.leadping.openapi.leadStatuses.item collection
-     * @param id Unique identifier of the item
+     * @param id The unique identifier of the lead status to update.
      * @return a {@link LeadStatusesItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

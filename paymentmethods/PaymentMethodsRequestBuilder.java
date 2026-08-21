@@ -31,7 +31,7 @@ public class PaymentMethodsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.paymentMethods.item collection
-     * @param id Unique identifier of the item
+     * @param id The ID of the payment method to retrieve.
      * @return a {@link PaymentMethodsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
