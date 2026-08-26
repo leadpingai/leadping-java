@@ -3,6 +3,7 @@ package ai.leadping.openapi.sources.item;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.SourceRequest;
 import ai.leadping.openapi.models.SourceResponse;
+import ai.leadping.openapi.sources.item.credentials.CredentialsRequestBuilder;
 import ai.leadping.openapi.sources.item.metrics.MetricsRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -21,6 +22,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SourcesItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The credentials property
+     * @return a {@link CredentialsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public CredentialsRequestBuilder credentials() {
+        return new CredentialsRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The metrics property
      * @return a {@link MetricsRequestBuilder}

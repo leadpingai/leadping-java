@@ -36,7 +36,7 @@ public class HangupRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/{callId}/hangup", rawUrl);
     }
     /**
-     * Ends an active Leadping phone call by call ID and returns the updated call record, including status and provider routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class HangupRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Ends an active Leadping phone call by call ID and returns the updated call record, including status and provider routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -70,7 +70,7 @@ public class HangupRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Ends an active Leadping phone call by call ID and returns the updated call record, including status and provider routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class HangupRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Ends an active Leadping phone call by call ID and returns the updated call record, including status and provider routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -5,6 +5,7 @@ import ai.leadping.openapi.models.OrganizationResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.organizations.me.invitations.InvitationsRequestBuilder;
 import ai.leadping.openapi.organizations.me.members.MembersRequestBuilder;
+import ai.leadping.openapi.organizations.me.membership.MembershipRequestBuilder;
 import ai.leadping.openapi.organizations.me.onezerodlc.OneZerodlcRequestBuilder;
 import ai.leadping.openapi.organizations.me.options.OptionsRequestBuilder;
 import ai.leadping.openapi.organizations.me.switchescaped.SwitchRequestBuilder;
@@ -40,6 +41,14 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public MembersRequestBuilder members() {
         return new MembersRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The membership property
+     * @return a {@link MembershipRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public MembershipRequestBuilder membership() {
+        return new MembershipRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The OneZerodlc property

@@ -18,6 +18,10 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     private Map<String, Object> additionalData;
     /**
+     * Number of calls that failed or were blocked in this time bucket.
+     */
+    private Integer callErrors;
+    /**
      * Total connected call duration, in minutes, during the reporting period.
      */
     private Double callMinutes;
@@ -26,6 +30,14 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     private Integer calls;
     /**
+     * Number of outbound calls placed in this time bucket.
+     */
+    private Integer callsPlaced;
+    /**
+     * Number of inbound calls received in this time bucket.
+     */
+    private Integer callsReceived;
+    /**
      * Date and time when this Leadping customer communication usage point was end.
      */
     private OffsetDateTime endAt;
@@ -33,6 +45,10 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      * Human-readable label for this Leadping customer communication usage point.
      */
     private String label;
+    /**
+     * Number of SMS messages that failed or were blocked in this time bucket.
+     */
+    private Integer smsErrors;
     /**
      * Number of SMS messages received during the reporting period.
      */
@@ -74,6 +90,14 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.additionalData;
     }
     /**
+     * Gets the callErrors property value. Number of calls that failed or were blocked in this time bucket.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCallErrors() {
+        return this.callErrors;
+    }
+    /**
      * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @return a {@link Double}
      */
@@ -90,6 +114,22 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         return this.calls;
     }
     /**
+     * Gets the callsPlaced property value. Number of outbound calls placed in this time bucket.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCallsPlaced() {
+        return this.callsPlaced;
+    }
+    /**
+     * Gets the callsReceived property value. Number of inbound calls received in this time bucket.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCallsReceived() {
+        return this.callsReceived;
+    }
+    /**
      * Gets the endAt property value. Date and time when this Leadping customer communication usage point was end.
      * @return a {@link OffsetDateTime}
      */
@@ -103,11 +143,15 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        deserializerMap.put("callErrors", (n) -> { this.setCallErrors(n.getIntegerValue()); });
         deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
         deserializerMap.put("calls", (n) -> { this.setCalls(n.getIntegerValue()); });
+        deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getIntegerValue()); });
+        deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getIntegerValue()); });
         deserializerMap.put("endAt", (n) -> { this.setEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
+        deserializerMap.put("smsErrors", (n) -> { this.setSmsErrors(n.getIntegerValue()); });
         deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getIntegerValue()); });
         deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getIntegerValue()); });
         deserializerMap.put("spend", (n) -> { this.setSpend(n.getDoubleValue()); });
@@ -121,6 +165,14 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
     @jakarta.annotation.Nullable
     public String getLabel() {
         return this.label;
+    }
+    /**
+     * Gets the smsErrors property value. Number of SMS messages that failed or were blocked in this time bucket.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsErrors() {
+        return this.smsErrors;
     }
     /**
      * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
@@ -160,10 +212,14 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeIntegerValue("callErrors", this.getCallErrors());
         writer.writeDoubleValue("callMinutes", this.getCallMinutes());
         writer.writeIntegerValue("calls", this.getCalls());
+        writer.writeIntegerValue("callsPlaced", this.getCallsPlaced());
+        writer.writeIntegerValue("callsReceived", this.getCallsReceived());
         writer.writeOffsetDateTimeValue("endAt", this.getEndAt());
         writer.writeStringValue("label", this.getLabel());
+        writer.writeIntegerValue("smsErrors", this.getSmsErrors());
         writer.writeIntegerValue("smsReceived", this.getSmsReceived());
         writer.writeIntegerValue("smsSent", this.getSmsSent());
         writer.writeDoubleValue("spend", this.getSpend());
@@ -176,6 +232,13 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the callErrors property value. Number of calls that failed or were blocked in this time bucket.
+     * @param value Value to set for the callErrors property.
+     */
+    public void setCallErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.callErrors = value;
     }
     /**
      * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
@@ -192,6 +255,20 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
         this.calls = value;
     }
     /**
+     * Sets the callsPlaced property value. Number of outbound calls placed in this time bucket.
+     * @param value Value to set for the callsPlaced property.
+     */
+    public void setCallsPlaced(@jakarta.annotation.Nullable final Integer value) {
+        this.callsPlaced = value;
+    }
+    /**
+     * Sets the callsReceived property value. Number of inbound calls received in this time bucket.
+     * @param value Value to set for the callsReceived property.
+     */
+    public void setCallsReceived(@jakarta.annotation.Nullable final Integer value) {
+        this.callsReceived = value;
+    }
+    /**
      * Sets the endAt property value. Date and time when this Leadping customer communication usage point was end.
      * @param value Value to set for the endAt property.
      */
@@ -204,6 +281,13 @@ public class CustomerCommunicationUsagePoint implements AdditionalDataHolder, Pa
      */
     public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
+    }
+    /**
+     * Sets the smsErrors property value. Number of SMS messages that failed or were blocked in this time bucket.
+     * @param value Value to set for the smsErrors property.
+     */
+    public void setSmsErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.smsErrors = value;
     }
     /**
      * Sets the smsReceived property value. Number of SMS messages received during the reporting period.

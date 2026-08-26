@@ -52,6 +52,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
      * Returns the current organization&apos;s Stripe invoices with their amounts, payment status, billing period, and hosted invoice details.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -63,6 +64,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<StripeInvoiceResponse>}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -70,6 +72,7 @@ public class InvoicesRequestBuilder extends BaseRequestBuilder {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, StripeInvoiceResponse::createFromDiscriminatorValue);
     }

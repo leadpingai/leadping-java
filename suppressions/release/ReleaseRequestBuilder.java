@@ -37,7 +37,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/release", rawUrl);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -50,7 +50,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionEntryResponse}
@@ -71,7 +71,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionEntryResponse::createFromDiscriminatorValue);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

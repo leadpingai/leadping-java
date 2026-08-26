@@ -37,7 +37,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/organizations/api-keys/my", rawUrl);
     }
     /**
-     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link OrganizationApiKeyListResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -50,7 +50,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyListResponse}
@@ -71,7 +71,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyListResponse::createFromDiscriminatorValue);
     }
     /**
-     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Retrieves a paged list of API keys owned by the caller&apos;s current Leadping organization, with support for filtering, sorting, and pagination.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

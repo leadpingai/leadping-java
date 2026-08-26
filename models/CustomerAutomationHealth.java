@@ -45,6 +45,10 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     private Integer successCount;
     /**
+     * Automation execution activity over the reporting period.
+     */
+    private java.util.List<CustomerAutomationHealthPoint> trend;
+    /**
      * Instantiates a new {@link CustomerAutomationHealth} and sets the default values.
      */
     public CustomerAutomationHealth() {
@@ -114,7 +118,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("automationCount", (n) -> { this.setAutomationCount(n.getIntegerValue()); });
         deserializerMap.put("enabledCount", (n) -> { this.setEnabledCount(n.getIntegerValue()); });
         deserializerMap.put("executions", (n) -> { this.setExecutions(n.getIntegerValue()); });
@@ -122,6 +126,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         deserializerMap.put("failureCount", (n) -> { this.setFailureCount(n.getIntegerValue()); });
         deserializerMap.put("lastFailure", (n) -> { this.setLastFailure(n.getObjectValue(CustomerAutomationHealthLastFailure::createFromDiscriminatorValue)); });
         deserializerMap.put("successCount", (n) -> { this.setSuccessCount(n.getIntegerValue()); });
+        deserializerMap.put("trend", (n) -> { this.setTrend(n.getCollectionOfObjectValues(CustomerAutomationHealthPoint::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -141,6 +146,14 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.successCount;
     }
     /**
+     * Gets the trend property value. Automation execution activity over the reporting period.
+     * @return a {@link java.util.List<CustomerAutomationHealthPoint>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<CustomerAutomationHealthPoint> getTrend() {
+        return this.trend;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -153,6 +166,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         writer.writeIntegerValue("failureCount", this.getFailureCount());
         writer.writeObjectValue("lastFailure", this.getLastFailure());
         writer.writeIntegerValue("successCount", this.getSuccessCount());
+        writer.writeCollectionOfObjectValues("trend", this.getTrend());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -210,5 +224,12 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     public void setSuccessCount(@jakarta.annotation.Nullable final Integer value) {
         this.successCount = value;
+    }
+    /**
+     * Sets the trend property value. Automation execution activity over the reporting period.
+     * @param value Value to set for the trend property.
+     */
+    public void setTrend(@jakarta.annotation.Nullable final java.util.List<CustomerAutomationHealthPoint> value) {
+        this.trend = value;
     }
 }

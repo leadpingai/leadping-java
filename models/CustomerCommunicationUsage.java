@@ -21,6 +21,10 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     private Integer answeredCalls;
     /**
+     * Number of calls that failed or were blocked during the reporting period.
+     */
+    private Integer callErrors;
+    /**
      * Total connected call duration, in minutes, during the reporting period.
      */
     private Double callMinutes;
@@ -89,6 +93,14 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.answeredCalls;
     }
     /**
+     * Gets the callErrors property value. Number of calls that failed or were blocked during the reporting period.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCallErrors() {
+        return this.callErrors;
+    }
+    /**
      * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @return a {@link Double}
      */
@@ -126,8 +138,9 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("answeredCalls", (n) -> { this.setAnsweredCalls(n.getIntegerValue()); });
+        deserializerMap.put("callErrors", (n) -> { this.setCallErrors(n.getIntegerValue()); });
         deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
         deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getIntegerValue()); });
         deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getIntegerValue()); });
@@ -186,6 +199,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("answeredCalls", this.getAnsweredCalls());
+        writer.writeIntegerValue("callErrors", this.getCallErrors());
         writer.writeDoubleValue("callMinutes", this.getCallMinutes());
         writer.writeIntegerValue("callsPlaced", this.getCallsPlaced());
         writer.writeIntegerValue("callsReceived", this.getCallsReceived());
@@ -210,6 +224,13 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     public void setAnsweredCalls(@jakarta.annotation.Nullable final Integer value) {
         this.answeredCalls = value;
+    }
+    /**
+     * Sets the callErrors property value. Number of calls that failed or were blocked during the reporting period.
+     * @param value Value to set for the callErrors property.
+     */
+    public void setCallErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.callErrors = value;
     }
     /**
      * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.

@@ -1,6 +1,7 @@
 package ai.leadping.openapi.leads.item;
 
 import ai.leadping.openapi.leads.item.archive.ArchiveRequestBuilder;
+import ai.leadping.openapi.leads.item.assignment.AssignmentRequestBuilder;
 import ai.leadping.openapi.leads.item.status.StatusRequestBuilder;
 import ai.leadping.openapi.leads.item.statushistory.StatusHistoryRequestBuilder;
 import ai.leadping.openapi.leads.item.tags.TagsRequestBuilder;
@@ -33,6 +34,14 @@ public class ItemRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public ArchiveRequestBuilder archive() {
         return new ArchiveRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The assignment property
+     * @return a {@link AssignmentRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public AssignmentRequestBuilder assignment() {
+        return new AssignmentRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The status property

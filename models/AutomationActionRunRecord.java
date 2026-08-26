@@ -62,6 +62,10 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     private OffsetDateTime scheduledAt;
     /**
+     * Connection selected by a control-flow action such as a weighted random split.
+     */
+    private String selectedConnectionId;
+    /**
      * UTC timestamp when processing started for this automation action run record.
      */
     private OffsetDateTime startedAt;
@@ -147,7 +151,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("actionId", (n) -> { this.setActionId(n.getStringValue()); });
         deserializerMap.put("actionType", (n) -> { this.setActionType(n.getStringValue()); });
         deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
@@ -159,6 +163,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         deserializerMap.put("order", (n) -> { this.setOrder(n.getIntegerValue()); });
         deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("scheduledAt", (n) -> { this.setScheduledAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("selectedConnectionId", (n) -> { this.setSelectedConnectionId(n.getStringValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         return deserializerMap;
@@ -204,6 +209,14 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         return this.scheduledAt;
     }
     /**
+     * Gets the selectedConnectionId property value. Connection selected by a control-flow action such as a weighted random split.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getSelectedConnectionId() {
+        return this.selectedConnectionId;
+    }
+    /**
      * Gets the startedAt property value. UTC timestamp when processing started for this automation action run record.
      * @return a {@link OffsetDateTime}
      */
@@ -236,6 +249,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         writer.writeIntegerValue("order", this.getOrder());
         writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeOffsetDateTimeValue("scheduledAt", this.getScheduledAt());
+        writer.writeStringValue("selectedConnectionId", this.getSelectedConnectionId());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -323,6 +337,13 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     public void setScheduledAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.scheduledAt = value;
+    }
+    /**
+     * Sets the selectedConnectionId property value. Connection selected by a control-flow action such as a weighted random split.
+     * @param value Value to set for the selectedConnectionId property.
+     */
+    public void setSelectedConnectionId(@jakarta.annotation.Nullable final String value) {
+        this.selectedConnectionId = value;
     }
     /**
      * Sets the startedAt property value. UTC timestamp when processing started for this automation action run record.

@@ -3,6 +3,7 @@ package ai.leadping.openapi.users.me;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.UserRequest;
 import ai.leadping.openapi.models.UserResponse;
+import ai.leadping.openapi.users.me.notificationpreferences.NotificationPreferencesRequestBuilder;
 import ai.leadping.openapi.users.me.paymentmethod.PaymentmethodRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -21,6 +22,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MeRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The notificationPreferences property
+     * @return a {@link NotificationPreferencesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public NotificationPreferencesRequestBuilder notificationPreferences() {
+        return new NotificationPreferencesRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The paymentmethod property
      * @return a {@link PaymentmethodRequestBuilder}

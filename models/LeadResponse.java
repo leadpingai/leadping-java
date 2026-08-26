@@ -34,6 +34,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
+     * Identifier and display name of the active organization member assigned to this lead.
+     */
+    private LeadResponseAssignedTo assignedTo;
+    /**
+     * Leadping user currently responsible for this lead, or null when it is in the unassigned queue.
+     */
+    private String assignedToUserId;
+    /**
      * Contact details for the lead or customer represented by this lead response.
      */
     private LeadContact contact;
@@ -154,6 +162,22 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
+     * Gets the assignedTo property value. Identifier and display name of the active organization member assigned to this lead.
+     * @return a {@link LeadResponseAssignedTo}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseAssignedTo getAssignedTo() {
+        return this.assignedTo;
+    }
+    /**
+     * Gets the assignedToUserId property value. Leadping user currently responsible for this lead, or null when it is in the unassigned queue.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAssignedToUserId() {
+        return this.assignedToUserId;
+    }
+    /**
      * Gets the contact property value. Contact details for the lead or customer represented by this lead response.
      * @return a {@link LeadContact}
      */
@@ -215,11 +239,13 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
+        deserializerMap.put("assignedTo", (n) -> { this.setAssignedTo(n.getObjectValue(LeadResponseAssignedTo::createFromDiscriminatorValue)); });
+        deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
         deserializerMap.put("contact", (n) -> { this.setContact(n.getObjectValue(LeadContact::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(LeadResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
@@ -320,6 +346,8 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeStringValue("archiveNote", this.getArchiveNote());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
+        writer.writeObjectValue("assignedTo", this.getAssignedTo());
+        writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
         writer.writeObjectValue("contact", this.getContact());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
@@ -372,6 +400,20 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setArchiveReason(@jakarta.annotation.Nullable final Integer value) {
         this.archiveReason = value;
+    }
+    /**
+     * Sets the assignedTo property value. Identifier and display name of the active organization member assigned to this lead.
+     * @param value Value to set for the assignedTo property.
+     */
+    public void setAssignedTo(@jakarta.annotation.Nullable final LeadResponseAssignedTo value) {
+        this.assignedTo = value;
+    }
+    /**
+     * Sets the assignedToUserId property value. Leadping user currently responsible for this lead, or null when it is in the unassigned queue.
+     * @param value Value to set for the assignedToUserId property.
+     */
+    public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {
+        this.assignedToUserId = value;
     }
     /**
      * Sets the contact property value. Contact details for the lead or customer represented by this lead response.

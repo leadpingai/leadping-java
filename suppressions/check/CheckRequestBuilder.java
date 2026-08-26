@@ -37,7 +37,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/check", rawUrl);
     }
     /**
-     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link SuppressionCheckResult}
      * @throws ProblemDetails When receiving a 400 status code
@@ -50,7 +50,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionCheckResult}
@@ -71,7 +71,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionCheckResult::createFromDiscriminatorValue);
     }
     /**
-     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class CheckRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Checks whether a recipient is blocked by an active Leadping suppression entry before sending messages or placing calls through the selected channel.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

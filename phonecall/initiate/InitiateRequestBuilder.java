@@ -37,7 +37,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/initiate", rawUrl);
     }
     /**
-     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param body Defines the fields clients can send when working with phone call initiation.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -50,7 +50,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param body Defines the fields clients can send when working with phone call initiation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
@@ -71,7 +71,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param body Defines the fields clients can send when working with phone call initiation.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class InitiateRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Starts an outbound Leadping phone call for an authenticated user and returns the provider call identifiers, status, and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param body Defines the fields clients can send when working with phone call initiation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

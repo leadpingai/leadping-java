@@ -3,6 +3,7 @@ package ai.leadping.openapi;
 import ai.leadping.openapi.a2a.A2aRequestBuilder;
 import ai.leadping.openapi.analytics.AnalyticsRequestBuilder;
 import ai.leadping.openapi.automations.AutomationsRequestBuilder;
+import ai.leadping.openapi.blog.BlogRequestBuilder;
 import ai.leadping.openapi.conversations.ConversationsRequestBuilder;
 import ai.leadping.openapi.events.EventsRequestBuilder;
 import ai.leadping.openapi.feedback.FeedbackRequestBuilder;
@@ -68,6 +69,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public AutomationsRequestBuilder automations() {
         return new AutomationsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The blog property
+     * @return a {@link BlogRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public BlogRequestBuilder blog() {
+        return new BlogRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The conversations property

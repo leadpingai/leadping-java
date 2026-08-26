@@ -26,10 +26,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     */
-    private String apiKey;
-    /**
      * UTC timestamp when the source API key was last used.
      */
     private OffsetDateTime apiKeyLastUsedAt;
@@ -37,6 +33,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      * Masked preview of the source API key for compact display.
      */
     private String apiKeyPreview;
+    /**
+     * UTC timestamp when the source credential was most recently rotated.
+     */
+    private OffsetDateTime apiKeyRotatedAt;
     /**
      * Total number of authenticated requests made with this source API key.
      */
@@ -154,14 +154,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getApiKey() {
-        return this.apiKey;
-    }
-    /**
      * Gets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.
      * @return a {@link OffsetDateTime}
      */
@@ -176,6 +168,14 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getApiKeyPreview() {
         return this.apiKeyPreview;
+    }
+    /**
+     * Gets the apiKeyRotatedAt property value. UTC timestamp when the source credential was most recently rotated.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getApiKeyRotatedAt() {
+        return this.apiKeyRotatedAt;
     }
     /**
      * Gets the apiKeyTotalUses property value. Total number of authenticated requests made with this source API key.
@@ -258,9 +258,9 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
+        deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
@@ -370,9 +370,9 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
-        writer.writeStringValue("apiKey", this.getApiKey());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
+        writer.writeOffsetDateTimeValue("apiKeyRotatedAt", this.getApiKeyRotatedAt());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
         writer.writeDoubleValue("costPerLead", this.getCostPerLead());
@@ -416,13 +416,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.allowedStates = value;
     }
     /**
-     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     * @param value Value to set for the apiKey property.
-     */
-    public void setApiKey(@jakarta.annotation.Nullable final String value) {
-        this.apiKey = value;
-    }
-    /**
      * Sets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.
      * @param value Value to set for the apiKeyLastUsedAt property.
      */
@@ -435,6 +428,13 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setApiKeyPreview(@jakarta.annotation.Nullable final String value) {
         this.apiKeyPreview = value;
+    }
+    /**
+     * Sets the apiKeyRotatedAt property value. UTC timestamp when the source credential was most recently rotated.
+     * @param value Value to set for the apiKeyRotatedAt property.
+     */
+    public void setApiKeyRotatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.apiKeyRotatedAt = value;
     }
     /**
      * Sets the apiKeyTotalUses property value. Total number of authenticated requests made with this source API key.

@@ -39,7 +39,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/organizations/api-keys/{id}", rawUrl);
     }
     /**
-     * Confirmation that identifies the revoked key.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link OrganizationApiKeyRevokeResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -51,7 +51,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Confirmation that identifies the revoked key.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyRevokeResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -70,7 +70,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyRevokeResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the API key row with a safe token preview.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link OrganizationApiKeyPreviewResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -82,7 +82,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the API key row with a safe token preview.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyPreviewResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -101,7 +101,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyPreviewResponse::createFromDiscriminatorValue);
     }
     /**
-     * The one-time API token and safe key detail row.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @return a {@link OrganizationApiKeyIssueResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -114,7 +114,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * The one-time API token and safe key detail row.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyIssueResponse}
@@ -135,7 +135,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyIssueResponse::createFromDiscriminatorValue);
     }
     /**
-     * Confirmation that identifies the revoked key.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -143,7 +143,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Confirmation that identifies the revoked key.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -155,7 +155,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Returns the API key row with a safe token preview.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -163,7 +163,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the API key row with a safe token preview.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -175,7 +175,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * The one-time API token and safe key detail row.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @return a {@link RequestInformation}
      */
@@ -184,7 +184,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * The one-time API token and safe key detail row.
+     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param body Defines the display name and access configuration for a new Leadping organization API key.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
