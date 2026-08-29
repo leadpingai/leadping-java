@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationInvitationStatus implements ValuedEnum {
+    AwaitingWorkOSConfirmation("Awaiting WorkOS confirmation"),
     Pending("Pending"),
     Accepted("Accepted"),
     Expired("Expired"),
@@ -24,6 +25,7 @@ public enum OrganizationInvitationStatus implements ValuedEnum {
     public static OrganizationInvitationStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "Awaiting WorkOS confirmation": return AwaitingWorkOSConfirmation;
             case "Pending": return Pending;
             case "Accepted": return Accepted;
             case "Expired": return Expired;
