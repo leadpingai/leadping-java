@@ -8,6 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * Represents a blog article response.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -15,55 +18,55 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The authorName property
+     * Gets or sets the author name.
      */
     private String authorName;
     /**
-     * The category property
+     * Gets or sets the category.
      */
     private String category;
     /**
-     * The content property
+     * Gets or sets the content.
      */
     private String content;
     /**
-     * The coverImageUrl property
+     * Gets or sets the cover image URL.
      */
     private String coverImageUrl;
     /**
-     * The createdAt property
+     * Gets or sets the created at.
      */
     private OffsetDateTime createdAt;
     /**
-     * The excerpt property
+     * Gets or sets the excerpt.
      */
     private String excerpt;
     /**
-     * The id property
+     * Gets or sets the ID.
      */
     private String id;
     /**
-     * The isFeatured property
+     * Gets or sets the is featured.
      */
     private Boolean isFeatured;
     /**
-     * The isPublished property
+     * Gets or sets the is published.
      */
     private Boolean isPublished;
     /**
-     * The modifiedAt property
+     * Gets or sets the modified at.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The publishedAt property
+     * Gets or sets the published at.
      */
     private OffsetDateTime publishedAt;
     /**
-     * The slug property
+     * Gets or sets the slug.
      */
     private String slug;
     /**
-     * The title property
+     * Gets or sets the title.
      */
     private String title;
     /**
@@ -91,7 +94,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the authorName property value. The authorName property
+     * Gets the authorName property value. Gets or sets the author name.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -99,7 +102,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.authorName;
     }
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. Gets or sets the category.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,7 +110,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. Gets or sets the content.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -115,7 +118,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.content;
     }
     /**
-     * Gets the coverImageUrl property value. The coverImageUrl property
+     * Gets the coverImageUrl property value. Gets or sets the cover image URL.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -123,7 +126,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.coverImageUrl;
     }
     /**
-     * Gets the createdAt property value. The createdAt property
+     * Gets the createdAt property value. Gets or sets the created at.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -131,7 +134,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the excerpt property value. The excerpt property
+     * Gets the excerpt property value. Gets or sets the excerpt.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -161,7 +164,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Gets or sets the ID.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -169,7 +172,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isFeatured property value. The isFeatured property
+     * Gets the isFeatured property value. Gets or sets the is featured.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -177,7 +180,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.isFeatured;
     }
     /**
-     * Gets the isPublished property value. The isPublished property
+     * Gets the isPublished property value. Gets or sets the is published.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -185,7 +188,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.isPublished;
     }
     /**
-     * Gets the modifiedAt property value. The modifiedAt property
+     * Gets the modifiedAt property value. Gets or sets the modified at.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -193,7 +196,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the publishedAt property value. The publishedAt property
+     * Gets the publishedAt property value. Gets or sets the published at.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -201,7 +204,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.publishedAt;
     }
     /**
-     * Gets the slug property value. The slug property
+     * Gets the slug property value. Gets or sets the slug.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -209,7 +212,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.slug;
     }
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Gets or sets the title.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -245,91 +248,91 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the authorName property value. The authorName property
+     * Sets the authorName property value. Gets or sets the author name.
      * @param value Value to set for the authorName property.
      */
     public void setAuthorName(@jakarta.annotation.Nullable final String value) {
         this.authorName = value;
     }
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. Gets or sets the category.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final String value) {
         this.category = value;
     }
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. Gets or sets the content.
      * @param value Value to set for the content property.
      */
     public void setContent(@jakarta.annotation.Nullable final String value) {
         this.content = value;
     }
     /**
-     * Sets the coverImageUrl property value. The coverImageUrl property
+     * Sets the coverImageUrl property value. Gets or sets the cover image URL.
      * @param value Value to set for the coverImageUrl property.
      */
     public void setCoverImageUrl(@jakarta.annotation.Nullable final String value) {
         this.coverImageUrl = value;
     }
     /**
-     * Sets the createdAt property value. The createdAt property
+     * Sets the createdAt property value. Gets or sets the created at.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the excerpt property value. The excerpt property
+     * Sets the excerpt property value. Gets or sets the excerpt.
      * @param value Value to set for the excerpt property.
      */
     public void setExcerpt(@jakarta.annotation.Nullable final String value) {
         this.excerpt = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Gets or sets the ID.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the isFeatured property value. The isFeatured property
+     * Sets the isFeatured property value. Gets or sets the is featured.
      * @param value Value to set for the isFeatured property.
      */
     public void setIsFeatured(@jakarta.annotation.Nullable final Boolean value) {
         this.isFeatured = value;
     }
     /**
-     * Sets the isPublished property value. The isPublished property
+     * Sets the isPublished property value. Gets or sets the is published.
      * @param value Value to set for the isPublished property.
      */
     public void setIsPublished(@jakarta.annotation.Nullable final Boolean value) {
         this.isPublished = value;
     }
     /**
-     * Sets the modifiedAt property value. The modifiedAt property
+     * Sets the modifiedAt property value. Gets or sets the modified at.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the publishedAt property value. The publishedAt property
+     * Sets the publishedAt property value. Gets or sets the published at.
      * @param value Value to set for the publishedAt property.
      */
     public void setPublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.publishedAt = value;
     }
     /**
-     * Sets the slug property value. The slug property
+     * Sets the slug property value. Gets or sets the slug.
      * @param value Value to set for the slug property.
      */
     public void setSlug(@jakarta.annotation.Nullable final String value) {
         this.slug = value;
     }
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Gets or sets the title.
      * @param value Value to set for the title property.
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {

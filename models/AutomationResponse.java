@@ -82,10 +82,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private String organizationId;
     /**
-     * Recent automation runs returned for history and troubleshooting.
-     */
-    private java.util.List<AutomationRunRecord> recentRuns;
-    /**
      * Scope that limits where this automation configuration response applies in Leadping.
      */
     private String scope;
@@ -191,7 +187,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
         deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
@@ -208,7 +204,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(AutomationResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
-        deserializerMap.put("recentRuns", (n) -> { this.setRecentRuns(n.getCollectionOfObjectValues(AutomationRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(AutomationResponseUser::createFromDiscriminatorValue)); });
@@ -289,14 +284,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.organizationId;
     }
     /**
-     * Gets the recentRuns property value. Recent automation runs returned for history and troubleshooting.
-     * @return a {@link java.util.List<AutomationRunRecord>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<AutomationRunRecord> getRecentRuns() {
-        return this.recentRuns;
-    }
-    /**
      * Gets the scope property value. Scope that limits where this automation configuration response applies in Leadping.
      * @return a {@link String}
      */
@@ -358,7 +345,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("organizationId", this.getOrganizationId());
-        writer.writeCollectionOfObjectValues("recentRuns", this.getRecentRuns());
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
         writer.writeObjectValue("user", this.getUser());
@@ -484,13 +470,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
         this.organizationId = value;
-    }
-    /**
-     * Sets the recentRuns property value. Recent automation runs returned for history and troubleshooting.
-     * @param value Value to set for the recentRuns property.
-     */
-    public void setRecentRuns(@jakarta.annotation.Nullable final java.util.List<AutomationRunRecord> value) {
-        this.recentRuns = value;
     }
     /**
      * Sets the scope property value. Scope that limits where this automation configuration response applies in Leadping.

@@ -18,6 +18,10 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Collection of lead intake error points included with this Leadping source metrics.
+     */
+    private java.util.List<AnalyticsTrendPointOfint> errorPoints;
+    /**
      * Date and time when the source metrics was generated.
      */
     private OffsetDateTime generatedAt;
@@ -29,6 +33,10 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      * Range associated with this Leadping source metrics.
      */
     private AnalyticsDateRange range;
+    /**
+     * Total number of lead intake errors represented by this Leadping source metrics.
+     */
+    private Integer totalErrors;
     /**
      * Total number of leads records represented by this Leadping source metrics.
      */
@@ -58,15 +66,25 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the errorPoints property value. Collection of lead intake error points included with this Leadping source metrics.
+     * @return a {@link java.util.List<AnalyticsTrendPointOfint>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<AnalyticsTrendPointOfint> getErrorPoints() {
+        return this.errorPoints;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        deserializerMap.put("errorPoints", (n) -> { this.setErrorPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
         deserializerMap.put("generatedAt", (n) -> { this.setGeneratedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("points", (n) -> { this.setPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
         deserializerMap.put("range", (n) -> { this.setRange(n.getObjectValue(AnalyticsDateRange::createFromDiscriminatorValue)); });
+        deserializerMap.put("totalErrors", (n) -> { this.setTotalErrors(n.getIntegerValue()); });
         deserializerMap.put("totalLeads", (n) -> { this.setTotalLeads(n.getIntegerValue()); });
         return deserializerMap;
     }
@@ -95,6 +113,14 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return this.range;
     }
     /**
+     * Gets the totalErrors property value. Total number of lead intake errors represented by this Leadping source metrics.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getTotalErrors() {
+        return this.totalErrors;
+    }
+    /**
      * Gets the totalLeads property value. Total number of leads records represented by this Leadping source metrics.
      * @return a {@link Integer}
      */
@@ -108,9 +134,11 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeCollectionOfObjectValues("errorPoints", this.getErrorPoints());
         writer.writeOffsetDateTimeValue("generatedAt", this.getGeneratedAt());
         writer.writeCollectionOfObjectValues("points", this.getPoints());
         writer.writeObjectValue("range", this.getRange());
+        writer.writeIntegerValue("totalErrors", this.getTotalErrors());
         writer.writeIntegerValue("totalLeads", this.getTotalLeads());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -120,6 +148,13 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the errorPoints property value. Collection of lead intake error points included with this Leadping source metrics.
+     * @param value Value to set for the errorPoints property.
+     */
+    public void setErrorPoints(@jakarta.annotation.Nullable final java.util.List<AnalyticsTrendPointOfint> value) {
+        this.errorPoints = value;
     }
     /**
      * Sets the generatedAt property value. Date and time when the source metrics was generated.
@@ -141,6 +176,13 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setRange(@jakarta.annotation.Nullable final AnalyticsDateRange value) {
         this.range = value;
+    }
+    /**
+     * Sets the totalErrors property value. Total number of lead intake errors represented by this Leadping source metrics.
+     * @param value Value to set for the totalErrors property.
+     */
+    public void setTotalErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.totalErrors = value;
     }
     /**
      * Sets the totalLeads property value. Total number of leads records represented by this Leadping source metrics.

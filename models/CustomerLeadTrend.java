@@ -21,6 +21,10 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      */
     private AnalyticsComparison comparison;
     /**
+     * Lead intake errors grouped into the same reporting buckets as Points.
+     */
+    private java.util.List<AnalyticsTrendPointOfint> errorPoints;
+    /**
      * Collection of points included with this Leadping customer lead trend.
      */
     private java.util.List<AnalyticsTrendPointOfint> points;
@@ -28,6 +32,10 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      * Total number of total records represented by this Leadping customer lead trend.
      */
     private Integer total;
+    /**
+     * Total number of lead submissions rejected during intake.
+     */
+    private Integer totalErrors;
     /**
      * Instantiates a new {@link CustomerLeadTrend} and sets the default values.
      */
@@ -61,15 +69,25 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.comparison;
     }
     /**
+     * Gets the errorPoints property value. Lead intake errors grouped into the same reporting buckets as Points.
+     * @return a {@link java.util.List<AnalyticsTrendPointOfint>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<AnalyticsTrendPointOfint> getErrorPoints() {
+        return this.errorPoints;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("comparison", (n) -> { this.setComparison(n.getObjectValue(AnalyticsComparison::createFromDiscriminatorValue)); });
+        deserializerMap.put("errorPoints", (n) -> { this.setErrorPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
         deserializerMap.put("points", (n) -> { this.setPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
         deserializerMap.put("total", (n) -> { this.setTotal(n.getIntegerValue()); });
+        deserializerMap.put("totalErrors", (n) -> { this.setTotalErrors(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -89,14 +107,24 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.total;
     }
     /**
+     * Gets the totalErrors property value. Total number of lead submissions rejected during intake.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getTotalErrors() {
+        return this.totalErrors;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("comparison", this.getComparison());
+        writer.writeCollectionOfObjectValues("errorPoints", this.getErrorPoints());
         writer.writeCollectionOfObjectValues("points", this.getPoints());
         writer.writeIntegerValue("total", this.getTotal());
+        writer.writeIntegerValue("totalErrors", this.getTotalErrors());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,6 +142,13 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         this.comparison = value;
     }
     /**
+     * Sets the errorPoints property value. Lead intake errors grouped into the same reporting buckets as Points.
+     * @param value Value to set for the errorPoints property.
+     */
+    public void setErrorPoints(@jakarta.annotation.Nullable final java.util.List<AnalyticsTrendPointOfint> value) {
+        this.errorPoints = value;
+    }
+    /**
      * Sets the points property value. Collection of points included with this Leadping customer lead trend.
      * @param value Value to set for the points property.
      */
@@ -126,5 +161,12 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      */
     public void setTotal(@jakarta.annotation.Nullable final Integer value) {
         this.total = value;
+    }
+    /**
+     * Sets the totalErrors property value. Total number of lead submissions rejected during intake.
+     * @param value Value to set for the totalErrors property.
+     */
+    public void setTotalErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.totalErrors = value;
     }
 }
