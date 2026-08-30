@@ -116,6 +116,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
      * Updates a lead source for the current organization, changing intake settings, credentials, routing context, or active status.
      * @param body Defines the fields clients can send when working with lead source.
      * @return a {@link SourceResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -130,6 +131,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the fields clients can send when working with lead source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SourceResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -140,6 +142,7 @@ public class SourcesItemRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);

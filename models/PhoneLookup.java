@@ -26,7 +26,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private PhoneLookup_carrier carrier;
     /**
-     * UTC timestamp when the resource was created.
+     * Timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -50,7 +50,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private PhoneLookupLocation location;
     /**
-     * UTC timestamp when the resource was last modified, or null when it has not been updated.
+     * Timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -110,7 +110,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.carrier;
     }
     /**
-     * Gets the createdAt property value. UTC timestamp when the resource was created.
+     * Gets the createdAt property value. Timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.location;
     }
     /**
-     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
+     * Gets the modifiedAt property value. Timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -262,7 +262,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.carrier = value;
     }
     /**
-     * Sets the createdAt property value. UTC timestamp when the resource was created.
+     * Sets the createdAt property value. Timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -304,7 +304,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.location = value;
     }
     /**
-     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
+     * Sets the modifiedAt property value. Timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

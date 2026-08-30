@@ -41,6 +41,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -53,6 +54,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -61,6 +63,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
@@ -68,8 +71,10 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
      * Updates the name, color, and display order of a lead status owned by the current organization so pipeline stages remain clear and consistently organized.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link LeadStatusResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -81,8 +86,10 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -90,8 +97,10 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadStatusResponse::createFromDiscriminatorValue);
     }
@@ -112,7 +121,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toDeleteRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.DELETE, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, DeleteRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     }
     /**
@@ -135,7 +144,7 @@ public class LeadStatusesItemRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.PUT, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PutRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
     }

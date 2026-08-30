@@ -90,7 +90,7 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "multipart/form-data", body);
         return requestInfo;
     }

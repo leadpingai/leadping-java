@@ -40,6 +40,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
      * Switches the authenticated user&apos;s active organization context so subsequent lead, billing, and communication requests target that organization.
      * @param body Defines the fields clients can send when working with organization switch.
      * @return a {@link OrganizationResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
@@ -53,6 +54,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the fields clients can send when working with organization switch.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
@@ -62,6 +64,7 @@ public class SwitchRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);

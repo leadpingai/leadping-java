@@ -81,6 +81,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
      * Creates a reusable lead status for the current organization to categorize, organize, and track leads consistently throughout its sales and follow-up workflow.
      * @param body Defines the editable values used to create or update a lead status.
      * @return a {@link LeadStatusResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
@@ -94,6 +95,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
      * @param body Defines the editable values used to create or update a lead status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
@@ -103,6 +105,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
@@ -148,7 +151,7 @@ public class LeadStatusesRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
     }
