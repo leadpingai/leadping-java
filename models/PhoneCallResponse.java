@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes a Leadping phone call, including participants, direction, provider state, timing, recording, and billing details.
+ * Describes a Leadping phone call, including participants, direction, provider state, timing, voicemail, and billing details.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
@@ -90,10 +90,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime queuedAt;
     /**
-     * URL for the call recording, when the provider makes one available.
-     */
-    private String recordingUrl;
-    /**
      * UTC timestamp when the call started ringing.
      */
     private OffsetDateTime ringingAt;
@@ -117,6 +113,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      * Recipient phone number used for this communication.
      */
     private String toPhoneNumber;
+    /**
+     * URL for voicemail audio, when the call resulted in a voicemail.
+     */
+    private String voicemailUrl;
     /**
      * Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call.
      */
@@ -258,13 +258,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("recordingUrl", (n) -> { this.setRecordingUrl(n.getStringValue()); });
         deserializerMap.put("ringingAt", (n) -> { this.setRingingAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(PhoneCallResponseSelectionReason::forValue)); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(PhoneCallStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
+        deserializerMap.put("voicemailUrl", (n) -> { this.setVoicemailUrl(n.getStringValue()); });
         deserializerMap.put("wasManuallyOverridden", (n) -> { this.setWasManuallyOverridden(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -325,14 +325,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.queuedAt;
     }
     /**
-     * Gets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getRecordingUrl() {
-        return this.recordingUrl;
-    }
-    /**
      * Gets the ringingAt property value. UTC timestamp when the call started ringing.
      * @return a {@link OffsetDateTime}
      */
@@ -381,6 +373,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.toPhoneNumber;
     }
     /**
+     * Gets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVoicemailUrl() {
+        return this.voicemailUrl;
+    }
+    /**
      * Gets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call.
      * @return a {@link Boolean}
      */
@@ -412,13 +412,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
-        writer.writeStringValue("recordingUrl", this.getRecordingUrl());
         writer.writeOffsetDateTimeValue("ringingAt", this.getRingingAt());
         writer.writeEnumValue("selectionReason", this.getSelectionReason());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
+        writer.writeStringValue("voicemailUrl", this.getVoicemailUrl());
         writer.writeBooleanValue("wasManuallyOverridden", this.getWasManuallyOverridden());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -556,13 +556,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.queuedAt = value;
     }
     /**
-     * Sets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @param value Value to set for the recordingUrl property.
-     */
-    public void setRecordingUrl(@jakarta.annotation.Nullable final String value) {
-        this.recordingUrl = value;
-    }
-    /**
      * Sets the ringingAt property value. UTC timestamp when the call started ringing.
      * @param value Value to set for the ringingAt property.
      */
@@ -603,6 +596,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setToPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.toPhoneNumber = value;
+    }
+    /**
+     * Sets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @param value Value to set for the voicemailUrl property.
+     */
+    public void setVoicemailUrl(@jakarta.annotation.Nullable final String value) {
+        this.voicemailUrl = value;
     }
     /**
      * Sets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call.

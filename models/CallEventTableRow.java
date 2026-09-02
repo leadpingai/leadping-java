@@ -94,10 +94,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String organizationName;
     /**
-     * URL for the call recording, when the provider makes one available.
-     */
-    private String recordingUrl;
-    /**
      * Describes the durable business outcome of a Leadping phone call after provider status normalization.
      */
     private CallEventTableRowStatus status;
@@ -125,6 +121,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Display name for the person or agent who initiated this call event.
      */
     private String userName;
+    /**
+     * URL for voicemail audio, when the call resulted in a voicemail.
+     */
+    private String voicemailUrl;
     /**
      * Instantiates a new {@link CallEventTableRow} and sets the default values.
      */
@@ -263,7 +263,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
-        deserializerMap.put("recordingUrl", (n) -> { this.setRecordingUrl(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(CallEventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
@@ -271,6 +270,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("userEmail", (n) -> { this.setUserEmail(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         deserializerMap.put("userName", (n) -> { this.setUserName(n.getStringValue()); });
+        deserializerMap.put("voicemailUrl", (n) -> { this.setVoicemailUrl(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -338,14 +338,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.organizationName;
     }
     /**
-     * Gets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getRecordingUrl() {
-        return this.recordingUrl;
-    }
-    /**
      * Gets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @return a {@link CallEventTableRowStatus}
      */
@@ -402,6 +394,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.userName;
     }
     /**
+     * Gets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVoicemailUrl() {
+        return this.voicemailUrl;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -426,7 +426,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("organization", this.getOrganization());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("organizationName", this.getOrganizationName());
-        writer.writeStringValue("recordingUrl", this.getRecordingUrl());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
@@ -434,6 +433,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("userEmail", this.getUserEmail());
         writer.writeStringValue("userId", this.getUserId());
         writer.writeStringValue("userName", this.getUserName());
+        writer.writeStringValue("voicemailUrl", this.getVoicemailUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -577,13 +577,6 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         this.organizationName = value;
     }
     /**
-     * Sets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @param value Value to set for the recordingUrl property.
-     */
-    public void setRecordingUrl(@jakarta.annotation.Nullable final String value) {
-        this.recordingUrl = value;
-    }
-    /**
      * Sets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @param value Value to set for the status property.
      */
@@ -631,5 +624,12 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setUserName(@jakarta.annotation.Nullable final String value) {
         this.userName = value;
+    }
+    /**
+     * Sets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @param value Value to set for the voicemailUrl property.
+     */
+    public void setVoicemailUrl(@jakarta.annotation.Nullable final String value) {
+        this.voicemailUrl = value;
     }
 }
