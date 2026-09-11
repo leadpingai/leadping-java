@@ -38,11 +38,11 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
      */
     private String providerPricingVersion;
     /**
-     * The processing outcome reported for the phone identity lookup.
+     * Identifies the outcome of a phone identity lookup action.
      */
     private PhoneIdentityLookupActionStatus status;
     /**
-     * The category of enrichment, validation, or reputation lookup that was performed.
+     * Identifies the kind of lookup action performed for a phone identity.
      */
     private PhoneIdentityLookupActionType type;
     /**
@@ -126,7 +126,7 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         return this.providerPricingVersion;
     }
     /**
-     * Gets the status property value. The processing outcome reported for the phone identity lookup.
+     * Gets the status property value. Identifies the outcome of a phone identity lookup action.
      * @return a {@link PhoneIdentityLookupActionStatus}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         return this.status;
     }
     /**
-     * Gets the type property value. The category of enrichment, validation, or reputation lookup that was performed.
+     * Gets the type property value. Identifies the kind of lookup action performed for a phone identity.
      * @return a {@link PhoneIdentityLookupActionType}
      */
     @jakarta.annotation.Nullable
@@ -199,14 +199,14 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         this.providerPricingVersion = value;
     }
     /**
-     * Sets the status property value. The processing outcome reported for the phone identity lookup.
+     * Sets the status property value. Identifies the outcome of a phone identity lookup action.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final PhoneIdentityLookupActionStatus value) {
         this.status = value;
     }
     /**
-     * Sets the type property value. The category of enrichment, validation, or reputation lookup that was performed.
+     * Sets the type property value. Identifies the kind of lookup action performed for a phone identity.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final PhoneIdentityLookupActionType value) {

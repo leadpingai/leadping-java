@@ -54,7 +54,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String name;
     /**
-     * Organization for this organization user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair organization;
     /**
@@ -66,11 +66,11 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String removedByUserId;
     /**
-     * Role for this organization user.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
-     * User for this organization user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair user;
     /**
@@ -198,7 +198,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization for this organization user.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -222,7 +222,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.removedByUserId;
     }
     /**
-     * Gets the role property value. Role for this organization user.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -230,7 +230,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.role;
     }
     /**
-     * Gets the user property value. User for this organization user.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -339,7 +339,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization for this organization user.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {
@@ -360,14 +360,14 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.removedByUserId = value;
     }
     /**
-     * Sets the role property value. Role for this organization user.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
     }
     /**
-     * Sets the user property value. User for this organization user.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final IdNamePair value) {

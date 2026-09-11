@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Identifier and display name of the assigned organization member.
+ * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadTableRowAssignedTo extends IdNamePair implements Parsable {

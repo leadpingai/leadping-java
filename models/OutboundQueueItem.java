@@ -18,7 +18,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Channel classification for this Leadping outbound queue item.
+     * Defines outbound delivery channels protected by delivery control.
      */
     private OutboundDeliveryChannel channel;
     /**
@@ -42,11 +42,11 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime scheduledSendAt;
     /**
-     * Source classification for this Leadping outbound queue item.
+     * Defines the source that requested outbound delivery.
      */
     private OutboundDeliverySource source;
     /**
-     * Current status for this Leadping outbound queue item.
+     * Defines durable outbound delivery request statuses.
      */
     private OutboundDeliveryStatus status;
     /**
@@ -74,7 +74,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the channel property value. Channel classification for this Leadping outbound queue item.
+     * Gets the channel property value. Defines outbound delivery channels protected by delivery control.
      * @return a {@link OutboundDeliveryChannel}
      */
     @jakarta.annotation.Nullable
@@ -139,7 +139,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.scheduledSendAt;
     }
     /**
-     * Gets the source property value. Source classification for this Leadping outbound queue item.
+     * Gets the source property value. Defines the source that requested outbound delivery.
      * @return a {@link OutboundDeliverySource}
      */
     @jakarta.annotation.Nullable
@@ -147,7 +147,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         return this.source;
     }
     /**
-     * Gets the status property value. Current status for this Leadping outbound queue item.
+     * Gets the status property value. Defines durable outbound delivery request statuses.
      * @return a {@link OutboundDeliveryStatus}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +178,7 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the channel property value. Channel classification for this Leadping outbound queue item.
+     * Sets the channel property value. Defines outbound delivery channels protected by delivery control.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final OutboundDeliveryChannel value) {
@@ -220,14 +220,14 @@ public class OutboundQueueItem implements AdditionalDataHolder, Parsable {
         this.scheduledSendAt = value;
     }
     /**
-     * Sets the source property value. Source classification for this Leadping outbound queue item.
+     * Sets the source property value. Defines the source that requested outbound delivery.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final OutboundDeliverySource value) {
         this.source = value;
     }
     /**
-     * Sets the status property value. Current status for this Leadping outbound queue item.
+     * Sets the status property value. Defines durable outbound delivery request statuses.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OutboundDeliveryStatus value) {

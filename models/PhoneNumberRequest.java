@@ -25,6 +25,10 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
+     * Opts this number into the optional $2 monthly number health add-on. Defaults to on on creation; omitted updates preserve the current selection.
+     */
+    private Boolean numberHealthEnabled;
+    /**
      * Instantiates a new {@link PhoneNumberRequest} and sets the default values.
      */
     public PhoneNumberRequest() {
@@ -54,9 +58,10 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("numberHealthEnabled", (n) -> { this.setNumberHealthEnabled(n.getBooleanValue()); });
         return deserializerMap;
     }
     /**
@@ -76,6 +81,14 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
+     * Gets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on on creation; omitted updates preserve the current selection.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNumberHealthEnabled() {
+        return this.numberHealthEnabled;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -83,6 +96,7 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeBooleanValue("numberHealthEnabled", this.getNumberHealthEnabled());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -105,5 +119,12 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
+    }
+    /**
+     * Sets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on on creation; omitted updates preserve the current selection.
+     * @param value Value to set for the numberHealthEnabled property.
+     */
+    public void setNumberHealthEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.numberHealthEnabled = value;
     }
 }

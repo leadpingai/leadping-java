@@ -34,7 +34,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String avatarUrl;
     /**
-     * Current lead status change summary that describes the lead outcome.
+     * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private ConversationResponseCurrentLeadStatus currentLeadStatus;
     /**
@@ -90,7 +90,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String outboundPhoneNumberOverrideId;
     /**
-     * Phone number used by this conversation response for calls, SMS, lookup, or routing.
+     * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      */
     private ConversationResponsePhoneNumber phoneNumber;
     /**
@@ -158,7 +158,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.avatarUrl;
     }
     /**
-     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link ConversationResponseCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
@@ -300,7 +300,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.outboundPhoneNumberOverrideId;
     }
     /**
-     * Gets the phoneNumber property value. Phone number used by this conversation response for calls, SMS, lookup, or routing.
+     * Gets the phoneNumber property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @return a {@link ConversationResponsePhoneNumber}
      */
     @jakarta.annotation.Nullable
@@ -388,7 +388,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.avatarUrl = value;
     }
     /**
-     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @param value Value to set for the currentLeadStatus property.
      */
     public void setCurrentLeadStatus(@jakarta.annotation.Nullable final ConversationResponseCurrentLeadStatus value) {
@@ -486,7 +486,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.outboundPhoneNumberOverrideId = value;
     }
     /**
-     * Sets the phoneNumber property value. Phone number used by this conversation response for calls, SMS, lookup, or routing.
+     * Sets the phoneNumber property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @param value Value to set for the phoneNumber property.
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final ConversationResponsePhoneNumber value) {

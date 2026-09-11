@@ -102,7 +102,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * Current lifecycle status for this phone call in the Leadping API.
+     * Describes the durable business outcome of a Leadping phone call after provider status normalization.
      */
     private PhoneCallStatus status;
     /**
@@ -349,7 +349,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the status property value. Current lifecycle status for this phone call in the Leadping API.
+     * Gets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @return a {@link PhoneCallStatus}
      */
     @jakarta.annotation.Nullable
@@ -577,7 +577,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the status property value. Current lifecycle status for this phone call in the Leadping API.
+     * Sets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final PhoneCallStatus value) {

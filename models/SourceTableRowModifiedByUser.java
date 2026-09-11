@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * User summary for the person who last modified this lead source table row.
+ * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SourceTableRowModifiedByUser extends IdNamePair implements Parsable {

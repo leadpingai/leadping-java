@@ -98,7 +98,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isAutomated;
     /**
-     * Identifier and display name of the related lead.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair lead;
     /**
@@ -416,7 +416,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.isAutomated;
     }
     /**
-     * Gets the lead property value. Identifier and display name of the related lead.
+     * Gets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -780,7 +780,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.isAutomated = value;
     }
     /**
-     * Sets the lead property value. Identifier and display name of the related lead.
+     * Sets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final IdNamePair value) {

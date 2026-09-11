@@ -29,11 +29,11 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private String number;
     /**
-     * Recent SMS opt-out metrics used to evaluate sender health and compliance risk.
+     * Describes phone number opt-out metrics data returned by Leadping.
      */
     private PhoneNumberOptOutMetricsResponse optOutMetrics;
     /**
-     * Current outbound SMS and voice capacity for this phone number.
+     * Reports the sending capacity, current load, and availability of a phone number considered for outbound delivery.
      */
     private PhoneNumberStatusResponseOutboundCapacity outboundCapacity;
     /**
@@ -41,11 +41,11 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private java.util.List<PhoneNumberMessagingEventResponse> recentEvents;
     /**
-     * SMS warmup status for this phone number.
+     * Describes SMS warmup status data returned by Leadping.
      */
     private PhoneNumberStatusResponseSmsWarmup smsWarmup;
     /**
-     * Phone number traffic metrics for recent SMS and call activity.
+     * Describes phone number traffic metrics data returned by Leadping.
      */
     private PhoneNumberTrafficMetricsResponse trafficMetrics;
     /**
@@ -114,7 +114,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.number;
     }
     /**
-     * Gets the optOutMetrics property value. Recent SMS opt-out metrics used to evaluate sender health and compliance risk.
+     * Gets the optOutMetrics property value. Describes phone number opt-out metrics data returned by Leadping.
      * @return a {@link PhoneNumberOptOutMetricsResponse}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.optOutMetrics;
     }
     /**
-     * Gets the outboundCapacity property value. Current outbound SMS and voice capacity for this phone number.
+     * Gets the outboundCapacity property value. Reports the sending capacity, current load, and availability of a phone number considered for outbound delivery.
      * @return a {@link PhoneNumberStatusResponseOutboundCapacity}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.recentEvents;
     }
     /**
-     * Gets the smsWarmup property value. SMS warmup status for this phone number.
+     * Gets the smsWarmup property value. Describes SMS warmup status data returned by Leadping.
      * @return a {@link PhoneNumberStatusResponseSmsWarmup}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +146,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         return this.smsWarmup;
     }
     /**
-     * Gets the trafficMetrics property value. Phone number traffic metrics for recent SMS and call activity.
+     * Gets the trafficMetrics property value. Describes phone number traffic metrics data returned by Leadping.
      * @return a {@link PhoneNumberTrafficMetricsResponse}
      */
     @jakarta.annotation.Nullable
@@ -198,14 +198,14 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         this.number = value;
     }
     /**
-     * Sets the optOutMetrics property value. Recent SMS opt-out metrics used to evaluate sender health and compliance risk.
+     * Sets the optOutMetrics property value. Describes phone number opt-out metrics data returned by Leadping.
      * @param value Value to set for the optOutMetrics property.
      */
     public void setOptOutMetrics(@jakarta.annotation.Nullable final PhoneNumberOptOutMetricsResponse value) {
         this.optOutMetrics = value;
     }
     /**
-     * Sets the outboundCapacity property value. Current outbound SMS and voice capacity for this phone number.
+     * Sets the outboundCapacity property value. Reports the sending capacity, current load, and availability of a phone number considered for outbound delivery.
      * @param value Value to set for the outboundCapacity property.
      */
     public void setOutboundCapacity(@jakarta.annotation.Nullable final PhoneNumberStatusResponseOutboundCapacity value) {
@@ -219,14 +219,14 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         this.recentEvents = value;
     }
     /**
-     * Sets the smsWarmup property value. SMS warmup status for this phone number.
+     * Sets the smsWarmup property value. Describes SMS warmup status data returned by Leadping.
      * @param value Value to set for the smsWarmup property.
      */
     public void setSmsWarmup(@jakarta.annotation.Nullable final PhoneNumberStatusResponseSmsWarmup value) {
         this.smsWarmup = value;
     }
     /**
-     * Sets the trafficMetrics property value. Phone number traffic metrics for recent SMS and call activity.
+     * Sets the trafficMetrics property value. Describes phone number traffic metrics data returned by Leadping.
      * @param value Value to set for the trafficMetrics property.
      */
     public void setTrafficMetrics(@jakarta.annotation.Nullable final PhoneNumberTrafficMetricsResponse value) {

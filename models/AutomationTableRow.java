@@ -70,7 +70,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Organization summary connected to this automation table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationTableRowOrganization organization;
     /**
@@ -94,7 +94,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String triggerType;
     /**
-     * User summary connected to this automation table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationTableRowUser user;
     /**
@@ -260,7 +260,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this automation table row.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -308,7 +308,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.triggerType;
     }
     /**
-     * Gets the user property value. User summary connected to this automation table row.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -451,7 +451,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this automation table row.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final AutomationTableRowOrganization value) {
@@ -493,7 +493,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         this.triggerType = value;
     }
     /**
-     * Sets the user property value. User summary connected to this automation table row.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final AutomationTableRowUser value) {

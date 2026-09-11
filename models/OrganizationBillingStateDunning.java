@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Customer-safe payment recovery state for the organization.
+ * Dunning state recorded after a failed recurring payment.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationBillingStateDunning extends OrganizationDunningInfo implements Parsable {

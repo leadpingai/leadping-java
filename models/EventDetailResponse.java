@@ -134,7 +134,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime undeliverableAt;
     /**
-     * User summary connected to this event detail response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private EventDetailResponseUser user;
     /**
@@ -443,7 +443,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.undeliverableAt;
     }
     /**
-     * Gets the user property value. User summary connected to this event detail response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link EventDetailResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -717,7 +717,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.undeliverableAt = value;
     }
     /**
-     * Sets the user property value. User summary connected to this event detail response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final EventDetailResponseUser value) {

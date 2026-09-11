@@ -37,11 +37,11 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * Phone details for the lead, user, or organization represented by this lead contact profile.
+     * Public Leadping API schema for lead phone number data.
      */
     private LeadContactPhone phone;
     /**
-     * Postal street address for the lead contact profile.
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      */
     private LeadContactStreetAddress streetAddress;
     /**
@@ -130,7 +130,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the phone property value. Phone details for the lead, user, or organization represented by this lead contact profile.
+     * Gets the phone property value. Public Leadping API schema for lead phone number data.
      * @return a {@link LeadContactPhone}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         return this.phone;
     }
     /**
-     * Gets the streetAddress property value. Postal street address for the lead contact profile.
+     * Gets the streetAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @return a {@link LeadContactStreetAddress}
      */
     @jakarta.annotation.Nullable
@@ -212,14 +212,14 @@ public class LeadContact implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the phone property value. Phone details for the lead, user, or organization represented by this lead contact profile.
+     * Sets the phone property value. Public Leadping API schema for lead phone number data.
      * @param value Value to set for the phone property.
      */
     public void setPhone(@jakarta.annotation.Nullable final LeadContactPhone value) {
         this.phone = value;
     }
     /**
-     * Sets the streetAddress property value. Postal street address for the lead contact profile.
+     * Sets the streetAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @param value Value to set for the streetAddress property.
      */
     public void setStreetAddress(@jakarta.annotation.Nullable final LeadContactStreetAddress value) {

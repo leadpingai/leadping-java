@@ -17,7 +17,7 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * Billing plan for this billing plan.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private BillingPlan billingPlan;
     /**
@@ -45,7 +45,7 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the billingPlan property value. Billing plan for this billing plan.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link BillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class ChangeBillingPlanRequest implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the billingPlan property value. Billing plan for this billing plan.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final BillingPlan value) {

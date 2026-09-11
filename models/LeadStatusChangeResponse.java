@@ -74,6 +74,14 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     private Boolean isMissedCallFollowUp;
     /**
+     * The lead&apos;s profile image URL, when available.
+     */
+    private String leadAvatarUrl;
+    /**
+     * The lead&apos;s email address, used for Gravatar fallback.
+     */
+    private String leadEmail;
+    /**
      * The lead ID associated with this lead status change.
      */
     private String leadId;
@@ -251,7 +259,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
@@ -266,6 +274,8 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         deserializerMap.put("followUpStatus", (n) -> { this.setFollowUpStatus(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isMissedCallFollowUp", (n) -> { this.setIsMissedCallFollowUp(n.getBooleanValue()); });
+        deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
+        deserializerMap.put("leadEmail", (n) -> { this.setLeadEmail(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("newLeadStatusChangeId", (n) -> { this.setNewLeadStatusChangeId(n.getStringValue()); });
@@ -306,6 +316,22 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public Boolean getIsMissedCallFollowUp() {
         return this.isMissedCallFollowUp;
+    }
+    /**
+     * Gets the leadAvatarUrl property value. The lead&apos;s profile image URL, when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadAvatarUrl() {
+        return this.leadAvatarUrl;
+    }
+    /**
+     * Gets the leadEmail property value. The lead&apos;s email address, used for Gravatar fallback.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadEmail() {
+        return this.leadEmail;
     }
     /**
      * Gets the leadId property value. The lead ID associated with this lead status change.
@@ -447,6 +473,8 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         writer.writeStringValue("followUpStatus", this.getFollowUpStatus());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isMissedCallFollowUp", this.getIsMissedCallFollowUp());
+        writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
+        writer.writeStringValue("leadEmail", this.getLeadEmail());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("newLeadStatusChangeId", this.getNewLeadStatusChangeId());
@@ -568,6 +596,20 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     public void setIsMissedCallFollowUp(@jakarta.annotation.Nullable final Boolean value) {
         this.isMissedCallFollowUp = value;
+    }
+    /**
+     * Sets the leadAvatarUrl property value. The lead&apos;s profile image URL, when available.
+     * @param value Value to set for the leadAvatarUrl property.
+     */
+    public void setLeadAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.leadAvatarUrl = value;
+    }
+    /**
+     * Sets the leadEmail property value. The lead&apos;s email address, used for Gravatar fallback.
+     * @param value Value to set for the leadEmail property.
+     */
+    public void setLeadEmail(@jakarta.annotation.Nullable final String value) {
+        this.leadEmail = value;
     }
     /**
      * Sets the leadId property value. The lead ID associated with this lead status change.

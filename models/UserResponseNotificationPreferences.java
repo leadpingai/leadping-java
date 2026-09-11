@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Notification preferences for this user.
+ * Describes user notification preferences data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserResponseNotificationPreferences extends UserNotificationPreferences implements Parsable {

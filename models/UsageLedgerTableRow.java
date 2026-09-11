@@ -22,11 +22,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Integer billableSeconds;
     /**
-     * Billable unit for this usage ledger.
+     * Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      */
     private BillableUnit billableUnit;
     /**
-     * Channel for this usage ledger.
+     * Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      */
     private UsageChannel channel;
     /**
@@ -54,11 +54,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isBillable;
     /**
-     * Identifier and display name of the related lead.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UsageLedgerTableRowLead lead;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UsageLedgerTableRowOrganization organization;
     /**
@@ -78,7 +78,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Integer smsSegments;
     /**
-     * The current status for this usage ledger.
+     * Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      */
     private UsageStatus status;
     /**
@@ -86,7 +86,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double unitPrice;
     /**
-     * Identifier and display name of the related user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UsageLedgerTableRowUser user;
     /**
@@ -122,7 +122,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableSeconds;
     }
     /**
-     * Gets the billableUnit property value. Billable unit for this usage ledger.
+     * Gets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @return a {@link BillableUnit}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the channel property value. Channel for this usage ledger.
+     * Gets the channel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @return a {@link UsageChannel}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.isBillable;
     }
     /**
-     * Gets the lead property value. Identifier and display name of the related lead.
+     * Gets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UsageLedgerTableRowLead}
      */
     @jakarta.annotation.Nullable
@@ -221,7 +221,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.lead;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UsageLedgerTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -261,7 +261,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.smsSegments;
     }
     /**
-     * Gets the status property value. The current status for this usage ledger.
+     * Gets the status property value. Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      * @return a {@link UsageStatus}
      */
     @jakarta.annotation.Nullable
@@ -277,7 +277,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.unitPrice;
     }
     /**
-     * Gets the user property value. Identifier and display name of the related user.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UsageLedgerTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -325,14 +325,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.billableSeconds = value;
     }
     /**
-     * Sets the billableUnit property value. Billable unit for this usage ledger.
+     * Sets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @param value Value to set for the billableUnit property.
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final BillableUnit value) {
         this.billableUnit = value;
     }
     /**
-     * Sets the channel property value. Channel for this usage ledger.
+     * Sets the channel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final UsageChannel value) {
@@ -381,14 +381,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.isBillable = value;
     }
     /**
-     * Sets the lead property value. Identifier and display name of the related lead.
+     * Sets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final UsageLedgerTableRowLead value) {
         this.lead = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final UsageLedgerTableRowOrganization value) {
@@ -423,7 +423,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.smsSegments = value;
     }
     /**
-     * Sets the status property value. The current status for this usage ledger.
+     * Sets the status property value. Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final UsageStatus value) {
@@ -437,7 +437,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.unitPrice = value;
     }
     /**
-     * Sets the user property value. Identifier and display name of the related user.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final UsageLedgerTableRowUser value) {

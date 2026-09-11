@@ -186,7 +186,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String timelineCategory;
     /**
-     * Timeline type used to render this event in Leadping activity feeds.
+     * Classifies the kind of activity displayed in a lead or conversation event timeline.
      */
     private EventTimelineType timelineType;
     /**
@@ -622,7 +622,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.timelineCategory;
     }
     /**
-     * Gets the timelineType property value. Timeline type used to render this event in Leadping activity feeds.
+     * Gets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @return a {@link EventTimelineType}
      */
     @jakarta.annotation.Nullable
@@ -1018,7 +1018,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.timelineCategory = value;
     }
     /**
-     * Sets the timelineType property value. Timeline type used to render this event in Leadping activity feeds.
+     * Sets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @param value Value to set for the timelineType property.
      */
     public void setTimelineType(@jakarta.annotation.Nullable final EventTimelineType value) {

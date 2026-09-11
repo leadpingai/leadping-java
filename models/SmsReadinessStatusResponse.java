@@ -21,7 +21,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
      */
     private Integer healthScore;
     /**
-     * The current delivery-health assessment for this SMS warmup status.
+     * Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      */
     private SmsReadinessHealthStatus healthStatus;
     /**
@@ -37,11 +37,11 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
      */
     private Integer progressPercent;
     /**
-     * The current state for this SMS warmup status.
+     * Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      */
     private SmsReadinessState status;
     /**
-     * The current UI state for this SMS warmup status.
+     * Describes SMS readiness UI state data used in Leadping API requests and responses.
      */
     private SmsReadinessUiState uiState;
     /**
@@ -98,7 +98,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
         return this.healthScore;
     }
     /**
-     * Gets the healthStatus property value. The current delivery-health assessment for this SMS warmup status.
+     * Gets the healthStatus property value. Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      * @return a {@link SmsReadinessHealthStatus}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
         return this.progressPercent;
     }
     /**
-     * Gets the status property value. The current state for this SMS warmup status.
+     * Gets the status property value. Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      * @return a {@link SmsReadinessState}
      */
     @jakarta.annotation.Nullable
@@ -138,7 +138,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
         return this.status;
     }
     /**
-     * Gets the uiState property value. The current UI state for this SMS warmup status.
+     * Gets the uiState property value. Describes SMS readiness UI state data used in Leadping API requests and responses.
      * @return a {@link SmsReadinessUiState}
      */
     @jakarta.annotation.Nullable
@@ -184,7 +184,7 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
         this.healthScore = value;
     }
     /**
-     * Sets the healthStatus property value. The current delivery-health assessment for this SMS warmup status.
+     * Sets the healthStatus property value. Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      * @param value Value to set for the healthStatus property.
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final SmsReadinessHealthStatus value) {
@@ -212,14 +212,14 @@ public class SmsReadinessStatusResponse implements AdditionalDataHolder, Parsabl
         this.progressPercent = value;
     }
     /**
-     * Sets the status property value. The current state for this SMS warmup status.
+     * Sets the status property value. Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final SmsReadinessState value) {
         this.status = value;
     }
     /**
-     * Sets the uiState property value. The current UI state for this SMS warmup status.
+     * Sets the uiState property value. Describes SMS readiness UI state data used in Leadping API requests and responses.
      * @param value Value to set for the uiState property.
      */
     public void setUiState(@jakarta.annotation.Nullable final SmsReadinessUiState value) {

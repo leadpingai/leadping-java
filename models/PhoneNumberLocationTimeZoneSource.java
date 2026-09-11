@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes how the time zone was resolved.
+ * Describes how a phone location value was resolved.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberLocationTimeZoneSource extends PhoneLocationSource implements Parsable {

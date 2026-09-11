@@ -54,7 +54,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * User summary for the person who created this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowCreatedByUser createdByUser;
     /**
@@ -90,7 +90,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
-     * User summary for the person who last modified this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowModifiedByUser modifiedByUser;
     /**
@@ -98,7 +98,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Organization summary connected to this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowOrganization organization;
     /**
@@ -110,7 +110,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean requiresTrustedForm;
     /**
-     * User summary connected to this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowUser user;
     /**
@@ -210,7 +210,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the createdByUser property value. User summary for the person who created this lead source table row.
+     * Gets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowCreatedByUser}
      */
     @jakarta.annotation.Nullable
@@ -315,7 +315,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the modifiedByUser property value. User summary for the person who last modified this lead source table row.
+     * Gets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowModifiedByUser}
      */
     @jakarta.annotation.Nullable
@@ -331,7 +331,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this lead source table row.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -355,7 +355,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.requiresTrustedForm;
     }
     /**
-     * Gets the user property value. User summary connected to this lead source table row.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -465,7 +465,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the createdByUser property value. User summary for the person who created this lead source table row.
+     * Sets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the createdByUser property.
      */
     public void setCreatedByUser(@jakarta.annotation.Nullable final SourceTableRowCreatedByUser value) {
@@ -528,7 +528,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.modifiedAt = value;
     }
     /**
-     * Sets the modifiedByUser property value. User summary for the person who last modified this lead source table row.
+     * Sets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the modifiedByUser property.
      */
     public void setModifiedByUser(@jakarta.annotation.Nullable final SourceTableRowModifiedByUser value) {
@@ -542,7 +542,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this lead source table row.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final SourceTableRowOrganization value) {
@@ -563,7 +563,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.requiresTrustedForm = value;
     }
     /**
-     * Sets the user property value. User summary connected to this lead source table row.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final SourceTableRowUser value) {

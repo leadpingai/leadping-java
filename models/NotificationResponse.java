@@ -54,7 +54,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Priority for this notification.
+     * Ranks the urgency and presentation importance of a Leadping user notification.
      */
     private NotificationPriority priority;
     /**
@@ -74,7 +74,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private String relatedEntityType;
     /**
-     * The type classification for this notification.
+     * Identifies the Leadping workflow or account event communicated by a user notification.
      */
     private NotificationType type;
     /**
@@ -203,7 +203,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the priority property value. Priority for this notification.
+     * Gets the priority property value. Ranks the urgency and presentation importance of a Leadping user notification.
      * @return a {@link NotificationPriority}
      */
     @jakarta.annotation.Nullable
@@ -243,7 +243,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.relatedEntityType;
     }
     /**
-     * Gets the type property value. The type classification for this notification.
+     * Gets the type property value. Identifies the Leadping workflow or account event communicated by a user notification.
      * @return a {@link NotificationType}
      */
     @jakarta.annotation.Nullable
@@ -353,7 +353,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the priority property value. Priority for this notification.
+     * Sets the priority property value. Ranks the urgency and presentation importance of a Leadping user notification.
      * @param value Value to set for the priority property.
      */
     public void setPriority(@jakarta.annotation.Nullable final NotificationPriority value) {
@@ -388,7 +388,7 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.relatedEntityType = value;
     }
     /**
-     * Sets the type property value. The type classification for this notification.
+     * Sets the type property value. Identifies the Leadping workflow or account event communicated by a user notification.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final NotificationType value) {

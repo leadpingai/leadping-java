@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Lossless provider response retained for administrative diagnostics.
+ * Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneIdentityResponseProviderEnrichment extends PhoneLookupProviderSnapshot implements Parsable {

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Canonical phone identity and provider lookup details for this lead.
+ * Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadResponsePhoneIdentity extends PhoneIdentityResponse implements Parsable {

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Provider lookup and enrichment data for the number.
+ * Public Leadping API schema for phone lookup result data.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneIdentityResponseLookup extends PhoneLookup implements Parsable {

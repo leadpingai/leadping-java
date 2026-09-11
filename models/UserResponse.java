@@ -22,11 +22,11 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private UserResponseBillingPlan billingPlan;
     /**
-     * Customer-safe billing state for the user&apos;s currently selected organization.
+     * Customer-safe billing state for a Leadping organization.
      */
     private UserResponseBillingState billingState;
     /**
-     * Compliance for this user.
+     * Describes user compliance data used in Leadping API requests and responses.
      */
     private UserResponseCompliance compliance;
     /**
@@ -34,7 +34,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * Current organization for this user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UserResponseCurrentOrganization currentOrganization;
     /**
@@ -74,7 +74,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Notification preferences for this user.
+     * Describes user notification preferences data used in Leadping API requests and responses.
      */
     private UserResponseNotificationPreferences notificationPreferences;
     /**
@@ -142,7 +142,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the billingState property value. Customer-safe billing state for the user&apos;s currently selected organization.
+     * Gets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @return a {@link UserResponseBillingState}
      */
     @jakarta.annotation.Nullable
@@ -150,7 +150,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingState;
     }
     /**
-     * Gets the compliance property value. Compliance for this user.
+     * Gets the compliance property value. Describes user compliance data used in Leadping API requests and responses.
      * @return a {@link UserResponseCompliance}
      */
     @jakarta.annotation.Nullable
@@ -166,7 +166,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentOrganization property value. Current organization for this user.
+     * Gets the currentOrganization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UserResponseCurrentOrganization}
      */
     @jakarta.annotation.Nullable
@@ -278,7 +278,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the notificationPreferences property value. Notification preferences for this user.
+     * Gets the notificationPreferences property value. Describes user notification preferences data used in Leadping API requests and responses.
      * @return a {@link UserResponseNotificationPreferences}
      */
     @jakarta.annotation.Nullable
@@ -395,14 +395,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.billingPlan = value;
     }
     /**
-     * Sets the billingState property value. Customer-safe billing state for the user&apos;s currently selected organization.
+     * Sets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @param value Value to set for the billingState property.
      */
     public void setBillingState(@jakarta.annotation.Nullable final UserResponseBillingState value) {
         this.billingState = value;
     }
     /**
-     * Sets the compliance property value. Compliance for this user.
+     * Sets the compliance property value. Describes user compliance data used in Leadping API requests and responses.
      * @param value Value to set for the compliance property.
      */
     public void setCompliance(@jakarta.annotation.Nullable final UserResponseCompliance value) {
@@ -416,7 +416,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentOrganization property value. Current organization for this user.
+     * Sets the currentOrganization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the currentOrganization property.
      */
     public void setCurrentOrganization(@jakarta.annotation.Nullable final UserResponseCurrentOrganization value) {
@@ -486,7 +486,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the notificationPreferences property value. Notification preferences for this user.
+     * Sets the notificationPreferences property value. Describes user notification preferences data used in Leadping API requests and responses.
      * @param value Value to set for the notificationPreferences property.
      */
     public void setNotificationPreferences(@jakarta.annotation.Nullable final UserResponseNotificationPreferences value) {

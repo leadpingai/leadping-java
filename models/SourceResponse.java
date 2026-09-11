@@ -46,7 +46,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * User summary for the person who created this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseCreatedByUser createdByUser;
     /**
@@ -86,7 +86,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
-     * User summary for the person who last modified this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseModifiedByUser modifiedByUser;
     /**
@@ -94,7 +94,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Organization summary connected to this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseOrganization organization;
     /**
@@ -102,7 +102,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean requiresTrustedForm;
     /**
-     * User summary connected to this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseUser user;
     /**
@@ -186,7 +186,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the createdByUser property value. User summary for the person who created this lead source response.
+     * Gets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseCreatedByUser}
      */
     @jakarta.annotation.Nullable
@@ -297,7 +297,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the modifiedByUser property value. User summary for the person who last modified this lead source response.
+     * Gets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseModifiedByUser}
      */
     @jakarta.annotation.Nullable
@@ -313,7 +313,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this lead source response.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -329,7 +329,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.requiresTrustedForm;
     }
     /**
-     * Gets the user property value. User summary connected to this lead source response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -423,7 +423,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the createdByUser property value. User summary for the person who created this lead source response.
+     * Sets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the createdByUser property.
      */
     public void setCreatedByUser(@jakarta.annotation.Nullable final SourceResponseCreatedByUser value) {
@@ -493,7 +493,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.modifiedAt = value;
     }
     /**
-     * Sets the modifiedByUser property value. User summary for the person who last modified this lead source response.
+     * Sets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the modifiedByUser property.
      */
     public void setModifiedByUser(@jakarta.annotation.Nullable final SourceResponseModifiedByUser value) {
@@ -507,7 +507,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this lead source response.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final SourceResponseOrganization value) {
@@ -521,7 +521,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.requiresTrustedForm = value;
     }
     /**
-     * Sets the user property value. User summary connected to this lead source response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final SourceResponseUser value) {

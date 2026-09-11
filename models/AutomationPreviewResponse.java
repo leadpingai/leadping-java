@@ -33,7 +33,7 @@ public class AutomationPreviewResponse implements AdditionalDataHolder, Parsable
      */
     private String triggerType;
     /**
-     * Validation result returned for the automation configuration.
+     * Result schema for the Leadping API automation validation result returned by lookup and validation endpoints.
      */
     private AutomationValidationResult validation;
     /**
@@ -112,7 +112,7 @@ public class AutomationPreviewResponse implements AdditionalDataHolder, Parsable
         return this.triggerType;
     }
     /**
-     * Gets the validation property value. Validation result returned for the automation configuration.
+     * Gets the validation property value. Result schema for the Leadping API automation validation result returned by lookup and validation endpoints.
      * @return a {@link AutomationValidationResult}
      */
     @jakarta.annotation.Nullable
@@ -177,7 +177,7 @@ public class AutomationPreviewResponse implements AdditionalDataHolder, Parsable
         this.triggerType = value;
     }
     /**
-     * Sets the validation property value. Validation result returned for the automation configuration.
+     * Sets the validation property value. Result schema for the Leadping API automation validation result returned by lookup and validation endpoints.
      * @param value Value to set for the validation property.
      */
     public void setValidation(@jakarta.annotation.Nullable final AutomationValidationResult value) {

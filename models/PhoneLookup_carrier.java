@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Complete carrier metadata reported for this phone number.
+ * Complete carrier metadata returned by a phone number lookup provider.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneLookup_carrier extends PhoneLookupCarrier implements Parsable {

@@ -58,7 +58,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean readyForCustomerTraffic;
     /**
-     * Role for this organization switch option.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
@@ -191,7 +191,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.readyForCustomerTraffic;
     }
     /**
-     * Gets the role property value. Role for this organization switch option.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -304,7 +304,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.readyForCustomerTraffic = value;
     }
     /**
-     * Sets the role property value. Role for this organization switch option.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {

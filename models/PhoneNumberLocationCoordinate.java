@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Latitude and longitude coordinate for this phone number location.
+ * Latitude and longitude coordinate for this lead contact profile.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberLocationCoordinate extends Coordinate implements Parsable {

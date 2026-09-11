@@ -30,7 +30,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
-     * Identifier and display name of the assigned organization member.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadTableRowAssignedTo assignedTo;
     /**
@@ -46,7 +46,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * Current lead status change summary that describes the lead outcome.
+     * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private LeadTableRowCurrentLeadStatus currentLeadStatus;
     /**
@@ -74,7 +74,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadTableRowOrganization organization;
     /**
@@ -102,7 +102,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String processingStatusReason;
     /**
-     * Identifier and display name of the related source.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadTableRowSource source;
     /**
@@ -170,7 +170,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
-     * Gets the assignedTo property value. Identifier and display name of the assigned organization member.
+     * Gets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadTableRowAssignedTo}
      */
     @jakarta.annotation.Nullable
@@ -202,7 +202,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link LeadTableRowCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
@@ -293,7 +293,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -349,7 +349,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.processingStatusReason;
     }
     /**
-     * Gets the source property value. Identifier and display name of the related source.
+     * Gets the source property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadTableRowSource}
      */
     @jakarta.annotation.Nullable
@@ -451,7 +451,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
-     * Sets the assignedTo property value. Identifier and display name of the assigned organization member.
+     * Sets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the assignedTo property.
      */
     public void setAssignedTo(@jakarta.annotation.Nullable final LeadTableRowAssignedTo value) {
@@ -479,7 +479,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @param value Value to set for the currentLeadStatus property.
      */
     public void setCurrentLeadStatus(@jakarta.annotation.Nullable final LeadTableRowCurrentLeadStatus value) {
@@ -528,7 +528,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final LeadTableRowOrganization value) {
@@ -577,7 +577,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.processingStatusReason = value;
     }
     /**
-     * Sets the source property value. Identifier and display name of the related source.
+     * Sets the source property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final LeadTableRowSource value) {

@@ -18,7 +18,7 @@ public class OrganizationApiKeyIssueResponse implements AdditionalDataHolder, Pa
      */
     private Map<String, Object> additionalData;
     /**
-     * API key associated with this Leadping organization API key issue.
+     * Safe identifying and usage metadata for an organization API key. This model never contains the secret credential.
      */
     private OrganizationApiKeyPreviewResponse apiKey;
     /**
@@ -54,7 +54,7 @@ public class OrganizationApiKeyIssueResponse implements AdditionalDataHolder, Pa
         return this.additionalData;
     }
     /**
-     * Gets the apiKey property value. API key associated with this Leadping organization API key issue.
+     * Gets the apiKey property value. Safe identifying and usage metadata for an organization API key. This model never contains the secret credential.
      * @return a {@link OrganizationApiKeyPreviewResponse}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class OrganizationApiKeyIssueResponse implements AdditionalDataHolder, Pa
         this.additionalData = value;
     }
     /**
-     * Sets the apiKey property value. API key associated with this Leadping organization API key issue.
+     * Sets the apiKey property value. Safe identifying and usage metadata for an organization API key. This model never contains the secret credential.
      * @param value Value to set for the apiKey property.
      */
     public void setApiKey(@jakarta.annotation.Nullable final OrganizationApiKeyPreviewResponse value) {

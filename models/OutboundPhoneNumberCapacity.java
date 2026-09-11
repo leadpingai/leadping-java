@@ -26,7 +26,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private String healthReason;
     /**
-     * Current health status for this Leadping outbound phone number capacity.
+     * Defines phone-number outbound health states used by pacing.
      */
     private PhoneNumberOutboundHealthStatus healthStatus;
     /**
@@ -227,7 +227,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.healthReason;
     }
     /**
-     * Gets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.
+     * Gets the healthStatus property value. Defines phone-number outbound health states used by pacing.
      * @return a {@link PhoneNumberOutboundHealthStatus}
      */
     @jakarta.annotation.Nullable
@@ -528,7 +528,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.healthReason = value;
     }
     /**
-     * Sets the healthStatus property value. Current health status for this Leadping outbound phone number capacity.
+     * Sets the healthStatus property value. Defines phone-number outbound health states used by pacing.
      * @param value Value to set for the healthStatus property.
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final PhoneNumberOutboundHealthStatus value) {

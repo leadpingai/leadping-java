@@ -41,7 +41,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      */
     private Integer leads;
     /**
-     * Date and time when this Leadping customer analytics summary was leads comparison.
+     * Compares a metric with the preceding period and reports its absolute and percentage change.
      */
     private AnalyticsComparison leadsComparison;
     /**
@@ -183,7 +183,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.leads;
     }
     /**
-     * Gets the leadsComparison property value. Date and time when this Leadping customer analytics summary was leads comparison.
+     * Gets the leadsComparison property value. Compares a metric with the preceding period and reports its absolute and percentage change.
      * @return a {@link AnalyticsComparison}
      */
     @jakarta.annotation.Nullable
@@ -345,7 +345,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         this.leads = value;
     }
     /**
-     * Sets the leadsComparison property value. Date and time when this Leadping customer analytics summary was leads comparison.
+     * Sets the leadsComparison property value. Compares a metric with the preceding period and reports its absolute and percentage change.
      * @param value Value to set for the leadsComparison property.
      */
     public void setLeadsComparison(@jakarta.annotation.Nullable final AnalyticsComparison value) {

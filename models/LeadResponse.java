@@ -34,7 +34,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
-     * Identifier and display name of the active organization member assigned to this lead.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadResponseAssignedTo assignedTo;
     /**
@@ -42,7 +42,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private String assignedToUserId;
     /**
-     * Contact details for the lead or customer represented by this lead response.
+     * Public Leadping API schema for lead contact profile data.
      */
     private LeadContact contact;
     /**
@@ -50,11 +50,11 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * Current lead status change summary that describes the lead outcome.
+     * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private LeadResponseCurrentLeadStatus currentLeadStatus;
     /**
-     * Demographic profile details for the lead represented by this lead response.
+     * Public Leadping API schema for lead demographic profile data.
      */
     private LeadProfile customer;
     /**
@@ -78,7 +78,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
-     * Structured metadata used for attribution, integrations, and reporting on this lead response.
+     * Public Leadping API schema for lead attribution metadata data.
      */
     private LeadMetadata metadata;
     /**
@@ -86,7 +86,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
-     * Canonical phone identity and provider lookup details for this lead.
+     * Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
      */
     private LeadResponsePhoneIdentity phoneIdentity;
     /**
@@ -162,7 +162,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
-     * Gets the assignedTo property value. Identifier and display name of the active organization member assigned to this lead.
+     * Gets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadResponseAssignedTo}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +178,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.assignedToUserId;
     }
     /**
-     * Gets the contact property value. Contact details for the lead or customer represented by this lead response.
+     * Gets the contact property value. Public Leadping API schema for lead contact profile data.
      * @return a {@link LeadContact}
      */
     @jakarta.annotation.Nullable
@@ -194,7 +194,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link LeadResponseCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
@@ -202,7 +202,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.currentLeadStatus;
     }
     /**
-     * Gets the customer property value. Demographic profile details for the lead represented by this lead response.
+     * Gets the customer property value. Public Leadping API schema for lead demographic profile data.
      * @return a {@link LeadProfile}
      */
     @jakarta.annotation.Nullable
@@ -281,7 +281,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.isArchived;
     }
     /**
-     * Gets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this lead response.
+     * Gets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @return a {@link LeadMetadata}
      */
     @jakarta.annotation.Nullable
@@ -297,7 +297,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the phoneIdentity property value. Canonical phone identity and provider lookup details for this lead.
+     * Gets the phoneIdentity property value. Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
      * @return a {@link LeadResponsePhoneIdentity}
      */
     @jakarta.annotation.Nullable
@@ -402,7 +402,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
-     * Sets the assignedTo property value. Identifier and display name of the active organization member assigned to this lead.
+     * Sets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the assignedTo property.
      */
     public void setAssignedTo(@jakarta.annotation.Nullable final LeadResponseAssignedTo value) {
@@ -416,7 +416,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.assignedToUserId = value;
     }
     /**
-     * Sets the contact property value. Contact details for the lead or customer represented by this lead response.
+     * Sets the contact property value. Public Leadping API schema for lead contact profile data.
      * @param value Value to set for the contact property.
      */
     public void setContact(@jakarta.annotation.Nullable final LeadContact value) {
@@ -430,14 +430,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @param value Value to set for the currentLeadStatus property.
      */
     public void setCurrentLeadStatus(@jakarta.annotation.Nullable final LeadResponseCurrentLeadStatus value) {
         this.currentLeadStatus = value;
     }
     /**
-     * Sets the customer property value. Demographic profile details for the lead represented by this lead response.
+     * Sets the customer property value. Public Leadping API schema for lead demographic profile data.
      * @param value Value to set for the customer property.
      */
     public void setCustomer(@jakarta.annotation.Nullable final LeadProfile value) {
@@ -479,7 +479,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.isArchived = value;
     }
     /**
-     * Sets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this lead response.
+     * Sets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @param value Value to set for the metadata property.
      */
     public void setMetadata(@jakarta.annotation.Nullable final LeadMetadata value) {
@@ -493,7 +493,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.modifiedAt = value;
     }
     /**
-     * Sets the phoneIdentity property value. Canonical phone identity and provider lookup details for this lead.
+     * Sets the phoneIdentity property value. Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
      * @param value Value to set for the phoneIdentity property.
      */
     public void setPhoneIdentity(@jakarta.annotation.Nullable final LeadResponsePhoneIdentity value) {

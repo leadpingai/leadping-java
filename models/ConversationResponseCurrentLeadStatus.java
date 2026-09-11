@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Current lead status change summary that describes the lead outcome.
+ * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ConversationResponseCurrentLeadStatus extends CurrentLeadStatusSummary implements Parsable {

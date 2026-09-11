@@ -22,7 +22,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifier and display name of the related automation.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationWorkflowRunResponseAutomation automation;
     /**
@@ -34,7 +34,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private OffsetDateTime completedAt;
     /**
-     * Identifier and display name of the workflow step currently awaiting or performing work.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationWorkflowRunResponseCurrentStep currentStep;
     /**
@@ -158,7 +158,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.additionalData;
     }
     /**
-     * Gets the automation property value. Identifier and display name of the related automation.
+     * Gets the automation property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationWorkflowRunResponseAutomation}
      */
     @jakarta.annotation.Nullable
@@ -182,7 +182,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.completedAt;
     }
     /**
-     * Gets the currentStep property value. Identifier and display name of the workflow step currently awaiting or performing work.
+     * Gets the currentStep property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationWorkflowRunResponseCurrentStep}
      */
     @jakarta.annotation.Nullable
@@ -451,7 +451,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.additionalData = value;
     }
     /**
-     * Sets the automation property value. Identifier and display name of the related automation.
+     * Sets the automation property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the automation property.
      */
     public void setAutomation(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseAutomation value) {
@@ -472,7 +472,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.completedAt = value;
     }
     /**
-     * Sets the currentStep property value. Identifier and display name of the workflow step currently awaiting or performing work.
+     * Sets the currentStep property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the currentStep property.
      */
     public void setCurrentStep(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseCurrentStep value) {

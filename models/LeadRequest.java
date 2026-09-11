@@ -17,11 +17,11 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Contact details for the lead or customer represented by this lead request.
+     * Public Leadping API schema for lead contact profile data.
      */
     private LeadContact contact;
     /**
-     * Demographic profile details for the lead represented by this lead request.
+     * Public Leadping API schema for lead demographic profile data.
      */
     private LeadProfile customer;
     /**
@@ -33,7 +33,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * Structured metadata used for attribution, integrations, and reporting on this lead request.
+     * Public Leadping API schema for lead attribution metadata data.
      */
     private LeadMetadata metadata;
     /**
@@ -69,7 +69,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the contact property value. Contact details for the lead or customer represented by this lead request.
+     * Gets the contact property value. Public Leadping API schema for lead contact profile data.
      * @return a {@link LeadContact}
      */
     @jakarta.annotation.Nullable
@@ -77,7 +77,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.contact;
     }
     /**
-     * Gets the customer property value. Demographic profile details for the lead represented by this lead request.
+     * Gets the customer property value. Public Leadping API schema for lead demographic profile data.
      * @return a {@link LeadProfile}
      */
     @jakarta.annotation.Nullable
@@ -117,7 +117,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this lead request.
+     * Gets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @return a {@link LeadMetadata}
      */
     @jakarta.annotation.Nullable
@@ -163,14 +163,14 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the contact property value. Contact details for the lead or customer represented by this lead request.
+     * Sets the contact property value. Public Leadping API schema for lead contact profile data.
      * @param value Value to set for the contact property.
      */
     public void setContact(@jakarta.annotation.Nullable final LeadContact value) {
         this.contact = value;
     }
     /**
-     * Sets the customer property value. Demographic profile details for the lead represented by this lead request.
+     * Sets the customer property value. Public Leadping API schema for lead demographic profile data.
      * @param value Value to set for the customer property.
      */
     public void setCustomer(@jakarta.annotation.Nullable final LeadProfile value) {
@@ -191,7 +191,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this lead request.
+     * Sets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @param value Value to set for the metadata property.
      */
     public void setMetadata(@jakarta.annotation.Nullable final LeadMetadata value) {

@@ -14,7 +14,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
     /**
-     * Identifier and display name of the related actor.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private ActivationTimelineEventActor actor;
     /**
@@ -66,7 +66,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         return new ActivationTimelineEvent();
     }
     /**
-     * Gets the actor property value. Identifier and display name of the related actor.
+     * Gets the actor property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link ActivationTimelineEventActor}
      */
     @jakarta.annotation.Nullable
@@ -171,7 +171,7 @@ public class ActivationTimelineEvent implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actor property value. Identifier and display name of the related actor.
+     * Sets the actor property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the actor property.
      */
     public void setActor(@jakarta.annotation.Nullable final ActivationTimelineEventActor value) {

@@ -46,7 +46,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * Identifier and display name of the related lead.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private TransactionTableRowLead lead;
     /**
@@ -54,7 +54,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private Double netAmount;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private TransactionTableRowOrganization organization;
     /**
@@ -78,11 +78,11 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private String sourceEventType;
     /**
-     * Processing status for this wallet transaction.
+     * Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.
      */
     private TransactionStatus transactionStatus;
     /**
-     * Debit or credit classification for this wallet transaction.
+     * Classifies a wallet transaction as a debit, credit, refund, adjustment, deposit, or other balance movement.
      */
     private TransactionType transactionType;
     /**
@@ -197,7 +197,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the lead property value. Identifier and display name of the related lead.
+     * Gets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link TransactionTableRowLead}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.netAmount;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link TransactionTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -261,7 +261,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.sourceEventType;
     }
     /**
-     * Gets the transactionStatus property value. Processing status for this wallet transaction.
+     * Gets the transactionStatus property value. Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.
      * @return a {@link TransactionStatus}
      */
     @jakarta.annotation.Nullable
@@ -269,7 +269,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         return this.transactionStatus;
     }
     /**
-     * Gets the transactionType property value. Debit or credit classification for this wallet transaction.
+     * Gets the transactionType property value. Classifies a wallet transaction as a debit, credit, refund, adjustment, deposit, or other balance movement.
      * @return a {@link TransactionType}
      */
     @jakarta.annotation.Nullable
@@ -367,7 +367,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the lead property value. Identifier and display name of the related lead.
+     * Sets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final TransactionTableRowLead value) {
@@ -381,7 +381,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.netAmount = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final TransactionTableRowOrganization value) {
@@ -423,14 +423,14 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         this.sourceEventType = value;
     }
     /**
-     * Sets the transactionStatus property value. Processing status for this wallet transaction.
+     * Sets the transactionStatus property value. Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.
      * @param value Value to set for the transactionStatus property.
      */
     public void setTransactionStatus(@jakarta.annotation.Nullable final TransactionStatus value) {
         this.transactionStatus = value;
     }
     /**
-     * Sets the transactionType property value. Debit or credit classification for this wallet transaction.
+     * Sets the transactionType property value. Classifies a wallet transaction as a debit, credit, refund, adjustment, deposit, or other balance movement.
      * @param value Value to set for the transactionType property.
      */
     public void setTransactionType(@jakarta.annotation.Nullable final TransactionType value) {

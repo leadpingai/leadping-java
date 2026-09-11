@@ -18,7 +18,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private Double accountBalance;
     /**
-     * Organization activation state covering site, billing, compliance, and telephony readiness.
+     * Describes organization activation state data used in Leadping API requests and responses.
      */
     private OrganizationResponseActivation activation;
     /**
@@ -26,7 +26,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Postal address for the organization, lead, or contact represented by this organization profile response.
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      */
     private OrganizationResponseAddress address;
     /**
@@ -42,7 +42,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private Double autoRefillTrigger;
     /**
-     * Postal address used for invoices, receipts, and payment processor billing records.
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      */
     private OrganizationResponseBillingAddress billingAddress;
     /**
@@ -54,7 +54,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseBillingPlan billingPlan;
     /**
-     * Customer-safe billing state for this organization.
+     * Customer-safe billing state for a Leadping organization.
      */
     private OrganizationResponseBillingState billingState;
     /**
@@ -62,7 +62,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String billingTaxId;
     /**
-     * Compliance policy configuration for the organization.
+     * Describes organization compliance policy data used in Leadping API requests and responses.
      */
     private OrganizationResponseCompliancePolicy compliancePolicy;
     /**
@@ -82,7 +82,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String ein;
     /**
-     * Uploaded EIN document reference used for organization verification.
+     * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      */
     private OrganizationResponseEinDocument einDocument;
     /**
@@ -122,7 +122,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseSetupStep setupStep;
     /**
-     * Leadping website record connected to this organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private OrganizationResponseSite site;
     /**
@@ -134,7 +134,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseSubscriptionStatus subscriptionStatus;
     /**
-     * User summary connected to this organization profile response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private OrganizationResponseUser user;
     /**
@@ -170,7 +170,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.accountBalance;
     }
     /**
-     * Gets the activation property value. Organization activation state covering site, billing, compliance, and telephony readiness.
+     * Gets the activation property value. Describes organization activation state data used in Leadping API requests and responses.
      * @return a {@link OrganizationResponseActivation}
      */
     @jakarta.annotation.Nullable
@@ -186,7 +186,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the address property value. Postal address for the organization, lead, or contact represented by this organization profile response.
+     * Gets the address property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @return a {@link OrganizationResponseAddress}
      */
     @jakarta.annotation.Nullable
@@ -218,7 +218,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.autoRefillTrigger;
     }
     /**
-     * Gets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
+     * Gets the billingAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @return a {@link OrganizationResponseBillingAddress}
      */
     @jakarta.annotation.Nullable
@@ -242,7 +242,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the billingState property value. Customer-safe billing state for this organization.
+     * Gets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @return a {@link OrganizationResponseBillingState}
      */
     @jakarta.annotation.Nullable
@@ -258,7 +258,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingTaxId;
     }
     /**
-     * Gets the compliancePolicy property value. Compliance policy configuration for the organization.
+     * Gets the compliancePolicy property value. Describes organization compliance policy data used in Leadping API requests and responses.
      * @return a {@link OrganizationResponseCompliancePolicy}
      */
     @jakarta.annotation.Nullable
@@ -298,7 +298,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.ein;
     }
     /**
-     * Gets the einDocument property value. Uploaded EIN document reference used for organization verification.
+     * Gets the einDocument property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @return a {@link OrganizationResponseEinDocument}
      */
     @jakarta.annotation.Nullable
@@ -419,7 +419,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.setupStep;
     }
     /**
-     * Gets the site property value. Leadping website record connected to this organization.
+     * Gets the site property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link OrganizationResponseSite}
      */
     @jakarta.annotation.Nullable
@@ -443,7 +443,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.subscriptionStatus;
     }
     /**
-     * Gets the user property value. User summary connected to this organization profile response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link OrganizationResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -514,7 +514,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.accountBalance = value;
     }
     /**
-     * Sets the activation property value. Organization activation state covering site, billing, compliance, and telephony readiness.
+     * Sets the activation property value. Describes organization activation state data used in Leadping API requests and responses.
      * @param value Value to set for the activation property.
      */
     public void setActivation(@jakarta.annotation.Nullable final OrganizationResponseActivation value) {
@@ -528,7 +528,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the address property value. Postal address for the organization, lead, or contact represented by this organization profile response.
+     * Sets the address property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @param value Value to set for the address property.
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationResponseAddress value) {
@@ -556,7 +556,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.autoRefillTrigger = value;
     }
     /**
-     * Sets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
+     * Sets the billingAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @param value Value to set for the billingAddress property.
      */
     public void setBillingAddress(@jakarta.annotation.Nullable final OrganizationResponseBillingAddress value) {
@@ -577,7 +577,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.billingPlan = value;
     }
     /**
-     * Sets the billingState property value. Customer-safe billing state for this organization.
+     * Sets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @param value Value to set for the billingState property.
      */
     public void setBillingState(@jakarta.annotation.Nullable final OrganizationResponseBillingState value) {
@@ -591,7 +591,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.billingTaxId = value;
     }
     /**
-     * Sets the compliancePolicy property value. Compliance policy configuration for the organization.
+     * Sets the compliancePolicy property value. Describes organization compliance policy data used in Leadping API requests and responses.
      * @param value Value to set for the compliancePolicy property.
      */
     public void setCompliancePolicy(@jakarta.annotation.Nullable final OrganizationResponseCompliancePolicy value) {
@@ -626,7 +626,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.ein = value;
     }
     /**
-     * Sets the einDocument property value. Uploaded EIN document reference used for organization verification.
+     * Sets the einDocument property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @param value Value to set for the einDocument property.
      */
     public void setEinDocument(@jakarta.annotation.Nullable final OrganizationResponseEinDocument value) {
@@ -696,7 +696,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.setupStep = value;
     }
     /**
-     * Sets the site property value. Leadping website record connected to this organization.
+     * Sets the site property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the site property.
      */
     public void setSite(@jakarta.annotation.Nullable final OrganizationResponseSite value) {
@@ -717,7 +717,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.subscriptionStatus = value;
     }
     /**
-     * Sets the user property value. User summary connected to this organization profile response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final OrganizationResponseUser value) {

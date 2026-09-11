@@ -74,7 +74,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime startedAt;
     /**
-     * Current status for this Leadping user data export.
+     * Identifies the preparation, availability, failure, expiration, or deletion stage of a Leadping user-data export.
      */
     private UserDataExportStatuses status;
     /**
@@ -238,7 +238,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         return this.startedAt;
     }
     /**
-     * Gets the status property value. Current status for this Leadping user data export.
+     * Gets the status property value. Identifies the preparation, availability, failure, expiration, or deletion stage of a Leadping user-data export.
      * @return a {@link UserDataExportStatuses}
      */
     @jakarta.annotation.Nullable
@@ -374,7 +374,7 @@ public class UserDataExportResponse implements AdditionalDataHolder, Parsable {
         this.startedAt = value;
     }
     /**
-     * Sets the status property value. Current status for this Leadping user data export.
+     * Sets the status property value. Identifies the preparation, availability, failure, expiration, or deletion stage of a Leadping user-data export.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final UserDataExportStatuses value) {

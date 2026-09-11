@@ -25,7 +25,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
      */
     private Boolean isAvailable;
     /**
-     * Geographic location metadata for the phone number, lead, or lookup result.
+     * Public Leadping API schema for phone number location data.
      */
     private PhoneNumberAvailabilityResponseLocation location;
     /**
@@ -91,7 +91,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
         return this.isAvailable;
     }
     /**
-     * Gets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
+     * Gets the location property value. Public Leadping API schema for phone number location data.
      * @return a {@link PhoneNumberAvailabilityResponseLocation}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +149,7 @@ public class PhoneNumberAvailabilityResponse implements AdditionalDataHolder, Pa
         this.isAvailable = value;
     }
     /**
-     * Sets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
+     * Sets the location property value. Public Leadping API schema for phone number location data.
      * @param value Value to set for the location property.
      */
     public void setLocation(@jakarta.annotation.Nullable final PhoneNumberAvailabilityResponseLocation value) {

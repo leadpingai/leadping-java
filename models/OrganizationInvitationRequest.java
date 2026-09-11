@@ -21,7 +21,7 @@ public class OrganizationInvitationRequest implements AdditionalDataHolder, Pars
      */
     private String email;
     /**
-     * Role for this organization invitation.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
@@ -68,7 +68,7 @@ public class OrganizationInvitationRequest implements AdditionalDataHolder, Pars
         return deserializerMap;
     }
     /**
-     * Gets the role property value. Role for this organization invitation.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class OrganizationInvitationRequest implements AdditionalDataHolder, Pars
         this.email = value;
     }
     /**
-     * Sets the role property value. Role for this organization invitation.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {

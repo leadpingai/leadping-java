@@ -46,7 +46,11 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Organization summary connected to this phone number.
+     * Opts this number into the optional $2 monthly number health add-on. Defaults to on; customers can opt out.
+     */
+    private Boolean numberHealthEnabled;
+    /**
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private PhoneNumberResponseOrganization organization;
     /**
@@ -54,11 +58,11 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private String phoneIdentityId;
     /**
-     * Routing metadata that connects this phone number to teams, campaigns, and sources.
+     * Public Leadping API schema for phone number routing metadata data.
      */
     private PhoneNumberRoutingMetadata routing;
     /**
-     * SMS and call warmup for this phone number.
+     * Messaging and calling warmup for a Leadping phone number.
      */
     private PhoneNumberReadiness warmup;
     /**
@@ -107,7 +111,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -115,6 +119,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("numberHealthEnabled", (n) -> { this.setNumberHealthEnabled(n.getBooleanValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(PhoneNumberResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
@@ -162,7 +167,15 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this phone number.
+     * Gets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on; customers can opt out.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNumberHealthEnabled() {
+        return this.numberHealthEnabled;
+    }
+    /**
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link PhoneNumberResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +191,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.phoneIdentityId;
     }
     /**
-     * Gets the routing property value. Routing metadata that connects this phone number to teams, campaigns, and sources.
+     * Gets the routing property value. Public Leadping API schema for phone number routing metadata data.
      * @return a {@link PhoneNumberRoutingMetadata}
      */
     @jakarta.annotation.Nullable
@@ -186,7 +199,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.routing;
     }
     /**
-     * Gets the warmup property value. SMS and call warmup for this phone number.
+     * Gets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nullable
@@ -206,6 +219,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeBooleanValue("numberHealthEnabled", this.getNumberHealthEnabled());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeObjectValue("routing", this.getRouting());
@@ -269,7 +283,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this phone number.
+     * Sets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on; customers can opt out.
+     * @param value Value to set for the numberHealthEnabled property.
+     */
+    public void setNumberHealthEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.numberHealthEnabled = value;
+    }
+    /**
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final PhoneNumberResponseOrganization value) {
@@ -283,14 +304,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.phoneIdentityId = value;
     }
     /**
-     * Sets the routing property value. Routing metadata that connects this phone number to teams, campaigns, and sources.
+     * Sets the routing property value. Public Leadping API schema for phone number routing metadata data.
      * @param value Value to set for the routing property.
      */
     public void setRouting(@jakarta.annotation.Nullable final PhoneNumberRoutingMetadata value) {
         this.routing = value;
     }
     /**
-     * Sets the warmup property value. SMS and call warmup for this phone number.
+     * Sets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @param value Value to set for the warmup property.
      */
     public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberReadiness value) {

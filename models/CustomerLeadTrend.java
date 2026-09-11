@@ -17,7 +17,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Date and time when this Leadping customer lead trend was comparison.
+     * Compares a metric with the preceding period and reports its absolute and percentage change.
      */
     private AnalyticsComparison comparison;
     /**
@@ -61,7 +61,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the comparison property value. Date and time when this Leadping customer lead trend was comparison.
+     * Gets the comparison property value. Compares a metric with the preceding period and reports its absolute and percentage change.
      * @return a {@link AnalyticsComparison}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the comparison property value. Date and time when this Leadping customer lead trend was comparison.
+     * Sets the comparison property value. Compares a metric with the preceding period and reports its absolute and percentage change.
      * @param value Value to set for the comparison property.
      */
     public void setComparison(@jakarta.annotation.Nullable final AnalyticsComparison value) {

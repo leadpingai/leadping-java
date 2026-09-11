@@ -21,7 +21,7 @@ public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
      */
     private String description;
     /**
-     * The human-readable label shown for this SMS readiness UI state.
+     * Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      */
     private SmsReadinessState label;
     /**
@@ -73,7 +73,7 @@ public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the label property value. The human-readable label shown for this SMS readiness UI state.
+     * Gets the label property value. Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      * @return a {@link SmsReadinessState}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class SmsReadinessUiState implements AdditionalDataHolder, Parsable {
         this.description = value;
     }
     /**
-     * Sets the label property value. The human-readable label shown for this SMS readiness UI state.
+     * Sets the label property value. Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      * @param value Value to set for the label property.
      */
     public void setLabel(@jakarta.annotation.Nullable final SmsReadinessState value) {

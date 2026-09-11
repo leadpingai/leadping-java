@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Postal address used for invoices, receipts, and payment processor billing records.
+ * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationResponseBillingAddress extends StreetAddress implements Parsable {

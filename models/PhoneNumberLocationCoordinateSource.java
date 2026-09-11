@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes how the coordinate was resolved.
+ * Describes how a phone location value was resolved.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberLocationCoordinateSource extends PhoneLocationSource implements Parsable {

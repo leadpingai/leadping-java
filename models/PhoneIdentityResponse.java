@@ -30,7 +30,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime lastEnrichedAt;
     /**
-     * Provider lookup and enrichment data for the number.
+     * Public Leadping API schema for phone lookup result data.
      */
     private PhoneIdentityResponseLookup lookup;
     /**
@@ -50,7 +50,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Lossless provider response retained for administrative diagnostics.
+     * Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
      */
     private PhoneIdentityResponseProviderEnrichment providerEnrichment;
     /**
@@ -120,7 +120,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.lastEnrichedAt;
     }
     /**
-     * Gets the lookup property value. Provider lookup and enrichment data for the number.
+     * Gets the lookup property value. Public Leadping API schema for phone lookup result data.
      * @return a {@link PhoneIdentityResponseLookup}
      */
     @jakarta.annotation.Nullable
@@ -160,7 +160,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the providerEnrichment property value. Lossless provider response retained for administrative diagnostics.
+     * Gets the providerEnrichment property value. Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
      * @return a {@link PhoneIdentityResponseProviderEnrichment}
      */
     @jakarta.annotation.Nullable
@@ -213,7 +213,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.lastEnrichedAt = value;
     }
     /**
-     * Sets the lookup property value. Provider lookup and enrichment data for the number.
+     * Sets the lookup property value. Public Leadping API schema for phone lookup result data.
      * @param value Value to set for the lookup property.
      */
     public void setLookup(@jakarta.annotation.Nullable final PhoneIdentityResponseLookup value) {
@@ -248,7 +248,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the providerEnrichment property value. Lossless provider response retained for administrative diagnostics.
+     * Sets the providerEnrichment property value. Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
      * @param value Value to set for the providerEnrichment property.
      */
     public void setProviderEnrichment(@jakarta.annotation.Nullable final PhoneIdentityResponseProviderEnrichment value) {

@@ -18,7 +18,7 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Bucket size associated with this Leadping analytics date range.
+     * Selects the time interval used to aggregate points in a Leadping analytics trend series.
      */
     private Integer bucketSize;
     /**
@@ -54,7 +54,7 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the bucketSize property value. Bucket size associated with this Leadping analytics date range.
+     * Gets the bucketSize property value. Selects the time interval used to aggregate points in a Leadping analytics trend series.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class AnalyticsDateRange implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the bucketSize property value. Bucket size associated with this Leadping analytics date range.
+     * Sets the bucketSize property value. Selects the time interval used to aggregate points in a Leadping analytics trend series.
      * @param value Value to set for the bucketSize property.
      */
     public void setBucketSize(@jakarta.annotation.Nullable final Integer value) {

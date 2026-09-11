@@ -18,7 +18,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * LeadStatusChange category represented by the lead status.
+     * Controlled lead status change categories used for reporting, automation, and analytics.
      */
     private LeadStatusCategory category;
     /**
@@ -74,7 +74,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the category property value. LeadStatusChange category represented by the lead status.
+     * Gets the category property value. Controlled lead status change categories used for reporting, automation, and analytics.
      * @return a {@link LeadStatusCategory}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +178,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the category property value. LeadStatusChange category represented by the lead status.
+     * Sets the category property value. Controlled lead status change categories used for reporting, automation, and analytics.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final LeadStatusCategory value) {

@@ -26,7 +26,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     private OffsetDateTime cancelAt;
     /**
-     * Customer-safe payment recovery state for the organization.
+     * Dunning state recorded after a failed recurring payment.
      */
     private OrganizationBillingStateDunning dunning;
     /**
@@ -110,7 +110,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         return this.cancelAt;
     }
     /**
-     * Gets the dunning property value. Customer-safe payment recovery state for the organization.
+     * Gets the dunning property value. Dunning state recorded after a failed recurring payment.
      * @return a {@link OrganizationBillingStateDunning}
      */
     @jakarta.annotation.Nullable
@@ -262,7 +262,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         this.cancelAt = value;
     }
     /**
-     * Sets the dunning property value. Customer-safe payment recovery state for the organization.
+     * Sets the dunning property value. Dunning state recorded after a failed recurring payment.
      * @param value Value to set for the dunning property.
      */
     public void setDunning(@jakarta.annotation.Nullable final OrganizationBillingStateDunning value) {

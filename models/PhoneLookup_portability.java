@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Complete portability data returned by Telnyx.
+ * Number-portability and routing data returned by Telnyx.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneLookup_portability extends PhoneLookupPortability implements Parsable {

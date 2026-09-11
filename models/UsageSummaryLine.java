@@ -17,11 +17,11 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Billable unit for this usage summary line.
+     * Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      */
     private BillableUnit billableUnit;
     /**
-     * Channel for this usage summary line.
+     * Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      */
     private UsageChannel channel;
     /**
@@ -37,7 +37,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
      */
     private Integer recordCount;
     /**
-     * The current status for this usage summary line.
+     * Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      */
     private UsageStatus status;
     /**
@@ -65,7 +65,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billableUnit property value. Billable unit for this usage summary line.
+     * Gets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @return a {@link BillableUnit}
      */
     @jakarta.annotation.Nullable
@@ -73,7 +73,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the channel property value. Channel for this usage summary line.
+     * Gets the channel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @return a {@link UsageChannel}
      */
     @jakarta.annotation.Nullable
@@ -120,7 +120,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         return this.recordCount;
     }
     /**
-     * Gets the status property value. The current status for this usage summary line.
+     * Gets the status property value. Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      * @return a {@link UsageStatus}
      */
     @jakarta.annotation.Nullable
@@ -149,14 +149,14 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billableUnit property value. Billable unit for this usage summary line.
+     * Sets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @param value Value to set for the billableUnit property.
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final BillableUnit value) {
         this.billableUnit = value;
     }
     /**
-     * Sets the channel property value. Channel for this usage summary line.
+     * Sets the channel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final UsageChannel value) {
@@ -184,7 +184,7 @@ public class UsageSummaryLine implements AdditionalDataHolder, Parsable {
         this.recordCount = value;
     }
     /**
-     * Sets the status property value. The current status for this usage summary line.
+     * Sets the status property value. Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final UsageStatus value) {

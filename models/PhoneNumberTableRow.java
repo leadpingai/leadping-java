@@ -65,7 +65,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean voiceReady;
     /**
-     * Warmup state for this phone number.
+     * Messaging and calling warmup for a Leadping phone number.
      */
     private PhoneNumberReadiness warmup;
     /**
@@ -211,7 +211,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.voiceReady;
     }
     /**
-     * Gets the warmup property value. Warmup state for this phone number.
+     * Gets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nullable
@@ -331,7 +331,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.voiceReady = value;
     }
     /**
-     * Sets the warmup property value. Warmup state for this phone number.
+     * Sets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @param value Value to set for the warmup property.
      */
     public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberReadiness value) {

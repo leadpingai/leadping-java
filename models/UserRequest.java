@@ -29,7 +29,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Notification preferences configured for the user.
+     * Describes user notification preferences data used in Leadping API requests and responses.
      */
     private UserRequestNotificationPreferences notificationPreferences;
     /**
@@ -104,7 +104,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the notificationPreferences property value. Notification preferences configured for the user.
+     * Gets the notificationPreferences property value. Describes user notification preferences data used in Leadping API requests and responses.
      * @return a {@link UserRequestNotificationPreferences}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +170,7 @@ public class UserRequest implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the notificationPreferences property value. Notification preferences configured for the user.
+     * Sets the notificationPreferences property value. Describes user notification preferences data used in Leadping API requests and responses.
      * @param value Value to set for the notificationPreferences property.
      */
     public void setNotificationPreferences(@jakarta.annotation.Nullable final UserRequestNotificationPreferences value) {

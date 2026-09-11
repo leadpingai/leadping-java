@@ -74,7 +74,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Organization summary connected to this automation configuration response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationResponseOrganization organization;
     /**
@@ -90,7 +90,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<AutomationTrigger> triggers;
     /**
-     * User summary connected to this automation configuration response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationResponseUser user;
     /**
@@ -268,7 +268,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this automation configuration response.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -300,7 +300,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.triggers;
     }
     /**
-     * Gets the user property value. User summary connected to this automation configuration response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -458,7 +458,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this automation configuration response.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final AutomationResponseOrganization value) {
@@ -486,7 +486,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.triggers = value;
     }
     /**
-     * Sets the user property value. User summary connected to this automation configuration response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final AutomationResponseUser value) {

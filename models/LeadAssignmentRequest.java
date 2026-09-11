@@ -17,7 +17,7 @@ public class LeadAssignmentRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Gets or sets the assigned to user ID.
+     * The assignedToUserId property
      */
     private String assignedToUserId;
     /**
@@ -45,7 +45,7 @@ public class LeadAssignmentRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the assignedToUserId property value. Gets or sets the assigned to user ID.
+     * Gets the assignedToUserId property value. The assignedToUserId property
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class LeadAssignmentRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the assignedToUserId property value. Gets or sets the assigned to user ID.
+     * Sets the assignedToUserId property value. The assignedToUserId property
      * @param value Value to set for the assignedToUserId property.
      */
     public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {

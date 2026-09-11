@@ -37,7 +37,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     private Integer failureCount;
     /**
-     * Last failure associated with this Leadping customer automation health.
+     * Identifies an automation with recent execution failures and summarizes its affected leads and failure context.
      */
     private CustomerAutomationHealthLastFailure lastFailure;
     /**
@@ -130,7 +130,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the lastFailure property value. Last failure associated with this Leadping customer automation health.
+     * Gets the lastFailure property value. Identifies an automation with recent execution failures and summarizes its affected leads and failure context.
      * @return a {@link CustomerAutomationHealthLastFailure}
      */
     @jakarta.annotation.Nullable
@@ -212,7 +212,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         this.failureCount = value;
     }
     /**
-     * Sets the lastFailure property value. Last failure associated with this Leadping customer automation health.
+     * Sets the lastFailure property value. Identifies an automation with recent execution failures and summarizes its affected leads and failure context.
      * @param value Value to set for the lastFailure property.
      */
     public void setLastFailure(@jakarta.annotation.Nullable final CustomerAutomationHealthLastFailure value) {

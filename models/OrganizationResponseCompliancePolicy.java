@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Compliance policy configuration for the organization.
+ * Describes organization compliance policy data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationResponseCompliancePolicy extends OrganizationCompliancePolicy implements Parsable {

@@ -18,7 +18,7 @@ public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifier and display name of the related device.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair device;
     /**
@@ -54,7 +54,7 @@ public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the device property value. Identifier and display name of the related device.
+     * Gets the device property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class MobileDevicePreferences implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the device property value. Identifier and display name of the related device.
+     * Sets the device property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the device property.
      */
     public void setDevice(@jakarta.annotation.Nullable final IdNamePair value) {

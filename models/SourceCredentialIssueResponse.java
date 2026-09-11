@@ -21,7 +21,7 @@ public class SourceCredentialIssueResponse implements AdditionalDataHolder, Pars
      */
     private String secret;
     /**
-     * Source metadata safe for later retrieval.
+     * Describes lead source data returned by Leadping.
      */
     private SourceResponse source;
     /**
@@ -68,7 +68,7 @@ public class SourceCredentialIssueResponse implements AdditionalDataHolder, Pars
         return this.secret;
     }
     /**
-     * Gets the source property value. Source metadata safe for later retrieval.
+     * Gets the source property value. Describes lead source data returned by Leadping.
      * @return a {@link SourceResponse}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class SourceCredentialIssueResponse implements AdditionalDataHolder, Pars
         this.secret = value;
     }
     /**
-     * Sets the source property value. Source metadata safe for later retrieval.
+     * Sets the source property value. Describes lead source data returned by Leadping.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final SourceResponse value) {

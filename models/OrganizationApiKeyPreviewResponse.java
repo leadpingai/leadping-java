@@ -54,7 +54,7 @@ public class OrganizationApiKeyPreviewResponse implements AdditionalDataHolder, 
      */
     private String name;
     /**
-     * Organization that owns the API key.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair organization;
     /**
@@ -188,7 +188,7 @@ public class OrganizationApiKeyPreviewResponse implements AdditionalDataHolder, 
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization that owns the API key.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -311,7 +311,7 @@ public class OrganizationApiKeyPreviewResponse implements AdditionalDataHolder, 
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization that owns the API key.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {

@@ -30,7 +30,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<AnalyticsTrendPointOfint> points;
     /**
-     * Range associated with this Leadping source metrics.
+     * Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
      */
     private AnalyticsDateRange range;
     /**
@@ -105,7 +105,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         return this.points;
     }
     /**
-     * Gets the range property value. Range associated with this Leadping source metrics.
+     * Gets the range property value. Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
      * @return a {@link AnalyticsDateRange}
      */
     @jakarta.annotation.Nullable
@@ -171,7 +171,7 @@ public class SourceMetricsResponse implements AdditionalDataHolder, Parsable {
         this.points = value;
     }
     /**
-     * Sets the range property value. Range associated with this Leadping source metrics.
+     * Sets the range property value. Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
      * @param value Value to set for the range property.
      */
     public void setRange(@jakarta.annotation.Nullable final AnalyticsDateRange value) {

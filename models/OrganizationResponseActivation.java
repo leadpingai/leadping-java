@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Organization activation state covering site, billing, compliance, and telephony readiness.
+ * Describes organization activation state data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationResponseActivation extends OrganizationActivationState implements Parsable {

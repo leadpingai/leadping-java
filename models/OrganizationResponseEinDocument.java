@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Uploaded EIN document reference used for organization verification.
+ * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationResponseEinDocument extends IdNameValue implements Parsable {

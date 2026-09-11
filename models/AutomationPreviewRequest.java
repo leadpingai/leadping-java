@@ -17,7 +17,7 @@ public class AutomationPreviewRequest implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * Automation configuration to evaluate without executing live actions.
+     * Public Leadping API schema for automation request snapshot data.
      */
     private AutomationRequestSnapshot automation;
     /**
@@ -49,7 +49,7 @@ public class AutomationPreviewRequest implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
-     * Gets the automation property value. Automation configuration to evaluate without executing live actions.
+     * Gets the automation property value. Public Leadping API schema for automation request snapshot data.
      * @return a {@link AutomationRequestSnapshot}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class AutomationPreviewRequest implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the automation property value. Automation configuration to evaluate without executing live actions.
+     * Sets the automation property value. Public Leadping API schema for automation request snapshot data.
      * @param value Value to set for the automation property.
      */
     public void setAutomation(@jakarta.annotation.Nullable final AutomationRequestSnapshot value) {

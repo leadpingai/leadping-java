@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Caller-name data returned by the provider.
+ * Caller-name data returned by the phone lookup provider.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneLookup_callerName extends PhoneLookupCallerName implements Parsable {

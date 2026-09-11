@@ -18,11 +18,11 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The current provider review status for the submitted brand.
+     * Defines the provider lifecycle for an individual 10DLC brand or campaign.
      */
     private TenDlcRegistrationStatus brandStatus;
     /**
-     * The current provider review status for the submitted campaign.
+     * Defines the provider lifecycle for an individual 10DLC brand or campaign.
      */
     private TenDlcRegistrationStatus campaignStatus;
     /**
@@ -134,7 +134,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the brandStatus property value. The current provider review status for the submitted brand.
+     * Gets the brandStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @return a {@link TenDlcRegistrationStatus}
      */
     @jakarta.annotation.Nullable
@@ -142,7 +142,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.brandStatus;
     }
     /**
-     * Gets the campaignStatus property value. The current provider review status for the submitted campaign.
+     * Gets the campaignStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @return a {@link TenDlcRegistrationStatus}
      */
     @jakarta.annotation.Nullable
@@ -388,14 +388,14 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the brandStatus property value. The current provider review status for the submitted brand.
+     * Sets the brandStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @param value Value to set for the brandStatus property.
      */
     public void setBrandStatus(@jakarta.annotation.Nullable final TenDlcRegistrationStatus value) {
         this.brandStatus = value;
     }
     /**
-     * Sets the campaignStatus property value. The current provider review status for the submitted campaign.
+     * Sets the campaignStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @param value Value to set for the campaignStatus property.
      */
     public void setCampaignStatus(@jakarta.annotation.Nullable final TenDlcRegistrationStatus value) {

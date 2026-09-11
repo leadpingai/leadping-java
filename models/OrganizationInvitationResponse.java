@@ -58,7 +58,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair organization;
     /**
@@ -70,7 +70,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime revokedAt;
     /**
-     * Role for this organization invitation.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
@@ -86,7 +86,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime sentAt;
     /**
-     * The current status for this organization invitation.
+     * Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
      */
     private OrganizationInvitationStatus status;
     /**
@@ -221,7 +221,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.licenseRenewalDate;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -245,7 +245,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.revokedAt;
     }
     /**
-     * Gets the role property value. Role for this organization invitation.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -277,7 +277,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.sentAt;
     }
     /**
-     * Gets the status property value. The current status for this organization invitation.
+     * Gets the status property value. Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
      * @return a {@link OrganizationInvitationStatus}
      */
     @jakarta.annotation.Nullable
@@ -388,7 +388,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.licenseRenewalDate = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {
@@ -409,7 +409,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.revokedAt = value;
     }
     /**
-     * Sets the role property value. Role for this organization invitation.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
@@ -437,7 +437,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.sentAt = value;
     }
     /**
-     * Sets the status property value. The current status for this organization invitation.
+     * Sets the status property value. Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OrganizationInvitationStatus value) {

@@ -17,7 +17,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Postal address for the organization, lead, or contact represented by this organization profile request.
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      */
     private OrganizationRequestAddress address;
     /**
@@ -77,7 +77,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the address property value. Postal address for the organization, lead, or contact represented by this organization profile request.
+     * Gets the address property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @return a {@link OrganizationRequestAddress}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the address property value. Postal address for the organization, lead, or contact represented by this organization profile request.
+     * Sets the address property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @param value Value to set for the address property.
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationRequestAddress value) {
