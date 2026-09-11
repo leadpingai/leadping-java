@@ -30,6 +30,10 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime completedAt;
     /**
+     * Results of condition nodes already visited by this run, preserved across waits and retries.
+     */
+    private AutomationRunRecordConditionResults conditionResults;
+    /**
      * Execution mode used for automation preview or live workflow processing.
      */
     private String executionMode;
@@ -69,6 +73,10 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      * Current lifecycle status for this automation run record in the Leadping API.
      */
     private String status;
+    /**
+     * Identifier of the trigger node selected when this run was queued.
+     */
+    private String triggerId;
     /**
      * Automation trigger type that starts the workflow.
      */
@@ -122,6 +130,14 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         return this.completedAt;
     }
     /**
+     * Gets the conditionResults property value. Results of condition nodes already visited by this run, preserved across waits and retries.
+     * @return a {@link AutomationRunRecordConditionResults}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationRunRecordConditionResults getConditionResults() {
+        return this.conditionResults;
+    }
+    /**
      * Gets the executionMode property value. Execution mode used for automation preview or live workflow processing.
      * @return a {@link String}
      */
@@ -143,10 +159,11 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationActionRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("conditionResults", (n) -> { this.setConditionResults(n.getObjectValue(AutomationRunRecordConditionResults::createFromDiscriminatorValue)); });
         deserializerMap.put("executionMode", (n) -> { this.setExecutionMode(n.getStringValue()); });
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -157,6 +174,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         deserializerMap.put("skippedReason", (n) -> { this.setSkippedReason(n.getStringValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
+        deserializerMap.put("triggerId", (n) -> { this.setTriggerId(n.getStringValue()); });
         deserializerMap.put("triggerType", (n) -> { this.setTriggerType(n.getStringValue()); });
         return deserializerMap;
     }
@@ -225,6 +243,14 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
+     * Gets the triggerId property value. Identifier of the trigger node selected when this run was queued.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTriggerId() {
+        return this.triggerId;
+    }
+    /**
      * Gets the triggerType property value. Automation trigger type that starts the workflow.
      * @return a {@link String}
      */
@@ -241,6 +267,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("actions", this.getActions());
         writer.writeStringValue("automationId", this.getAutomationId());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
+        writer.writeObjectValue("conditionResults", this.getConditionResults());
         writer.writeStringValue("executionMode", this.getExecutionMode());
         writer.writeStringValue("failureCode", this.getFailureCode());
         writer.writeStringValue("id", this.getId());
@@ -251,6 +278,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("skippedReason", this.getSkippedReason());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
+        writer.writeStringValue("triggerId", this.getTriggerId());
         writer.writeStringValue("triggerType", this.getTriggerType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -281,6 +309,13 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setCompletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.completedAt = value;
+    }
+    /**
+     * Sets the conditionResults property value. Results of condition nodes already visited by this run, preserved across waits and retries.
+     * @param value Value to set for the conditionResults property.
+     */
+    public void setConditionResults(@jakarta.annotation.Nullable final AutomationRunRecordConditionResults value) {
+        this.conditionResults = value;
     }
     /**
      * Sets the executionMode property value. Execution mode used for automation preview or live workflow processing.
@@ -351,6 +386,13 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setStatus(@jakarta.annotation.Nullable final String value) {
         this.status = value;
+    }
+    /**
+     * Sets the triggerId property value. Identifier of the trigger node selected when this run was queued.
+     * @param value Value to set for the triggerId property.
+     */
+    public void setTriggerId(@jakarta.annotation.Nullable final String value) {
+        this.triggerId = value;
     }
     /**
      * Sets the triggerType property value. Automation trigger type that starts the workflow.
