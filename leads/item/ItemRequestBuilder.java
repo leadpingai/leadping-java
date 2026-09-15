@@ -100,7 +100,7 @@ public class ItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/leads/{%2Did}", rawUrl);
     }
     /**
-     * Marks a lead as deleted so it no longer appears in user-facing lead, conversation, routing, or event workflows. The stored lead,conversation, and event records are retained.
+     * Mark a lead as deleted to hide it from lead, conversation, routing, and event workflows while retaining the stored lead, conversation, and event records.
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
@@ -110,7 +110,7 @@ public class ItemRequestBuilder extends BaseRequestBuilder {
         delete(null);
     }
     /**
-     * Marks a lead as deleted so it no longer appears in user-facing lead, conversation, routing, or event workflows. The stored lead,conversation, and event records are retained.
+     * Mark a lead as deleted to hide it from lead, conversation, routing, and event workflows while retaining the stored lead, conversation, and event records.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -195,7 +195,7 @@ public class ItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Marks a lead as deleted so it no longer appears in user-facing lead, conversation, routing, or event workflows. The stored lead,conversation, and event records are retained.
+     * Mark a lead as deleted to hide it from lead, conversation, routing, and event workflows while retaining the stored lead, conversation, and event records.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -203,7 +203,7 @@ public class ItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Marks a lead as deleted so it no longer appears in user-facing lead, conversation, routing, or event workflows. The stored lead,conversation, and event records are retained.
+     * Mark a lead as deleted to hide it from lead, conversation, routing, and event workflows while retaining the stored lead, conversation, and event records.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

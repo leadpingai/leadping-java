@@ -95,7 +95,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadStatusChangeResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
+     * Update a Leadping lead status history entry through the API. When the entry is current, the operation also updates the lead&apos;s current status to match.
      * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @return a {@link LeadStatusChangeResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -109,7 +109,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
+     * Update a Leadping lead status history entry through the API. When the entry is current, the operation also updates the lead&apos;s current status to match.
      * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusChangeResponse}
@@ -172,7 +172,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
+     * Update a Leadping lead status history entry through the API. When the entry is current, the operation also updates the lead&apos;s current status to match.
      * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @return a {@link RequestInformation}
      */
@@ -181,7 +181,7 @@ public class LeadStatusChangesItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates a lead status history entry and, when it is current, updates the lead&apos;s current status.
+     * Update a Leadping lead status history entry through the API. When the entry is current, the operation also updates the lead&apos;s current status to match.
      * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

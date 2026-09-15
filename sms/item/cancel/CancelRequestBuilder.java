@@ -36,7 +36,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sms/{smsEventId}/cancel", rawUrl);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.The cancellation window remains open only while the SMS status is Scheduled and closes when delivery begins.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.The cancellation window remains open only while the SMS status is Scheduled and closes when delivery begins.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -70,7 +70,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SmsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.The cancellation window remains open only while the SMS status is Scheduled and closes when delivery begins.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.The cancellation window remains open only while the SMS status is Scheduled and closes when delivery begins.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

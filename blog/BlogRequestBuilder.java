@@ -49,7 +49,7 @@ public class BlogRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/blog", rawUrl);
     }
     /**
-     * Returns the Leadping blog articles currently available to public readers.
+     * Retrieve the list of published Leadping blog articles through the public API. This endpoint returns articles available to readers without authentication.
      * @return a {@link java.util.List<BlogArticleResponse>}
      * @throws ProblemDetails When receiving a 429 status code
      */
@@ -58,7 +58,7 @@ public class BlogRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the Leadping blog articles currently available to public readers.
+     * Retrieve the list of published Leadping blog articles through the public API. This endpoint returns articles available to readers without authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<BlogArticleResponse>}
      * @throws ProblemDetails When receiving a 429 status code
@@ -71,7 +71,7 @@ public class BlogRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, BlogArticleResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the Leadping blog articles currently available to public readers.
+     * Retrieve the list of published Leadping blog articles through the public API. This endpoint returns articles available to readers without authentication.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -79,7 +79,7 @@ public class BlogRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the Leadping blog articles currently available to public readers.
+     * Retrieve the list of published Leadping blog articles through the public API. This endpoint returns articles available to readers without authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

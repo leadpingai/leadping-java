@@ -36,7 +36,7 @@ public class A2aRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/a2a", rawUrl);
     }
     /**
-     * Accepts authenticated A2A JSON-RPC requests for Leadping&apos;s supported agent operations.
+     * Send authenticated A2A JSON-RPC requests to Leadping through the API to access supported agent operations and integrate them into your agent workflows.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -47,7 +47,7 @@ public class A2aRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Accepts authenticated A2A JSON-RPC requests for Leadping&apos;s supported agent operations.
+     * Send authenticated A2A JSON-RPC requests to Leadping through the API to access supported agent operations and integrate them into your agent workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -64,7 +64,7 @@ public class A2aRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Accepts authenticated A2A JSON-RPC requests for Leadping&apos;s supported agent operations.
+     * Send authenticated A2A JSON-RPC requests to Leadping through the API to access supported agent operations and integrate them into your agent workflows.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class A2aRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Accepts authenticated A2A JSON-RPC requests for Leadping&apos;s supported agent operations.
+     * Send authenticated A2A JSON-RPC requests to Leadping through the API to access supported agent operations and integrate them into your agent workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

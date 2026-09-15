@@ -37,7 +37,7 @@ public class NotificationPreferencesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/users/me/notification-preferences", rawUrl);
     }
     /**
-     * Replaces the notification channel and delivery preferences stored for the authenticated user.
+     * Update notification channel and delivery preferences for the authenticated Leadping user through the API without submitting unrelated user profile fields.
      * @param body Describes user notification preferences data used in Leadping API requests and responses.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -49,7 +49,7 @@ public class NotificationPreferencesRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Replaces the notification channel and delivery preferences stored for the authenticated user.
+     * Update notification channel and delivery preferences for the authenticated Leadping user through the API without submitting unrelated user profile fields.
      * @param body Describes user notification preferences data used in Leadping API requests and responses.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
@@ -68,7 +68,7 @@ public class NotificationPreferencesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**
-     * Replaces the notification channel and delivery preferences stored for the authenticated user.
+     * Update notification channel and delivery preferences for the authenticated Leadping user through the API without submitting unrelated user profile fields.
      * @param body Describes user notification preferences data used in Leadping API requests and responses.
      * @return a {@link RequestInformation}
      */
@@ -77,7 +77,7 @@ public class NotificationPreferencesRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Replaces the notification channel and delivery preferences stored for the authenticated user.
+     * Update notification channel and delivery preferences for the authenticated Leadping user through the API without submitting unrelated user profile fields.
      * @param body Describes user notification preferences data used in Leadping API requests and responses.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
