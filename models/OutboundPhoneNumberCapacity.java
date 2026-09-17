@@ -66,6 +66,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private OffsetDateTime smsMinutelyResetsAt;
     /**
+     * Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
+     */
+    private OutboundPhoneNumberCapacitySmsRampDirection smsRampDirection;
+    /**
      * Indicates whether SMS limits for this phone number are still ramping up.
      */
     private Boolean smsRamping;
@@ -117,6 +121,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      * The next time voice capacity becomes available in the rolling minute window.
      */
     private OffsetDateTime voiceMinutelyResetsAt;
+    /**
+     * Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
+     */
+    private OutboundPhoneNumberCapacityVoiceRampDirection voiceRampDirection;
     /**
      * Indicates whether call limits for this phone number are still ramping up.
      */
@@ -183,7 +191,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
         deserializerMap.put("capacityAvailable", (n) -> { this.setCapacityAvailable(n.getBooleanValue()); });
         deserializerMap.put("healthReason", (n) -> { this.setHealthReason(n.getStringValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberOutboundHealthStatus::forValue)); });
@@ -196,6 +204,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         deserializerMap.put("smsLimitThisMinute", (n) -> { this.setSmsLimitThisMinute(n.getIntegerValue()); });
         deserializerMap.put("smsLimitToday", (n) -> { this.setSmsLimitToday(n.getIntegerValue()); });
         deserializerMap.put("smsMinutelyResetsAt", (n) -> { this.setSmsMinutelyResetsAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("smsRampDirection", (n) -> { this.setSmsRampDirection(n.getEnumValue(OutboundPhoneNumberCapacitySmsRampDirection::forValue)); });
         deserializerMap.put("smsRamping", (n) -> { this.setSmsRamping(n.getBooleanValue()); });
         deserializerMap.put("smsRemainingThisHour", (n) -> { this.setSmsRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("smsRemainingThisMinute", (n) -> { this.setSmsRemainingThisMinute(n.getIntegerValue()); });
@@ -209,6 +218,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         deserializerMap.put("voiceLimitThisMinute", (n) -> { this.setVoiceLimitThisMinute(n.getIntegerValue()); });
         deserializerMap.put("voiceLimitToday", (n) -> { this.setVoiceLimitToday(n.getIntegerValue()); });
         deserializerMap.put("voiceMinutelyResetsAt", (n) -> { this.setVoiceMinutelyResetsAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("voiceRampDirection", (n) -> { this.setVoiceRampDirection(n.getEnumValue(OutboundPhoneNumberCapacityVoiceRampDirection::forValue)); });
         deserializerMap.put("voiceRamping", (n) -> { this.setVoiceRamping(n.getBooleanValue()); });
         deserializerMap.put("voiceRemainingThisHour", (n) -> { this.setVoiceRemainingThisHour(n.getIntegerValue()); });
         deserializerMap.put("voiceRemainingThisMinute", (n) -> { this.setVoiceRemainingThisMinute(n.getIntegerValue()); });
@@ -305,6 +315,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public OffsetDateTime getSmsMinutelyResetsAt() {
         return this.smsMinutelyResetsAt;
+    }
+    /**
+     * Gets the smsRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
+     * @return a {@link OutboundPhoneNumberCapacitySmsRampDirection}
+     */
+    @jakarta.annotation.Nullable
+    public OutboundPhoneNumberCapacitySmsRampDirection getSmsRampDirection() {
+        return this.smsRampDirection;
     }
     /**
      * Gets the smsRamping property value. Indicates whether SMS limits for this phone number are still ramping up.
@@ -411,6 +429,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         return this.voiceMinutelyResetsAt;
     }
     /**
+     * Gets the voiceRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
+     * @return a {@link OutboundPhoneNumberCapacityVoiceRampDirection}
+     */
+    @jakarta.annotation.Nullable
+    public OutboundPhoneNumberCapacityVoiceRampDirection getVoiceRampDirection() {
+        return this.voiceRampDirection;
+    }
+    /**
      * Gets the voiceRamping property value. Indicates whether call limits for this phone number are still ramping up.
      * @return a {@link Boolean}
      */
@@ -484,6 +510,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeIntegerValue("smsLimitThisMinute", this.getSmsLimitThisMinute());
         writer.writeIntegerValue("smsLimitToday", this.getSmsLimitToday());
         writer.writeOffsetDateTimeValue("smsMinutelyResetsAt", this.getSmsMinutelyResetsAt());
+        writer.writeEnumValue("smsRampDirection", this.getSmsRampDirection());
         writer.writeBooleanValue("smsRamping", this.getSmsRamping());
         writer.writeIntegerValue("smsRemainingThisHour", this.getSmsRemainingThisHour());
         writer.writeIntegerValue("smsRemainingThisMinute", this.getSmsRemainingThisMinute());
@@ -497,6 +524,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeIntegerValue("voiceLimitThisMinute", this.getVoiceLimitThisMinute());
         writer.writeIntegerValue("voiceLimitToday", this.getVoiceLimitToday());
         writer.writeOffsetDateTimeValue("voiceMinutelyResetsAt", this.getVoiceMinutelyResetsAt());
+        writer.writeEnumValue("voiceRampDirection", this.getVoiceRampDirection());
         writer.writeBooleanValue("voiceRamping", this.getVoiceRamping());
         writer.writeIntegerValue("voiceRemainingThisHour", this.getVoiceRemainingThisHour());
         writer.writeIntegerValue("voiceRemainingThisMinute", this.getVoiceRemainingThisMinute());
@@ -598,6 +626,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         this.smsMinutelyResetsAt = value;
     }
     /**
+     * Sets the smsRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
+     * @param value Value to set for the smsRampDirection property.
+     */
+    public void setSmsRampDirection(@jakarta.annotation.Nullable final OutboundPhoneNumberCapacitySmsRampDirection value) {
+        this.smsRampDirection = value;
+    }
+    /**
      * Sets the smsRamping property value. Indicates whether SMS limits for this phone number are still ramping up.
      * @param value Value to set for the smsRamping property.
      */
@@ -687,6 +722,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setVoiceMinutelyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.voiceMinutelyResetsAt = value;
+    }
+    /**
+     * Sets the voiceRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
+     * @param value Value to set for the voiceRampDirection property.
+     */
+    public void setVoiceRampDirection(@jakarta.annotation.Nullable final OutboundPhoneNumberCapacityVoiceRampDirection value) {
+        this.voiceRampDirection = value;
     }
     /**
      * Sets the voiceRamping property value. Indicates whether call limits for this phone number are still ramping up.

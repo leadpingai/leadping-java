@@ -30,6 +30,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Automation run ID opened from this automation event.
+     */
+    private String automationRunId;
+    /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
     private Double billableAmount;
@@ -254,6 +258,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the automationRunId property value. Automation run ID opened from this automation event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAutomationRunId() {
+        return this.automationRunId;
+    }
+    /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @return a {@link Double}
      */
@@ -395,10 +407,11 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(47);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(48);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
+        deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
@@ -670,6 +683,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorEmail", this.getActorEmail());
         writer.writeStringValue("actorUserId", this.getActorUserId());
+        writer.writeStringValue("automationRunId", this.getAutomationRunId());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
@@ -743,6 +757,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the automationRunId property value. Automation run ID opened from this automation event.
+     * @param value Value to set for the automationRunId property.
+     */
+    public void setAutomationRunId(@jakarta.annotation.Nullable final String value) {
+        this.automationRunId = value;
     }
     /**
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.

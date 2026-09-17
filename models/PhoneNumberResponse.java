@@ -62,6 +62,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private PhoneNumberRoutingMetadata routing;
     /**
+     * Whether provider, routing, and health checks allow SMS.
+     */
+    private Boolean smsReady;
+    /**
+     * Whether provider, routing, and health checks allow calls.
+     */
+    private Boolean voiceReady;
+    /**
      * Messaging and calling warmup for a Leadping phone number.
      */
     private PhoneNumberReadiness warmup;
@@ -111,7 +119,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -123,6 +131,8 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(PhoneNumberResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsReady", (n) -> { this.setSmsReady(n.getBooleanValue()); });
+        deserializerMap.put("voiceReady", (n) -> { this.setVoiceReady(n.getBooleanValue()); });
         deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberReadiness::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -199,6 +209,22 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.routing;
     }
     /**
+     * Gets the smsReady property value. Whether provider, routing, and health checks allow SMS.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsReady() {
+        return this.smsReady;
+    }
+    /**
+     * Gets the voiceReady property value. Whether provider, routing, and health checks allow calls.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getVoiceReady() {
+        return this.voiceReady;
+    }
+    /**
      * Gets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @return a {@link PhoneNumberReadiness}
      */
@@ -223,6 +249,8 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeObjectValue("routing", this.getRouting());
+        writer.writeBooleanValue("smsReady", this.getSmsReady());
+        writer.writeBooleanValue("voiceReady", this.getVoiceReady());
         writer.writeObjectValue("warmup", this.getWarmup());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -309,6 +337,20 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     public void setRouting(@jakarta.annotation.Nullable final PhoneNumberRoutingMetadata value) {
         this.routing = value;
+    }
+    /**
+     * Sets the smsReady property value. Whether provider, routing, and health checks allow SMS.
+     * @param value Value to set for the smsReady property.
+     */
+    public void setSmsReady(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsReady = value;
+    }
+    /**
+     * Sets the voiceReady property value. Whether provider, routing, and health checks allow calls.
+     * @param value Value to set for the voiceReady property.
+     */
+    public void setVoiceReady(@jakarta.annotation.Nullable final Boolean value) {
+        this.voiceReady = value;
     }
     /**
      * Sets the warmup property value. Messaging and calling warmup for a Leadping phone number.
