@@ -25,10 +25,6 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      */
     private String fileName;
     /**
-     * The durable Media record containing this attachment&apos;s scanned bytes.
-     */
-    private String mediaId;
-    /**
      * SHA-256 digest of the media content, when available.
      */
     private String sha256;
@@ -36,6 +32,10 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      * Size of the media attachment in bytes.
      */
     private Long size;
+    /**
+     * The durable Media record containing this attachment&apos;s scanned bytes.
+     */
+    private String uploadId;
     /**
      * URL from which the media attachment can be retrieved.
      */
@@ -81,9 +81,9 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("contentType", (n) -> { this.setContentType(n.getStringValue()); });
         deserializerMap.put("fileName", (n) -> { this.setFileName(n.getStringValue()); });
-        deserializerMap.put("mediaId", (n) -> { this.setMediaId(n.getStringValue()); });
         deserializerMap.put("sha256", (n) -> { this.setSha256(n.getStringValue()); });
         deserializerMap.put("size", (n) -> { this.setSize(n.getLongValue()); });
+        deserializerMap.put("uploadId", (n) -> { this.setUploadId(n.getStringValue()); });
         deserializerMap.put("url", (n) -> { this.setUrl(n.getStringValue()); });
         return deserializerMap;
     }
@@ -94,14 +94,6 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getFileName() {
         return this.fileName;
-    }
-    /**
-     * Gets the mediaId property value. The durable Media record containing this attachment&apos;s scanned bytes.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getMediaId() {
-        return this.mediaId;
     }
     /**
      * Gets the sha256 property value. SHA-256 digest of the media content, when available.
@@ -120,6 +112,14 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
         return this.size;
     }
     /**
+     * Gets the uploadId property value. The durable Media record containing this attachment&apos;s scanned bytes.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getUploadId() {
+        return this.uploadId;
+    }
+    /**
      * Gets the url property value. URL from which the media attachment can be retrieved.
      * @return a {@link String}
      */
@@ -135,9 +135,9 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("contentType", this.getContentType());
         writer.writeStringValue("fileName", this.getFileName());
-        writer.writeStringValue("mediaId", this.getMediaId());
         writer.writeStringValue("sha256", this.getSha256());
         writer.writeLongValue("size", this.getSize());
+        writer.writeStringValue("uploadId", this.getUploadId());
         writer.writeStringValue("url", this.getUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -163,13 +163,6 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
         this.fileName = value;
     }
     /**
-     * Sets the mediaId property value. The durable Media record containing this attachment&apos;s scanned bytes.
-     * @param value Value to set for the mediaId property.
-     */
-    public void setMediaId(@jakarta.annotation.Nullable final String value) {
-        this.mediaId = value;
-    }
-    /**
      * Sets the sha256 property value. SHA-256 digest of the media content, when available.
      * @param value Value to set for the sha256 property.
      */
@@ -182,6 +175,13 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      */
     public void setSize(@jakarta.annotation.Nullable final Long value) {
         this.size = value;
+    }
+    /**
+     * Sets the uploadId property value. The durable Media record containing this attachment&apos;s scanned bytes.
+     * @param value Value to set for the uploadId property.
+     */
+    public void setUploadId(@jakarta.annotation.Nullable final String value) {
+        this.uploadId = value;
     }
     /**
      * Sets the url property value. URL from which the media attachment can be retrieved.

@@ -41,15 +41,31 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     private Integer failedOrBlockedSms;
     /**
+     * Manual provider-accepted SMS messages; automated messages are excluded.
+     */
+    private Integer humanResponses;
+    /**
      * Number of calls missed during the reporting period.
      */
     private Integer missedCalls;
+    /**
+     * Received prospect messages excluding consent and help commands.
+     */
+    private Integer prospectReplies;
+    /**
+     * Messages whose send execution started; queued and scheduled messages are excluded.
+     */
+    private Integer smsAttempted;
+    /**
+     * Messages confirmed delivered, counted at delivery time.
+     */
+    private Integer smsDelivered;
     /**
      * Number of SMS messages received during the reporting period.
      */
     private Integer smsReceived;
     /**
-     * Number of SMS messages sent during the reporting period.
+     * Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      */
     private Integer smsSent;
     /**
@@ -138,19 +154,31 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("answeredCalls", (n) -> { this.setAnsweredCalls(n.getIntegerValue()); });
         deserializerMap.put("callErrors", (n) -> { this.setCallErrors(n.getIntegerValue()); });
         deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
         deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getIntegerValue()); });
         deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getIntegerValue()); });
         deserializerMap.put("failedOrBlockedSms", (n) -> { this.setFailedOrBlockedSms(n.getIntegerValue()); });
+        deserializerMap.put("humanResponses", (n) -> { this.setHumanResponses(n.getIntegerValue()); });
         deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getIntegerValue()); });
+        deserializerMap.put("prospectReplies", (n) -> { this.setProspectReplies(n.getIntegerValue()); });
+        deserializerMap.put("smsAttempted", (n) -> { this.setSmsAttempted(n.getIntegerValue()); });
+        deserializerMap.put("smsDelivered", (n) -> { this.setSmsDelivered(n.getIntegerValue()); });
         deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getIntegerValue()); });
         deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getIntegerValue()); });
         deserializerMap.put("trend", (n) -> { this.setTrend(n.getCollectionOfObjectValues(CustomerCommunicationUsagePoint::createFromDiscriminatorValue)); });
         deserializerMap.put("usageSpend", (n) -> { this.setUsageSpend(n.getDoubleValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the humanResponses property value. Manual provider-accepted SMS messages; automated messages are excluded.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getHumanResponses() {
+        return this.humanResponses;
     }
     /**
      * Gets the missedCalls property value. Number of calls missed during the reporting period.
@@ -161,6 +189,30 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.missedCalls;
     }
     /**
+     * Gets the prospectReplies property value. Received prospect messages excluding consent and help commands.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getProspectReplies() {
+        return this.prospectReplies;
+    }
+    /**
+     * Gets the smsAttempted property value. Messages whose send execution started; queued and scheduled messages are excluded.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsAttempted() {
+        return this.smsAttempted;
+    }
+    /**
+     * Gets the smsDelivered property value. Messages confirmed delivered, counted at delivery time.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsDelivered() {
+        return this.smsDelivered;
+    }
+    /**
      * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @return a {@link Integer}
      */
@@ -169,7 +221,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         return this.smsReceived;
     }
     /**
-     * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
+     * Gets the smsSent property value. Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -204,7 +256,11 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         writer.writeIntegerValue("callsPlaced", this.getCallsPlaced());
         writer.writeIntegerValue("callsReceived", this.getCallsReceived());
         writer.writeIntegerValue("failedOrBlockedSms", this.getFailedOrBlockedSms());
+        writer.writeIntegerValue("humanResponses", this.getHumanResponses());
         writer.writeIntegerValue("missedCalls", this.getMissedCalls());
+        writer.writeIntegerValue("prospectReplies", this.getProspectReplies());
+        writer.writeIntegerValue("smsAttempted", this.getSmsAttempted());
+        writer.writeIntegerValue("smsDelivered", this.getSmsDelivered());
         writer.writeIntegerValue("smsReceived", this.getSmsReceived());
         writer.writeIntegerValue("smsSent", this.getSmsSent());
         writer.writeCollectionOfObjectValues("trend", this.getTrend());
@@ -261,11 +317,39 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         this.failedOrBlockedSms = value;
     }
     /**
+     * Sets the humanResponses property value. Manual provider-accepted SMS messages; automated messages are excluded.
+     * @param value Value to set for the humanResponses property.
+     */
+    public void setHumanResponses(@jakarta.annotation.Nullable final Integer value) {
+        this.humanResponses = value;
+    }
+    /**
      * Sets the missedCalls property value. Number of calls missed during the reporting period.
      * @param value Value to set for the missedCalls property.
      */
     public void setMissedCalls(@jakarta.annotation.Nullable final Integer value) {
         this.missedCalls = value;
+    }
+    /**
+     * Sets the prospectReplies property value. Received prospect messages excluding consent and help commands.
+     * @param value Value to set for the prospectReplies property.
+     */
+    public void setProspectReplies(@jakarta.annotation.Nullable final Integer value) {
+        this.prospectReplies = value;
+    }
+    /**
+     * Sets the smsAttempted property value. Messages whose send execution started; queued and scheduled messages are excluded.
+     * @param value Value to set for the smsAttempted property.
+     */
+    public void setSmsAttempted(@jakarta.annotation.Nullable final Integer value) {
+        this.smsAttempted = value;
+    }
+    /**
+     * Sets the smsDelivered property value. Messages confirmed delivered, counted at delivery time.
+     * @param value Value to set for the smsDelivered property.
+     */
+    public void setSmsDelivered(@jakarta.annotation.Nullable final Integer value) {
+        this.smsDelivered = value;
     }
     /**
      * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
@@ -275,7 +359,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
         this.smsReceived = value;
     }
     /**
-     * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
+     * Sets the smsSent property value. Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      * @param value Value to set for the smsSent property.
      */
     public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {

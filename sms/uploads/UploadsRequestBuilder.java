@@ -1,4 +1,4 @@
-package ai.leadping.openapi.sms.media;
+package ai.leadping.openapi.sms.uploads;
 
 import ai.leadping.openapi.models.MessageMediaAttachment;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -16,25 +16,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /sms/media
+ * Builds and executes requests for operations under /sms/uploads
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class MediaRequestBuilder extends BaseRequestBuilder {
+public class UploadsRequestBuilder extends BaseRequestBuilder {
     /**
-     * Instantiates a new {@link MediaRequestBuilder} and sets the default values.
+     * Instantiates a new {@link UploadsRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public MediaRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/sms/media", pathParameters);
+    public UploadsRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/sms/uploads", pathParameters);
     }
     /**
-     * Instantiates a new {@link MediaRequestBuilder} and sets the default values.
+     * Instantiates a new {@link UploadsRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public MediaRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/sms/media", rawUrl);
+    public UploadsRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/sms/uploads", rawUrl);
     }
     /**
      * Uploads and validates one media attachment, returning the metadata needed to include the asset in a subsequent Leadping MMS send.
@@ -97,12 +97,12 @@ public class MediaRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a {@link MediaRequestBuilder}
+     * @return a {@link UploadsRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public MediaRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+    public UploadsRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
         Objects.requireNonNull(rawUrl);
-        return new MediaRequestBuilder(rawUrl, requestAdapter);
+        return new UploadsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

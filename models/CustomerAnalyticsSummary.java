@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -37,6 +38,10 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      */
     private Integer callsReceived;
     /**
+     * Manual provider-accepted SMS messages; automated messages are excluded.
+     */
+    private Integer humanResponses;
+    /**
      * Number of leads represented by this Leadping customer analytics summary.
      */
     private Integer leads;
@@ -57,15 +62,51 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      */
     private Integer missedLeads;
     /**
-     * Responded within five minutes percent expressed as a percentage.
+     * Responses observed through this instant; min(report end plus five minutes, generation time).
+     */
+    private OffsetDateTime observedThrough;
+    /**
+     * Timely human responses divided by all mature eligible leads, including unanswered leads.
+     */
+    private Double overallFiveMinuteSlaPercent;
+    /**
+     * Received prospect messages excluding consent and help commands.
+     */
+    private Integer prospectReplies;
+    /**
+     * Conditional percentage: human responses within five minutes divided by responded leads only; not overall coverage.
      */
     private Double respondedWithinFiveMinutesPercent;
+    /**
+     * Non-deleted leads created in the cohort with a full five-minute observation window.
+     */
+    private Integer slaEligibleLeads;
+    /**
+     * Cohort leads younger than five minutes at ObservedThrough; excluded from SLA denominator.
+     */
+    private Integer slaPendingLeads;
+    /**
+     * Mature eligible leads with a human response within exactly five minutes.
+     */
+    private Integer slaTimelyLeads;
+    /**
+     * Mature eligible leads without a human response by ObservedThrough.
+     */
+    private Integer slaUnrespondedLeads;
+    /**
+     * Messages whose send execution started; queued and scheduled messages are excluded.
+     */
+    private Integer smsAttempted;
+    /**
+     * Messages confirmed delivered, counted at delivery time.
+     */
+    private Integer smsDelivered;
     /**
      * Number of SMS messages received during the reporting period.
      */
     private Integer smsReceived;
     /**
-     * Number of SMS messages sent during the reporting period.
+     * Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      */
     private Integer smsSent;
     /**
@@ -154,18 +195,28 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("averageResponseMinutes", (n) -> { this.setAverageResponseMinutes(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
         deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getIntegerValue()); });
         deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getIntegerValue()); });
+        deserializerMap.put("humanResponses", (n) -> { this.setHumanResponses(n.getIntegerValue()); });
         deserializerMap.put("leads", (n) -> { this.setLeads(n.getIntegerValue()); });
         deserializerMap.put("leadsComparison", (n) -> { this.setLeadsComparison(n.getObjectValue(AnalyticsComparison::createFromDiscriminatorValue)); });
         deserializerMap.put("medianResponseMinutes", (n) -> { this.setMedianResponseMinutes(n.getDoubleValue()); });
         deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getIntegerValue()); });
         deserializerMap.put("missedLeads", (n) -> { this.setMissedLeads(n.getIntegerValue()); });
+        deserializerMap.put("observedThrough", (n) -> { this.setObservedThrough(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("overallFiveMinuteSlaPercent", (n) -> { this.setOverallFiveMinuteSlaPercent(n.getDoubleValue()); });
+        deserializerMap.put("prospectReplies", (n) -> { this.setProspectReplies(n.getIntegerValue()); });
         deserializerMap.put("respondedWithinFiveMinutesPercent", (n) -> { this.setRespondedWithinFiveMinutesPercent(n.getDoubleValue()); });
+        deserializerMap.put("slaEligibleLeads", (n) -> { this.setSlaEligibleLeads(n.getIntegerValue()); });
+        deserializerMap.put("slaPendingLeads", (n) -> { this.setSlaPendingLeads(n.getIntegerValue()); });
+        deserializerMap.put("slaTimelyLeads", (n) -> { this.setSlaTimelyLeads(n.getIntegerValue()); });
+        deserializerMap.put("slaUnrespondedLeads", (n) -> { this.setSlaUnrespondedLeads(n.getIntegerValue()); });
+        deserializerMap.put("smsAttempted", (n) -> { this.setSmsAttempted(n.getIntegerValue()); });
+        deserializerMap.put("smsDelivered", (n) -> { this.setSmsDelivered(n.getIntegerValue()); });
         deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getIntegerValue()); });
         deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getIntegerValue()); });
         deserializerMap.put("unreadMessages", (n) -> { this.setUnreadMessages(n.getIntegerValue()); });
@@ -173,6 +224,14 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         deserializerMap.put("walletBalance", (n) -> { this.setWalletBalance(n.getDoubleValue()); });
         deserializerMap.put("walletStatus", (n) -> { this.setWalletStatus(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the humanResponses property value. Manual provider-accepted SMS messages; automated messages are excluded.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getHumanResponses() {
+        return this.humanResponses;
     }
     /**
      * Gets the leads property value. Number of leads represented by this Leadping customer analytics summary.
@@ -215,12 +274,84 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.missedLeads;
     }
     /**
-     * Gets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
+     * Gets the observedThrough property value. Responses observed through this instant; min(report end plus five minutes, generation time).
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getObservedThrough() {
+        return this.observedThrough;
+    }
+    /**
+     * Gets the overallFiveMinuteSlaPercent property value. Timely human responses divided by all mature eligible leads, including unanswered leads.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getOverallFiveMinuteSlaPercent() {
+        return this.overallFiveMinuteSlaPercent;
+    }
+    /**
+     * Gets the prospectReplies property value. Received prospect messages excluding consent and help commands.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getProspectReplies() {
+        return this.prospectReplies;
+    }
+    /**
+     * Gets the respondedWithinFiveMinutesPercent property value. Conditional percentage: human responses within five minutes divided by responded leads only; not overall coverage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
     public Double getRespondedWithinFiveMinutesPercent() {
         return this.respondedWithinFiveMinutesPercent;
+    }
+    /**
+     * Gets the slaEligibleLeads property value. Non-deleted leads created in the cohort with a full five-minute observation window.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSlaEligibleLeads() {
+        return this.slaEligibleLeads;
+    }
+    /**
+     * Gets the slaPendingLeads property value. Cohort leads younger than five minutes at ObservedThrough; excluded from SLA denominator.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSlaPendingLeads() {
+        return this.slaPendingLeads;
+    }
+    /**
+     * Gets the slaTimelyLeads property value. Mature eligible leads with a human response within exactly five minutes.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSlaTimelyLeads() {
+        return this.slaTimelyLeads;
+    }
+    /**
+     * Gets the slaUnrespondedLeads property value. Mature eligible leads without a human response by ObservedThrough.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSlaUnrespondedLeads() {
+        return this.slaUnrespondedLeads;
+    }
+    /**
+     * Gets the smsAttempted property value. Messages whose send execution started; queued and scheduled messages are excluded.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsAttempted() {
+        return this.smsAttempted;
+    }
+    /**
+     * Gets the smsDelivered property value. Messages confirmed delivered, counted at delivery time.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsDelivered() {
+        return this.smsDelivered;
     }
     /**
      * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
@@ -231,7 +362,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         return this.smsReceived;
     }
     /**
-     * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
+     * Gets the smsSent property value. Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -281,12 +412,22 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         writer.writeDoubleValue("callMinutes", this.getCallMinutes());
         writer.writeIntegerValue("callsPlaced", this.getCallsPlaced());
         writer.writeIntegerValue("callsReceived", this.getCallsReceived());
+        writer.writeIntegerValue("humanResponses", this.getHumanResponses());
         writer.writeIntegerValue("leads", this.getLeads());
         writer.writeObjectValue("leadsComparison", this.getLeadsComparison());
         writer.writeDoubleValue("medianResponseMinutes", this.getMedianResponseMinutes());
         writer.writeIntegerValue("missedCalls", this.getMissedCalls());
         writer.writeIntegerValue("missedLeads", this.getMissedLeads());
+        writer.writeOffsetDateTimeValue("observedThrough", this.getObservedThrough());
+        writer.writeDoubleValue("overallFiveMinuteSlaPercent", this.getOverallFiveMinuteSlaPercent());
+        writer.writeIntegerValue("prospectReplies", this.getProspectReplies());
         writer.writeDoubleValue("respondedWithinFiveMinutesPercent", this.getRespondedWithinFiveMinutesPercent());
+        writer.writeIntegerValue("slaEligibleLeads", this.getSlaEligibleLeads());
+        writer.writeIntegerValue("slaPendingLeads", this.getSlaPendingLeads());
+        writer.writeIntegerValue("slaTimelyLeads", this.getSlaTimelyLeads());
+        writer.writeIntegerValue("slaUnrespondedLeads", this.getSlaUnrespondedLeads());
+        writer.writeIntegerValue("smsAttempted", this.getSmsAttempted());
+        writer.writeIntegerValue("smsDelivered", this.getSmsDelivered());
         writer.writeIntegerValue("smsReceived", this.getSmsReceived());
         writer.writeIntegerValue("smsSent", this.getSmsSent());
         writer.writeIntegerValue("unreadMessages", this.getUnreadMessages());
@@ -338,6 +479,13 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         this.callsReceived = value;
     }
     /**
+     * Sets the humanResponses property value. Manual provider-accepted SMS messages; automated messages are excluded.
+     * @param value Value to set for the humanResponses property.
+     */
+    public void setHumanResponses(@jakarta.annotation.Nullable final Integer value) {
+        this.humanResponses = value;
+    }
+    /**
      * Sets the leads property value. Number of leads represented by this Leadping customer analytics summary.
      * @param value Value to set for the leads property.
      */
@@ -373,11 +521,74 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         this.missedLeads = value;
     }
     /**
-     * Sets the respondedWithinFiveMinutesPercent property value. Responded within five minutes percent expressed as a percentage.
+     * Sets the observedThrough property value. Responses observed through this instant; min(report end plus five minutes, generation time).
+     * @param value Value to set for the observedThrough property.
+     */
+    public void setObservedThrough(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.observedThrough = value;
+    }
+    /**
+     * Sets the overallFiveMinuteSlaPercent property value. Timely human responses divided by all mature eligible leads, including unanswered leads.
+     * @param value Value to set for the overallFiveMinuteSlaPercent property.
+     */
+    public void setOverallFiveMinuteSlaPercent(@jakarta.annotation.Nullable final Double value) {
+        this.overallFiveMinuteSlaPercent = value;
+    }
+    /**
+     * Sets the prospectReplies property value. Received prospect messages excluding consent and help commands.
+     * @param value Value to set for the prospectReplies property.
+     */
+    public void setProspectReplies(@jakarta.annotation.Nullable final Integer value) {
+        this.prospectReplies = value;
+    }
+    /**
+     * Sets the respondedWithinFiveMinutesPercent property value. Conditional percentage: human responses within five minutes divided by responded leads only; not overall coverage.
      * @param value Value to set for the respondedWithinFiveMinutesPercent property.
      */
     public void setRespondedWithinFiveMinutesPercent(@jakarta.annotation.Nullable final Double value) {
         this.respondedWithinFiveMinutesPercent = value;
+    }
+    /**
+     * Sets the slaEligibleLeads property value. Non-deleted leads created in the cohort with a full five-minute observation window.
+     * @param value Value to set for the slaEligibleLeads property.
+     */
+    public void setSlaEligibleLeads(@jakarta.annotation.Nullable final Integer value) {
+        this.slaEligibleLeads = value;
+    }
+    /**
+     * Sets the slaPendingLeads property value. Cohort leads younger than five minutes at ObservedThrough; excluded from SLA denominator.
+     * @param value Value to set for the slaPendingLeads property.
+     */
+    public void setSlaPendingLeads(@jakarta.annotation.Nullable final Integer value) {
+        this.slaPendingLeads = value;
+    }
+    /**
+     * Sets the slaTimelyLeads property value. Mature eligible leads with a human response within exactly five minutes.
+     * @param value Value to set for the slaTimelyLeads property.
+     */
+    public void setSlaTimelyLeads(@jakarta.annotation.Nullable final Integer value) {
+        this.slaTimelyLeads = value;
+    }
+    /**
+     * Sets the slaUnrespondedLeads property value. Mature eligible leads without a human response by ObservedThrough.
+     * @param value Value to set for the slaUnrespondedLeads property.
+     */
+    public void setSlaUnrespondedLeads(@jakarta.annotation.Nullable final Integer value) {
+        this.slaUnrespondedLeads = value;
+    }
+    /**
+     * Sets the smsAttempted property value. Messages whose send execution started; queued and scheduled messages are excluded.
+     * @param value Value to set for the smsAttempted property.
+     */
+    public void setSmsAttempted(@jakarta.annotation.Nullable final Integer value) {
+        this.smsAttempted = value;
+    }
+    /**
+     * Sets the smsDelivered property value. Messages confirmed delivered, counted at delivery time.
+     * @param value Value to set for the smsDelivered property.
+     */
+    public void setSmsDelivered(@jakarta.annotation.Nullable final Integer value) {
+        this.smsDelivered = value;
     }
     /**
      * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
@@ -387,7 +598,7 @@ public class CustomerAnalyticsSummary implements AdditionalDataHolder, Parsable 
         this.smsReceived = value;
     }
     /**
-     * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
+     * Sets the smsSent property value. Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      * @param value Value to set for the smsSent property.
      */
     public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {

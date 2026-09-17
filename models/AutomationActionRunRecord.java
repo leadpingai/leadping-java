@@ -66,6 +66,10 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     private String selectedConnectionId;
     /**
+     * Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     */
+    private AutomationActionRunRecordSmsDelivery smsDelivery;
+    /**
      * UTC timestamp when processing started for this automation action run record.
      */
     private OffsetDateTime startedAt;
@@ -151,7 +155,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("actionId", (n) -> { this.setActionId(n.getStringValue()); });
         deserializerMap.put("actionType", (n) -> { this.setActionType(n.getStringValue()); });
         deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
@@ -164,6 +168,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("scheduledAt", (n) -> { this.setScheduledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("selectedConnectionId", (n) -> { this.setSelectedConnectionId(n.getStringValue()); });
+        deserializerMap.put("smsDelivery", (n) -> { this.setSmsDelivery(n.getObjectValue(AutomationActionRunRecordSmsDelivery::createFromDiscriminatorValue)); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         return deserializerMap;
@@ -217,6 +222,14 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         return this.selectedConnectionId;
     }
     /**
+     * Gets the smsDelivery property value. Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     * @return a {@link AutomationActionRunRecordSmsDelivery}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationActionRunRecordSmsDelivery getSmsDelivery() {
+        return this.smsDelivery;
+    }
+    /**
      * Gets the startedAt property value. UTC timestamp when processing started for this automation action run record.
      * @return a {@link OffsetDateTime}
      */
@@ -250,6 +263,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeOffsetDateTimeValue("scheduledAt", this.getScheduledAt());
         writer.writeStringValue("selectedConnectionId", this.getSelectedConnectionId());
+        writer.writeObjectValue("smsDelivery", this.getSmsDelivery());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -344,6 +358,13 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     public void setSelectedConnectionId(@jakarta.annotation.Nullable final String value) {
         this.selectedConnectionId = value;
+    }
+    /**
+     * Sets the smsDelivery property value. Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     * @param value Value to set for the smsDelivery property.
+     */
+    public void setSmsDelivery(@jakarta.annotation.Nullable final AutomationActionRunRecordSmsDelivery value) {
+        this.smsDelivery = value;
     }
     /**
      * Sets the startedAt property value. UTC timestamp when processing started for this automation action run record.

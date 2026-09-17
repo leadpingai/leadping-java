@@ -62,6 +62,10 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
      */
     private OffsetDateTime skippedAt;
     /**
+     * Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     */
+    private AutomationWorkflowActionResponseSmsDelivery smsDelivery;
+    /**
      * Date and time when the automation workflow action started.
      */
     private OffsetDateTime startedAt;
@@ -159,7 +163,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
         deserializerMap.put("actionType", (n) -> { this.setActionType(n.getStringValue()); });
         deserializerMap.put("actionTypeDisplay", (n) -> { this.setActionTypeDisplay(n.getStringValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
@@ -171,6 +175,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         deserializerMap.put("safeReason", (n) -> { this.setSafeReason(n.getStringValue()); });
         deserializerMap.put("scheduledAt", (n) -> { this.setScheduledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("skippedAt", (n) -> { this.setSkippedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("smsDelivery", (n) -> { this.setSmsDelivery(n.getObjectValue(AutomationWorkflowActionResponseSmsDelivery::createFromDiscriminatorValue)); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("statusDisplay", (n) -> { this.setStatusDisplay(n.getStringValue()); });
@@ -227,6 +232,14 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
     @jakarta.annotation.Nullable
     public OffsetDateTime getSkippedAt() {
         return this.skippedAt;
+    }
+    /**
+     * Gets the smsDelivery property value. Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     * @return a {@link AutomationWorkflowActionResponseSmsDelivery}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationWorkflowActionResponseSmsDelivery getSmsDelivery() {
+        return this.smsDelivery;
     }
     /**
      * Gets the startedAt property value. Date and time when the automation workflow action started.
@@ -301,6 +314,7 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
         writer.writeStringValue("safeReason", this.getSafeReason());
         writer.writeOffsetDateTimeValue("scheduledAt", this.getScheduledAt());
         writer.writeOffsetDateTimeValue("skippedAt", this.getSkippedAt());
+        writer.writeObjectValue("smsDelivery", this.getSmsDelivery());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("statusDisplay", this.getStatusDisplay());
@@ -393,6 +407,13 @@ public class AutomationWorkflowActionResponse implements AdditionalDataHolder, P
      */
     public void setSkippedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.skippedAt = value;
+    }
+    /**
+     * Sets the smsDelivery property value. Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     * @param value Value to set for the smsDelivery property.
+     */
+    public void setSmsDelivery(@jakarta.annotation.Nullable final AutomationWorkflowActionResponseSmsDelivery value) {
+        this.smsDelivery = value;
     }
     /**
      * Sets the startedAt property value. Date and time when the automation workflow action started.

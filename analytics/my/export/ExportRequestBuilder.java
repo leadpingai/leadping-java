@@ -1,7 +1,5 @@
-package ai.leadping.openapi.analytics.my;
+package ai.leadping.openapi.analytics.my.export;
 
-import ai.leadping.openapi.analytics.my.export.ExportRequestBuilder;
-import ai.leadping.openapi.models.CustomerAnalyticsResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -12,73 +10,63 @@ import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
+import java.io.InputStream;
 import java.time.OffsetDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /analytics/my
+ * Builds and executes requests for operations under /analytics/my/export
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class MyRequestBuilder extends BaseRequestBuilder {
+public class ExportRequestBuilder extends BaseRequestBuilder {
     /**
-     * The export property
-     * @return a {@link ExportRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public ExportRequestBuilder export() {
-        return new ExportRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
-     * Instantiates a new {@link MyRequestBuilder} and sets the default values.
+     * Instantiates a new {@link ExportRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public MyRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/analytics/my{?days*,endAt*,startAt*}", pathParameters);
+    public ExportRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/analytics/my/export{?days*,endAt*,startAt*}", pathParameters);
     }
     /**
-     * Instantiates a new {@link MyRequestBuilder} and sets the default values.
+     * Instantiates a new {@link ExportRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public MyRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/analytics/my{?days*,endAt*,startAt*}", rawUrl);
+    public ExportRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/analytics/my/export{?days*,endAt*,startAt*}", rawUrl);
     }
     /**
-     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
-     * @return a {@link CustomerAnalyticsResponse}
-     * @throws ProblemDetails When receiving a 400 status code
+     * Downloads the current organization&apos;s analytics as a CSV file, using the same cohort, timestamps, and metric definitions as the analytics charts.
+     * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public CustomerAnalyticsResponse get() {
+    public InputStream get() {
         return get(null);
     }
     /**
-     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Downloads the current organization&apos;s analytics as a CSV file, using the same cohort, timestamps, and metric definitions as the analytics charts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link CustomerAnalyticsResponse}
-     * @throws ProblemDetails When receiving a 400 status code
+     * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
-    public CustomerAnalyticsResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+    public InputStream get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, CustomerAnalyticsResponse::createFromDiscriminatorValue);
+        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Downloads the current organization&apos;s analytics as a CSV file, using the same cohort, timestamps, and metric definitions as the analytics charts.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -86,7 +74,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Downloads the current organization&apos;s analytics as a CSV file, using the same cohort, timestamps, and metric definitions as the analytics charts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -94,31 +82,31 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, GetRequestConfiguration::new, x -> x.queryParameters);
-        requestInfo.headers.tryAdd("Accept", "application/json");
+        requestInfo.headers.tryAdd("Accept", "text/csv, application/problem+json");
         return requestInfo;
     }
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a {@link MyRequestBuilder}
+     * @return a {@link ExportRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public MyRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+    public ExportRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
         Objects.requireNonNull(rawUrl);
-        return new MyRequestBuilder(rawUrl, requestAdapter);
+        return new ExportRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns current-organization analytics for lead communication, including event volume, response metrics, and date-range filtering.
+     * Downloads the current organization&apos;s analytics as a CSV file, using the same cohort, timestamps, and metric definitions as the analytics charts.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * Optional number of recent days to include when explicit timestamps are not supplied.
+         * Optional number of days before endAt to include when startAt is not supplied. Defaults to 30 and is limited to 1 through 365.
          */
         @jakarta.annotation.Nullable
         public Integer days;
         /**
-         * Optional exclusive end timestamp for the analytics period.
+         * Optional exclusive end timestamp for the analytics period. Defaults to the current UTC time.
          */
         @jakarta.annotation.Nullable
         public OffsetDateTime endAt;

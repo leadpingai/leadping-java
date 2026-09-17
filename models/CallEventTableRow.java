@@ -94,6 +94,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String organizationName;
     /**
+     * Defines the source that requested outbound delivery.
+     */
+    private CallEventTableRowOutboundSource outboundSource;
+    /**
      * Describes the durable business outcome of a Leadping phone call after provider status normalization.
      */
     private CallEventTableRowStatus status;
@@ -243,7 +247,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
@@ -263,6 +267,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
+        deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(CallEventTableRowOutboundSource::forValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(CallEventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
@@ -336,6 +341,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getOrganizationName() {
         return this.organizationName;
+    }
+    /**
+     * Gets the outboundSource property value. Defines the source that requested outbound delivery.
+     * @return a {@link CallEventTableRowOutboundSource}
+     */
+    @jakarta.annotation.Nullable
+    public CallEventTableRowOutboundSource getOutboundSource() {
+        return this.outboundSource;
     }
     /**
      * Gets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
@@ -426,6 +439,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("organization", this.getOrganization());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("organizationName", this.getOrganizationName());
+        writer.writeEnumValue("outboundSource", this.getOutboundSource());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
@@ -575,6 +589,13 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setOrganizationName(@jakarta.annotation.Nullable final String value) {
         this.organizationName = value;
+    }
+    /**
+     * Sets the outboundSource property value. Defines the source that requested outbound delivery.
+     * @param value Value to set for the outboundSource property.
+     */
+    public void setOutboundSource(@jakarta.annotation.Nullable final CallEventTableRowOutboundSource value) {
+        this.outboundSource = value;
     }
     /**
      * Sets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.

@@ -30,6 +30,18 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private String id;
     /**
+     * The associated lead&apos;s profile image URL, when available.
+     */
+    private String leadAvatarUrl;
+    /**
+     * The associated lead&apos;s email address, used for Gravatar fallback.
+     */
+    private String leadEmail;
+    /**
+     * Display name of the associated lead, when available.
+     */
+    private String leadName;
+    /**
      * Suppressed email address normalized for matching.
      */
     private String normalizedEmail;
@@ -111,10 +123,13 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("audit", (n) -> { this.setAudit(n.getCollectionOfObjectValues(SuppressionEntryAudit::createFromDiscriminatorValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
+        deserializerMap.put("leadEmail", (n) -> { this.setLeadEmail(n.getStringValue()); });
+        deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("normalizedEmail", (n) -> { this.setNormalizedEmail(n.getStringValue()); });
         deserializerMap.put("normalizedPhoneNumber", (n) -> { this.setNormalizedPhoneNumber(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
@@ -133,6 +148,30 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the leadAvatarUrl property value. The associated lead&apos;s profile image URL, when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadAvatarUrl() {
+        return this.leadAvatarUrl;
+    }
+    /**
+     * Gets the leadEmail property value. The associated lead&apos;s email address, used for Gravatar fallback.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadEmail() {
+        return this.leadEmail;
+    }
+    /**
+     * Gets the leadName property value. Display name of the associated lead, when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadName() {
+        return this.leadName;
     }
     /**
      * Gets the normalizedEmail property value. Suppressed email address normalized for matching.
@@ -215,6 +254,9 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         writer.writeCollectionOfObjectValues("audit", this.getAudit());
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("id", this.getId());
+        writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
+        writer.writeStringValue("leadEmail", this.getLeadEmail());
+        writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("normalizedEmail", this.getNormalizedEmail());
         writer.writeStringValue("normalizedPhoneNumber", this.getNormalizedPhoneNumber());
         writer.writeStringValue("organizationId", this.getOrganizationId());
@@ -253,6 +295,27 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the leadAvatarUrl property value. The associated lead&apos;s profile image URL, when available.
+     * @param value Value to set for the leadAvatarUrl property.
+     */
+    public void setLeadAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.leadAvatarUrl = value;
+    }
+    /**
+     * Sets the leadEmail property value. The associated lead&apos;s email address, used for Gravatar fallback.
+     * @param value Value to set for the leadEmail property.
+     */
+    public void setLeadEmail(@jakarta.annotation.Nullable final String value) {
+        this.leadEmail = value;
+    }
+    /**
+     * Sets the leadName property value. Display name of the associated lead, when available.
+     * @param value Value to set for the leadName property.
+     */
+    public void setLeadName(@jakarta.annotation.Nullable final String value) {
+        this.leadName = value;
     }
     /**
      * Sets the normalizedEmail property value. Suppressed email address normalized for matching.
