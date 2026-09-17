@@ -1,8 +1,8 @@
 package ai.leadping.openapi.sms;
 
+import ai.leadping.openapi.sms.files.FilesRequestBuilder;
 import ai.leadping.openapi.sms.item.WithSmsEventItemRequestBuilder;
 import ai.leadping.openapi.sms.send.SendRequestBuilder;
-import ai.leadping.openapi.sms.uploads.UploadsRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
 import java.util.HashMap;
@@ -13,20 +13,20 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SmsRequestBuilder extends BaseRequestBuilder {
     /**
+     * The files property
+     * @return a {@link FilesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public FilesRequestBuilder files() {
+        return new FilesRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The send property
      * @return a {@link SendRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public SendRequestBuilder send() {
         return new SendRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
-     * The uploads property
-     * @return a {@link UploadsRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public UploadsRequestBuilder uploads() {
-        return new UploadsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * Gets an item from the ai.leadping.openapi.sms.item collection
