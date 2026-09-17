@@ -94,6 +94,10 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private String title;
     /**
+     * The unpublishedAt property
+     */
+    private OffsetDateTime unpublishedAt;
+    /**
      * Instantiates a new {@link BlogArticleResponse} and sets the default values.
      */
     public BlogArticleResponse() {
@@ -187,7 +191,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("authorName", (n) -> { this.setAuthorName(n.getStringValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("content", (n) -> { this.setContent(n.getStringValue()); });
@@ -207,6 +211,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("seoTitle", (n) -> { this.setSeoTitle(n.getStringValue()); });
         deserializerMap.put("slug", (n) -> { this.setSlug(n.getStringValue()); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
+        deserializerMap.put("unpublishedAt", (n) -> { this.setUnpublishedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
     }
     /**
@@ -298,6 +303,14 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.title;
     }
     /**
+     * Gets the unpublishedAt property value. The unpublishedAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getUnpublishedAt() {
+        return this.unpublishedAt;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -322,6 +335,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("seoTitle", this.getSeoTitle());
         writer.writeStringValue("slug", this.getSlug());
         writer.writeStringValue("title", this.getTitle());
+        writer.writeOffsetDateTimeValue("unpublishedAt", this.getUnpublishedAt());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -463,5 +477,12 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {
         this.title = value;
+    }
+    /**
+     * Sets the unpublishedAt property value. The unpublishedAt property
+     * @param value Value to set for the unpublishedAt property.
+     */
+    public void setUnpublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.unpublishedAt = value;
     }
 }

@@ -21,6 +21,10 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     private Integer callsPossible;
     /**
+     * Public Leadping API schema for phone number location data.
+     */
+    private PhoneNumberStatusResponseLocation location;
+    /**
      * Indicates whether this phone number can currently send SMS messages.
      */
     private Integer messagesPossible;
@@ -86,8 +90,9 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("callsPossible", (n) -> { this.setCallsPossible(n.getIntegerValue()); });
+        deserializerMap.put("location", (n) -> { this.setLocation(n.getObjectValue(PhoneNumberStatusResponseLocation::createFromDiscriminatorValue)); });
         deserializerMap.put("messagesPossible", (n) -> { this.setMessagesPossible(n.getIntegerValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("optOutMetrics", (n) -> { this.setOptOutMetrics(n.getObjectValue(PhoneNumberOptOutMetricsResponse::createFromDiscriminatorValue)); });
@@ -96,6 +101,14 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
         deserializerMap.put("smsWarmup", (n) -> { this.setSmsWarmup(n.getObjectValue(PhoneNumberStatusResponseSmsWarmup::createFromDiscriminatorValue)); });
         deserializerMap.put("trafficMetrics", (n) -> { this.setTrafficMetrics(n.getObjectValue(PhoneNumberTrafficMetricsResponse::createFromDiscriminatorValue)); });
         return deserializerMap;
+    }
+    /**
+     * Gets the location property value. Public Leadping API schema for phone number location data.
+     * @return a {@link PhoneNumberStatusResponseLocation}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberStatusResponseLocation getLocation() {
+        return this.location;
     }
     /**
      * Gets the messagesPossible property value. Indicates whether this phone number can currently send SMS messages.
@@ -160,6 +173,7 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("callsPossible", this.getCallsPossible());
+        writer.writeObjectValue("location", this.getLocation());
         writer.writeIntegerValue("messagesPossible", this.getMessagesPossible());
         writer.writeStringValue("number", this.getNumber());
         writer.writeObjectValue("optOutMetrics", this.getOptOutMetrics());
@@ -182,6 +196,13 @@ public class PhoneNumberStatusResponse implements AdditionalDataHolder, Parsable
      */
     public void setCallsPossible(@jakarta.annotation.Nullable final Integer value) {
         this.callsPossible = value;
+    }
+    /**
+     * Sets the location property value. Public Leadping API schema for phone number location data.
+     * @param value Value to set for the location property.
+     */
+    public void setLocation(@jakarta.annotation.Nullable final PhoneNumberStatusResponseLocation value) {
+        this.location = value;
     }
     /**
      * Sets the messagesPossible property value. Indicates whether this phone number can currently send SMS messages.
