@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Marital Status Type values.
+ * Classifies a lead&apos;s reported marital status when required by a qualification or integration workflow.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum LeadProfileMaritalStatus implements ValuedEnum {

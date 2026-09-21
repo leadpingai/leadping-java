@@ -38,11 +38,13 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sets the lead&apos;s current structured status and records the change for audit, automation, and reporting.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @return a {@link LeadStatusChangeResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadStatusChangeResponse put(@jakarta.annotation.Nonnull final LeadStatusChangeRequest body) {
@@ -50,12 +52,14 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sets the lead&apos;s current structured status and records the change for audit, automation, and reporting.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadStatusChangeResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadStatusChangeResponse put(@jakarta.annotation.Nonnull final LeadStatusChangeRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -64,12 +68,14 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadStatusChangeResponse::createFromDiscriminatorValue);
     }
     /**
      * Sets the lead&apos;s current structured status and records the change for audit, automation, and reporting.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +84,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Sets the lead&apos;s current structured status and records the change for audit, automation, and reporting.
-     * @param body Request model for creating or updating a lead status change.
+     * @param body Defines a lead status transition or correction, including its target status, effective time, source, and explanatory context.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

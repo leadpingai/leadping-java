@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * An enumerator describing phone line types
+ * Classifies the access technology or service type associated with a telephone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum PhoneLookupLineType implements ValuedEnum {

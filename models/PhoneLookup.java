@@ -18,15 +18,15 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Caller-name data returned by the provider.
+     * Caller-name data returned by the phone lookup provider.
      */
     private PhoneLookup_callerName callerName;
     /**
-     * Complete carrier metadata reported for this phone number.
+     * Complete carrier metadata returned by a phone number lookup provider.
      */
     private PhoneLookup_carrier carrier;
     /**
-     * UTC timestamp when the phone lookup record was created.
+     * Timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -34,7 +34,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private String fraud;
     /**
-     * Unique Leadping identifier for the saved phone lookup record.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -42,15 +42,15 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private Boolean isValid;
     /**
-     * An enumerator describing phone line types
+     * Classifies the access technology or service type associated with a telephone number.
      */
     private PhoneLookupLineType lineType;
     /**
-     * Geographic location metadata for the phone number, lead, or lookup result.
+     * Public Leadping API schema for phone number location data.
      */
     private PhoneLookupLocation location;
     /**
-     * UTC timestamp when the phone lookup record was last updated.
+     * Timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -62,7 +62,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Complete portability data returned by Telnyx.
+     * Number-portability and routing data returned by Telnyx.
      */
     private PhoneLookup_portability portability;
     /**
@@ -94,7 +94,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the callerName property value. Caller-name data returned by the provider.
+     * Gets the callerName property value. Caller-name data returned by the phone lookup provider.
      * @return a {@link PhoneLookup_callerName}
      */
     @jakarta.annotation.Nullable
@@ -102,7 +102,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.callerName;
     }
     /**
-     * Gets the carrier property value. Complete carrier metadata reported for this phone number.
+     * Gets the carrier property value. Complete carrier metadata returned by a phone number lookup provider.
      * @return a {@link PhoneLookup_carrier}
      */
     @jakarta.annotation.Nullable
@@ -110,7 +110,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.carrier;
     }
     /**
-     * Gets the createdAt property value. UTC timestamp when the phone lookup record was created.
+     * Gets the createdAt property value. Timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -148,7 +148,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.fraud;
     }
     /**
-     * Gets the id property value. Unique Leadping identifier for the saved phone lookup record.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -164,7 +164,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.isValid;
     }
     /**
-     * Gets the lineType property value. An enumerator describing phone line types
+     * Gets the lineType property value. Classifies the access technology or service type associated with a telephone number.
      * @return a {@link PhoneLookupLineType}
      */
     @jakarta.annotation.Nullable
@@ -172,7 +172,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.lineType;
     }
     /**
-     * Gets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
+     * Gets the location property value. Public Leadping API schema for phone number location data.
      * @return a {@link PhoneLookupLocation}
      */
     @jakarta.annotation.Nullable
@@ -180,7 +180,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.location;
     }
     /**
-     * Gets the modifiedAt property value. UTC timestamp when the phone lookup record was last updated.
+     * Gets the modifiedAt property value. Timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -204,7 +204,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the portability property value. Complete portability data returned by Telnyx.
+     * Gets the portability property value. Number-portability and routing data returned by Telnyx.
      * @return a {@link PhoneLookup_portability}
      */
     @jakarta.annotation.Nullable
@@ -248,21 +248,21 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the callerName property value. Caller-name data returned by the provider.
+     * Sets the callerName property value. Caller-name data returned by the phone lookup provider.
      * @param value Value to set for the callerName property.
      */
     public void setCallerName(@jakarta.annotation.Nullable final PhoneLookup_callerName value) {
         this.callerName = value;
     }
     /**
-     * Sets the carrier property value. Complete carrier metadata reported for this phone number.
+     * Sets the carrier property value. Complete carrier metadata returned by a phone number lookup provider.
      * @param value Value to set for the carrier property.
      */
     public void setCarrier(@jakarta.annotation.Nullable final PhoneLookup_carrier value) {
         this.carrier = value;
     }
     /**
-     * Sets the createdAt property value. UTC timestamp when the phone lookup record was created.
+     * Sets the createdAt property value. Timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -276,7 +276,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.fraud = value;
     }
     /**
-     * Sets the id property value. Unique Leadping identifier for the saved phone lookup record.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -290,21 +290,21 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.isValid = value;
     }
     /**
-     * Sets the lineType property value. An enumerator describing phone line types
+     * Sets the lineType property value. Classifies the access technology or service type associated with a telephone number.
      * @param value Value to set for the lineType property.
      */
     public void setLineType(@jakarta.annotation.Nullable final PhoneLookupLineType value) {
         this.lineType = value;
     }
     /**
-     * Sets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
+     * Sets the location property value. Public Leadping API schema for phone number location data.
      * @param value Value to set for the location property.
      */
     public void setLocation(@jakarta.annotation.Nullable final PhoneLookupLocation value) {
         this.location = value;
     }
     /**
-     * Sets the modifiedAt property value. UTC timestamp when the phone lookup record was last updated.
+     * Sets the modifiedAt property value. Timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -325,7 +325,7 @@ public class PhoneLookup implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the portability property value. Complete portability data returned by Telnyx.
+     * Sets the portability property value. Number-portability and routing data returned by Telnyx.
      * @param value Value to set for the portability property.
      */
     public void setPortability(@jakarta.annotation.Nullable final PhoneLookup_portability value) {

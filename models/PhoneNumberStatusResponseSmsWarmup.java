@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * SMS warmup status for this phone number.
+ * Describes SMS warmup status data returned by Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberStatusResponseSmsWarmup extends SmsReadinessStatusResponse implements Parsable {

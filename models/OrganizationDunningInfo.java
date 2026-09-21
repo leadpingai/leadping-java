@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +52,7 @@ public class OrganizationDunningInfo implements AdditionalDataHolder, Parsable {
     /**
      * Total number of retry attempt records represented by this Leadping organization dunning info.
      */
-    private UntypedNode retryAttemptCount;
+    private Integer retryAttemptCount;
     /**
      * Current stage for this Leadping organization dunning info.
      */
@@ -97,7 +96,7 @@ public class OrganizationDunningInfo implements AdditionalDataHolder, Parsable {
         deserializerMap.put("outboundRestrictedAt", (n) -> { this.setOutboundRestrictedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("outboundSuspendedAt", (n) -> { this.setOutboundSuspendedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("paymentFailedAt", (n) -> { this.setPaymentFailedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("retryAttemptCount", (n) -> { this.setRetryAttemptCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("retryAttemptCount", (n) -> { this.setRetryAttemptCount(n.getIntegerValue()); });
         deserializerMap.put("stage", (n) -> { this.setStage(n.getStringValue()); });
         return deserializerMap;
     }
@@ -167,10 +166,10 @@ public class OrganizationDunningInfo implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the retryAttemptCount property value. Total number of retry attempt records represented by this Leadping organization dunning info.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRetryAttemptCount() {
+    public Integer getRetryAttemptCount() {
         return this.retryAttemptCount;
     }
     /**
@@ -195,7 +194,7 @@ public class OrganizationDunningInfo implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("outboundRestrictedAt", this.getOutboundRestrictedAt());
         writer.writeOffsetDateTimeValue("outboundSuspendedAt", this.getOutboundSuspendedAt());
         writer.writeOffsetDateTimeValue("paymentFailedAt", this.getPaymentFailedAt());
-        writer.writeObjectValue("retryAttemptCount", this.getRetryAttemptCount());
+        writer.writeIntegerValue("retryAttemptCount", this.getRetryAttemptCount());
         writer.writeStringValue("stage", this.getStage());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -266,7 +265,7 @@ public class OrganizationDunningInfo implements AdditionalDataHolder, Parsable {
      * Sets the retryAttemptCount property value. Total number of retry attempt records represented by this Leadping organization dunning info.
      * @param value Value to set for the retryAttemptCount property.
      */
-    public void setRetryAttemptCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRetryAttemptCount(@jakarta.annotation.Nullable final Integer value) {
         this.retryAttemptCount = value;
     }
     /**

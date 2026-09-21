@@ -34,19 +34,27 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
-     * Contact details for the lead or customer represented by this lead response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     */
+    private LeadResponseAssignedTo assignedTo;
+    /**
+     * Leadping user currently responsible for this lead, or null when it is in the unassigned queue.
+     */
+    private String assignedToUserId;
+    /**
+     * Public Leadping API schema for lead contact profile data.
      */
     private LeadContact contact;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * Current lead status change summary that describes the lead outcome.
+     * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private LeadResponseCurrentLeadStatus currentLeadStatus;
     /**
-     * Demographic profile details for the lead represented by this lead response.
+     * Public Leadping API schema for lead demographic profile data.
      */
     private LeadProfile customer;
     /**
@@ -62,7 +70,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -70,15 +78,19 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
-     * Structured metadata used for attribution, integrations, and reporting on this lead response.
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
+     * Public Leadping API schema for lead attribution metadata data.
      */
     private LeadMetadata metadata;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * Canonical phone identity and provider lookup details for this lead.
+     * Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
      */
     private LeadResponsePhoneIdentity phoneIdentity;
     /**
@@ -154,7 +166,23 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
-     * Gets the contact property value. Contact details for the lead or customer represented by this lead response.
+     * Gets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     * @return a {@link LeadResponseAssignedTo}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseAssignedTo getAssignedTo() {
+        return this.assignedTo;
+    }
+    /**
+     * Gets the assignedToUserId property value. Leadping user currently responsible for this lead, or null when it is in the unassigned queue.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAssignedToUserId() {
+        return this.assignedToUserId;
+    }
+    /**
+     * Gets the contact property value. Public Leadping API schema for lead contact profile data.
      * @return a {@link LeadContact}
      */
     @jakarta.annotation.Nullable
@@ -162,7 +190,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.contact;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +198,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link LeadResponseCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +206,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.currentLeadStatus;
     }
     /**
-     * Gets the customer property value. Demographic profile details for the lead represented by this lead response.
+     * Gets the customer property value. Public Leadping API schema for lead demographic profile data.
      * @return a {@link LeadProfile}
      */
     @jakarta.annotation.Nullable
@@ -215,11 +243,13 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
+        deserializerMap.put("assignedTo", (n) -> { this.setAssignedTo(n.getObjectValue(LeadResponseAssignedTo::createFromDiscriminatorValue)); });
+        deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
         deserializerMap.put("contact", (n) -> { this.setContact(n.getObjectValue(LeadContact::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(LeadResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
@@ -229,6 +259,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(LeadMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phoneIdentity", (n) -> { this.setPhoneIdentity(n.getObjectValue(LeadResponsePhoneIdentity::createFromDiscriminatorValue)); });
@@ -239,7 +270,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -255,7 +286,15 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.isArchived;
     }
     /**
-     * Gets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this lead response.
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
+     * Gets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @return a {@link LeadMetadata}
      */
     @jakarta.annotation.Nullable
@@ -263,7 +302,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.metadata;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -271,7 +310,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the phoneIdentity property value. Canonical phone identity and provider lookup details for this lead.
+     * Gets the phoneIdentity property value. Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
      * @return a {@link LeadResponsePhoneIdentity}
      */
     @jakarta.annotation.Nullable
@@ -320,6 +359,8 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeStringValue("archiveNote", this.getArchiveNote());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
+        writer.writeObjectValue("assignedTo", this.getAssignedTo());
+        writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
         writer.writeObjectValue("contact", this.getContact());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
@@ -329,6 +370,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeObjectValue("metadata", this.getMetadata());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeObjectValue("phoneIdentity", this.getPhoneIdentity());
@@ -374,28 +416,42 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
-     * Sets the contact property value. Contact details for the lead or customer represented by this lead response.
+     * Sets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     * @param value Value to set for the assignedTo property.
+     */
+    public void setAssignedTo(@jakarta.annotation.Nullable final LeadResponseAssignedTo value) {
+        this.assignedTo = value;
+    }
+    /**
+     * Sets the assignedToUserId property value. Leadping user currently responsible for this lead, or null when it is in the unassigned queue.
+     * @param value Value to set for the assignedToUserId property.
+     */
+    public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {
+        this.assignedToUserId = value;
+    }
+    /**
+     * Sets the contact property value. Public Leadping API schema for lead contact profile data.
      * @param value Value to set for the contact property.
      */
     public void setContact(@jakarta.annotation.Nullable final LeadContact value) {
         this.contact = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @param value Value to set for the currentLeadStatus property.
      */
     public void setCurrentLeadStatus(@jakarta.annotation.Nullable final LeadResponseCurrentLeadStatus value) {
         this.currentLeadStatus = value;
     }
     /**
-     * Sets the customer property value. Demographic profile details for the lead represented by this lead response.
+     * Sets the customer property value. Public Leadping API schema for lead demographic profile data.
      * @param value Value to set for the customer property.
      */
     public void setCustomer(@jakarta.annotation.Nullable final LeadProfile value) {
@@ -423,7 +479,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -437,21 +493,28 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.isArchived = value;
     }
     /**
-     * Sets the metadata property value. Structured metadata used for attribution, integrations, and reporting on this lead response.
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
+     * Sets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @param value Value to set for the metadata property.
      */
     public void setMetadata(@jakarta.annotation.Nullable final LeadMetadata value) {
         this.metadata = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the phoneIdentity property value. Canonical phone identity and provider lookup details for this lead.
+     * Sets the phoneIdentity property value. Describes Leadping&apos;s canonical identity for a phone number, including normalization, carrier, line type, reputation, and lookup history.
      * @param value Value to set for the phoneIdentity property.
      */
     public void setPhoneIdentity(@jakarta.annotation.Nullable final LeadResponsePhoneIdentity value) {

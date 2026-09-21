@@ -34,11 +34,11 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * Role for this organization user.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
-     * Identifier and display name of the related user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair user;
     /**
@@ -118,7 +118,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.licenseRenewalDate;
     }
     /**
-     * Gets the role property value. Role for this organization user.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -126,7 +126,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.role;
     }
     /**
-     * Gets the user property value. Identifier and display name of the related user.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -192,14 +192,14 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         this.licenseRenewalDate = value;
     }
     /**
-     * Sets the role property value. Role for this organization user.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
     }
     /**
-     * Sets the user property value. Identifier and display name of the related user.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final IdNamePair value) {

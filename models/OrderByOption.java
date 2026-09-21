@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * An object for ordering during querying
+ * Defines one field and direction used to order an API query result set.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrderByOption implements AdditionalDataHolder, Parsable {
@@ -17,11 +17,11 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * An enumerator for sort direction during querying
+     * Identifies whether query results are ordered from lower to higher values or from higher to lower values.
      */
     private OrderByOptionDirection direction;
     /**
-     * The field to sort by.
+     * Serializable field name used for sorting; supported names are determined by the queried resource.
      */
     private String field;
     /**
@@ -49,7 +49,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the direction property value. An enumerator for sort direction during querying
+     * Gets the direction property value. Identifies whether query results are ordered from lower to higher values or from higher to lower values.
      * @return a {@link OrderByOptionDirection}
      */
     @jakarta.annotation.Nullable
@@ -57,7 +57,7 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         return this.direction;
     }
     /**
-     * Gets the field property value. The field to sort by.
+     * Gets the field property value. Serializable field name used for sorting; supported names are determined by the queried resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class OrderByOption implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the direction property value. An enumerator for sort direction during querying
+     * Sets the direction property value. Identifies whether query results are ordered from lower to higher values or from higher to lower values.
      * @param value Value to set for the direction property.
      */
     public void setDirection(@jakarta.annotation.Nullable final OrderByOptionDirection value) {
         this.direction = value;
     }
     /**
-     * Sets the field property value. The field to sort by.
+     * Sets the field property value. Serializable field name used for sorting; supported names are determined by the queried resource.
      * @param value Value to set for the field property.
      */
     public void setField(@jakarta.annotation.Nullable final String value) {

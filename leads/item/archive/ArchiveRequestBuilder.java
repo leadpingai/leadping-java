@@ -36,25 +36,29 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/leads/{%2Did}/archive", rawUrl);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archive a lead to remove it from active pipeline views while preserving communication and event history. An optional request body supplies the archive reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse post(@jakarta.annotation.Nonnull final ArchivePostRequestBody body) {
         return post(body, null);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archive a lead to remove it from active pipeline views while preserving communication and event history. An optional request body supplies the archive reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public LeadResponse post(@jakarta.annotation.Nonnull final ArchivePostRequestBody body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -63,11 +67,13 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archive a lead to remove it from active pipeline views while preserving communication and event history. An optional request body supplies the archive reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @return a {@link RequestInformation}
      */
@@ -76,7 +82,7 @@ public class ArchiveRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Archives a lead without deleting history, removing it from active pipeline views while preserving communication and event records.
+     * Archive a lead to remove it from active pipeline views while preserving communication and event history. An optional request body supplies the archive reason.
      * @param body Defines the fields clients can send when working with lead archive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

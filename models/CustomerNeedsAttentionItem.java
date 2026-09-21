@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer needs attention item data exposed by Leadping analytics.
+ * Identifies an organization-level issue or opportunity and provides severity, supporting context, and a recommended action.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerNeedsAttentionItem implements AdditionalDataHolder, Parsable {

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +48,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
     /**
      * The quantity on the shared organization user license subscription item after this change.
      */
-    private UntypedNode licenseQuantity;
+    private Long licenseQuantity;
     /**
      * The date and time this invitation&apos;s paid license was released.
      */
@@ -59,7 +58,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair organization;
     /**
@@ -71,7 +70,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime revokedAt;
     /**
-     * Role for this organization invitation.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
@@ -87,7 +86,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      */
     private OffsetDateTime sentAt;
     /**
-     * The current status for this organization invitation.
+     * Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
      */
     private OrganizationInvitationStatus status;
     /**
@@ -160,7 +159,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("licenseActivatedAt", (n) -> { this.setLicenseActivatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
-        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getLongValue()); });
         deserializerMap.put("licenseReleasedAt", (n) -> { this.setLicenseReleasedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
@@ -199,10 +198,10 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
     }
     /**
      * Gets the licenseQuantity property value. The quantity on the shared organization user license subscription item after this change.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getLicenseQuantity() {
+    public Long getLicenseQuantity() {
         return this.licenseQuantity;
     }
     /**
@@ -222,7 +221,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.licenseRenewalDate;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -246,7 +245,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.revokedAt;
     }
     /**
-     * Gets the role property value. Role for this organization invitation.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -278,7 +277,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         return this.sentAt;
     }
     /**
-     * Gets the status property value. The current status for this organization invitation.
+     * Gets the status property value. Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
      * @return a {@link OrganizationInvitationStatus}
      */
     @jakarta.annotation.Nullable
@@ -298,7 +297,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("licenseActivatedAt", this.getLicenseActivatedAt());
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
-        writer.writeObjectValue("licenseQuantity", this.getLicenseQuantity());
+        writer.writeLongValue("licenseQuantity", this.getLicenseQuantity());
         writer.writeOffsetDateTimeValue("licenseReleasedAt", this.getLicenseReleasedAt());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeObjectValue("organization", this.getOrganization());
@@ -371,7 +370,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
      * Sets the licenseQuantity property value. The quantity on the shared organization user license subscription item after this change.
      * @param value Value to set for the licenseQuantity property.
      */
-    public void setLicenseQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setLicenseQuantity(@jakarta.annotation.Nullable final Long value) {
         this.licenseQuantity = value;
     }
     /**
@@ -389,7 +388,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.licenseRenewalDate = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {
@@ -410,7 +409,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.revokedAt = value;
     }
     /**
-     * Sets the role property value. Role for this organization invitation.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
@@ -438,7 +437,7 @@ public class OrganizationInvitationResponse implements AdditionalDataHolder, Par
         this.sentAt = value;
     }
     /**
-     * Sets the status property value. The current status for this organization invitation.
+     * Sets the status property value. Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OrganizationInvitationStatus value) {

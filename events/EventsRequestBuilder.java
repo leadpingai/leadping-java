@@ -3,6 +3,7 @@ package ai.leadping.openapi.events;
 import ai.leadping.openapi.events.all.AllRequestBuilder;
 import ai.leadping.openapi.events.calls.CallsRequestBuilder;
 import ai.leadping.openapi.events.conversations.ConversationsRequestBuilder;
+import ai.leadping.openapi.events.detail.DetailRequestBuilder;
 import ai.leadping.openapi.events.item.WithEventItemRequestBuilder;
 import ai.leadping.openapi.events.leads.LeadsRequestBuilder;
 import ai.leadping.openapi.events.organizations.OrganizationsRequestBuilder;
@@ -39,6 +40,14 @@ public class EventsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public ConversationsRequestBuilder conversations() {
         return new ConversationsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The detail property
+     * @return a {@link DetailRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public DetailRequestBuilder detail() {
+        return new DetailRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The leads property

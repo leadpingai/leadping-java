@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Usage Record Status values.
+ * Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum UsageStatus implements ValuedEnum {

@@ -25,7 +25,7 @@ public class TagRequest implements AdditionalDataHolder, Parsable {
      */
     private String description;
     /**
-     * The unique identifier for the entity, when updating an existing entity.
+     * Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
      */
     private String id;
     /**
@@ -86,7 +86,7 @@ public class TagRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity, when updating an existing entity.
+     * Gets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class TagRequest implements AdditionalDataHolder, Parsable {
         this.description = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity, when updating an existing entity.
+     * Sets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {

@@ -34,7 +34,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String avatarUrl;
     /**
-     * Current lead status change summary that describes the lead outcome.
+     * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private ConversationResponseCurrentLeadStatus currentLeadStatus;
     /**
@@ -53,6 +53,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      * Indicates whether the Leadping conversation has been archived.
      */
     private Boolean isArchived;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Indicates whether the current user has unread activity in the conversation.
      */
@@ -90,7 +94,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String outboundPhoneNumberOverrideId;
     /**
-     * Phone number used by this conversation response for calls, SMS, lookup, or routing.
+     * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      */
     private ConversationResponsePhoneNumber phoneNumber;
     /**
@@ -158,7 +162,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.avatarUrl;
     }
     /**
-     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link ConversationResponseCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
@@ -179,7 +183,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -189,6 +193,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isUnread", (n) -> { this.setIsUnread(n.getBooleanValue()); });
         deserializerMap.put("lastEventAt", (n) -> { this.setLastEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastEventIsInternalNote", (n) -> { this.setLastEventIsInternalNote(n.getBooleanValue()); });
@@ -226,6 +231,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsArchived() {
         return this.isArchived;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isUnread property value. Indicates whether the current user has unread activity in the conversation.
@@ -300,7 +313,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.outboundPhoneNumberOverrideId;
     }
     /**
-     * Gets the phoneNumber property value. Phone number used by this conversation response for calls, SMS, lookup, or routing.
+     * Gets the phoneNumber property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @return a {@link ConversationResponsePhoneNumber}
      */
     @jakarta.annotation.Nullable
@@ -338,6 +351,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isUnread", this.getIsUnread());
         writer.writeOffsetDateTimeValue("lastEventAt", this.getLastEventAt());
         writer.writeBooleanValue("lastEventIsInternalNote", this.getLastEventIsInternalNote());
@@ -388,7 +402,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.avatarUrl = value;
     }
     /**
-     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @param value Value to set for the currentLeadStatus property.
      */
     public void setCurrentLeadStatus(@jakarta.annotation.Nullable final ConversationResponseCurrentLeadStatus value) {
@@ -421,6 +435,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {
         this.isArchived = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the isUnread property value. Indicates whether the current user has unread activity in the conversation.
@@ -486,7 +507,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.outboundPhoneNumberOverrideId = value;
     }
     /**
-     * Sets the phoneNumber property value. Phone number used by this conversation response for calls, SMS, lookup, or routing.
+     * Sets the phoneNumber property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @param value Value to set for the phoneNumber property.
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final ConversationResponsePhoneNumber value) {

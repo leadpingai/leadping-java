@@ -18,19 +18,23 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * The most recent time lookup data was enriched.
      */
     private OffsetDateTime lastEnrichedAt;
     /**
-     * Provider lookup and enrichment data for the number.
+     * Public Leadping API schema for phone lookup result data.
      */
     private PhoneIdentityResponseLookup lookup;
     /**
@@ -38,11 +42,11 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<PhoneIdentityLookupAction> lookupActions;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
@@ -50,7 +54,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Lossless provider response retained for administrative diagnostics.
+     * Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
      */
     private PhoneIdentityResponseProviderEnrichment providerEnrichment;
     /**
@@ -78,7 +82,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -91,9 +95,10 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastEnrichedAt", (n) -> { this.setLastEnrichedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lookup", (n) -> { this.setLookup(n.getObjectValue(PhoneIdentityResponseLookup::createFromDiscriminatorValue)); });
         deserializerMap.put("lookupActions", (n) -> { this.setLookupActions(n.getCollectionOfObjectValues(PhoneIdentityLookupAction::createFromDiscriminatorValue)); });
@@ -104,12 +109,20 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastEnrichedAt property value. The most recent time lookup data was enriched.
@@ -120,7 +133,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.lastEnrichedAt;
     }
     /**
-     * Gets the lookup property value. Provider lookup and enrichment data for the number.
+     * Gets the lookup property value. Public Leadping API schema for phone lookup result data.
      * @return a {@link PhoneIdentityResponseLookup}
      */
     @jakarta.annotation.Nullable
@@ -136,7 +149,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.lookupActions;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -144,7 +157,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -160,7 +173,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the providerEnrichment property value. Lossless provider response retained for administrative diagnostics.
+     * Gets the providerEnrichment property value. Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
      * @return a {@link PhoneIdentityResponseProviderEnrichment}
      */
     @jakarta.annotation.Nullable
@@ -175,6 +188,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastEnrichedAt", this.getLastEnrichedAt());
         writer.writeObjectValue("lookup", this.getLookup());
         writer.writeCollectionOfObjectValues("lookupActions", this.getLookupActions());
@@ -192,18 +206,25 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastEnrichedAt property value. The most recent time lookup data was enriched.
@@ -213,7 +234,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.lastEnrichedAt = value;
     }
     /**
-     * Sets the lookup property value. Provider lookup and enrichment data for the number.
+     * Sets the lookup property value. Public Leadping API schema for phone lookup result data.
      * @param value Value to set for the lookup property.
      */
     public void setLookup(@jakarta.annotation.Nullable final PhoneIdentityResponseLookup value) {
@@ -227,14 +248,14 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.lookupActions = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -248,7 +269,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the providerEnrichment property value. Lossless provider response retained for administrative diagnostics.
+     * Sets the providerEnrichment property value. Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
      * @param value Value to set for the providerEnrichment property.
      */
     public void setProviderEnrichment(@jakarta.annotation.Nullable final PhoneIdentityResponseProviderEnrichment value) {

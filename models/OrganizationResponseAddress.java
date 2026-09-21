@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Postal address for the organization, lead, or contact represented by this organization profile response.
+ * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationResponseAddress extends StreetAddress implements Parsable {

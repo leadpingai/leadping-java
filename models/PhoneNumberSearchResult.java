@@ -17,7 +17,7 @@ public class PhoneNumberSearchResult implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Geographic location metadata for the phone number, lead, or lookup result.
+     * Public Leadping API schema for phone number location data.
      */
     private PhoneNumberSearchResultLocation location;
     /**
@@ -60,7 +60,7 @@ public class PhoneNumberSearchResult implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
+     * Gets the location property value. Public Leadping API schema for phone number location data.
      * @return a {@link PhoneNumberSearchResultLocation}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class PhoneNumberSearchResult implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
+     * Sets the location property value. Public Leadping API schema for phone number location data.
      * @param value Value to set for the location property.
      */
     public void setLocation(@jakarta.annotation.Nullable final PhoneNumberSearchResultLocation value) {

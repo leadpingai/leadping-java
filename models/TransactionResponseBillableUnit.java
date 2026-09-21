@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Billable Unit values.
+ * Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum TransactionResponseBillableUnit implements ValuedEnum {

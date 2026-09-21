@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +16,9 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     /**
      * Current wallet balance available to the organization.
      */
-    private UntypedNode accountBalance;
+    private Double accountBalance;
     /**
-     * Organization activation state covering site, billing, compliance, and telephony readiness.
+     * Describes organization activation state data used in Leadping API requests and responses.
      */
     private OrganizationResponseActivation activation;
     /**
@@ -27,13 +26,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Postal address for the organization, lead, or contact represented by this organization profile response.
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      */
     private OrganizationResponseAddress address;
     /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
-    private UntypedNode autoRefillAmount;
+    private Double autoRefillAmount;
     /**
      * Indicates whether automatic wallet refill is enabled for the organization.
      */
@@ -41,9 +40,9 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     /**
      * Wallet balance threshold that triggers automatic refill.
      */
-    private UntypedNode autoRefillTrigger;
+    private Double autoRefillTrigger;
     /**
-     * Postal address used for invoices, receipts, and payment processor billing records.
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      */
     private OrganizationResponseBillingAddress billingAddress;
     /**
@@ -51,11 +50,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String billingName;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private OrganizationResponseBillingPlan billingPlan;
     /**
-     * Customer-safe billing state for this organization.
+     * Customer-safe billing state for a Leadping organization.
      */
     private OrganizationResponseBillingState billingState;
     /**
@@ -63,11 +62,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String billingTaxId;
     /**
-     * Compliance policy configuration for the organization.
+     * Describes organization compliance policy data used in Leadping API requests and responses.
      */
     private OrganizationResponseCompliancePolicy compliancePolicy;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -83,7 +82,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String ein;
     /**
-     * Uploaded EIN document reference used for organization verification.
+     * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      */
     private OrganizationResponseEinDocument einDocument;
     /**
@@ -91,15 +90,19 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
@@ -115,27 +118,27 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String secondaryName;
     /**
-     * Defines the supported User Setup Status values.
+     * Describes a user&apos;s progress through required Leadping profile and account setup tasks.
      */
     private OrganizationResponseSetupStatus setupStatus;
     /**
-     * Defines the supported Organization Setup Step values.
+     * Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      */
     private OrganizationResponseSetupStep setupStep;
     /**
-     * Leadping website record connected to this organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private OrganizationResponseSite site;
     /**
-     * Defines the supported Organization Status values.
+     * Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      */
     private OrganizationResponseStatus status;
     /**
-     * Defines the supported Subscription Status values.
+     * Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      */
     private OrganizationResponseSubscriptionStatus subscriptionStatus;
     /**
-     * User summary connected to this organization profile response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private OrganizationResponseUser user;
     /**
@@ -164,14 +167,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the accountBalance property value. Current wallet balance available to the organization.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAccountBalance() {
+    public Double getAccountBalance() {
         return this.accountBalance;
     }
     /**
-     * Gets the activation property value. Organization activation state covering site, billing, compliance, and telephony readiness.
+     * Gets the activation property value. Describes organization activation state data used in Leadping API requests and responses.
      * @return a {@link OrganizationResponseActivation}
      */
     @jakarta.annotation.Nullable
@@ -187,7 +190,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the address property value. Postal address for the organization, lead, or contact represented by this organization profile response.
+     * Gets the address property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @return a {@link OrganizationResponseAddress}
      */
     @jakarta.annotation.Nullable
@@ -196,10 +199,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAutoRefillAmount() {
+    public Double getAutoRefillAmount() {
         return this.autoRefillAmount;
     }
     /**
@@ -212,14 +215,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAutoRefillTrigger() {
+    public Double getAutoRefillTrigger() {
         return this.autoRefillTrigger;
     }
     /**
-     * Gets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
+     * Gets the billingAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @return a {@link OrganizationResponseBillingAddress}
      */
     @jakarta.annotation.Nullable
@@ -235,7 +238,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingName;
     }
     /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link OrganizationResponseBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -243,7 +246,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the billingState property value. Customer-safe billing state for this organization.
+     * Gets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @return a {@link OrganizationResponseBillingState}
      */
     @jakarta.annotation.Nullable
@@ -259,7 +262,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingTaxId;
     }
     /**
-     * Gets the compliancePolicy property value. Compliance policy configuration for the organization.
+     * Gets the compliancePolicy property value. Describes organization compliance policy data used in Leadping API requests and responses.
      * @return a {@link OrganizationResponseCompliancePolicy}
      */
     @jakarta.annotation.Nullable
@@ -267,7 +270,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.compliancePolicy;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -299,7 +302,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.ein;
     }
     /**
-     * Gets the einDocument property value. Uploaded EIN document reference used for organization verification.
+     * Gets the einDocument property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @return a {@link OrganizationResponseEinDocument}
      */
     @jakarta.annotation.Nullable
@@ -320,13 +323,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
-        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(33);
+        deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
-        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
-        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(OrganizationResponseBillingAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(OrganizationResponseBillingPlan::forValue)); });
@@ -340,6 +343,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("einDocument", (n) -> { this.setEinDocument(n.getObjectValue(OrganizationResponseEinDocument::createFromDiscriminatorValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
@@ -356,7 +360,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -364,7 +368,15 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -372,7 +384,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -404,7 +416,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.secondaryName;
     }
     /**
-     * Gets the setupStatus property value. Defines the supported User Setup Status values.
+     * Gets the setupStatus property value. Describes a user&apos;s progress through required Leadping profile and account setup tasks.
      * @return a {@link OrganizationResponseSetupStatus}
      */
     @jakarta.annotation.Nullable
@@ -412,7 +424,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.setupStatus;
     }
     /**
-     * Gets the setupStep property value. Defines the supported Organization Setup Step values.
+     * Gets the setupStep property value. Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      * @return a {@link OrganizationResponseSetupStep}
      */
     @jakarta.annotation.Nullable
@@ -420,7 +432,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.setupStep;
     }
     /**
-     * Gets the site property value. Leadping website record connected to this organization.
+     * Gets the site property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link OrganizationResponseSite}
      */
     @jakarta.annotation.Nullable
@@ -428,7 +440,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.site;
     }
     /**
-     * Gets the status property value. Defines the supported Organization Status values.
+     * Gets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @return a {@link OrganizationResponseStatus}
      */
     @jakarta.annotation.Nullable
@@ -436,7 +448,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Gets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @return a {@link OrganizationResponseSubscriptionStatus}
      */
     @jakarta.annotation.Nullable
@@ -444,7 +456,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.subscriptionStatus;
     }
     /**
-     * Gets the user property value. User summary connected to this organization profile response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link OrganizationResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -473,12 +485,12 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("accountBalance", this.getAccountBalance());
+        writer.writeDoubleValue("accountBalance", this.getAccountBalance());
         writer.writeObjectValue("activation", this.getActivation());
         writer.writeObjectValue("address", this.getAddress());
-        writer.writeObjectValue("autoRefillAmount", this.getAutoRefillAmount());
+        writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
-        writer.writeObjectValue("autoRefillTrigger", this.getAutoRefillTrigger());
+        writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
         writer.writeStringValue("billingName", this.getBillingName());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
@@ -492,6 +504,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("einDocument", this.getEinDocument());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("phone", this.getPhone());
@@ -511,11 +524,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Sets the accountBalance property value. Current wallet balance available to the organization.
      * @param value Value to set for the accountBalance property.
      */
-    public void setAccountBalance(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAccountBalance(@jakarta.annotation.Nullable final Double value) {
         this.accountBalance = value;
     }
     /**
-     * Sets the activation property value. Organization activation state covering site, billing, compliance, and telephony readiness.
+     * Sets the activation property value. Describes organization activation state data used in Leadping API requests and responses.
      * @param value Value to set for the activation property.
      */
     public void setActivation(@jakarta.annotation.Nullable final OrganizationResponseActivation value) {
@@ -529,7 +542,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the address property value. Postal address for the organization, lead, or contact represented by this organization profile response.
+     * Sets the address property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @param value Value to set for the address property.
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationResponseAddress value) {
@@ -539,7 +552,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
      * @param value Value to set for the autoRefillAmount property.
      */
-    public void setAutoRefillAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAutoRefillAmount(@jakarta.annotation.Nullable final Double value) {
         this.autoRefillAmount = value;
     }
     /**
@@ -553,11 +566,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Sets the autoRefillTrigger property value. Wallet balance threshold that triggers automatic refill.
      * @param value Value to set for the autoRefillTrigger property.
      */
-    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAutoRefillTrigger(@jakarta.annotation.Nullable final Double value) {
         this.autoRefillTrigger = value;
     }
     /**
-     * Sets the billingAddress property value. Postal address used for invoices, receipts, and payment processor billing records.
+     * Sets the billingAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
      * @param value Value to set for the billingAddress property.
      */
     public void setBillingAddress(@jakarta.annotation.Nullable final OrganizationResponseBillingAddress value) {
@@ -571,14 +584,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.billingName = value;
     }
     /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final OrganizationResponseBillingPlan value) {
         this.billingPlan = value;
     }
     /**
-     * Sets the billingState property value. Customer-safe billing state for this organization.
+     * Sets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @param value Value to set for the billingState property.
      */
     public void setBillingState(@jakarta.annotation.Nullable final OrganizationResponseBillingState value) {
@@ -592,14 +605,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.billingTaxId = value;
     }
     /**
-     * Sets the compliancePolicy property value. Compliance policy configuration for the organization.
+     * Sets the compliancePolicy property value. Describes organization compliance policy data used in Leadping API requests and responses.
      * @param value Value to set for the compliancePolicy property.
      */
     public void setCompliancePolicy(@jakarta.annotation.Nullable final OrganizationResponseCompliancePolicy value) {
         this.compliancePolicy = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -627,7 +640,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.ein = value;
     }
     /**
-     * Sets the einDocument property value. Uploaded EIN document reference used for organization verification.
+     * Sets the einDocument property value. Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      * @param value Value to set for the einDocument property.
      */
     public void setEinDocument(@jakarta.annotation.Nullable final OrganizationResponseEinDocument value) {
@@ -641,21 +654,28 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -683,42 +703,42 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.secondaryName = value;
     }
     /**
-     * Sets the setupStatus property value. Defines the supported User Setup Status values.
+     * Sets the setupStatus property value. Describes a user&apos;s progress through required Leadping profile and account setup tasks.
      * @param value Value to set for the setupStatus property.
      */
     public void setSetupStatus(@jakarta.annotation.Nullable final OrganizationResponseSetupStatus value) {
         this.setupStatus = value;
     }
     /**
-     * Sets the setupStep property value. Defines the supported Organization Setup Step values.
+     * Sets the setupStep property value. Identifies a discrete billing, telephony, compliance, or configuration stage in organization provisioning.
      * @param value Value to set for the setupStep property.
      */
     public void setSetupStep(@jakarta.annotation.Nullable final OrganizationResponseSetupStep value) {
         this.setupStep = value;
     }
     /**
-     * Sets the site property value. Leadping website record connected to this organization.
+     * Sets the site property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the site property.
      */
     public void setSite(@jakarta.annotation.Nullable final OrganizationResponseSite value) {
         this.site = value;
     }
     /**
-     * Sets the status property value. Defines the supported Organization Status values.
+     * Sets the status property value. Describes an organization&apos;s account lifecycle and whether it can actively use Leadping services.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final OrganizationResponseStatus value) {
         this.status = value;
     }
     /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Sets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @param value Value to set for the subscriptionStatus property.
      */
     public void setSubscriptionStatus(@jakarta.annotation.Nullable final OrganizationResponseSubscriptionStatus value) {
         this.subscriptionStatus = value;
     }
     /**
-     * Sets the user property value. User summary connected to this organization profile response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final OrganizationResponseUser value) {

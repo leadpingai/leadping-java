@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Website Lifecycle Status values.
+ * Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum WebsiteLifecycleStatus implements ValuedEnum {

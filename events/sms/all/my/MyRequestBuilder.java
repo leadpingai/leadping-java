@@ -38,10 +38,12 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists SMS events visible to the current user with paging, sorting, and filters for message history and follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link PagedResultOfSmsEventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfSmsEventTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
@@ -49,11 +51,13 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists SMS events visible to the current user with paging, sorting, and filters for message history and follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfSmsEventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PagedResultOfSmsEventTableRow post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -62,11 +66,13 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfSmsEventTableRow::createFromDiscriminatorValue);
     }
     /**
      * Lists SMS events visible to the current user with paging, sorting, and filters for message history and follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -75,7 +81,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists SMS events visible to the current user with paging, sorting, and filters for message history and follow-up review.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

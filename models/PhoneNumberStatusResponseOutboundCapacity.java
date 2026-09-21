@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Current outbound SMS and voice capacity for this phone number.
+ * Reports the sending capacity, current load, and availability of a phone number considered for outbound delivery.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberStatusResponseOutboundCapacity extends OutboundPhoneNumberCapacity implements Parsable {

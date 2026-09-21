@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
     /**
      * The provider cost incurred by this lookup action, in USD.
      */
-    private UntypedNode providerCostAmount;
+    private Double providerCostAmount;
     /**
      * The provider pricing version used to calculate the lookup cost.
      */
@@ -80,7 +79,7 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("occurredAt", (n) -> { this.setOccurredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("provider", (n) -> { this.setProvider(n.getStringValue()); });
-        deserializerMap.put("providerCostAmount", (n) -> { this.setProviderCostAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("providerCostAmount", (n) -> { this.setProviderCostAmount(n.getDoubleValue()); });
         deserializerMap.put("providerPricingVersion", (n) -> { this.setProviderPricingVersion(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(PhoneIdentityLookupActionStatus::forValue)); });
         deserializerMap.put("type", (n) -> { this.setType(n.getEnumValue(PhoneIdentityLookupActionType::forValue)); });
@@ -112,10 +111,10 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
     }
     /**
      * Gets the providerCostAmount property value. The provider cost incurred by this lookup action, in USD.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getProviderCostAmount() {
+    public Double getProviderCostAmount() {
         return this.providerCostAmount;
     }
     /**
@@ -151,7 +150,7 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("occurredAt", this.getOccurredAt());
         writer.writeStringValue("provider", this.getProvider());
-        writer.writeObjectValue("providerCostAmount", this.getProviderCostAmount());
+        writer.writeDoubleValue("providerCostAmount", this.getProviderCostAmount());
         writer.writeStringValue("providerPricingVersion", this.getProviderPricingVersion());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeEnumValue("type", this.getType());
@@ -189,7 +188,7 @@ public class PhoneIdentityLookupAction implements AdditionalDataHolder, Parsable
      * Sets the providerCostAmount property value. The provider cost incurred by this lookup action, in USD.
      * @param value Value to set for the providerCostAmount property.
      */
-    public void setProviderCostAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setProviderCostAmount(@jakarta.annotation.Nullable final Double value) {
         this.providerCostAmount = value;
     }
     /**

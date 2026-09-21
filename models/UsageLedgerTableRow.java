@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,13 +20,13 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Billable seconds for this usage ledger.
      */
-    private UntypedNode billableSeconds;
+    private Integer billableSeconds;
     /**
-     * Billable unit for this usage ledger.
+     * Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      */
     private BillableUnit billableUnit;
     /**
-     * Channel for this usage ledger.
+     * Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      */
     private UsageChannel channel;
     /**
@@ -37,7 +36,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * The monetary customer charge amount for this usage ledger.
      */
-    private UntypedNode customerChargeAmount;
+    private Double customerChargeAmount;
     /**
      * The human-readable description of this usage ledger.
      */
@@ -45,7 +44,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Duration seconds for this usage ledger.
      */
-    private UntypedNode durationSeconds;
+    private Integer durationSeconds;
     /**
      * Unique Leadping identifier for this usage ledger.
      */
@@ -55,11 +54,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isBillable;
     /**
-     * Identifier and display name of the related lead.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UsageLedgerTableRowLead lead;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UsageLedgerTableRowOrganization organization;
     /**
@@ -73,21 +72,21 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Quantity for this usage ledger.
      */
-    private UntypedNode quantity;
+    private Double quantity;
     /**
      * SMS segments for this usage ledger.
      */
-    private UntypedNode smsSegments;
+    private Integer smsSegments;
     /**
-     * The current status for this usage ledger.
+     * Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      */
     private UsageStatus status;
     /**
      * Unit price for this usage ledger.
      */
-    private UntypedNode unitPrice;
+    private Double unitPrice;
     /**
-     * Identifier and display name of the related user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UsageLedgerTableRowUser user;
     /**
@@ -116,14 +115,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableSeconds property value. Billable seconds for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableSeconds() {
+    public Integer getBillableSeconds() {
         return this.billableSeconds;
     }
     /**
-     * Gets the billableUnit property value. Billable unit for this usage ledger.
+     * Gets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @return a {@link BillableUnit}
      */
     @jakarta.annotation.Nullable
@@ -131,7 +130,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.billableUnit;
     }
     /**
-     * Gets the channel property value. Channel for this usage ledger.
+     * Gets the channel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @return a {@link UsageChannel}
      */
     @jakarta.annotation.Nullable
@@ -148,10 +147,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the customerChargeAmount property value. The monetary customer charge amount for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCustomerChargeAmount() {
+    public Double getCustomerChargeAmount() {
         return this.customerChargeAmount;
     }
     /**
@@ -164,10 +163,10 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the durationSeconds property value. Duration seconds for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDurationSeconds() {
+    public Integer getDurationSeconds() {
         return this.durationSeconds;
     }
     /**
@@ -177,23 +176,23 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
-        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(BillableUnit::forValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(UsageChannel::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("customerChargeAmount", (n) -> { this.setCustomerChargeAmount(n.getDoubleValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
-        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getIntegerValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isBillable", (n) -> { this.setIsBillable(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(UsageLedgerTableRowLead::createFromDiscriminatorValue)); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(UsageLedgerTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
-        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("smsSegments", (n) -> { this.setSmsSegments(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("quantity", (n) -> { this.setQuantity(n.getDoubleValue()); });
+        deserializerMap.put("smsSegments", (n) -> { this.setSmsSegments(n.getIntegerValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(UsageStatus::forValue)); });
-        deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("unitPrice", (n) -> { this.setUnitPrice(n.getDoubleValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(UsageLedgerTableRowUser::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -214,7 +213,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.isBillable;
     }
     /**
-     * Gets the lead property value. Identifier and display name of the related lead.
+     * Gets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UsageLedgerTableRowLead}
      */
     @jakarta.annotation.Nullable
@@ -222,7 +221,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         return this.lead;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UsageLedgerTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -247,22 +246,22 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the quantity property value. Quantity for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getQuantity() {
+    public Double getQuantity() {
         return this.quantity;
     }
     /**
      * Gets the smsSegments property value. SMS segments for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsSegments() {
+    public Integer getSmsSegments() {
         return this.smsSegments;
     }
     /**
-     * Gets the status property value. The current status for this usage ledger.
+     * Gets the status property value. Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      * @return a {@link UsageStatus}
      */
     @jakarta.annotation.Nullable
@@ -271,14 +270,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the unitPrice property value. Unit price for this usage ledger.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getUnitPrice() {
+    public Double getUnitPrice() {
         return this.unitPrice;
     }
     /**
-     * Gets the user property value. Identifier and display name of the related user.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UsageLedgerTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -291,23 +290,23 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
+        writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
         writer.writeEnumValue("billableUnit", this.getBillableUnit());
         writer.writeEnumValue("channel", this.getChannel());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
-        writer.writeObjectValue("customerChargeAmount", this.getCustomerChargeAmount());
+        writer.writeDoubleValue("customerChargeAmount", this.getCustomerChargeAmount());
         writer.writeStringValue("description", this.getDescription());
-        writer.writeObjectValue("durationSeconds", this.getDurationSeconds());
+        writer.writeIntegerValue("durationSeconds", this.getDurationSeconds());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isBillable", this.getIsBillable());
         writer.writeObjectValue("lead", this.getLead());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
-        writer.writeObjectValue("quantity", this.getQuantity());
-        writer.writeObjectValue("smsSegments", this.getSmsSegments());
+        writer.writeDoubleValue("quantity", this.getQuantity());
+        writer.writeIntegerValue("smsSegments", this.getSmsSegments());
         writer.writeEnumValue("status", this.getStatus());
-        writer.writeObjectValue("unitPrice", this.getUnitPrice());
+        writer.writeDoubleValue("unitPrice", this.getUnitPrice());
         writer.writeObjectValue("user", this.getUser());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -322,18 +321,18 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableSeconds property value. Billable seconds for this usage ledger.
      * @param value Value to set for the billableSeconds property.
      */
-    public void setBillableSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.billableSeconds = value;
     }
     /**
-     * Sets the billableUnit property value. Billable unit for this usage ledger.
+     * Sets the billableUnit property value. Identifies the metered unit used to price Leadping usage, such as a message, call minute, lookup, or phone number.
      * @param value Value to set for the billableUnit property.
      */
     public void setBillableUnit(@jakarta.annotation.Nullable final BillableUnit value) {
         this.billableUnit = value;
     }
     /**
-     * Sets the channel property value. Channel for this usage ledger.
+     * Sets the channel property value. Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final UsageChannel value) {
@@ -350,7 +349,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the customerChargeAmount property value. The monetary customer charge amount for this usage ledger.
      * @param value Value to set for the customerChargeAmount property.
      */
-    public void setCustomerChargeAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCustomerChargeAmount(@jakarta.annotation.Nullable final Double value) {
         this.customerChargeAmount = value;
     }
     /**
@@ -364,7 +363,7 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the durationSeconds property value. Duration seconds for this usage ledger.
      * @param value Value to set for the durationSeconds property.
      */
-    public void setDurationSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDurationSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.durationSeconds = value;
     }
     /**
@@ -382,14 +381,14 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
         this.isBillable = value;
     }
     /**
-     * Sets the lead property value. Identifier and display name of the related lead.
+     * Sets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final UsageLedgerTableRowLead value) {
         this.lead = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final UsageLedgerTableRowOrganization value) {
@@ -413,18 +412,18 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the quantity property value. Quantity for this usage ledger.
      * @param value Value to set for the quantity property.
      */
-    public void setQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setQuantity(@jakarta.annotation.Nullable final Double value) {
         this.quantity = value;
     }
     /**
      * Sets the smsSegments property value. SMS segments for this usage ledger.
      * @param value Value to set for the smsSegments property.
      */
-    public void setSmsSegments(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsSegments(@jakarta.annotation.Nullable final Integer value) {
         this.smsSegments = value;
     }
     /**
-     * Sets the status property value. The current status for this usage ledger.
+     * Sets the status property value. Describes whether a metered usage record is pending, rated, billed, reconciled, excluded, or failed.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final UsageStatus value) {
@@ -434,11 +433,11 @@ public class UsageLedgerTableRow implements AdditionalDataHolder, Parsable {
      * Sets the unitPrice property value. Unit price for this usage ledger.
      * @param value Value to set for the unitPrice property.
      */
-    public void setUnitPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setUnitPrice(@jakarta.annotation.Nullable final Double value) {
         this.unitPrice = value;
     }
     /**
-     * Sets the user property value. Identifier and display name of the related user.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final UsageLedgerTableRowUser value) {

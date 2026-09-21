@@ -17,11 +17,11 @@ public class AutomationConsoleResponse implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * The automationId property
+     * Unique identifier of the automation whose execution history is returned.
      */
     private String automationId;
     /**
-     * The runs property
+     * Recent persisted workflow runs for the automation, ordered for console display.
      */
     private java.util.List<AutomationWorkflowRunResponse> runs;
     /**
@@ -49,7 +49,7 @@ public class AutomationConsoleResponse implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
-     * Gets the automationId property value. The automationId property
+     * Gets the automationId property value. Unique identifier of the automation whose execution history is returned.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class AutomationConsoleResponse implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the runs property value. The runs property
+     * Gets the runs property value. Recent persisted workflow runs for the automation, ordered for console display.
      * @return a {@link java.util.List<AutomationWorkflowRunResponse>}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class AutomationConsoleResponse implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the automationId property value. The automationId property
+     * Sets the automationId property value. Unique identifier of the automation whose execution history is returned.
      * @param value Value to set for the automationId property.
      */
     public void setAutomationId(@jakarta.annotation.Nullable final String value) {
         this.automationId = value;
     }
     /**
-     * Sets the runs property value. The runs property
+     * Sets the runs property value. Recent persisted workflow runs for the automation, ordered for console display.
      * @param value Value to set for the runs property.
      */
     public void setRuns(@jakarta.annotation.Nullable final java.util.List<AutomationWorkflowRunResponse> value) {

@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum LeadResponseProcessingStatus implements ValuedEnum {
+    Quarantined("Quarantined"),
     Verifying("Verifying"),
     Validating("Validating"),
     Enriching("Enriching"),
@@ -24,6 +25,7 @@ public enum LeadResponseProcessingStatus implements ValuedEnum {
     public static LeadResponseProcessingStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "Quarantined": return Quarantined;
             case "Verifying": return Verifying;
             case "Validating": return Validating;
             case "Enriching": return Enriching;

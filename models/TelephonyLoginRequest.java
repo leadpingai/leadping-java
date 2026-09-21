@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Request model for telephony login token generation.
+ * Identifies the Leadping user and calling context for which a short-lived telephony client token should be issued.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
@@ -17,7 +17,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifier and display name of the related device.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private TelephonyLoginRequestDevice device;
     /**
@@ -45,7 +45,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the device property value. Identifier and display name of the related device.
+     * Gets the device property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link TelephonyLoginRequestDevice}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the device property value. Identifier and display name of the related device.
+     * Sets the device property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the device property.
      */
     public void setDevice(@jakarta.annotation.Nullable final TelephonyLoginRequestDevice value) {

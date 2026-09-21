@@ -42,6 +42,8 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
      * @return a {@link PhoneNumberStatusResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneNumberStatusResponse get() {
@@ -53,6 +55,8 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
      * @return a {@link PhoneNumberStatusResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneNumberStatusResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -60,6 +64,8 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberStatusResponse::createFromDiscriminatorValue);
     }
     /**
@@ -111,7 +117,7 @@ public class WarmupRequestBuilder extends BaseRequestBuilder {
          * The window days.
          */
         @jakarta.annotation.Nullable
-        public String windowDays;
+        public Integer windowDays;
         /**
          * Extracts the query parameters into a map for the URI template parsing.
          * @return a {@link Map<String, Object>}

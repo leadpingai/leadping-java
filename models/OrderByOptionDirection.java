@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * An enumerator for sort direction during querying
+ * Identifies whether query results are ordered from lower to higher values or from higher to lower values.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrderByOptionDirection implements ValuedEnum {

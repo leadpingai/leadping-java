@@ -36,32 +36,38 @@ public class RunRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations/{id}/run", rawUrl);
     }
     /**
-     * Runs an automation through its Manual trigger.
+     * Starts the specified automation through its manual trigger and returns the newly created execution record.
      * @return a {@link AutomationRunRecord}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationRunRecord post() {
         return post(null);
     }
     /**
-     * Runs an automation through its Manual trigger.
+     * Starts the specified automation through its manual trigger and returns the newly created execution record.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationRunRecord}
      * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public AutomationRunRecord post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toPostRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationRunRecord::createFromDiscriminatorValue);
     }
     /**
-     * Runs an automation through its Manual trigger.
+     * Starts the specified automation through its manual trigger and returns the newly created execution record.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +75,7 @@ public class RunRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Runs an automation through its Manual trigger.
+     * Starts the specified automation through its manual trigger and returns the newly created execution record.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

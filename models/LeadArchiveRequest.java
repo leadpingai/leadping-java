@@ -21,7 +21,7 @@ public class LeadArchiveRequest implements AdditionalDataHolder, Parsable {
      */
     private String note;
     /**
-     * Human-readable reason supplied for this request or result.
+     * Defines why a lead was removed from the active working pipeline.
      */
     private Integer reason;
     /**
@@ -68,7 +68,7 @@ public class LeadArchiveRequest implements AdditionalDataHolder, Parsable {
         return this.note;
     }
     /**
-     * Gets the reason property value. Human-readable reason supplied for this request or result.
+     * Gets the reason property value. Defines why a lead was removed from the active working pipeline.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class LeadArchiveRequest implements AdditionalDataHolder, Parsable {
         this.note = value;
     }
     /**
-     * Sets the reason property value. Human-readable reason supplied for this request or result.
+     * Sets the reason property value. Defines why a lead was removed from the active working pipeline.
      * @param value Value to set for the reason property.
      */
     public void setReason(@jakarta.annotation.Nullable final Integer value) {

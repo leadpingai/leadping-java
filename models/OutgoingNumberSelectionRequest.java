@@ -21,7 +21,7 @@ public class OutgoingNumberSelectionRequest implements AdditionalDataHolder, Par
      */
     private String campaignId;
     /**
-     * Defines the supported Outgoing Number Channel values.
+     * Identifies whether an outgoing phone number is eligible for voice, SMS, MMS, or another communication channel.
      */
     private OutgoingNumberSelectionRequestChannel channel;
     /**
@@ -77,7 +77,7 @@ public class OutgoingNumberSelectionRequest implements AdditionalDataHolder, Par
         return this.campaignId;
     }
     /**
-     * Gets the channel property value. Defines the supported Outgoing Number Channel values.
+     * Gets the channel property value. Identifies whether an outgoing phone number is eligible for voice, SMS, MMS, or another communication channel.
      * @return a {@link OutgoingNumberSelectionRequestChannel}
      */
     @jakarta.annotation.Nullable
@@ -170,7 +170,7 @@ public class OutgoingNumberSelectionRequest implements AdditionalDataHolder, Par
         this.campaignId = value;
     }
     /**
-     * Sets the channel property value. Defines the supported Outgoing Number Channel values.
+     * Sets the channel property value. Identifies whether an outgoing phone number is eligible for voice, SMS, MMS, or another communication channel.
      * @param value Value to set for the channel property.
      */
     public void setChannel(@jakarta.annotation.Nullable final OutgoingNumberSelectionRequestChannel value) {

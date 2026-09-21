@@ -37,23 +37,27 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/suppressions/release", rawUrl);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public SuppressionEntryResponse post(@jakarta.annotation.Nonnull final SuppressionEntryRequest body) {
         return post(body, null);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuppressionEntryResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public SuppressionEntryResponse post(@jakarta.annotation.Nonnull final SuppressionEntryRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -62,10 +66,12 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, SuppressionEntryResponse::createFromDiscriminatorValue);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @return a {@link RequestInformation}
      */
@@ -74,7 +80,7 @@ public class ReleaseRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Releases an active Leadping suppression entry so a recipient can be contacted again, returning the updated suppression record when available.
+     * The result reflects the effective compliance state after normalization, organization scoping, and suppression-history checks.
      * @param body Defines a recipient and communication channel to suppress, release, or check before Leadping sends outreach.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

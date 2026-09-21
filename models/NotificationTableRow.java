@@ -26,7 +26,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -34,9 +34,13 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String details;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Whether this notification is read.
      */
@@ -46,15 +50,15 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String message;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
-     * Priority for this notification.
+     * Ranks the urgency and presentation importance of a Leadping user notification.
      */
     private NotificationPriority priority;
     /**
@@ -70,7 +74,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String relatedEntityType;
     /**
-     * The type classification for this notification.
+     * Identifies the Leadping workflow or account event communicated by a user notification.
      */
     private NotificationType type;
     /**
@@ -114,7 +118,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -135,12 +139,13 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("actionButtonText", (n) -> { this.setActionButtonText(n.getStringValue()); });
         deserializerMap.put("actionUrl", (n) -> { this.setActionUrl(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("details", (n) -> { this.setDetails(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isRead", (n) -> { this.setIsRead(n.getBooleanValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
@@ -153,12 +158,20 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isRead property value. Whether this notification is read.
@@ -177,7 +190,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         return this.message;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -185,7 +198,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -193,7 +206,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the priority property value. Priority for this notification.
+     * Gets the priority property value. Ranks the urgency and presentation importance of a Leadping user notification.
      * @return a {@link NotificationPriority}
      */
     @jakarta.annotation.Nullable
@@ -225,7 +238,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         return this.relatedEntityType;
     }
     /**
-     * Gets the type property value. The type classification for this notification.
+     * Gets the type property value. Identifies the Leadping workflow or account event communicated by a user notification.
      * @return a {@link NotificationType}
      */
     @jakarta.annotation.Nullable
@@ -243,6 +256,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("details", this.getDetails());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isRead", this.getIsRead());
         writer.writeStringValue("message", this.getMessage());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
@@ -276,7 +290,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -290,11 +304,18 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         this.details = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the isRead property value. Whether this notification is read.
@@ -311,21 +332,21 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         this.message = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the priority property value. Priority for this notification.
+     * Sets the priority property value. Ranks the urgency and presentation importance of a Leadping user notification.
      * @param value Value to set for the priority property.
      */
     public void setPriority(@jakarta.annotation.Nullable final NotificationPriority value) {
@@ -353,7 +374,7 @@ public class NotificationTableRow implements AdditionalDataHolder, Parsable {
         this.relatedEntityType = value;
     }
     /**
-     * Sets the type property value. The type classification for this notification.
+     * Sets the type property value. Identifies the Leadping workflow or account event communicated by a user notification.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final NotificationType value) {

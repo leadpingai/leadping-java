@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * Identifies the current traffic-ramp stage of controlled voice warmup for a Leadping-managed phone number.
      */
     private PhoneNumberReadinessCallStage callStage;
     /**
@@ -28,17 +27,17 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
     /**
      * Current warmup health score used to assess phone number warmup.
      */
-    private UntypedNode healthScore;
+    private Integer healthScore;
     /**
-     * Defines the supported SMS readiness health assessments.
+     * Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      */
     private PhoneNumberReadinessHealthStatus healthStatus;
     /**
      * Warmup completion percentage, from 0 through 100.
      */
-    private UntypedNode progressPercent;
+    private Integer progressPercent;
     /**
-     * Defines the supported SMS readiness states.
+     * Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      */
     private PhoneNumberReadinessState state;
     /**
@@ -66,7 +65,7 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the callStage property value. Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * Gets the callStage property value. Identifies the current traffic-ramp stage of controlled voice warmup for a Leadping-managed phone number.
      * @return a {@link PhoneNumberReadinessCallStage}
      */
     @jakarta.annotation.Nullable
@@ -90,22 +89,22 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("callStage", (n) -> { this.setCallStage(n.getEnumValue(PhoneNumberReadinessCallStage::forValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
-        deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getIntegerValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberReadinessHealthStatus::forValue)); });
-        deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getIntegerValue()); });
         deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(PhoneNumberReadinessState::forValue)); });
         return deserializerMap;
     }
     /**
      * Gets the healthScore property value. Current warmup health score used to assess phone number warmup.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getHealthScore() {
+    public Integer getHealthScore() {
         return this.healthScore;
     }
     /**
-     * Gets the healthStatus property value. Defines the supported SMS readiness health assessments.
+     * Gets the healthStatus property value. Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      * @return a {@link PhoneNumberReadinessHealthStatus}
      */
     @jakarta.annotation.Nullable
@@ -114,14 +113,14 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the progressPercent property value. Warmup completion percentage, from 0 through 100.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getProgressPercent() {
+    public Integer getProgressPercent() {
         return this.progressPercent;
     }
     /**
-     * Gets the state property value. Defines the supported SMS readiness states.
+     * Gets the state property value. Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      * @return a {@link PhoneNumberReadinessState}
      */
     @jakarta.annotation.Nullable
@@ -136,9 +135,9 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeEnumValue("callStage", this.getCallStage());
         writer.writeBooleanValue("enabled", this.getEnabled());
-        writer.writeObjectValue("healthScore", this.getHealthScore());
+        writer.writeIntegerValue("healthScore", this.getHealthScore());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
-        writer.writeObjectValue("progressPercent", this.getProgressPercent());
+        writer.writeIntegerValue("progressPercent", this.getProgressPercent());
         writer.writeEnumValue("state", this.getState());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -150,7 +149,7 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the callStage property value. Defines the supported voice call warmup stages for a Leadping-managed phone number.
+     * Sets the callStage property value. Identifies the current traffic-ramp stage of controlled voice warmup for a Leadping-managed phone number.
      * @param value Value to set for the callStage property.
      */
     public void setCallStage(@jakarta.annotation.Nullable final PhoneNumberReadinessCallStage value) {
@@ -167,11 +166,11 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      * Sets the healthScore property value. Current warmup health score used to assess phone number warmup.
      * @param value Value to set for the healthScore property.
      */
-    public void setHealthScore(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setHealthScore(@jakarta.annotation.Nullable final Integer value) {
         this.healthScore = value;
     }
     /**
-     * Sets the healthStatus property value. Defines the supported SMS readiness health assessments.
+     * Sets the healthStatus property value. Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      * @param value Value to set for the healthStatus property.
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final PhoneNumberReadinessHealthStatus value) {
@@ -181,11 +180,11 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      * Sets the progressPercent property value. Warmup completion percentage, from 0 through 100.
      * @param value Value to set for the progressPercent property.
      */
-    public void setProgressPercent(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setProgressPercent(@jakarta.annotation.Nullable final Integer value) {
         this.progressPercent = value;
     }
     /**
-     * Sets the state property value. Defines the supported SMS readiness states.
+     * Sets the state property value. Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
      * @param value Value to set for the state property.
      */
     public void setState(@jakarta.annotation.Nullable final PhoneNumberReadinessState value) {

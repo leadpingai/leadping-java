@@ -36,23 +36,27 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/sms/{smsEventId}/cancel", rawUrl);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public SmsResponse post() {
         return post(null);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SmsResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public SmsResponse post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -60,11 +64,13 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, SmsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +78,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Cancels a scheduled SMS event before delivery, preserving the event record while preventing the queued message from being sent.
+     * Cancel a queued SMS message while its status is Scheduled to prevent sending and preserve the event record. Cancellation closes when message delivery begins.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

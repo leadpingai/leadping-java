@@ -17,15 +17,7 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Indicates whether this phone number update request is active and available in the Leadping API.
-     */
-    private Boolean enabled;
-    /**
-     * The unique identifier for the entity, when updating an existing entity.
-     */
-    private String id;
-    /**
-     * The display name for the entity.
+     * Human-readable label for the phone number.
      */
     private String name;
     /**
@@ -33,9 +25,9 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Organization ID that owns the phone number being created or updated.
+     * Opts this number into the optional $2 monthly number health add-on. Defaults to on on creation; omitted updates preserve the current selection.
      */
-    private String organizationId;
+    private Boolean numberHealthEnabled;
     /**
      * Instantiates a new {@link PhoneNumberRequest} and sets the default values.
      */
@@ -61,37 +53,19 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the enabled property value. Indicates whether this phone number update request is active and available in the Leadping API.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getEnabled() {
-        return this.enabled;
-    }
-    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
-        deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
-        deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
-        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
+        deserializerMap.put("numberHealthEnabled", (n) -> { this.setNumberHealthEnabled(n.getBooleanValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity, when updating an existing entity.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getId() {
-        return this.id;
-    }
-    /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable label for the phone number.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,12 +81,12 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the organizationId property value. Organization ID that owns the phone number being created or updated.
-     * @return a {@link String}
+     * Gets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on on creation; omitted updates preserve the current selection.
+     * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
-    public String getOrganizationId() {
-        return this.organizationId;
+    public Boolean getNumberHealthEnabled() {
+        return this.numberHealthEnabled;
     }
     /**
      * Serializes information the current object
@@ -120,11 +94,9 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeBooleanValue("enabled", this.getEnabled());
-        writer.writeStringValue("id", this.getId());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
-        writer.writeStringValue("organizationId", this.getOrganizationId());
+        writer.writeBooleanValue("numberHealthEnabled", this.getNumberHealthEnabled());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,21 +107,7 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the enabled property value. Indicates whether this phone number update request is active and available in the Leadping API.
-     * @param value Value to set for the enabled property.
-     */
-    public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
-        this.enabled = value;
-    }
-    /**
-     * Sets the id property value. The unique identifier for the entity, when updating an existing entity.
-     * @param value Value to set for the id property.
-     */
-    public void setId(@jakarta.annotation.Nullable final String value) {
-        this.id = value;
-    }
-    /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable label for the phone number.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -163,10 +121,10 @@ public class PhoneNumberRequest implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the organizationId property value. Organization ID that owns the phone number being created or updated.
-     * @param value Value to set for the organizationId property.
+     * Sets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on on creation; omitted updates preserve the current selection.
+     * @param value Value to set for the numberHealthEnabled property.
      */
-    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
-        this.organizationId = value;
+    public void setNumberHealthEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.numberHealthEnabled = value;
     }
 }

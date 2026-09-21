@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+ * Describes trusted form certificate data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserNotificationPreferencesSmsConsentTrustedFormCertificate extends TrustedFormCertificate implements Parsable {

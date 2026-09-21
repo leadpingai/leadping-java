@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +26,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     */
-    private String apiKey;
-    /**
      * Masked preview of the source API key for compact display.
      */
     private String apiKeyPreview;
+    /**
+     * UTC timestamp when the source credential was most recently rotated.
+     */
+    private OffsetDateTime apiKeyRotatedAt;
     /**
      * Indicates whether the organization or sender passed compliance review.
      */
@@ -41,13 +40,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
     /**
      * Configured cost charged when this source creates a billable lead.
      */
-    private UntypedNode costPerLead;
+    private Double costPerLead;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * User summary for the person who created this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseCreatedByUser createdByUser;
     /**
@@ -75,27 +74,31 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime firstLeadReceivedAt;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * UTC timestamp when this source most recently delivered a lead to Leadping.
      */
     private OffsetDateTime lastLeadReceivedAt;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * User summary for the person who last modified this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseModifiedByUser modifiedByUser;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
-     * Organization summary connected to this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseOrganization organization;
     /**
@@ -103,7 +106,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean requiresTrustedForm;
     /**
-     * User summary connected to this lead source response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseUser user;
     /**
@@ -147,20 +150,20 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getApiKey() {
-        return this.apiKey;
-    }
-    /**
      * Gets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getApiKeyPreview() {
         return this.apiKeyPreview;
+    }
+    /**
+     * Gets the apiKeyRotatedAt property value. UTC timestamp when the source credential was most recently rotated.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getApiKeyRotatedAt() {
+        return this.apiKeyRotatedAt;
     }
     /**
      * Gets the complianceApproved property value. Indicates whether the organization or sender passed compliance review.
@@ -172,14 +175,14 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCostPerLead() {
+    public Double getCostPerLead() {
         return this.costPerLead;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -187,7 +190,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the createdByUser property value. User summary for the person who created this lead source response.
+     * Gets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseCreatedByUser}
      */
     @jakarta.annotation.Nullable
@@ -240,13 +243,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
+        deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
-        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUser", (n) -> { this.setCreatedByUser(n.getObjectValue(SourceResponseCreatedByUser::createFromDiscriminatorValue)); });
         deserializerMap.put("createdByUserEmail", (n) -> { this.setCreatedByUserEmail(n.getStringValue()); });
@@ -256,6 +259,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("firstLeadReceivedAt", (n) -> { this.setFirstLeadReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastLeadReceivedAt", (n) -> { this.setLastLeadReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedByUser", (n) -> { this.setModifiedByUser(n.getObjectValue(SourceResponseModifiedByUser::createFromDiscriminatorValue)); });
@@ -274,12 +278,20 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.firstLeadReceivedAt;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastLeadReceivedAt property value. UTC timestamp when this source most recently delivered a lead to Leadping.
@@ -290,7 +302,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.lastLeadReceivedAt;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -298,7 +310,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the modifiedByUser property value. User summary for the person who last modified this lead source response.
+     * Gets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseModifiedByUser}
      */
     @jakarta.annotation.Nullable
@@ -306,7 +318,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedByUser;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -314,7 +326,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this lead source response.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -330,7 +342,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.requiresTrustedForm;
     }
     /**
-     * Gets the user property value. User summary connected to this lead source response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -345,10 +357,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
-        writer.writeStringValue("apiKey", this.getApiKey());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
+        writer.writeOffsetDateTimeValue("apiKeyRotatedAt", this.getApiKeyRotatedAt());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
-        writer.writeObjectValue("costPerLead", this.getCostPerLead());
+        writer.writeDoubleValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("createdByUser", this.getCreatedByUser());
         writer.writeStringValue("createdByUserEmail", this.getCreatedByUserEmail());
@@ -358,6 +370,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeOffsetDateTimeValue("firstLeadReceivedAt", this.getFirstLeadReceivedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastLeadReceivedAt", this.getLastLeadReceivedAt());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeObjectValue("modifiedByUser", this.getModifiedByUser());
@@ -389,18 +402,18 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.allowedStates = value;
     }
     /**
-     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     * @param value Value to set for the apiKey property.
-     */
-    public void setApiKey(@jakarta.annotation.Nullable final String value) {
-        this.apiKey = value;
-    }
-    /**
      * Sets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @param value Value to set for the apiKeyPreview property.
      */
     public void setApiKeyPreview(@jakarta.annotation.Nullable final String value) {
         this.apiKeyPreview = value;
+    }
+    /**
+     * Sets the apiKeyRotatedAt property value. UTC timestamp when the source credential was most recently rotated.
+     * @param value Value to set for the apiKeyRotatedAt property.
+     */
+    public void setApiKeyRotatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.apiKeyRotatedAt = value;
     }
     /**
      * Sets the complianceApproved property value. Indicates whether the organization or sender passed compliance review.
@@ -413,18 +426,18 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.
      * @param value Value to set for the costPerLead property.
      */
-    public void setCostPerLead(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCostPerLead(@jakarta.annotation.Nullable final Double value) {
         this.costPerLead = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the createdByUser property value. User summary for the person who created this lead source response.
+     * Sets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the createdByUser property.
      */
     public void setCreatedByUser(@jakarta.annotation.Nullable final SourceResponseCreatedByUser value) {
@@ -473,11 +486,18 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.firstLeadReceivedAt = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastLeadReceivedAt property value. UTC timestamp when this source most recently delivered a lead to Leadping.
@@ -487,28 +507,28 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.lastLeadReceivedAt = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the modifiedByUser property value. User summary for the person who last modified this lead source response.
+     * Sets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the modifiedByUser property.
      */
     public void setModifiedByUser(@jakarta.annotation.Nullable final SourceResponseModifiedByUser value) {
         this.modifiedByUser = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this lead source response.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final SourceResponseOrganization value) {
@@ -522,7 +542,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.requiresTrustedForm = value;
     }
     /**
-     * Sets the user property value. User summary connected to this lead source response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final SourceResponseUser value) {

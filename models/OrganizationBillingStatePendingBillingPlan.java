@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Billing Plan values.
+ * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationBillingStatePendingBillingPlan implements ValuedEnum {

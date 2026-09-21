@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Phone number used by this conversation response for calls, SMS, lookup, or routing.
+ * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ConversationResponsePhoneNumber extends IdNameValue implements Parsable {

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +22,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifier and display name of the related automation.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationWorkflowRunResponseAutomation automation;
     /**
@@ -35,13 +34,13 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private OffsetDateTime completedAt;
     /**
-     * Identifier and display name of the workflow step currently awaiting or performing work.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationWorkflowRunResponseCurrentStep currentStep;
     /**
      * Current step order associated with this Leadping automation workflow run.
      */
-    private UntypedNode currentStepOrder;
+    private Integer currentStepOrder;
     /**
      * Collection of events included with this Leadping automation workflow run.
      */
@@ -54,6 +53,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      * Unique Leadping identifier for the automation workflow run.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Human-readable last action summary for this Leadping automation workflow run.
      */
@@ -77,7 +80,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     /**
      * Total number of max retry records represented by this Leadping automation workflow run.
      */
-    private UntypedNode maxRetryCount;
+    private Integer maxRetryCount;
     /**
      * Date and time when the next execution is scheduled.
      */
@@ -93,7 +96,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     /**
      * Total number of retry records represented by this Leadping automation workflow run.
      */
-    private UntypedNode retryCount;
+    private Integer retryCount;
     /**
      * Machine-readable code explaining why the workflow run or action was skipped.
      */
@@ -159,7 +162,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.additionalData;
     }
     /**
-     * Gets the automation property value. Identifier and display name of the related automation.
+     * Gets the automation property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationWorkflowRunResponseAutomation}
      */
     @jakarta.annotation.Nullable
@@ -183,7 +186,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         return this.completedAt;
     }
     /**
-     * Gets the currentStep property value. Identifier and display name of the workflow step currently awaiting or performing work.
+     * Gets the currentStep property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationWorkflowRunResponseCurrentStep}
      */
     @jakarta.annotation.Nullable
@@ -192,10 +195,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     }
     /**
      * Gets the currentStepOrder property value. Current step order associated with this Leadping automation workflow run.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCurrentStepOrder() {
+    public Integer getCurrentStepOrder() {
         return this.currentStepOrder;
     }
     /**
@@ -220,26 +223,27 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationWorkflowActionResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("automation", (n) -> { this.setAutomation(n.getObjectValue(AutomationWorkflowRunResponseAutomation::createFromDiscriminatorValue)); });
         deserializerMap.put("cancelledAt", (n) -> { this.setCancelledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentStep", (n) -> { this.setCurrentStep(n.getObjectValue(AutomationWorkflowRunResponseCurrentStep::createFromDiscriminatorValue)); });
-        deserializerMap.put("currentStepOrder", (n) -> { this.setCurrentStepOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("currentStepOrder", (n) -> { this.setCurrentStepOrder(n.getIntegerValue()); });
         deserializerMap.put("events", (n) -> { this.setEvents(n.getCollectionOfObjectValues(AutomationWorkflowEventResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastActionSummary", (n) -> { this.setLastActionSummary(n.getStringValue()); });
         deserializerMap.put("lastErrorCode", (n) -> { this.setLastErrorCode(n.getStringValue()); });
         deserializerMap.put("lastErrorMessage", (n) -> { this.setLastErrorMessage(n.getStringValue()); });
         deserializerMap.put("lastExecutionAt", (n) -> { this.setLastExecutionAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
-        deserializerMap.put("maxRetryCount", (n) -> { this.setMaxRetryCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("maxRetryCount", (n) -> { this.setMaxRetryCount(n.getIntegerValue()); });
         deserializerMap.put("nextExecutionAt", (n) -> { this.setNextExecutionAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
-        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getIntegerValue()); });
         deserializerMap.put("skipReasonCode", (n) -> { this.setSkipReasonCode(n.getStringValue()); });
         deserializerMap.put("skipReasonDisplay", (n) -> { this.setSkipReasonDisplay(n.getStringValue()); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
@@ -257,6 +261,14 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastActionSummary property value. Human-readable last action summary for this Leadping automation workflow run.
@@ -300,10 +312,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     }
     /**
      * Gets the maxRetryCount property value. Total number of max retry records represented by this Leadping automation workflow run.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMaxRetryCount() {
+    public Integer getMaxRetryCount() {
         return this.maxRetryCount;
     }
     /**
@@ -332,10 +344,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     }
     /**
      * Gets the retryCount property value. Total number of retry records represented by this Leadping automation workflow run.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRetryCount() {
+    public Integer getRetryCount() {
         return this.retryCount;
     }
     /**
@@ -413,20 +425,21 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         writer.writeOffsetDateTimeValue("cancelledAt", this.getCancelledAt());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeObjectValue("currentStep", this.getCurrentStep());
-        writer.writeObjectValue("currentStepOrder", this.getCurrentStepOrder());
+        writer.writeIntegerValue("currentStepOrder", this.getCurrentStepOrder());
         writer.writeCollectionOfObjectValues("events", this.getEvents());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("lastActionSummary", this.getLastActionSummary());
         writer.writeStringValue("lastErrorCode", this.getLastErrorCode());
         writer.writeStringValue("lastErrorMessage", this.getLastErrorMessage());
         writer.writeOffsetDateTimeValue("lastExecutionAt", this.getLastExecutionAt());
         writer.writeStringValue("leadId", this.getLeadId());
-        writer.writeObjectValue("maxRetryCount", this.getMaxRetryCount());
+        writer.writeIntegerValue("maxRetryCount", this.getMaxRetryCount());
         writer.writeOffsetDateTimeValue("nextExecutionAt", this.getNextExecutionAt());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
         writer.writeStringValue("organizationId", this.getOrganizationId());
-        writer.writeObjectValue("retryCount", this.getRetryCount());
+        writer.writeIntegerValue("retryCount", this.getRetryCount());
         writer.writeStringValue("skipReasonCode", this.getSkipReasonCode());
         writer.writeStringValue("skipReasonDisplay", this.getSkipReasonDisplay());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
@@ -452,7 +465,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.additionalData = value;
     }
     /**
-     * Sets the automation property value. Identifier and display name of the related automation.
+     * Sets the automation property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the automation property.
      */
     public void setAutomation(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseAutomation value) {
@@ -473,7 +486,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         this.completedAt = value;
     }
     /**
-     * Sets the currentStep property value. Identifier and display name of the workflow step currently awaiting or performing work.
+     * Sets the currentStep property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the currentStep property.
      */
     public void setCurrentStep(@jakarta.annotation.Nullable final AutomationWorkflowRunResponseCurrentStep value) {
@@ -483,7 +496,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      * Sets the currentStepOrder property value. Current step order associated with this Leadping automation workflow run.
      * @param value Value to set for the currentStepOrder property.
      */
-    public void setCurrentStepOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCurrentStepOrder(@jakarta.annotation.Nullable final Integer value) {
         this.currentStepOrder = value;
     }
     /**
@@ -506,6 +519,13 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastActionSummary property value. Human-readable last action summary for this Leadping automation workflow run.
@@ -546,7 +566,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      * Sets the maxRetryCount property value. Total number of max retry records represented by this Leadping automation workflow run.
      * @param value Value to set for the maxRetryCount property.
      */
-    public void setMaxRetryCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMaxRetryCount(@jakarta.annotation.Nullable final Integer value) {
         this.maxRetryCount = value;
     }
     /**
@@ -574,7 +594,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      * Sets the retryCount property value. Total number of retry records represented by this Leadping automation workflow run.
      * @param value Value to set for the retryCount property.
      */
-    public void setRetryCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRetryCount(@jakarta.annotation.Nullable final Integer value) {
         this.retryCount = value;
     }
     /**

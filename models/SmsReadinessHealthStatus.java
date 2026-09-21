@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported SMS readiness health assessments.
+ * Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum SmsReadinessHealthStatus implements ValuedEnum {

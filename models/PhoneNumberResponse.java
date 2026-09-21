@@ -18,7 +18,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -26,19 +26,23 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Indicates whether Leadping provisions and manages this phone number.
      */
     private Boolean leadpingOwned;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
@@ -46,7 +50,11 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Organization summary connected to this phone number.
+     * Opts this number into the optional $2 monthly number health add-on. Defaults to on; customers can opt out.
+     */
+    private Boolean numberHealthEnabled;
+    /**
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private PhoneNumberResponseOrganization organization;
     /**
@@ -54,11 +62,19 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private String phoneIdentityId;
     /**
-     * Routing metadata that connects this phone number to teams, campaigns, and sources.
+     * Public Leadping API schema for phone number routing metadata data.
      */
     private PhoneNumberRoutingMetadata routing;
     /**
-     * SMS and call warmup for this phone number.
+     * Whether provider, routing, and health checks allow SMS.
+     */
+    private Boolean smsReady;
+    /**
+     * Whether provider, routing, and health checks allow calls.
+     */
+    private Boolean voiceReady;
+    /**
+     * Messaging and calling warmup for a Leadping phone number.
      */
     private PhoneNumberReadiness warmup;
     /**
@@ -86,7 +102,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -107,27 +123,39 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadpingOwned", (n) -> { this.setLeadpingOwned(n.getBooleanValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
+        deserializerMap.put("numberHealthEnabled", (n) -> { this.setNumberHealthEnabled(n.getBooleanValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(PhoneNumberResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsReady", (n) -> { this.setSmsReady(n.getBooleanValue()); });
+        deserializerMap.put("voiceReady", (n) -> { this.setVoiceReady(n.getBooleanValue()); });
         deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberReadiness::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadpingOwned property value. Indicates whether Leadping provisions and manages this phone number.
@@ -138,7 +166,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.leadpingOwned;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -146,7 +174,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -162,7 +190,15 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this phone number.
+     * Gets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on; customers can opt out.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNumberHealthEnabled() {
+        return this.numberHealthEnabled;
+    }
+    /**
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link PhoneNumberResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +214,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.phoneIdentityId;
     }
     /**
-     * Gets the routing property value. Routing metadata that connects this phone number to teams, campaigns, and sources.
+     * Gets the routing property value. Public Leadping API schema for phone number routing metadata data.
      * @return a {@link PhoneNumberRoutingMetadata}
      */
     @jakarta.annotation.Nullable
@@ -186,7 +222,23 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         return this.routing;
     }
     /**
-     * Gets the warmup property value. SMS and call warmup for this phone number.
+     * Gets the smsReady property value. Whether provider, routing, and health checks allow SMS.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsReady() {
+        return this.smsReady;
+    }
+    /**
+     * Gets the voiceReady property value. Whether provider, routing, and health checks allow calls.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getVoiceReady() {
+        return this.voiceReady;
+    }
+    /**
+     * Gets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nullable
@@ -202,13 +254,17 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("leadpingOwned", this.getLeadpingOwned());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
+        writer.writeBooleanValue("numberHealthEnabled", this.getNumberHealthEnabled());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeObjectValue("routing", this.getRouting());
+        writer.writeBooleanValue("smsReady", this.getSmsReady());
+        writer.writeBooleanValue("voiceReady", this.getVoiceReady());
         writer.writeObjectValue("warmup", this.getWarmup());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -220,7 +276,7 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -234,11 +290,18 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the leadpingOwned property value. Indicates whether Leadping provisions and manages this phone number.
@@ -248,14 +311,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.leadpingOwned = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -269,7 +332,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this phone number.
+     * Sets the numberHealthEnabled property value. Opts this number into the optional $2 monthly number health add-on. Defaults to on; customers can opt out.
+     * @param value Value to set for the numberHealthEnabled property.
+     */
+    public void setNumberHealthEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.numberHealthEnabled = value;
+    }
+    /**
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final PhoneNumberResponseOrganization value) {
@@ -283,14 +353,28 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.phoneIdentityId = value;
     }
     /**
-     * Sets the routing property value. Routing metadata that connects this phone number to teams, campaigns, and sources.
+     * Sets the routing property value. Public Leadping API schema for phone number routing metadata data.
      * @param value Value to set for the routing property.
      */
     public void setRouting(@jakarta.annotation.Nullable final PhoneNumberRoutingMetadata value) {
         this.routing = value;
     }
     /**
-     * Sets the warmup property value. SMS and call warmup for this phone number.
+     * Sets the smsReady property value. Whether provider, routing, and health checks allow SMS.
+     * @param value Value to set for the smsReady property.
+     */
+    public void setSmsReady(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsReady = value;
+    }
+    /**
+     * Sets the voiceReady property value. Whether provider, routing, and health checks allow calls.
+     * @param value Value to set for the voiceReady property.
+     */
+    public void setVoiceReady(@jakarta.annotation.Nullable final Boolean value) {
+        this.voiceReady = value;
+    }
+    /**
+     * Sets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @param value Value to set for the warmup property.
      */
     public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberReadiness value) {

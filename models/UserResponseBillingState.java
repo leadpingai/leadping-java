@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Customer-safe billing state for the user&apos;s currently selected organization.
+ * Customer-safe billing state for a Leadping organization.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserResponseBillingState extends OrganizationBillingState implements Parsable {

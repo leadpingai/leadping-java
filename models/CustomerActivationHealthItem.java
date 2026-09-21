@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer activation health item data exposed by Leadping analytics.
+ * Describes the state, severity, and recommended next action for one organization activation requirement.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerActivationHealthItem implements AdditionalDataHolder, Parsable {

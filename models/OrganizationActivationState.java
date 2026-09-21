@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,9 +24,9 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     /**
      * The number of registrar-verified domains found by the current search.
      */
-    private UntypedNode availableDomainCount;
+    private Integer availableDomainCount;
     /**
-     * The current billing subscription status for this organization activation state.
+     * Describes whether an organization&apos;s subscription is ready, blocked, or still incomplete during activation.
      */
     private ActivationSubscriptionStatus billingSubscriptionStatus;
     /**
@@ -61,7 +60,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     /**
      * The current domain generation attempt.
      */
-    private UntypedNode domainSearchAttempt;
+    private Integer domainSearchAttempt;
     /**
      * Identifies the active domain search run.
      */
@@ -95,7 +94,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private OffsetDateTime launchReviewRequestedAt;
     /**
-     * The current launch review status for this organization activation state.
+     * Describes the administrative review decision that determines whether an organization can launch Leadping workflows.
      */
     private ActivationLaunchReviewStatus launchReviewStatus;
     /**
@@ -103,7 +102,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private String offer;
     /**
-     * The current onboarding status for this organization activation state.
+     * Describes completion and blocking state for an organization&apos;s core Leadping onboarding requirements.
      */
     private ActivationOnboardingStatus onboardingStatus;
     /**
@@ -115,7 +114,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private OffsetDateTime paymentMethodConfirmedAt;
     /**
-     * The current payment status for this organization activation state.
+     * Describes whether valid funding and payment prerequisites are satisfied during organization activation.
      */
     private ActivationPaymentStatus paymentStatus;
     /**
@@ -127,7 +126,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private String serviceArea;
     /**
-     * The current status for this organization activation state.
+     * Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      */
     private CustomerActivationStatus status;
     /**
@@ -155,7 +154,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private OffsetDateTime telephonyReadyAt;
     /**
-     * The current telephony status for this organization activation state.
+     * Describes whether phone numbers, calling, messaging, and provider resources are ready for organization launch.
      */
     private ActivationTelephonyStatus telephonyStatus;
     /**
@@ -163,11 +162,11 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private String tenDlcApplicationId;
     /**
-     * 10DLC draft for this organization activation state.
+     * Describes 10DLC application draft data used in Leadping API requests and responses.
      */
     private OrganizationActivationStateTenDlcDraft tenDlcDraft;
     /**
-     * The current 10DLC status for this organization activation state.
+     * Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      */
     private TenDlcApplicationStatus tenDlcStatus;
     /**
@@ -183,7 +182,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      */
     private String websiteNeeds;
     /**
-     * The current website status for this organization activation state.
+     * Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
      */
     private WebsiteLifecycleStatus websiteStatus;
     /**
@@ -224,14 +223,14 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the availableDomainCount property value. The number of registrar-verified domains found by the current search.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAvailableDomainCount() {
+    public Integer getAvailableDomainCount() {
         return this.availableDomainCount;
     }
     /**
-     * Gets the billingSubscriptionStatus property value. The current billing subscription status for this organization activation state.
+     * Gets the billingSubscriptionStatus property value. Describes whether an organization&apos;s subscription is ready, blocked, or still incomplete during activation.
      * @return a {@link ActivationSubscriptionStatus}
      */
     @jakarta.annotation.Nullable
@@ -296,10 +295,10 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     }
     /**
      * Gets the domainSearchAttempt property value. The current domain generation attempt.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDomainSearchAttempt() {
+    public Integer getDomainSearchAttempt() {
         return this.domainSearchAttempt;
     }
     /**
@@ -350,7 +349,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(43);
         deserializerMap.put("activatedAt", (n) -> { this.setActivatedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("availableDomainCount", (n) -> { this.setAvailableDomainCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("availableDomainCount", (n) -> { this.setAvailableDomainCount(n.getIntegerValue()); });
         deserializerMap.put("billingSubscriptionStatus", (n) -> { this.setBillingSubscriptionStatus(n.getEnumValue(ActivationSubscriptionStatus::forValue)); });
         deserializerMap.put("complianceNotes", (n) -> { this.setComplianceNotes(n.getStringValue()); });
         deserializerMap.put("controlledLaunch", (n) -> { this.setControlledLaunch(n.getBooleanValue()); });
@@ -359,7 +358,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         deserializerMap.put("domainApprovedAt", (n) -> { this.setDomainApprovedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("domainOptions", (n) -> { this.setDomainOptions(n.getCollectionOfObjectValues(ActivationDomainOption::createFromDiscriminatorValue)); });
         deserializerMap.put("domainPurchasedAt", (n) -> { this.setDomainPurchasedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("domainSearchAttempt", (n) -> { this.setDomainSearchAttempt(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("domainSearchAttempt", (n) -> { this.setDomainSearchAttempt(n.getIntegerValue()); });
         deserializerMap.put("domainSearchId", (n) -> { this.setDomainSearchId(n.getStringValue()); });
         deserializerMap.put("domainSearchStage", (n) -> { this.setDomainSearchStage(n.getEnumValue(OrganizationActivationStateDomainSearchStage::forValue)); });
         deserializerMap.put("domainSearchUpdatedAt", (n) -> { this.setDomainSearchUpdatedAt(n.getOffsetDateTimeValue()); });
@@ -419,7 +418,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.launchReviewRequestedAt;
     }
     /**
-     * Gets the launchReviewStatus property value. The current launch review status for this organization activation state.
+     * Gets the launchReviewStatus property value. Describes the administrative review decision that determines whether an organization can launch Leadping workflows.
      * @return a {@link ActivationLaunchReviewStatus}
      */
     @jakarta.annotation.Nullable
@@ -435,7 +434,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.offer;
     }
     /**
-     * Gets the onboardingStatus property value. The current onboarding status for this organization activation state.
+     * Gets the onboardingStatus property value. Describes completion and blocking state for an organization&apos;s core Leadping onboarding requirements.
      * @return a {@link ActivationOnboardingStatus}
      */
     @jakarta.annotation.Nullable
@@ -459,7 +458,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.paymentMethodConfirmedAt;
     }
     /**
-     * Gets the paymentStatus property value. The current payment status for this organization activation state.
+     * Gets the paymentStatus property value. Describes whether valid funding and payment prerequisites are satisfied during organization activation.
      * @return a {@link ActivationPaymentStatus}
      */
     @jakarta.annotation.Nullable
@@ -483,7 +482,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.serviceArea;
     }
     /**
-     * Gets the status property value. The current status for this organization activation state.
+     * Gets the status property value. Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      * @return a {@link CustomerActivationStatus}
      */
     @jakarta.annotation.Nullable
@@ -539,7 +538,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.telephonyReadyAt;
     }
     /**
-     * Gets the telephonyStatus property value. The current telephony status for this organization activation state.
+     * Gets the telephonyStatus property value. Describes whether phone numbers, calling, messaging, and provider resources are ready for organization launch.
      * @return a {@link ActivationTelephonyStatus}
      */
     @jakarta.annotation.Nullable
@@ -555,7 +554,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.tenDlcApplicationId;
     }
     /**
-     * Gets the tenDlcDraft property value. 10DLC draft for this organization activation state.
+     * Gets the tenDlcDraft property value. Describes 10DLC application draft data used in Leadping API requests and responses.
      * @return a {@link OrganizationActivationStateTenDlcDraft}
      */
     @jakarta.annotation.Nullable
@@ -563,7 +562,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.tenDlcDraft;
     }
     /**
-     * Gets the tenDlcStatus property value. The current 10DLC status for this organization activation state.
+     * Gets the tenDlcStatus property value. Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      * @return a {@link TenDlcApplicationStatus}
      */
     @jakarta.annotation.Nullable
@@ -595,7 +594,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         return this.websiteNeeds;
     }
     /**
-     * Gets the websiteStatus property value. The current website status for this organization activation state.
+     * Gets the websiteStatus property value. Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
      * @return a {@link WebsiteLifecycleStatus}
      */
     @jakarta.annotation.Nullable
@@ -617,7 +616,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("activatedAt", this.getActivatedAt());
-        writer.writeObjectValue("availableDomainCount", this.getAvailableDomainCount());
+        writer.writeIntegerValue("availableDomainCount", this.getAvailableDomainCount());
         writer.writeEnumValue("billingSubscriptionStatus", this.getBillingSubscriptionStatus());
         writer.writeStringValue("complianceNotes", this.getComplianceNotes());
         writer.writeBooleanValue("controlledLaunch", this.getControlledLaunch());
@@ -626,7 +625,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         writer.writeOffsetDateTimeValue("domainApprovedAt", this.getDomainApprovedAt());
         writer.writeCollectionOfObjectValues("domainOptions", this.getDomainOptions());
         writer.writeOffsetDateTimeValue("domainPurchasedAt", this.getDomainPurchasedAt());
-        writer.writeObjectValue("domainSearchAttempt", this.getDomainSearchAttempt());
+        writer.writeIntegerValue("domainSearchAttempt", this.getDomainSearchAttempt());
         writer.writeStringValue("domainSearchId", this.getDomainSearchId());
         writer.writeEnumValue("domainSearchStage", this.getDomainSearchStage());
         writer.writeOffsetDateTimeValue("domainSearchUpdatedAt", this.getDomainSearchUpdatedAt());
@@ -679,11 +678,11 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      * Sets the availableDomainCount property value. The number of registrar-verified domains found by the current search.
      * @param value Value to set for the availableDomainCount property.
      */
-    public void setAvailableDomainCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAvailableDomainCount(@jakarta.annotation.Nullable final Integer value) {
         this.availableDomainCount = value;
     }
     /**
-     * Sets the billingSubscriptionStatus property value. The current billing subscription status for this organization activation state.
+     * Sets the billingSubscriptionStatus property value. Describes whether an organization&apos;s subscription is ready, blocked, or still incomplete during activation.
      * @param value Value to set for the billingSubscriptionStatus property.
      */
     public void setBillingSubscriptionStatus(@jakarta.annotation.Nullable final ActivationSubscriptionStatus value) {
@@ -742,7 +741,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
      * Sets the domainSearchAttempt property value. The current domain generation attempt.
      * @param value Value to set for the domainSearchAttempt property.
      */
-    public void setDomainSearchAttempt(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDomainSearchAttempt(@jakarta.annotation.Nullable final Integer value) {
         this.domainSearchAttempt = value;
     }
     /**
@@ -802,7 +801,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.launchReviewRequestedAt = value;
     }
     /**
-     * Sets the launchReviewStatus property value. The current launch review status for this organization activation state.
+     * Sets the launchReviewStatus property value. Describes the administrative review decision that determines whether an organization can launch Leadping workflows.
      * @param value Value to set for the launchReviewStatus property.
      */
     public void setLaunchReviewStatus(@jakarta.annotation.Nullable final ActivationLaunchReviewStatus value) {
@@ -816,7 +815,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.offer = value;
     }
     /**
-     * Sets the onboardingStatus property value. The current onboarding status for this organization activation state.
+     * Sets the onboardingStatus property value. Describes completion and blocking state for an organization&apos;s core Leadping onboarding requirements.
      * @param value Value to set for the onboardingStatus property.
      */
     public void setOnboardingStatus(@jakarta.annotation.Nullable final ActivationOnboardingStatus value) {
@@ -837,7 +836,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.paymentMethodConfirmedAt = value;
     }
     /**
-     * Sets the paymentStatus property value. The current payment status for this organization activation state.
+     * Sets the paymentStatus property value. Describes whether valid funding and payment prerequisites are satisfied during organization activation.
      * @param value Value to set for the paymentStatus property.
      */
     public void setPaymentStatus(@jakarta.annotation.Nullable final ActivationPaymentStatus value) {
@@ -858,7 +857,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.serviceArea = value;
     }
     /**
-     * Sets the status property value. The current status for this organization activation state.
+     * Sets the status property value. Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final CustomerActivationStatus value) {
@@ -907,7 +906,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.telephonyReadyAt = value;
     }
     /**
-     * Sets the telephonyStatus property value. The current telephony status for this organization activation state.
+     * Sets the telephonyStatus property value. Describes whether phone numbers, calling, messaging, and provider resources are ready for organization launch.
      * @param value Value to set for the telephonyStatus property.
      */
     public void setTelephonyStatus(@jakarta.annotation.Nullable final ActivationTelephonyStatus value) {
@@ -921,14 +920,14 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.tenDlcApplicationId = value;
     }
     /**
-     * Sets the tenDlcDraft property value. 10DLC draft for this organization activation state.
+     * Sets the tenDlcDraft property value. Describes 10DLC application draft data used in Leadping API requests and responses.
      * @param value Value to set for the tenDlcDraft property.
      */
     public void setTenDlcDraft(@jakarta.annotation.Nullable final OrganizationActivationStateTenDlcDraft value) {
         this.tenDlcDraft = value;
     }
     /**
-     * Sets the tenDlcStatus property value. The current 10DLC status for this organization activation state.
+     * Sets the tenDlcStatus property value. Describes an organization&apos;s overall 10DLC registration lifecycle across brand and messaging campaign submission.
      * @param value Value to set for the tenDlcStatus property.
      */
     public void setTenDlcStatus(@jakarta.annotation.Nullable final TenDlcApplicationStatus value) {
@@ -956,7 +955,7 @@ public class OrganizationActivationState implements AdditionalDataHolder, Parsab
         this.websiteNeeds = value;
     }
     /**
-     * Sets the websiteStatus property value. The current website status for this organization activation state.
+     * Sets the websiteStatus property value. Describes an organization website&apos;s lifecycle from discovery and verification through activation, suspension, or removal.
      * @param value Value to set for the websiteStatus property.
      */
     public void setWebsiteStatus(@jakarta.annotation.Nullable final WebsiteLifecycleStatus value) {

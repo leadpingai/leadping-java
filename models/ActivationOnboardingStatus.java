@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Activation Onboarding Status values.
+ * Describes completion and blocking state for an organization&apos;s core Leadping onboarding requirements.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ActivationOnboardingStatus implements ValuedEnum {

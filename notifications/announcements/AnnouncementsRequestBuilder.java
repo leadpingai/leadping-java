@@ -38,10 +38,11 @@ public class AnnouncementsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists announcement notifications for the current user with paging and filters for release notes, notices, and operational updates.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link PagedResultOfNotificationTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
@@ -50,11 +51,12 @@ public class AnnouncementsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists announcement notifications for the current user with paging and filters for release notes, notices, and operational updates.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PagedResultOfNotificationTableRow}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
@@ -64,12 +66,13 @@ public class AnnouncementsRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfNotificationTableRow::createFromDiscriminatorValue);
     }
     /**
      * Lists announcement notifications for the current user with paging and filters for release notes, notices, and operational updates.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +81,7 @@ public class AnnouncementsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Lists announcement notifications for the current user with paging and filters for release notes, notices, and operational updates.
-     * @param body Options for flexible, efficient, and explicit querying in Cosmos DB or similar repositories.
+     * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -30,7 +30,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String conversationId;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -66,15 +66,19 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Lead ID associated with this event detail record.
      */
     private String leadId;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -106,7 +110,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime sentAt;
     /**
-     * Defines the supported Event status values.
+     * Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
      */
     private EventDetailResponseStatus status;
     /**
@@ -122,7 +126,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private String timelineCategory;
     /**
-     * Defines the supported Event timeline type values.
+     * Classifies the kind of activity displayed in a lead or conversation event timeline.
      */
     private EventDetailResponseTimelineType timelineType;
     /**
@@ -134,7 +138,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime undeliverableAt;
     /**
-     * User summary connected to this event detail response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private EventDetailResponseUser user;
     /**
@@ -194,7 +198,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.conversationId;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -255,7 +259,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(33);
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
@@ -269,6 +273,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
@@ -307,12 +312,20 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadId property value. Lead ID associated with this event detail record.
@@ -323,7 +336,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -387,7 +400,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.sentAt;
     }
     /**
-     * Gets the status property value. Defines the supported Event status values.
+     * Gets the status property value. Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
      * @return a {@link EventDetailResponseStatus}
      */
     @jakarta.annotation.Nullable
@@ -419,7 +432,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.timelineCategory;
     }
     /**
-     * Gets the timelineType property value. Defines the supported Event timeline type values.
+     * Gets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @return a {@link EventDetailResponseTimelineType}
      */
     @jakarta.annotation.Nullable
@@ -443,7 +456,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         return this.undeliverableAt;
     }
     /**
-     * Gets the user property value. User summary connected to this event detail response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link EventDetailResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -485,6 +498,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
@@ -535,7 +549,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.conversationId = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -598,11 +612,18 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with this event detail record.
@@ -612,7 +633,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -668,7 +689,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.sentAt = value;
     }
     /**
-     * Sets the status property value. Defines the supported Event status values.
+     * Sets the status property value. Describes whether a Leadping event is pending, processing, completed, failed, or otherwise resolved.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final EventDetailResponseStatus value) {
@@ -696,7 +717,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.timelineCategory = value;
     }
     /**
-     * Sets the timelineType property value. Defines the supported Event timeline type values.
+     * Sets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @param value Value to set for the timelineType property.
      */
     public void setTimelineType(@jakarta.annotation.Nullable final EventDetailResponseTimelineType value) {
@@ -717,7 +738,7 @@ public class EventDetailResponse implements AdditionalDataHolder, Parsable {
         this.undeliverableAt = value;
     }
     /**
-     * Sets the user property value. User summary connected to this event detail response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final EventDetailResponseUser value) {

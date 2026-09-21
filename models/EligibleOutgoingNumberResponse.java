@@ -33,7 +33,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private String healthLabel;
     /**
-     * Defines the supported SMS readiness health assessments.
+     * Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      */
     private EligibleOutgoingNumberResponseHealthStatus healthStatus;
     /**
@@ -61,7 +61,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private String reasonLabel;
     /**
-     * Reason Leadping selected this outbound sender number.
+     * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      */
     private OutgoingNumberSelectionReason selectionReason;
     /**
@@ -152,7 +152,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.healthLabel;
     }
     /**
-     * Gets the healthStatus property value. Defines the supported SMS readiness health assessments.
+     * Gets the healthStatus property value. Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      * @return a {@link EligibleOutgoingNumberResponseHealthStatus}
      */
     @jakarta.annotation.Nullable
@@ -208,7 +208,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.reasonLabel;
     }
     /**
-     * Gets the selectionReason property value. Reason Leadping selected this outbound sender number.
+     * Gets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @return a {@link OutgoingNumberSelectionReason}
      */
     @jakarta.annotation.Nullable
@@ -289,7 +289,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         this.healthLabel = value;
     }
     /**
-     * Sets the healthStatus property value. Defines the supported SMS readiness health assessments.
+     * Sets the healthStatus property value. Summarizes the severity of conditions affecting an organization&apos;s ability to send compliant SMS or MMS traffic.
      * @param value Value to set for the healthStatus property.
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final EligibleOutgoingNumberResponseHealthStatus value) {
@@ -338,7 +338,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         this.reasonLabel = value;
     }
     /**
-     * Sets the selectionReason property value. Reason Leadping selected this outbound sender number.
+     * Sets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @param value Value to set for the selectionReason property.
      */
     public void setSelectionReason(@jakarta.annotation.Nullable final OutgoingNumberSelectionReason value) {

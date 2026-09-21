@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Event timeline type values.
+ * Classifies the kind of activity displayed in a lead or conversation event timeline.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum EventTimelineType implements ValuedEnum {

@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Transaction Type values.
+ * Classifies a wallet transaction as a debit, credit, refund, adjustment, deposit, or other balance movement.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum TransactionType implements ValuedEnum {

@@ -17,7 +17,7 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Compliance for this compliance update.
+     * Describes user compliance data used in Leadping API requests and responses.
      */
     private ComplianceUpdateRequestCompliance compliance;
     /**
@@ -49,7 +49,7 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the compliance property value. Compliance for this compliance update.
+     * Gets the compliance property value. Describes user compliance data used in Leadping API requests and responses.
      * @return a {@link ComplianceUpdateRequestCompliance}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class ComplianceUpdateRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the compliance property value. Compliance for this compliance update.
+     * Sets the compliance property value. Describes user compliance data used in Leadping API requests and responses.
      * @param value Value to set for the compliance property.
      */
     public void setCompliance(@jakarta.annotation.Nullable final ComplianceUpdateRequestCompliance value) {

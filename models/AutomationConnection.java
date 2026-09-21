@@ -29,6 +29,10 @@ public class AutomationConnection implements AdditionalDataHolder, Parsable {
      */
     private String targetNodeId;
     /**
+     * Percentage chance assigned to this connection when it leaves a weighted random split. Ignored for connections from other node types.
+     */
+    private Integer weight;
+    /**
      * Instantiates a new {@link AutomationConnection} and sets the default values.
      */
     public AutomationConnection() {
@@ -58,10 +62,11 @@ public class AutomationConnection implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("sourceNodeId", (n) -> { this.setSourceNodeId(n.getStringValue()); });
         deserializerMap.put("targetNodeId", (n) -> { this.setTargetNodeId(n.getStringValue()); });
+        deserializerMap.put("weight", (n) -> { this.setWeight(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -89,6 +94,14 @@ public class AutomationConnection implements AdditionalDataHolder, Parsable {
         return this.targetNodeId;
     }
     /**
+     * Gets the weight property value. Percentage chance assigned to this connection when it leaves a weighted random split. Ignored for connections from other node types.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getWeight() {
+        return this.weight;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -97,6 +110,7 @@ public class AutomationConnection implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("sourceNodeId", this.getSourceNodeId());
         writer.writeStringValue("targetNodeId", this.getTargetNodeId());
+        writer.writeIntegerValue("weight", this.getWeight());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -126,5 +140,12 @@ public class AutomationConnection implements AdditionalDataHolder, Parsable {
      */
     public void setTargetNodeId(@jakarta.annotation.Nullable final String value) {
         this.targetNodeId = value;
+    }
+    /**
+     * Sets the weight property value. Percentage chance assigned to this connection when it leaves a weighted random split. Ignored for connections from other node types.
+     * @param value Value to set for the weight property.
+     */
+    public void setWeight(@jakarta.annotation.Nullable final Integer value) {
+        this.weight = value;
     }
 }

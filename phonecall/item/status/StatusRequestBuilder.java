@@ -36,21 +36,25 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/{callId}/status", rawUrl);
     }
     /**
-     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneCallResponse get() {
         return get(null);
     }
     /**
-     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneCallResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -58,10 +62,12 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -69,7 +75,7 @@ public class StatusRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Retrieves the latest status for a Leadping phone call by call ID, including provider state and call details for tracking progress.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

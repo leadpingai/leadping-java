@@ -17,7 +17,7 @@ public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The resolution method, such as telnyx-city-state, coordinates, phone-number, or state-default.
+     * The resolution method, such as Telnyx-city-state, coordinates, phone-number, or state-default.
      */
     private String method;
     /**
@@ -60,7 +60,7 @@ public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the method property value. The resolution method, such as telnyx-city-state, coordinates, phone-number, or state-default.
+     * Gets the method property value. The resolution method, such as Telnyx-city-state, coordinates, phone-number, or state-default.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class PhoneLocationSource implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the method property value. The resolution method, such as telnyx-city-state, coordinates, phone-number, or state-default.
+     * Sets the method property value. The resolution method, such as Telnyx-city-state, coordinates, phone-number, or state-default.
      * @param value Value to set for the method property.
      */
     public void setMethod(@jakarta.annotation.Nullable final String value) {

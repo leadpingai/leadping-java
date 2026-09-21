@@ -30,6 +30,22 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
+     * The associated lead&apos;s profile image URL, when available.
+     */
+    private String leadAvatarUrl;
+    /**
+     * The associated lead&apos;s email address, used for Gravatar fallback.
+     */
+    private String leadEmail;
+    /**
+     * Display name of the associated lead, when available.
+     */
+    private String leadName;
+    /**
      * Suppressed email address normalized for matching.
      */
     private String normalizedEmail;
@@ -50,7 +66,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private String recipientIdentifier;
     /**
-     * UTC timestamp when the suppression was released, or while it remains active.
+     * UTC timestamp when the suppression was released, or null while it remains active.
      */
     private OffsetDateTime releasedAt;
     /**
@@ -111,10 +127,14 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
         deserializerMap.put("audit", (n) -> { this.setAudit(n.getCollectionOfObjectValues(SuppressionEntryAudit::createFromDiscriminatorValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
+        deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
+        deserializerMap.put("leadEmail", (n) -> { this.setLeadEmail(n.getStringValue()); });
+        deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("normalizedEmail", (n) -> { this.setNormalizedEmail(n.getStringValue()); });
         deserializerMap.put("normalizedPhoneNumber", (n) -> { this.setNormalizedPhoneNumber(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
@@ -133,6 +153,38 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
+     * Gets the leadAvatarUrl property value. The associated lead&apos;s profile image URL, when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadAvatarUrl() {
+        return this.leadAvatarUrl;
+    }
+    /**
+     * Gets the leadEmail property value. The associated lead&apos;s email address, used for Gravatar fallback.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadEmail() {
+        return this.leadEmail;
+    }
+    /**
+     * Gets the leadName property value. Display name of the associated lead, when available.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadName() {
+        return this.leadName;
     }
     /**
      * Gets the normalizedEmail property value. Suppressed email address normalized for matching.
@@ -175,7 +227,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         return this.recipientIdentifier;
     }
     /**
-     * Gets the releasedAt property value. UTC timestamp when the suppression was released, or while it remains active.
+     * Gets the releasedAt property value. UTC timestamp when the suppression was released, or null while it remains active.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -215,6 +267,10 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         writer.writeCollectionOfObjectValues("audit", this.getAudit());
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
+        writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
+        writer.writeStringValue("leadEmail", this.getLeadEmail());
+        writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("normalizedEmail", this.getNormalizedEmail());
         writer.writeStringValue("normalizedPhoneNumber", this.getNormalizedPhoneNumber());
         writer.writeStringValue("organizationId", this.getOrganizationId());
@@ -255,6 +311,34 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         this.id = value;
     }
     /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
+     * Sets the leadAvatarUrl property value. The associated lead&apos;s profile image URL, when available.
+     * @param value Value to set for the leadAvatarUrl property.
+     */
+    public void setLeadAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.leadAvatarUrl = value;
+    }
+    /**
+     * Sets the leadEmail property value. The associated lead&apos;s email address, used for Gravatar fallback.
+     * @param value Value to set for the leadEmail property.
+     */
+    public void setLeadEmail(@jakarta.annotation.Nullable final String value) {
+        this.leadEmail = value;
+    }
+    /**
+     * Sets the leadName property value. Display name of the associated lead, when available.
+     * @param value Value to set for the leadName property.
+     */
+    public void setLeadName(@jakarta.annotation.Nullable final String value) {
+        this.leadName = value;
+    }
+    /**
      * Sets the normalizedEmail property value. Suppressed email address normalized for matching.
      * @param value Value to set for the normalizedEmail property.
      */
@@ -290,7 +374,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         this.recipientIdentifier = value;
     }
     /**
-     * Sets the releasedAt property value. UTC timestamp when the suppression was released, or while it remains active.
+     * Sets the releasedAt property value. UTC timestamp when the suppression was released, or null while it remains active.
      * @param value Value to set for the releasedAt property.
      */
     public void setReleasedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

@@ -5,6 +5,7 @@ import ai.leadping.openapi.models.OrganizationResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.organizations.me.invitations.InvitationsRequestBuilder;
 import ai.leadping.openapi.organizations.me.members.MembersRequestBuilder;
+import ai.leadping.openapi.organizations.me.membership.MembershipRequestBuilder;
 import ai.leadping.openapi.organizations.me.onezerodlc.OneZerodlcRequestBuilder;
 import ai.leadping.openapi.organizations.me.options.OptionsRequestBuilder;
 import ai.leadping.openapi.organizations.me.switchescaped.SwitchRequestBuilder;
@@ -40,6 +41,14 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public MembersRequestBuilder members() {
         return new MembersRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The membership property
+     * @return a {@link MembershipRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public MembershipRequestBuilder membership() {
+        return new MembershipRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The OneZerodlc property
@@ -86,6 +95,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationResponse get() {
@@ -97,6 +107,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -104,6 +115,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationResponse::createFromDiscriminatorValue);
     }
     /**
@@ -112,6 +124,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationResponse post(@jakarta.annotation.Nonnull final OrganizationRequest body) {
@@ -124,6 +137,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationResponse post(@jakarta.annotation.Nonnull final OrganizationRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -132,6 +146,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationResponse::createFromDiscriminatorValue);
     }
     /**
@@ -140,6 +155,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationResponse put(@jakarta.annotation.Nonnull final OrganizationRequest body) {
@@ -152,6 +168,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link OrganizationResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationResponse put(@jakarta.annotation.Nonnull final OrganizationRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -160,6 +177,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationResponse::createFromDiscriminatorValue);
     }
     /**

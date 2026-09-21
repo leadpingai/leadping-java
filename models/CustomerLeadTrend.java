@@ -4,12 +4,11 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer lead trend data exposed by Leadping analytics.
+ * Measures lead creation, qualification, and conversion activity within one reporting time bucket.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
@@ -18,9 +17,13 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Date and time when this Leadping customer lead trend was comparison.
+     * Compares a metric with the preceding period and reports its absolute and percentage change.
      */
     private AnalyticsComparison comparison;
+    /**
+     * Lead intake errors grouped into the same reporting buckets as Points.
+     */
+    private java.util.List<AnalyticsTrendPointOfint> errorPoints;
     /**
      * Collection of points included with this Leadping customer lead trend.
      */
@@ -28,7 +31,11 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
     /**
      * Total number of total records represented by this Leadping customer lead trend.
      */
-    private UntypedNode total;
+    private Integer total;
+    /**
+     * Total number of lead submissions rejected during intake.
+     */
+    private Integer totalErrors;
     /**
      * Instantiates a new {@link CustomerLeadTrend} and sets the default values.
      */
@@ -54,7 +61,7 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the comparison property value. Date and time when this Leadping customer lead trend was comparison.
+     * Gets the comparison property value. Compares a metric with the preceding period and reports its absolute and percentage change.
      * @return a {@link AnalyticsComparison}
      */
     @jakarta.annotation.Nullable
@@ -62,15 +69,25 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         return this.comparison;
     }
     /**
+     * Gets the errorPoints property value. Lead intake errors grouped into the same reporting buckets as Points.
+     * @return a {@link java.util.List<AnalyticsTrendPointOfint>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<AnalyticsTrendPointOfint> getErrorPoints() {
+        return this.errorPoints;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("comparison", (n) -> { this.setComparison(n.getObjectValue(AnalyticsComparison::createFromDiscriminatorValue)); });
+        deserializerMap.put("errorPoints", (n) -> { this.setErrorPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
         deserializerMap.put("points", (n) -> { this.setPoints(n.getCollectionOfObjectValues(AnalyticsTrendPointOfint::createFromDiscriminatorValue)); });
-        deserializerMap.put("total", (n) -> { this.setTotal(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("total", (n) -> { this.setTotal(n.getIntegerValue()); });
+        deserializerMap.put("totalErrors", (n) -> { this.setTotalErrors(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -83,11 +100,19 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the total property value. Total number of total records represented by this Leadping customer lead trend.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getTotal() {
+    public Integer getTotal() {
         return this.total;
+    }
+    /**
+     * Gets the totalErrors property value. Total number of lead submissions rejected during intake.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getTotalErrors() {
+        return this.totalErrors;
     }
     /**
      * Serializes information the current object
@@ -96,8 +121,10 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("comparison", this.getComparison());
+        writer.writeCollectionOfObjectValues("errorPoints", this.getErrorPoints());
         writer.writeCollectionOfObjectValues("points", this.getPoints());
-        writer.writeObjectValue("total", this.getTotal());
+        writer.writeIntegerValue("total", this.getTotal());
+        writer.writeIntegerValue("totalErrors", this.getTotalErrors());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -108,11 +135,18 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the comparison property value. Date and time when this Leadping customer lead trend was comparison.
+     * Sets the comparison property value. Compares a metric with the preceding period and reports its absolute and percentage change.
      * @param value Value to set for the comparison property.
      */
     public void setComparison(@jakarta.annotation.Nullable final AnalyticsComparison value) {
         this.comparison = value;
+    }
+    /**
+     * Sets the errorPoints property value. Lead intake errors grouped into the same reporting buckets as Points.
+     * @param value Value to set for the errorPoints property.
+     */
+    public void setErrorPoints(@jakarta.annotation.Nullable final java.util.List<AnalyticsTrendPointOfint> value) {
+        this.errorPoints = value;
     }
     /**
      * Sets the points property value. Collection of points included with this Leadping customer lead trend.
@@ -125,7 +159,14 @@ public class CustomerLeadTrend implements AdditionalDataHolder, Parsable {
      * Sets the total property value. Total number of total records represented by this Leadping customer lead trend.
      * @param value Value to set for the total property.
      */
-    public void setTotal(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setTotal(@jakarta.annotation.Nullable final Integer value) {
         this.total = value;
+    }
+    /**
+     * Sets the totalErrors property value. Total number of lead submissions rejected during intake.
+     * @param value Value to set for the totalErrors property.
+     */
+    public void setTotalErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.totalErrors = value;
     }
 }

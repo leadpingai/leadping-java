@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Geographic location metadata for the phone number, lead, or lookup result.
+ * Public Leadping API schema for phone number location data.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneNumberAvailabilityResponseLocation extends PhoneNumberLocation implements Parsable {

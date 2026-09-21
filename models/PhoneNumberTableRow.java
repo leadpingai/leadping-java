@@ -25,6 +25,10 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Optional display label for this phone number table row in the Leadping API.
      */
     private String name;
@@ -65,7 +69,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean voiceReady;
     /**
-     * Warmup state for this phone number.
+     * Messaging and calling warmup for a Leadping phone number.
      */
     private PhoneNumberReadiness warmup;
     /**
@@ -106,9 +110,10 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
@@ -129,6 +134,14 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the name property value. Optional display label for this phone number table row in the Leadping API.
@@ -211,7 +224,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.voiceReady;
     }
     /**
-     * Gets the warmup property value. Warmup state for this phone number.
+     * Gets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @return a {@link PhoneNumberReadiness}
      */
     @jakarta.annotation.Nullable
@@ -226,6 +239,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
         writer.writeStringValue("organization", this.getOrganization());
@@ -259,6 +273,13 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the name property value. Optional display label for this phone number table row in the Leadping API.
@@ -331,7 +352,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.voiceReady = value;
     }
     /**
-     * Sets the warmup property value. Warmup state for this phone number.
+     * Sets the warmup property value. Messaging and calling warmup for a Leadping phone number.
      * @param value Value to set for the warmup property.
      */
     public void setWarmup(@jakarta.annotation.Nullable final PhoneNumberReadiness value) {

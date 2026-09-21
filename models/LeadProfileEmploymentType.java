@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Employment Type values.
+ * Classifies a lead&apos;s reported employment arrangement for qualification and demographic workflows.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum LeadProfileEmploymentType implements ValuedEnum {

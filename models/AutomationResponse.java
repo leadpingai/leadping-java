@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +30,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<AutomationConnection> connections;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -47,9 +46,13 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Indicates whether Leadping manages this automation configuration response automatically instead of a user.
      */
@@ -67,25 +70,21 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private String managementLevel;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
-     * Organization summary connected to this automation configuration response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationResponseOrganization organization;
     /**
      * Organization ID that owns this automation.
      */
     private String organizationId;
-    /**
-     * Recent automation runs returned for history and troubleshooting.
-     */
-    private java.util.List<AutomationRunRecord> recentRuns;
     /**
      * Scope that limits where this automation configuration response applies in Leadping.
      */
@@ -95,13 +94,13 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<AutomationTrigger> triggers;
     /**
-     * User summary connected to this automation configuration response.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationResponseUser user;
     /**
      * Version number for this automation configuration response schema or saved configuration.
      */
-    private UntypedNode version;
+    private Integer version;
     /**
      * Visibility level that controls who can see this automation configuration response.
      */
@@ -155,7 +154,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.connections;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -201,6 +200,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isSystemManaged", (n) -> { this.setIsSystemManaged(n.getBooleanValue()); });
         deserializerMap.put("lastRunAt", (n) -> { this.setLastRunAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastRunStatus", (n) -> { this.setLastRunStatus(n.getStringValue()); });
@@ -209,21 +209,28 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(AutomationResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
-        deserializerMap.put("recentRuns", (n) -> { this.setRecentRuns(n.getCollectionOfObjectValues(AutomationRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(AutomationResponseUser::createFromDiscriminatorValue)); });
-        deserializerMap.put("version", (n) -> { this.setVersion(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("version", (n) -> { this.setVersion(n.getIntegerValue()); });
         deserializerMap.put("visibility", (n) -> { this.setVisibility(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isSystemManaged property value. Indicates whether Leadping manages this automation configuration response automatically instead of a user.
@@ -258,7 +265,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.managementLevel;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -266,7 +273,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -274,7 +281,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this automation configuration response.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationResponseOrganization}
      */
     @jakarta.annotation.Nullable
@@ -288,14 +295,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getOrganizationId() {
         return this.organizationId;
-    }
-    /**
-     * Gets the recentRuns property value. Recent automation runs returned for history and troubleshooting.
-     * @return a {@link java.util.List<AutomationRunRecord>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<AutomationRunRecord> getRecentRuns() {
-        return this.recentRuns;
     }
     /**
      * Gets the scope property value. Scope that limits where this automation configuration response applies in Leadping.
@@ -314,7 +313,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         return this.triggers;
     }
     /**
-     * Gets the user property value. User summary connected to this automation configuration response.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationResponseUser}
      */
     @jakarta.annotation.Nullable
@@ -323,10 +322,10 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the version property value. Version number for this automation configuration response schema or saved configuration.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
     /**
@@ -351,6 +350,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.getDescription());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isSystemManaged", this.getIsSystemManaged());
         writer.writeOffsetDateTimeValue("lastRunAt", this.getLastRunAt());
         writer.writeStringValue("lastRunStatus", this.getLastRunStatus());
@@ -359,11 +359,10 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("organizationId", this.getOrganizationId());
-        writer.writeCollectionOfObjectValues("recentRuns", this.getRecentRuns());
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
         writer.writeObjectValue("user", this.getUser());
-        writer.writeObjectValue("version", this.getVersion());
+        writer.writeIntegerValue("version", this.getVersion());
         writer.writeStringValue("visibility", this.getVisibility());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -396,7 +395,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.connections = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -424,11 +423,18 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the isSystemManaged property value. Indicates whether Leadping manages this automation configuration response automatically instead of a user.
@@ -459,21 +465,21 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.managementLevel = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this automation configuration response.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final AutomationResponseOrganization value) {
@@ -485,13 +491,6 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
         this.organizationId = value;
-    }
-    /**
-     * Sets the recentRuns property value. Recent automation runs returned for history and troubleshooting.
-     * @param value Value to set for the recentRuns property.
-     */
-    public void setRecentRuns(@jakarta.annotation.Nullable final java.util.List<AutomationRunRecord> value) {
-        this.recentRuns = value;
     }
     /**
      * Sets the scope property value. Scope that limits where this automation configuration response applies in Leadping.
@@ -508,7 +507,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         this.triggers = value;
     }
     /**
-     * Sets the user property value. User summary connected to this automation configuration response.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final AutomationResponseUser value) {
@@ -518,7 +517,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      * Sets the version property value. Version number for this automation configuration response schema or saved configuration.
      * @param value Value to set for the version property.
      */
-    public void setVersion(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setVersion(@jakarta.annotation.Nullable final Integer value) {
         this.version = value;
     }
     /**

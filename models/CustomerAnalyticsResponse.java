@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Response model containing customer analytics data returned by the Leadping API.
+ * Aggregates an organization&apos;s lead performance, response speed, communication usage, automation health, and activation insights.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable {
     /**
-     * Activation health associated with this Leadping customer analytics.
+     * Summarizes an organization&apos;s progress and blockers across onboarding, billing, telephony, compliance, and launch readiness.
      */
     private CustomerActivationHealth activationHealth;
     /**
@@ -22,11 +22,11 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * Automation health associated with this Leadping customer analytics.
+     * Summarizes automation coverage, execution success, failures, and workflows requiring organization attention.
      */
     private CustomerAutomationHealth automationHealth;
     /**
-     * Communication usage associated with this Leadping customer analytics.
+     * Aggregates an organization&apos;s SMS, MMS, and calling activity, delivery outcomes, and billable usage over time.
      */
     private CustomerCommunicationUsage communicationUsage;
     /**
@@ -38,7 +38,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     private java.util.List<CustomerLeadSourceBreakdown> leadSources;
     /**
-     * Lead trend associated with this Leadping customer analytics.
+     * Measures lead creation, qualification, and conversion activity within one reporting time bucket.
      */
     private CustomerLeadTrend leadTrend;
     /**
@@ -46,15 +46,15 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     private java.util.List<CustomerNeedsAttentionItem> needsAttention;
     /**
-     * Range associated with this Leadping customer analytics.
+     * Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
      */
     private AnalyticsDateRange range;
     /**
-     * Response metrics associated with this Leadping customer analytics.
+     * Measures how quickly and consistently an organization responds to leads across supported communication channels.
      */
     private CustomerResponseMetrics responseMetrics;
     /**
-     * Human-readable summary for this Leadping customer analytics.
+     * Summarizes an organization&apos;s primary lead, response, communication, and conversion KPIs for the selected period.
      */
     private CustomerAnalyticsSummary summary;
     /**
@@ -74,7 +74,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return new CustomerAnalyticsResponse();
     }
     /**
-     * Gets the activationHealth property value. Activation health associated with this Leadping customer analytics.
+     * Gets the activationHealth property value. Summarizes an organization&apos;s progress and blockers across onboarding, billing, telephony, compliance, and launch readiness.
      * @return a {@link CustomerActivationHealth}
      */
     @jakarta.annotation.Nullable
@@ -90,7 +90,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
-     * Gets the automationHealth property value. Automation health associated with this Leadping customer analytics.
+     * Gets the automationHealth property value. Summarizes automation coverage, execution success, failures, and workflows requiring organization attention.
      * @return a {@link CustomerAutomationHealth}
      */
     @jakarta.annotation.Nullable
@@ -98,7 +98,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.automationHealth;
     }
     /**
-     * Gets the communicationUsage property value. Communication usage associated with this Leadping customer analytics.
+     * Gets the communicationUsage property value. Aggregates an organization&apos;s SMS, MMS, and calling activity, delivery outcomes, and billable usage over time.
      * @return a {@link CustomerCommunicationUsage}
      */
     @jakarta.annotation.Nullable
@@ -141,7 +141,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.leadSources;
     }
     /**
-     * Gets the leadTrend property value. Lead trend associated with this Leadping customer analytics.
+     * Gets the leadTrend property value. Measures lead creation, qualification, and conversion activity within one reporting time bucket.
      * @return a {@link CustomerLeadTrend}
      */
     @jakarta.annotation.Nullable
@@ -157,7 +157,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.needsAttention;
     }
     /**
-     * Gets the range property value. Range associated with this Leadping customer analytics.
+     * Gets the range property value. Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
      * @return a {@link AnalyticsDateRange}
      */
     @jakarta.annotation.Nullable
@@ -165,7 +165,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.range;
     }
     /**
-     * Gets the responseMetrics property value. Response metrics associated with this Leadping customer analytics.
+     * Gets the responseMetrics property value. Measures how quickly and consistently an organization responds to leads across supported communication channels.
      * @return a {@link CustomerResponseMetrics}
      */
     @jakarta.annotation.Nullable
@@ -173,7 +173,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         return this.responseMetrics;
     }
     /**
-     * Gets the summary property value. Human-readable summary for this Leadping customer analytics.
+     * Gets the summary property value. Summarizes an organization&apos;s primary lead, response, communication, and conversion KPIs for the selected period.
      * @return a {@link CustomerAnalyticsSummary}
      */
     @jakarta.annotation.Nullable
@@ -199,7 +199,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the activationHealth property value. Activation health associated with this Leadping customer analytics.
+     * Sets the activationHealth property value. Summarizes an organization&apos;s progress and blockers across onboarding, billing, telephony, compliance, and launch readiness.
      * @param value Value to set for the activationHealth property.
      */
     public void setActivationHealth(@jakarta.annotation.Nullable final CustomerActivationHealth value) {
@@ -213,14 +213,14 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the automationHealth property value. Automation health associated with this Leadping customer analytics.
+     * Sets the automationHealth property value. Summarizes automation coverage, execution success, failures, and workflows requiring organization attention.
      * @param value Value to set for the automationHealth property.
      */
     public void setAutomationHealth(@jakarta.annotation.Nullable final CustomerAutomationHealth value) {
         this.automationHealth = value;
     }
     /**
-     * Sets the communicationUsage property value. Communication usage associated with this Leadping customer analytics.
+     * Sets the communicationUsage property value. Aggregates an organization&apos;s SMS, MMS, and calling activity, delivery outcomes, and billable usage over time.
      * @param value Value to set for the communicationUsage property.
      */
     public void setCommunicationUsage(@jakarta.annotation.Nullable final CustomerCommunicationUsage value) {
@@ -241,7 +241,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         this.leadSources = value;
     }
     /**
-     * Sets the leadTrend property value. Lead trend associated with this Leadping customer analytics.
+     * Sets the leadTrend property value. Measures lead creation, qualification, and conversion activity within one reporting time bucket.
      * @param value Value to set for the leadTrend property.
      */
     public void setLeadTrend(@jakarta.annotation.Nullable final CustomerLeadTrend value) {
@@ -255,21 +255,21 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         this.needsAttention = value;
     }
     /**
-     * Sets the range property value. Range associated with this Leadping customer analytics.
+     * Sets the range property value. Defines the inclusive reporting window and comparison window used to calculate Leadping analytics.
      * @param value Value to set for the range property.
      */
     public void setRange(@jakarta.annotation.Nullable final AnalyticsDateRange value) {
         this.range = value;
     }
     /**
-     * Sets the responseMetrics property value. Response metrics associated with this Leadping customer analytics.
+     * Sets the responseMetrics property value. Measures how quickly and consistently an organization responds to leads across supported communication channels.
      * @param value Value to set for the responseMetrics property.
      */
     public void setResponseMetrics(@jakarta.annotation.Nullable final CustomerResponseMetrics value) {
         this.responseMetrics = value;
     }
     /**
-     * Sets the summary property value. Human-readable summary for this Leadping customer analytics.
+     * Sets the summary property value. Summarizes an organization&apos;s primary lead, response, communication, and conversion KPIs for the selected period.
      * @param value Value to set for the summary property.
      */
     public void setSummary(@jakarta.annotation.Nullable final CustomerAnalyticsSummary value) {

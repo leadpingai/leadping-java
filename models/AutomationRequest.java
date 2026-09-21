@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -38,11 +37,11 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * The unique identifier for the entity, when updating an existing entity.
+     * Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
      */
     private String id;
     /**
-     * The display name for the entity.
+     * Human-readable display name for the resource, subject to the API&apos;s maximum name length.
      */
     private String name;
     /**
@@ -56,7 +55,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
     /**
      * Version number for this automation configuration request schema or saved configuration.
      */
-    private UntypedNode version;
+    private Integer version;
     /**
      * Visibility level that controls who can see this automation configuration request.
      */
@@ -141,12 +140,12 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
-        deserializerMap.put("version", (n) -> { this.setVersion(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("version", (n) -> { this.setVersion(n.getIntegerValue()); });
         deserializerMap.put("visibility", (n) -> { this.setVisibility(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity, when updating an existing entity.
+     * Gets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -154,7 +153,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -179,10 +178,10 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the version property value. Version number for this automation configuration request schema or saved configuration.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
     /**
@@ -208,7 +207,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("scope", this.getScope());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
-        writer.writeObjectValue("version", this.getVersion());
+        writer.writeIntegerValue("version", this.getVersion());
         writer.writeStringValue("visibility", this.getVisibility());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -255,14 +254,14 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity, when updating an existing entity.
+     * Sets the id property value. Stable unique identifier of an existing resource to update; omit it when the API assigns an identifier during creation.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name for the resource, subject to the API&apos;s maximum name length.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
@@ -286,7 +285,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      * Sets the version property value. Version number for this automation configuration request schema or saved configuration.
      * @param value Value to set for the version property.
      */
-    public void setVersion(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setVersion(@jakarta.annotation.Nullable final Integer value) {
         this.version = value;
     }
     /**

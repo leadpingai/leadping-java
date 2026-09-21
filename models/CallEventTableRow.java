@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +24,11 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billable call duration in seconds.
      */
-    private UntypedNode billableSeconds;
+    private Integer billableSeconds;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -57,7 +56,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Call duration or processing duration represented by this call event table row.
      */
-    private UntypedNode duration;
+    private Integer duration;
     /**
      * UTC timestamp when the call ended.
      */
@@ -74,6 +73,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Unique Leadping identifier for this call event table row.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Lead ID associated with this call event.
      */
@@ -95,11 +98,11 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String organizationName;
     /**
-     * URL for the call recording, when the provider makes one available.
+     * Defines the source that requested outbound delivery.
      */
-    private String recordingUrl;
+    private CallEventTableRowOutboundSource outboundSource;
     /**
-     * Defines the supported Phone Call Status values.
+     * Describes the durable business outcome of a Leadping phone call after provider status normalization.
      */
     private CallEventTableRowStatus status;
     /**
@@ -126,6 +129,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Display name for the person or agent who initiated this call event.
      */
     private String userName;
+    /**
+     * URL for voicemail audio, when the call resulted in a voicemail.
+     */
+    private String voicemailUrl;
     /**
      * Instantiates a new {@link CallEventTableRow} and sets the default values.
      */
@@ -160,18 +167,18 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
      * Gets the billableSeconds property value. Billable call duration in seconds.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableSeconds() {
+    public Integer getBillableSeconds() {
         return this.billableSeconds;
     }
     /**
@@ -224,10 +231,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the duration property value. Call duration or processing duration represented by this call event table row.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDuration() {
+    public Integer getDuration() {
         return this.duration;
     }
     /**
@@ -244,27 +251,28 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
+        deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
         deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
-        deserializerMap.put("duration", (n) -> { this.setDuration(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("duration", (n) -> { this.setDuration(n.getIntegerValue()); });
         deserializerMap.put("endedAt", (n) -> { this.setEndedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
-        deserializerMap.put("recordingUrl", (n) -> { this.setRecordingUrl(n.getStringValue()); });
+        deserializerMap.put("outboundSource", (n) -> { this.setOutboundSource(n.getEnumValue(CallEventTableRowOutboundSource::forValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(CallEventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
@@ -272,6 +280,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("userEmail", (n) -> { this.setUserEmail(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         deserializerMap.put("userName", (n) -> { this.setUserName(n.getStringValue()); });
+        deserializerMap.put("voicemailUrl", (n) -> { this.setVoicemailUrl(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -297,6 +306,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadId property value. Lead ID associated with this call event.
@@ -339,15 +356,15 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.organizationName;
     }
     /**
-     * Gets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @return a {@link String}
+     * Gets the outboundSource property value. Defines the source that requested outbound delivery.
+     * @return a {@link CallEventTableRowOutboundSource}
      */
     @jakarta.annotation.Nullable
-    public String getRecordingUrl() {
-        return this.recordingUrl;
+    public CallEventTableRowOutboundSource getOutboundSource() {
+        return this.outboundSource;
     }
     /**
-     * Gets the status property value. Defines the supported Phone Call Status values.
+     * Gets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @return a {@link CallEventTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -403,31 +420,40 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.userName;
     }
     /**
+     * Gets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVoicemailUrl() {
+        return this.voicemailUrl;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("answeredAt", this.getAnsweredAt());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
-        writer.writeObjectValue("billableSeconds", this.getBillableSeconds());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
+        writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeStringValue("callerId", this.getCallerId());
         writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("direction", this.getDirection());
-        writer.writeObjectValue("duration", this.getDuration());
+        writer.writeIntegerValue("duration", this.getDuration());
         writer.writeOffsetDateTimeValue("endedAt", this.getEndedAt());
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("organization", this.getOrganization());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("organizationName", this.getOrganizationName());
-        writer.writeStringValue("recordingUrl", this.getRecordingUrl());
+        writer.writeEnumValue("outboundSource", this.getOutboundSource());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
@@ -435,6 +461,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("userEmail", this.getUserEmail());
         writer.writeStringValue("userId", this.getUserId());
         writer.writeStringValue("userName", this.getUserName());
+        writer.writeStringValue("voicemailUrl", this.getVoicemailUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -455,14 +482,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
      * Sets the billableSeconds property value. Billable call duration in seconds.
      * @param value Value to set for the billableSeconds property.
      */
-    public void setBillableSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.billableSeconds = value;
     }
     /**
@@ -511,7 +538,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the duration property value. Call duration or processing duration represented by this call event table row.
      * @param value Value to set for the duration property.
      */
-    public void setDuration(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDuration(@jakarta.annotation.Nullable final Integer value) {
         this.duration = value;
     }
     /**
@@ -541,6 +568,13 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with this call event.
@@ -578,14 +612,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         this.organizationName = value;
     }
     /**
-     * Sets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @param value Value to set for the recordingUrl property.
+     * Sets the outboundSource property value. Defines the source that requested outbound delivery.
+     * @param value Value to set for the outboundSource property.
      */
-    public void setRecordingUrl(@jakarta.annotation.Nullable final String value) {
-        this.recordingUrl = value;
+    public void setOutboundSource(@jakarta.annotation.Nullable final CallEventTableRowOutboundSource value) {
+        this.outboundSource = value;
     }
     /**
-     * Sets the status property value. Defines the supported Phone Call Status values.
+     * Sets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final CallEventTableRowStatus value) {
@@ -632,5 +666,12 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setUserName(@jakarta.annotation.Nullable final String value) {
         this.userName = value;
+    }
+    /**
+     * Sets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @param value Value to set for the voicemailUrl property.
+     */
+    public void setVoicemailUrl(@jakarta.annotation.Nullable final String value) {
+        this.voicemailUrl = value;
     }
 }

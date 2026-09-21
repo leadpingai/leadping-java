@@ -4,10 +4,11 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Organization Invitation Status values.
+ * Describes the lifecycle of an organization membership invitation from issuance through acceptance, expiration, or revocation.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationInvitationStatus implements ValuedEnum {
+    AwaitingConfirmation("Awaiting confirmation"),
     Pending("Pending"),
     Accepted("Accepted"),
     Expired("Expired"),
@@ -24,6 +25,7 @@ public enum OrganizationInvitationStatus implements ValuedEnum {
     public static OrganizationInvitationStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "Awaiting confirmation": return AwaitingConfirmation;
             case "Pending": return Pending;
             case "Accepted": return Accepted;
             case "Expired": return Expired;

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * 10DLC draft for this organization activation state.
+ * Describes 10DLC application draft data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OrganizationActivationStateTenDlcDraft extends TenDlcApplicationDraft implements Parsable {

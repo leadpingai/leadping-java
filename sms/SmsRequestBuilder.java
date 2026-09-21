@@ -1,7 +1,7 @@
 package ai.leadping.openapi.sms;
 
+import ai.leadping.openapi.sms.files.FilesRequestBuilder;
 import ai.leadping.openapi.sms.item.WithSmsEventItemRequestBuilder;
-import ai.leadping.openapi.sms.media.MediaRequestBuilder;
 import ai.leadping.openapi.sms.send.SendRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -13,12 +13,12 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SmsRequestBuilder extends BaseRequestBuilder {
     /**
-     * The media property
-     * @return a {@link MediaRequestBuilder}
+     * The files property
+     * @return a {@link FilesRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public MediaRequestBuilder media() {
-        return new MediaRequestBuilder(pathParameters, requestAdapter);
+    public FilesRequestBuilder files() {
+        return new FilesRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The send property
@@ -30,7 +30,7 @@ public class SmsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.sms.item collection
-     * @param smsEventId The sms event identifier.
+     * @param smsEventId The SMS event identifier.
      * @return a {@link WithSmsEventItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

@@ -4,13 +4,12 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes a Leadping phone call, including participants, direction, provider state, timing, recording, and billing details.
+ * Describes a Leadping phone call, including participants, direction, provider state, timing, voicemail, and billing details.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
@@ -25,7 +24,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -47,7 +46,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String conversationId;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -57,7 +56,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     /**
      * Call duration in seconds.
      */
-    private UntypedNode durationSeconds;
+    private Integer durationSeconds;
     /**
      * UTC timestamp when the call ended.
      */
@@ -71,15 +70,19 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Lead ID associated with the call conversation or outreach attempt.
      */
     private String leadId;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -91,15 +94,11 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime queuedAt;
     /**
-     * URL for the call recording, when the provider makes one available.
-     */
-    private String recordingUrl;
-    /**
      * UTC timestamp when the call started ringing.
      */
     private OffsetDateTime ringingAt;
     /**
-     * Defines the supported Outgoing Number Selection Reason values.
+     * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      */
     private PhoneCallResponseSelectionReason selectionReason;
     /**
@@ -107,7 +106,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * Current lifecycle status for this phone call in the Leadping API.
+     * Describes the durable business outcome of a Leadping phone call after provider status normalization.
      */
     private PhoneCallStatus status;
     /**
@@ -118,6 +117,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      * Recipient phone number used for this communication.
      */
     private String toPhoneNumber;
+    /**
+     * URL for voicemail audio, when the call resulted in a voicemail.
+     */
+    private String voicemailUrl;
     /**
      * Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call.
      */
@@ -156,10 +159,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -203,7 +206,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.conversationId;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -220,10 +223,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the durationSeconds property value. Call duration in seconds.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getDurationSeconds() {
+    public Integer getDurationSeconds() {
         return this.durationSeconds;
     }
     /**
@@ -240,9 +243,9 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
@@ -250,22 +253,23 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
-        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getIntegerValue()); });
         deserializerMap.put("endedAt", (n) -> { this.setEndedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("recordingUrl", (n) -> { this.setRecordingUrl(n.getStringValue()); });
         deserializerMap.put("ringingAt", (n) -> { this.setRingingAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(PhoneCallResponseSelectionReason::forValue)); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(PhoneCallStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
+        deserializerMap.put("voicemailUrl", (n) -> { this.setVoicemailUrl(n.getStringValue()); });
         deserializerMap.put("wasManuallyOverridden", (n) -> { this.setWasManuallyOverridden(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -286,12 +290,20 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadId property value. Lead ID associated with the call conversation or outreach attempt.
@@ -302,7 +314,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -326,14 +338,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.queuedAt;
     }
     /**
-     * Gets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getRecordingUrl() {
-        return this.recordingUrl;
-    }
-    /**
      * Gets the ringingAt property value. UTC timestamp when the call started ringing.
      * @return a {@link OffsetDateTime}
      */
@@ -342,7 +346,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.ringingAt;
     }
     /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Gets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @return a {@link PhoneCallResponseSelectionReason}
      */
     @jakarta.annotation.Nullable
@@ -358,7 +362,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the status property value. Current lifecycle status for this phone call in the Leadping API.
+     * Gets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @return a {@link PhoneCallStatus}
      */
     @jakarta.annotation.Nullable
@@ -382,6 +386,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.toPhoneNumber;
     }
     /**
+     * Gets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVoicemailUrl() {
+        return this.voicemailUrl;
+    }
+    /**
      * Gets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call.
      * @return a {@link Boolean}
      */
@@ -396,7 +408,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("answeredAt", this.getAnsweredAt());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeStringValue("callerId", this.getCallerId());
         writer.writeStringValue("campaignId", this.getCampaignId());
@@ -404,22 +416,23 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("direction", this.getDirection());
-        writer.writeObjectValue("durationSeconds", this.getDurationSeconds());
+        writer.writeIntegerValue("durationSeconds", this.getDurationSeconds());
         writer.writeOffsetDateTimeValue("endedAt", this.getEndedAt());
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
-        writer.writeStringValue("recordingUrl", this.getRecordingUrl());
         writer.writeOffsetDateTimeValue("ringingAt", this.getRingingAt());
         writer.writeEnumValue("selectionReason", this.getSelectionReason());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
+        writer.writeStringValue("voicemailUrl", this.getVoicemailUrl());
         writer.writeBooleanValue("wasManuallyOverridden", this.getWasManuallyOverridden());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -441,7 +454,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
@@ -480,7 +493,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.conversationId = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -497,7 +510,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      * Sets the durationSeconds property value. Call duration in seconds.
      * @param value Value to set for the durationSeconds property.
      */
-    public void setDurationSeconds(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setDurationSeconds(@jakarta.annotation.Nullable final Integer value) {
         this.durationSeconds = value;
     }
     /**
@@ -522,11 +535,18 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with the call conversation or outreach attempt.
@@ -536,7 +556,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -557,13 +577,6 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.queuedAt = value;
     }
     /**
-     * Sets the recordingUrl property value. URL for the call recording, when the provider makes one available.
-     * @param value Value to set for the recordingUrl property.
-     */
-    public void setRecordingUrl(@jakarta.annotation.Nullable final String value) {
-        this.recordingUrl = value;
-    }
-    /**
      * Sets the ringingAt property value. UTC timestamp when the call started ringing.
      * @param value Value to set for the ringingAt property.
      */
@@ -571,7 +584,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.ringingAt = value;
     }
     /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Sets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @param value Value to set for the selectionReason property.
      */
     public void setSelectionReason(@jakarta.annotation.Nullable final PhoneCallResponseSelectionReason value) {
@@ -585,7 +598,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the status property value. Current lifecycle status for this phone call in the Leadping API.
+     * Sets the status property value. Describes the durable business outcome of a Leadping phone call after provider status normalization.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final PhoneCallStatus value) {
@@ -604,6 +617,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setToPhoneNumber(@jakarta.annotation.Nullable final String value) {
         this.toPhoneNumber = value;
+    }
+    /**
+     * Sets the voicemailUrl property value. URL for voicemail audio, when the call resulted in a voicemail.
+     * @param value Value to set for the voicemailUrl property.
+     */
+    public void setVoicemailUrl(@jakarta.annotation.Nullable final String value) {
+        this.voicemailUrl = value;
     }
     /**
      * Sets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call.

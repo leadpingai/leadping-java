@@ -4,12 +4,11 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer communication usage data exposed by Leadping analytics.
+ * Aggregates an organization&apos;s SMS, MMS, and calling activity, delivery outcomes, and billable usage over time.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsable {
@@ -20,35 +19,55 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
     /**
      * Number of calls answered during the reporting period.
      */
-    private UntypedNode answeredCalls;
+    private Integer answeredCalls;
+    /**
+     * Number of calls that failed or were blocked during the reporting period.
+     */
+    private Integer callErrors;
     /**
      * Total connected call duration, in minutes, during the reporting period.
      */
-    private UntypedNode callMinutes;
+    private Double callMinutes;
     /**
      * Number of outbound calls placed during the reporting period.
      */
-    private UntypedNode callsPlaced;
+    private Integer callsPlaced;
     /**
      * Number of inbound calls received during the reporting period.
      */
-    private UntypedNode callsReceived;
+    private Integer callsReceived;
     /**
      * Number of SMS messages that failed or were blocked during the reporting period.
      */
-    private UntypedNode failedOrBlockedSms;
+    private Integer failedOrBlockedSms;
+    /**
+     * Manual provider-accepted SMS messages; automated messages are excluded.
+     */
+    private Integer humanResponses;
     /**
      * Number of calls missed during the reporting period.
      */
-    private UntypedNode missedCalls;
+    private Integer missedCalls;
+    /**
+     * Received prospect messages excluding consent and help commands.
+     */
+    private Integer prospectReplies;
+    /**
+     * Messages whose send execution started; queued and scheduled messages are excluded.
+     */
+    private Integer smsAttempted;
+    /**
+     * Messages confirmed delivered, counted at delivery time.
+     */
+    private Integer smsDelivered;
     /**
      * Number of SMS messages received during the reporting period.
      */
-    private UntypedNode smsReceived;
+    private Integer smsReceived;
     /**
-     * Number of SMS messages sent during the reporting period.
+     * Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      */
-    private UntypedNode smsSent;
+    private Integer smsSent;
     /**
      * Collection of trend included with this Leadping customer communication usage.
      */
@@ -56,7 +75,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
     /**
      * Usage spend represented by this Leadping customer communication usage.
      */
-    private UntypedNode usageSpend;
+    private Double usageSpend;
     /**
      * Instantiates a new {@link CustomerCommunicationUsage} and sets the default values.
      */
@@ -83,42 +102,50 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
     }
     /**
      * Gets the answeredCalls property value. Number of calls answered during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getAnsweredCalls() {
+    public Integer getAnsweredCalls() {
         return this.answeredCalls;
     }
     /**
-     * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
-     * @return a {@link UntypedNode}
+     * Gets the callErrors property value. Number of calls that failed or were blocked during the reporting period.
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallMinutes() {
+    public Integer getCallErrors() {
+        return this.callErrors;
+    }
+    /**
+     * Gets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getCallMinutes() {
         return this.callMinutes;
     }
     /**
      * Gets the callsPlaced property value. Number of outbound calls placed during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallsPlaced() {
+    public Integer getCallsPlaced() {
         return this.callsPlaced;
     }
     /**
      * Gets the callsReceived property value. Number of inbound calls received during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCallsReceived() {
+    public Integer getCallsReceived() {
         return this.callsReceived;
     }
     /**
      * Gets the failedOrBlockedSms property value. Number of SMS messages that failed or were blocked during the reporting period.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getFailedOrBlockedSms() {
+    public Integer getFailedOrBlockedSms() {
         return this.failedOrBlockedSms;
     }
     /**
@@ -127,41 +154,78 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
-        deserializerMap.put("answeredCalls", (n) -> { this.setAnsweredCalls(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("failedOrBlockedSms", (n) -> { this.setFailedOrBlockedSms(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        deserializerMap.put("answeredCalls", (n) -> { this.setAnsweredCalls(n.getIntegerValue()); });
+        deserializerMap.put("callErrors", (n) -> { this.setCallErrors(n.getIntegerValue()); });
+        deserializerMap.put("callMinutes", (n) -> { this.setCallMinutes(n.getDoubleValue()); });
+        deserializerMap.put("callsPlaced", (n) -> { this.setCallsPlaced(n.getIntegerValue()); });
+        deserializerMap.put("callsReceived", (n) -> { this.setCallsReceived(n.getIntegerValue()); });
+        deserializerMap.put("failedOrBlockedSms", (n) -> { this.setFailedOrBlockedSms(n.getIntegerValue()); });
+        deserializerMap.put("humanResponses", (n) -> { this.setHumanResponses(n.getIntegerValue()); });
+        deserializerMap.put("missedCalls", (n) -> { this.setMissedCalls(n.getIntegerValue()); });
+        deserializerMap.put("prospectReplies", (n) -> { this.setProspectReplies(n.getIntegerValue()); });
+        deserializerMap.put("smsAttempted", (n) -> { this.setSmsAttempted(n.getIntegerValue()); });
+        deserializerMap.put("smsDelivered", (n) -> { this.setSmsDelivered(n.getIntegerValue()); });
+        deserializerMap.put("smsReceived", (n) -> { this.setSmsReceived(n.getIntegerValue()); });
+        deserializerMap.put("smsSent", (n) -> { this.setSmsSent(n.getIntegerValue()); });
         deserializerMap.put("trend", (n) -> { this.setTrend(n.getCollectionOfObjectValues(CustomerCommunicationUsagePoint::createFromDiscriminatorValue)); });
-        deserializerMap.put("usageSpend", (n) -> { this.setUsageSpend(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("usageSpend", (n) -> { this.setUsageSpend(n.getDoubleValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the missedCalls property value. Number of calls missed during the reporting period.
-     * @return a {@link UntypedNode}
+     * Gets the humanResponses property value. Manual provider-accepted SMS messages; automated messages are excluded.
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getMissedCalls() {
+    public Integer getHumanResponses() {
+        return this.humanResponses;
+    }
+    /**
+     * Gets the missedCalls property value. Number of calls missed during the reporting period.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getMissedCalls() {
         return this.missedCalls;
     }
     /**
-     * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
-     * @return a {@link UntypedNode}
+     * Gets the prospectReplies property value. Received prospect messages excluding consent and help commands.
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsReceived() {
+    public Integer getProspectReplies() {
+        return this.prospectReplies;
+    }
+    /**
+     * Gets the smsAttempted property value. Messages whose send execution started; queued and scheduled messages are excluded.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsAttempted() {
+        return this.smsAttempted;
+    }
+    /**
+     * Gets the smsDelivered property value. Messages confirmed delivered, counted at delivery time.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsDelivered() {
+        return this.smsDelivered;
+    }
+    /**
+     * Gets the smsReceived property value. Number of SMS messages received during the reporting period.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getSmsReceived() {
         return this.smsReceived;
     }
     /**
-     * Gets the smsSent property value. Number of SMS messages sent during the reporting period.
-     * @return a {@link UntypedNode}
+     * Gets the smsSent property value. Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSmsSent() {
+    public Integer getSmsSent() {
         return this.smsSent;
     }
     /**
@@ -174,10 +238,10 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
     }
     /**
      * Gets the usageSpend property value. Usage spend represented by this Leadping customer communication usage.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getUsageSpend() {
+    public Double getUsageSpend() {
         return this.usageSpend;
     }
     /**
@@ -186,16 +250,21 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("answeredCalls", this.getAnsweredCalls());
-        writer.writeObjectValue("callMinutes", this.getCallMinutes());
-        writer.writeObjectValue("callsPlaced", this.getCallsPlaced());
-        writer.writeObjectValue("callsReceived", this.getCallsReceived());
-        writer.writeObjectValue("failedOrBlockedSms", this.getFailedOrBlockedSms());
-        writer.writeObjectValue("missedCalls", this.getMissedCalls());
-        writer.writeObjectValue("smsReceived", this.getSmsReceived());
-        writer.writeObjectValue("smsSent", this.getSmsSent());
+        writer.writeIntegerValue("answeredCalls", this.getAnsweredCalls());
+        writer.writeIntegerValue("callErrors", this.getCallErrors());
+        writer.writeDoubleValue("callMinutes", this.getCallMinutes());
+        writer.writeIntegerValue("callsPlaced", this.getCallsPlaced());
+        writer.writeIntegerValue("callsReceived", this.getCallsReceived());
+        writer.writeIntegerValue("failedOrBlockedSms", this.getFailedOrBlockedSms());
+        writer.writeIntegerValue("humanResponses", this.getHumanResponses());
+        writer.writeIntegerValue("missedCalls", this.getMissedCalls());
+        writer.writeIntegerValue("prospectReplies", this.getProspectReplies());
+        writer.writeIntegerValue("smsAttempted", this.getSmsAttempted());
+        writer.writeIntegerValue("smsDelivered", this.getSmsDelivered());
+        writer.writeIntegerValue("smsReceived", this.getSmsReceived());
+        writer.writeIntegerValue("smsSent", this.getSmsSent());
         writer.writeCollectionOfObjectValues("trend", this.getTrend());
-        writer.writeObjectValue("usageSpend", this.getUsageSpend());
+        writer.writeDoubleValue("usageSpend", this.getUsageSpend());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -209,56 +278,91 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      * Sets the answeredCalls property value. Number of calls answered during the reporting period.
      * @param value Value to set for the answeredCalls property.
      */
-    public void setAnsweredCalls(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setAnsweredCalls(@jakarta.annotation.Nullable final Integer value) {
         this.answeredCalls = value;
+    }
+    /**
+     * Sets the callErrors property value. Number of calls that failed or were blocked during the reporting period.
+     * @param value Value to set for the callErrors property.
+     */
+    public void setCallErrors(@jakarta.annotation.Nullable final Integer value) {
+        this.callErrors = value;
     }
     /**
      * Sets the callMinutes property value. Total connected call duration, in minutes, during the reporting period.
      * @param value Value to set for the callMinutes property.
      */
-    public void setCallMinutes(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallMinutes(@jakarta.annotation.Nullable final Double value) {
         this.callMinutes = value;
     }
     /**
      * Sets the callsPlaced property value. Number of outbound calls placed during the reporting period.
      * @param value Value to set for the callsPlaced property.
      */
-    public void setCallsPlaced(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallsPlaced(@jakarta.annotation.Nullable final Integer value) {
         this.callsPlaced = value;
     }
     /**
      * Sets the callsReceived property value. Number of inbound calls received during the reporting period.
      * @param value Value to set for the callsReceived property.
      */
-    public void setCallsReceived(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCallsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.callsReceived = value;
     }
     /**
      * Sets the failedOrBlockedSms property value. Number of SMS messages that failed or were blocked during the reporting period.
      * @param value Value to set for the failedOrBlockedSms property.
      */
-    public void setFailedOrBlockedSms(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setFailedOrBlockedSms(@jakarta.annotation.Nullable final Integer value) {
         this.failedOrBlockedSms = value;
+    }
+    /**
+     * Sets the humanResponses property value. Manual provider-accepted SMS messages; automated messages are excluded.
+     * @param value Value to set for the humanResponses property.
+     */
+    public void setHumanResponses(@jakarta.annotation.Nullable final Integer value) {
+        this.humanResponses = value;
     }
     /**
      * Sets the missedCalls property value. Number of calls missed during the reporting period.
      * @param value Value to set for the missedCalls property.
      */
-    public void setMissedCalls(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setMissedCalls(@jakarta.annotation.Nullable final Integer value) {
         this.missedCalls = value;
+    }
+    /**
+     * Sets the prospectReplies property value. Received prospect messages excluding consent and help commands.
+     * @param value Value to set for the prospectReplies property.
+     */
+    public void setProspectReplies(@jakarta.annotation.Nullable final Integer value) {
+        this.prospectReplies = value;
+    }
+    /**
+     * Sets the smsAttempted property value. Messages whose send execution started; queued and scheduled messages are excluded.
+     * @param value Value to set for the smsAttempted property.
+     */
+    public void setSmsAttempted(@jakarta.annotation.Nullable final Integer value) {
+        this.smsAttempted = value;
+    }
+    /**
+     * Sets the smsDelivered property value. Messages confirmed delivered, counted at delivery time.
+     * @param value Value to set for the smsDelivered property.
+     */
+    public void setSmsDelivered(@jakarta.annotation.Nullable final Integer value) {
+        this.smsDelivered = value;
     }
     /**
      * Sets the smsReceived property value. Number of SMS messages received during the reporting period.
      * @param value Value to set for the smsReceived property.
      */
-    public void setSmsReceived(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsReceived(@jakarta.annotation.Nullable final Integer value) {
         this.smsReceived = value;
     }
     /**
-     * Sets the smsSent property value. Number of SMS messages sent during the reporting period.
+     * Sets the smsSent property value. Provider-accepted outbound messages, counted at acceptance time (SmsSent is the compatibility field name).
      * @param value Value to set for the smsSent property.
      */
-    public void setSmsSent(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSmsSent(@jakarta.annotation.Nullable final Integer value) {
         this.smsSent = value;
     }
     /**
@@ -272,7 +376,7 @@ public class CustomerCommunicationUsage implements AdditionalDataHolder, Parsabl
      * Sets the usageSpend property value. Usage spend represented by this Leadping customer communication usage.
      * @param value Value to set for the usageSpend property.
      */
-    public void setUsageSpend(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setUsageSpend(@jakarta.annotation.Nullable final Double value) {
         this.usageSpend = value;
     }
 }

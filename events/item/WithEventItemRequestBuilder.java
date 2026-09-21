@@ -1,6 +1,5 @@
 package ai.leadping.openapi.events.item;
 
-import ai.leadping.openapi.events.item.detail.DetailRequestBuilder;
 import ai.leadping.openapi.models.EventTableRow;
 import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -21,14 +20,6 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class WithEventItemRequestBuilder extends BaseRequestBuilder {
     /**
-     * The detail property
-     * @return a {@link DetailRequestBuilder}
-     */
-    @jakarta.annotation.Nonnull
-    public DetailRequestBuilder detail() {
-        return new DetailRequestBuilder(pathParameters, requestAdapter);
-    }
-    /**
      * Instantiates a new {@link WithEventItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -48,7 +39,9 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
      * Returns one event record by ID, including event type, timestamps, related entities, and summary payload data.
      * @return a {@link EventTableRow}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public EventTableRow get() {
@@ -59,14 +52,18 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link EventTableRow}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public EventTableRow get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, EventTableRow::createFromDiscriminatorValue);
     }
     /**

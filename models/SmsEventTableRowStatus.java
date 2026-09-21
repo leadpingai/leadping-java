@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported SMS Message Status values.
+ * Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum SmsEventTableRowStatus implements ValuedEnum {

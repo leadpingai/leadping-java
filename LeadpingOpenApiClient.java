@@ -1,8 +1,9 @@
 package ai.leadping.openapi;
 
+import ai.leadping.openapi.a2a.A2aRequestBuilder;
 import ai.leadping.openapi.analytics.AnalyticsRequestBuilder;
 import ai.leadping.openapi.automations.AutomationsRequestBuilder;
-import ai.leadping.openapi.contact.ContactRequestBuilder;
+import ai.leadping.openapi.blog.BlogRequestBuilder;
 import ai.leadping.openapi.conversations.ConversationsRequestBuilder;
 import ai.leadping.openapi.events.EventsRequestBuilder;
 import ai.leadping.openapi.feedback.FeedbackRequestBuilder;
@@ -25,6 +26,7 @@ import ai.leadping.openapi.transactions.TransactionsRequestBuilder;
 import ai.leadping.openapi.usage.UsageRequestBuilder;
 import ai.leadping.openapi.users.UsersRequestBuilder;
 import ai.leadping.openapi.wallets.WalletsRequestBuilder;
+import ai.leadping.openapi.wellknown.WellKnownRequestBuilder;
 import com.microsoft.kiota.ApiClientBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -45,6 +47,14 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadpingOpenApiClient extends BaseRequestBuilder {
     /**
+     * The a2a property
+     * @return a {@link A2aRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public A2aRequestBuilder a2a() {
+        return new A2aRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The analytics property
      * @return a {@link AnalyticsRequestBuilder}
      */
@@ -61,12 +71,12 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
         return new AutomationsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * The contact property
-     * @return a {@link ContactRequestBuilder}
+     * The blog property
+     * @return a {@link BlogRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public ContactRequestBuilder contact() {
-        return new ContactRequestBuilder(pathParameters, requestAdapter);
+    public BlogRequestBuilder blog() {
+        return new BlogRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The conversations property
@@ -243,6 +253,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public WalletsRequestBuilder wallets() {
         return new WalletsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The wellKnown property
+     * @return a {@link WellKnownRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public WellKnownRequestBuilder wellKnown() {
+        return new WellKnownRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * Instantiates a new {@link LeadpingOpenApiClient} and sets the default values.

@@ -5,7 +5,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -23,17 +22,25 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
      */
     private String detail;
     /**
+     * Validation errors keyed by the JSON request field name. Present for request validation failures.
+     */
+    private ProblemDetailsErrors errors;
+    /**
      * URI reference that identifies this specific occurrence of the problem.
      */
     private String instance;
     /**
      * HTTP status code returned for the problem.
      */
-    private UntypedNode status;
+    private Integer status;
     /**
      * Short, human-readable summary of the problem.
      */
     private String title;
+    /**
+     * Request trace identifier used to correlate this problem with Leadping diagnostics.
+     */
+    private String traceId;
     /**
      * URI reference that identifies the problem type.
      */
@@ -71,16 +78,26 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         return this.detail;
     }
     /**
+     * Gets the errors property value. Validation errors keyed by the JSON request field name. Present for request validation failures.
+     * @return a {@link ProblemDetailsErrors}
+     */
+    @jakarta.annotation.Nullable
+    public ProblemDetailsErrors getErrors() {
+        return this.errors;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("detail", (n) -> { this.setDetail(n.getStringValue()); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getObjectValue(ProblemDetailsErrors::createFromDiscriminatorValue)); });
         deserializerMap.put("instance", (n) -> { this.setInstance(n.getStringValue()); });
-        deserializerMap.put("status", (n) -> { this.setStatus(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("status", (n) -> { this.setStatus(n.getIntegerValue()); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
+        deserializerMap.put("traceId", (n) -> { this.setTraceId(n.getStringValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         return deserializerMap;
     }
@@ -103,10 +120,10 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
     }
     /**
      * Gets the status property value. HTTP status code returned for the problem.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     /**
@@ -116,6 +133,14 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
     @jakarta.annotation.Nullable
     public String getTitle() {
         return this.title;
+    }
+    /**
+     * Gets the traceId property value. Request trace identifier used to correlate this problem with Leadping diagnostics.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTraceId() {
+        return this.traceId;
     }
     /**
      * Gets the type property value. URI reference that identifies the problem type.
@@ -132,9 +157,11 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("detail", this.getDetail());
+        writer.writeObjectValue("errors", this.getErrors());
         writer.writeStringValue("instance", this.getInstance());
-        writer.writeObjectValue("status", this.getStatus());
+        writer.writeIntegerValue("status", this.getStatus());
         writer.writeStringValue("title", this.getTitle());
+        writer.writeStringValue("traceId", this.getTraceId());
         writer.writeStringValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -153,6 +180,13 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
         this.detail = value;
     }
     /**
+     * Sets the errors property value. Validation errors keyed by the JSON request field name. Present for request validation failures.
+     * @param value Value to set for the errors property.
+     */
+    public void setErrors(@jakarta.annotation.Nullable final ProblemDetailsErrors value) {
+        this.errors = value;
+    }
+    /**
      * Sets the instance property value. URI reference that identifies this specific occurrence of the problem.
      * @param value Value to set for the instance property.
      */
@@ -163,7 +197,7 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
      * Sets the status property value. HTTP status code returned for the problem.
      * @param value Value to set for the status property.
      */
-    public void setStatus(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setStatus(@jakarta.annotation.Nullable final Integer value) {
         this.status = value;
     }
     /**
@@ -172,6 +206,13 @@ public class ProblemDetails extends ApiException implements AdditionalDataHolder
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {
         this.title = value;
+    }
+    /**
+     * Sets the traceId property value. Request trace identifier used to correlate this problem with Leadping diagnostics.
+     * @param value Value to set for the traceId property.
+     */
+    public void setTraceId(@jakarta.annotation.Nullable final String value) {
+        this.traceId = value;
     }
     /**
      * Sets the type property value. URI reference that identifies the problem type.

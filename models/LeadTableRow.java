@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,11 +30,23 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     */
+    private LeadTableRowAssignedTo assignedTo;
+    /**
+     * Leadping user currently responsible for this lead, or null when unassigned.
+     */
+    private String assignedToUserId;
+    /**
+     * Optional profile image URL explicitly associated with the lead.
+     */
+    private String avatarUrl;
+    /**
      * UTC timestamp when this lead table row was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * Current lead status change summary that describes the lead outcome.
+     * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private LeadTableRowCurrentLeadStatus currentLeadStatus;
     /**
@@ -59,11 +70,15 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Last name of the lead, user, or contact represented by this lead table row.
      */
     private String lastName;
     /**
-     * Identifier and display name of the related organization.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadTableRowOrganization organization;
     /**
@@ -71,9 +86,13 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String phone;
     /**
+     * Identifier of the canonical phone identity associated with this lead&apos;s phone number.
+     */
+    private String phoneIdentityId;
+    /**
      * Lead price or transaction price supplied to the Leadping API.
      */
-    private UntypedNode price;
+    private Double price;
     /**
      * Defines the asynchronous verification and enrichment lifecycle for a lead.
      */
@@ -87,7 +106,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String processingStatusReason;
     /**
-     * Identifier and display name of the related source.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadTableRowSource source;
     /**
@@ -155,6 +174,30 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
+     * Gets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     * @return a {@link LeadTableRowAssignedTo}
+     */
+    @jakarta.annotation.Nullable
+    public LeadTableRowAssignedTo getAssignedTo() {
+        return this.assignedTo;
+    }
+    /**
+     * Gets the assignedToUserId property value. Leadping user currently responsible for this lead, or null when unassigned.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAssignedToUserId() {
+        return this.assignedToUserId;
+    }
+    /**
+     * Gets the avatarUrl property value. Optional profile image URL explicitly associated with the lead.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+    /**
      * Gets the createdAt property value. UTC timestamp when this lead table row was created.
      * @return a {@link OffsetDateTime}
      */
@@ -163,7 +206,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link LeadTableRowCurrentLeadStatus}
      */
     @jakarta.annotation.Nullable
@@ -192,10 +235,13 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
+        deserializerMap.put("assignedTo", (n) -> { this.setAssignedTo(n.getObjectValue(LeadTableRowAssignedTo::createFromDiscriminatorValue)); });
+        deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
+        deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(LeadTableRowCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
@@ -203,10 +249,12 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(LeadTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("price", (n) -> { this.setPrice(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
+        deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("processingStatus", (n) -> { this.setProcessingStatus(n.getEnumValue(LeadTableRowProcessingStatus::forValue)); });
         deserializerMap.put("processingStatusChangedAt", (n) -> { this.setProcessingStatusChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("processingStatusReason", (n) -> { this.setProcessingStatusReason(n.getStringValue()); });
@@ -242,6 +290,14 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.isArchived;
     }
     /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
      * Gets the lastName property value. Last name of the lead, user, or contact represented by this lead table row.
      * @return a {@link String}
      */
@@ -250,7 +306,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the organization property value. Identifier and display name of the related organization.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -266,11 +322,19 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.phone;
     }
     /**
-     * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
-     * @return a {@link UntypedNode}
+     * Gets the phoneIdentityId property value. Identifier of the canonical phone identity associated with this lead&apos;s phone number.
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getPrice() {
+    public String getPhoneIdentityId() {
+        return this.phoneIdentityId;
+    }
+    /**
+     * Gets the price property value. Lead price or transaction price supplied to the Leadping API.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getPrice() {
         return this.price;
     }
     /**
@@ -298,7 +362,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.processingStatusReason;
     }
     /**
-     * Gets the source property value. Identifier and display name of the related source.
+     * Gets the source property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadTableRowSource}
      */
     @jakarta.annotation.Nullable
@@ -346,6 +410,9 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeStringValue("archivedByUserId", this.getArchivedByUserId());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
+        writer.writeObjectValue("assignedTo", this.getAssignedTo());
+        writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
+        writer.writeStringValue("avatarUrl", this.getAvatarUrl());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
@@ -353,10 +420,12 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeObjectValue("price", this.getPrice());
+        writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
+        writer.writeDoubleValue("price", this.getPrice());
         writer.writeEnumValue("processingStatus", this.getProcessingStatus());
         writer.writeOffsetDateTimeValue("processingStatusChangedAt", this.getProcessingStatusChangedAt());
         writer.writeStringValue("processingStatusReason", this.getProcessingStatusReason());
@@ -396,6 +465,27 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.archiveReason = value;
     }
     /**
+     * Sets the assignedTo property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     * @param value Value to set for the assignedTo property.
+     */
+    public void setAssignedTo(@jakarta.annotation.Nullable final LeadTableRowAssignedTo value) {
+        this.assignedTo = value;
+    }
+    /**
+     * Sets the assignedToUserId property value. Leadping user currently responsible for this lead, or null when unassigned.
+     * @param value Value to set for the assignedToUserId property.
+     */
+    public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {
+        this.assignedToUserId = value;
+    }
+    /**
+     * Sets the avatarUrl property value. Optional profile image URL explicitly associated with the lead.
+     * @param value Value to set for the avatarUrl property.
+     */
+    public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.avatarUrl = value;
+    }
+    /**
      * Sets the createdAt property value. UTC timestamp when this lead table row was created.
      * @param value Value to set for the createdAt property.
      */
@@ -403,7 +493,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the currentLeadStatus property value. Current lead status change summary that describes the lead outcome.
+     * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @param value Value to set for the currentLeadStatus property.
      */
     public void setCurrentLeadStatus(@jakarta.annotation.Nullable final LeadTableRowCurrentLeadStatus value) {
@@ -445,6 +535,13 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.isArchived = value;
     }
     /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
      * Sets the lastName property value. Last name of the lead, user, or contact represented by this lead table row.
      * @param value Value to set for the lastName property.
      */
@@ -452,7 +549,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the organization property value. Identifier and display name of the related organization.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final LeadTableRowOrganization value) {
@@ -466,10 +563,17 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.phone = value;
     }
     /**
+     * Sets the phoneIdentityId property value. Identifier of the canonical phone identity associated with this lead&apos;s phone number.
+     * @param value Value to set for the phoneIdentityId property.
+     */
+    public void setPhoneIdentityId(@jakarta.annotation.Nullable final String value) {
+        this.phoneIdentityId = value;
+    }
+    /**
      * Sets the price property value. Lead price or transaction price supplied to the Leadping API.
      * @param value Value to set for the price property.
      */
-    public void setPrice(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setPrice(@jakarta.annotation.Nullable final Double value) {
         this.price = value;
     }
     /**
@@ -494,7 +598,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.processingStatusReason = value;
     }
     /**
-     * Sets the source property value. Identifier and display name of the related source.
+     * Sets the source property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final LeadTableRowSource value) {

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -55,7 +54,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String conversationId;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -83,9 +82,13 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String fromPhoneNumberId;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
     /**
      * Lead ID associated with the SMS conversation or outreach attempt.
      */
@@ -95,7 +98,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<MessageMediaAttachment> media;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
@@ -117,7 +120,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     /**
      * Number of retry attempts already made for this SMS message.
      */
-    private UntypedNode retryCount;
+    private Integer retryCount;
     /**
      * UTC timestamp when Leadping is scheduled to send this SMS message.
      */
@@ -127,7 +130,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String scheduledReason;
     /**
-     * Defines the supported Outgoing Number Selection Reason values.
+     * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      */
     private SmsResponseSelectionReason selectionReason;
     /**
@@ -143,7 +146,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * Defines the supported SMS Message Status values.
+     * Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      */
     private SmsResponseStatus status;
     /**
@@ -155,7 +158,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String text;
     /**
-     * Defines the supported SMS Traffic Type values.
+     * Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      */
     private SmsResponseTrafficType trafficType;
     /**
@@ -192,10 +195,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -263,7 +266,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.conversationId;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -308,8 +311,8 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(37);
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(38);
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
@@ -326,6 +329,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
@@ -333,7 +337,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getIntegerValue()); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
         deserializerMap.put("scheduledReason", (n) -> { this.setScheduledReason(n.getStringValue()); });
         deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(SmsResponseSelectionReason::forValue)); });
@@ -365,12 +369,20 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadId property value. Lead ID associated with the SMS conversation or outreach attempt.
@@ -389,7 +401,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.media;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -430,10 +442,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the retryCount property value. Number of retry attempts already made for this SMS message.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRetryCount() {
+    public Integer getRetryCount() {
         return this.retryCount;
     }
     /**
@@ -453,7 +465,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.scheduledReason;
     }
     /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Gets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @return a {@link SmsResponseSelectionReason}
      */
     @jakarta.annotation.Nullable
@@ -485,7 +497,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the status property value. Defines the supported SMS Message Status values.
+     * Gets the status property value. Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      * @return a {@link SmsResponseStatus}
      */
     @jakarta.annotation.Nullable
@@ -509,7 +521,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         return this.text;
     }
     /**
-     * Gets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Gets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @return a {@link SmsResponseTrafficType}
      */
     @jakarta.annotation.Nullable
@@ -538,7 +550,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
         writer.writeStringValue("campaignId", this.getCampaignId());
@@ -555,6 +567,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
@@ -562,7 +575,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
-        writer.writeObjectValue("retryCount", this.getRetryCount());
+        writer.writeIntegerValue("retryCount", this.getRetryCount());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
         writer.writeStringValue("scheduledReason", this.getScheduledReason());
         writer.writeEnumValue("selectionReason", this.getSelectionReason());
@@ -588,7 +601,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
@@ -648,7 +661,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         this.conversationId = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -697,11 +710,18 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with the SMS conversation or outreach attempt.
@@ -718,7 +738,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         this.media = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -756,7 +776,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      * Sets the retryCount property value. Number of retry attempts already made for this SMS message.
      * @param value Value to set for the retryCount property.
      */
-    public void setRetryCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRetryCount(@jakarta.annotation.Nullable final Integer value) {
         this.retryCount = value;
     }
     /**
@@ -774,7 +794,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         this.scheduledReason = value;
     }
     /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Sets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @param value Value to set for the selectionReason property.
      */
     public void setSelectionReason(@jakarta.annotation.Nullable final SmsResponseSelectionReason value) {
@@ -802,7 +822,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the status property value. Defines the supported SMS Message Status values.
+     * Sets the status property value. Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final SmsResponseStatus value) {
@@ -823,7 +843,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         this.text = value;
     }
     /**
-     * Sets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Sets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @param value Value to set for the trafficType property.
      */
     public void setTrafficType(@jakarta.annotation.Nullable final SmsResponseTrafficType value) {

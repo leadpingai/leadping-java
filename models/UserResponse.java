@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,23 +18,23 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Defines the supported Billing Plan values.
+     * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private UserResponseBillingPlan billingPlan;
     /**
-     * Customer-safe billing state for the user&apos;s currently selected organization.
+     * Customer-safe billing state for a Leadping organization.
      */
     private UserResponseBillingState billingState;
     /**
-     * Compliance for this user.
+     * Describes user compliance data used in Leadping API requests and responses.
      */
     private UserResponseCompliance compliance;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * Current organization for this user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private UserResponseCurrentOrganization currentOrganization;
     /**
@@ -47,7 +46,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String firstName;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -55,11 +54,15 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<UserIdentity> identities;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * The date and time when this user last completed the Leadping sign-in flow.
      */
     private OffsetDateTime lastLoggedInAt;
     /**
-     * UTC timestamp for last name on this user.
+     * Last name of the Leadping user.
      */
     private String lastName;
     /**
@@ -67,15 +70,15 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<MobileDevicePreferences> mobileDevicePreferences;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
-     * Notification preferences for this user.
+     * Describes user notification preferences data used in Leadping API requests and responses.
      */
     private UserResponseNotificationPreferences notificationPreferences;
     /**
@@ -101,9 +104,9 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     /**
      * The roles included with this user.
      */
-    private UntypedNode roles;
+    private java.util.List<String> roles;
     /**
-     * Defines the supported Subscription Status values.
+     * Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      */
     private UserResponseSubscriptionStatus subscriptionStatus;
     /**
@@ -135,7 +138,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billingPlan property value. Defines the supported Billing Plan values.
+     * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link UserResponseBillingPlan}
      */
     @jakarta.annotation.Nullable
@@ -143,7 +146,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingPlan;
     }
     /**
-     * Gets the billingState property value. Customer-safe billing state for the user&apos;s currently selected organization.
+     * Gets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @return a {@link UserResponseBillingState}
      */
     @jakarta.annotation.Nullable
@@ -151,7 +154,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.billingState;
     }
     /**
-     * Gets the compliance property value. Compliance for this user.
+     * Gets the compliance property value. Describes user compliance data used in Leadping API requests and responses.
      * @return a {@link UserResponseCompliance}
      */
     @jakarta.annotation.Nullable
@@ -159,7 +162,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.compliance;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -167,7 +170,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the currentOrganization property value. Current organization for this user.
+     * Gets the currentOrganization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link UserResponseCurrentOrganization}
      */
     @jakarta.annotation.Nullable
@@ -188,7 +191,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
@@ -198,6 +201,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("identities", (n) -> { this.setIdentities(n.getCollectionOfObjectValues(UserIdentity::createFromDiscriminatorValue)); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastLoggedInAt", (n) -> { this.setLastLoggedInAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("mobileDevicePreferences", (n) -> { this.setMobileDevicePreferences(n.getCollectionOfObjectValues(MobileDevicePreferences::createFromDiscriminatorValue)); });
@@ -209,7 +213,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("personalDataDeletionRequestedAt", (n) -> { this.setPersonalDataDeletionRequestedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("personalDataDeletionStatus", (n) -> { this.setPersonalDataDeletionStatus(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
-        deserializerMap.put("roles", (n) -> { this.setRoles(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("roles", (n) -> { this.setRoles(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(UserResponseSubscriptionStatus::forValue)); });
         deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         return deserializerMap;
@@ -223,7 +227,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.firstName;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -239,6 +243,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.identities;
     }
     /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
      * Gets the lastLoggedInAt property value. The date and time when this user last completed the Leadping sign-in flow.
      * @return a {@link OffsetDateTime}
      */
@@ -247,7 +259,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.lastLoggedInAt;
     }
     /**
-     * Gets the lastName property value. UTC timestamp for last name on this user.
+     * Gets the lastName property value. Last name of the Leadping user.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -263,7 +275,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.mobileDevicePreferences;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -271,7 +283,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -279,7 +291,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the notificationPreferences property value. Notification preferences for this user.
+     * Gets the notificationPreferences property value. Describes user notification preferences data used in Leadping API requests and responses.
      * @return a {@link UserResponseNotificationPreferences}
      */
     @jakarta.annotation.Nullable
@@ -328,14 +340,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the roles property value. The roles included with this user.
-     * @return a {@link UntypedNode}
+     * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRoles() {
+    public java.util.List<String> getRoles() {
         return this.roles;
     }
     /**
-     * Gets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Gets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @return a {@link UserResponseSubscriptionStatus}
      */
     @jakarta.annotation.Nullable
@@ -365,6 +377,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeCollectionOfObjectValues("identities", this.getIdentities());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastLoggedInAt", this.getLastLoggedInAt());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeCollectionOfObjectValues("mobileDevicePreferences", this.getMobileDevicePreferences());
@@ -376,7 +389,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("personalDataDeletionRequestedAt", this.getPersonalDataDeletionRequestedAt());
         writer.writeStringValue("personalDataDeletionStatus", this.getPersonalDataDeletionStatus());
         writer.writeStringValue("phone", this.getPhone());
-        writer.writeObjectValue("roles", this.getRoles());
+        writer.writeCollectionOfPrimitiveValues("roles", this.getRoles());
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
         writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -389,35 +402,35 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the billingPlan property value. Defines the supported Billing Plan values.
+     * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @param value Value to set for the billingPlan property.
      */
     public void setBillingPlan(@jakarta.annotation.Nullable final UserResponseBillingPlan value) {
         this.billingPlan = value;
     }
     /**
-     * Sets the billingState property value. Customer-safe billing state for the user&apos;s currently selected organization.
+     * Sets the billingState property value. Customer-safe billing state for a Leadping organization.
      * @param value Value to set for the billingState property.
      */
     public void setBillingState(@jakarta.annotation.Nullable final UserResponseBillingState value) {
         this.billingState = value;
     }
     /**
-     * Sets the compliance property value. Compliance for this user.
+     * Sets the compliance property value. Describes user compliance data used in Leadping API requests and responses.
      * @param value Value to set for the compliance property.
      */
     public void setCompliance(@jakarta.annotation.Nullable final UserResponseCompliance value) {
         this.compliance = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the currentOrganization property value. Current organization for this user.
+     * Sets the currentOrganization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the currentOrganization property.
      */
     public void setCurrentOrganization(@jakarta.annotation.Nullable final UserResponseCurrentOrganization value) {
@@ -438,7 +451,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.firstName = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -452,6 +465,13 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.identities = value;
     }
     /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
      * Sets the lastLoggedInAt property value. The date and time when this user last completed the Leadping sign-in flow.
      * @param value Value to set for the lastLoggedInAt property.
      */
@@ -459,7 +479,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.lastLoggedInAt = value;
     }
     /**
-     * Sets the lastName property value. UTC timestamp for last name on this user.
+     * Sets the lastName property value. Last name of the Leadping user.
      * @param value Value to set for the lastName property.
      */
     public void setLastName(@jakarta.annotation.Nullable final String value) {
@@ -473,21 +493,21 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.mobileDevicePreferences = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the notificationPreferences property value. Notification preferences for this user.
+     * Sets the notificationPreferences property value. Describes user notification preferences data used in Leadping API requests and responses.
      * @param value Value to set for the notificationPreferences property.
      */
     public void setNotificationPreferences(@jakarta.annotation.Nullable final UserResponseNotificationPreferences value) {
@@ -532,11 +552,11 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      * Sets the roles property value. The roles included with this user.
      * @param value Value to set for the roles property.
      */
-    public void setRoles(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRoles(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.roles = value;
     }
     /**
-     * Sets the subscriptionStatus property value. Defines the supported Subscription Status values.
+     * Sets the subscriptionStatus property value. Describes an organization&apos;s billing subscription lifecycle, including trial, active, delinquent, canceled, and expired states.
      * @param value Value to set for the subscriptionStatus property.
      */
     public void setSubscriptionStatus(@jakarta.annotation.Nullable final UserResponseSubscriptionStatus value) {

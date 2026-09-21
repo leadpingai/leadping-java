@@ -4,13 +4,12 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes ten dlc application draft data used in Leadping API requests and responses.
+ * Describes 10DLC application draft data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
@@ -19,11 +18,11 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The current provider review status for the submitted brand.
+     * Defines the provider lifecycle for an individual 10DLC brand or campaign.
      */
     private TenDlcRegistrationStatus brandStatus;
     /**
-     * The current provider review status for the submitted campaign.
+     * Defines the provider lifecycle for an individual 10DLC brand or campaign.
      */
     private TenDlcRegistrationStatus campaignStatus;
     /**
@@ -53,7 +52,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     /**
      * Expected monthly volume for this 10DLC application draft.
      */
-    private UntypedNode expectedMonthlyVolume;
+    private Integer expectedMonthlyVolume;
     /**
      * The Telnyx brand vertical for this 10DLC application draft. The JSON name is retained for backward compatibility.
      */
@@ -105,7 +104,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     /**
      * Version for this 10DLC application draft.
      */
-    private UntypedNode version;
+    private Integer version;
     /**
      * Public business website URL submitted to carriers during brand review.
      */
@@ -135,7 +134,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the brandStatus property value. The current provider review status for the submitted brand.
+     * Gets the brandStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @return a {@link TenDlcRegistrationStatus}
      */
     @jakarta.annotation.Nullable
@@ -143,7 +142,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         return this.brandStatus;
     }
     /**
-     * Gets the campaignStatus property value. The current provider review status for the submitted campaign.
+     * Gets the campaignStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @return a {@link TenDlcRegistrationStatus}
      */
     @jakarta.annotation.Nullable
@@ -200,10 +199,10 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the expectedMonthlyVolume property value. Expected monthly volume for this 10DLC application draft.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getExpectedMonthlyVolume() {
+    public Integer getExpectedMonthlyVolume() {
         return this.expectedMonthlyVolume;
     }
     /**
@@ -221,7 +220,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         deserializerMap.put("contactName", (n) -> { this.setContactName(n.getStringValue()); });
         deserializerMap.put("contactPhone", (n) -> { this.setContactPhone(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
-        deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("expectedMonthlyVolume", (n) -> { this.setExpectedMonthlyVolume(n.getIntegerValue()); });
         deserializerMap.put("industry", (n) -> { this.setIndustry(n.getStringValue()); });
         deserializerMap.put("lastSubmittedAt", (n) -> { this.setLastSubmittedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("messageExamples", (n) -> { this.setMessageExamples(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -234,7 +233,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         deserializerMap.put("updatedAt", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("useCase", (n) -> { this.setUseCase(n.getStringValue()); });
         deserializerMap.put("useCaseDescription", (n) -> { this.setUseCaseDescription(n.getStringValue()); });
-        deserializerMap.put("version", (n) -> { this.setVersion(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("version", (n) -> { this.setVersion(n.getIntegerValue()); });
         deserializerMap.put("websiteUrl", (n) -> { this.setWebsiteUrl(n.getStringValue()); });
         return deserializerMap;
     }
@@ -336,10 +335,10 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the version property value. Version for this 10DLC application draft.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getVersion() {
+    public Integer getVersion() {
         return this.version;
     }
     /**
@@ -364,7 +363,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("contactName", this.getContactName());
         writer.writeStringValue("contactPhone", this.getContactPhone());
         writer.writeStringValue("ein", this.getEin());
-        writer.writeObjectValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
+        writer.writeIntegerValue("expectedMonthlyVolume", this.getExpectedMonthlyVolume());
         writer.writeStringValue("industry", this.getIndustry());
         writer.writeOffsetDateTimeValue("lastSubmittedAt", this.getLastSubmittedAt());
         writer.writeCollectionOfPrimitiveValues("messageExamples", this.getMessageExamples());
@@ -377,7 +376,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("updatedAt", this.getUpdatedAt());
         writer.writeStringValue("useCase", this.getUseCase());
         writer.writeStringValue("useCaseDescription", this.getUseCaseDescription());
-        writer.writeObjectValue("version", this.getVersion());
+        writer.writeIntegerValue("version", this.getVersion());
         writer.writeStringValue("websiteUrl", this.getWebsiteUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -389,14 +388,14 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the brandStatus property value. The current provider review status for the submitted brand.
+     * Sets the brandStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @param value Value to set for the brandStatus property.
      */
     public void setBrandStatus(@jakarta.annotation.Nullable final TenDlcRegistrationStatus value) {
         this.brandStatus = value;
     }
     /**
-     * Sets the campaignStatus property value. The current provider review status for the submitted campaign.
+     * Sets the campaignStatus property value. Defines the provider lifecycle for an individual 10DLC brand or campaign.
      * @param value Value to set for the campaignStatus property.
      */
     public void setCampaignStatus(@jakarta.annotation.Nullable final TenDlcRegistrationStatus value) {
@@ -448,7 +447,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      * Sets the expectedMonthlyVolume property value. Expected monthly volume for this 10DLC application draft.
      * @param value Value to set for the expectedMonthlyVolume property.
      */
-    public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setExpectedMonthlyVolume(@jakarta.annotation.Nullable final Integer value) {
         this.expectedMonthlyVolume = value;
     }
     /**
@@ -539,7 +538,7 @@ public class TenDlcApplicationDraft implements AdditionalDataHolder, Parsable {
      * Sets the version property value. Version for this 10DLC application draft.
      * @param value Value to set for the version property.
      */
-    public void setVersion(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setVersion(@jakarta.annotation.Nullable final Integer value) {
         this.version = value;
     }
     /**

@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Notification Type values.
+ * Identifies the Leadping workflow or account event communicated by a user notification.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum NotificationType implements ValuedEnum {

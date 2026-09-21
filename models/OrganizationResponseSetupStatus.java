@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported User Setup Status values.
+ * Describes a user&apos;s progress through required Leadping profile and account setup tasks.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationResponseSetupStatus implements ValuedEnum {

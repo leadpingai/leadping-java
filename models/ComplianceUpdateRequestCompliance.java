@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Compliance for this compliance update.
+ * Describes user compliance data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ComplianceUpdateRequestCompliance extends UserCompliance implements Parsable {

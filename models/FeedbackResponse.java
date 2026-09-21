@@ -50,11 +50,11 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
      */
     private String route;
     /**
-     * Current lifecycle status for this feedback item response in the Leadping API.
+     * Defines admin triage statuses for durable product feedback.
      */
     private FeedbackStatus status;
     /**
-     * Type classification used to route and interpret this feedback item response in the Leadping API.
+     * Defines the type of product feedback submitted from inside Leadping.
      */
     private FeedbackType type;
     /**
@@ -170,7 +170,7 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         return this.route;
     }
     /**
-     * Gets the status property value. Current lifecycle status for this feedback item response in the Leadping API.
+     * Gets the status property value. Defines admin triage statuses for durable product feedback.
      * @return a {@link FeedbackStatus}
      */
     @jakarta.annotation.Nullable
@@ -178,7 +178,7 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         return this.status;
     }
     /**
-     * Gets the type property value. Type classification used to route and interpret this feedback item response in the Leadping API.
+     * Gets the type property value. Defines the type of product feedback submitted from inside Leadping.
      * @return a {@link FeedbackType}
      */
     @jakarta.annotation.Nullable
@@ -276,14 +276,14 @@ public class FeedbackResponse implements AdditionalDataHolder, Parsable {
         this.route = value;
     }
     /**
-     * Sets the status property value. Current lifecycle status for this feedback item response in the Leadping API.
+     * Sets the status property value. Defines admin triage statuses for durable product feedback.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final FeedbackStatus value) {
         this.status = value;
     }
     /**
-     * Sets the type property value. Type classification used to route and interpret this feedback item response in the Leadping API.
+     * Sets the type property value. Defines the type of product feedback submitted from inside Leadping.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final FeedbackType value) {

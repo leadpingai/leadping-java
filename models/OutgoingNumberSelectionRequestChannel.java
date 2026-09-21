@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Outgoing Number Channel values.
+ * Identifies whether an outgoing phone number is eligible for voice, SMS, MMS, or another communication channel.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OutgoingNumberSelectionRequestChannel implements ValuedEnum {

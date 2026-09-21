@@ -4,13 +4,12 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents a configurable status that can be assigned to leads.
+ * Describes an organization-defined lead status used to classify pipeline progress, drive automation, and report lifecycle outcomes.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
@@ -19,7 +18,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * LeadStatusChange category represented by the lead status.
+     * Controlled lead status change categories used for reporting, automation, and analytics.
      */
     private LeadStatusCategory category;
     /**
@@ -49,7 +48,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
     /**
      * Relative display order of the lead status.
      */
-    private UntypedNode sortOrder;
+    private Integer sortOrder;
     /**
      * Instantiates a new {@link LeadStatusResponse} and sets the default values.
      */
@@ -75,7 +74,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the category property value. LeadStatusChange category represented by the lead status.
+     * Gets the category property value. Controlled lead status change categories used for reporting, automation, and analytics.
      * @return a {@link LeadStatusCategory}
      */
     @jakarta.annotation.Nullable
@@ -104,7 +103,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
-        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("sortOrder", (n) -> { this.setSortOrder(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -149,10 +148,10 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the sortOrder property value. Relative display order of the lead status.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSortOrder() {
+    public Integer getSortOrder() {
         return this.sortOrder;
     }
     /**
@@ -168,7 +167,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("organizationId", this.getOrganizationId());
-        writer.writeObjectValue("sortOrder", this.getSortOrder());
+        writer.writeIntegerValue("sortOrder", this.getSortOrder());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -179,7 +178,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the category property value. LeadStatusChange category represented by the lead status.
+     * Sets the category property value. Controlled lead status change categories used for reporting, automation, and analytics.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final LeadStatusCategory value) {
@@ -231,7 +230,7 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      * Sets the sortOrder property value. Relative display order of the lead status.
      * @param value Value to set for the sortOrder property.
      */
-    public void setSortOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSortOrder(@jakarta.annotation.Nullable final Integer value) {
         this.sortOrder = value;
     }
 }

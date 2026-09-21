@@ -21,7 +21,7 @@ public class OutgoingNumberManualOverrideRequest implements AdditionalDataHolder
      */
     private String fromPhoneNumberId;
     /**
-     * Selected outgoing number and selection rationale returned by Leadping.
+     * Defines the fields clients can send when working with outgoing number selection.
      */
     private OutgoingNumberSelectionRequest selection;
     /**
@@ -68,7 +68,7 @@ public class OutgoingNumberManualOverrideRequest implements AdditionalDataHolder
         return this.fromPhoneNumberId;
     }
     /**
-     * Gets the selection property value. Selected outgoing number and selection rationale returned by Leadping.
+     * Gets the selection property value. Defines the fields clients can send when working with outgoing number selection.
      * @return a {@link OutgoingNumberSelectionRequest}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class OutgoingNumberManualOverrideRequest implements AdditionalDataHolder
         this.fromPhoneNumberId = value;
     }
     /**
-     * Sets the selection property value. Selected outgoing number and selection rationale returned by Leadping.
+     * Sets the selection property value. Defines the fields clients can send when working with outgoing number selection.
      * @param value Value to set for the selection property.
      */
     public void setSelection(@jakarta.annotation.Nullable final OutgoingNumberSelectionRequest value) {

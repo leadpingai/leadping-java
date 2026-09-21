@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,7 +27,7 @@ public class AutomationAction implements AdditionalDataHolder, Parsable {
     /**
      * Sort order used to evaluate or display this automation action.
      */
-    private UntypedNode order;
+    private Integer order;
     /**
      * Key-value settings that configure how this automation action behaves.
      */
@@ -70,7 +69,7 @@ public class AutomationAction implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isEnabled", (n) -> { this.setIsEnabled(n.getBooleanValue()); });
-        deserializerMap.put("order", (n) -> { this.setOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("order", (n) -> { this.setOrder(n.getIntegerValue()); });
         deserializerMap.put("settings", (n) -> { this.setSettings(n.getObjectValue(AutomationActionSettings::createFromDiscriminatorValue)); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         return deserializerMap;
@@ -93,10 +92,10 @@ public class AutomationAction implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the order property value. Sort order used to evaluate or display this automation action.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getOrder() {
+    public Integer getOrder() {
         return this.order;
     }
     /**
@@ -123,7 +122,7 @@ public class AutomationAction implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isEnabled", this.getIsEnabled());
-        writer.writeObjectValue("order", this.getOrder());
+        writer.writeIntegerValue("order", this.getOrder());
         writer.writeObjectValue("settings", this.getSettings());
         writer.writeStringValue("type", this.getType());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -153,7 +152,7 @@ public class AutomationAction implements AdditionalDataHolder, Parsable {
      * Sets the order property value. Sort order used to evaluate or display this automation action.
      * @param value Value to set for the order property.
      */
-    public void setOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setOrder(@jakarta.annotation.Nullable final Integer value) {
         this.order = value;
     }
     /**

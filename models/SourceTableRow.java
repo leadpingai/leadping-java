@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,10 +26,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> allowedStates;
     /**
-     * Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     */
-    private String apiKey;
-    /**
      * UTC timestamp when the source API key was last used.
      */
     private OffsetDateTime apiKeyLastUsedAt;
@@ -39,9 +34,13 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private String apiKeyPreview;
     /**
+     * UTC timestamp when the source credential was most recently rotated.
+     */
+    private OffsetDateTime apiKeyRotatedAt;
+    /**
      * Total number of authenticated requests made with this source API key.
      */
-    private UntypedNode apiKeyTotalUses;
+    private Long apiKeyTotalUses;
     /**
      * Indicates whether the organization or sender passed compliance review.
      */
@@ -49,13 +48,13 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Configured cost charged when this source creates a billable lead.
      */
-    private UntypedNode costPerLead;
+    private Double costPerLead;
     /**
      * UTC timestamp when this lead source table row was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * User summary for the person who created this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowCreatedByUser createdByUser;
     /**
@@ -83,6 +82,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * UTC timestamp when this source most recently delivered a lead to Leadping.
      */
     private OffsetDateTime lastLeadReceivedAt;
@@ -91,7 +94,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
-     * User summary for the person who last modified this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowModifiedByUser modifiedByUser;
     /**
@@ -99,7 +102,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Organization summary connected to this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowOrganization organization;
     /**
@@ -111,7 +114,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean requiresTrustedForm;
     /**
-     * User summary connected to this lead source table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceTableRowUser user;
     /**
@@ -155,14 +158,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.allowedStates;
     }
     /**
-     * Gets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getApiKey() {
-        return this.apiKey;
-    }
-    /**
      * Gets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.
      * @return a {@link OffsetDateTime}
      */
@@ -179,11 +174,19 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.apiKeyPreview;
     }
     /**
-     * Gets the apiKeyTotalUses property value. Total number of authenticated requests made with this source API key.
-     * @return a {@link UntypedNode}
+     * Gets the apiKeyRotatedAt property value. UTC timestamp when the source credential was most recently rotated.
+     * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getApiKeyTotalUses() {
+    public OffsetDateTime getApiKeyRotatedAt() {
+        return this.apiKeyRotatedAt;
+    }
+    /**
+     * Gets the apiKeyTotalUses property value. Total number of authenticated requests made with this source API key.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getApiKeyTotalUses() {
         return this.apiKeyTotalUses;
     }
     /**
@@ -196,10 +199,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the costPerLead property value. Configured cost charged when this source creates a billable lead.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getCostPerLead() {
+    public Double getCostPerLead() {
         return this.costPerLead;
     }
     /**
@@ -211,7 +214,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the createdByUser property value. User summary for the person who created this lead source table row.
+     * Gets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowCreatedByUser}
      */
     @jakarta.annotation.Nullable
@@ -256,15 +259,15 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
         deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("apiKey", (n) -> { this.setApiKey(n.getStringValue()); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
-        deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
-        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("createdByUser", (n) -> { this.setCreatedByUser(n.getObjectValue(SourceTableRowCreatedByUser::createFromDiscriminatorValue)); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -273,6 +276,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("firstLeadReceivedAt", (n) -> { this.setFirstLeadReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastLeadReceivedAt", (n) -> { this.setLastLeadReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedByUser", (n) -> { this.setModifiedByUser(n.getObjectValue(SourceTableRowModifiedByUser::createFromDiscriminatorValue)); });
@@ -300,6 +304,14 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
      * Gets the lastLeadReceivedAt property value. UTC timestamp when this source most recently delivered a lead to Leadping.
      * @return a {@link OffsetDateTime}
      */
@@ -316,7 +328,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the modifiedByUser property value. User summary for the person who last modified this lead source table row.
+     * Gets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowModifiedByUser}
      */
     @jakarta.annotation.Nullable
@@ -332,7 +344,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this lead source table row.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -356,7 +368,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.requiresTrustedForm;
     }
     /**
-     * Gets the user property value. User summary connected to this lead source table row.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -371,12 +383,12 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
-        writer.writeStringValue("apiKey", this.getApiKey());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
-        writer.writeObjectValue("apiKeyTotalUses", this.getApiKeyTotalUses());
+        writer.writeOffsetDateTimeValue("apiKeyRotatedAt", this.getApiKeyRotatedAt());
+        writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
-        writer.writeObjectValue("costPerLead", this.getCostPerLead());
+        writer.writeDoubleValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("createdByUser", this.getCreatedByUser());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
@@ -385,6 +397,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeOffsetDateTimeValue("firstLeadReceivedAt", this.getFirstLeadReceivedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastLeadReceivedAt", this.getLastLeadReceivedAt());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeObjectValue("modifiedByUser", this.getModifiedByUser());
@@ -417,13 +430,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.allowedStates = value;
     }
     /**
-     * Sets the apiKey property value. Source API key used to authenticate inbound lead delivery to Leadping. Unlike an organization API key, this value remains available to authorized source users.
-     * @param value Value to set for the apiKey property.
-     */
-    public void setApiKey(@jakarta.annotation.Nullable final String value) {
-        this.apiKey = value;
-    }
-    /**
      * Sets the apiKeyLastUsedAt property value. UTC timestamp when the source API key was last used.
      * @param value Value to set for the apiKeyLastUsedAt property.
      */
@@ -438,10 +444,17 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.apiKeyPreview = value;
     }
     /**
+     * Sets the apiKeyRotatedAt property value. UTC timestamp when the source credential was most recently rotated.
+     * @param value Value to set for the apiKeyRotatedAt property.
+     */
+    public void setApiKeyRotatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.apiKeyRotatedAt = value;
+    }
+    /**
      * Sets the apiKeyTotalUses property value. Total number of authenticated requests made with this source API key.
      * @param value Value to set for the apiKeyTotalUses property.
      */
-    public void setApiKeyTotalUses(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setApiKeyTotalUses(@jakarta.annotation.Nullable final Long value) {
         this.apiKeyTotalUses = value;
     }
     /**
@@ -455,7 +468,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      * Sets the costPerLead property value. Configured cost charged when this source creates a billable lead.
      * @param value Value to set for the costPerLead property.
      */
-    public void setCostPerLead(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setCostPerLead(@jakarta.annotation.Nullable final Double value) {
         this.costPerLead = value;
     }
     /**
@@ -466,7 +479,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the createdByUser property value. User summary for the person who created this lead source table row.
+     * Sets the createdByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the createdByUser property.
      */
     public void setCreatedByUser(@jakarta.annotation.Nullable final SourceTableRowCreatedByUser value) {
@@ -515,6 +528,13 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
      * Sets the lastLeadReceivedAt property value. UTC timestamp when this source most recently delivered a lead to Leadping.
      * @param value Value to set for the lastLeadReceivedAt property.
      */
@@ -529,7 +549,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.modifiedAt = value;
     }
     /**
-     * Sets the modifiedByUser property value. User summary for the person who last modified this lead source table row.
+     * Sets the modifiedByUser property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the modifiedByUser property.
      */
     public void setModifiedByUser(@jakarta.annotation.Nullable final SourceTableRowModifiedByUser value) {
@@ -543,7 +563,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this lead source table row.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final SourceTableRowOrganization value) {
@@ -564,7 +584,7 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         this.requiresTrustedForm = value;
     }
     /**
-     * Sets the user property value. User summary connected to this lead source table row.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final SourceTableRowUser value) {

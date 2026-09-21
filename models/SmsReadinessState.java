@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported SMS readiness states.
+ * Describes whether an organization is configured and permitted to send SMS or MMS traffic through Leadping.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum SmsReadinessState implements ValuedEnum {

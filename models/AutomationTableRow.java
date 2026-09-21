@@ -46,6 +46,10 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Indicates whether Leadping manages this automation table row automatically instead of a user.
      */
     private Boolean isSystemManaged;
@@ -70,7 +74,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * Organization summary connected to this automation table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationTableRowOrganization organization;
     /**
@@ -94,7 +98,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private String triggerType;
     /**
-     * User summary connected to this automation table row.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private AutomationTableRowUser user;
     /**
@@ -171,7 +175,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("actionSummary", (n) -> { this.setActionSummary(n.getStringValue()); });
         deserializerMap.put("conditionSummary", (n) -> { this.setConditionSummary(n.getStringValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
@@ -179,6 +183,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("healthSummary", (n) -> { this.setHealthSummary(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isSystemManaged", (n) -> { this.setIsSystemManaged(n.getBooleanValue()); });
         deserializerMap.put("lastRunAt", (n) -> { this.setLastRunAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastRunStatus", (n) -> { this.setLastRunStatus(n.getStringValue()); });
@@ -210,6 +215,14 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isSystemManaged property value. Indicates whether Leadping manages this automation table row automatically instead of a user.
@@ -260,7 +273,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization summary connected to this automation table row.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationTableRowOrganization}
      */
     @jakarta.annotation.Nullable
@@ -308,7 +321,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.triggerType;
     }
     /**
-     * Gets the user property value. User summary connected to this automation table row.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link AutomationTableRowUser}
      */
     @jakarta.annotation.Nullable
@@ -336,6 +349,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("healthSummary", this.getHealthSummary());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isSystemManaged", this.getIsSystemManaged());
         writer.writeOffsetDateTimeValue("lastRunAt", this.getLastRunAt());
         writer.writeStringValue("lastRunStatus", this.getLastRunStatus());
@@ -409,6 +423,13 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
      * Sets the isSystemManaged property value. Indicates whether Leadping manages this automation table row automatically instead of a user.
      * @param value Value to set for the isSystemManaged property.
      */
@@ -451,7 +472,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization summary connected to this automation table row.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final AutomationTableRowOrganization value) {
@@ -493,7 +514,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         this.triggerType = value;
     }
     /**
-     * Sets the user property value. User summary connected to this automation table row.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final AutomationTableRowUser value) {

@@ -37,7 +37,7 @@ public class PhoneLookupCarrier implements AdditionalDataHolder, Parsable {
      */
     private String normalizedCarrier;
     /**
-     * An enumerator describing carrier types
+     * Classifies a telephone number by the network service or carrier category that provides it.
      */
     private PhoneLookupCarrierType type;
     /**
@@ -120,7 +120,7 @@ public class PhoneLookupCarrier implements AdditionalDataHolder, Parsable {
         return this.normalizedCarrier;
     }
     /**
-     * Gets the type property value. An enumerator describing carrier types
+     * Gets the type property value. Classifies a telephone number by the network service or carrier category that provides it.
      * @return a {@link PhoneLookupCarrierType}
      */
     @jakarta.annotation.Nullable
@@ -184,7 +184,7 @@ public class PhoneLookupCarrier implements AdditionalDataHolder, Parsable {
         this.normalizedCarrier = value;
     }
     /**
-     * Sets the type property value. An enumerator describing carrier types
+     * Sets the type property value. Classifies a telephone number by the network service or carrier category that provides it.
      * @param value Value to set for the type property.
      */
     public void setType(@jakarta.annotation.Nullable final PhoneLookupCarrierType value) {

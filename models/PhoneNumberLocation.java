@@ -25,11 +25,11 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     private String canonicalState;
     /**
-     * Latitude and longitude coordinate for this phone number location.
+     * Latitude and longitude coordinate for this lead contact profile.
      */
     private PhoneNumberLocationCoordinate coordinate;
     /**
-     * Describes how the coordinate was resolved.
+     * Describes how a phone location value was resolved.
      */
     private PhoneNumberLocationCoordinateSource coordinateSource;
     /**
@@ -49,7 +49,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     private String timeZoneId;
     /**
-     * Describes how the time zone was resolved.
+     * Describes how a phone location value was resolved.
      */
     private PhoneNumberLocationTimeZoneSource timeZoneSource;
     /**
@@ -93,7 +93,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         return this.canonicalState;
     }
     /**
-     * Gets the coordinate property value. Latitude and longitude coordinate for this phone number location.
+     * Gets the coordinate property value. Latitude and longitude coordinate for this lead contact profile.
      * @return a {@link PhoneNumberLocationCoordinate}
      */
     @jakarta.annotation.Nullable
@@ -101,7 +101,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         return this.coordinate;
     }
     /**
-     * Gets the coordinateSource property value. Describes how the coordinate was resolved.
+     * Gets the coordinateSource property value. Describes how a phone location value was resolved.
      * @return a {@link PhoneNumberLocationCoordinateSource}
      */
     @jakarta.annotation.Nullable
@@ -159,7 +159,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         return this.timeZoneId;
     }
     /**
-     * Gets the timeZoneSource property value. Describes how the time zone was resolved.
+     * Gets the timeZoneSource property value. Describes how a phone location value was resolved.
      * @return a {@link PhoneNumberLocationTimeZoneSource}
      */
     @jakarta.annotation.Nullable
@@ -205,14 +205,14 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         this.canonicalState = value;
     }
     /**
-     * Sets the coordinate property value. Latitude and longitude coordinate for this phone number location.
+     * Sets the coordinate property value. Latitude and longitude coordinate for this lead contact profile.
      * @param value Value to set for the coordinate property.
      */
     public void setCoordinate(@jakarta.annotation.Nullable final PhoneNumberLocationCoordinate value) {
         this.coordinate = value;
     }
     /**
-     * Sets the coordinateSource property value. Describes how the coordinate was resolved.
+     * Sets the coordinateSource property value. Describes how a phone location value was resolved.
      * @param value Value to set for the coordinateSource property.
      */
     public void setCoordinateSource(@jakarta.annotation.Nullable final PhoneNumberLocationCoordinateSource value) {
@@ -247,7 +247,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         this.timeZoneId = value;
     }
     /**
-     * Sets the timeZoneSource property value. Describes how the time zone was resolved.
+     * Sets the timeZoneSource property value. Describes how a phone location value was resolved.
      * @param value Value to set for the timeZoneSource property.
      */
     public void setTimeZoneSource(@jakarta.annotation.Nullable final PhoneNumberLocationTimeZoneSource value) {

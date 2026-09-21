@@ -21,7 +21,7 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
      */
     private String email;
     /**
-     * Organization role assigned to the user.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
@@ -73,7 +73,7 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the role property value. Organization role assigned to the user.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
         this.email = value;
     }
     /**
-     * Sets the role property value. Organization role assigned to the user.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {

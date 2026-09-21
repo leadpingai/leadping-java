@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * User summary connected to this automation table row.
+ * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationTableRowUser extends IdNamePair implements Parsable {

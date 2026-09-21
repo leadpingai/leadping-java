@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Represents customer failing automation data exposed by Leadping analytics.
+ * Identifies an automation with recent execution failures and summarizes its affected leads and failure context.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CustomerFailingAutomation implements AdditionalDataHolder, Parsable {

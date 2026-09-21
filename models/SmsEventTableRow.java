@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +28,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -99,7 +98,11 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isAutomated;
     /**
-     * Identifier and display name of the related lead.
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair lead;
     /**
@@ -151,7 +154,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime sentAt;
     /**
-     * Defines the supported SMS Message Status values.
+     * Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      */
     private SmsEventTableRowStatus status;
     /**
@@ -167,7 +170,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String toPhoneNumber;
     /**
-     * Defines the supported SMS Traffic Type values.
+     * Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      */
     private SmsEventTableRowTrafficType trafficType;
     /**
@@ -224,10 +227,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -340,10 +343,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(41);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(42);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
@@ -361,6 +364,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
@@ -417,7 +421,15 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.isAutomated;
     }
     /**
-     * Gets the lead property value. Identifier and display name of the related lead.
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
+    }
+    /**
+     * Gets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -521,7 +533,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.sentAt;
     }
     /**
-     * Gets the status property value. Defines the supported SMS Message Status values.
+     * Gets the status property value. Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      * @return a {@link SmsEventTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -553,7 +565,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.toPhoneNumber;
     }
     /**
-     * Gets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Gets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @return a {@link SmsEventTableRowTrafficType}
      */
     @jakarta.annotation.Nullable
@@ -592,7 +604,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorUserId", this.getActorUserId());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
         writer.writeOffsetDateTimeValue("canceledAt", this.getCanceledAt());
@@ -610,6 +622,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeObjectValue("lead", this.getLead());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeStringValue("organization", this.getOrganization());
@@ -658,7 +671,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
@@ -781,7 +794,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.isAutomated = value;
     }
     /**
-     * Sets the lead property value. Identifier and display name of the related lead.
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
+     * Sets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the lead property.
      */
     public void setLead(@jakarta.annotation.Nullable final IdNamePair value) {
@@ -872,7 +892,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.sentAt = value;
     }
     /**
-     * Sets the status property value. Defines the supported SMS Message Status values.
+     * Sets the status property value. Describes the normalized lifecycle of an SMS or MMS message from scheduling through delivery or failure.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final SmsEventTableRowStatus value) {
@@ -900,7 +920,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         this.toPhoneNumber = value;
     }
     /**
-     * Sets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Sets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @param value Value to set for the trafficType property.
      */
     public void setTrafficType(@jakarta.annotation.Nullable final SmsEventTableRowTrafficType value) {

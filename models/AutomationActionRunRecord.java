@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,15 +52,23 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
     /**
      * Sort order used to evaluate or display this automation action run record.
      */
-    private UntypedNode order;
+    private Integer order;
     /**
      * Number of processing attempts made for this workflow or delivery request.
      */
-    private UntypedNode processingAttempts;
+    private Integer processingAttempts;
     /**
      * UTC timestamp when this automation action run record was scheduled.
      */
     private OffsetDateTime scheduledAt;
+    /**
+     * Connection selected by a control-flow action such as a weighted random split.
+     */
+    private String selectedConnectionId;
+    /**
+     * Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     */
+    private AutomationActionRunRecordSmsDelivery smsDelivery;
     /**
      * UTC timestamp when processing started for this automation action run record.
      */
@@ -148,7 +155,7 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("actionId", (n) -> { this.setActionId(n.getStringValue()); });
         deserializerMap.put("actionType", (n) -> { this.setActionType(n.getStringValue()); });
         deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
@@ -157,9 +164,11 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         deserializerMap.put("failureCode", (n) -> { this.setFailureCode(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("order", (n) -> { this.setOrder(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
-        deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("order", (n) -> { this.setOrder(n.getIntegerValue()); });
+        deserializerMap.put("processingAttempts", (n) -> { this.setProcessingAttempts(n.getIntegerValue()); });
         deserializerMap.put("scheduledAt", (n) -> { this.setScheduledAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("selectedConnectionId", (n) -> { this.setSelectedConnectionId(n.getStringValue()); });
+        deserializerMap.put("smsDelivery", (n) -> { this.setSmsDelivery(n.getObjectValue(AutomationActionRunRecordSmsDelivery::createFromDiscriminatorValue)); });
         deserializerMap.put("startedAt", (n) -> { this.setStartedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         return deserializerMap;
@@ -182,18 +191,18 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
     }
     /**
      * Gets the order property value. Sort order used to evaluate or display this automation action run record.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getOrder() {
+    public Integer getOrder() {
         return this.order;
     }
     /**
      * Gets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getProcessingAttempts() {
+    public Integer getProcessingAttempts() {
         return this.processingAttempts;
     }
     /**
@@ -203,6 +212,22 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public OffsetDateTime getScheduledAt() {
         return this.scheduledAt;
+    }
+    /**
+     * Gets the selectedConnectionId property value. Connection selected by a control-flow action such as a weighted random split.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getSelectedConnectionId() {
+        return this.selectedConnectionId;
+    }
+    /**
+     * Gets the smsDelivery property value. Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     * @return a {@link AutomationActionRunRecordSmsDelivery}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationActionRunRecordSmsDelivery getSmsDelivery() {
+        return this.smsDelivery;
     }
     /**
      * Gets the startedAt property value. UTC timestamp when processing started for this automation action run record.
@@ -234,9 +259,11 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
         writer.writeStringValue("failureCode", this.getFailureCode());
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
-        writer.writeObjectValue("order", this.getOrder());
-        writer.writeObjectValue("processingAttempts", this.getProcessingAttempts());
+        writer.writeIntegerValue("order", this.getOrder());
+        writer.writeIntegerValue("processingAttempts", this.getProcessingAttempts());
         writer.writeOffsetDateTimeValue("scheduledAt", this.getScheduledAt());
+        writer.writeStringValue("selectedConnectionId", this.getSelectedConnectionId());
+        writer.writeObjectValue("smsDelivery", this.getSmsDelivery());
         writer.writeOffsetDateTimeValue("startedAt", this.getStartedAt());
         writer.writeStringValue("status", this.getStatus());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -308,14 +335,14 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      * Sets the order property value. Sort order used to evaluate or display this automation action run record.
      * @param value Value to set for the order property.
      */
-    public void setOrder(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setOrder(@jakarta.annotation.Nullable final Integer value) {
         this.order = value;
     }
     /**
      * Sets the processingAttempts property value. Number of processing attempts made for this workflow or delivery request.
      * @param value Value to set for the processingAttempts property.
      */
-    public void setProcessingAttempts(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setProcessingAttempts(@jakarta.annotation.Nullable final Integer value) {
         this.processingAttempts = value;
     }
     /**
@@ -324,6 +351,20 @@ public class AutomationActionRunRecord implements AdditionalDataHolder, Parsable
      */
     public void setScheduledAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.scheduledAt = value;
+    }
+    /**
+     * Sets the selectedConnectionId property value. Connection selected by a control-flow action such as a weighted random split.
+     * @param value Value to set for the selectedConnectionId property.
+     */
+    public void setSelectedConnectionId(@jakarta.annotation.Nullable final String value) {
+        this.selectedConnectionId = value;
+    }
+    /**
+     * Sets the smsDelivery property value. Delivery outcome of the persisted SMS. Workflow steps advance on command acceptance, without waiting for delivery.
+     * @param value Value to set for the smsDelivery property.
+     */
+    public void setSmsDelivery(@jakarta.annotation.Nullable final AutomationActionRunRecordSmsDelivery value) {
+        this.smsDelivery = value;
     }
     /**
      * Sets the startedAt property value. UTC timestamp when processing started for this automation action run record.

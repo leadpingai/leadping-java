@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Customer Activation Status values.
+ * Summarizes an organization&apos;s overall progress from initial Leadping onboarding through launch readiness.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationSwitchOptionActivationStatus implements ValuedEnum {

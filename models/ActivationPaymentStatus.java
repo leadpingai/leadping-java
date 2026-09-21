@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Activation Payment Status values.
+ * Describes whether valid funding and payment prerequisites are satisfied during organization activation.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ActivationPaymentStatus implements ValuedEnum {

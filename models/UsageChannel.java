@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Usage Channel values.
+ * Identifies the messaging, calling, phone-number, lookup, or platform channel that generated billable usage.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum UsageChannel implements ValuedEnum {

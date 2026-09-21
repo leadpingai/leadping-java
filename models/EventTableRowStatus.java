@@ -4,7 +4,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Defines the supported Event timeline status values.
+ * Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum EventTableRowStatus implements ValuedEnum {

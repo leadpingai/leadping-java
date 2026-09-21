@@ -37,23 +37,27 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/{callId}/transfer{?newPhoneNumber*}", rawUrl);
     }
     /**
-     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneCallResponse post() {
         return post(null);
     }
     /**
-     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
     public PhoneCallResponse post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -61,11 +65,13 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -73,7 +79,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -95,7 +101,7 @@ public class TransferRequestBuilder extends BaseRequestBuilder {
         return new TransferRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Transfers an active Leadping phone call to a new phone number and returns the updated call record with status and routing details.
+     * The call operation validates ownership and current provider state before returning the updated Leadping call representation.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {

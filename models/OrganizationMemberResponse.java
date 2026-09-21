@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +18,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * The date and time when the entity was created.
+     * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
     /**
@@ -27,7 +26,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String createdByUserId;
     /**
-     * The unique identifier for the entity.
+     * Stable unique identifier of the resource.
      */
     private String id;
     /**
@@ -41,21 +40,21 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
     /**
      * The quantity on the shared organization user license item after this change.
      */
-    private UntypedNode licenseQuantity;
+    private Long licenseQuantity;
     /**
      * The renewal date used for this user&apos;s license proration.
      */
     private OffsetDateTime licenseRenewalDate;
     /**
-     * The date and time when the entity was last modified, if applicable.
+     * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The display name for the entity.
+     * Human-readable display name of the resource.
      */
     private String name;
     /**
-     * Organization for this organization user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair organization;
     /**
@@ -67,11 +66,11 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      */
     private String removedByUserId;
     /**
-     * Role for this organization user.
+     * Identifies an organization member&apos;s access level and permission scope within Leadping.
      */
     private OrganizationMemberRole role;
     /**
-     * User for this organization user.
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair user;
     /**
@@ -103,7 +102,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. The date and time when the entity was created.
+     * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -130,7 +129,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("lastUsedAt", (n) -> { this.setLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
-        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("licenseQuantity", (n) -> { this.setLicenseQuantity(n.getLongValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
@@ -143,7 +142,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The unique identifier for the entity.
+     * Gets the id property value. Stable unique identifier of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -168,10 +167,10 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
     }
     /**
      * Gets the licenseQuantity property value. The quantity on the shared organization user license item after this change.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getLicenseQuantity() {
+    public Long getLicenseQuantity() {
         return this.licenseQuantity;
     }
     /**
@@ -183,7 +182,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.licenseRenewalDate;
     }
     /**
-     * Gets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +190,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.modifiedAt;
     }
     /**
-     * Gets the name property value. The display name for the entity.
+     * Gets the name property value. Human-readable display name of the resource.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -199,7 +198,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.name;
     }
     /**
-     * Gets the organization property value. Organization for this organization user.
+     * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -223,7 +222,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.removedByUserId;
     }
     /**
-     * Gets the role property value. Role for this organization user.
+     * Gets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @return a {@link OrganizationMemberRole}
      */
     @jakarta.annotation.Nullable
@@ -231,7 +230,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         return this.role;
     }
     /**
-     * Gets the user property value. User for this organization user.
+     * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
     @jakarta.annotation.Nullable
@@ -257,7 +256,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         writer.writeStringValue("id", this.getId());
         writer.writeOffsetDateTimeValue("lastUsedAt", this.getLastUsedAt());
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
-        writer.writeObjectValue("licenseQuantity", this.getLicenseQuantity());
+        writer.writeLongValue("licenseQuantity", this.getLicenseQuantity());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
@@ -277,7 +276,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. The date and time when the entity was created.
+     * Sets the createdAt property value. UTC timestamp when the resource was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -291,7 +290,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.createdByUserId = value;
     }
     /**
-     * Sets the id property value. The unique identifier for the entity.
+     * Sets the id property value. Stable unique identifier of the resource.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -315,7 +314,7 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
      * Sets the licenseQuantity property value. The quantity on the shared organization user license item after this change.
      * @param value Value to set for the licenseQuantity property.
      */
-    public void setLicenseQuantity(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setLicenseQuantity(@jakarta.annotation.Nullable final Long value) {
         this.licenseQuantity = value;
     }
     /**
@@ -326,21 +325,21 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.licenseRenewalDate = value;
     }
     /**
-     * Sets the modifiedAt property value. The date and time when the entity was last modified, if applicable.
+     * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the name property value. The display name for the entity.
+     * Sets the name property value. Human-readable display name of the resource.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the organization property value. Organization for this organization user.
+     * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the organization property.
      */
     public void setOrganization(@jakarta.annotation.Nullable final IdNamePair value) {
@@ -361,14 +360,14 @@ public class OrganizationMemberResponse implements AdditionalDataHolder, Parsabl
         this.removedByUserId = value;
     }
     /**
-     * Sets the role property value. Role for this organization user.
+     * Sets the role property value. Identifies an organization member&apos;s access level and permission scope within Leadping.
      * @param value Value to set for the role property.
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
     }
     /**
-     * Sets the user property value. User for this organization user.
+     * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @param value Value to set for the user property.
      */
     public void setUser(@jakarta.annotation.Nullable final IdNamePair value) {

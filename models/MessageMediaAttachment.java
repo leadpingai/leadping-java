@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -22,6 +21,10 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      */
     private String contentType;
     /**
+     * The durable Media record containing this attachment&apos;s scanned bytes.
+     */
+    private String fileId;
+    /**
      * Original file name of the media attachment, when available.
      */
     private String fileName;
@@ -32,7 +35,7 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
     /**
      * Size of the media attachment in bytes.
      */
-    private UntypedNode size;
+    private Long size;
     /**
      * URL from which the media attachment can be retrieved.
      */
@@ -75,13 +78,22 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("contentType", (n) -> { this.setContentType(n.getStringValue()); });
+        deserializerMap.put("fileId", (n) -> { this.setFileId(n.getStringValue()); });
         deserializerMap.put("fileName", (n) -> { this.setFileName(n.getStringValue()); });
         deserializerMap.put("sha256", (n) -> { this.setSha256(n.getStringValue()); });
-        deserializerMap.put("size", (n) -> { this.setSize(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("size", (n) -> { this.setSize(n.getLongValue()); });
         deserializerMap.put("url", (n) -> { this.setUrl(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the fileId property value. The durable Media record containing this attachment&apos;s scanned bytes.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getFileId() {
+        return this.fileId;
     }
     /**
      * Gets the fileName property value. Original file name of the media attachment, when available.
@@ -101,10 +113,10 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the size property value. Size of the media attachment in bytes.
-     * @return a {@link UntypedNode}
+     * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getSize() {
+    public Long getSize() {
         return this.size;
     }
     /**
@@ -122,9 +134,10 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("contentType", this.getContentType());
+        writer.writeStringValue("fileId", this.getFileId());
         writer.writeStringValue("fileName", this.getFileName());
         writer.writeStringValue("sha256", this.getSha256());
-        writer.writeObjectValue("size", this.getSize());
+        writer.writeLongValue("size", this.getSize());
         writer.writeStringValue("url", this.getUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -141,6 +154,13 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      */
     public void setContentType(@jakarta.annotation.Nullable final String value) {
         this.contentType = value;
+    }
+    /**
+     * Sets the fileId property value. The durable Media record containing this attachment&apos;s scanned bytes.
+     * @param value Value to set for the fileId property.
+     */
+    public void setFileId(@jakarta.annotation.Nullable final String value) {
+        this.fileId = value;
     }
     /**
      * Sets the fileName property value. Original file name of the media attachment, when available.
@@ -160,7 +180,7 @@ public class MessageMediaAttachment implements AdditionalDataHolder, Parsable {
      * Sets the size property value. Size of the media attachment in bytes.
      * @param value Value to set for the size property.
      */
-    public void setSize(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setSize(@jakarta.annotation.Nullable final Long value) {
         this.size = value;
     }
     /**

@@ -4,7 +4,6 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
-import com.microsoft.kiota.serialization.UntypedNode;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,9 +30,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Automation run ID opened from this automation event.
+     */
+    private String automationRunId;
+    /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
-    private UntypedNode billableAmount;
+    private Double billableAmount;
     /**
      * Billing state for this communication, charge, or transaction.
      */
@@ -111,6 +114,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Lead ID associated with this timeline event.
      */
     private String leadId;
@@ -145,7 +152,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     /**
      * Number of retry attempts already made for this event timeline table row.
      */
-    private UntypedNode retryCount;
+    private Integer retryCount;
     /**
      * UTC timestamp when the related delivery or workflow action is scheduled to run.
      */
@@ -155,7 +162,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String scheduledReason;
     /**
-     * Defines the supported Outgoing Number Selection Reason values.
+     * Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      */
     private EventTableRowSelectionReason selectionReason;
     /**
@@ -171,7 +178,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * Defines the supported Event timeline status values.
+     * Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
      */
     private EventTableRowStatus status;
     /**
@@ -187,7 +194,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String timelineCategory;
     /**
-     * Timeline type used to render this event in Leadping activity feeds.
+     * Classifies the kind of activity displayed in a lead or conversation event timeline.
      */
     private EventTimelineType timelineType;
     /**
@@ -195,7 +202,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String toPhoneNumber;
     /**
-     * Defines the supported SMS Traffic Type values.
+     * Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      */
     private EventTableRowTrafficType trafficType;
     /**
@@ -255,11 +262,19 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
-     * @return a {@link UntypedNode}
+     * Gets the automationRunId property value. Automation run ID opened from this automation event.
+     * @return a {@link String}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getBillableAmount() {
+    public String getAutomationRunId() {
+        return this.automationRunId;
+    }
+    /**
+     * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getBillableAmount() {
         return this.billableAmount;
     }
     /**
@@ -396,11 +411,12 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(47);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(49);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
-        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
+        deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
@@ -420,6 +436,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
@@ -428,7 +445,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("relatedEntityId", (n) -> { this.setRelatedEntityId(n.getStringValue()); });
         deserializerMap.put("relatedEntityType", (n) -> { this.setRelatedEntityType(n.getStringValue()); });
-        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getObjectValue(UntypedNode::createFromDiscriminatorValue)); });
+        deserializerMap.put("retryCount", (n) -> { this.setRetryCount(n.getIntegerValue()); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
         deserializerMap.put("scheduledReason", (n) -> { this.setScheduledReason(n.getStringValue()); });
         deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(EventTableRowSelectionReason::forValue)); });
@@ -469,6 +486,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadId property value. Lead ID associated with this timeline event.
@@ -536,10 +561,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the retryCount property value. Number of retry attempts already made for this event timeline table row.
-     * @return a {@link UntypedNode}
+     * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
-    public UntypedNode getRetryCount() {
+    public Integer getRetryCount() {
         return this.retryCount;
     }
     /**
@@ -559,7 +584,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.scheduledReason;
     }
     /**
-     * Gets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Gets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @return a {@link EventTableRowSelectionReason}
      */
     @jakarta.annotation.Nullable
@@ -591,7 +616,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the status property value. Defines the supported Event timeline status values.
+     * Gets the status property value. Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
      * @return a {@link EventTableRowStatus}
      */
     @jakarta.annotation.Nullable
@@ -623,7 +648,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.timelineCategory;
     }
     /**
-     * Gets the timelineType property value. Timeline type used to render this event in Leadping activity feeds.
+     * Gets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @return a {@link EventTimelineType}
      */
     @jakarta.annotation.Nullable
@@ -639,7 +664,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.toPhoneNumber;
     }
     /**
-     * Gets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Gets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @return a {@link EventTableRowTrafficType}
      */
     @jakarta.annotation.Nullable
@@ -671,7 +696,8 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorEmail", this.getActorEmail());
         writer.writeStringValue("actorUserId", this.getActorUserId());
-        writer.writeObjectValue("billableAmount", this.getBillableAmount());
+        writer.writeStringValue("automationRunId", this.getAutomationRunId());
+        writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
         writer.writeStringValue("campaignId", this.getCampaignId());
@@ -691,6 +717,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
@@ -699,7 +726,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
         writer.writeStringValue("relatedEntityId", this.getRelatedEntityId());
         writer.writeStringValue("relatedEntityType", this.getRelatedEntityType());
-        writer.writeObjectValue("retryCount", this.getRetryCount());
+        writer.writeIntegerValue("retryCount", this.getRetryCount());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
         writer.writeStringValue("scheduledReason", this.getScheduledReason());
         writer.writeEnumValue("selectionReason", this.getSelectionReason());
@@ -746,10 +773,17 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
+     * Sets the automationRunId property value. Automation run ID opened from this automation event.
+     * @param value Value to set for the automationRunId property.
+     */
+    public void setAutomationRunId(@jakarta.annotation.Nullable final String value) {
+        this.automationRunId = value;
+    }
+    /**
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @param value Value to set for the billableAmount property.
      */
-    public void setBillableAmount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setBillableAmount(@jakarta.annotation.Nullable final Double value) {
         this.billableAmount = value;
     }
     /**
@@ -886,6 +920,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
+    }
+    /**
      * Sets the leadId property value. Lead ID associated with this timeline event.
      * @param value Value to set for the leadId property.
      */
@@ -945,7 +986,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      * Sets the retryCount property value. Number of retry attempts already made for this event timeline table row.
      * @param value Value to set for the retryCount property.
      */
-    public void setRetryCount(@jakarta.annotation.Nullable final UntypedNode value) {
+    public void setRetryCount(@jakarta.annotation.Nullable final Integer value) {
         this.retryCount = value;
     }
     /**
@@ -963,7 +1004,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.scheduledReason = value;
     }
     /**
-     * Sets the selectionReason property value. Defines the supported Outgoing Number Selection Reason values.
+     * Sets the selectionReason property value. Explains why Leadping selected, rejected, or substituted an outgoing caller or messaging number.
      * @param value Value to set for the selectionReason property.
      */
     public void setSelectionReason(@jakarta.annotation.Nullable final EventTableRowSelectionReason value) {
@@ -991,7 +1032,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the status property value. Defines the supported Event timeline status values.
+     * Sets the status property value. Provides the customer-facing outcome shown for an item in a lead or conversation timeline.
      * @param value Value to set for the status property.
      */
     public void setStatus(@jakarta.annotation.Nullable final EventTableRowStatus value) {
@@ -1019,7 +1060,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.timelineCategory = value;
     }
     /**
-     * Sets the timelineType property value. Timeline type used to render this event in Leadping activity feeds.
+     * Sets the timelineType property value. Classifies the kind of activity displayed in a lead or conversation event timeline.
      * @param value Value to set for the timelineType property.
      */
     public void setTimelineType(@jakarta.annotation.Nullable final EventTimelineType value) {
@@ -1033,7 +1074,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.toPhoneNumber = value;
     }
     /**
-     * Sets the trafficType property value. Defines the supported SMS Traffic Type values.
+     * Sets the trafficType property value. Classifies messaging traffic by conversational, informational, marketing, or other compliance-relevant purpose.
      * @param value Value to set for the trafficType property.
      */
     public void setTrafficType(@jakarta.annotation.Nullable final EventTableRowTrafficType value) {

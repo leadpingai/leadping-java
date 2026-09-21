@@ -86,7 +86,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean smsConsentOptedIn;
     /**
-     * The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+     * Describes trusted form certificate data used in Leadping API requests and responses.
      */
     private UserNotificationPreferencesSmsConsentTrustedFormCertificate smsConsentTrustedFormCertificate;
     /**
@@ -322,7 +322,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.smsConsentOptedIn;
     }
     /**
-     * Gets the smsConsentTrustedFormCertificate property value. The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+     * Gets the smsConsentTrustedFormCertificate property value. Describes trusted form certificate data used in Leadping API requests and responses.
      * @return a {@link UserNotificationPreferencesSmsConsentTrustedFormCertificate}
      */
     @jakarta.annotation.Nullable
@@ -563,7 +563,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.smsConsentOptedIn = value;
     }
     /**
-     * Sets the smsConsentTrustedFormCertificate property value. The TrustedForm certificate captured for the user&apos;s most recent SMS opt-in.
+     * Sets the smsConsentTrustedFormCertificate property value. Describes trusted form certificate data used in Leadping API requests and responses.
      * @param value Value to set for the smsConsentTrustedFormCertificate property.
      */
     public void setSmsConsentTrustedFormCertificate(@jakarta.annotation.Nullable final UserNotificationPreferencesSmsConsentTrustedFormCertificate value) {

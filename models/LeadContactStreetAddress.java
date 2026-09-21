@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Postal street address for the lead contact profile.
+ * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class LeadContactStreetAddress extends StreetAddress implements Parsable {
