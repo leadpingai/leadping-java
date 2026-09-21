@@ -1,7 +1,7 @@
 name: Release Java SDK
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: sdk-release
   cancel-in-progress: false
 
 on:
@@ -77,6 +77,16 @@ jobs:
       - name: Build package
         run: mvn -B -Drevision="${{ steps.version.outputs.version }}" verify
 
+      # Reserve the version before any upload. Failed releases keep their tag so
+      # subsequent runs select a new version, even if a registry has not indexed it.
+      - name: Reserve release version
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          git tag "${TAG}"
+          git push origin "refs/tags/${TAG}:refs/tags/${TAG}"
+
       - name: Publish to Maven Central
         env:
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
@@ -112,18 +122,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH__TOKEN || secrets.GIT__TOKEN || github.token }}
           TAG: ${{ steps.version.outputs.tag }}
-          GIT_EMAIL: ${{ secrets.GIT__EMAIL || 'support@leadping.ai' }}
         run: |
           set -euo pipefail
 
           mkdir -p artifacts
           cp target/*.jar artifacts/
 
-          git config user.name "leadpingai-bot"
-          git config user.email "${GIT_EMAIL}"
-          git tag "${TAG}"
-          git push origin "${TAG}"
-
-          gh release create "${TAG}" artifacts/* \
+          gh release create "${TAG}" --verify-tag artifacts/* \
             --title "${TAG}" \
             --notes "Generated Leadping Java SDK ${TAG}. Maven consumers can install this version from Maven Central or GitHub Packages with ai.leadping:leadping:${{ steps.version.outputs.version }}."
