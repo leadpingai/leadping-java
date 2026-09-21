@@ -70,6 +70,10 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Whether this lead status change is missed call follow up.
      */
     private Boolean isMissedCallFollowUp;
@@ -259,7 +263,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
@@ -273,6 +277,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("followUpStatus", (n) -> { this.setFollowUpStatus(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isMissedCallFollowUp", (n) -> { this.setIsMissedCallFollowUp(n.getBooleanValue()); });
         deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
         deserializerMap.put("leadEmail", (n) -> { this.setLeadEmail(n.getStringValue()); });
@@ -308,6 +313,14 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isMissedCallFollowUp property value. Whether this lead status change is missed call follow up.
@@ -472,6 +485,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("followUpStatus", this.getFollowUpStatus());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isMissedCallFollowUp", this.getIsMissedCallFollowUp());
         writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
         writer.writeStringValue("leadEmail", this.getLeadEmail());
@@ -589,6 +603,13 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the isMissedCallFollowUp property value. Whether this lead status change is missed call follow up.

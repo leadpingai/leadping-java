@@ -70,6 +70,10 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Last name of the lead, user, or contact represented by this lead table row.
      */
     private String lastName;
@@ -231,7 +235,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(26);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -245,6 +249,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(LeadTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
@@ -283,6 +288,14 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsArchived() {
         return this.isArchived;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastName property value. Last name of the lead, user, or contact represented by this lead table row.
@@ -407,6 +420,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("phone", this.getPhone());
@@ -519,6 +533,13 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {
         this.isArchived = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastName property value. Last name of the lead, user, or contact represented by this lead table row.

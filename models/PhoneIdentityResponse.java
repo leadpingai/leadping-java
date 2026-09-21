@@ -26,6 +26,10 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * The most recent time lookup data was enriched.
      */
     private OffsetDateTime lastEnrichedAt;
@@ -91,9 +95,10 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastEnrichedAt", (n) -> { this.setLastEnrichedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lookup", (n) -> { this.setLookup(n.getObjectValue(PhoneIdentityResponseLookup::createFromDiscriminatorValue)); });
         deserializerMap.put("lookupActions", (n) -> { this.setLookupActions(n.getCollectionOfObjectValues(PhoneIdentityLookupAction::createFromDiscriminatorValue)); });
@@ -110,6 +115,14 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastEnrichedAt property value. The most recent time lookup data was enriched.
@@ -175,6 +188,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastEnrichedAt", this.getLastEnrichedAt());
         writer.writeObjectValue("lookup", this.getLookup());
         writer.writeCollectionOfObjectValues("lookupActions", this.getLookupActions());
@@ -204,6 +218,13 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastEnrichedAt property value. The most recent time lookup data was enriched.

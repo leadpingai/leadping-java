@@ -30,6 +30,10 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * The associated lead&apos;s profile image URL, when available.
      */
     private String leadAvatarUrl;
@@ -123,10 +127,11 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
         deserializerMap.put("audit", (n) -> { this.setAudit(n.getCollectionOfObjectValues(SuppressionEntryAudit::createFromDiscriminatorValue)); });
         deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
         deserializerMap.put("leadEmail", (n) -> { this.setLeadEmail(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
@@ -148,6 +153,14 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the leadAvatarUrl property value. The associated lead&apos;s profile image URL, when available.
@@ -254,6 +267,7 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
         writer.writeCollectionOfObjectValues("audit", this.getAudit());
         writer.writeStringValue("channel", this.getChannel());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
         writer.writeStringValue("leadEmail", this.getLeadEmail());
         writer.writeStringValue("leadName", this.getLeadName());
@@ -295,6 +309,13 @@ public class SuppressionEntryResponse implements AdditionalDataHolder, Parsable 
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the leadAvatarUrl property value. The associated lead&apos;s profile image URL, when available.

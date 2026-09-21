@@ -54,6 +54,10 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Human-readable last action summary for this Leadping automation workflow run.
      */
     private String lastActionSummary;
@@ -219,7 +223,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationWorkflowActionResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("automation", (n) -> { this.setAutomation(n.getObjectValue(AutomationWorkflowRunResponseAutomation::createFromDiscriminatorValue)); });
         deserializerMap.put("cancelledAt", (n) -> { this.setCancelledAt(n.getOffsetDateTimeValue()); });
@@ -229,6 +233,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         deserializerMap.put("events", (n) -> { this.setEvents(n.getCollectionOfObjectValues(AutomationWorkflowEventResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("failedAt", (n) -> { this.setFailedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastActionSummary", (n) -> { this.setLastActionSummary(n.getStringValue()); });
         deserializerMap.put("lastErrorCode", (n) -> { this.setLastErrorCode(n.getStringValue()); });
         deserializerMap.put("lastErrorMessage", (n) -> { this.setLastErrorMessage(n.getStringValue()); });
@@ -256,6 +261,14 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastActionSummary property value. Human-readable last action summary for this Leadping automation workflow run.
@@ -416,6 +429,7 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
         writer.writeCollectionOfObjectValues("events", this.getEvents());
         writer.writeOffsetDateTimeValue("failedAt", this.getFailedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("lastActionSummary", this.getLastActionSummary());
         writer.writeStringValue("lastErrorCode", this.getLastErrorCode());
         writer.writeStringValue("lastErrorMessage", this.getLastErrorMessage());
@@ -505,6 +519,13 @@ public class AutomationWorkflowRunResponse implements AdditionalDataHolder, Pars
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastActionSummary property value. Human-readable last action summary for this Leadping automation workflow run.

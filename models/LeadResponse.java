@@ -78,6 +78,10 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Public Leadping API schema for lead attribution metadata data.
      */
     private LeadMetadata metadata;
@@ -239,7 +243,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
@@ -255,6 +259,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(LeadMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phoneIdentity", (n) -> { this.setPhoneIdentity(n.getObjectValue(LeadResponsePhoneIdentity::createFromDiscriminatorValue)); });
@@ -279,6 +284,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsArchived() {
         return this.isArchived;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the metadata property value. Public Leadping API schema for lead attribution metadata data.
@@ -357,6 +370,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeObjectValue("metadata", this.getMetadata());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeObjectValue("phoneIdentity", this.getPhoneIdentity());
@@ -477,6 +491,13 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {
         this.isArchived = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the metadata property value. Public Leadping API schema for lead attribution metadata data.

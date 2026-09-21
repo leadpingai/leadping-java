@@ -54,6 +54,10 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<UserIdentity> identities;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * The date and time when this user last completed the Leadping sign-in flow.
      */
     private OffsetDateTime lastLoggedInAt;
@@ -187,7 +191,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
@@ -197,6 +201,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("identities", (n) -> { this.setIdentities(n.getCollectionOfObjectValues(UserIdentity::createFromDiscriminatorValue)); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastLoggedInAt", (n) -> { this.setLastLoggedInAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("mobileDevicePreferences", (n) -> { this.setMobileDevicePreferences(n.getCollectionOfObjectValues(MobileDevicePreferences::createFromDiscriminatorValue)); });
@@ -236,6 +241,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public java.util.List<UserIdentity> getIdentities() {
         return this.identities;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastLoggedInAt property value. The date and time when this user last completed the Leadping sign-in flow.
@@ -364,6 +377,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeCollectionOfObjectValues("identities", this.getIdentities());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastLoggedInAt", this.getLastLoggedInAt());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeCollectionOfObjectValues("mobileDevicePreferences", this.getMobileDevicePreferences());
@@ -449,6 +463,13 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIdentities(@jakarta.annotation.Nullable final java.util.List<UserIdentity> value) {
         this.identities = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastLoggedInAt property value. The date and time when this user last completed the Leadping sign-in flow.

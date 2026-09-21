@@ -38,6 +38,10 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Indicates whether the recipient has opted out of further SMS communication.
      */
     private Boolean isOptOut;
@@ -107,12 +111,13 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
         deserializerMap.put("eventType", (n) -> { this.setEventType(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isOptOut", (n) -> { this.setIsOptOut(n.getBooleanValue()); });
         deserializerMap.put("label", (n) -> { this.setLabel(n.getStringValue()); });
         deserializerMap.put("textPreview", (n) -> { this.setTextPreview(n.getStringValue()); });
@@ -134,6 +139,14 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isOptOut property value. Indicates whether the recipient has opted out of further SMS communication.
@@ -178,6 +191,7 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
         writer.writeStringValue("eventType", this.getEventType());
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isOptOut", this.getIsOptOut());
         writer.writeStringValue("label", this.getLabel());
         writer.writeStringValue("textPreview", this.getTextPreview());
@@ -225,6 +239,13 @@ public class PhoneNumberMessagingEventResponse implements AdditionalDataHolder, 
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the isOptOut property value. Indicates whether the recipient has opted out of further SMS communication.

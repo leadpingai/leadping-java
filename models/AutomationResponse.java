@@ -50,6 +50,10 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * Indicates whether Leadping manages this automation configuration response automatically instead of a user.
      */
     private Boolean isSystemManaged;
@@ -187,7 +191,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
         deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
@@ -196,6 +200,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isSystemManaged", (n) -> { this.setIsSystemManaged(n.getBooleanValue()); });
         deserializerMap.put("lastRunAt", (n) -> { this.setLastRunAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastRunStatus", (n) -> { this.setLastRunStatus(n.getStringValue()); });
@@ -218,6 +223,14 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the isSystemManaged property value. Indicates whether Leadping manages this automation configuration response automatically instead of a user.
@@ -337,6 +350,7 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.getDescription());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isSystemManaged", this.getIsSystemManaged());
         writer.writeOffsetDateTimeValue("lastRunAt", this.getLastRunAt());
         writer.writeStringValue("lastRunStatus", this.getLastRunStatus());
@@ -414,6 +428,13 @@ public class AutomationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the isSystemManaged property value. Indicates whether Leadping manages this automation configuration response automatically instead of a user.
