@@ -70,6 +70,10 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isPublished;
     /**
+     * The lastPublishedAt property
+     */
+    private OffsetDateTime lastPublishedAt;
+    /**
      * The metaDescription property
      */
     private String metaDescription;
@@ -191,7 +195,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("authorName", (n) -> { this.setAuthorName(n.getStringValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("content", (n) -> { this.setContent(n.getStringValue()); });
@@ -205,6 +209,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("imagesProcessing", (n) -> { this.setImagesProcessing(n.getBooleanValue()); });
         deserializerMap.put("isFeatured", (n) -> { this.setIsFeatured(n.getBooleanValue()); });
         deserializerMap.put("isPublished", (n) -> { this.setIsPublished(n.getBooleanValue()); });
+        deserializerMap.put("lastPublishedAt", (n) -> { this.setLastPublishedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("metaDescription", (n) -> { this.setMetaDescription(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("publishedAt", (n) -> { this.setPublishedAt(n.getOffsetDateTimeValue()); });
@@ -253,6 +258,14 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsPublished() {
         return this.isPublished;
+    }
+    /**
+     * Gets the lastPublishedAt property value. The lastPublishedAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastPublishedAt() {
+        return this.lastPublishedAt;
     }
     /**
      * Gets the metaDescription property value. The metaDescription property
@@ -329,6 +342,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("imagesProcessing", this.getImagesProcessing());
         writer.writeBooleanValue("isFeatured", this.getIsFeatured());
         writer.writeBooleanValue("isPublished", this.getIsPublished());
+        writer.writeOffsetDateTimeValue("lastPublishedAt", this.getLastPublishedAt());
         writer.writeStringValue("metaDescription", this.getMetaDescription());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeOffsetDateTimeValue("publishedAt", this.getPublishedAt());
@@ -435,6 +449,13 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsPublished(@jakarta.annotation.Nullable final Boolean value) {
         this.isPublished = value;
+    }
+    /**
+     * Sets the lastPublishedAt property value. The lastPublishedAt property
+     * @param value Value to set for the lastPublishedAt property.
+     */
+    public void setLastPublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastPublishedAt = value;
     }
     /**
      * Sets the metaDescription property value. The metaDescription property
