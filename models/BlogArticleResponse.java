@@ -38,9 +38,17 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private String coverImageAlt;
     /**
+     * The processed cover image height in pixels, when known.
+     */
+    private Integer coverImageHeight;
+    /**
      * The coverImageUrl property
      */
     private String coverImageUrl;
+    /**
+     * The processed cover image width in pixels, when known.
+     */
+    private Integer coverImageWidth;
     /**
      * The createdAt property
      */
@@ -166,12 +174,28 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.coverImageAlt;
     }
     /**
+     * Gets the coverImageHeight property value. The processed cover image height in pixels, when known.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCoverImageHeight() {
+        return this.coverImageHeight;
+    }
+    /**
      * Gets the coverImageUrl property value. The coverImageUrl property
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCoverImageUrl() {
         return this.coverImageUrl;
+    }
+    /**
+     * Gets the coverImageWidth property value. The processed cover image width in pixels, when known.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCoverImageWidth() {
+        return this.coverImageWidth;
     }
     /**
      * Gets the createdAt property value. The createdAt property
@@ -195,13 +219,15 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("authorName", (n) -> { this.setAuthorName(n.getStringValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("content", (n) -> { this.setContent(n.getStringValue()); });
         deserializerMap.put("contentUpdatedAt", (n) -> { this.setContentUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("coverImageAlt", (n) -> { this.setCoverImageAlt(n.getStringValue()); });
+        deserializerMap.put("coverImageHeight", (n) -> { this.setCoverImageHeight(n.getIntegerValue()); });
         deserializerMap.put("coverImageUrl", (n) -> { this.setCoverImageUrl(n.getStringValue()); });
+        deserializerMap.put("coverImageWidth", (n) -> { this.setCoverImageWidth(n.getIntegerValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("excerpt", (n) -> { this.setExcerpt(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -334,7 +360,9 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("content", this.getContent());
         writer.writeOffsetDateTimeValue("contentUpdatedAt", this.getContentUpdatedAt());
         writer.writeStringValue("coverImageAlt", this.getCoverImageAlt());
+        writer.writeIntegerValue("coverImageHeight", this.getCoverImageHeight());
         writer.writeStringValue("coverImageUrl", this.getCoverImageUrl());
+        writer.writeIntegerValue("coverImageWidth", this.getCoverImageWidth());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("excerpt", this.getExcerpt());
         writer.writeStringValue("id", this.getId());
@@ -395,11 +423,25 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.coverImageAlt = value;
     }
     /**
+     * Sets the coverImageHeight property value. The processed cover image height in pixels, when known.
+     * @param value Value to set for the coverImageHeight property.
+     */
+    public void setCoverImageHeight(@jakarta.annotation.Nullable final Integer value) {
+        this.coverImageHeight = value;
+    }
+    /**
      * Sets the coverImageUrl property value. The coverImageUrl property
      * @param value Value to set for the coverImageUrl property.
      */
     public void setCoverImageUrl(@jakarta.annotation.Nullable final String value) {
         this.coverImageUrl = value;
+    }
+    /**
+     * Sets the coverImageWidth property value. The processed cover image width in pixels, when known.
+     * @param value Value to set for the coverImageWidth property.
+     */
+    public void setCoverImageWidth(@jakarta.annotation.Nullable final Integer value) {
+        this.coverImageWidth = value;
     }
     /**
      * Sets the createdAt property value. The createdAt property
