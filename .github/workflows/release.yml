@@ -53,6 +53,21 @@ jobs:
             exit 1
           fi
 
+          # Skip versions published before their Git tag was recorded.
+          while true; do
+            status="$(curl -sSL --head --retry 3 --connect-timeout 15 --max-time 60 -o /dev/null -w '%{http_code}' \
+              "https://repo.maven.apache.org/maven2/ai/leadping/leadping/${version}/leadping-${version}.pom")"
+            case "${status}" in
+              404) break ;;
+              200)
+                echo "Version ${version} is already published; trying the next patch."
+                IFS='.' read -r major minor patch <<< "${version}"
+                version="${major}.${minor}.$((patch + 1))"
+                ;;
+              *) echo "::error::Maven Central lookup failed (HTTP ${status})."; exit 1 ;;
+            esac
+          done
+
           tag="v${version}"
           if git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
             echo "::error::Tag ${tag} already exists."
