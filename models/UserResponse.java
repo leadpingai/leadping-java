@@ -50,10 +50,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The identities included with this user.
-     */
-    private java.util.List<UserIdentity> identities;
-    /**
      * The isDemo property
      */
     private Boolean isDemo;
@@ -191,7 +187,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
@@ -200,7 +196,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
-        deserializerMap.put("identities", (n) -> { this.setIdentities(n.getCollectionOfObjectValues(UserIdentity::createFromDiscriminatorValue)); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastLoggedInAt", (n) -> { this.setLastLoggedInAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
@@ -233,14 +228,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
-    }
-    /**
-     * Gets the identities property value. The identities included with this user.
-     * @return a {@link java.util.List<UserIdentity>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<UserIdentity> getIdentities() {
-        return this.identities;
     }
     /**
      * Gets the isDemo property value. The isDemo property
@@ -376,7 +363,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("email", this.getEmail());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
-        writer.writeCollectionOfObjectValues("identities", this.getIdentities());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastLoggedInAt", this.getLastLoggedInAt());
         writer.writeStringValue("lastName", this.getLastName());
@@ -456,13 +442,6 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
-    }
-    /**
-     * Sets the identities property value. The identities included with this user.
-     * @param value Value to set for the identities property.
-     */
-    public void setIdentities(@jakarta.annotation.Nullable final java.util.List<UserIdentity> value) {
-        this.identities = value;
     }
     /**
      * Sets the isDemo property value. The isDemo property
