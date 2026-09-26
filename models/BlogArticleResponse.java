@@ -94,6 +94,10 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime publishedAt;
     /**
+     * The renderedHtml property
+     */
+    private String renderedHtml;
+    /**
      * The seoTitle property
      */
     private String seoTitle;
@@ -219,7 +223,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("authorName", (n) -> { this.setAuthorName(n.getStringValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("content", (n) -> { this.setContent(n.getStringValue()); });
@@ -239,6 +243,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("metaDescription", (n) -> { this.setMetaDescription(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("publishedAt", (n) -> { this.setPublishedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("renderedHtml", (n) -> { this.setRenderedHtml(n.getStringValue()); });
         deserializerMap.put("seoTitle", (n) -> { this.setSeoTitle(n.getStringValue()); });
         deserializerMap.put("slug", (n) -> { this.setSlug(n.getStringValue()); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
@@ -318,6 +323,14 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.publishedAt;
     }
     /**
+     * Gets the renderedHtml property value. The renderedHtml property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getRenderedHtml() {
+        return this.renderedHtml;
+    }
+    /**
      * Gets the seoTitle property value. The seoTitle property
      * @return a {@link String}
      */
@@ -374,6 +387,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("metaDescription", this.getMetaDescription());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeOffsetDateTimeValue("publishedAt", this.getPublishedAt());
+        writer.writeStringValue("renderedHtml", this.getRenderedHtml());
         writer.writeStringValue("seoTitle", this.getSeoTitle());
         writer.writeStringValue("slug", this.getSlug());
         writer.writeStringValue("title", this.getTitle());
@@ -519,6 +533,13 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     public void setPublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.publishedAt = value;
+    }
+    /**
+     * Sets the renderedHtml property value. The renderedHtml property
+     * @param value Value to set for the renderedHtml property.
+     */
+    public void setRenderedHtml(@jakarta.annotation.Nullable final String value) {
+        this.renderedHtml = value;
     }
     /**
      * Sets the seoTitle property value. The seoTitle property
