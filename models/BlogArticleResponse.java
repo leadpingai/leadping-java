@@ -102,9 +102,29 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private String seoTitle;
     /**
+     * Whether to create a Facebook post after publication.
+     */
+    private Boolean shareOnFacebook;
+    /**
+     * Whether to create a Instagram post after publication.
+     */
+    private Boolean shareOnInstagram;
+    /**
+     * Whether to create a LinkedIn post after publication.
+     */
+    private Boolean shareOnLinkedIn;
+    /**
+     * Whether to create a X post after publication.
+     */
+    private Boolean shareOnX;
+    /**
      * The slug property
      */
     private String slug;
+    /**
+     * The socialPosts property
+     */
+    private java.util.List<BlogSocialPost> socialPosts;
     /**
      * The title property
      */
@@ -223,7 +243,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
         deserializerMap.put("authorName", (n) -> { this.setAuthorName(n.getStringValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("content", (n) -> { this.setContent(n.getStringValue()); });
@@ -245,7 +265,12 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("publishedAt", (n) -> { this.setPublishedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("renderedHtml", (n) -> { this.setRenderedHtml(n.getStringValue()); });
         deserializerMap.put("seoTitle", (n) -> { this.setSeoTitle(n.getStringValue()); });
+        deserializerMap.put("shareOnFacebook", (n) -> { this.setShareOnFacebook(n.getBooleanValue()); });
+        deserializerMap.put("shareOnInstagram", (n) -> { this.setShareOnInstagram(n.getBooleanValue()); });
+        deserializerMap.put("shareOnLinkedIn", (n) -> { this.setShareOnLinkedIn(n.getBooleanValue()); });
+        deserializerMap.put("shareOnX", (n) -> { this.setShareOnX(n.getBooleanValue()); });
         deserializerMap.put("slug", (n) -> { this.setSlug(n.getStringValue()); });
+        deserializerMap.put("socialPosts", (n) -> { this.setSocialPosts(n.getCollectionOfObjectValues(BlogSocialPost::createFromDiscriminatorValue)); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
         deserializerMap.put("unpublishedAt", (n) -> { this.setUnpublishedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
@@ -339,12 +364,52 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.seoTitle;
     }
     /**
+     * Gets the shareOnFacebook property value. Whether to create a Facebook post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnFacebook() {
+        return this.shareOnFacebook;
+    }
+    /**
+     * Gets the shareOnInstagram property value. Whether to create a Instagram post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnInstagram() {
+        return this.shareOnInstagram;
+    }
+    /**
+     * Gets the shareOnLinkedIn property value. Whether to create a LinkedIn post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnLinkedIn() {
+        return this.shareOnLinkedIn;
+    }
+    /**
+     * Gets the shareOnX property value. Whether to create a X post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnX() {
+        return this.shareOnX;
+    }
+    /**
      * Gets the slug property value. The slug property
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSlug() {
         return this.slug;
+    }
+    /**
+     * Gets the socialPosts property value. The socialPosts property
+     * @return a {@link java.util.List<BlogSocialPost>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<BlogSocialPost> getSocialPosts() {
+        return this.socialPosts;
     }
     /**
      * Gets the title property value. The title property
@@ -389,7 +454,12 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("publishedAt", this.getPublishedAt());
         writer.writeStringValue("renderedHtml", this.getRenderedHtml());
         writer.writeStringValue("seoTitle", this.getSeoTitle());
+        writer.writeBooleanValue("shareOnFacebook", this.getShareOnFacebook());
+        writer.writeBooleanValue("shareOnInstagram", this.getShareOnInstagram());
+        writer.writeBooleanValue("shareOnLinkedIn", this.getShareOnLinkedIn());
+        writer.writeBooleanValue("shareOnX", this.getShareOnX());
         writer.writeStringValue("slug", this.getSlug());
+        writer.writeCollectionOfObjectValues("socialPosts", this.getSocialPosts());
         writer.writeStringValue("title", this.getTitle());
         writer.writeOffsetDateTimeValue("unpublishedAt", this.getUnpublishedAt());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -549,11 +619,46 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.seoTitle = value;
     }
     /**
+     * Sets the shareOnFacebook property value. Whether to create a Facebook post after publication.
+     * @param value Value to set for the shareOnFacebook property.
+     */
+    public void setShareOnFacebook(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnFacebook = value;
+    }
+    /**
+     * Sets the shareOnInstagram property value. Whether to create a Instagram post after publication.
+     * @param value Value to set for the shareOnInstagram property.
+     */
+    public void setShareOnInstagram(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnInstagram = value;
+    }
+    /**
+     * Sets the shareOnLinkedIn property value. Whether to create a LinkedIn post after publication.
+     * @param value Value to set for the shareOnLinkedIn property.
+     */
+    public void setShareOnLinkedIn(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnLinkedIn = value;
+    }
+    /**
+     * Sets the shareOnX property value. Whether to create a X post after publication.
+     * @param value Value to set for the shareOnX property.
+     */
+    public void setShareOnX(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnX = value;
+    }
+    /**
      * Sets the slug property value. The slug property
      * @param value Value to set for the slug property.
      */
     public void setSlug(@jakarta.annotation.Nullable final String value) {
         this.slug = value;
+    }
+    /**
+     * Sets the socialPosts property value. The socialPosts property
+     * @param value Value to set for the socialPosts property.
+     */
+    public void setSocialPosts(@jakarta.annotation.Nullable final java.util.List<BlogSocialPost> value) {
+        this.socialPosts = value;
     }
     /**
      * Sets the title property value. The title property
