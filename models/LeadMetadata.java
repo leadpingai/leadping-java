@@ -118,7 +118,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String subId;
     /**
-     * UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      */
     private OffsetDateTime trustedFormCheckedAt;
     /**
@@ -426,7 +426,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.subId;
     }
     /**
-     * Gets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * Gets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -731,7 +731,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.subId = value;
     }
     /**
-     * Sets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * Sets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      * @param value Value to set for the trustedFormCheckedAt property.
      */
     public void setTrustedFormCheckedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
