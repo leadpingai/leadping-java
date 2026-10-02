@@ -25,6 +25,10 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
      */
     private OrganizationMemberRole role;
     /**
+     * Defines the states an organization member can work; this is not verification of professional licensing.
+     */
+    private OrganizationMemberRequestStateEligibility stateEligibility;
+    /**
      * User ID to add, update, or remove from the organization.
      */
     private String userId;
@@ -66,9 +70,10 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(OrganizationMemberRole::forValue)); });
+        deserializerMap.put("stateEligibility", (n) -> { this.setStateEligibility(n.getObjectValue(OrganizationMemberRequestStateEligibility::createFromDiscriminatorValue)); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         return deserializerMap;
     }
@@ -79,6 +84,14 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public OrganizationMemberRole getRole() {
         return this.role;
+    }
+    /**
+     * Gets the stateEligibility property value. Defines the states an organization member can work; this is not verification of professional licensing.
+     * @return a {@link OrganizationMemberRequestStateEligibility}
+     */
+    @jakarta.annotation.Nullable
+    public OrganizationMemberRequestStateEligibility getStateEligibility() {
+        return this.stateEligibility;
     }
     /**
      * Gets the userId property value. User ID to add, update, or remove from the organization.
@@ -96,6 +109,7 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
         Objects.requireNonNull(writer);
         writer.writeStringValue("email", this.getEmail());
         writer.writeEnumValue("role", this.getRole());
+        writer.writeObjectValue("stateEligibility", this.getStateEligibility());
         writer.writeStringValue("userId", this.getUserId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -119,6 +133,13 @@ public class OrganizationMemberRequest implements AdditionalDataHolder, Parsable
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
+    }
+    /**
+     * Sets the stateEligibility property value. Defines the states an organization member can work; this is not verification of professional licensing.
+     * @param value Value to set for the stateEligibility property.
+     */
+    public void setStateEligibility(@jakarta.annotation.Nullable final OrganizationMemberRequestStateEligibility value) {
+        this.stateEligibility = value;
     }
     /**
      * Sets the userId property value. User ID to add, update, or remove from the organization.

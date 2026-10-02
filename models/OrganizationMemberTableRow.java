@@ -38,6 +38,10 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     private OrganizationMemberRole role;
     /**
+     * Defines the states an organization member can work; this is not verification of professional licensing.
+     */
+    private OrganizationMemberStateEligibility stateEligibility;
+    /**
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private IdNamePair user;
@@ -83,12 +87,13 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(OrganizationMemberRole::forValue)); });
+        deserializerMap.put("stateEligibility", (n) -> { this.setStateEligibility(n.getObjectValue(OrganizationMemberStateEligibility::createFromDiscriminatorValue)); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("userEmail", (n) -> { this.setUserEmail(n.getStringValue()); });
         return deserializerMap;
@@ -126,6 +131,14 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         return this.role;
     }
     /**
+     * Gets the stateEligibility property value. Defines the states an organization member can work; this is not verification of professional licensing.
+     * @return a {@link OrganizationMemberStateEligibility}
+     */
+    @jakarta.annotation.Nullable
+    public OrganizationMemberStateEligibility getStateEligibility() {
+        return this.stateEligibility;
+    }
+    /**
      * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link IdNamePair}
      */
@@ -152,6 +165,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeEnumValue("role", this.getRole());
+        writer.writeObjectValue("stateEligibility", this.getStateEligibility());
         writer.writeObjectValue("user", this.getUser());
         writer.writeStringValue("userEmail", this.getUserEmail());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -197,6 +211,13 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     public void setRole(@jakarta.annotation.Nullable final OrganizationMemberRole value) {
         this.role = value;
+    }
+    /**
+     * Sets the stateEligibility property value. Defines the states an organization member can work; this is not verification of professional licensing.
+     * @param value Value to set for the stateEligibility property.
+     */
+    public void setStateEligibility(@jakarta.annotation.Nullable final OrganizationMemberStateEligibility value) {
+        this.stateEligibility = value;
     }
     /**
      * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
