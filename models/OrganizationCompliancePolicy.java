@@ -45,7 +45,7 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
      */
     private Boolean requireSourceComplianceApproval;
     /**
-     * Whether this organization compliance policy requires TrustedForm for automations.
+     * Whether this organization compliance policy requires TrustedForm or Leadping Consent evidence for automations.
      */
     private Boolean requireTrustedFormForAutomations;
     /**
@@ -146,7 +146,7 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
         return this.requireSourceComplianceApproval;
     }
     /**
-     * Gets the requireTrustedFormForAutomations property value. Whether this organization compliance policy requires TrustedForm for automations.
+     * Gets the requireTrustedFormForAutomations property value. Whether this organization compliance policy requires TrustedForm or Leadping Consent evidence for automations.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -226,7 +226,7 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
         this.requireSourceComplianceApproval = value;
     }
     /**
-     * Sets the requireTrustedFormForAutomations property value. Whether this organization compliance policy requires TrustedForm for automations.
+     * Sets the requireTrustedFormForAutomations property value. Whether this organization compliance policy requires TrustedForm or Leadping Consent evidence for automations.
      * @param value Value to set for the requireTrustedFormForAutomations property.
      */
     public void setRequireTrustedFormForAutomations(@jakarta.annotation.Nullable final Boolean value) {

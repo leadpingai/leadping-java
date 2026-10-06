@@ -102,7 +102,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private SourceResponseOrganization organization;
     /**
-     * Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
+     * Indicates whether leads from this source must include a TrustedForm or Leadping Consent certificate for consent proof.
      */
     private Boolean requiresTrustedForm;
     /**
@@ -334,7 +334,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.organization;
     }
     /**
-     * Gets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
+     * Gets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm or Leadping Consent certificate for consent proof.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -535,7 +535,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         this.organization = value;
     }
     /**
-     * Sets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm certificate for consent proof.
+     * Sets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm or Leadping Consent certificate for consent proof.
      * @param value Value to set for the requiresTrustedForm property.
      */
     public void setRequiresTrustedForm(@jakarta.annotation.Nullable final Boolean value) {
