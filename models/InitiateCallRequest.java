@@ -41,6 +41,10 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
+     * Connect the authenticated user&apos;s browser phone to the server-controlled destination call.
+     */
+    private Boolean useBrowserPhone;
+    /**
      * Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call initiation request.
      */
     private Boolean wasManuallyOverridden;
@@ -90,13 +94,14 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("outboundIdempotencyKey", (n) -> { this.setOutboundIdempotencyKey(n.getStringValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
+        deserializerMap.put("useBrowserPhone", (n) -> { this.setUseBrowserPhone(n.getBooleanValue()); });
         deserializerMap.put("wasManuallyOverridden", (n) -> { this.setWasManuallyOverridden(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -133,6 +138,14 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
+     * Gets the useBrowserPhone property value. Connect the authenticated user&apos;s browser phone to the server-controlled destination call.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getUseBrowserPhone() {
+        return this.useBrowserPhone;
+    }
+    /**
      * Gets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call initiation request.
      * @return a {@link Boolean}
      */
@@ -152,6 +165,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("outboundIdempotencyKey", this.getOutboundIdempotencyKey());
         writer.writeStringValue("sourceId", this.getSourceId());
+        writer.writeBooleanValue("useBrowserPhone", this.getUseBrowserPhone());
         writer.writeBooleanValue("wasManuallyOverridden", this.getWasManuallyOverridden());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -203,6 +217,13 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     public void setSourceId(@jakarta.annotation.Nullable final String value) {
         this.sourceId = value;
+    }
+    /**
+     * Sets the useBrowserPhone property value. Connect the authenticated user&apos;s browser phone to the server-controlled destination call.
+     * @param value Value to set for the useBrowserPhone property.
+     */
+    public void setUseBrowserPhone(@jakarta.annotation.Nullable final Boolean value) {
+        this.useBrowserPhone = value;
     }
     /**
      * Sets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this phone call initiation request.

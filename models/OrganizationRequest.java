@@ -37,6 +37,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
+     * Main service or offer described during organization setup.
+     */
+    private String offer;
+    /**
      * Phone details for the lead, user, or organization represented by this organization profile request.
      */
     private String phone;
@@ -44,6 +48,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      * Alternate organization name or DBA shown in Leadping.
      */
     private String secondaryName;
+    /**
+     * Intended audience described during organization setup.
+     */
+    private String targetAudience;
     /**
      * Industry vertical used for lead routing, compliance review, and reporting.
      */
@@ -106,14 +114,16 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationRequestAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
         deserializerMap.put("isYoungerThan90", (n) -> { this.setIsYoungerThan90(n.getBooleanValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("offer", (n) -> { this.setOffer(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("secondaryName", (n) -> { this.setSecondaryName(n.getStringValue()); });
+        deserializerMap.put("targetAudience", (n) -> { this.setTargetAudience(n.getStringValue()); });
         deserializerMap.put("vertical", (n) -> { this.setVertical(n.getStringValue()); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
         return deserializerMap;
@@ -135,6 +145,14 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
+     * Gets the offer property value. Main service or offer described during organization setup.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOffer() {
+        return this.offer;
+    }
+    /**
      * Gets the phone property value. Phone details for the lead, user, or organization represented by this organization profile request.
      * @return a {@link String}
      */
@@ -149,6 +167,14 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getSecondaryName() {
         return this.secondaryName;
+    }
+    /**
+     * Gets the targetAudience property value. Intended audience described during organization setup.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTargetAudience() {
+        return this.targetAudience;
     }
     /**
      * Gets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.
@@ -177,8 +203,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("ein", this.getEin());
         writer.writeBooleanValue("isYoungerThan90", this.getIsYoungerThan90());
         writer.writeStringValue("name", this.getName());
+        writer.writeStringValue("offer", this.getOffer());
         writer.writeStringValue("phone", this.getPhone());
         writer.writeStringValue("secondaryName", this.getSecondaryName());
+        writer.writeStringValue("targetAudience", this.getTargetAudience());
         writer.writeStringValue("vertical", this.getVertical());
         writer.writeStringValue("website", this.getWebsite());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -226,6 +254,13 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
+     * Sets the offer property value. Main service or offer described during organization setup.
+     * @param value Value to set for the offer property.
+     */
+    public void setOffer(@jakarta.annotation.Nullable final String value) {
+        this.offer = value;
+    }
+    /**
      * Sets the phone property value. Phone details for the lead, user, or organization represented by this organization profile request.
      * @param value Value to set for the phone property.
      */
@@ -238,6 +273,13 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     public void setSecondaryName(@jakarta.annotation.Nullable final String value) {
         this.secondaryName = value;
+    }
+    /**
+     * Sets the targetAudience property value. Intended audience described during organization setup.
+     * @param value Value to set for the targetAudience property.
+     */
+    public void setTargetAudience(@jakarta.annotation.Nullable final String value) {
+        this.targetAudience = value;
     }
     /**
      * Sets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.

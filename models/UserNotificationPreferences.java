@@ -82,13 +82,13 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean paymentFailedSmsEnabled;
     /**
+     * Describes Leadping Consent certificate data used in Leadping API requests and responses.
+     */
+    private UserNotificationPreferencesSmsConsentCertificate smsConsentCertificate;
+    /**
      * Whether the user has consented to receive Leadping account notification SMS messages.
      */
     private Boolean smsConsentOptedIn;
-    /**
-     * Describes trusted form certificate data used in Leadping API requests and responses.
-     */
-    private UserNotificationPreferencesSmsConsentTrustedFormCertificate smsConsentTrustedFormCertificate;
     /**
      * When the user&apos;s Leadping notification SMS consent was last changed.
      */
@@ -212,8 +212,8 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("newLeadSmsEnabled", (n) -> { this.setNewLeadSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedEnabled", (n) -> { this.setPaymentFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedSmsEnabled", (n) -> { this.setPaymentFailedSmsEnabled(n.getBooleanValue()); });
+        deserializerMap.put("smsConsentCertificate", (n) -> { this.setSmsConsentCertificate(n.getObjectValue(UserNotificationPreferencesSmsConsentCertificate::createFromDiscriminatorValue)); });
         deserializerMap.put("smsConsentOptedIn", (n) -> { this.setSmsConsentOptedIn(n.getBooleanValue()); });
-        deserializerMap.put("smsConsentTrustedFormCertificate", (n) -> { this.setSmsConsentTrustedFormCertificate(n.getObjectValue(UserNotificationPreferencesSmsConsentTrustedFormCertificate::createFromDiscriminatorValue)); });
         deserializerMap.put("smsConsentUpdatedAt", (n) -> { this.setSmsConsentUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("subscriptionRenewingEmailEnabled", (n) -> { this.setSubscriptionRenewingEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("subscriptionRenewingEnabled", (n) -> { this.setSubscriptionRenewingEnabled(n.getBooleanValue()); });
@@ -314,20 +314,20 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.paymentFailedSmsEnabled;
     }
     /**
+     * Gets the smsConsentCertificate property value. Describes Leadping Consent certificate data used in Leadping API requests and responses.
+     * @return a {@link UserNotificationPreferencesSmsConsentCertificate}
+     */
+    @jakarta.annotation.Nullable
+    public UserNotificationPreferencesSmsConsentCertificate getSmsConsentCertificate() {
+        return this.smsConsentCertificate;
+    }
+    /**
      * Gets the smsConsentOptedIn property value. Whether the user has consented to receive Leadping account notification SMS messages.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getSmsConsentOptedIn() {
         return this.smsConsentOptedIn;
-    }
-    /**
-     * Gets the smsConsentTrustedFormCertificate property value. Describes trusted form certificate data used in Leadping API requests and responses.
-     * @return a {@link UserNotificationPreferencesSmsConsentTrustedFormCertificate}
-     */
-    @jakarta.annotation.Nullable
-    public UserNotificationPreferencesSmsConsentTrustedFormCertificate getSmsConsentTrustedFormCertificate() {
-        return this.smsConsentTrustedFormCertificate;
     }
     /**
      * Gets the smsConsentUpdatedAt property value. When the user&apos;s Leadping notification SMS consent was last changed.
@@ -423,8 +423,8 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("newLeadSmsEnabled", this.getNewLeadSmsEnabled());
         writer.writeBooleanValue("paymentFailedEnabled", this.getPaymentFailedEnabled());
         writer.writeBooleanValue("paymentFailedSmsEnabled", this.getPaymentFailedSmsEnabled());
+        writer.writeObjectValue("smsConsentCertificate", this.getSmsConsentCertificate());
         writer.writeBooleanValue("smsConsentOptedIn", this.getSmsConsentOptedIn());
-        writer.writeObjectValue("smsConsentTrustedFormCertificate", this.getSmsConsentTrustedFormCertificate());
         writer.writeOffsetDateTimeValue("smsConsentUpdatedAt", this.getSmsConsentUpdatedAt());
         writer.writeBooleanValue("subscriptionRenewingEmailEnabled", this.getSubscriptionRenewingEmailEnabled());
         writer.writeBooleanValue("subscriptionRenewingEnabled", this.getSubscriptionRenewingEnabled());
@@ -556,18 +556,18 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.paymentFailedSmsEnabled = value;
     }
     /**
+     * Sets the smsConsentCertificate property value. Describes Leadping Consent certificate data used in Leadping API requests and responses.
+     * @param value Value to set for the smsConsentCertificate property.
+     */
+    public void setSmsConsentCertificate(@jakarta.annotation.Nullable final UserNotificationPreferencesSmsConsentCertificate value) {
+        this.smsConsentCertificate = value;
+    }
+    /**
      * Sets the smsConsentOptedIn property value. Whether the user has consented to receive Leadping account notification SMS messages.
      * @param value Value to set for the smsConsentOptedIn property.
      */
     public void setSmsConsentOptedIn(@jakarta.annotation.Nullable final Boolean value) {
         this.smsConsentOptedIn = value;
-    }
-    /**
-     * Sets the smsConsentTrustedFormCertificate property value. Describes trusted form certificate data used in Leadping API requests and responses.
-     * @param value Value to set for the smsConsentTrustedFormCertificate property.
-     */
-    public void setSmsConsentTrustedFormCertificate(@jakarta.annotation.Nullable final UserNotificationPreferencesSmsConsentTrustedFormCertificate value) {
-        this.smsConsentTrustedFormCertificate = value;
     }
     /**
      * Sets the smsConsentUpdatedAt property value. When the user&apos;s Leadping notification SMS consent was last changed.

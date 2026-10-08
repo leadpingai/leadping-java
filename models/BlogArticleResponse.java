@@ -38,9 +38,17 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private String coverImageAlt;
     /**
+     * The processed cover image height in pixels, when known.
+     */
+    private Integer coverImageHeight;
+    /**
      * The coverImageUrl property
      */
     private String coverImageUrl;
+    /**
+     * The processed cover image width in pixels, when known.
+     */
+    private Integer coverImageWidth;
     /**
      * The createdAt property
      */
@@ -86,13 +94,37 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime publishedAt;
     /**
+     * The renderedHtml property
+     */
+    private String renderedHtml;
+    /**
      * The seoTitle property
      */
     private String seoTitle;
     /**
+     * Whether to create a Facebook post after publication.
+     */
+    private Boolean shareOnFacebook;
+    /**
+     * Whether to create a Instagram post after publication.
+     */
+    private Boolean shareOnInstagram;
+    /**
+     * Whether to create a LinkedIn post after publication.
+     */
+    private Boolean shareOnLinkedIn;
+    /**
+     * Whether to create a X post after publication.
+     */
+    private Boolean shareOnX;
+    /**
      * The slug property
      */
     private String slug;
+    /**
+     * The socialPosts property
+     */
+    private java.util.List<BlogSocialPost> socialPosts;
     /**
      * The title property
      */
@@ -166,12 +198,28 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.coverImageAlt;
     }
     /**
+     * Gets the coverImageHeight property value. The processed cover image height in pixels, when known.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCoverImageHeight() {
+        return this.coverImageHeight;
+    }
+    /**
      * Gets the coverImageUrl property value. The coverImageUrl property
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCoverImageUrl() {
         return this.coverImageUrl;
+    }
+    /**
+     * Gets the coverImageWidth property value. The processed cover image width in pixels, when known.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getCoverImageWidth() {
+        return this.coverImageWidth;
     }
     /**
      * Gets the createdAt property value. The createdAt property
@@ -195,13 +243,15 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
         deserializerMap.put("authorName", (n) -> { this.setAuthorName(n.getStringValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getStringValue()); });
         deserializerMap.put("content", (n) -> { this.setContent(n.getStringValue()); });
         deserializerMap.put("contentUpdatedAt", (n) -> { this.setContentUpdatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("coverImageAlt", (n) -> { this.setCoverImageAlt(n.getStringValue()); });
+        deserializerMap.put("coverImageHeight", (n) -> { this.setCoverImageHeight(n.getIntegerValue()); });
         deserializerMap.put("coverImageUrl", (n) -> { this.setCoverImageUrl(n.getStringValue()); });
+        deserializerMap.put("coverImageWidth", (n) -> { this.setCoverImageWidth(n.getIntegerValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("excerpt", (n) -> { this.setExcerpt(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
@@ -213,8 +263,14 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("metaDescription", (n) -> { this.setMetaDescription(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("publishedAt", (n) -> { this.setPublishedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("renderedHtml", (n) -> { this.setRenderedHtml(n.getStringValue()); });
         deserializerMap.put("seoTitle", (n) -> { this.setSeoTitle(n.getStringValue()); });
+        deserializerMap.put("shareOnFacebook", (n) -> { this.setShareOnFacebook(n.getBooleanValue()); });
+        deserializerMap.put("shareOnInstagram", (n) -> { this.setShareOnInstagram(n.getBooleanValue()); });
+        deserializerMap.put("shareOnLinkedIn", (n) -> { this.setShareOnLinkedIn(n.getBooleanValue()); });
+        deserializerMap.put("shareOnX", (n) -> { this.setShareOnX(n.getBooleanValue()); });
         deserializerMap.put("slug", (n) -> { this.setSlug(n.getStringValue()); });
+        deserializerMap.put("socialPosts", (n) -> { this.setSocialPosts(n.getCollectionOfObjectValues(BlogSocialPost::createFromDiscriminatorValue)); });
         deserializerMap.put("title", (n) -> { this.setTitle(n.getStringValue()); });
         deserializerMap.put("unpublishedAt", (n) -> { this.setUnpublishedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
@@ -292,6 +348,14 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.publishedAt;
     }
     /**
+     * Gets the renderedHtml property value. The renderedHtml property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getRenderedHtml() {
+        return this.renderedHtml;
+    }
+    /**
      * Gets the seoTitle property value. The seoTitle property
      * @return a {@link String}
      */
@@ -300,12 +364,52 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.seoTitle;
     }
     /**
+     * Gets the shareOnFacebook property value. Whether to create a Facebook post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnFacebook() {
+        return this.shareOnFacebook;
+    }
+    /**
+     * Gets the shareOnInstagram property value. Whether to create a Instagram post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnInstagram() {
+        return this.shareOnInstagram;
+    }
+    /**
+     * Gets the shareOnLinkedIn property value. Whether to create a LinkedIn post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnLinkedIn() {
+        return this.shareOnLinkedIn;
+    }
+    /**
+     * Gets the shareOnX property value. Whether to create a X post after publication.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getShareOnX() {
+        return this.shareOnX;
+    }
+    /**
      * Gets the slug property value. The slug property
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSlug() {
         return this.slug;
+    }
+    /**
+     * Gets the socialPosts property value. The socialPosts property
+     * @return a {@link java.util.List<BlogSocialPost>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<BlogSocialPost> getSocialPosts() {
+        return this.socialPosts;
     }
     /**
      * Gets the title property value. The title property
@@ -334,7 +438,9 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("content", this.getContent());
         writer.writeOffsetDateTimeValue("contentUpdatedAt", this.getContentUpdatedAt());
         writer.writeStringValue("coverImageAlt", this.getCoverImageAlt());
+        writer.writeIntegerValue("coverImageHeight", this.getCoverImageHeight());
         writer.writeStringValue("coverImageUrl", this.getCoverImageUrl());
+        writer.writeIntegerValue("coverImageWidth", this.getCoverImageWidth());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("excerpt", this.getExcerpt());
         writer.writeStringValue("id", this.getId());
@@ -346,8 +452,14 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("metaDescription", this.getMetaDescription());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeOffsetDateTimeValue("publishedAt", this.getPublishedAt());
+        writer.writeStringValue("renderedHtml", this.getRenderedHtml());
         writer.writeStringValue("seoTitle", this.getSeoTitle());
+        writer.writeBooleanValue("shareOnFacebook", this.getShareOnFacebook());
+        writer.writeBooleanValue("shareOnInstagram", this.getShareOnInstagram());
+        writer.writeBooleanValue("shareOnLinkedIn", this.getShareOnLinkedIn());
+        writer.writeBooleanValue("shareOnX", this.getShareOnX());
         writer.writeStringValue("slug", this.getSlug());
+        writer.writeCollectionOfObjectValues("socialPosts", this.getSocialPosts());
         writer.writeStringValue("title", this.getTitle());
         writer.writeOffsetDateTimeValue("unpublishedAt", this.getUnpublishedAt());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -395,11 +507,25 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.coverImageAlt = value;
     }
     /**
+     * Sets the coverImageHeight property value. The processed cover image height in pixels, when known.
+     * @param value Value to set for the coverImageHeight property.
+     */
+    public void setCoverImageHeight(@jakarta.annotation.Nullable final Integer value) {
+        this.coverImageHeight = value;
+    }
+    /**
      * Sets the coverImageUrl property value. The coverImageUrl property
      * @param value Value to set for the coverImageUrl property.
      */
     public void setCoverImageUrl(@jakarta.annotation.Nullable final String value) {
         this.coverImageUrl = value;
+    }
+    /**
+     * Sets the coverImageWidth property value. The processed cover image width in pixels, when known.
+     * @param value Value to set for the coverImageWidth property.
+     */
+    public void setCoverImageWidth(@jakarta.annotation.Nullable final Integer value) {
+        this.coverImageWidth = value;
     }
     /**
      * Sets the createdAt property value. The createdAt property
@@ -479,6 +605,13 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.publishedAt = value;
     }
     /**
+     * Sets the renderedHtml property value. The renderedHtml property
+     * @param value Value to set for the renderedHtml property.
+     */
+    public void setRenderedHtml(@jakarta.annotation.Nullable final String value) {
+        this.renderedHtml = value;
+    }
+    /**
      * Sets the seoTitle property value. The seoTitle property
      * @param value Value to set for the seoTitle property.
      */
@@ -486,11 +619,46 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.seoTitle = value;
     }
     /**
+     * Sets the shareOnFacebook property value. Whether to create a Facebook post after publication.
+     * @param value Value to set for the shareOnFacebook property.
+     */
+    public void setShareOnFacebook(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnFacebook = value;
+    }
+    /**
+     * Sets the shareOnInstagram property value. Whether to create a Instagram post after publication.
+     * @param value Value to set for the shareOnInstagram property.
+     */
+    public void setShareOnInstagram(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnInstagram = value;
+    }
+    /**
+     * Sets the shareOnLinkedIn property value. Whether to create a LinkedIn post after publication.
+     * @param value Value to set for the shareOnLinkedIn property.
+     */
+    public void setShareOnLinkedIn(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnLinkedIn = value;
+    }
+    /**
+     * Sets the shareOnX property value. Whether to create a X post after publication.
+     * @param value Value to set for the shareOnX property.
+     */
+    public void setShareOnX(@jakarta.annotation.Nullable final Boolean value) {
+        this.shareOnX = value;
+    }
+    /**
      * Sets the slug property value. The slug property
      * @param value Value to set for the slug property.
      */
     public void setSlug(@jakarta.annotation.Nullable final String value) {
         this.slug = value;
+    }
+    /**
+     * Sets the socialPosts property value. The socialPosts property
+     * @param value Value to set for the socialPosts property.
+     */
+    public void setSocialPosts(@jakarta.annotation.Nullable final java.util.List<BlogSocialPost> value) {
+        this.socialPosts = value;
     }
     /**
      * Sets the title property value. The title property

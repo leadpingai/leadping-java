@@ -46,6 +46,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String importBatchId;
     /**
+     * Stable source operation key. Reuse for retries, and change for a new submission.
+     */
+    private String intakeIdempotencyKey;
+    /**
      * IP address captured with the request for audit and compliance review.
      */
     private String ipAddress;
@@ -57,6 +61,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Landing page URL where the lead submitted their information.
      */
     private String landingPage;
+    /**
+     * Standalone Leadping Consent certificate identifier, accepted as an alternative to TrustedForm.
+     */
+    private String leadpingConsentCertificateId;
+    /**
+     * Server-issued timestamp for successful Leadping Consent evidence and recipient validation.
+     */
+    private OffsetDateTime leadpingConsentCheckedAt;
     /**
      * Organization ID that owns this lead&apos;s attribution metadata.
      */
@@ -118,7 +130,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String subId;
     /**
-     * UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      */
     private OffsetDateTime trustedFormCheckedAt;
     /**
@@ -235,7 +247,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(38);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("complianceBlockedReason", (n) -> { this.setComplianceBlockedReason(n.getStringValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
@@ -243,9 +255,12 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("externalId", (n) -> { this.setExternalId(n.getStringValue()); });
         deserializerMap.put("importBatchId", (n) -> { this.setImportBatchId(n.getStringValue()); });
+        deserializerMap.put("intakeIdempotencyKey", (n) -> { this.setIntakeIdempotencyKey(n.getStringValue()); });
         deserializerMap.put("ipAddress", (n) -> { this.setIpAddress(n.getStringValue()); });
         deserializerMap.put("isImported", (n) -> { this.setIsImported(n.getBooleanValue()); });
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
+        deserializerMap.put("leadpingConsentCertificateId", (n) -> { this.setLeadpingConsentCertificateId(n.getStringValue()); });
+        deserializerMap.put("leadpingConsentCheckedAt", (n) -> { this.setLeadpingConsentCheckedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("origin", (n) -> { this.setOrigin(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
@@ -282,6 +297,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.importBatchId;
     }
     /**
+     * Gets the intakeIdempotencyKey property value. Stable source operation key. Reuse for retries, and change for a new submission.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getIntakeIdempotencyKey() {
+        return this.intakeIdempotencyKey;
+    }
+    /**
      * Gets the ipAddress property value. IP address captured with the request for audit and compliance review.
      * @return a {@link String}
      */
@@ -304,6 +327,22 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLandingPage() {
         return this.landingPage;
+    }
+    /**
+     * Gets the leadpingConsentCertificateId property value. Standalone Leadping Consent certificate identifier, accepted as an alternative to TrustedForm.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadpingConsentCertificateId() {
+        return this.leadpingConsentCertificateId;
+    }
+    /**
+     * Gets the leadpingConsentCheckedAt property value. Server-issued timestamp for successful Leadping Consent evidence and recipient validation.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLeadpingConsentCheckedAt() {
+        return this.leadpingConsentCheckedAt;
     }
     /**
      * Gets the organizationId property value. Organization ID that owns this lead&apos;s attribution metadata.
@@ -426,7 +465,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.subId;
     }
     /**
-     * Gets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * Gets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -518,9 +557,12 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("externalId", this.getExternalId());
         writer.writeStringValue("importBatchId", this.getImportBatchId());
+        writer.writeStringValue("intakeIdempotencyKey", this.getIntakeIdempotencyKey());
         writer.writeStringValue("ipAddress", this.getIpAddress());
         writer.writeBooleanValue("isImported", this.getIsImported());
         writer.writeStringValue("landingPage", this.getLandingPage());
+        writer.writeStringValue("leadpingConsentCertificateId", this.getLeadpingConsentCertificateId());
+        writer.writeOffsetDateTimeValue("leadpingConsentCheckedAt", this.getLeadpingConsentCheckedAt());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("origin", this.getOrigin());
         writer.writeDoubleValue("price", this.getPrice());
@@ -605,6 +647,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.importBatchId = value;
     }
     /**
+     * Sets the intakeIdempotencyKey property value. Stable source operation key. Reuse for retries, and change for a new submission.
+     * @param value Value to set for the intakeIdempotencyKey property.
+     */
+    public void setIntakeIdempotencyKey(@jakarta.annotation.Nullable final String value) {
+        this.intakeIdempotencyKey = value;
+    }
+    /**
      * Sets the ipAddress property value. IP address captured with the request for audit and compliance review.
      * @param value Value to set for the ipAddress property.
      */
@@ -624,6 +673,20 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setLandingPage(@jakarta.annotation.Nullable final String value) {
         this.landingPage = value;
+    }
+    /**
+     * Sets the leadpingConsentCertificateId property value. Standalone Leadping Consent certificate identifier, accepted as an alternative to TrustedForm.
+     * @param value Value to set for the leadpingConsentCertificateId property.
+     */
+    public void setLeadpingConsentCertificateId(@jakarta.annotation.Nullable final String value) {
+        this.leadpingConsentCertificateId = value;
+    }
+    /**
+     * Sets the leadpingConsentCheckedAt property value. Server-issued timestamp for successful Leadping Consent evidence and recipient validation.
+     * @param value Value to set for the leadpingConsentCheckedAt property.
+     */
+    public void setLeadpingConsentCheckedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.leadpingConsentCheckedAt = value;
     }
     /**
      * Sets the organizationId property value. Organization ID that owns this lead&apos;s attribution metadata.
@@ -731,7 +794,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.subId = value;
     }
     /**
-     * Sets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully validated the TrustedForm certificate URL.
+     * Sets the trustedFormCheckedAt property value. UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      * @param value Value to set for the trustedFormCheckedAt property.
      */
     public void setTrustedFormCheckedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

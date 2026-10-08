@@ -9,45 +9,41 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Describes trusted form certificate data used in Leadping API requests and responses.
+ * Describes Leadping Consent certificate data used in Leadping API requests and responses.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
+public class LeadpingConsentCertificate implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
     /**
-     * UTC timestamp for created at on this TrustedForm certificate.
+     * UTC timestamp for created at on this Leadping Consent certificate.
      */
     private OffsetDateTime createdAt;
     /**
-     * Unique Leadping identifier for this TrustedForm certificate.
+     * Unique Leadping identifier for this Leadping Consent certificate.
      */
     private String id;
     /**
-     * Source for this TrustedForm certificate.
+     * Source for this Leadping Consent certificate.
      */
     private String source;
     /**
-     * The URL associated with this TrustedForm certificate.
+     * Instantiates a new {@link LeadpingConsentCertificate} and sets the default values.
      */
-    private String url;
-    /**
-     * Instantiates a new {@link TrustedFormCertificate} and sets the default values.
-     */
-    public TrustedFormCertificate() {
+    public LeadpingConsentCertificate() {
         this.setAdditionalData(new HashMap<>());
     }
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param parseNode The parse node to use to read the discriminator value and create the object
-     * @return a {@link TrustedFormCertificate}
+     * @return a {@link LeadpingConsentCertificate}
      */
     @jakarta.annotation.Nonnull
-    public static TrustedFormCertificate createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+    public static LeadpingConsentCertificate createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
         Objects.requireNonNull(parseNode);
-        return new TrustedFormCertificate();
+        return new LeadpingConsentCertificate();
     }
     /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -58,7 +54,7 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the createdAt property value. UTC timestamp for created at on this TrustedForm certificate.
+     * Gets the createdAt property value. UTC timestamp for created at on this Leadping Consent certificate.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -71,15 +67,14 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getStringValue()); });
-        deserializerMap.put("url", (n) -> { this.setUrl(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the id property value. Unique Leadping identifier for this TrustedForm certificate.
+     * Gets the id property value. Unique Leadping identifier for this Leadping Consent certificate.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -87,20 +82,12 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the source property value. Source for this TrustedForm certificate.
+     * Gets the source property value. Source for this Leadping Consent certificate.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getSource() {
         return this.source;
-    }
-    /**
-     * Gets the url property value. The URL associated with this TrustedForm certificate.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUrl() {
-        return this.url;
     }
     /**
      * Serializes information the current object
@@ -111,7 +98,6 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("source", this.getSource());
-        writer.writeStringValue("url", this.getUrl());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -122,31 +108,24 @@ public class TrustedFormCertificate implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the createdAt property value. UTC timestamp for created at on this TrustedForm certificate.
+     * Sets the createdAt property value. UTC timestamp for created at on this Leadping Consent certificate.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the id property value. Unique Leadping identifier for this TrustedForm certificate.
+     * Sets the id property value. Unique Leadping identifier for this Leadping Consent certificate.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
     }
     /**
-     * Sets the source property value. Source for this TrustedForm certificate.
+     * Sets the source property value. Source for this Leadping Consent certificate.
      * @param value Value to set for the source property.
      */
     public void setSource(@jakarta.annotation.Nullable final String value) {
         this.source = value;
-    }
-    /**
-     * Sets the url property value. The URL associated with this TrustedForm certificate.
-     * @param value Value to set for the url property.
-     */
-    public void setUrl(@jakarta.annotation.Nullable final String value) {
-        this.url = value;
     }
 }

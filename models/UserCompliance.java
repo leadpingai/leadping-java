@@ -37,9 +37,9 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The TrustedForm certificates included with this user compliance.
+     * The Leadping Consent certificates included with this user compliance.
      */
-    private java.util.List<TrustedFormCertificate> trustedFormCertificates;
+    private java.util.List<LeadpingConsentCertificate> consentCertificates;
     /**
      * Instantiates a new {@link UserCompliance} and sets the default values.
      */
@@ -105,6 +105,14 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the consentCertificates property value. The Leadping Consent certificates included with this user compliance.
+     * @return a {@link java.util.List<LeadpingConsentCertificate>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<LeadpingConsentCertificate> getConsentCertificates() {
+        return this.consentCertificates;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
@@ -116,16 +124,8 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
         deserializerMap.put("acceptedSms", (n) -> { this.setAcceptedSms(n.getBooleanValue()); });
         deserializerMap.put("acceptedTerms", (n) -> { this.setAcceptedTerms(n.getBooleanValue()); });
         deserializerMap.put("acceptedToSubscription", (n) -> { this.setAcceptedToSubscription(n.getBooleanValue()); });
-        deserializerMap.put("trustedFormCertificates", (n) -> { this.setTrustedFormCertificates(n.getCollectionOfObjectValues(TrustedFormCertificate::createFromDiscriminatorValue)); });
+        deserializerMap.put("consentCertificates", (n) -> { this.setConsentCertificates(n.getCollectionOfObjectValues(LeadpingConsentCertificate::createFromDiscriminatorValue)); });
         return deserializerMap;
-    }
-    /**
-     * Gets the trustedFormCertificates property value. The TrustedForm certificates included with this user compliance.
-     * @return a {@link java.util.List<TrustedFormCertificate>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<TrustedFormCertificate> getTrustedFormCertificates() {
-        return this.trustedFormCertificates;
     }
     /**
      * Serializes information the current object
@@ -138,7 +138,7 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("acceptedSms", this.getAcceptedSms());
         writer.writeBooleanValue("acceptedTerms", this.getAcceptedTerms());
         writer.writeBooleanValue("acceptedToSubscription", this.getAcceptedToSubscription());
-        writer.writeCollectionOfObjectValues("trustedFormCertificates", this.getTrustedFormCertificates());
+        writer.writeCollectionOfObjectValues("consentCertificates", this.getConsentCertificates());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -184,10 +184,10 @@ public class UserCompliance implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the trustedFormCertificates property value. The TrustedForm certificates included with this user compliance.
-     * @param value Value to set for the trustedFormCertificates property.
+     * Sets the consentCertificates property value. The Leadping Consent certificates included with this user compliance.
+     * @param value Value to set for the consentCertificates property.
      */
-    public void setTrustedFormCertificates(@jakarta.annotation.Nullable final java.util.List<TrustedFormCertificate> value) {
-        this.trustedFormCertificates = value;
+    public void setConsentCertificates(@jakarta.annotation.Nullable final java.util.List<LeadpingConsentCertificate> value) {
+        this.consentCertificates = value;
     }
 }
