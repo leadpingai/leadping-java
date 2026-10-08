@@ -89,6 +89,24 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
+      # Central Publishing 0.11.0 expects Maven 3 staging metadata names.
+      # Pin Maven instead of inheriting the runner's Maven installation.
+      - name: Set up Maven
+        env:
+          MAVEN_VERSION: "3.9.11"
+        run: |
+          set -euo pipefail
+
+          archive="apache-maven-${MAVEN_VERSION}-bin.tar.gz"
+          base_url="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/${MAVEN_VERSION}"
+          cd "${RUNNER_TEMP}"
+          curl --fail --silent --show-error --location --retry 3 "${base_url}/${archive}" -o "${archive}"
+          curl --fail --silent --show-error --location --retry 3 "${base_url}/${archive}.sha512" -o "${archive}.sha512"
+          echo "$(cat "${archive}.sha512")  ${archive}" | sha512sum --check
+          tar -xzf "${archive}"
+          echo "${RUNNER_TEMP}/apache-maven-${MAVEN_VERSION}/bin" >> "${GITHUB_PATH}"
+          "${RUNNER_TEMP}/apache-maven-${MAVEN_VERSION}/bin/mvn" --version
+
       - name: Build package
         run: mvn -B -Drevision="${{ steps.version.outputs.version }}" verify
 
@@ -107,7 +125,7 @@ jobs:
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: mvn -B -Prelease -Drevision="${{ steps.version.outputs.version }}" deploy -DskipTests
+        run: mvn -B -Prelease -Drevision="${{ steps.version.outputs.version }}" clean deploy -DskipTests
 
       - name: Set up GitHub Packages publishing
         uses: actions/setup-java@v5
