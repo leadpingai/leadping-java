@@ -58,6 +58,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String gender;
     /**
+     * Stable delivery key reused when retrying the same lead submission to this source.
+     */
+    private String idempotencyKey;
+    /**
      * Landing page URL where the lead submitted their information.
      */
     private String landingPage;
@@ -243,7 +247,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(33);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
         deserializerMap.put("address1", (n) -> { this.setAddress1(n.getStringValue()); });
         deserializerMap.put("address2", (n) -> { this.setAddress2(n.getStringValue()); });
         deserializerMap.put("birthDate", (n) -> { this.setBirthDate(n.getLocalDateValue()); });
@@ -254,6 +258,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("externalId", (n) -> { this.setExternalId(n.getStringValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("gender", (n) -> { this.setGender(n.getStringValue()); });
+        deserializerMap.put("idempotencyKey", (n) -> { this.setIdempotencyKey(n.getStringValue()); });
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
@@ -294,6 +299,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getGender() {
         return this.gender;
+    }
+    /**
+     * Gets the idempotencyKey property value. Stable delivery key reused when retrying the same lead submission to this source.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getIdempotencyKey() {
+        return this.idempotencyKey;
     }
     /**
      * Gets the landingPage property value. Landing page URL where the lead submitted their information.
@@ -495,6 +508,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("externalId", this.getExternalId());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("gender", this.getGender());
+        writer.writeStringValue("idempotencyKey", this.getIdempotencyKey());
         writer.writeStringValue("landingPage", this.getLandingPage());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("phone", this.getPhone());
@@ -596,6 +610,13 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setGender(@jakarta.annotation.Nullable final String value) {
         this.gender = value;
+    }
+    /**
+     * Sets the idempotencyKey property value. Stable delivery key reused when retrying the same lead submission to this source.
+     * @param value Value to set for the idempotencyKey property.
+     */
+    public void setIdempotencyKey(@jakarta.annotation.Nullable final String value) {
+        this.idempotencyKey = value;
     }
     /**
      * Sets the landingPage property value. Landing page URL where the lead submitted their information.
