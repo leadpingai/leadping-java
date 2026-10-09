@@ -26,6 +26,10 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     private String automationId;
     /**
+     * Persisted origin of an automation run and the events produced by its actions.
+     */
+    private AutomationRunRecordAutomationLineage automationLineage;
+    /**
      * UTC timestamp when processing completed for this automation run record.
      */
     private OffsetDateTime completedAt;
@@ -122,6 +126,14 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         return this.automationId;
     }
     /**
+     * Gets the automationLineage property value. Persisted origin of an automation run and the events produced by its actions.
+     * @return a {@link AutomationRunRecordAutomationLineage}
+     */
+    @jakarta.annotation.Nullable
+    public AutomationRunRecordAutomationLineage getAutomationLineage() {
+        return this.automationLineage;
+    }
+    /**
      * Gets the completedAt property value. UTC timestamp when processing completed for this automation run record.
      * @return a {@link OffsetDateTime}
      */
@@ -159,9 +171,10 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationActionRunRecord::createFromDiscriminatorValue)); });
         deserializerMap.put("automationId", (n) -> { this.setAutomationId(n.getStringValue()); });
+        deserializerMap.put("automationLineage", (n) -> { this.setAutomationLineage(n.getObjectValue(AutomationRunRecordAutomationLineage::createFromDiscriminatorValue)); });
         deserializerMap.put("completedAt", (n) -> { this.setCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("conditionResults", (n) -> { this.setConditionResults(n.getObjectValue(AutomationRunRecordConditionResults::createFromDiscriminatorValue)); });
         deserializerMap.put("executionMode", (n) -> { this.setExecutionMode(n.getStringValue()); });
@@ -266,6 +279,7 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("actions", this.getActions());
         writer.writeStringValue("automationId", this.getAutomationId());
+        writer.writeObjectValue("automationLineage", this.getAutomationLineage());
         writer.writeOffsetDateTimeValue("completedAt", this.getCompletedAt());
         writer.writeObjectValue("conditionResults", this.getConditionResults());
         writer.writeStringValue("executionMode", this.getExecutionMode());
@@ -302,6 +316,13 @@ public class AutomationRunRecord implements AdditionalDataHolder, Parsable {
      */
     public void setAutomationId(@jakarta.annotation.Nullable final String value) {
         this.automationId = value;
+    }
+    /**
+     * Sets the automationLineage property value. Persisted origin of an automation run and the events produced by its actions.
+     * @param value Value to set for the automationLineage property.
+     */
+    public void setAutomationLineage(@jakarta.annotation.Nullable final AutomationRunRecordAutomationLineage value) {
+        this.automationLineage = value;
     }
     /**
      * Sets the completedAt property value. UTC timestamp when processing completed for this automation run record.
