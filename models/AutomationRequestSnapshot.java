@@ -65,6 +65,10 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     private String scope;
     /**
+     * Time zone used by workflow time and day conditions in preview and runtime. Defaults to UTC.
+     */
+    private String timeZoneId;
+    /**
      * Automation triggers that can start this workflow.
      */
     private java.util.List<AutomationTrigger> triggers;
@@ -150,7 +154,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("actions", (n) -> { this.setActions(n.getCollectionOfObjectValues(AutomationAction::createFromDiscriminatorValue)); });
         deserializerMap.put("conditionGroups", (n) -> { this.setConditionGroups(n.getCollectionOfObjectValues(AutomationConditionGroup::createFromDiscriminatorValue)); });
         deserializerMap.put("connections", (n) -> { this.setConnections(n.getCollectionOfObjectValues(AutomationConnection::createFromDiscriminatorValue)); });
@@ -163,6 +167,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("scope", (n) -> { this.setScope(n.getStringValue()); });
+        deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         deserializerMap.put("triggers", (n) -> { this.setTriggers(n.getCollectionOfObjectValues(AutomationTrigger::createFromDiscriminatorValue)); });
         deserializerMap.put("visibility", (n) -> { this.setVisibility(n.getStringValue()); });
         return deserializerMap;
@@ -216,6 +221,14 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         return this.scope;
     }
     /**
+     * Gets the timeZoneId property value. Time zone used by workflow time and day conditions in preview and runtime. Defaults to UTC.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTimeZoneId() {
+        return this.timeZoneId;
+    }
+    /**
      * Gets the triggers property value. Automation triggers that can start this workflow.
      * @return a {@link java.util.List<AutomationTrigger>}
      */
@@ -249,6 +262,7 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("scope", this.getScope());
+        writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeCollectionOfObjectValues("triggers", this.getTriggers());
         writer.writeStringValue("visibility", this.getVisibility());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -343,6 +357,13 @@ public class AutomationRequestSnapshot implements AdditionalDataHolder, Parsable
      */
     public void setScope(@jakarta.annotation.Nullable final String value) {
         this.scope = value;
+    }
+    /**
+     * Sets the timeZoneId property value. Time zone used by workflow time and day conditions in preview and runtime. Defaults to UTC.
+     * @param value Value to set for the timeZoneId property.
+     */
+    public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.timeZoneId = value;
     }
     /**
      * Sets the triggers property value. Automation triggers that can start this workflow.
