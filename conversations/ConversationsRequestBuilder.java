@@ -30,7 +30,7 @@ public class ConversationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.conversations.item collection
-     * @param id The ID of the conversation to mark as read.
+     * @param id The ID of the conversation to retrieve.
      * @return a {@link ConversationsItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

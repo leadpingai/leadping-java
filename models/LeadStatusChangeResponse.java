@@ -62,6 +62,10 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     private OffsetDateTime createdAt;
     /**
+     * When this follow-up was completed; email/call activity alone does not complete it.
+     */
+    private OffsetDateTime followUpCompletedAt;
+    /**
      * The current follow up status for this lead status change.
      */
     private String followUpStatus;
@@ -125,6 +129,10 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      * The related call event ID associated with this lead status change.
      */
     private String relatedCallEventId;
+    /**
+     * Monotonic revision of the lead&apos;s current status and scheduling state.
+     */
+    private Long revision;
     /**
      * The source ID associated with this lead status change.
      */
@@ -263,7 +271,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
@@ -275,6 +283,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         deserializerMap.put("changedByUserId", (n) -> { this.setChangedByUserId(n.getStringValue()); });
         deserializerMap.put("changeSource", (n) -> { this.setChangeSource(n.getEnumValue(LeadStatusChangeResponseChangeSource::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("followUpCompletedAt", (n) -> { this.setFollowUpCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("followUpStatus", (n) -> { this.setFollowUpStatus(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -291,12 +300,21 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         deserializerMap.put("outcome", (n) -> { this.setOutcome(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
         deserializerMap.put("relatedCallEventId", (n) -> { this.setRelatedCallEventId(n.getStringValue()); });
+        deserializerMap.put("revision", (n) -> { this.setRevision(n.getLongValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("taskDueAt", (n) -> { this.setTaskDueAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("timestamp", (n) -> { this.setTimestamp(n.getOffsetDateTimeValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
         deserializerMap.put("updatedAt", (n) -> { this.setUpdatedAt(n.getOffsetDateTimeValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the followUpCompletedAt property value. When this follow-up was completed; email/call activity alone does not complete it.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getFollowUpCompletedAt() {
+        return this.followUpCompletedAt;
     }
     /**
      * Gets the followUpStatus property value. The current follow up status for this lead status change.
@@ -427,6 +445,14 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         return this.relatedCallEventId;
     }
     /**
+     * Gets the revision property value. Monotonic revision of the lead&apos;s current status and scheduling state.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getRevision() {
+        return this.revision;
+    }
+    /**
      * Gets the sourceId property value. The source ID associated with this lead status change.
      * @return a {@link String}
      */
@@ -483,6 +509,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         writer.writeStringValue("changedByUserId", this.getChangedByUserId());
         writer.writeEnumValue("changeSource", this.getChangeSource());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
+        writer.writeOffsetDateTimeValue("followUpCompletedAt", this.getFollowUpCompletedAt());
         writer.writeStringValue("followUpStatus", this.getFollowUpStatus());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
@@ -499,6 +526,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         writer.writeStringValue("outcome", this.getOutcome());
         writer.writeStringValue("reason", this.getReason());
         writer.writeStringValue("relatedCallEventId", this.getRelatedCallEventId());
+        writer.writeLongValue("revision", this.getRevision());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeOffsetDateTimeValue("taskDueAt", this.getTaskDueAt());
         writer.writeOffsetDateTimeValue("timestamp", this.getTimestamp());
@@ -589,6 +617,13 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
+    }
+    /**
+     * Sets the followUpCompletedAt property value. When this follow-up was completed; email/call activity alone does not complete it.
+     * @param value Value to set for the followUpCompletedAt property.
+     */
+    public void setFollowUpCompletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.followUpCompletedAt = value;
     }
     /**
      * Sets the followUpStatus property value. The current follow up status for this lead status change.
@@ -701,6 +736,13 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     public void setRelatedCallEventId(@jakarta.annotation.Nullable final String value) {
         this.relatedCallEventId = value;
+    }
+    /**
+     * Sets the revision property value. Monotonic revision of the lead&apos;s current status and scheduling state.
+     * @param value Value to set for the revision property.
+     */
+    public void setRevision(@jakarta.annotation.Nullable final Long value) {
+        this.revision = value;
     }
     /**
      * Sets the sourceId property value. The source ID associated with this lead status change.

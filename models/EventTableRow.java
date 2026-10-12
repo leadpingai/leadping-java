@@ -210,6 +210,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime undeliverableAt;
     /**
+     * Playable recording URL for voicemail events.
+     */
+    private String voicemailUrl;
+    /**
      * Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this event timeline table row.
      */
     private Boolean wasManuallyOverridden;
@@ -411,7 +415,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(49);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(50);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
@@ -460,6 +464,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
         deserializerMap.put("trafficType", (n) -> { this.setTrafficType(n.getEnumValue(EventTableRowTrafficType::forValue)); });
         deserializerMap.put("undeliverableAt", (n) -> { this.setUndeliverableAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("voicemailUrl", (n) -> { this.setVoicemailUrl(n.getStringValue()); });
         deserializerMap.put("wasManuallyOverridden", (n) -> { this.setWasManuallyOverridden(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -680,6 +685,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.undeliverableAt;
     }
     /**
+     * Gets the voicemailUrl property value. Playable recording URL for voicemail events.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getVoicemailUrl() {
+        return this.voicemailUrl;
+    }
+    /**
      * Gets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this event timeline table row.
      * @return a {@link Boolean}
      */
@@ -741,6 +754,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
         writer.writeEnumValue("trafficType", this.getTrafficType());
         writer.writeOffsetDateTimeValue("undeliverableAt", this.getUndeliverableAt());
+        writer.writeStringValue("voicemailUrl", this.getVoicemailUrl());
         writer.writeBooleanValue("wasManuallyOverridden", this.getWasManuallyOverridden());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -1086,6 +1100,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setUndeliverableAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.undeliverableAt = value;
+    }
+    /**
+     * Sets the voicemailUrl property value. Playable recording URL for voicemail events.
+     * @param value Value to set for the voicemailUrl property.
+     */
+    public void setVoicemailUrl(@jakarta.annotation.Nullable final String value) {
+        this.voicemailUrl = value;
     }
     /**
      * Sets the wasManuallyOverridden property value. Indicates whether a user manually overrode Leadping&apos;s automatic number selection for this event timeline table row.

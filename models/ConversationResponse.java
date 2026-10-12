@@ -42,6 +42,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String email;
     /**
+     * Monotonic event boundary. Mark-read requests must send the version the reader observed.
+     */
+    private Long eventVersion;
+    /**
      * First name of the lead, user, or contact represented by this conversation response.
      */
     private String firstName;
@@ -178,18 +182,27 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.email;
     }
     /**
+     * Gets the eventVersion property value. Monotonic event boundary. Mark-read requests must send the version the reader observed.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getEventVersion() {
+        return this.eventVersion;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(ConversationResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
+        deserializerMap.put("eventVersion", (n) -> { this.setEventVersion(n.getLongValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
@@ -348,6 +361,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("avatarUrl", this.getAvatarUrl());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
+        writer.writeLongValue("eventVersion", this.getEventVersion());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
@@ -414,6 +428,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setEmail(@jakarta.annotation.Nullable final String value) {
         this.email = value;
+    }
+    /**
+     * Sets the eventVersion property value. Monotonic event boundary. Mark-read requests must send the version the reader observed.
+     * @param value Value to set for the eventVersion property.
+     */
+    public void setEventVersion(@jakarta.annotation.Nullable final Long value) {
+        this.eventVersion = value;
     }
     /**
      * Sets the firstName property value. First name of the lead, user, or contact represented by this conversation response.

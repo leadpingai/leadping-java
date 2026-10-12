@@ -86,6 +86,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
+     * The organization context required to handle this call on a mobile device.
+     */
+    private String organizationId;
+    /**
      * Phone number used by this phone call for calls, SMS, lookup, or routing.
      */
     private String phoneNumber;
@@ -243,7 +247,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
@@ -261,6 +265,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("ringingAt", (n) -> { this.setRingingAt(n.getOffsetDateTimeValue()); });
@@ -320,6 +325,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getModifiedAt() {
         return this.modifiedAt;
+    }
+    /**
+     * Gets the organizationId property value. The organization context required to handle this call on a mobile device.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the phoneNumber property value. Phone number used by this phone call for calls, SMS, lookup, or routing.
@@ -424,6 +437,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("ringingAt", this.getRingingAt());
@@ -561,6 +575,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
+    }
+    /**
+     * Sets the organizationId property value. The organization context required to handle this call on a mobile device.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the phoneNumber property value. Phone number used by this phone call for calls, SMS, lookup, or routing.

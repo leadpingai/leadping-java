@@ -21,6 +21,10 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     private Integer automationCount;
     /**
+     * States whether missing historical evidence can make reported counts incomplete.
+     */
+    private AnalyticsCoverage coverage;
+    /**
      * Total number of enabled records represented by this Leadping customer automation health.
      */
     private Integer enabledCount;
@@ -81,6 +85,14 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
         return this.automationCount;
     }
     /**
+     * Gets the coverage property value. States whether missing historical evidence can make reported counts incomplete.
+     * @return a {@link AnalyticsCoverage}
+     */
+    @jakarta.annotation.Nullable
+    public AnalyticsCoverage getCoverage() {
+        return this.coverage;
+    }
+    /**
      * Gets the enabledCount property value. Total number of enabled records represented by this Leadping customer automation health.
      * @return a {@link Integer}
      */
@@ -118,8 +130,9 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("automationCount", (n) -> { this.setAutomationCount(n.getIntegerValue()); });
+        deserializerMap.put("coverage", (n) -> { this.setCoverage(n.getObjectValue(AnalyticsCoverage::createFromDiscriminatorValue)); });
         deserializerMap.put("enabledCount", (n) -> { this.setEnabledCount(n.getIntegerValue()); });
         deserializerMap.put("executions", (n) -> { this.setExecutions(n.getIntegerValue()); });
         deserializerMap.put("failingAutomations", (n) -> { this.setFailingAutomations(n.getCollectionOfObjectValues(CustomerFailingAutomation::createFromDiscriminatorValue)); });
@@ -160,6 +173,7 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("automationCount", this.getAutomationCount());
+        writer.writeObjectValue("coverage", this.getCoverage());
         writer.writeIntegerValue("enabledCount", this.getEnabledCount());
         writer.writeIntegerValue("executions", this.getExecutions());
         writer.writeCollectionOfObjectValues("failingAutomations", this.getFailingAutomations());
@@ -182,6 +196,13 @@ public class CustomerAutomationHealth implements AdditionalDataHolder, Parsable 
      */
     public void setAutomationCount(@jakarta.annotation.Nullable final Integer value) {
         this.automationCount = value;
+    }
+    /**
+     * Sets the coverage property value. States whether missing historical evidence can make reported counts incomplete.
+     * @param value Value to set for the coverage property.
+     */
+    public void setCoverage(@jakarta.annotation.Nullable final AnalyticsCoverage value) {
+        this.coverage = value;
     }
     /**
      * Sets the enabledCount property value. Total number of enabled records represented by this Leadping customer automation health.

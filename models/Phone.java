@@ -21,7 +21,7 @@ public class Phone implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Identifier of the canonical phone identity stored by Leadping.
+     * Server-derived identifier of the canonical phone identity. Client-supplied linkage is ignored when creating or updating a lead.
      */
     private String phoneIdentityId;
     /**
@@ -73,7 +73,7 @@ public class Phone implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the phoneIdentityId property value. Identifier of the canonical phone identity stored by Leadping.
+     * Gets the phoneIdentityId property value. Server-derived identifier of the canonical phone identity. Client-supplied linkage is ignored when creating or updating a lead.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class Phone implements AdditionalDataHolder, Parsable {
         this.number = value;
     }
     /**
-     * Sets the phoneIdentityId property value. Identifier of the canonical phone identity stored by Leadping.
+     * Sets the phoneIdentityId property value. Server-derived identifier of the canonical phone identity. Client-supplied linkage is ignored when creating or updating a lead.
      * @param value Value to set for the phoneIdentityId property.
      */
     public void setPhoneIdentityId(@jakarta.annotation.Nullable final String value) {

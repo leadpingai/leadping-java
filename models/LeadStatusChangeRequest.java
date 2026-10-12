@@ -38,6 +38,18 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private LeadStatusChangeRequestCategory category;
     /**
+     * Whether the scheduled follow-up is explicitly complete.
+     */
+    private Boolean completeFollowUp;
+    /**
+     * Optional optimistic concurrency guard for the status currently displayed by the client.
+     */
+    private String expectedCurrentStatusId;
+    /**
+     * Optional revision guard, including when the lead has no persisted status history yet.
+     */
+    private Long expectedRevision;
+    /**
      * The current follow up status for this lead status change.
      */
     private String followUpStatus;
@@ -126,17 +138,44 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
+     * Gets the completeFollowUp property value. Whether the scheduled follow-up is explicitly complete.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCompleteFollowUp() {
+        return this.completeFollowUp;
+    }
+    /**
+     * Gets the expectedCurrentStatusId property value. Optional optimistic concurrency guard for the status currently displayed by the client.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getExpectedCurrentStatusId() {
+        return this.expectedCurrentStatusId;
+    }
+    /**
+     * Gets the expectedRevision property value. Optional revision guard, including when the lead has no persisted status history yet.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getExpectedRevision() {
+        return this.expectedRevision;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("callbackAt", (n) -> { this.setCallbackAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(LeadStatusChangeRequestCategory::forValue)); });
+        deserializerMap.put("completeFollowUp", (n) -> { this.setCompleteFollowUp(n.getBooleanValue()); });
+        deserializerMap.put("expectedCurrentStatusId", (n) -> { this.setExpectedCurrentStatusId(n.getStringValue()); });
+        deserializerMap.put("expectedRevision", (n) -> { this.setExpectedRevision(n.getLongValue()); });
         deserializerMap.put("followUpStatus", (n) -> { this.setFollowUpStatus(n.getStringValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
         deserializerMap.put("outcome", (n) -> { this.setOutcome(n.getStringValue()); });
@@ -204,6 +243,9 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("appointmentStartAt", this.getAppointmentStartAt());
         writer.writeOffsetDateTimeValue("callbackAt", this.getCallbackAt());
         writer.writeEnumValue("category", this.getCategory());
+        writer.writeBooleanValue("completeFollowUp", this.getCompleteFollowUp());
+        writer.writeStringValue("expectedCurrentStatusId", this.getExpectedCurrentStatusId());
+        writer.writeLongValue("expectedRevision", this.getExpectedRevision());
         writer.writeStringValue("followUpStatus", this.getFollowUpStatus());
         writer.writeStringValue("notes", this.getNotes());
         writer.writeStringValue("outcome", this.getOutcome());
@@ -253,6 +295,27 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setCategory(@jakarta.annotation.Nullable final LeadStatusChangeRequestCategory value) {
         this.category = value;
+    }
+    /**
+     * Sets the completeFollowUp property value. Whether the scheduled follow-up is explicitly complete.
+     * @param value Value to set for the completeFollowUp property.
+     */
+    public void setCompleteFollowUp(@jakarta.annotation.Nullable final Boolean value) {
+        this.completeFollowUp = value;
+    }
+    /**
+     * Sets the expectedCurrentStatusId property value. Optional optimistic concurrency guard for the status currently displayed by the client.
+     * @param value Value to set for the expectedCurrentStatusId property.
+     */
+    public void setExpectedCurrentStatusId(@jakarta.annotation.Nullable final String value) {
+        this.expectedCurrentStatusId = value;
+    }
+    /**
+     * Sets the expectedRevision property value. Optional revision guard, including when the lead has no persisted status history yet.
+     * @param value Value to set for the expectedRevision property.
+     */
+    public void setExpectedRevision(@jakarta.annotation.Nullable final Long value) {
+        this.expectedRevision = value;
     }
     /**
      * Sets the followUpStatus property value. The current follow up status for this lead status change.

@@ -38,6 +38,14 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     private String displayName;
     /**
+     * When this follow-up was completed; email/call activity alone does not complete it.
+     */
+    private OffsetDateTime followUpCompletedAt;
+    /**
+     * The earliest callback or task time for the current status.
+     */
+    private OffsetDateTime followUpDueAt;
+    /**
      * Unique Leadping identifier for this current lead status change summary.
      */
     private String id;
@@ -45,6 +53,10 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      * Current lead status change outcome assigned to the lead.
      */
     private String outcome;
+    /**
+     * Monotonic revision of the lead&apos;s current status and scheduling state.
+     */
+    private Long revision;
     /**
      * Known sources that can change a lead&apos;s current lead status change.
      */
@@ -119,16 +131,35 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(CurrentLeadStatusSummaryCategory::forValue)); });
         deserializerMap.put("changedAt", (n) -> { this.setChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("changedByAutomationId", (n) -> { this.setChangedByAutomationId(n.getStringValue()); });
         deserializerMap.put("changedByUserId", (n) -> { this.setChangedByUserId(n.getStringValue()); });
         deserializerMap.put("displayName", (n) -> { this.setDisplayName(n.getStringValue()); });
+        deserializerMap.put("followUpCompletedAt", (n) -> { this.setFollowUpCompletedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("followUpDueAt", (n) -> { this.setFollowUpDueAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("outcome", (n) -> { this.setOutcome(n.getStringValue()); });
+        deserializerMap.put("revision", (n) -> { this.setRevision(n.getLongValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getEnumValue(CurrentLeadStatusSummarySource::forValue)); });
         return deserializerMap;
+    }
+    /**
+     * Gets the followUpCompletedAt property value. When this follow-up was completed; email/call activity alone does not complete it.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getFollowUpCompletedAt() {
+        return this.followUpCompletedAt;
+    }
+    /**
+     * Gets the followUpDueAt property value. The earliest callback or task time for the current status.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getFollowUpDueAt() {
+        return this.followUpDueAt;
     }
     /**
      * Gets the id property value. Unique Leadping identifier for this current lead status change summary.
@@ -145,6 +176,14 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getOutcome() {
         return this.outcome;
+    }
+    /**
+     * Gets the revision property value. Monotonic revision of the lead&apos;s current status and scheduling state.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getRevision() {
+        return this.revision;
     }
     /**
      * Gets the source property value. Known sources that can change a lead&apos;s current lead status change.
@@ -165,8 +204,11 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
         writer.writeStringValue("changedByAutomationId", this.getChangedByAutomationId());
         writer.writeStringValue("changedByUserId", this.getChangedByUserId());
         writer.writeStringValue("displayName", this.getDisplayName());
+        writer.writeOffsetDateTimeValue("followUpCompletedAt", this.getFollowUpCompletedAt());
+        writer.writeOffsetDateTimeValue("followUpDueAt", this.getFollowUpDueAt());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("outcome", this.getOutcome());
+        writer.writeLongValue("revision", this.getRevision());
         writer.writeEnumValue("source", this.getSource());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -213,6 +255,20 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
         this.displayName = value;
     }
     /**
+     * Sets the followUpCompletedAt property value. When this follow-up was completed; email/call activity alone does not complete it.
+     * @param value Value to set for the followUpCompletedAt property.
+     */
+    public void setFollowUpCompletedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.followUpCompletedAt = value;
+    }
+    /**
+     * Sets the followUpDueAt property value. The earliest callback or task time for the current status.
+     * @param value Value to set for the followUpDueAt property.
+     */
+    public void setFollowUpDueAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.followUpDueAt = value;
+    }
+    /**
      * Sets the id property value. Unique Leadping identifier for this current lead status change summary.
      * @param value Value to set for the id property.
      */
@@ -225,6 +281,13 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     public void setOutcome(@jakarta.annotation.Nullable final String value) {
         this.outcome = value;
+    }
+    /**
+     * Sets the revision property value. Monotonic revision of the lead&apos;s current status and scheduling state.
+     * @param value Value to set for the revision property.
+     */
+    public void setRevision(@jakarta.annotation.Nullable final Long value) {
+        this.revision = value;
     }
     /**
      * Sets the source property value. Known sources that can change a lead&apos;s current lead status change.

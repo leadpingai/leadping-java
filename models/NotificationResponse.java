@@ -26,6 +26,10 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * The mobile conversation destination.
+     */
+    private String conversationId;
+    /**
      * UTC timestamp when the resource was created.
      */
     private OffsetDateTime createdAt;
@@ -46,6 +50,10 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isRead;
     /**
+     * The lead used to resolve the conversation.
+     */
+    private String leadId;
+    /**
      * Message for this notification.
      */
     private String message;
@@ -57,6 +65,10 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      * Human-readable display name of the resource.
      */
     private String name;
+    /**
+     * The organization selected before opening this notification.
+     */
+    private String organizationId;
     /**
      * Ranks the urgency and presentation importance of a Leadping user notification.
      */
@@ -126,6 +138,14 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the conversationId property value. The mobile conversation destination.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getConversationId() {
+        return this.conversationId;
+    }
+    /**
      * Gets the createdAt property value. UTC timestamp when the resource was created.
      * @return a {@link OffsetDateTime}
      */
@@ -147,17 +167,20 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("actionButtonText", (n) -> { this.setActionButtonText(n.getStringValue()); });
         deserializerMap.put("actionUrl", (n) -> { this.setActionUrl(n.getStringValue()); });
+        deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("details", (n) -> { this.setDetails(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isRead", (n) -> { this.setIsRead(n.getBooleanValue()); });
+        deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("priority", (n) -> { this.setPriority(n.getEnumValue(NotificationPriority::forValue)); });
         deserializerMap.put("pushEnabled", (n) -> { this.setPushEnabled(n.getBooleanValue()); });
         deserializerMap.put("readAt", (n) -> { this.setReadAt(n.getOffsetDateTimeValue()); });
@@ -192,6 +215,14 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         return this.isRead;
     }
     /**
+     * Gets the leadId property value. The lead used to resolve the conversation.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadId() {
+        return this.leadId;
+    }
+    /**
      * Gets the message property value. Message for this notification.
      * @return a {@link String}
      */
@@ -214,6 +245,14 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
+    }
+    /**
+     * Gets the organizationId property value. The organization selected before opening this notification.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the priority property value. Ranks the urgency and presentation importance of a Leadping user notification.
@@ -279,14 +318,17 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actionButtonText", this.getActionButtonText());
         writer.writeStringValue("actionUrl", this.getActionUrl());
+        writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("details", this.getDetails());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isRead", this.getIsRead());
+        writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("message", this.getMessage());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeEnumValue("priority", this.getPriority());
         writer.writeBooleanValue("pushEnabled", this.getPushEnabled());
         writer.writeOffsetDateTimeValue("readAt", this.getReadAt());
@@ -316,6 +358,13 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the conversationId property value. The mobile conversation destination.
+     * @param value Value to set for the conversationId property.
+     */
+    public void setConversationId(@jakarta.annotation.Nullable final String value) {
+        this.conversationId = value;
     }
     /**
      * Sets the createdAt property value. UTC timestamp when the resource was created.
@@ -353,6 +402,13 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
         this.isRead = value;
     }
     /**
+     * Sets the leadId property value. The lead used to resolve the conversation.
+     * @param value Value to set for the leadId property.
+     */
+    public void setLeadId(@jakarta.annotation.Nullable final String value) {
+        this.leadId = value;
+    }
+    /**
      * Sets the message property value. Message for this notification.
      * @param value Value to set for the message property.
      */
@@ -372,6 +428,13 @@ public class NotificationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the organizationId property value. The organization selected before opening this notification.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the priority property value. Ranks the urgency and presentation importance of a Leadping user notification.

@@ -2,6 +2,7 @@ package ai.leadping.openapi.leads.item;
 
 import ai.leadping.openapi.leads.item.archive.ArchiveRequestBuilder;
 import ai.leadping.openapi.leads.item.assignment.AssignmentRequestBuilder;
+import ai.leadping.openapi.leads.item.followup.FollowUpRequestBuilder;
 import ai.leadping.openapi.leads.item.status.StatusRequestBuilder;
 import ai.leadping.openapi.leads.item.statushistory.StatusHistoryRequestBuilder;
 import ai.leadping.openapi.leads.item.tags.TagsRequestBuilder;
@@ -42,6 +43,14 @@ public class ItemRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public AssignmentRequestBuilder assignment() {
         return new AssignmentRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The followUp property
+     * @return a {@link FollowUpRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public FollowUpRequestBuilder followUp() {
+        return new FollowUpRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The status property

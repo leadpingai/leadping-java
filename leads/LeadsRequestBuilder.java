@@ -1,6 +1,7 @@
 package ai.leadping.openapi.leads;
 
 import ai.leadping.openapi.leads.all.AllRequestBuilder;
+import ai.leadping.openapi.leads.followups.FollowUpsRequestBuilder;
 import ai.leadping.openapi.leads.intake.IntakeRequestBuilder;
 import ai.leadping.openapi.leads.item.ItemRequestBuilder;
 import ai.leadping.openapi.models.LeadRequest;
@@ -30,6 +31,14 @@ public class LeadsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public AllRequestBuilder all() {
         return new AllRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The followUps property
+     * @return a {@link FollowUpsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public FollowUpsRequestBuilder followUps() {
+        return new FollowUpsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The intake property
