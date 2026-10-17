@@ -1,5 +1,6 @@
 package ai.leadping.openapi.conversations.item;
 
+import ai.leadping.openapi.conversations.item.markhandled.MarkHandledRequestBuilder;
 import ai.leadping.openapi.conversations.item.markread.MarkReadRequestBuilder;
 import ai.leadping.openapi.conversations.item.outboundreadiness.OutboundReadinessRequestBuilder;
 import ai.leadping.openapi.models.ConversationResponse;
@@ -21,6 +22,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ConversationsItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The markHandled property
+     * @return a {@link MarkHandledRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public MarkHandledRequestBuilder markHandled() {
+        return new MarkHandledRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The markRead property
      * @return a {@link MarkReadRequestBuilder}

@@ -74,6 +74,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean lastEventIsInternalNote;
     /**
+     * UTC timestamp of the latest inbound customer activity.
+     */
+    private OffsetDateTime lastInboundAt;
+    /**
+     * Preview of the latest inbound customer activity, preserved across outbound updates.
+     */
+    private String lastInboundSnippet;
+    /**
      * Last name of the lead, user, or contact represented by this conversation response.
      */
     private String lastName;
@@ -90,6 +98,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String leadPhoneNumber;
     /**
+     * Whether a customer reply is awaiting a manual response or acknowledgement.
+     */
+    private Boolean needsReply;
+    /**
      * Recommended next step to move this conversation response forward.
      */
     private String nextStep;
@@ -101,6 +113,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      */
     private ConversationResponsePhoneNumber phoneNumber;
+    /**
+     * Monotonic inbound reply boundary used when marking a conversation handled.
+     */
+    private Long replyVersion;
     /**
      * Defines the customer-facing operational status for an inbox conversation.
      */
@@ -195,7 +211,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -210,13 +226,17 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isUnread", (n) -> { this.setIsUnread(n.getBooleanValue()); });
         deserializerMap.put("lastEventAt", (n) -> { this.setLastEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastEventIsInternalNote", (n) -> { this.setLastEventIsInternalNote(n.getBooleanValue()); });
+        deserializerMap.put("lastInboundAt", (n) -> { this.setLastInboundAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("lastInboundSnippet", (n) -> { this.setLastInboundSnippet(n.getStringValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("lastSnippet", (n) -> { this.setLastSnippet(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadPhoneNumber", (n) -> { this.setLeadPhoneNumber(n.getStringValue()); });
+        deserializerMap.put("needsReply", (n) -> { this.setNeedsReply(n.getBooleanValue()); });
         deserializerMap.put("nextStep", (n) -> { this.setNextStep(n.getStringValue()); });
         deserializerMap.put("outboundPhoneNumberOverrideId", (n) -> { this.setOutboundPhoneNumberOverrideId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getObjectValue(ConversationResponsePhoneNumber::createFromDiscriminatorValue)); });
+        deserializerMap.put("replyVersion", (n) -> { this.setReplyVersion(n.getLongValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(ConversationResponseStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         return deserializerMap;
@@ -278,6 +298,22 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.lastEventIsInternalNote;
     }
     /**
+     * Gets the lastInboundAt property value. UTC timestamp of the latest inbound customer activity.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastInboundAt() {
+        return this.lastInboundAt;
+    }
+    /**
+     * Gets the lastInboundSnippet property value. Preview of the latest inbound customer activity, preserved across outbound updates.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLastInboundSnippet() {
+        return this.lastInboundSnippet;
+    }
+    /**
      * Gets the lastName property value. Last name of the lead, user, or contact represented by this conversation response.
      * @return a {@link String}
      */
@@ -310,6 +346,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.leadPhoneNumber;
     }
     /**
+     * Gets the needsReply property value. Whether a customer reply is awaiting a manual response or acknowledgement.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNeedsReply() {
+        return this.needsReply;
+    }
+    /**
      * Gets the nextStep property value. Recommended next step to move this conversation response forward.
      * @return a {@link String}
      */
@@ -332,6 +376,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public ConversationResponsePhoneNumber getPhoneNumber() {
         return this.phoneNumber;
+    }
+    /**
+     * Gets the replyVersion property value. Monotonic inbound reply boundary used when marking a conversation handled.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getReplyVersion() {
+        return this.replyVersion;
     }
     /**
      * Gets the status property value. Defines the customer-facing operational status for an inbox conversation.
@@ -369,13 +421,17 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isUnread", this.getIsUnread());
         writer.writeOffsetDateTimeValue("lastEventAt", this.getLastEventAt());
         writer.writeBooleanValue("lastEventIsInternalNote", this.getLastEventIsInternalNote());
+        writer.writeOffsetDateTimeValue("lastInboundAt", this.getLastInboundAt());
+        writer.writeStringValue("lastInboundSnippet", this.getLastInboundSnippet());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("lastSnippet", this.getLastSnippet());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadPhoneNumber", this.getLeadPhoneNumber());
+        writer.writeBooleanValue("needsReply", this.getNeedsReply());
         writer.writeStringValue("nextStep", this.getNextStep());
         writer.writeStringValue("outboundPhoneNumberOverrideId", this.getOutboundPhoneNumberOverrideId());
         writer.writeObjectValue("phoneNumber", this.getPhoneNumber());
+        writer.writeLongValue("replyVersion", this.getReplyVersion());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -486,6 +542,20 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.lastEventIsInternalNote = value;
     }
     /**
+     * Sets the lastInboundAt property value. UTC timestamp of the latest inbound customer activity.
+     * @param value Value to set for the lastInboundAt property.
+     */
+    public void setLastInboundAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastInboundAt = value;
+    }
+    /**
+     * Sets the lastInboundSnippet property value. Preview of the latest inbound customer activity, preserved across outbound updates.
+     * @param value Value to set for the lastInboundSnippet property.
+     */
+    public void setLastInboundSnippet(@jakarta.annotation.Nullable final String value) {
+        this.lastInboundSnippet = value;
+    }
+    /**
      * Sets the lastName property value. Last name of the lead, user, or contact represented by this conversation response.
      * @param value Value to set for the lastName property.
      */
@@ -514,6 +584,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.leadPhoneNumber = value;
     }
     /**
+     * Sets the needsReply property value. Whether a customer reply is awaiting a manual response or acknowledgement.
+     * @param value Value to set for the needsReply property.
+     */
+    public void setNeedsReply(@jakarta.annotation.Nullable final Boolean value) {
+        this.needsReply = value;
+    }
+    /**
      * Sets the nextStep property value. Recommended next step to move this conversation response forward.
      * @param value Value to set for the nextStep property.
      */
@@ -533,6 +610,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final ConversationResponsePhoneNumber value) {
         this.phoneNumber = value;
+    }
+    /**
+     * Sets the replyVersion property value. Monotonic inbound reply boundary used when marking a conversation handled.
+     * @param value Value to set for the replyVersion property.
+     */
+    public void setReplyVersion(@jakarta.annotation.Nullable final Long value) {
+        this.replyVersion = value;
     }
     /**
      * Sets the status property value. Defines the customer-facing operational status for an inbox conversation.
