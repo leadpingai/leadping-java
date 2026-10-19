@@ -18,10 +18,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Product allowlist used to accept or route leads from this source.
-     */
-    private java.util.List<String> allowedProducts;
-    /**
      * State or region allowlist used to accept leads from this source.
      */
     private java.util.List<String> allowedStates;
@@ -41,6 +37,10 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      * Total number of authenticated requests made with this source API key.
      */
     private Long apiKeyTotalUses;
+    /**
+     * Whether lead phone numbers are looked up automatically during intake.
+     */
+    private Boolean automaticPhoneLookup;
     /**
      * Indicates whether the organization or sender passed compliance review.
      */
@@ -142,14 +142,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getAllowedProducts() {
-        return this.allowedProducts;
-    }
-    /**
      * Gets the allowedStates property value. State or region allowlist used to accept leads from this source.
      * @return a {@link java.util.List<String>}
      */
@@ -188,6 +180,14 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Long getApiKeyTotalUses() {
         return this.apiKeyTotalUses;
+    }
+    /**
+     * Gets the automaticPhoneLookup property value. Whether lead phone numbers are looked up automatically during intake.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticPhoneLookup() {
+        return this.automaticPhoneLookup;
     }
     /**
      * Gets the complianceApproved property value. Indicates whether the organization or sender passed compliance review.
@@ -260,12 +260,12 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
-        deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("apiKeyLastUsedAt", (n) -> { this.setApiKeyLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("apiKeyTotalUses", (n) -> { this.setApiKeyTotalUses(n.getLongValue()); });
+        deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -381,12 +381,12 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeOffsetDateTimeValue("apiKeyLastUsedAt", this.getApiKeyLastUsedAt());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeOffsetDateTimeValue("apiKeyRotatedAt", this.getApiKeyRotatedAt());
         writer.writeLongValue("apiKeyTotalUses", this.getApiKeyTotalUses());
+        writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
         writer.writeDoubleValue("costPerLead", this.getCostPerLead());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
@@ -414,13 +414,6 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
-     * @param value Value to set for the allowedProducts property.
-     */
-    public void setAllowedProducts(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.allowedProducts = value;
     }
     /**
      * Sets the allowedStates property value. State or region allowlist used to accept leads from this source.
@@ -456,6 +449,13 @@ public class SourceTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setApiKeyTotalUses(@jakarta.annotation.Nullable final Long value) {
         this.apiKeyTotalUses = value;
+    }
+    /**
+     * Sets the automaticPhoneLookup property value. Whether lead phone numbers are looked up automatically during intake.
+     * @param value Value to set for the automaticPhoneLookup property.
+     */
+    public void setAutomaticPhoneLookup(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticPhoneLookup = value;
     }
     /**
      * Sets the complianceApproved property value. Indicates whether the organization or sender passed compliance review.

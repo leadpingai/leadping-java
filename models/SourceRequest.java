@@ -17,13 +17,13 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Product allowlist used to accept or route leads from this source.
-     */
-    private java.util.List<String> allowedProducts;
-    /**
      * State or region allowlist used to accept leads from this source.
      */
     private java.util.List<String> allowedStates;
+    /**
+     * Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
+     */
+    private Boolean automaticPhoneLookup;
     /**
      * Tag IDs automatically assigned to leads created by this source.
      */
@@ -69,20 +69,20 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getAllowedProducts() {
-        return this.allowedProducts;
-    }
-    /**
      * Gets the allowedStates property value. State or region allowlist used to accept leads from this source.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
     public java.util.List<String> getAllowedStates() {
         return this.allowedStates;
+    }
+    /**
+     * Gets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticPhoneLookup() {
+        return this.automaticPhoneLookup;
     }
     /**
      * Gets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.
@@ -115,8 +115,8 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
-        deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -146,8 +146,8 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
+        writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
         writer.writeStringValue("description", this.getDescription());
@@ -163,18 +163,18 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the allowedProducts property value. Product allowlist used to accept or route leads from this source.
-     * @param value Value to set for the allowedProducts property.
-     */
-    public void setAllowedProducts(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.allowedProducts = value;
-    }
-    /**
      * Sets the allowedStates property value. State or region allowlist used to accept leads from this source.
      * @param value Value to set for the allowedStates property.
      */
     public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.allowedStates = value;
+    }
+    /**
+     * Sets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
+     * @param value Value to set for the automaticPhoneLookup property.
+     */
+    public void setAutomaticPhoneLookup(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticPhoneLookup = value;
     }
     /**
      * Sets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.

@@ -17,10 +17,6 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
      */
     private Map<String, Object> additionalData;
     /**
-     * The allowed products included with this organization compliance policy.
-     */
-    private java.util.List<String> allowedProducts;
-    /**
      * The allowed states included with this organization compliance policy.
      */
     private java.util.List<String> allowedStates;
@@ -73,14 +69,6 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
         return this.additionalData;
     }
     /**
-     * Gets the allowedProducts property value. The allowed products included with this organization compliance policy.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getAllowedProducts() {
-        return this.allowedProducts;
-    }
-    /**
      * Gets the allowedStates property value. The allowed states included with this organization compliance policy.
      * @return a {@link java.util.List<String>}
      */
@@ -102,8 +90,7 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
-        deserializerMap.put("allowedProducts", (n) -> { this.setAllowedProducts(n.getCollectionOfPrimitiveValues(String.class)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("requireAgentLicenseState", (n) -> { this.setRequireAgentLicenseState(n.getBooleanValue()); });
@@ -159,7 +146,6 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeCollectionOfPrimitiveValues("allowedProducts", this.getAllowedProducts());
         writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeBooleanValue("requireAgentLicenseState", this.getRequireAgentLicenseState());
@@ -175,13 +161,6 @@ public class OrganizationCompliancePolicy implements AdditionalDataHolder, Parsa
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the allowedProducts property value. The allowed products included with this organization compliance policy.
-     * @param value Value to set for the allowedProducts property.
-     */
-    public void setAllowedProducts(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.allowedProducts = value;
     }
     /**
      * Sets the allowedStates property value. The allowed states included with this organization compliance policy.
