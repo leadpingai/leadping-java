@@ -30,6 +30,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String complianceStatus;
     /**
+     * The provider responsible for a lead&apos;s consent certificate.
+     */
+    private LeadMetadataConsentCertificateType consentCertificateType;
+    /**
+     * Certificate URL used as proof of consumer consent.
+     */
+    private String consentCertificateUrl;
+    /**
      * UTC timestamp when this lead attribution metadata was created.
      */
     private OffsetDateTime createdAt;
@@ -61,10 +69,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Landing page URL where the lead submitted their information.
      */
     private String landingPage;
-    /**
-     * Standalone Leadping Consent certificate identifier, accepted as an alternative to TrustedForm.
-     */
-    private String leadpingConsentCertificateId;
     /**
      * Server-issued timestamp for successful Leadping Consent evidence and recipient validation.
      */
@@ -133,10 +137,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * UTC timestamp when Leadping last successfully checked the TrustedForm certificate URL availability.
      */
     private OffsetDateTime trustedFormCheckedAt;
-    /**
-     * TrustedForm certificate URL used as proof of consumer consent.
-     */
-    private String trustedFormUrl;
     /**
      * Browser or client user agent captured when this lead attribution metadata was submitted.
      */
@@ -218,6 +218,22 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.complianceStatus;
     }
     /**
+     * Gets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
+     * @return a {@link LeadMetadataConsentCertificateType}
+     */
+    @jakarta.annotation.Nullable
+    public LeadMetadataConsentCertificateType getConsentCertificateType() {
+        return this.consentCertificateType;
+    }
+    /**
+     * Gets the consentCertificateUrl property value. Certificate URL used as proof of consumer consent.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getConsentCertificateUrl() {
+        return this.consentCertificateUrl;
+    }
+    /**
      * Gets the createdAt property value. UTC timestamp when this lead attribution metadata was created.
      * @return a {@link OffsetDateTime}
      */
@@ -251,6 +267,8 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("complianceBlockedReason", (n) -> { this.setComplianceBlockedReason(n.getStringValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
+        deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadMetadataConsentCertificateType::forValue)); });
+        deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("externalId", (n) -> { this.setExternalId(n.getStringValue()); });
@@ -259,7 +277,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("ipAddress", (n) -> { this.setIpAddress(n.getStringValue()); });
         deserializerMap.put("isImported", (n) -> { this.setIsImported(n.getBooleanValue()); });
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
-        deserializerMap.put("leadpingConsentCertificateId", (n) -> { this.setLeadpingConsentCertificateId(n.getStringValue()); });
         deserializerMap.put("leadpingConsentCheckedAt", (n) -> { this.setLeadpingConsentCheckedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("origin", (n) -> { this.setOrigin(n.getStringValue()); });
@@ -277,7 +294,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("sourceMetadata", (n) -> { this.setSourceMetadata(n.getObjectValue(LeadMetadataSourceMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("subId", (n) -> { this.setSubId(n.getStringValue()); });
         deserializerMap.put("trustedFormCheckedAt", (n) -> { this.setTrustedFormCheckedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("trustedFormUrl", (n) -> { this.setTrustedFormUrl(n.getStringValue()); });
         deserializerMap.put("userAgent", (n) -> { this.setUserAgent(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         deserializerMap.put("utmCampaign", (n) -> { this.setUtmCampaign(n.getStringValue()); });
@@ -327,14 +343,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLandingPage() {
         return this.landingPage;
-    }
-    /**
-     * Gets the leadpingConsentCertificateId property value. Standalone Leadping Consent certificate identifier, accepted as an alternative to TrustedForm.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getLeadpingConsentCertificateId() {
-        return this.leadpingConsentCertificateId;
     }
     /**
      * Gets the leadpingConsentCheckedAt property value. Server-issued timestamp for successful Leadping Consent evidence and recipient validation.
@@ -473,14 +481,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.trustedFormCheckedAt;
     }
     /**
-     * Gets the trustedFormUrl property value. TrustedForm certificate URL used as proof of consumer consent.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTrustedFormUrl() {
-        return this.trustedFormUrl;
-    }
-    /**
      * Gets the userAgent property value. Browser or client user agent captured when this lead attribution metadata was submitted.
      * @return a {@link String}
      */
@@ -553,6 +553,8 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("assignedPhoneNumberId", this.getAssignedPhoneNumberId());
         writer.writeStringValue("complianceBlockedReason", this.getComplianceBlockedReason());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
+        writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
+        writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("externalId", this.getExternalId());
@@ -561,7 +563,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("ipAddress", this.getIpAddress());
         writer.writeBooleanValue("isImported", this.getIsImported());
         writer.writeStringValue("landingPage", this.getLandingPage());
-        writer.writeStringValue("leadpingConsentCertificateId", this.getLeadpingConsentCertificateId());
         writer.writeOffsetDateTimeValue("leadpingConsentCheckedAt", this.getLeadpingConsentCheckedAt());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("origin", this.getOrigin());
@@ -579,7 +580,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("sourceMetadata", this.getSourceMetadata());
         writer.writeStringValue("subId", this.getSubId());
         writer.writeOffsetDateTimeValue("trustedFormCheckedAt", this.getTrustedFormCheckedAt());
-        writer.writeStringValue("trustedFormUrl", this.getTrustedFormUrl());
         writer.writeStringValue("userAgent", this.getUserAgent());
         writer.writeStringValue("userId", this.getUserId());
         writer.writeStringValue("utmCampaign", this.getUtmCampaign());
@@ -617,6 +617,20 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setComplianceStatus(@jakarta.annotation.Nullable final String value) {
         this.complianceStatus = value;
+    }
+    /**
+     * Sets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
+     * @param value Value to set for the consentCertificateType property.
+     */
+    public void setConsentCertificateType(@jakarta.annotation.Nullable final LeadMetadataConsentCertificateType value) {
+        this.consentCertificateType = value;
+    }
+    /**
+     * Sets the consentCertificateUrl property value. Certificate URL used as proof of consumer consent.
+     * @param value Value to set for the consentCertificateUrl property.
+     */
+    public void setConsentCertificateUrl(@jakarta.annotation.Nullable final String value) {
+        this.consentCertificateUrl = value;
     }
     /**
      * Sets the createdAt property value. UTC timestamp when this lead attribution metadata was created.
@@ -673,13 +687,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setLandingPage(@jakarta.annotation.Nullable final String value) {
         this.landingPage = value;
-    }
-    /**
-     * Sets the leadpingConsentCertificateId property value. Standalone Leadping Consent certificate identifier, accepted as an alternative to TrustedForm.
-     * @param value Value to set for the leadpingConsentCertificateId property.
-     */
-    public void setLeadpingConsentCertificateId(@jakarta.annotation.Nullable final String value) {
-        this.leadpingConsentCertificateId = value;
     }
     /**
      * Sets the leadpingConsentCheckedAt property value. Server-issued timestamp for successful Leadping Consent evidence and recipient validation.
@@ -799,13 +806,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setTrustedFormCheckedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.trustedFormCheckedAt = value;
-    }
-    /**
-     * Sets the trustedFormUrl property value. TrustedForm certificate URL used as proof of consumer consent.
-     * @param value Value to set for the trustedFormUrl property.
-     */
-    public void setTrustedFormUrl(@jakarta.annotation.Nullable final String value) {
-        this.trustedFormUrl = value;
     }
     /**
      * Sets the userAgent property value. Browser or client user agent captured when this lead attribution metadata was submitted.

@@ -29,6 +29,10 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isDemo;
     /**
+     * City and state from the stored phone identity.
+     */
+    private String location;
+    /**
      * Optional display label for this phone number table row in the Leadping API.
      */
     private String name;
@@ -110,10 +114,11 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
+        deserializerMap.put("location", (n) -> { this.setLocation(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
@@ -142,6 +147,14 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsDemo() {
         return this.isDemo;
+    }
+    /**
+     * Gets the location property value. City and state from the stored phone identity.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLocation() {
+        return this.location;
     }
     /**
      * Gets the name property value. Optional display label for this phone number table row in the Leadping API.
@@ -240,6 +253,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
+        writer.writeStringValue("location", this.getLocation());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
         writer.writeStringValue("organization", this.getOrganization());
@@ -280,6 +294,13 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
         this.isDemo = value;
+    }
+    /**
+     * Sets the location property value. City and state from the stored phone identity.
+     * @param value Value to set for the location property.
+     */
+    public void setLocation(@jakarta.annotation.Nullable final String value) {
+        this.location = value;
     }
     /**
      * Sets the name property value. Optional display label for this phone number table row in the Leadping API.

@@ -34,6 +34,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String city;
     /**
+     * The provider responsible for a lead&apos;s consent certificate.
+     */
+    private LeadIntakeRequestConsentCertificateType consentCertificateType;
+    /**
+     * Certificate URL used as proof of consumer consent.
+     */
+    private String consentCertificateUrl;
+    /**
      * Lead date of birth supplied by intake sources and normalized into the lead profile.
      */
     private LocalDate dateOfBirth;
@@ -122,10 +130,6 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> tagNames;
     /**
-     * TrustedForm certificate URL used as proof of consumer consent.
-     */
-    private String trustedFormUrl;
-    /**
      * UTM campaign parameter captured for lead attribution reporting.
      */
     private String utmCampaign;
@@ -210,6 +214,22 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.city;
     }
     /**
+     * Gets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
+     * @return a {@link LeadIntakeRequestConsentCertificateType}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestConsentCertificateType getConsentCertificateType() {
+        return this.consentCertificateType;
+    }
+    /**
+     * Gets the consentCertificateUrl property value. Certificate URL used as proof of consumer consent.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getConsentCertificateUrl() {
+        return this.consentCertificateUrl;
+    }
+    /**
      * Gets the dateOfBirth property value. Lead date of birth supplied by intake sources and normalized into the lead profile.
      * @return a {@link LocalDate}
      */
@@ -247,11 +267,13 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
         deserializerMap.put("address1", (n) -> { this.setAddress1(n.getStringValue()); });
         deserializerMap.put("address2", (n) -> { this.setAddress2(n.getStringValue()); });
         deserializerMap.put("birthDate", (n) -> { this.setBirthDate(n.getLocalDateValue()); });
         deserializerMap.put("city", (n) -> { this.setCity(n.getStringValue()); });
+        deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadIntakeRequestConsentCertificateType::forValue)); });
+        deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
         deserializerMap.put("dateOfBirth", (n) -> { this.setDateOfBirth(n.getLocalDateValue()); });
         deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
@@ -274,7 +296,6 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("subId", (n) -> { this.setSubId(n.getStringValue()); });
         deserializerMap.put("tagIds", (n) -> { this.setTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("tagNames", (n) -> { this.setTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("trustedFormUrl", (n) -> { this.setTrustedFormUrl(n.getStringValue()); });
         deserializerMap.put("utmCampaign", (n) -> { this.setUtmCampaign(n.getStringValue()); });
         deserializerMap.put("utmContent", (n) -> { this.setUtmContent(n.getStringValue()); });
         deserializerMap.put("utmMedium", (n) -> { this.setUtmMedium(n.getStringValue()); });
@@ -429,14 +450,6 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.tagNames;
     }
     /**
-     * Gets the trustedFormUrl property value. TrustedForm certificate URL used as proof of consumer consent.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getTrustedFormUrl() {
-        return this.trustedFormUrl;
-    }
-    /**
      * Gets the utmCampaign property value. UTM campaign parameter captured for lead attribution reporting.
      * @return a {@link String}
      */
@@ -502,6 +515,8 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("address2", this.getAddress2());
         writer.writeLocalDateValue("birthDate", this.getBirthDate());
         writer.writeStringValue("city", this.getCity());
+        writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
+        writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
         writer.writeLocalDateValue("dateOfBirth", this.getDateOfBirth());
         writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("email", this.getEmail());
@@ -524,7 +539,6 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("subId", this.getSubId());
         writer.writeCollectionOfPrimitiveValues("tagIds", this.getTagIds());
         writer.writeCollectionOfPrimitiveValues("tagNames", this.getTagNames());
-        writer.writeStringValue("trustedFormUrl", this.getTrustedFormUrl());
         writer.writeStringValue("utmCampaign", this.getUtmCampaign());
         writer.writeStringValue("utmContent", this.getUtmContent());
         writer.writeStringValue("utmMedium", this.getUtmMedium());
@@ -568,6 +582,20 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setCity(@jakarta.annotation.Nullable final String value) {
         this.city = value;
+    }
+    /**
+     * Sets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
+     * @param value Value to set for the consentCertificateType property.
+     */
+    public void setConsentCertificateType(@jakarta.annotation.Nullable final LeadIntakeRequestConsentCertificateType value) {
+        this.consentCertificateType = value;
+    }
+    /**
+     * Sets the consentCertificateUrl property value. Certificate URL used as proof of consumer consent.
+     * @param value Value to set for the consentCertificateUrl property.
+     */
+    public void setConsentCertificateUrl(@jakarta.annotation.Nullable final String value) {
+        this.consentCertificateUrl = value;
     }
     /**
      * Sets the dateOfBirth property value. Lead date of birth supplied by intake sources and normalized into the lead profile.
@@ -722,13 +750,6 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setTagNames(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.tagNames = value;
-    }
-    /**
-     * Sets the trustedFormUrl property value. TrustedForm certificate URL used as proof of consumer consent.
-     * @param value Value to set for the trustedFormUrl property.
-     */
-    public void setTrustedFormUrl(@jakarta.annotation.Nullable final String value) {
-        this.trustedFormUrl = value;
     }
     /**
      * Sets the utmCampaign property value. UTM campaign parameter captured for lead attribution reporting.

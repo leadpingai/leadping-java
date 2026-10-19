@@ -38,6 +38,10 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean isCurrent;
     /**
+     * The isDemo property
+     */
+    private Boolean isDemo;
+    /**
      * UTC timestamp for last used at on this organization switch option.
      */
     private OffsetDateTime lastUsedAt;
@@ -111,12 +115,13 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(OrganizationSwitchOptionActivationStatus::forValue)); });
         deserializerMap.put("activationSummary", (n) -> { this.setActivationSummary(n.getStringValue()); });
         deserializerMap.put("hasPaymentMethod", (n) -> { this.setHasPaymentMethod(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isCurrent", (n) -> { this.setIsCurrent(n.getBooleanValue()); });
+        deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastUsedAt", (n) -> { this.setLastUsedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("needsAdminReview", (n) -> { this.setNeedsAdminReview(n.getBooleanValue()); });
@@ -149,6 +154,14 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public Boolean getIsCurrent() {
         return this.isCurrent;
+    }
+    /**
+     * Gets the isDemo property value. The isDemo property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDemo() {
+        return this.isDemo;
     }
     /**
      * Gets the lastUsedAt property value. UTC timestamp for last used at on this organization switch option.
@@ -217,6 +230,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         writer.writeBooleanValue("hasPaymentMethod", this.getHasPaymentMethod());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isCurrent", this.getIsCurrent());
+        writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastUsedAt", this.getLastUsedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeBooleanValue("needsAdminReview", this.getNeedsAdminReview());
@@ -267,6 +281,13 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     public void setIsCurrent(@jakarta.annotation.Nullable final Boolean value) {
         this.isCurrent = value;
+    }
+    /**
+     * Sets the isDemo property value. The isDemo property
+     * @param value Value to set for the isDemo property.
+     */
+    public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDemo = value;
     }
     /**
      * Sets the lastUsedAt property value. UTC timestamp for last used at on this organization switch option.
