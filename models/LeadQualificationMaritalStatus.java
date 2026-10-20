@@ -7,20 +7,20 @@ import java.util.Objects;
  * Classifies a lead&apos;s reported marital status when required by a qualification or integration workflow.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public enum LeadProfileMaritalStatus implements ValuedEnum {
+public enum LeadQualificationMaritalStatus implements ValuedEnum {
     Married("Married"),
     Single("Single"),
     Widow("Widow"),
     Separated("Separated"),
     Divorced("Divorced");
     public final String value;
-    LeadProfileMaritalStatus(final String value) {
+    LeadQualificationMaritalStatus(final String value) {
         this.value = value;
     }
     @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
     @jakarta.annotation.Nullable
-    public static LeadProfileMaritalStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
+    public static LeadQualificationMaritalStatus forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "Married": return Married;

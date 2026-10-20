@@ -7,7 +7,7 @@ import java.util.Objects;
  * Classifies a lead&apos;s reported employment arrangement for qualification and demographic workflows.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public enum LeadProfileEmploymentType implements ValuedEnum {
+public enum LeadQualificationEmploymentType implements ValuedEnum {
     Employed("Employed"),
     PartTime("PartTime"),
     SelfEmployed("SelfEmployed"),
@@ -20,13 +20,13 @@ public enum LeadProfileEmploymentType implements ValuedEnum {
     Disabled("Disabled"),
     Other("Other");
     public final String value;
-    LeadProfileEmploymentType(final String value) {
+    LeadQualificationEmploymentType(final String value) {
         this.value = value;
     }
     @jakarta.annotation.Nonnull
     public String getValue() { return this.value; }
     @jakarta.annotation.Nullable
-    public static LeadProfileEmploymentType forValue(@jakarta.annotation.Nonnull final String searchValue) {
+    public static LeadQualificationEmploymentType forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
             case "Employed": return Employed;

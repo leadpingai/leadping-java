@@ -42,9 +42,17 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private String assignedToUserId;
     /**
+     * Business represented by a lead contact.
+     */
+    private LeadResponseCompany company;
+    /**
      * Public Leadping API schema for lead contact profile data.
      */
     private LeadContact contact;
+    /**
+     * Preferred contact language, channel, and callback windows; does not grant consent.
+     */
+    private LeadResponseContactPreferences contactPreferences;
     /**
      * UTC timestamp when the resource was created.
      */
@@ -54,9 +62,9 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private LeadResponseCurrentLeadStatus currentLeadStatus;
     /**
-     * Public Leadping API schema for lead demographic profile data.
+     * Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
      */
-    private LeadProfile customer;
+    private LeadResponseCustomFields customFields;
     /**
      * UTC timestamp when this lead was soft deleted.
      */
@@ -66,13 +74,17 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private String deletedByUserId;
     /**
-     * Indicates whether this lead response is active and available in the Leadping API.
+     * Whether the lead is enabled.
      */
     private Boolean enabled;
     /**
      * Stable unique identifier of the resource.
      */
     private String id;
+    /**
+     * The service or purchase requested by a lead.
+     */
+    private LeadResponseInquiry inquiry;
     /**
      * Indicates whether the lead has been archived in Leadping.
      */
@@ -105,6 +117,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      * Explanation when asynchronous lead processing is blocked or fails.
      */
     private String processingStatusReason;
+    /**
+     * Public Leadping API schema for lead demographic profile data.
+     */
+    private LeadResponseProfile profile;
+    /**
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     */
+    private LeadResponseServiceAddress serviceAddress;
     /**
      * Tags currently attached to this lead, source, or record.
      */
@@ -182,12 +202,28 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.assignedToUserId;
     }
     /**
+     * Gets the company property value. Business represented by a lead contact.
+     * @return a {@link LeadResponseCompany}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseCompany getCompany() {
+        return this.company;
+    }
+    /**
      * Gets the contact property value. Public Leadping API schema for lead contact profile data.
      * @return a {@link LeadContact}
      */
     @jakarta.annotation.Nullable
     public LeadContact getContact() {
         return this.contact;
+    }
+    /**
+     * Gets the contactPreferences property value. Preferred contact language, channel, and callback windows; does not grant consent.
+     * @return a {@link LeadResponseContactPreferences}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseContactPreferences getContactPreferences() {
+        return this.contactPreferences;
     }
     /**
      * Gets the createdAt property value. UTC timestamp when the resource was created.
@@ -206,12 +242,12 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.currentLeadStatus;
     }
     /**
-     * Gets the customer property value. Public Leadping API schema for lead demographic profile data.
-     * @return a {@link LeadProfile}
+     * Gets the customFields property value. Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     * @return a {@link LeadResponseCustomFields}
      */
     @jakarta.annotation.Nullable
-    public LeadProfile getCustomer() {
-        return this.customer;
+    public LeadResponseCustomFields getCustomFields() {
+        return this.customFields;
     }
     /**
      * Gets the deletedAt property value. UTC timestamp when this lead was soft deleted.
@@ -230,7 +266,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.deletedByUserId;
     }
     /**
-     * Gets the enabled property value. Indicates whether this lead response is active and available in the Leadping API.
+     * Gets the enabled property value. Whether the lead is enabled.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -243,21 +279,24 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("assignedTo", (n) -> { this.setAssignedTo(n.getObjectValue(LeadResponseAssignedTo::createFromDiscriminatorValue)); });
         deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
+        deserializerMap.put("company", (n) -> { this.setCompany(n.getObjectValue(LeadResponseCompany::createFromDiscriminatorValue)); });
         deserializerMap.put("contact", (n) -> { this.setContact(n.getObjectValue(LeadContact::createFromDiscriminatorValue)); });
+        deserializerMap.put("contactPreferences", (n) -> { this.setContactPreferences(n.getObjectValue(LeadResponseContactPreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(LeadResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
-        deserializerMap.put("customer", (n) -> { this.setCustomer(n.getObjectValue(LeadProfile::createFromDiscriminatorValue)); });
+        deserializerMap.put("customFields", (n) -> { this.setCustomFields(n.getObjectValue(LeadResponseCustomFields::createFromDiscriminatorValue)); });
         deserializerMap.put("deletedAt", (n) -> { this.setDeletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("deletedByUserId", (n) -> { this.setDeletedByUserId(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("inquiry", (n) -> { this.setInquiry(n.getObjectValue(LeadResponseInquiry::createFromDiscriminatorValue)); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(LeadMetadata::createFromDiscriminatorValue)); });
@@ -266,6 +305,8 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("processingStatus", (n) -> { this.setProcessingStatus(n.getEnumValue(LeadResponseProcessingStatus::forValue)); });
         deserializerMap.put("processingStatusChangedAt", (n) -> { this.setProcessingStatusChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("processingStatusReason", (n) -> { this.setProcessingStatusReason(n.getStringValue()); });
+        deserializerMap.put("profile", (n) -> { this.setProfile(n.getObjectValue(LeadResponseProfile::createFromDiscriminatorValue)); });
+        deserializerMap.put("serviceAddress", (n) -> { this.setServiceAddress(n.getObjectValue(LeadResponseServiceAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("tags", (n) -> { this.setTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -276,6 +317,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the inquiry property value. The service or purchase requested by a lead.
+     * @return a {@link LeadResponseInquiry}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseInquiry getInquiry() {
+        return this.inquiry;
     }
     /**
      * Gets the isArchived property value. Indicates whether the lead has been archived in Leadping.
@@ -342,6 +391,22 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return this.processingStatusReason;
     }
     /**
+     * Gets the profile property value. Public Leadping API schema for lead demographic profile data.
+     * @return a {@link LeadResponseProfile}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseProfile getProfile() {
+        return this.profile;
+    }
+    /**
+     * Gets the serviceAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     * @return a {@link LeadResponseServiceAddress}
+     */
+    @jakarta.annotation.Nullable
+    public LeadResponseServiceAddress getServiceAddress() {
+        return this.serviceAddress;
+    }
+    /**
      * Gets the tags property value. Tags currently attached to this lead, source, or record.
      * @return a {@link java.util.List<TagSummary>}
      */
@@ -361,14 +426,17 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
         writer.writeObjectValue("assignedTo", this.getAssignedTo());
         writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
+        writer.writeObjectValue("company", this.getCompany());
         writer.writeObjectValue("contact", this.getContact());
+        writer.writeObjectValue("contactPreferences", this.getContactPreferences());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
-        writer.writeObjectValue("customer", this.getCustomer());
+        writer.writeObjectValue("customFields", this.getCustomFields());
         writer.writeOffsetDateTimeValue("deletedAt", this.getDeletedAt());
         writer.writeStringValue("deletedByUserId", this.getDeletedByUserId());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeObjectValue("inquiry", this.getInquiry());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeObjectValue("metadata", this.getMetadata());
@@ -377,6 +445,8 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("processingStatus", this.getProcessingStatus());
         writer.writeOffsetDateTimeValue("processingStatusChangedAt", this.getProcessingStatusChangedAt());
         writer.writeStringValue("processingStatusReason", this.getProcessingStatusReason());
+        writer.writeObjectValue("profile", this.getProfile());
+        writer.writeObjectValue("serviceAddress", this.getServiceAddress());
         writer.writeCollectionOfObjectValues("tags", this.getTags());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -430,11 +500,25 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.assignedToUserId = value;
     }
     /**
+     * Sets the company property value. Business represented by a lead contact.
+     * @param value Value to set for the company property.
+     */
+    public void setCompany(@jakarta.annotation.Nullable final LeadResponseCompany value) {
+        this.company = value;
+    }
+    /**
      * Sets the contact property value. Public Leadping API schema for lead contact profile data.
      * @param value Value to set for the contact property.
      */
     public void setContact(@jakarta.annotation.Nullable final LeadContact value) {
         this.contact = value;
+    }
+    /**
+     * Sets the contactPreferences property value. Preferred contact language, channel, and callback windows; does not grant consent.
+     * @param value Value to set for the contactPreferences property.
+     */
+    public void setContactPreferences(@jakarta.annotation.Nullable final LeadResponseContactPreferences value) {
+        this.contactPreferences = value;
     }
     /**
      * Sets the createdAt property value. UTC timestamp when the resource was created.
@@ -451,11 +535,11 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.currentLeadStatus = value;
     }
     /**
-     * Sets the customer property value. Public Leadping API schema for lead demographic profile data.
-     * @param value Value to set for the customer property.
+     * Sets the customFields property value. Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     * @param value Value to set for the customFields property.
      */
-    public void setCustomer(@jakarta.annotation.Nullable final LeadProfile value) {
-        this.customer = value;
+    public void setCustomFields(@jakarta.annotation.Nullable final LeadResponseCustomFields value) {
+        this.customFields = value;
     }
     /**
      * Sets the deletedAt property value. UTC timestamp when this lead was soft deleted.
@@ -472,7 +556,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.deletedByUserId = value;
     }
     /**
-     * Sets the enabled property value. Indicates whether this lead response is active and available in the Leadping API.
+     * Sets the enabled property value. Whether the lead is enabled.
      * @param value Value to set for the enabled property.
      */
     public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -484,6 +568,13 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the inquiry property value. The service or purchase requested by a lead.
+     * @param value Value to set for the inquiry property.
+     */
+    public void setInquiry(@jakarta.annotation.Nullable final LeadResponseInquiry value) {
+        this.inquiry = value;
     }
     /**
      * Sets the isArchived property value. Indicates whether the lead has been archived in Leadping.
@@ -540,6 +631,20 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setProcessingStatusReason(@jakarta.annotation.Nullable final String value) {
         this.processingStatusReason = value;
+    }
+    /**
+     * Sets the profile property value. Public Leadping API schema for lead demographic profile data.
+     * @param value Value to set for the profile property.
+     */
+    public void setProfile(@jakarta.annotation.Nullable final LeadResponseProfile value) {
+        this.profile = value;
+    }
+    /**
+     * Sets the serviceAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     * @param value Value to set for the serviceAddress property.
+     */
+    public void setServiceAddress(@jakarta.annotation.Nullable final LeadResponseServiceAddress value) {
+        this.serviceAddress = value;
     }
     /**
      * Sets the tags property value. Tags currently attached to this lead, source, or record.

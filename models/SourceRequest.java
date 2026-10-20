@@ -17,10 +17,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * State or region allowlist used to accept leads from this source.
-     */
-    private java.util.List<String> allowedStates;
-    /**
      * Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
      */
     private Boolean automaticPhoneLookup;
@@ -69,14 +65,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the allowedStates property value. State or region allowlist used to accept leads from this source.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getAllowedStates() {
-        return this.allowedStates;
-    }
-    /**
      * Gets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
      * @return a {@link Boolean}
      */
@@ -114,8 +102,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
-        deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -146,7 +133,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
@@ -161,13 +147,6 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the allowedStates property value. State or region allowlist used to accept leads from this source.
-     * @param value Value to set for the allowedStates property.
-     */
-    public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.allowedStates = value;
     }
     /**
      * Sets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.

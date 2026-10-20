@@ -17,15 +17,23 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Business represented by a lead contact.
+     */
+    private LeadRequestCompany company;
+    /**
      * Public Leadping API schema for lead contact profile data.
      */
     private LeadContact contact;
     /**
-     * Public Leadping API schema for lead demographic profile data.
+     * Preferred contact language, channel, and callback windows; does not grant consent.
      */
-    private LeadProfile customer;
+    private LeadRequestContactPreferences contactPreferences;
     /**
-     * Indicates whether this lead request is active and available in the Leadping API.
+     * Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     */
+    private LeadRequestCustomFields customFields;
+    /**
+     * Whether the lead is enabled.
      */
     private Boolean enabled;
     /**
@@ -33,15 +41,27 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * The service or purchase requested by a lead.
+     */
+    private LeadRequestInquiry inquiry;
+    /**
      * Public Leadping API schema for lead attribution metadata data.
      */
     private LeadMetadata metadata;
     /**
-     * Tag IDs assigned to or filtered against this lead.
+     * Public Leadping API schema for lead demographic profile data.
+     */
+    private LeadRequestProfile profile;
+    /**
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     */
+    private LeadRequestServiceAddress serviceAddress;
+    /**
+     * Optional tag IDs assigned to this lead. Defaults to an empty list when omitted.
      */
     private java.util.List<String> tagIds;
     /**
-     * Tag names assigned to this lead when matching existing tags by name.
+     * Optional tag names matched against existing tags. Defaults to an empty list when omitted.
      */
     private java.util.List<String> tagNames;
     /**
@@ -69,6 +89,14 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the company property value. Business represented by a lead contact.
+     * @return a {@link LeadRequestCompany}
+     */
+    @jakarta.annotation.Nullable
+    public LeadRequestCompany getCompany() {
+        return this.company;
+    }
+    /**
      * Gets the contact property value. Public Leadping API schema for lead contact profile data.
      * @return a {@link LeadContact}
      */
@@ -77,15 +105,23 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.contact;
     }
     /**
-     * Gets the customer property value. Public Leadping API schema for lead demographic profile data.
-     * @return a {@link LeadProfile}
+     * Gets the contactPreferences property value. Preferred contact language, channel, and callback windows; does not grant consent.
+     * @return a {@link LeadRequestContactPreferences}
      */
     @jakarta.annotation.Nullable
-    public LeadProfile getCustomer() {
-        return this.customer;
+    public LeadRequestContactPreferences getContactPreferences() {
+        return this.contactPreferences;
     }
     /**
-     * Gets the enabled property value. Indicates whether this lead request is active and available in the Leadping API.
+     * Gets the customFields property value. Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     * @return a {@link LeadRequestCustomFields}
+     */
+    @jakarta.annotation.Nullable
+    public LeadRequestCustomFields getCustomFields() {
+        return this.customFields;
+    }
+    /**
+     * Gets the enabled property value. Whether the lead is enabled.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -98,12 +134,17 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        deserializerMap.put("company", (n) -> { this.setCompany(n.getObjectValue(LeadRequestCompany::createFromDiscriminatorValue)); });
         deserializerMap.put("contact", (n) -> { this.setContact(n.getObjectValue(LeadContact::createFromDiscriminatorValue)); });
-        deserializerMap.put("customer", (n) -> { this.setCustomer(n.getObjectValue(LeadProfile::createFromDiscriminatorValue)); });
+        deserializerMap.put("contactPreferences", (n) -> { this.setContactPreferences(n.getObjectValue(LeadRequestContactPreferences::createFromDiscriminatorValue)); });
+        deserializerMap.put("customFields", (n) -> { this.setCustomFields(n.getObjectValue(LeadRequestCustomFields::createFromDiscriminatorValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("inquiry", (n) -> { this.setInquiry(n.getObjectValue(LeadRequestInquiry::createFromDiscriminatorValue)); });
         deserializerMap.put("metadata", (n) -> { this.setMetadata(n.getObjectValue(LeadMetadata::createFromDiscriminatorValue)); });
+        deserializerMap.put("profile", (n) -> { this.setProfile(n.getObjectValue(LeadRequestProfile::createFromDiscriminatorValue)); });
+        deserializerMap.put("serviceAddress", (n) -> { this.setServiceAddress(n.getObjectValue(LeadRequestServiceAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("tagIds", (n) -> { this.setTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("tagNames", (n) -> { this.setTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
         return deserializerMap;
@@ -117,6 +158,14 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
+     * Gets the inquiry property value. The service or purchase requested by a lead.
+     * @return a {@link LeadRequestInquiry}
+     */
+    @jakarta.annotation.Nullable
+    public LeadRequestInquiry getInquiry() {
+        return this.inquiry;
+    }
+    /**
      * Gets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @return a {@link LeadMetadata}
      */
@@ -125,7 +174,23 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.metadata;
     }
     /**
-     * Gets the tagIds property value. Tag IDs assigned to or filtered against this lead.
+     * Gets the profile property value. Public Leadping API schema for lead demographic profile data.
+     * @return a {@link LeadRequestProfile}
+     */
+    @jakarta.annotation.Nullable
+    public LeadRequestProfile getProfile() {
+        return this.profile;
+    }
+    /**
+     * Gets the serviceAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     * @return a {@link LeadRequestServiceAddress}
+     */
+    @jakarta.annotation.Nullable
+    public LeadRequestServiceAddress getServiceAddress() {
+        return this.serviceAddress;
+    }
+    /**
+     * Gets the tagIds property value. Optional tag IDs assigned to this lead. Defaults to an empty list when omitted.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -133,7 +198,7 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         return this.tagIds;
     }
     /**
-     * Gets the tagNames property value. Tag names assigned to this lead when matching existing tags by name.
+     * Gets the tagNames property value. Optional tag names matched against existing tags. Defaults to an empty list when omitted.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -146,11 +211,16 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeObjectValue("company", this.getCompany());
         writer.writeObjectValue("contact", this.getContact());
-        writer.writeObjectValue("customer", this.getCustomer());
+        writer.writeObjectValue("contactPreferences", this.getContactPreferences());
+        writer.writeObjectValue("customFields", this.getCustomFields());
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
+        writer.writeObjectValue("inquiry", this.getInquiry());
         writer.writeObjectValue("metadata", this.getMetadata());
+        writer.writeObjectValue("profile", this.getProfile());
+        writer.writeObjectValue("serviceAddress", this.getServiceAddress());
         writer.writeCollectionOfPrimitiveValues("tagIds", this.getTagIds());
         writer.writeCollectionOfPrimitiveValues("tagNames", this.getTagNames());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -163,6 +233,13 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
+     * Sets the company property value. Business represented by a lead contact.
+     * @param value Value to set for the company property.
+     */
+    public void setCompany(@jakarta.annotation.Nullable final LeadRequestCompany value) {
+        this.company = value;
+    }
+    /**
      * Sets the contact property value. Public Leadping API schema for lead contact profile data.
      * @param value Value to set for the contact property.
      */
@@ -170,14 +247,21 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         this.contact = value;
     }
     /**
-     * Sets the customer property value. Public Leadping API schema for lead demographic profile data.
-     * @param value Value to set for the customer property.
+     * Sets the contactPreferences property value. Preferred contact language, channel, and callback windows; does not grant consent.
+     * @param value Value to set for the contactPreferences property.
      */
-    public void setCustomer(@jakarta.annotation.Nullable final LeadProfile value) {
-        this.customer = value;
+    public void setContactPreferences(@jakarta.annotation.Nullable final LeadRequestContactPreferences value) {
+        this.contactPreferences = value;
     }
     /**
-     * Sets the enabled property value. Indicates whether this lead request is active and available in the Leadping API.
+     * Sets the customFields property value. Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     * @param value Value to set for the customFields property.
+     */
+    public void setCustomFields(@jakarta.annotation.Nullable final LeadRequestCustomFields value) {
+        this.customFields = value;
+    }
+    /**
+     * Sets the enabled property value. Whether the lead is enabled.
      * @param value Value to set for the enabled property.
      */
     public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -191,6 +275,13 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
+     * Sets the inquiry property value. The service or purchase requested by a lead.
+     * @param value Value to set for the inquiry property.
+     */
+    public void setInquiry(@jakarta.annotation.Nullable final LeadRequestInquiry value) {
+        this.inquiry = value;
+    }
+    /**
      * Sets the metadata property value. Public Leadping API schema for lead attribution metadata data.
      * @param value Value to set for the metadata property.
      */
@@ -198,14 +289,28 @@ public class LeadRequest implements AdditionalDataHolder, Parsable {
         this.metadata = value;
     }
     /**
-     * Sets the tagIds property value. Tag IDs assigned to or filtered against this lead.
+     * Sets the profile property value. Public Leadping API schema for lead demographic profile data.
+     * @param value Value to set for the profile property.
+     */
+    public void setProfile(@jakarta.annotation.Nullable final LeadRequestProfile value) {
+        this.profile = value;
+    }
+    /**
+     * Sets the serviceAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     * @param value Value to set for the serviceAddress property.
+     */
+    public void setServiceAddress(@jakarta.annotation.Nullable final LeadRequestServiceAddress value) {
+        this.serviceAddress = value;
+    }
+    /**
+     * Sets the tagIds property value. Optional tag IDs assigned to this lead. Defaults to an empty list when omitted.
      * @param value Value to set for the tagIds property.
      */
     public void setTagIds(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.tagIds = value;
     }
     /**
-     * Sets the tagNames property value. Tag names assigned to this lead when matching existing tags by name.
+     * Sets the tagNames property value. Optional tag names matched against existing tags. Defaults to an empty list when omitted.
      * @param value Value to set for the tagNames property.
      */
     public void setTagNames(@jakarta.annotation.Nullable final java.util.List<String> value) {

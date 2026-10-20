@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,6 +82,22 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      * Indicates whether payment failed SMS functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean paymentFailedSmsEnabled;
+    /**
+     * Whether push and automation alerts wait until the user&apos;s daily quiet hours end.
+     */
+    private Boolean quietHoursEnabled;
+    /**
+     * The exclusive local end of daily quiet hours.
+     */
+    private LocalTime quietHoursEnd;
+    /**
+     * The inclusive local start of daily quiet hours.
+     */
+    private LocalTime quietHoursStart;
+    /**
+     * The time zone used for quiet hours, including daylight saving changes.
+     */
+    private String quietHoursTimeZoneId;
     /**
      * Describes Leadping Consent certificate data used in Leadping API requests and responses.
      */
@@ -195,7 +212,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("automationFailedEmailEnabled", (n) -> { this.setAutomationFailedEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedEnabled", (n) -> { this.setAutomationFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedSmsEnabled", (n) -> { this.setAutomationFailedSmsEnabled(n.getBooleanValue()); });
@@ -212,6 +229,10 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("newLeadSmsEnabled", (n) -> { this.setNewLeadSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedEnabled", (n) -> { this.setPaymentFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedSmsEnabled", (n) -> { this.setPaymentFailedSmsEnabled(n.getBooleanValue()); });
+        deserializerMap.put("quietHoursEnabled", (n) -> { this.setQuietHoursEnabled(n.getBooleanValue()); });
+        deserializerMap.put("quietHoursEnd", (n) -> { this.setQuietHoursEnd(n.getLocalTimeValue()); });
+        deserializerMap.put("quietHoursStart", (n) -> { this.setQuietHoursStart(n.getLocalTimeValue()); });
+        deserializerMap.put("quietHoursTimeZoneId", (n) -> { this.setQuietHoursTimeZoneId(n.getStringValue()); });
         deserializerMap.put("smsConsentCertificate", (n) -> { this.setSmsConsentCertificate(n.getObjectValue(UserNotificationPreferencesSmsConsentCertificate::createFromDiscriminatorValue)); });
         deserializerMap.put("smsConsentOptedIn", (n) -> { this.setSmsConsentOptedIn(n.getBooleanValue()); });
         deserializerMap.put("smsConsentUpdatedAt", (n) -> { this.setSmsConsentUpdatedAt(n.getOffsetDateTimeValue()); });
@@ -312,6 +333,38 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public Boolean getPaymentFailedSmsEnabled() {
         return this.paymentFailedSmsEnabled;
+    }
+    /**
+     * Gets the quietHoursEnabled property value. Whether push and automation alerts wait until the user&apos;s daily quiet hours end.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getQuietHoursEnabled() {
+        return this.quietHoursEnabled;
+    }
+    /**
+     * Gets the quietHoursEnd property value. The exclusive local end of daily quiet hours.
+     * @return a {@link LocalTime}
+     */
+    @jakarta.annotation.Nullable
+    public LocalTime getQuietHoursEnd() {
+        return this.quietHoursEnd;
+    }
+    /**
+     * Gets the quietHoursStart property value. The inclusive local start of daily quiet hours.
+     * @return a {@link LocalTime}
+     */
+    @jakarta.annotation.Nullable
+    public LocalTime getQuietHoursStart() {
+        return this.quietHoursStart;
+    }
+    /**
+     * Gets the quietHoursTimeZoneId property value. The time zone used for quiet hours, including daylight saving changes.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getQuietHoursTimeZoneId() {
+        return this.quietHoursTimeZoneId;
     }
     /**
      * Gets the smsConsentCertificate property value. Describes Leadping Consent certificate data used in Leadping API requests and responses.
@@ -423,6 +476,10 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("newLeadSmsEnabled", this.getNewLeadSmsEnabled());
         writer.writeBooleanValue("paymentFailedEnabled", this.getPaymentFailedEnabled());
         writer.writeBooleanValue("paymentFailedSmsEnabled", this.getPaymentFailedSmsEnabled());
+        writer.writeBooleanValue("quietHoursEnabled", this.getQuietHoursEnabled());
+        writer.writeLocalTimeValue("quietHoursEnd", this.getQuietHoursEnd());
+        writer.writeLocalTimeValue("quietHoursStart", this.getQuietHoursStart());
+        writer.writeStringValue("quietHoursTimeZoneId", this.getQuietHoursTimeZoneId());
         writer.writeObjectValue("smsConsentCertificate", this.getSmsConsentCertificate());
         writer.writeBooleanValue("smsConsentOptedIn", this.getSmsConsentOptedIn());
         writer.writeOffsetDateTimeValue("smsConsentUpdatedAt", this.getSmsConsentUpdatedAt());
@@ -554,6 +611,34 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setPaymentFailedSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.paymentFailedSmsEnabled = value;
+    }
+    /**
+     * Sets the quietHoursEnabled property value. Whether push and automation alerts wait until the user&apos;s daily quiet hours end.
+     * @param value Value to set for the quietHoursEnabled property.
+     */
+    public void setQuietHoursEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.quietHoursEnabled = value;
+    }
+    /**
+     * Sets the quietHoursEnd property value. The exclusive local end of daily quiet hours.
+     * @param value Value to set for the quietHoursEnd property.
+     */
+    public void setQuietHoursEnd(@jakarta.annotation.Nullable final LocalTime value) {
+        this.quietHoursEnd = value;
+    }
+    /**
+     * Sets the quietHoursStart property value. The inclusive local start of daily quiet hours.
+     * @param value Value to set for the quietHoursStart property.
+     */
+    public void setQuietHoursStart(@jakarta.annotation.Nullable final LocalTime value) {
+        this.quietHoursStart = value;
+    }
+    /**
+     * Sets the quietHoursTimeZoneId property value. The time zone used for quiet hours, including daylight saving changes.
+     * @param value Value to set for the quietHoursTimeZoneId property.
+     */
+    public void setQuietHoursTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.quietHoursTimeZoneId = value;
     }
     /**
      * Sets the smsConsentCertificate property value. Describes Leadping Consent certificate data used in Leadping API requests and responses.

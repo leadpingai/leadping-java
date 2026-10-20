@@ -18,10 +18,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * State or region allowlist used to accept leads from this source.
-     */
-    private java.util.List<String> allowedStates;
-    /**
      * Masked preview of the source API key for compact display.
      */
     private String apiKeyPreview;
@@ -134,14 +130,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the allowedStates property value. State or region allowlist used to accept leads from this source.
-     * @return a {@link java.util.List<String>}
-     */
-    @jakarta.annotation.Nullable
-    public java.util.List<String> getAllowedStates() {
-        return this.allowedStates;
-    }
-    /**
      * Gets the apiKeyPreview property value. Masked preview of the source API key for compact display.
      * @return a {@link String}
      */
@@ -243,8 +231,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
-        deserializerMap.put("allowedStates", (n) -> { this.setAllowedStates(n.getCollectionOfPrimitiveValues(String.class)); });
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
@@ -355,7 +342,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeCollectionOfPrimitiveValues("allowedStates", this.getAllowedStates());
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeOffsetDateTimeValue("apiKeyRotatedAt", this.getApiKeyRotatedAt());
         writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
@@ -386,13 +372,6 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
-    }
-    /**
-     * Sets the allowedStates property value. State or region allowlist used to accept leads from this source.
-     * @param value Value to set for the allowedStates property.
-     */
-    public void setAllowedStates(@jakarta.annotation.Nullable final java.util.List<String> value) {
-        this.allowedStates = value;
     }
     /**
      * Sets the apiKeyPreview property value. Masked preview of the source API key for compact display.

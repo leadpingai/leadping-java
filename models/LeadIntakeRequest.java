@@ -5,6 +5,7 @@ import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -30,9 +31,25 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private LocalDate birthDate;
     /**
+     * Original source capture timestamp.
+     */
+    private OffsetDateTime capturedAt;
+    /**
+     * Original visitor IP as reported by the source.
+     */
+    private String captureIpAddress;
+    /**
+     * Original visitor user agent as reported by the source.
+     */
+    private String captureUserAgent;
+    /**
      * City for the lead or organization postal address.
      */
     private String city;
+    /**
+     * Business represented by a lead contact.
+     */
+    private LeadIntakeRequestCompany company;
     /**
      * The provider responsible for a lead&apos;s consent certificate.
      */
@@ -42,11 +59,27 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String consentCertificateUrl;
     /**
+     * Preferred contact language, channel, and callback windows; does not grant consent.
+     */
+    private LeadIntakeRequestContactPreferences contactPreferences;
+    /**
+     * ISO 3166-1 alpha-2 contact address country code.
+     */
+    private String country;
+    /**
+     * ISO 4217 acquisition price currency.
+     */
+    private String currency;
+    /**
+     * Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     */
+    private LeadIntakeRequestCustomFields customFields;
+    /**
      * Lead date of birth supplied by intake sources and normalized into the lead profile.
      */
     private LocalDate dateOfBirth;
     /**
-     * Direct-post price supplied by the lead source during intake.
+     * Alias for price. When both are supplied, their amounts must agree.
      */
     private Double directPostPrice;
     /**
@@ -70,6 +103,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String idempotencyKey;
     /**
+     * The service or purchase requested by a lead.
+     */
+    private LeadIntakeRequestInquiry inquiry;
+    /**
      * Landing page URL where the lead submitted their information.
      */
     private String landingPage;
@@ -78,7 +115,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String lastName;
     /**
-     * Phone details for the lead, user, or organization represented by this lead intake request.
+     * Contact phone number. Use E.164 with a leading + for international numbers.
      */
     private String phone;
     /**
@@ -98,6 +135,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private String product;
     /**
+     * Public Leadping API schema for lead demographic profile data.
+     */
+    private LeadIntakeRequestProfile profile;
+    /**
+     * Publisher identifier.
+     */
+    private String pubId;
+    /**
      * Referring page or traffic source that sent the lead into Leadping.
      */
     private String referrer;
@@ -109,6 +154,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      * Alternate seller-provided lead identifier used during intake normalization.
      */
     private String sellerLeadIdentifier;
+    /**
+     * Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     */
+    private LeadIntakeRequestServiceAddress serviceAddress;
     /**
      * Source-provided key-value metadata retained for lead attribution and integration troubleshooting.
      */
@@ -129,6 +178,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      * Tag names assigned to this lead when matching existing tags by name.
      */
     private java.util.List<String> tagNames;
+    /**
+     * Contact time zone identifier.
+     */
+    private String timeZoneId;
     /**
      * UTM campaign parameter captured for lead attribution reporting.
      */
@@ -206,12 +259,44 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.birthDate;
     }
     /**
+     * Gets the capturedAt property value. Original source capture timestamp.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getCapturedAt() {
+        return this.capturedAt;
+    }
+    /**
+     * Gets the captureIpAddress property value. Original visitor IP as reported by the source.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCaptureIpAddress() {
+        return this.captureIpAddress;
+    }
+    /**
+     * Gets the captureUserAgent property value. Original visitor user agent as reported by the source.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCaptureUserAgent() {
+        return this.captureUserAgent;
+    }
+    /**
      * Gets the city property value. City for the lead or organization postal address.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
     public String getCity() {
         return this.city;
+    }
+    /**
+     * Gets the company property value. Business represented by a lead contact.
+     * @return a {@link LeadIntakeRequestCompany}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestCompany getCompany() {
+        return this.company;
     }
     /**
      * Gets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
@@ -230,6 +315,38 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.consentCertificateUrl;
     }
     /**
+     * Gets the contactPreferences property value. Preferred contact language, channel, and callback windows; does not grant consent.
+     * @return a {@link LeadIntakeRequestContactPreferences}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestContactPreferences getContactPreferences() {
+        return this.contactPreferences;
+    }
+    /**
+     * Gets the country property value. ISO 3166-1 alpha-2 contact address country code.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCountry() {
+        return this.country;
+    }
+    /**
+     * Gets the currency property value. ISO 4217 acquisition price currency.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCurrency() {
+        return this.currency;
+    }
+    /**
+     * Gets the customFields property value. Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     * @return a {@link LeadIntakeRequestCustomFields}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestCustomFields getCustomFields() {
+        return this.customFields;
+    }
+    /**
      * Gets the dateOfBirth property value. Lead date of birth supplied by intake sources and normalized into the lead profile.
      * @return a {@link LocalDate}
      */
@@ -238,7 +355,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.dateOfBirth;
     }
     /**
-     * Gets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
+     * Gets the directPostPrice property value. Alias for price. When both are supplied, their amounts must agree.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -267,13 +384,21 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(48);
         deserializerMap.put("address1", (n) -> { this.setAddress1(n.getStringValue()); });
         deserializerMap.put("address2", (n) -> { this.setAddress2(n.getStringValue()); });
         deserializerMap.put("birthDate", (n) -> { this.setBirthDate(n.getLocalDateValue()); });
+        deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
+        deserializerMap.put("captureUserAgent", (n) -> { this.setCaptureUserAgent(n.getStringValue()); });
         deserializerMap.put("city", (n) -> { this.setCity(n.getStringValue()); });
+        deserializerMap.put("company", (n) -> { this.setCompany(n.getObjectValue(LeadIntakeRequestCompany::createFromDiscriminatorValue)); });
         deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadIntakeRequestConsentCertificateType::forValue)); });
         deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
+        deserializerMap.put("contactPreferences", (n) -> { this.setContactPreferences(n.getObjectValue(LeadIntakeRequestContactPreferences::createFromDiscriminatorValue)); });
+        deserializerMap.put("country", (n) -> { this.setCountry(n.getStringValue()); });
+        deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
+        deserializerMap.put("customFields", (n) -> { this.setCustomFields(n.getObjectValue(LeadIntakeRequestCustomFields::createFromDiscriminatorValue)); });
         deserializerMap.put("dateOfBirth", (n) -> { this.setDateOfBirth(n.getLocalDateValue()); });
         deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
@@ -281,6 +406,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("gender", (n) -> { this.setGender(n.getStringValue()); });
         deserializerMap.put("idempotencyKey", (n) -> { this.setIdempotencyKey(n.getStringValue()); });
+        deserializerMap.put("inquiry", (n) -> { this.setInquiry(n.getObjectValue(LeadIntakeRequestInquiry::createFromDiscriminatorValue)); });
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
@@ -288,14 +414,18 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("postalCode", (n) -> { this.setPostalCode(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("product", (n) -> { this.setProduct(n.getStringValue()); });
+        deserializerMap.put("profile", (n) -> { this.setProfile(n.getObjectValue(LeadIntakeRequestProfile::createFromDiscriminatorValue)); });
+        deserializerMap.put("pubId", (n) -> { this.setPubId(n.getStringValue()); });
         deserializerMap.put("referrer", (n) -> { this.setReferrer(n.getStringValue()); });
         deserializerMap.put("sellerLeadId", (n) -> { this.setSellerLeadId(n.getStringValue()); });
         deserializerMap.put("sellerLeadIdentifier", (n) -> { this.setSellerLeadIdentifier(n.getStringValue()); });
+        deserializerMap.put("serviceAddress", (n) -> { this.setServiceAddress(n.getObjectValue(LeadIntakeRequestServiceAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("sourceMetadata", (n) -> { this.setSourceMetadata(n.getObjectValue(LeadIntakeRequestSourceMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("state", (n) -> { this.setState(n.getStringValue()); });
         deserializerMap.put("subId", (n) -> { this.setSubId(n.getStringValue()); });
         deserializerMap.put("tagIds", (n) -> { this.setTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("tagNames", (n) -> { this.setTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         deserializerMap.put("utmCampaign", (n) -> { this.setUtmCampaign(n.getStringValue()); });
         deserializerMap.put("utmContent", (n) -> { this.setUtmContent(n.getStringValue()); });
         deserializerMap.put("utmMedium", (n) -> { this.setUtmMedium(n.getStringValue()); });
@@ -330,6 +460,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.idempotencyKey;
     }
     /**
+     * Gets the inquiry property value. The service or purchase requested by a lead.
+     * @return a {@link LeadIntakeRequestInquiry}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestInquiry getInquiry() {
+        return this.inquiry;
+    }
+    /**
      * Gets the landingPage property value. Landing page URL where the lead submitted their information.
      * @return a {@link String}
      */
@@ -346,7 +484,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.lastName;
     }
     /**
-     * Gets the phone property value. Phone details for the lead, user, or organization represented by this lead intake request.
+     * Gets the phone property value. Contact phone number. Use E.164 with a leading + for international numbers.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -386,6 +524,22 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.product;
     }
     /**
+     * Gets the profile property value. Public Leadping API schema for lead demographic profile data.
+     * @return a {@link LeadIntakeRequestProfile}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestProfile getProfile() {
+        return this.profile;
+    }
+    /**
+     * Gets the pubId property value. Publisher identifier.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getPubId() {
+        return this.pubId;
+    }
+    /**
      * Gets the referrer property value. Referring page or traffic source that sent the lead into Leadping.
      * @return a {@link String}
      */
@@ -408,6 +562,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getSellerLeadIdentifier() {
         return this.sellerLeadIdentifier;
+    }
+    /**
+     * Gets the serviceAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     * @return a {@link LeadIntakeRequestServiceAddress}
+     */
+    @jakarta.annotation.Nullable
+    public LeadIntakeRequestServiceAddress getServiceAddress() {
+        return this.serviceAddress;
     }
     /**
      * Gets the sourceMetadata property value. Source-provided key-value metadata retained for lead attribution and integration troubleshooting.
@@ -448,6 +610,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public java.util.List<String> getTagNames() {
         return this.tagNames;
+    }
+    /**
+     * Gets the timeZoneId property value. Contact time zone identifier.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTimeZoneId() {
+        return this.timeZoneId;
     }
     /**
      * Gets the utmCampaign property value. UTM campaign parameter captured for lead attribution reporting.
@@ -514,9 +684,17 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("address1", this.getAddress1());
         writer.writeStringValue("address2", this.getAddress2());
         writer.writeLocalDateValue("birthDate", this.getBirthDate());
+        writer.writeOffsetDateTimeValue("capturedAt", this.getCapturedAt());
+        writer.writeStringValue("captureIpAddress", this.getCaptureIpAddress());
+        writer.writeStringValue("captureUserAgent", this.getCaptureUserAgent());
         writer.writeStringValue("city", this.getCity());
+        writer.writeObjectValue("company", this.getCompany());
         writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
         writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
+        writer.writeObjectValue("contactPreferences", this.getContactPreferences());
+        writer.writeStringValue("country", this.getCountry());
+        writer.writeStringValue("currency", this.getCurrency());
+        writer.writeObjectValue("customFields", this.getCustomFields());
         writer.writeLocalDateValue("dateOfBirth", this.getDateOfBirth());
         writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("email", this.getEmail());
@@ -524,6 +702,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("gender", this.getGender());
         writer.writeStringValue("idempotencyKey", this.getIdempotencyKey());
+        writer.writeObjectValue("inquiry", this.getInquiry());
         writer.writeStringValue("landingPage", this.getLandingPage());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("phone", this.getPhone());
@@ -531,14 +710,18 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("postalCode", this.getPostalCode());
         writer.writeDoubleValue("price", this.getPrice());
         writer.writeStringValue("product", this.getProduct());
+        writer.writeObjectValue("profile", this.getProfile());
+        writer.writeStringValue("pubId", this.getPubId());
         writer.writeStringValue("referrer", this.getReferrer());
         writer.writeStringValue("sellerLeadId", this.getSellerLeadId());
         writer.writeStringValue("sellerLeadIdentifier", this.getSellerLeadIdentifier());
+        writer.writeObjectValue("serviceAddress", this.getServiceAddress());
         writer.writeObjectValue("sourceMetadata", this.getSourceMetadata());
         writer.writeStringValue("state", this.getState());
         writer.writeStringValue("subId", this.getSubId());
         writer.writeCollectionOfPrimitiveValues("tagIds", this.getTagIds());
         writer.writeCollectionOfPrimitiveValues("tagNames", this.getTagNames());
+        writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeStringValue("utmCampaign", this.getUtmCampaign());
         writer.writeStringValue("utmContent", this.getUtmContent());
         writer.writeStringValue("utmMedium", this.getUtmMedium());
@@ -577,11 +760,39 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.birthDate = value;
     }
     /**
+     * Sets the capturedAt property value. Original source capture timestamp.
+     * @param value Value to set for the capturedAt property.
+     */
+    public void setCapturedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.capturedAt = value;
+    }
+    /**
+     * Sets the captureIpAddress property value. Original visitor IP as reported by the source.
+     * @param value Value to set for the captureIpAddress property.
+     */
+    public void setCaptureIpAddress(@jakarta.annotation.Nullable final String value) {
+        this.captureIpAddress = value;
+    }
+    /**
+     * Sets the captureUserAgent property value. Original visitor user agent as reported by the source.
+     * @param value Value to set for the captureUserAgent property.
+     */
+    public void setCaptureUserAgent(@jakarta.annotation.Nullable final String value) {
+        this.captureUserAgent = value;
+    }
+    /**
      * Sets the city property value. City for the lead or organization postal address.
      * @param value Value to set for the city property.
      */
     public void setCity(@jakarta.annotation.Nullable final String value) {
         this.city = value;
+    }
+    /**
+     * Sets the company property value. Business represented by a lead contact.
+     * @param value Value to set for the company property.
+     */
+    public void setCompany(@jakarta.annotation.Nullable final LeadIntakeRequestCompany value) {
+        this.company = value;
     }
     /**
      * Sets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
@@ -598,6 +809,34 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.consentCertificateUrl = value;
     }
     /**
+     * Sets the contactPreferences property value. Preferred contact language, channel, and callback windows; does not grant consent.
+     * @param value Value to set for the contactPreferences property.
+     */
+    public void setContactPreferences(@jakarta.annotation.Nullable final LeadIntakeRequestContactPreferences value) {
+        this.contactPreferences = value;
+    }
+    /**
+     * Sets the country property value. ISO 3166-1 alpha-2 contact address country code.
+     * @param value Value to set for the country property.
+     */
+    public void setCountry(@jakarta.annotation.Nullable final String value) {
+        this.country = value;
+    }
+    /**
+     * Sets the currency property value. ISO 4217 acquisition price currency.
+     * @param value Value to set for the currency property.
+     */
+    public void setCurrency(@jakarta.annotation.Nullable final String value) {
+        this.currency = value;
+    }
+    /**
+     * Sets the customFields property value. Industry-specific JSON scalar or scalar-array answers; keys are stable field identifiers.
+     * @param value Value to set for the customFields property.
+     */
+    public void setCustomFields(@jakarta.annotation.Nullable final LeadIntakeRequestCustomFields value) {
+        this.customFields = value;
+    }
+    /**
      * Sets the dateOfBirth property value. Lead date of birth supplied by intake sources and normalized into the lead profile.
      * @param value Value to set for the dateOfBirth property.
      */
@@ -605,7 +844,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.dateOfBirth = value;
     }
     /**
-     * Sets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
+     * Sets the directPostPrice property value. Alias for price. When both are supplied, their amounts must agree.
      * @param value Value to set for the directPostPrice property.
      */
     public void setDirectPostPrice(@jakarta.annotation.Nullable final Double value) {
@@ -647,6 +886,13 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.idempotencyKey = value;
     }
     /**
+     * Sets the inquiry property value. The service or purchase requested by a lead.
+     * @param value Value to set for the inquiry property.
+     */
+    public void setInquiry(@jakarta.annotation.Nullable final LeadIntakeRequestInquiry value) {
+        this.inquiry = value;
+    }
+    /**
      * Sets the landingPage property value. Landing page URL where the lead submitted their information.
      * @param value Value to set for the landingPage property.
      */
@@ -661,7 +907,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.lastName = value;
     }
     /**
-     * Sets the phone property value. Phone details for the lead, user, or organization represented by this lead intake request.
+     * Sets the phone property value. Contact phone number. Use E.164 with a leading + for international numbers.
      * @param value Value to set for the phone property.
      */
     public void setPhone(@jakarta.annotation.Nullable final String value) {
@@ -696,6 +942,20 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.product = value;
     }
     /**
+     * Sets the profile property value. Public Leadping API schema for lead demographic profile data.
+     * @param value Value to set for the profile property.
+     */
+    public void setProfile(@jakarta.annotation.Nullable final LeadIntakeRequestProfile value) {
+        this.profile = value;
+    }
+    /**
+     * Sets the pubId property value. Publisher identifier.
+     * @param value Value to set for the pubId property.
+     */
+    public void setPubId(@jakarta.annotation.Nullable final String value) {
+        this.pubId = value;
+    }
+    /**
      * Sets the referrer property value. Referring page or traffic source that sent the lead into Leadping.
      * @param value Value to set for the referrer property.
      */
@@ -715,6 +975,13 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setSellerLeadIdentifier(@jakarta.annotation.Nullable final String value) {
         this.sellerLeadIdentifier = value;
+    }
+    /**
+     * Sets the serviceAddress property value. Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+     * @param value Value to set for the serviceAddress property.
+     */
+    public void setServiceAddress(@jakarta.annotation.Nullable final LeadIntakeRequestServiceAddress value) {
+        this.serviceAddress = value;
     }
     /**
      * Sets the sourceMetadata property value. Source-provided key-value metadata retained for lead attribution and integration troubleshooting.
@@ -750,6 +1017,13 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setTagNames(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.tagNames = value;
+    }
+    /**
+     * Sets the timeZoneId property value. Contact time zone identifier.
+     * @param value Value to set for the timeZoneId property.
+     */
+    public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.timeZoneId = value;
     }
     /**
      * Sets the utmCampaign property value. UTM campaign parameter captured for lead attribution reporting.

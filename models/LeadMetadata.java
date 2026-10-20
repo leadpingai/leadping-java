@@ -22,6 +22,18 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String assignedPhoneNumberId;
     /**
+     * Timestamp when the source originally captured the inquiry.
+     */
+    private OffsetDateTime capturedAt;
+    /**
+     * Source-reported IP address of the original visitor.
+     */
+    private String captureIpAddress;
+    /**
+     * Source-reported user agent of the original visitor.
+     */
+    private String captureUserAgent;
+    /**
      * Reason Leadping blocked this operation for compliance.
      */
     private String complianceBlockedReason;
@@ -42,7 +54,11 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
-     * Direct-post price supplied by the lead source during intake.
+     * ISO 4217 currency code for the lead acquisition price.
+     */
+    private String currency;
+    /**
+     * Alias for price. When both are supplied, their amounts must agree.
      */
     private Double directPostPrice;
     /**
@@ -202,6 +218,30 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.assignedPhoneNumberId;
     }
     /**
+     * Gets the capturedAt property value. Timestamp when the source originally captured the inquiry.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getCapturedAt() {
+        return this.capturedAt;
+    }
+    /**
+     * Gets the captureIpAddress property value. Source-reported IP address of the original visitor.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCaptureIpAddress() {
+        return this.captureIpAddress;
+    }
+    /**
+     * Gets the captureUserAgent property value. Source-reported user agent of the original visitor.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCaptureUserAgent() {
+        return this.captureUserAgent;
+    }
+    /**
      * Gets the complianceBlockedReason property value. Reason Leadping blocked this operation for compliance.
      * @return a {@link String}
      */
@@ -242,7 +282,15 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
+     * Gets the currency property value. ISO 4217 currency code for the lead acquisition price.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCurrency() {
+        return this.currency;
+    }
+    /**
+     * Gets the directPostPrice property value. Alias for price. When both are supplied, their amounts must agree.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -263,13 +311,17 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(38);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(42);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
+        deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
+        deserializerMap.put("captureUserAgent", (n) -> { this.setCaptureUserAgent(n.getStringValue()); });
         deserializerMap.put("complianceBlockedReason", (n) -> { this.setComplianceBlockedReason(n.getStringValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
         deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadMetadataConsentCertificateType::forValue)); });
         deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
         deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
         deserializerMap.put("externalId", (n) -> { this.setExternalId(n.getStringValue()); });
         deserializerMap.put("importBatchId", (n) -> { this.setImportBatchId(n.getStringValue()); });
@@ -551,11 +603,15 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("assignedPhoneNumberId", this.getAssignedPhoneNumberId());
+        writer.writeOffsetDateTimeValue("capturedAt", this.getCapturedAt());
+        writer.writeStringValue("captureIpAddress", this.getCaptureIpAddress());
+        writer.writeStringValue("captureUserAgent", this.getCaptureUserAgent());
         writer.writeStringValue("complianceBlockedReason", this.getComplianceBlockedReason());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
         writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
         writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
+        writer.writeStringValue("currency", this.getCurrency());
         writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
         writer.writeStringValue("externalId", this.getExternalId());
         writer.writeStringValue("importBatchId", this.getImportBatchId());
@@ -605,6 +661,27 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.assignedPhoneNumberId = value;
     }
     /**
+     * Sets the capturedAt property value. Timestamp when the source originally captured the inquiry.
+     * @param value Value to set for the capturedAt property.
+     */
+    public void setCapturedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.capturedAt = value;
+    }
+    /**
+     * Sets the captureIpAddress property value. Source-reported IP address of the original visitor.
+     * @param value Value to set for the captureIpAddress property.
+     */
+    public void setCaptureIpAddress(@jakarta.annotation.Nullable final String value) {
+        this.captureIpAddress = value;
+    }
+    /**
+     * Sets the captureUserAgent property value. Source-reported user agent of the original visitor.
+     * @param value Value to set for the captureUserAgent property.
+     */
+    public void setCaptureUserAgent(@jakarta.annotation.Nullable final String value) {
+        this.captureUserAgent = value;
+    }
+    /**
      * Sets the complianceBlockedReason property value. Reason Leadping blocked this operation for compliance.
      * @param value Value to set for the complianceBlockedReason property.
      */
@@ -640,7 +717,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.createdAt = value;
     }
     /**
-     * Sets the directPostPrice property value. Direct-post price supplied by the lead source during intake.
+     * Sets the currency property value. ISO 4217 currency code for the lead acquisition price.
+     * @param value Value to set for the currency property.
+     */
+    public void setCurrency(@jakarta.annotation.Nullable final String value) {
+        this.currency = value;
+    }
+    /**
+     * Sets the directPostPrice property value. Alias for price. When both are supplied, their amounts must agree.
      * @param value Value to set for the directPostPrice property.
      */
     public void setDirectPostPrice(@jakarta.annotation.Nullable final Double value) {
