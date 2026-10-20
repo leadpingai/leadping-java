@@ -37,7 +37,7 @@ public class FollowUpsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/leads/follow-ups{?continuation*,includeUpcoming*}", rawUrl);
     }
     /**
-     * Returns a paginated list of current incomplete follow-ups accessible to the current user, with the option to include upcoming follow-ups.
+     * Returns a paginated list of current incomplete follow-ups with lead assignment and organization access enforced, with the option to include upcoming follow-ups.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -48,7 +48,7 @@ public class FollowUpsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns a paginated list of current incomplete follow-ups accessible to the current user, with the option to include upcoming follow-ups.
+     * Returns a paginated list of current incomplete follow-ups with lead assignment and organization access enforced, with the option to include upcoming follow-ups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -65,7 +65,7 @@ public class FollowUpsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Returns a paginated list of current incomplete follow-ups accessible to the current user, with the option to include upcoming follow-ups.
+     * Returns a paginated list of current incomplete follow-ups with lead assignment and organization access enforced, with the option to include upcoming follow-ups.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -73,7 +73,7 @@ public class FollowUpsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns a paginated list of current incomplete follow-ups accessible to the current user, with the option to include upcoming follow-ups.
+     * Returns a paginated list of current incomplete follow-ups with lead assignment and organization access enforced, with the option to include upcoming follow-ups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -95,7 +95,7 @@ public class FollowUpsRequestBuilder extends BaseRequestBuilder {
         return new FollowUpsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns a paginated list of current incomplete follow-ups accessible to the current user, with the option to include upcoming follow-ups.
+     * Returns a paginated list of current incomplete follow-ups with lead assignment and organization access enforced, with the option to include upcoming follow-ups.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

@@ -39,7 +39,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/organizations/api-keys/{id}", rawUrl);
     }
     /**
-     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
+     * Deletes the organization-owned API key without deleting the organization.The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link OrganizationApiKeyRevokeResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -51,7 +51,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
+     * Deletes the organization-owned API key without deleting the organization.The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyRevokeResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -135,7 +135,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyIssueResponse::createFromDiscriminatorValue);
     }
     /**
-     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
+     * Deletes the organization-owned API key without deleting the organization.The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -143,7 +143,7 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
+     * Deletes the organization-owned API key without deleting the organization.The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

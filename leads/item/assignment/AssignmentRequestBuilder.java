@@ -37,7 +37,7 @@ public class AssignmentRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/leads/{%2Did}/assignment", rawUrl);
     }
     /**
-     * Updates ownership of the specified lead after validating that the selected assignee is an active member of the current organization.
+     * Assigns the lead to an active member of the current organization, or returns it to the unassigned queue.
      * @param body Assigns an organization lead to an active organization member. A null user ID returns the lead to the unassigned queue.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -51,7 +51,7 @@ public class AssignmentRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates ownership of the specified lead after validating that the selected assignee is an active member of the current organization.
+     * Assigns the lead to an active member of the current organization, or returns it to the unassigned queue.
      * @param body Assigns an organization lead to an active organization member. A null user ID returns the lead to the unassigned queue.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
@@ -74,7 +74,7 @@ public class AssignmentRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates ownership of the specified lead after validating that the selected assignee is an active member of the current organization.
+     * Assigns the lead to an active member of the current organization, or returns it to the unassigned queue.
      * @param body Assigns an organization lead to an active organization member. A null user ID returns the lead to the unassigned queue.
      * @return a {@link RequestInformation}
      */
@@ -83,7 +83,7 @@ public class AssignmentRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates ownership of the specified lead after validating that the selected assignee is an active member of the current organization.
+     * Assigns the lead to an active member of the current organization, or returns it to the unassigned queue.
      * @param body Assigns an organization lead to an active organization member. A null user ID returns the lead to the unassigned queue.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
