@@ -162,6 +162,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime trustedFormCheckedAt;
     /**
+     * Server-issued timestamp when TrustedForm returned HTTP 400 or the certificate was already used by the organization; the evidence remains unverified.
+     */
+    private OffsetDateTime trustedFormRejectedAt;
+    /**
      * Browser or client user agent captured when this lead attribution metadata was submitted.
      */
     private String userAgent;
@@ -335,7 +339,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
@@ -372,6 +376,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("sourceMetadata", (n) -> { this.setSourceMetadata(n.getObjectValue(LeadMetadataSourceMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("subId", (n) -> { this.setSubId(n.getStringValue()); });
         deserializerMap.put("trustedFormCheckedAt", (n) -> { this.setTrustedFormCheckedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("trustedFormRejectedAt", (n) -> { this.setTrustedFormRejectedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("userAgent", (n) -> { this.setUserAgent(n.getStringValue()); });
         deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         deserializerMap.put("utmCampaign", (n) -> { this.setUtmCampaign(n.getStringValue()); });
@@ -559,6 +564,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.trustedFormCheckedAt;
     }
     /**
+     * Gets the trustedFormRejectedAt property value. Server-issued timestamp when TrustedForm returned HTTP 400 or the certificate was already used by the organization; the evidence remains unverified.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getTrustedFormRejectedAt() {
+        return this.trustedFormRejectedAt;
+    }
+    /**
      * Gets the userAgent property value. Browser or client user agent captured when this lead attribution metadata was submitted.
      * @return a {@link String}
      */
@@ -664,6 +677,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("sourceMetadata", this.getSourceMetadata());
         writer.writeStringValue("subId", this.getSubId());
         writer.writeOffsetDateTimeValue("trustedFormCheckedAt", this.getTrustedFormCheckedAt());
+        writer.writeOffsetDateTimeValue("trustedFormRejectedAt", this.getTrustedFormRejectedAt());
         writer.writeStringValue("userAgent", this.getUserAgent());
         writer.writeStringValue("userId", this.getUserId());
         writer.writeStringValue("utmCampaign", this.getUtmCampaign());
@@ -932,6 +946,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setTrustedFormCheckedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.trustedFormCheckedAt = value;
+    }
+    /**
+     * Sets the trustedFormRejectedAt property value. Server-issued timestamp when TrustedForm returned HTTP 400 or the certificate was already used by the organization; the evidence remains unverified.
+     * @param value Value to set for the trustedFormRejectedAt property.
+     */
+    public void setTrustedFormRejectedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.trustedFormRejectedAt = value;
     }
     /**
      * Sets the userAgent property value. Browser or client user agent captured when this lead attribution metadata was submitted.
