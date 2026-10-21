@@ -42,6 +42,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String complianceStatus;
     /**
+     * User attestation of SMS consent from another source; does not establish independent verification.
+     */
+    private Boolean consentAttested;
+    /**
      * The provider responsible for a lead&apos;s consent certificate.
      */
     private LeadMetadataConsentCertificateType consentCertificateType;
@@ -49,6 +53,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Certificate URL used as proof of consumer consent.
      */
     private String consentCertificateUrl;
+    /**
+     * Leadping&apos;s assessment of the supporting consent evidence.
+     */
+    private ConsentVerificationStatus consentVerificationStatus;
     /**
      * UTC timestamp when this lead attribution metadata was created.
      */
@@ -258,6 +266,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.complianceStatus;
     }
     /**
+     * Gets the consentAttested property value. User attestation of SMS consent from another source; does not establish independent verification.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getConsentAttested() {
+        return this.consentAttested;
+    }
+    /**
      * Gets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
      * @return a {@link LeadMetadataConsentCertificateType}
      */
@@ -272,6 +288,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getConsentCertificateUrl() {
         return this.consentCertificateUrl;
+    }
+    /**
+     * Gets the consentVerificationStatus property value. Leadping&apos;s assessment of the supporting consent evidence.
+     * @return a {@link ConsentVerificationStatus}
+     */
+    @jakarta.annotation.Nullable
+    public ConsentVerificationStatus getConsentVerificationStatus() {
+        return this.consentVerificationStatus;
     }
     /**
      * Gets the createdAt property value. UTC timestamp when this lead attribution metadata was created.
@@ -311,15 +335,17 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(42);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
         deserializerMap.put("captureUserAgent", (n) -> { this.setCaptureUserAgent(n.getStringValue()); });
         deserializerMap.put("complianceBlockedReason", (n) -> { this.setComplianceBlockedReason(n.getStringValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
+        deserializerMap.put("consentAttested", (n) -> { this.setConsentAttested(n.getBooleanValue()); });
         deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadMetadataConsentCertificateType::forValue)); });
         deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
+        deserializerMap.put("consentVerificationStatus", (n) -> { this.setConsentVerificationStatus(n.getEnumValue(ConsentVerificationStatus::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
         deserializerMap.put("directPostPrice", (n) -> { this.setDirectPostPrice(n.getDoubleValue()); });
@@ -608,8 +634,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("captureUserAgent", this.getCaptureUserAgent());
         writer.writeStringValue("complianceBlockedReason", this.getComplianceBlockedReason());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
+        writer.writeBooleanValue("consentAttested", this.getConsentAttested());
         writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
         writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
+        writer.writeEnumValue("consentVerificationStatus", this.getConsentVerificationStatus());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("currency", this.getCurrency());
         writer.writeDoubleValue("directPostPrice", this.getDirectPostPrice());
@@ -696,6 +724,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.complianceStatus = value;
     }
     /**
+     * Sets the consentAttested property value. User attestation of SMS consent from another source; does not establish independent verification.
+     * @param value Value to set for the consentAttested property.
+     */
+    public void setConsentAttested(@jakarta.annotation.Nullable final Boolean value) {
+        this.consentAttested = value;
+    }
+    /**
      * Sets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
      * @param value Value to set for the consentCertificateType property.
      */
@@ -708,6 +743,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setConsentCertificateUrl(@jakarta.annotation.Nullable final String value) {
         this.consentCertificateUrl = value;
+    }
+    /**
+     * Sets the consentVerificationStatus property value. Leadping&apos;s assessment of the supporting consent evidence.
+     * @param value Value to set for the consentVerificationStatus property.
+     */
+    public void setConsentVerificationStatus(@jakarta.annotation.Nullable final ConsentVerificationStatus value) {
+        this.consentVerificationStatus = value;
     }
     /**
      * Sets the createdAt property value. UTC timestamp when this lead attribution metadata was created.

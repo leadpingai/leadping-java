@@ -51,6 +51,10 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private LeadIntakeRequestCompany company;
     /**
+     * Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual texts only.
+     */
+    private Boolean consentAttested;
+    /**
      * The provider responsible for a lead&apos;s consent certificate.
      */
     private LeadIntakeRequestConsentCertificateType consentCertificateType;
@@ -299,6 +303,14 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.company;
     }
     /**
+     * Gets the consentAttested property value. Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual texts only.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getConsentAttested() {
+        return this.consentAttested;
+    }
+    /**
      * Gets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.
      * @return a {@link LeadIntakeRequestConsentCertificateType}
      */
@@ -384,7 +396,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(48);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(49);
         deserializerMap.put("address1", (n) -> { this.setAddress1(n.getStringValue()); });
         deserializerMap.put("address2", (n) -> { this.setAddress2(n.getStringValue()); });
         deserializerMap.put("birthDate", (n) -> { this.setBirthDate(n.getLocalDateValue()); });
@@ -393,6 +405,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("captureUserAgent", (n) -> { this.setCaptureUserAgent(n.getStringValue()); });
         deserializerMap.put("city", (n) -> { this.setCity(n.getStringValue()); });
         deserializerMap.put("company", (n) -> { this.setCompany(n.getObjectValue(LeadIntakeRequestCompany::createFromDiscriminatorValue)); });
+        deserializerMap.put("consentAttested", (n) -> { this.setConsentAttested(n.getBooleanValue()); });
         deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadIntakeRequestConsentCertificateType::forValue)); });
         deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
         deserializerMap.put("contactPreferences", (n) -> { this.setContactPreferences(n.getObjectValue(LeadIntakeRequestContactPreferences::createFromDiscriminatorValue)); });
@@ -689,6 +702,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("captureUserAgent", this.getCaptureUserAgent());
         writer.writeStringValue("city", this.getCity());
         writer.writeObjectValue("company", this.getCompany());
+        writer.writeBooleanValue("consentAttested", this.getConsentAttested());
         writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
         writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
         writer.writeObjectValue("contactPreferences", this.getContactPreferences());
@@ -793,6 +807,13 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setCompany(@jakarta.annotation.Nullable final LeadIntakeRequestCompany value) {
         this.company = value;
+    }
+    /**
+     * Sets the consentAttested property value. Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual texts only.
+     * @param value Value to set for the consentAttested property.
+     */
+    public void setConsentAttested(@jakarta.annotation.Nullable final Boolean value) {
+        this.consentAttested = value;
     }
     /**
      * Sets the consentCertificateType property value. The provider responsible for a lead&apos;s consent certificate.

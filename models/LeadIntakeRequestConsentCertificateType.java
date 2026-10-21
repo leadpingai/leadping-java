@@ -9,7 +9,8 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum LeadIntakeRequestConsentCertificateType implements ValuedEnum {
     TrustedForm("TrustedForm"),
-    Leadping("Leadping");
+    Leadping("Leadping"),
+    Other("Other");
     public final String value;
     LeadIntakeRequestConsentCertificateType(final String value) {
         this.value = value;
@@ -22,6 +23,7 @@ public enum LeadIntakeRequestConsentCertificateType implements ValuedEnum {
         switch(searchValue) {
             case "TrustedForm": return TrustedForm;
             case "Leadping": return Leadping;
+            case "Other": return Other;
             default: return null;
         }
     }
