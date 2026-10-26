@@ -170,10 +170,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String userAgent;
     /**
-     * User ID associated with this lead&apos;s attribution metadata.
-     */
-    private String userId;
-    /**
      * UTM campaign parameter captured for lead attribution reporting.
      */
     private String utmCampaign;
@@ -339,7 +335,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
@@ -378,7 +374,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("trustedFormCheckedAt", (n) -> { this.setTrustedFormCheckedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("trustedFormRejectedAt", (n) -> { this.setTrustedFormRejectedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("userAgent", (n) -> { this.setUserAgent(n.getStringValue()); });
-        deserializerMap.put("userId", (n) -> { this.setUserId(n.getStringValue()); });
         deserializerMap.put("utmCampaign", (n) -> { this.setUtmCampaign(n.getStringValue()); });
         deserializerMap.put("utmContent", (n) -> { this.setUtmContent(n.getStringValue()); });
         deserializerMap.put("utmMedium", (n) -> { this.setUtmMedium(n.getStringValue()); });
@@ -580,14 +575,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.userAgent;
     }
     /**
-     * Gets the userId property value. User ID associated with this lead&apos;s attribution metadata.
-     * @return a {@link String}
-     */
-    @jakarta.annotation.Nullable
-    public String getUserId() {
-        return this.userId;
-    }
-    /**
      * Gets the utmCampaign property value. UTM campaign parameter captured for lead attribution reporting.
      * @return a {@link String}
      */
@@ -679,7 +666,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("trustedFormCheckedAt", this.getTrustedFormCheckedAt());
         writer.writeOffsetDateTimeValue("trustedFormRejectedAt", this.getTrustedFormRejectedAt());
         writer.writeStringValue("userAgent", this.getUserAgent());
-        writer.writeStringValue("userId", this.getUserId());
         writer.writeStringValue("utmCampaign", this.getUtmCampaign());
         writer.writeStringValue("utmContent", this.getUtmContent());
         writer.writeStringValue("utmMedium", this.getUtmMedium());
@@ -960,13 +946,6 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setUserAgent(@jakarta.annotation.Nullable final String value) {
         this.userAgent = value;
-    }
-    /**
-     * Sets the userId property value. User ID associated with this lead&apos;s attribution metadata.
-     * @param value Value to set for the userId property.
-     */
-    public void setUserId(@jakarta.annotation.Nullable final String value) {
-        this.userId = value;
     }
     /**
      * Sets the utmCampaign property value. UTM campaign parameter captured for lead attribution reporting.

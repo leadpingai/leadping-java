@@ -18,6 +18,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String actorDisplayName;
     /**
+     * The lead who performed this action.
+     */
+    private String actorLeadId;
+    /**
      * User ID for the actor that performed the action.
      */
     private String actorUserId;
@@ -210,6 +214,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.actorDisplayName;
     }
     /**
+     * Gets the actorLeadId property value. The lead who performed this action.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorLeadId() {
+        return this.actorLeadId;
+    }
+    /**
      * Gets the actorUserId property value. User ID for the actor that performed the action.
      * @return a {@link String}
      */
@@ -343,8 +355,9 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(42);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(43);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
+        deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
@@ -603,6 +616,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
+        writer.writeStringValue("actorLeadId", this.getActorLeadId());
         writer.writeStringValue("actorUserId", this.getActorUserId());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
@@ -652,6 +666,13 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setActorDisplayName(@jakarta.annotation.Nullable final String value) {
         this.actorDisplayName = value;
+    }
+    /**
+     * Sets the actorLeadId property value. The lead who performed this action.
+     * @param value Value to set for the actorLeadId property.
+     */
+    public void setActorLeadId(@jakarta.annotation.Nullable final String value) {
+        this.actorLeadId = value;
     }
     /**
      * Sets the actorUserId property value. User ID for the actor that performed the action.

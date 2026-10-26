@@ -83,7 +83,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean paymentFailedSmsEnabled;
     /**
-     * Whether push and automation alerts wait until the user&apos;s daily quiet hours end.
+     * Whether push, SMS, and automation alerts wait until the user&apos;s daily quiet hours end.
      */
     private Boolean quietHoursEnabled;
     /**
@@ -335,7 +335,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.paymentFailedSmsEnabled;
     }
     /**
-     * Gets the quietHoursEnabled property value. Whether push and automation alerts wait until the user&apos;s daily quiet hours end.
+     * Gets the quietHoursEnabled property value. Whether push, SMS, and automation alerts wait until the user&apos;s daily quiet hours end.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -613,7 +613,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.paymentFailedSmsEnabled = value;
     }
     /**
-     * Sets the quietHoursEnabled property value. Whether push and automation alerts wait until the user&apos;s daily quiet hours end.
+     * Sets the quietHoursEnabled property value. Whether push, SMS, and automation alerts wait until the user&apos;s daily quiet hours end.
      * @param value Value to set for the quietHoursEnabled property.
      */
     public void setQuietHoursEnabled(@jakarta.annotation.Nullable final Boolean value) {

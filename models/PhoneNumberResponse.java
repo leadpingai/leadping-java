@@ -34,10 +34,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isDemo;
     /**
-     * Indicates whether Leadping provisions and manages this phone number.
-     */
-    private Boolean leadpingOwned;
-    /**
      * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
@@ -57,6 +53,10 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private PhoneNumberResponseOrganization organization;
+    /**
+     * Identifies whose traffic a phone number serves, independently of provider control.
+     */
+    private PhoneNumberOwnership ownership;
     /**
      * Identifier of the canonical phone identity for this number.
      */
@@ -128,12 +128,12 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
-        deserializerMap.put("leadpingOwned", (n) -> { this.setLeadpingOwned(n.getBooleanValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("numberHealthEnabled", (n) -> { this.setNumberHealthEnabled(n.getBooleanValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(PhoneNumberResponseOrganization::createFromDiscriminatorValue)); });
+        deserializerMap.put("ownership", (n) -> { this.setOwnership(n.getEnumValue(PhoneNumberOwnership::forValue)); });
         deserializerMap.put("phoneIdentityId", (n) -> { this.setPhoneIdentityId(n.getStringValue()); });
         deserializerMap.put("routing", (n) -> { this.setRouting(n.getObjectValue(PhoneNumberRoutingMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("smsReady", (n) -> { this.setSmsReady(n.getBooleanValue()); });
@@ -156,14 +156,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsDemo() {
         return this.isDemo;
-    }
-    /**
-     * Gets the leadpingOwned property value. Indicates whether Leadping provisions and manages this phone number.
-     * @return a {@link Boolean}
-     */
-    @jakarta.annotation.Nullable
-    public Boolean getLeadpingOwned() {
-        return this.leadpingOwned;
     }
     /**
      * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
@@ -204,6 +196,14 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public PhoneNumberResponseOrganization getOrganization() {
         return this.organization;
+    }
+    /**
+     * Gets the ownership property value. Identifies whose traffic a phone number serves, independently of provider control.
+     * @return a {@link PhoneNumberOwnership}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberOwnership getOwnership() {
+        return this.ownership;
     }
     /**
      * Gets the phoneIdentityId property value. Identifier of the canonical phone identity for this number.
@@ -255,12 +255,12 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
-        writer.writeBooleanValue("leadpingOwned", this.getLeadpingOwned());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
         writer.writeBooleanValue("numberHealthEnabled", this.getNumberHealthEnabled());
         writer.writeObjectValue("organization", this.getOrganization());
+        writer.writeEnumValue("ownership", this.getOwnership());
         writer.writeStringValue("phoneIdentityId", this.getPhoneIdentityId());
         writer.writeObjectValue("routing", this.getRouting());
         writer.writeBooleanValue("smsReady", this.getSmsReady());
@@ -304,13 +304,6 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
         this.isDemo = value;
     }
     /**
-     * Sets the leadpingOwned property value. Indicates whether Leadping provisions and manages this phone number.
-     * @param value Value to set for the leadpingOwned property.
-     */
-    public void setLeadpingOwned(@jakarta.annotation.Nullable final Boolean value) {
-        this.leadpingOwned = value;
-    }
-    /**
      * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
      * @param value Value to set for the modifiedAt property.
      */
@@ -344,6 +337,13 @@ public class PhoneNumberResponse implements AdditionalDataHolder, Parsable {
      */
     public void setOrganization(@jakarta.annotation.Nullable final PhoneNumberResponseOrganization value) {
         this.organization = value;
+    }
+    /**
+     * Sets the ownership property value. Identifies whose traffic a phone number serves, independently of provider control.
+     * @param value Value to set for the ownership property.
+     */
+    public void setOwnership(@jakarta.annotation.Nullable final PhoneNumberOwnership value) {
+        this.ownership = value;
     }
     /**
      * Sets the phoneIdentityId property value. Identifier of the canonical phone identity for this number.

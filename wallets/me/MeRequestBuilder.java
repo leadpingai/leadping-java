@@ -2,6 +2,7 @@ package ai.leadping.openapi.wallets.me;
 
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.WalletResponse;
+import ai.leadping.openapi.wallets.me.spendlimits.SpendLimitsRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -19,6 +20,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MeRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The spendLimits property
+     * @return a {@link SpendLimitsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public SpendLimitsRequestBuilder spendLimits() {
+        return new SpendLimitsRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Instantiates a new {@link MeRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request

@@ -21,6 +21,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private Boolean automaticPhoneLookup;
     /**
+     * Maximum new leads accepted per UTC day. Null means unlimited; zero pauses intake.
+     */
+    private Integer dailyLeadLimit;
+    /**
      * Tag IDs automatically assigned to leads created by this source.
      */
     private java.util.List<String> defaultTagIds;
@@ -73,6 +77,14 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.automaticPhoneLookup;
     }
     /**
+     * Gets the dailyLeadLimit property value. Maximum new leads accepted per UTC day. Null means unlimited; zero pauses intake.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getDailyLeadLimit() {
+        return this.dailyLeadLimit;
+    }
+    /**
      * Gets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.
      * @return a {@link java.util.List<String>}
      */
@@ -102,8 +114,9 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
+        deserializerMap.put("dailyLeadLimit", (n) -> { this.setDailyLeadLimit(n.getIntegerValue()); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -134,6 +147,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
+        writer.writeIntegerValue("dailyLeadLimit", this.getDailyLeadLimit());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
         writer.writeStringValue("description", this.getDescription());
@@ -154,6 +168,13 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAutomaticPhoneLookup(@jakarta.annotation.Nullable final Boolean value) {
         this.automaticPhoneLookup = value;
+    }
+    /**
+     * Sets the dailyLeadLimit property value. Maximum new leads accepted per UTC day. Null means unlimited; zero pauses intake.
+     * @param value Value to set for the dailyLeadLimit property.
+     */
+    public void setDailyLeadLimit(@jakarta.annotation.Nullable final Integer value) {
+        this.dailyLeadLimit = value;
     }
     /**
      * Sets the defaultTagIds property value. Tag IDs automatically assigned to leads created by this source.

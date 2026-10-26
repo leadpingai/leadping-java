@@ -22,6 +22,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String actorEmail;
     /**
+     * The lead who performed this action.
+     */
+    private String actorLeadId;
+    /**
      * User ID for the person or system that created this event timeline table row.
      */
     private String actorUserId;
@@ -250,6 +254,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.actorEmail;
     }
     /**
+     * Gets the actorLeadId property value. The lead who performed this action.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorLeadId() {
+        return this.actorLeadId;
+    }
+    /**
      * Gets the actorUserId property value. User ID for the person or system that created this event timeline table row.
      * @return a {@link String}
      */
@@ -415,9 +427,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(50);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(51);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
+        deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
@@ -708,6 +721,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorEmail", this.getActorEmail());
+        writer.writeStringValue("actorLeadId", this.getActorLeadId());
         writer.writeStringValue("actorUserId", this.getActorUserId());
         writer.writeStringValue("automationRunId", this.getAutomationRunId());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
@@ -771,6 +785,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setActorEmail(@jakarta.annotation.Nullable final String value) {
         this.actorEmail = value;
+    }
+    /**
+     * Sets the actorLeadId property value. The lead who performed this action.
+     * @param value Value to set for the actorLeadId property.
+     */
+    public void setActorLeadId(@jakarta.annotation.Nullable final String value) {
+        this.actorLeadId = value;
     }
     /**
      * Sets the actorUserId property value. User ID for the person or system that created this event timeline table row.

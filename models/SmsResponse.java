@@ -106,6 +106,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime nextRetryAt;
     /**
+     * The organization receiving this message status update.
+     */
+    private String organizationId;
+    /**
      * Phone number ID selected for outbound delivery.
      */
     private String outboundPhoneNumberId;
@@ -311,7 +315,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(38);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
@@ -334,6 +338,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
@@ -415,6 +420,14 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getNextRetryAt() {
         return this.nextRetryAt;
+    }
+    /**
+     * Gets the organizationId property value. The organization receiving this message status update.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationId() {
+        return this.organizationId;
     }
     /**
      * Gets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.
@@ -572,6 +585,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
+        writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
@@ -750,6 +764,13 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNextRetryAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.nextRetryAt = value;
+    }
+    /**
+     * Sets the organizationId property value. The organization receiving this message status update.
+     * @param value Value to set for the organizationId property.
+     */
+    public void setOrganizationId(@jakarta.annotation.Nullable final String value) {
+        this.organizationId = value;
     }
     /**
      * Sets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.

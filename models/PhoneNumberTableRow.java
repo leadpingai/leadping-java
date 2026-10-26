@@ -49,9 +49,9 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String organizationId;
     /**
-     * Ownership classification for this phone number, such as Leadping-owned or customer-owned.
+     * Identifies whose traffic a phone number serves, independently of provider control.
      */
-    private String ownership;
+    private PhoneNumberOwnership ownership;
     /**
      * Human-readable routing summary for this phone number.
      */
@@ -123,7 +123,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
-        deserializerMap.put("ownership", (n) -> { this.setOwnership(n.getStringValue()); });
+        deserializerMap.put("ownership", (n) -> { this.setOwnership(n.getEnumValue(PhoneNumberOwnership::forValue)); });
         deserializerMap.put("routingSummary", (n) -> { this.setRoutingSummary(n.getStringValue()); });
         deserializerMap.put("smsReady", (n) -> { this.setSmsReady(n.getBooleanValue()); });
         deserializerMap.put("tenDlcCampaignStatus", (n) -> { this.setTenDlcCampaignStatus(n.getStringValue()); });
@@ -189,11 +189,11 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.organizationId;
     }
     /**
-     * Gets the ownership property value. Ownership classification for this phone number, such as Leadping-owned or customer-owned.
-     * @return a {@link String}
+     * Gets the ownership property value. Identifies whose traffic a phone number serves, independently of provider control.
+     * @return a {@link PhoneNumberOwnership}
      */
     @jakarta.annotation.Nullable
-    public String getOwnership() {
+    public PhoneNumberOwnership getOwnership() {
         return this.ownership;
     }
     /**
@@ -258,7 +258,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("number", this.getNumber());
         writer.writeStringValue("organization", this.getOrganization());
         writer.writeStringValue("organizationId", this.getOrganizationId());
-        writer.writeStringValue("ownership", this.getOwnership());
+        writer.writeEnumValue("ownership", this.getOwnership());
         writer.writeStringValue("routingSummary", this.getRoutingSummary());
         writer.writeBooleanValue("smsReady", this.getSmsReady());
         writer.writeStringValue("tenDlcCampaignStatus", this.getTenDlcCampaignStatus());
@@ -331,10 +331,10 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.organizationId = value;
     }
     /**
-     * Sets the ownership property value. Ownership classification for this phone number, such as Leadping-owned or customer-owned.
+     * Sets the ownership property value. Identifies whose traffic a phone number serves, independently of provider control.
      * @param value Value to set for the ownership property.
      */
-    public void setOwnership(@jakarta.annotation.Nullable final String value) {
+    public void setOwnership(@jakarta.annotation.Nullable final PhoneNumberOwnership value) {
         this.ownership = value;
     }
     /**
