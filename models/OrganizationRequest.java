@@ -53,6 +53,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private String targetAudience;
     /**
+     * Default timezone for organization reporting and display when a user has no personal preference.
+     */
+    private String timeZoneId;
+    /**
      * Industry vertical used for lead routing, compliance review, and reporting.
      */
     private String vertical;
@@ -114,7 +118,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationRequestAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
@@ -124,6 +128,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
         deserializerMap.put("secondaryName", (n) -> { this.setSecondaryName(n.getStringValue()); });
         deserializerMap.put("targetAudience", (n) -> { this.setTargetAudience(n.getStringValue()); });
+        deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         deserializerMap.put("vertical", (n) -> { this.setVertical(n.getStringValue()); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
         return deserializerMap;
@@ -177,6 +182,14 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.targetAudience;
     }
     /**
+     * Gets the timeZoneId property value. Default timezone for organization reporting and display when a user has no personal preference.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTimeZoneId() {
+        return this.timeZoneId;
+    }
+    /**
      * Gets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.
      * @return a {@link String}
      */
@@ -207,6 +220,7 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("phone", this.getPhone());
         writer.writeStringValue("secondaryName", this.getSecondaryName());
         writer.writeStringValue("targetAudience", this.getTargetAudience());
+        writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeStringValue("vertical", this.getVertical());
         writer.writeStringValue("website", this.getWebsite());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -280,6 +294,13 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     public void setTargetAudience(@jakarta.annotation.Nullable final String value) {
         this.targetAudience = value;
+    }
+    /**
+     * Sets the timeZoneId property value. Default timezone for organization reporting and display when a user has no personal preference.
+     * @param value Value to set for the timeZoneId property.
+     */
+    public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.timeZoneId = value;
     }
     /**
      * Sets the vertical property value. Industry vertical used for lead routing, compliance review, and reporting.

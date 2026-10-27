@@ -54,6 +54,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String consentCertificateUrl;
     /**
+     * Server-issued time at which the source policy skipped certificate validation for this consent snapshot.
+     */
+    private OffsetDateTime consentValidationSkippedAt;
+    /**
      * Leadping&apos;s assessment of the supporting consent evidence.
      */
     private ConsentVerificationStatus consentVerificationStatus;
@@ -290,6 +294,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         return this.consentCertificateUrl;
     }
     /**
+     * Gets the consentValidationSkippedAt property value. Server-issued time at which the source policy skipped certificate validation for this consent snapshot.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getConsentValidationSkippedAt() {
+        return this.consentValidationSkippedAt;
+    }
+    /**
      * Gets the consentVerificationStatus property value. Leadping&apos;s assessment of the supporting consent evidence.
      * @return a {@link ConsentVerificationStatus}
      */
@@ -335,7 +347,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
@@ -345,6 +357,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("consentAttested", (n) -> { this.setConsentAttested(n.getBooleanValue()); });
         deserializerMap.put("consentCertificateType", (n) -> { this.setConsentCertificateType(n.getEnumValue(LeadMetadataConsentCertificateType::forValue)); });
         deserializerMap.put("consentCertificateUrl", (n) -> { this.setConsentCertificateUrl(n.getStringValue()); });
+        deserializerMap.put("consentValidationSkippedAt", (n) -> { this.setConsentValidationSkippedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("consentVerificationStatus", (n) -> { this.setConsentVerificationStatus(n.getEnumValue(ConsentVerificationStatus::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("currency", (n) -> { this.setCurrency(n.getStringValue()); });
@@ -637,6 +650,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("consentAttested", this.getConsentAttested());
         writer.writeEnumValue("consentCertificateType", this.getConsentCertificateType());
         writer.writeStringValue("consentCertificateUrl", this.getConsentCertificateUrl());
+        writer.writeOffsetDateTimeValue("consentValidationSkippedAt", this.getConsentValidationSkippedAt());
         writer.writeEnumValue("consentVerificationStatus", this.getConsentVerificationStatus());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("currency", this.getCurrency());
@@ -743,6 +757,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setConsentCertificateUrl(@jakarta.annotation.Nullable final String value) {
         this.consentCertificateUrl = value;
+    }
+    /**
+     * Sets the consentValidationSkippedAt property value. Server-issued time at which the source policy skipped certificate validation for this consent snapshot.
+     * @param value Value to set for the consentValidationSkippedAt property.
+     */
+    public void setConsentValidationSkippedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.consentValidationSkippedAt = value;
     }
     /**
      * Sets the consentVerificationStatus property value. Leadping&apos;s assessment of the supporting consent evidence.

@@ -70,6 +70,10 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private OrganizationSwitchOptionTenDlcStatus tenDlcStatus;
     /**
+     * Default timezone for organization reporting and display when a user has no personal preference.
+     */
+    private String timeZoneId;
+    /**
      * Instantiates a new {@link OrganizationSwitchOption} and sets the default values.
      */
     public OrganizationSwitchOption() {
@@ -115,7 +119,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(OrganizationSwitchOptionActivationStatus::forValue)); });
         deserializerMap.put("activationSummary", (n) -> { this.setActivationSummary(n.getStringValue()); });
         deserializerMap.put("hasPaymentMethod", (n) -> { this.setHasPaymentMethod(n.getBooleanValue()); });
@@ -129,6 +133,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         deserializerMap.put("readyForCustomerTraffic", (n) -> { this.setReadyForCustomerTraffic(n.getBooleanValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(OrganizationMemberRole::forValue)); });
         deserializerMap.put("tenDlcStatus", (n) -> { this.setTenDlcStatus(n.getEnumValue(OrganizationSwitchOptionTenDlcStatus::forValue)); });
+        deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -220,6 +225,14 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.tenDlcStatus;
     }
     /**
+     * Gets the timeZoneId property value. Default timezone for organization reporting and display when a user has no personal preference.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTimeZoneId() {
+        return this.timeZoneId;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -238,6 +251,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         writer.writeBooleanValue("readyForCustomerTraffic", this.getReadyForCustomerTraffic());
         writer.writeEnumValue("role", this.getRole());
         writer.writeEnumValue("tenDlcStatus", this.getTenDlcStatus());
+        writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -337,5 +351,12 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     public void setTenDlcStatus(@jakarta.annotation.Nullable final OrganizationSwitchOptionTenDlcStatus value) {
         this.tenDlcStatus = value;
+    }
+    /**
+     * Sets the timeZoneId property value. Default timezone for organization reporting and display when a user has no personal preference.
+     * @param value Value to set for the timeZoneId property.
+     */
+    public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.timeZoneId = value;
     }
 }

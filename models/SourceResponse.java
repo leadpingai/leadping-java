@@ -26,6 +26,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime apiKeyRotatedAt;
     /**
+     * Whether to validate consent certificates during intake. Skipped validation leaves consent unverified.
+     */
+    private Boolean automaticConsentValidation;
+    /**
      * Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
      */
     private Boolean automaticPhoneLookup;
@@ -150,6 +154,14 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.apiKeyRotatedAt;
     }
     /**
+     * Gets the automaticConsentValidation property value. Whether to validate consent certificates during intake. Skipped validation leaves consent unverified.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticConsentValidation() {
+        return this.automaticConsentValidation;
+    }
+    /**
      * Gets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
      * @return a {@link Boolean}
      */
@@ -243,9 +255,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("automaticConsentValidation", (n) -> { this.setAutomaticConsentValidation(n.getBooleanValue()); });
         deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
         deserializerMap.put("complianceApproved", (n) -> { this.setComplianceApproved(n.getBooleanValue()); });
         deserializerMap.put("costPerLead", (n) -> { this.setCostPerLead(n.getDoubleValue()); });
@@ -357,6 +370,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("apiKeyPreview", this.getApiKeyPreview());
         writer.writeOffsetDateTimeValue("apiKeyRotatedAt", this.getApiKeyRotatedAt());
+        writer.writeBooleanValue("automaticConsentValidation", this.getAutomaticConsentValidation());
         writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
         writer.writeBooleanValue("complianceApproved", this.getComplianceApproved());
         writer.writeDoubleValue("costPerLead", this.getCostPerLead());
@@ -400,6 +414,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setApiKeyRotatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.apiKeyRotatedAt = value;
+    }
+    /**
+     * Sets the automaticConsentValidation property value. Whether to validate consent certificates during intake. Skipped validation leaves consent unverified.
+     * @param value Value to set for the automaticConsentValidation property.
+     */
+    public void setAutomaticConsentValidation(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticConsentValidation = value;
     }
     /**
      * Sets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.

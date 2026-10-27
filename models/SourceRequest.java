@@ -17,6 +17,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Whether to validate consent certificates during intake. Skipped validation leaves consent unverified.
+     */
+    private Boolean automaticConsentValidation;
+    /**
      * Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
      */
     private Boolean automaticPhoneLookup;
@@ -69,6 +73,14 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the automaticConsentValidation property value. Whether to validate consent certificates during intake. Skipped validation leaves consent unverified.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticConsentValidation() {
+        return this.automaticConsentValidation;
+    }
+    /**
      * Gets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.
      * @return a {@link Boolean}
      */
@@ -114,7 +126,8 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        deserializerMap.put("automaticConsentValidation", (n) -> { this.setAutomaticConsentValidation(n.getBooleanValue()); });
         deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
         deserializerMap.put("dailyLeadLimit", (n) -> { this.setDailyLeadLimit(n.getIntegerValue()); });
         deserializerMap.put("defaultTagIds", (n) -> { this.setDefaultTagIds(n.getCollectionOfPrimitiveValues(String.class)); });
@@ -146,6 +159,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeBooleanValue("automaticConsentValidation", this.getAutomaticConsentValidation());
         writer.writeBooleanValue("automaticPhoneLookup", this.getAutomaticPhoneLookup());
         writer.writeIntegerValue("dailyLeadLimit", this.getDailyLeadLimit());
         writer.writeCollectionOfPrimitiveValues("defaultTagIds", this.getDefaultTagIds());
@@ -161,6 +175,13 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the automaticConsentValidation property value. Whether to validate consent certificates during intake. Skipped validation leaves consent unverified.
+     * @param value Value to set for the automaticConsentValidation property.
+     */
+    public void setAutomaticConsentValidation(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticConsentValidation = value;
     }
     /**
      * Sets the automaticPhoneLookup property value. Whether to look up lead phone numbers during intake. When disabled, lookup is required before calling or texting.

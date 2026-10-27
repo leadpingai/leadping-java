@@ -138,6 +138,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseSubscriptionStatus subscriptionStatus;
     /**
+     * Default timezone for organization reporting and display when a user has no personal preference.
+     */
+    private String timeZoneId;
+    /**
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private OrganizationResponseUser user;
@@ -323,7 +327,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(33);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
@@ -354,6 +358,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("site", (n) -> { this.setSite(n.getObjectValue(OrganizationResponseSite::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(OrganizationResponseStatus::forValue)); });
         deserializerMap.put("subscriptionStatus", (n) -> { this.setSubscriptionStatus(n.getEnumValue(OrganizationResponseSubscriptionStatus::forValue)); });
+        deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(OrganizationResponseUser::createFromDiscriminatorValue)); });
         deserializerMap.put("vertical", (n) -> { this.setVertical(n.getStringValue()); });
         deserializerMap.put("website", (n) -> { this.setWebsite(n.getStringValue()); });
@@ -456,6 +461,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.subscriptionStatus;
     }
     /**
+     * Gets the timeZoneId property value. Default timezone for organization reporting and display when a user has no personal preference.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTimeZoneId() {
+        return this.timeZoneId;
+    }
+    /**
      * Gets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link OrganizationResponseUser}
      */
@@ -515,6 +528,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("site", this.getSite());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeEnumValue("subscriptionStatus", this.getSubscriptionStatus());
+        writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeObjectValue("user", this.getUser());
         writer.writeStringValue("vertical", this.getVertical());
         writer.writeStringValue("website", this.getWebsite());
@@ -736,6 +750,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setSubscriptionStatus(@jakarta.annotation.Nullable final OrganizationResponseSubscriptionStatus value) {
         this.subscriptionStatus = value;
+    }
+    /**
+     * Sets the timeZoneId property value. Default timezone for organization reporting and display when a user has no personal preference.
+     * @param value Value to set for the timeZoneId property.
+     */
+    public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
+        this.timeZoneId = value;
     }
     /**
      * Sets the user property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
