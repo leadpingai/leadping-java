@@ -46,6 +46,14 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      */
     private String last4;
     /**
+     * Reusable payment types supported for immediate billing payments.
+     */
+    private BillingPaymentMethodType type;
+    /**
+     * The wallet name when supplied by a digital wallet.
+     */
+    private String walletName;
+    /**
      * Instantiates a new {@link StripePaymentMethodResponse} and sets the default values.
      */
     public StripePaymentMethodResponse() {
@@ -107,7 +115,7 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("brand", (n) -> { this.setBrand(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("expMonth", (n) -> { this.setExpMonth(n.getIntegerValue()); });
@@ -115,6 +123,8 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDefault", (n) -> { this.setIsDefault(n.getBooleanValue()); });
         deserializerMap.put("last4", (n) -> { this.setLast4(n.getStringValue()); });
+        deserializerMap.put("type", (n) -> { this.setType(n.getEnumValue(BillingPaymentMethodType::forValue)); });
+        deserializerMap.put("walletName", (n) -> { this.setWalletName(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -142,6 +152,22 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         return this.last4;
     }
     /**
+     * Gets the type property value. Reusable payment types supported for immediate billing payments.
+     * @return a {@link BillingPaymentMethodType}
+     */
+    @jakarta.annotation.Nullable
+    public BillingPaymentMethodType getType() {
+        return this.type;
+    }
+    /**
+     * Gets the walletName property value. The wallet name when supplied by a digital wallet.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getWalletName() {
+        return this.walletName;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -154,6 +180,8 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDefault", this.getIsDefault());
         writer.writeStringValue("last4", this.getLast4());
+        writer.writeEnumValue("type", this.getType());
+        writer.writeStringValue("walletName", this.getWalletName());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -211,5 +239,19 @@ public class StripePaymentMethodResponse implements AdditionalDataHolder, Parsab
      */
     public void setLast4(@jakarta.annotation.Nullable final String value) {
         this.last4 = value;
+    }
+    /**
+     * Sets the type property value. Reusable payment types supported for immediate billing payments.
+     * @param value Value to set for the type property.
+     */
+    public void setType(@jakarta.annotation.Nullable final BillingPaymentMethodType value) {
+        this.type = value;
+    }
+    /**
+     * Sets the walletName property value. The wallet name when supplied by a digital wallet.
+     * @param value Value to set for the walletName property.
+     */
+    public void setWalletName(@jakarta.annotation.Nullable final String value) {
+        this.walletName = value;
     }
 }

@@ -106,6 +106,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String organizationId;
     /**
+     * Organization name captured at intake for searching lead attribution.
+     */
+    private String organizationName;
+    /**
      * System or workflow that created this event.
      */
     private String origin;
@@ -157,6 +161,10 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      * Source-provided key-value metadata retained for lead attribution and integration troubleshooting.
      */
     private LeadMetadataSourceMetadata sourceMetadata;
+    /**
+     * Source name captured at intake for searching lead attribution.
+     */
+    private String sourceName;
     /**
      * Affiliate or publisher sub ID captured for lead attribution.
      */
@@ -347,7 +355,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(47);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
@@ -370,6 +378,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("landingPage", (n) -> { this.setLandingPage(n.getStringValue()); });
         deserializerMap.put("leadpingConsentCheckedAt", (n) -> { this.setLeadpingConsentCheckedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
+        deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
         deserializerMap.put("origin", (n) -> { this.setOrigin(n.getStringValue()); });
         deserializerMap.put("price", (n) -> { this.setPrice(n.getDoubleValue()); });
         deserializerMap.put("product", (n) -> { this.setProduct(n.getStringValue()); });
@@ -383,6 +392,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("smsOptInAt", (n) -> { this.setSmsOptInAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsOptOutAt", (n) -> { this.setSmsOptOutAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("sourceMetadata", (n) -> { this.setSourceMetadata(n.getObjectValue(LeadMetadataSourceMetadata::createFromDiscriminatorValue)); });
+        deserializerMap.put("sourceName", (n) -> { this.setSourceName(n.getStringValue()); });
         deserializerMap.put("subId", (n) -> { this.setSubId(n.getStringValue()); });
         deserializerMap.put("trustedFormCheckedAt", (n) -> { this.setTrustedFormCheckedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("trustedFormRejectedAt", (n) -> { this.setTrustedFormRejectedAt(n.getOffsetDateTimeValue()); });
@@ -450,6 +460,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getOrganizationId() {
         return this.organizationId;
+    }
+    /**
+     * Gets the organizationName property value. Organization name captured at intake for searching lead attribution.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getOrganizationName() {
+        return this.organizationName;
     }
     /**
      * Gets the origin property value. System or workflow that created this event.
@@ -554,6 +572,14 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public LeadMetadataSourceMetadata getSourceMetadata() {
         return this.sourceMetadata;
+    }
+    /**
+     * Gets the sourceName property value. Source name captured at intake for searching lead attribution.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getSourceName() {
+        return this.sourceName;
     }
     /**
      * Gets the subId property value. Affiliate or publisher sub ID captured for lead attribution.
@@ -663,6 +689,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("landingPage", this.getLandingPage());
         writer.writeOffsetDateTimeValue("leadpingConsentCheckedAt", this.getLeadpingConsentCheckedAt());
         writer.writeStringValue("organizationId", this.getOrganizationId());
+        writer.writeStringValue("organizationName", this.getOrganizationName());
         writer.writeStringValue("origin", this.getOrigin());
         writer.writeDoubleValue("price", this.getPrice());
         writer.writeStringValue("product", this.getProduct());
@@ -676,6 +703,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("smsOptInAt", this.getSmsOptInAt());
         writer.writeOffsetDateTimeValue("smsOptOutAt", this.getSmsOptOutAt());
         writer.writeObjectValue("sourceMetadata", this.getSourceMetadata());
+        writer.writeStringValue("sourceName", this.getSourceName());
         writer.writeStringValue("subId", this.getSubId());
         writer.writeOffsetDateTimeValue("trustedFormCheckedAt", this.getTrustedFormCheckedAt());
         writer.writeOffsetDateTimeValue("trustedFormRejectedAt", this.getTrustedFormRejectedAt());
@@ -850,6 +878,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         this.organizationId = value;
     }
     /**
+     * Sets the organizationName property value. Organization name captured at intake for searching lead attribution.
+     * @param value Value to set for the organizationName property.
+     */
+    public void setOrganizationName(@jakarta.annotation.Nullable final String value) {
+        this.organizationName = value;
+    }
+    /**
      * Sets the origin property value. System or workflow that created this event.
      * @param value Value to set for the origin property.
      */
@@ -939,6 +974,13 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setSourceMetadata(@jakarta.annotation.Nullable final LeadMetadataSourceMetadata value) {
         this.sourceMetadata = value;
+    }
+    /**
+     * Sets the sourceName property value. Source name captured at intake for searching lead attribution.
+     * @param value Value to set for the sourceName property.
+     */
+    public void setSourceName(@jakarta.annotation.Nullable final String value) {
+        this.sourceName = value;
     }
     /**
      * Sets the subId property value. Affiliate or publisher sub ID captured for lead attribution.

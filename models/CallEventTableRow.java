@@ -50,6 +50,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime createdAt;
     /**
+     * Stored description of the call event.
+     */
+    private String description;
+    /**
      * Communication direction for this call event table row, such as inbound or outbound.
      */
     private String direction;
@@ -222,6 +226,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
+     * Gets the description property value. Stored description of the call event.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getDescription() {
+        return this.description;
+    }
+    /**
      * Gets the direction property value. Communication direction for this call event table row, such as inbound or outbound.
      * @return a {@link String}
      */
@@ -251,7 +263,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
@@ -260,6 +272,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
         deserializerMap.put("duration", (n) -> { this.setDuration(n.getIntegerValue()); });
         deserializerMap.put("endedAt", (n) -> { this.setEndedAt(n.getOffsetDateTimeValue()); });
@@ -441,6 +454,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
+        writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("direction", this.getDirection());
         writer.writeIntegerValue("duration", this.getDuration());
         writer.writeOffsetDateTimeValue("endedAt", this.getEndedAt());
@@ -526,6 +540,13 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
+    }
+    /**
+     * Sets the description property value. Stored description of the call event.
+     * @param value Value to set for the description property.
+     */
+    public void setDescription(@jakarta.annotation.Nullable final String value) {
+        this.description = value;
     }
     /**
      * Sets the direction property value. Communication direction for this call event table row, such as inbound or outbound.
