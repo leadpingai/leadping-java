@@ -34,6 +34,10 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     private OffsetDateTime generatedAt;
     /**
+     * Current outcomes for non-deleted, non-demo leads created in the selected period.
+     */
+    private CustomerLeadOutcomes leadOutcomes;
+    /**
      * Collection of lead sources included with this Leadping customer analytics.
      */
     private java.util.List<CustomerLeadSourceBreakdown> leadSources;
@@ -111,11 +115,12 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("activationHealth", (n) -> { this.setActivationHealth(n.getObjectValue(CustomerActivationHealth::createFromDiscriminatorValue)); });
         deserializerMap.put("automationHealth", (n) -> { this.setAutomationHealth(n.getObjectValue(CustomerAutomationHealth::createFromDiscriminatorValue)); });
         deserializerMap.put("communicationUsage", (n) -> { this.setCommunicationUsage(n.getObjectValue(CustomerCommunicationUsage::createFromDiscriminatorValue)); });
         deserializerMap.put("generatedAt", (n) -> { this.setGeneratedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("leadOutcomes", (n) -> { this.setLeadOutcomes(n.getObjectValue(CustomerLeadOutcomes::createFromDiscriminatorValue)); });
         deserializerMap.put("leadSources", (n) -> { this.setLeadSources(n.getCollectionOfObjectValues(CustomerLeadSourceBreakdown::createFromDiscriminatorValue)); });
         deserializerMap.put("leadTrend", (n) -> { this.setLeadTrend(n.getObjectValue(CustomerLeadTrend::createFromDiscriminatorValue)); });
         deserializerMap.put("needsAttention", (n) -> { this.setNeedsAttention(n.getCollectionOfObjectValues(CustomerNeedsAttentionItem::createFromDiscriminatorValue)); });
@@ -131,6 +136,14 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public OffsetDateTime getGeneratedAt() {
         return this.generatedAt;
+    }
+    /**
+     * Gets the leadOutcomes property value. Current outcomes for non-deleted, non-demo leads created in the selected period.
+     * @return a {@link CustomerLeadOutcomes}
+     */
+    @jakarta.annotation.Nullable
+    public CustomerLeadOutcomes getLeadOutcomes() {
+        return this.leadOutcomes;
     }
     /**
      * Gets the leadSources property value. Collection of lead sources included with this Leadping customer analytics.
@@ -190,6 +203,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         writer.writeObjectValue("automationHealth", this.getAutomationHealth());
         writer.writeObjectValue("communicationUsage", this.getCommunicationUsage());
         writer.writeOffsetDateTimeValue("generatedAt", this.getGeneratedAt());
+        writer.writeObjectValue("leadOutcomes", this.getLeadOutcomes());
         writer.writeCollectionOfObjectValues("leadSources", this.getLeadSources());
         writer.writeObjectValue("leadTrend", this.getLeadTrend());
         writer.writeCollectionOfObjectValues("needsAttention", this.getNeedsAttention());
@@ -232,6 +246,13 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     public void setGeneratedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.generatedAt = value;
+    }
+    /**
+     * Sets the leadOutcomes property value. Current outcomes for non-deleted, non-demo leads created in the selected period.
+     * @param value Value to set for the leadOutcomes property.
+     */
+    public void setLeadOutcomes(@jakarta.annotation.Nullable final CustomerLeadOutcomes value) {
+        this.leadOutcomes = value;
     }
     /**
      * Sets the leadSources property value. Collection of lead sources included with this Leadping customer analytics.

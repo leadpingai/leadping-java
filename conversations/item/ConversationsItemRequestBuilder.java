@@ -2,6 +2,7 @@ package ai.leadping.openapi.conversations.item;
 
 import ai.leadping.openapi.conversations.item.markhandled.MarkHandledRequestBuilder;
 import ai.leadping.openapi.conversations.item.markread.MarkReadRequestBuilder;
+import ai.leadping.openapi.conversations.item.markreplyneeded.MarkReplyNeededRequestBuilder;
 import ai.leadping.openapi.conversations.item.outboundreadiness.OutboundReadinessRequestBuilder;
 import ai.leadping.openapi.models.ConversationResponse;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -37,6 +38,14 @@ public class ConversationsItemRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public MarkReadRequestBuilder markRead() {
         return new MarkReadRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The markReplyNeeded property
+     * @return a {@link MarkReplyNeededRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public MarkReplyNeededRequestBuilder markReplyNeeded() {
+        return new MarkReplyNeededRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The outboundReadiness property
