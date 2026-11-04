@@ -18,6 +18,10 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Controls demo presentation for an individual platform admin.
+     */
+    private UserResponseAdminDemoPreferences adminDemoPreferences;
+    /**
      * Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      */
     private UserResponseBillingPlan billingPlan;
@@ -134,6 +138,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the adminDemoPreferences property value. Controls demo presentation for an individual platform admin.
+     * @return a {@link UserResponseAdminDemoPreferences}
+     */
+    @jakarta.annotation.Nullable
+    public UserResponseAdminDemoPreferences getAdminDemoPreferences() {
+        return this.adminDemoPreferences;
+    }
+    /**
      * Gets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
      * @return a {@link UserResponseBillingPlan}
      */
@@ -187,7 +199,8 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        deserializerMap.put("adminDemoPreferences", (n) -> { this.setAdminDemoPreferences(n.getObjectValue(UserResponseAdminDemoPreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("compliance", (n) -> { this.setCompliance(n.getObjectValue(UserResponseCompliance::createFromDiscriminatorValue)); });
@@ -355,6 +368,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeObjectValue("adminDemoPreferences", this.getAdminDemoPreferences());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("billingState", this.getBillingState());
         writer.writeObjectValue("compliance", this.getCompliance());
@@ -386,6 +400,13 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the adminDemoPreferences property value. Controls demo presentation for an individual platform admin.
+     * @param value Value to set for the adminDemoPreferences property.
+     */
+    public void setAdminDemoPreferences(@jakarta.annotation.Nullable final UserResponseAdminDemoPreferences value) {
+        this.adminDemoPreferences = value;
     }
     /**
      * Sets the billingPlan property value. Identifies the Leadping subscription plan that determines organization features, allowances, and billing behavior.
