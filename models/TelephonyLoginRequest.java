@@ -21,6 +21,10 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
      */
     private TelephonyLoginRequestDevice device;
     /**
+     * Includes credentials for receiving calls to the authenticated organization.
+     */
+    private Boolean includeIncoming;
+    /**
      * Instantiates a new {@link TelephonyLoginRequest} and sets the default values.
      */
     public TelephonyLoginRequest() {
@@ -58,9 +62,18 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("device", (n) -> { this.setDevice(n.getObjectValue(TelephonyLoginRequestDevice::createFromDiscriminatorValue)); });
+        deserializerMap.put("includeIncoming", (n) -> { this.setIncludeIncoming(n.getBooleanValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the includeIncoming property value. Includes credentials for receiving calls to the authenticated organization.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIncludeIncoming() {
+        return this.includeIncoming;
     }
     /**
      * Serializes information the current object
@@ -69,6 +82,7 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("device", this.getDevice());
+        writer.writeBooleanValue("includeIncoming", this.getIncludeIncoming());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -84,5 +98,12 @@ public class TelephonyLoginRequest implements AdditionalDataHolder, Parsable {
      */
     public void setDevice(@jakarta.annotation.Nullable final TelephonyLoginRequestDevice value) {
         this.device = value;
+    }
+    /**
+     * Sets the includeIncoming property value. Includes credentials for receiving calls to the authenticated organization.
+     * @param value Value to set for the includeIncoming property.
+     */
+    public void setIncludeIncoming(@jakarta.annotation.Nullable final Boolean value) {
+        this.includeIncoming = value;
     }
 }

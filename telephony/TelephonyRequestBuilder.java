@@ -1,5 +1,7 @@
 package ai.leadping.openapi.telephony;
 
+import ai.leadping.openapi.telephony.availability.AvailabilityRequestBuilder;
+import ai.leadping.openapi.telephony.incomingcaller.IncomingCallerRequestBuilder;
 import ai.leadping.openapi.telephony.login.LoginRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -10,6 +12,22 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TelephonyRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The availability property
+     * @return a {@link AvailabilityRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public AvailabilityRequestBuilder availability() {
+        return new AvailabilityRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The incomingCaller property
+     * @return a {@link IncomingCallerRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public IncomingCallerRequestBuilder incomingCaller() {
+        return new IncomingCallerRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The login property
      * @return a {@link LoginRequestBuilder}

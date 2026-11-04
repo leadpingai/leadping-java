@@ -26,6 +26,14 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime expiresAt;
     /**
+     * Password for the organization&apos;s incoming SIP connection, when requested and configured.
+     */
+    private String incomingPassword;
+    /**
+     * Username for the organization&apos;s incoming SIP connection, when requested and configured.
+     */
+    private String incomingUsername;
+    /**
      * Password for this telephony login.
      */
     private String password;
@@ -79,12 +87,30 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("callbackToken", (n) -> { this.setCallbackToken(n.getStringValue()); });
         deserializerMap.put("expiresAt", (n) -> { this.setExpiresAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("incomingPassword", (n) -> { this.setIncomingPassword(n.getStringValue()); });
+        deserializerMap.put("incomingUsername", (n) -> { this.setIncomingUsername(n.getStringValue()); });
         deserializerMap.put("password", (n) -> { this.setPassword(n.getStringValue()); });
         deserializerMap.put("username", (n) -> { this.setUsername(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the incomingPassword property value. Password for the organization&apos;s incoming SIP connection, when requested and configured.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getIncomingPassword() {
+        return this.incomingPassword;
+    }
+    /**
+     * Gets the incomingUsername property value. Username for the organization&apos;s incoming SIP connection, when requested and configured.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getIncomingUsername() {
+        return this.incomingUsername;
     }
     /**
      * Gets the password property value. Password for this telephony login.
@@ -110,6 +136,8 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeStringValue("callbackToken", this.getCallbackToken());
         writer.writeOffsetDateTimeValue("expiresAt", this.getExpiresAt());
+        writer.writeStringValue("incomingPassword", this.getIncomingPassword());
+        writer.writeStringValue("incomingUsername", this.getIncomingUsername());
         writer.writeStringValue("password", this.getPassword());
         writer.writeStringValue("username", this.getUsername());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -134,6 +162,20 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.expiresAt = value;
+    }
+    /**
+     * Sets the incomingPassword property value. Password for the organization&apos;s incoming SIP connection, when requested and configured.
+     * @param value Value to set for the incomingPassword property.
+     */
+    public void setIncomingPassword(@jakarta.annotation.Nullable final String value) {
+        this.incomingPassword = value;
+    }
+    /**
+     * Sets the incomingUsername property value. Username for the organization&apos;s incoming SIP connection, when requested and configured.
+     * @param value Value to set for the incomingUsername property.
+     */
+    public void setIncomingUsername(@jakarta.annotation.Nullable final String value) {
+        this.incomingUsername = value;
     }
     /**
      * Sets the password property value. Password for this telephony login.

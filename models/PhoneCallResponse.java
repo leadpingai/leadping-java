@@ -38,6 +38,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String callerId;
     /**
+     * Provider session identity used to correlate device invitations and server lifecycle events.
+     */
+    private String callSessionId;
+    /**
      * Messaging campaign identifier associated with this phone call.
      */
     private String campaignId;
@@ -85,6 +89,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      * Lead ID associated with the call conversation or outreach attempt.
      */
     private String leadId;
+    /**
+     * The matched lead&apos;s display name, when the caller belongs to a known lead.
+     */
+    private String leadName;
     /**
      * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
@@ -198,6 +206,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.callerId;
     }
     /**
+     * Gets the callSessionId property value. Provider session identity used to correlate device invitations and server lifecycle events.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCallSessionId() {
+        return this.callSessionId;
+    }
+    /**
      * Gets the campaignId property value. Messaging campaign identifier associated with this phone call.
      * @return a {@link String}
      */
@@ -259,12 +275,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("browserCallApproval", (n) -> { this.setBrowserCallApproval(n.getObjectValue(PhoneCallResponseBrowserCallApproval::createFromDiscriminatorValue)); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
+        deserializerMap.put("callSessionId", (n) -> { this.setCallSessionId(n.getStringValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
@@ -277,6 +294,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
+        deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
@@ -330,6 +348,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLeadId() {
         return this.leadId;
+    }
+    /**
+     * Gets the leadName property value. The matched lead&apos;s display name, when the caller belongs to a known lead.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadName() {
+        return this.leadName;
     }
     /**
      * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
@@ -438,6 +464,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeObjectValue("browserCallApproval", this.getBrowserCallApproval());
         writer.writeStringValue("callerId", this.getCallerId());
+        writer.writeStringValue("callSessionId", this.getCallSessionId());
         writer.writeStringValue("campaignId", this.getCampaignId());
         writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
         writer.writeStringValue("conversationId", this.getConversationId());
@@ -450,6 +477,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
+        writer.writeStringValue("leadName", this.getLeadName());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
@@ -505,6 +533,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setCallerId(@jakarta.annotation.Nullable final String value) {
         this.callerId = value;
+    }
+    /**
+     * Sets the callSessionId property value. Provider session identity used to correlate device invitations and server lifecycle events.
+     * @param value Value to set for the callSessionId property.
+     */
+    public void setCallSessionId(@jakarta.annotation.Nullable final String value) {
+        this.callSessionId = value;
     }
     /**
      * Sets the campaignId property value. Messaging campaign identifier associated with this phone call.
@@ -589,6 +624,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLeadId(@jakarta.annotation.Nullable final String value) {
         this.leadId = value;
+    }
+    /**
+     * Sets the leadName property value. The matched lead&apos;s display name, when the caller belongs to a known lead.
+     * @param value Value to set for the leadName property.
+     */
+    public void setLeadName(@jakarta.annotation.Nullable final String value) {
+        this.leadName = value;
     }
     /**
      * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
