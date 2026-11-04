@@ -46,6 +46,10 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private OffsetDateTime lastUsedAt;
     /**
+     * Number of active members in this organization, excluding pending invitations.
+     */
+    private Integer memberCount;
+    /**
      * The human-readable name shown for this organization switch option.
      */
     private String name;
@@ -119,7 +123,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("activationStatus", (n) -> { this.setActivationStatus(n.getEnumValue(OrganizationSwitchOptionActivationStatus::forValue)); });
         deserializerMap.put("activationSummary", (n) -> { this.setActivationSummary(n.getStringValue()); });
         deserializerMap.put("hasPaymentMethod", (n) -> { this.setHasPaymentMethod(n.getBooleanValue()); });
@@ -127,6 +131,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         deserializerMap.put("isCurrent", (n) -> { this.setIsCurrent(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lastUsedAt", (n) -> { this.setLastUsedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("memberCount", (n) -> { this.setMemberCount(n.getIntegerValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("needsAdminReview", (n) -> { this.setNeedsAdminReview(n.getBooleanValue()); });
         deserializerMap.put("organizationStatus", (n) -> { this.setOrganizationStatus(n.getEnumValue(OrganizationSwitchOptionOrganizationStatus::forValue)); });
@@ -175,6 +180,14 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public OffsetDateTime getLastUsedAt() {
         return this.lastUsedAt;
+    }
+    /**
+     * Gets the memberCount property value. Number of active members in this organization, excluding pending invitations.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getMemberCount() {
+        return this.memberCount;
     }
     /**
      * Gets the name property value. The human-readable name shown for this organization switch option.
@@ -245,6 +258,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         writer.writeBooleanValue("isCurrent", this.getIsCurrent());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeOffsetDateTimeValue("lastUsedAt", this.getLastUsedAt());
+        writer.writeIntegerValue("memberCount", this.getMemberCount());
         writer.writeStringValue("name", this.getName());
         writer.writeBooleanValue("needsAdminReview", this.getNeedsAdminReview());
         writer.writeEnumValue("organizationStatus", this.getOrganizationStatus());
@@ -309,6 +323,13 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     public void setLastUsedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastUsedAt = value;
+    }
+    /**
+     * Sets the memberCount property value. Number of active members in this organization, excluding pending invitations.
+     * @param value Value to set for the memberCount property.
+     */
+    public void setMemberCount(@jakarta.annotation.Nullable final Integer value) {
+        this.memberCount = value;
     }
     /**
      * Sets the name property value. The human-readable name shown for this organization switch option.

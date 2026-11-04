@@ -90,6 +90,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String direction;
     /**
+     * Confirmed call talk time in seconds, when available.
+     */
+    private Integer durationSeconds;
+    /**
      * Machine-readable error code returned while processing this event timeline table row.
      */
     private String errorCode;
@@ -390,6 +394,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.direction;
     }
     /**
+     * Gets the durationSeconds property value. Confirmed call talk time in seconds, when available.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getDurationSeconds() {
+        return this.durationSeconds;
+    }
+    /**
      * Gets the errorCode property value. Machine-readable error code returned while processing this event timeline table row.
      * @return a {@link String}
      */
@@ -427,7 +439,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(51);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(52);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
@@ -446,6 +458,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("deliveredAt", (n) -> { this.setDeliveredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("direction", (n) -> { this.setDirection(n.getStringValue()); });
+        deserializerMap.put("durationSeconds", (n) -> { this.setDurationSeconds(n.getIntegerValue()); });
         deserializerMap.put("errorCode", (n) -> { this.setErrorCode(n.getStringValue()); });
         deserializerMap.put("eventCategory", (n) -> { this.setEventCategory(n.getStringValue()); });
         deserializerMap.put("eventType", (n) -> { this.setEventType(n.getStringValue()); });
@@ -737,6 +750,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("deliveredAt", this.getDeliveredAt());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("direction", this.getDirection());
+        writer.writeIntegerValue("durationSeconds", this.getDurationSeconds());
         writer.writeStringValue("errorCode", this.getErrorCode());
         writer.writeStringValue("eventCategory", this.getEventCategory());
         writer.writeStringValue("eventType", this.getEventType());
@@ -904,6 +918,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setDirection(@jakarta.annotation.Nullable final String value) {
         this.direction = value;
+    }
+    /**
+     * Sets the durationSeconds property value. Confirmed call talk time in seconds, when available.
+     * @param value Value to set for the durationSeconds property.
+     */
+    public void setDurationSeconds(@jakarta.annotation.Nullable final Integer value) {
+        this.durationSeconds = value;
     }
     /**
      * Sets the errorCode property value. Machine-readable error code returned while processing this event timeline table row.

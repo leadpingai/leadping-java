@@ -30,6 +30,10 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     private String billingStatus;
     /**
+     * Server-approved parameters for one outbound browser call.
+     */
+    private PhoneCallResponseBrowserCallApproval browserCallApproval;
+    /**
      * Caller ID phone number presented during the outbound call.
      */
     private String callerId;
@@ -178,6 +182,14 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         return this.billingStatus;
     }
     /**
+     * Gets the browserCallApproval property value. Server-approved parameters for one outbound browser call.
+     * @return a {@link PhoneCallResponseBrowserCallApproval}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneCallResponseBrowserCallApproval getBrowserCallApproval() {
+        return this.browserCallApproval;
+    }
+    /**
      * Gets the callerId property value. Caller ID phone number presented during the outbound call.
      * @return a {@link String}
      */
@@ -247,10 +259,11 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
+        deserializerMap.put("browserCallApproval", (n) -> { this.setBrowserCallApproval(n.getObjectValue(PhoneCallResponseBrowserCallApproval::createFromDiscriminatorValue)); });
         deserializerMap.put("callerId", (n) -> { this.setCallerId(n.getStringValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("consoleEntries", (n) -> { this.setConsoleEntries(n.getCollectionOfObjectValues(CommunicationConsoleEntry::createFromDiscriminatorValue)); });
@@ -423,6 +436,7 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("answeredAt", this.getAnsweredAt());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
+        writer.writeObjectValue("browserCallApproval", this.getBrowserCallApproval());
         writer.writeStringValue("callerId", this.getCallerId());
         writer.writeStringValue("campaignId", this.getCampaignId());
         writer.writeCollectionOfObjectValues("consoleEntries", this.getConsoleEntries());
@@ -477,6 +491,13 @@ public class PhoneCallResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingStatus(@jakarta.annotation.Nullable final String value) {
         this.billingStatus = value;
+    }
+    /**
+     * Sets the browserCallApproval property value. Server-approved parameters for one outbound browser call.
+     * @param value Value to set for the browserCallApproval property.
+     */
+    public void setBrowserCallApproval(@jakarta.annotation.Nullable final PhoneCallResponseBrowserCallApproval value) {
+        this.browserCallApproval = value;
     }
     /**
      * Sets the callerId property value. Caller ID phone number presented during the outbound call.

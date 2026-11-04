@@ -33,6 +33,10 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     private String leadId;
     /**
+     * Approve a call for the Portal to originate through WebRTC instead of dialing from the server.
+     */
+    private Boolean originateFromBrowser;
+    /**
      * Idempotency key used to prevent duplicate outbound delivery.
      */
     private String outboundIdempotencyKey;
@@ -41,7 +45,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     private String sourceId;
     /**
-     * Connect the authenticated user&apos;s browser phone to the server-controlled destination call.
+     * Connect the authenticated user&apos;s phone to a server-controlled destination call.
      */
     private Boolean useBrowserPhone;
     /**
@@ -94,11 +98,12 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
+        deserializerMap.put("originateFromBrowser", (n) -> { this.setOriginateFromBrowser(n.getBooleanValue()); });
         deserializerMap.put("outboundIdempotencyKey", (n) -> { this.setOutboundIdempotencyKey(n.getStringValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("useBrowserPhone", (n) -> { this.setUseBrowserPhone(n.getBooleanValue()); });
@@ -122,6 +127,14 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.leadId;
     }
     /**
+     * Gets the originateFromBrowser property value. Approve a call for the Portal to originate through WebRTC instead of dialing from the server.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getOriginateFromBrowser() {
+        return this.originateFromBrowser;
+    }
+    /**
      * Gets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
      * @return a {@link String}
      */
@@ -138,7 +151,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.sourceId;
     }
     /**
-     * Gets the useBrowserPhone property value. Connect the authenticated user&apos;s browser phone to the server-controlled destination call.
+     * Gets the useBrowserPhone property value. Connect the authenticated user&apos;s phone to a server-controlled destination call.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -163,6 +176,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("leadId", this.getLeadId());
+        writer.writeBooleanValue("originateFromBrowser", this.getOriginateFromBrowser());
         writer.writeStringValue("outboundIdempotencyKey", this.getOutboundIdempotencyKey());
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeBooleanValue("useBrowserPhone", this.getUseBrowserPhone());
@@ -205,6 +219,13 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         this.leadId = value;
     }
     /**
+     * Sets the originateFromBrowser property value. Approve a call for the Portal to originate through WebRTC instead of dialing from the server.
+     * @param value Value to set for the originateFromBrowser property.
+     */
+    public void setOriginateFromBrowser(@jakarta.annotation.Nullable final Boolean value) {
+        this.originateFromBrowser = value;
+    }
+    /**
      * Sets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
      * @param value Value to set for the outboundIdempotencyKey property.
      */
@@ -219,7 +240,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         this.sourceId = value;
     }
     /**
-     * Sets the useBrowserPhone property value. Connect the authenticated user&apos;s browser phone to the server-controlled destination call.
+     * Sets the useBrowserPhone property value. Connect the authenticated user&apos;s phone to a server-controlled destination call.
      * @param value Value to set for the useBrowserPhone property.
      */
     public void setUseBrowserPhone(@jakarta.annotation.Nullable final Boolean value) {

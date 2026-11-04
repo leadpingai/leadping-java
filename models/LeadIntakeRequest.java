@@ -51,7 +51,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
      */
     private LeadIntakeRequestCompany company;
     /**
-     * Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual texts only.
+     * Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual calls and texts only.
      */
     private Boolean consentAttested;
     /**
@@ -303,7 +303,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         return this.company;
     }
     /**
-     * Gets the consentAttested property value. Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual texts only.
+     * Gets the consentAttested property value. Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual calls and texts only.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -809,7 +809,7 @@ public class LeadIntakeRequest implements AdditionalDataHolder, Parsable {
         this.company = value;
     }
     /**
-     * Sets the consentAttested property value. Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual texts only.
+     * Sets the consentAttested property value. Explicitly attests to SMS consent when consentCertificateType is Other. Allows manual calls and texts only.
      * @param value Value to set for the consentAttested property.
      */
     public void setConsentAttested(@jakarta.annotation.Nullable final Boolean value) {
