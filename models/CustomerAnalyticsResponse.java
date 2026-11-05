@@ -34,6 +34,10 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     private OffsetDateTime generatedAt;
     /**
+     * Whether the report includes demo data, subject to the current display preference.
+     */
+    private Boolean includesDemoData;
+    /**
      * Current outcomes for non-deleted, non-demo leads created in the selected period.
      */
     private CustomerLeadOutcomes leadOutcomes;
@@ -115,11 +119,12 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("activationHealth", (n) -> { this.setActivationHealth(n.getObjectValue(CustomerActivationHealth::createFromDiscriminatorValue)); });
         deserializerMap.put("automationHealth", (n) -> { this.setAutomationHealth(n.getObjectValue(CustomerAutomationHealth::createFromDiscriminatorValue)); });
         deserializerMap.put("communicationUsage", (n) -> { this.setCommunicationUsage(n.getObjectValue(CustomerCommunicationUsage::createFromDiscriminatorValue)); });
         deserializerMap.put("generatedAt", (n) -> { this.setGeneratedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("includesDemoData", (n) -> { this.setIncludesDemoData(n.getBooleanValue()); });
         deserializerMap.put("leadOutcomes", (n) -> { this.setLeadOutcomes(n.getObjectValue(CustomerLeadOutcomes::createFromDiscriminatorValue)); });
         deserializerMap.put("leadSources", (n) -> { this.setLeadSources(n.getCollectionOfObjectValues(CustomerLeadSourceBreakdown::createFromDiscriminatorValue)); });
         deserializerMap.put("leadTrend", (n) -> { this.setLeadTrend(n.getObjectValue(CustomerLeadTrend::createFromDiscriminatorValue)); });
@@ -136,6 +141,14 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
     @jakarta.annotation.Nullable
     public OffsetDateTime getGeneratedAt() {
         return this.generatedAt;
+    }
+    /**
+     * Gets the includesDemoData property value. Whether the report includes demo data, subject to the current display preference.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIncludesDemoData() {
+        return this.includesDemoData;
     }
     /**
      * Gets the leadOutcomes property value. Current outcomes for non-deleted, non-demo leads created in the selected period.
@@ -203,6 +216,7 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
         writer.writeObjectValue("automationHealth", this.getAutomationHealth());
         writer.writeObjectValue("communicationUsage", this.getCommunicationUsage());
         writer.writeOffsetDateTimeValue("generatedAt", this.getGeneratedAt());
+        writer.writeBooleanValue("includesDemoData", this.getIncludesDemoData());
         writer.writeObjectValue("leadOutcomes", this.getLeadOutcomes());
         writer.writeCollectionOfObjectValues("leadSources", this.getLeadSources());
         writer.writeObjectValue("leadTrend", this.getLeadTrend());
@@ -246,6 +260,13 @@ public class CustomerAnalyticsResponse implements AdditionalDataHolder, Parsable
      */
     public void setGeneratedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.generatedAt = value;
+    }
+    /**
+     * Sets the includesDemoData property value. Whether the report includes demo data, subject to the current display preference.
+     * @param value Value to set for the includesDemoData property.
+     */
+    public void setIncludesDemoData(@jakarta.annotation.Nullable final Boolean value) {
+        this.includesDemoData = value;
     }
     /**
      * Sets the leadOutcomes property value. Current outcomes for non-deleted, non-demo leads created in the selected period.
