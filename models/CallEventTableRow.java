@@ -14,6 +14,14 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     /**
+     * The recorded display name of the actor who performed this action.
+     */
+    private String actorDisplayName;
+    /**
+     * The user who performed this action.
+     */
+    private String actorUserId;
+    /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
@@ -154,6 +162,22 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         return new CallEventTableRow();
     }
     /**
+     * Gets the actorDisplayName property value. The recorded display name of the actor who performed this action.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorDisplayName() {
+        return this.actorDisplayName;
+    }
+    /**
+     * Gets the actorUserId property value. The user who performed this action.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getActorUserId() {
+        return this.actorUserId;
+    }
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return a {@link Map<String, Object>}
      */
@@ -263,7 +287,9 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
+        deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
+        deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billableSeconds", (n) -> { this.setBillableSeconds(n.getIntegerValue()); });
@@ -446,6 +472,8 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
+        writer.writeStringValue("actorUserId", this.getActorUserId());
         writer.writeOffsetDateTimeValue("answeredAt", this.getAnsweredAt());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeIntegerValue("billableSeconds", this.getBillableSeconds());
@@ -477,6 +505,20 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("userName", this.getUserName());
         writer.writeStringValue("voicemailUrl", this.getVoicemailUrl());
         writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the actorDisplayName property value. The recorded display name of the actor who performed this action.
+     * @param value Value to set for the actorDisplayName property.
+     */
+    public void setActorDisplayName(@jakarta.annotation.Nullable final String value) {
+        this.actorDisplayName = value;
+    }
+    /**
+     * Sets the actorUserId property value. The user who performed this action.
+     * @param value Value to set for the actorUserId property.
+     */
+    public void setActorUserId(@jakarta.annotation.Nullable final String value) {
+        this.actorUserId = value;
     }
     /**
      * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
