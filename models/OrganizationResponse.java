@@ -46,6 +46,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseBillingAddress billingAddress;
     /**
+     * Stored billing contact email for the organization.
+     */
+    private String billingContactEmail;
+    /**
      * Name used for invoices, receipts, and payment processor billing records.
      */
     private String billingName;
@@ -234,6 +238,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingAddress;
     }
     /**
+     * Gets the billingContactEmail property value. Stored billing contact email for the organization.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getBillingContactEmail() {
+        return this.billingContactEmail;
+    }
+    /**
      * Gets the billingName property value. Name used for invoices, receipts, and payment processor billing records.
      * @return a {@link String}
      */
@@ -327,7 +339,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
@@ -335,6 +347,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
         deserializerMap.put("billingAddress", (n) -> { this.setBillingAddress(n.getObjectValue(OrganizationResponseBillingAddress::createFromDiscriminatorValue)); });
+        deserializerMap.put("billingContactEmail", (n) -> { this.setBillingContactEmail(n.getStringValue()); });
         deserializerMap.put("billingName", (n) -> { this.setBillingName(n.getStringValue()); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(OrganizationResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(OrganizationResponseBillingState::createFromDiscriminatorValue)); });
@@ -505,6 +518,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
         writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
         writer.writeObjectValue("billingAddress", this.getBillingAddress());
+        writer.writeStringValue("billingContactEmail", this.getBillingContactEmail());
         writer.writeStringValue("billingName", this.getBillingName());
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("billingState", this.getBillingState());
@@ -589,6 +603,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setBillingAddress(@jakarta.annotation.Nullable final OrganizationResponseBillingAddress value) {
         this.billingAddress = value;
+    }
+    /**
+     * Sets the billingContactEmail property value. Stored billing contact email for the organization.
+     * @param value Value to set for the billingContactEmail property.
+     */
+    public void setBillingContactEmail(@jakarta.annotation.Nullable final String value) {
+        this.billingContactEmail = value;
     }
     /**
      * Sets the billingName property value. Name used for invoices, receipts, and payment processor billing records.

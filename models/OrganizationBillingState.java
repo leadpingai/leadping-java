@@ -46,6 +46,10 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     private OffsetDateTime lastSubscriptionEventAt;
     /**
+     * Number of billable phone numbers with Number Health enabled.
+     */
+    private Long numberHealthQuantity;
+    /**
      * Number of user licenses currently assigned to organization members.
      */
     private Long organizationMemberAssignedQuantity;
@@ -123,7 +127,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("billingPlanChangeEffectiveAt", (n) -> { this.setBillingPlanChangeEffectiveAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("cancelAt", (n) -> { this.setCancelAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("dunning", (n) -> { this.setDunning(n.getObjectValue(OrganizationBillingStateDunning::createFromDiscriminatorValue)); });
@@ -131,6 +135,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         deserializerMap.put("hasStripeCustomer", (n) -> { this.setHasStripeCustomer(n.getBooleanValue()); });
         deserializerMap.put("lastPaymentMethodEventAt", (n) -> { this.setLastPaymentMethodEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastSubscriptionEventAt", (n) -> { this.setLastSubscriptionEventAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("numberHealthQuantity", (n) -> { this.setNumberHealthQuantity(n.getLongValue()); });
         deserializerMap.put("organizationMemberAssignedQuantity", (n) -> { this.setOrganizationMemberAssignedQuantity(n.getLongValue()); });
         deserializerMap.put("organizationMemberQuantity", (n) -> { this.setOrganizationMemberQuantity(n.getLongValue()); });
         deserializerMap.put("pendingBillingPlan", (n) -> { this.setPendingBillingPlan(n.getEnumValue(OrganizationBillingStatePendingBillingPlan::forValue)); });
@@ -170,6 +175,14 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public OffsetDateTime getLastSubscriptionEventAt() {
         return this.lastSubscriptionEventAt;
+    }
+    /**
+     * Gets the numberHealthQuantity property value. Number of billable phone numbers with Number Health enabled.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getNumberHealthQuantity() {
+        return this.numberHealthQuantity;
     }
     /**
      * Gets the organizationMemberAssignedQuantity property value. Number of user licenses currently assigned to organization members.
@@ -232,6 +245,7 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
         writer.writeBooleanValue("hasStripeCustomer", this.getHasStripeCustomer());
         writer.writeOffsetDateTimeValue("lastPaymentMethodEventAt", this.getLastPaymentMethodEventAt());
         writer.writeOffsetDateTimeValue("lastSubscriptionEventAt", this.getLastSubscriptionEventAt());
+        writer.writeLongValue("numberHealthQuantity", this.getNumberHealthQuantity());
         writer.writeLongValue("organizationMemberAssignedQuantity", this.getOrganizationMemberAssignedQuantity());
         writer.writeLongValue("organizationMemberQuantity", this.getOrganizationMemberQuantity());
         writer.writeEnumValue("pendingBillingPlan", this.getPendingBillingPlan());
@@ -295,6 +309,13 @@ public class OrganizationBillingState implements AdditionalDataHolder, Parsable 
      */
     public void setLastSubscriptionEventAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastSubscriptionEventAt = value;
+    }
+    /**
+     * Sets the numberHealthQuantity property value. Number of billable phone numbers with Number Health enabled.
+     * @param value Value to set for the numberHealthQuantity property.
+     */
+    public void setNumberHealthQuantity(@jakarta.annotation.Nullable final Long value) {
+        this.numberHealthQuantity = value;
     }
     /**
      * Sets the organizationMemberAssignedQuantity property value. Number of user licenses currently assigned to organization members.
