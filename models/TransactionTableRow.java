@@ -50,6 +50,10 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isDemo;
     /**
+     * Indicates a temporary credit hold, not a settled charge.
+     */
+    private Boolean isUsageReservation;
+    /**
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private TransactionTableRowLead lead;
@@ -171,7 +175,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionTableRowBillableUnit::forValue)); });
         deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
@@ -180,6 +184,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
+        deserializerMap.put("isUsageReservation", (n) -> { this.setIsUsageReservation(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionTableRowLead::createFromDiscriminatorValue)); });
         deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(TransactionTableRowOrganization::createFromDiscriminatorValue)); });
@@ -208,6 +213,14 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsDemo() {
         return this.isDemo;
+    }
+    /**
+     * Gets the isUsageReservation property value. Indicates a temporary credit hold, not a settled charge.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsUsageReservation() {
+        return this.isUsageReservation;
     }
     /**
      * Gets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
@@ -311,6 +324,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
+        writer.writeBooleanValue("isUsageReservation", this.getIsUsageReservation());
         writer.writeObjectValue("lead", this.getLead());
         writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeObjectValue("organization", this.getOrganization());
@@ -386,6 +400,13 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
         this.isDemo = value;
+    }
+    /**
+     * Sets the isUsageReservation property value. Indicates a temporary credit hold, not a settled charge.
+     * @param value Value to set for the isUsageReservation property.
+     */
+    public void setIsUsageReservation(@jakarta.annotation.Nullable final Boolean value) {
+        this.isUsageReservation = value;
     }
     /**
      * Sets the lead property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
