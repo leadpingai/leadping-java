@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum EventTableRowSelectionReason implements ValuedEnum {
+    NearestLocation("NearestLocation"),
     StickyConversation("StickyConversation"),
     LeadAssigned("LeadAssigned"),
     CampaignOrSource("CampaignOrSource"),
@@ -26,6 +27,7 @@ public enum EventTableRowSelectionReason implements ValuedEnum {
     public static EventTableRowSelectionReason forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "NearestLocation": return NearestLocation;
             case "StickyConversation": return StickyConversation;
             case "LeadAssigned": return LeadAssigned;
             case "CampaignOrSource": return CampaignOrSource;

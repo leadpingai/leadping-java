@@ -37,6 +37,10 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     private String countryCode;
     /**
+     * Whether the coordinates represent an approximate phone-number region rather than a resolved city.
+     */
+    private Boolean isCoordinateApproximate;
+    /**
      * Geographic location metadata for the phone number, lead, or lookup result.
      */
     private String location;
@@ -122,17 +126,26 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("canonicalCity", (n) -> { this.setCanonicalCity(n.getStringValue()); });
         deserializerMap.put("canonicalState", (n) -> { this.setCanonicalState(n.getStringValue()); });
         deserializerMap.put("coordinate", (n) -> { this.setCoordinate(n.getObjectValue(PhoneNumberLocationCoordinate::createFromDiscriminatorValue)); });
         deserializerMap.put("coordinateSource", (n) -> { this.setCoordinateSource(n.getObjectValue(PhoneNumberLocationCoordinateSource::createFromDiscriminatorValue)); });
         deserializerMap.put("countryCode", (n) -> { this.setCountryCode(n.getStringValue()); });
+        deserializerMap.put("isCoordinateApproximate", (n) -> { this.setIsCoordinateApproximate(n.getBooleanValue()); });
         deserializerMap.put("location", (n) -> { this.setLocation(n.getStringValue()); });
         deserializerMap.put("state", (n) -> { this.setState(n.getStringValue()); });
         deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         deserializerMap.put("timeZoneSource", (n) -> { this.setTimeZoneSource(n.getObjectValue(PhoneNumberLocationTimeZoneSource::createFromDiscriminatorValue)); });
         return deserializerMap;
+    }
+    /**
+     * Gets the isCoordinateApproximate property value. Whether the coordinates represent an approximate phone-number region rather than a resolved city.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsCoordinateApproximate() {
+        return this.isCoordinateApproximate;
     }
     /**
      * Gets the location property value. Geographic location metadata for the phone number, lead, or lookup result.
@@ -177,6 +190,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("coordinate", this.getCoordinate());
         writer.writeObjectValue("coordinateSource", this.getCoordinateSource());
         writer.writeStringValue("countryCode", this.getCountryCode());
+        writer.writeBooleanValue("isCoordinateApproximate", this.getIsCoordinateApproximate());
         writer.writeStringValue("location", this.getLocation());
         writer.writeStringValue("state", this.getState());
         writer.writeStringValue("timeZoneId", this.getTimeZoneId());
@@ -224,6 +238,13 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     public void setCountryCode(@jakarta.annotation.Nullable final String value) {
         this.countryCode = value;
+    }
+    /**
+     * Sets the isCoordinateApproximate property value. Whether the coordinates represent an approximate phone-number region rather than a resolved city.
+     * @param value Value to set for the isCoordinateApproximate property.
+     */
+    public void setIsCoordinateApproximate(@jakarta.annotation.Nullable final Boolean value) {
+        this.isCoordinateApproximate = value;
     }
     /**
      * Sets the location property value. Geographic location metadata for the phone number, lead, or lookup result.

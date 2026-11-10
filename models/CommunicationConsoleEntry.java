@@ -18,6 +18,10 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
+     * Restricts this diagnostic entry to platform administrators.
+     */
+    private Boolean adminOnly;
+    /**
      * Unique identifier of this diagnostic console entry.
      */
     private String id;
@@ -62,12 +66,21 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
+     * Gets the adminOnly property value. Restricts this diagnostic entry to platform administrators.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAdminOnly() {
+        return this.adminOnly;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        deserializerMap.put("adminOnly", (n) -> { this.setAdminOnly(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("message", (n) -> { this.setMessage(n.getStringValue()); });
         deserializerMap.put("occurredAt", (n) -> { this.setOccurredAt(n.getOffsetDateTimeValue()); });
@@ -121,6 +134,7 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeBooleanValue("adminOnly", this.getAdminOnly());
         writer.writeStringValue("id", this.getId());
         writer.writeStringValue("message", this.getMessage());
         writer.writeOffsetDateTimeValue("occurredAt", this.getOccurredAt());
@@ -134,6 +148,13 @@ public class CommunicationConsoleEntry implements AdditionalDataHolder, Parsable
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the adminOnly property value. Restricts this diagnostic entry to platform administrators.
+     * @param value Value to set for the adminOnly property.
+     */
+    public void setAdminOnly(@jakarta.annotation.Nullable final Boolean value) {
+        this.adminOnly = value;
     }
     /**
      * Sets the id property value. Unique identifier of this diagnostic console entry.
