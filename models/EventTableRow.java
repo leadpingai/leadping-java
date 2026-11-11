@@ -198,6 +198,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String summary;
     /**
+     * Tags affected by this event, including their display colors.
+     */
+    private java.util.List<TagSummary> tags;
+    /**
      * Timeline category used to group events for display and filtering.
      */
     private String timelineCategory;
@@ -439,7 +443,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(52);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(53);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
@@ -485,6 +489,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(EventTableRowStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
         deserializerMap.put("summary", (n) -> { this.setSummary(n.getStringValue()); });
+        deserializerMap.put("tags", (n) -> { this.setTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
         deserializerMap.put("timelineCategory", (n) -> { this.setTimelineCategory(n.getStringValue()); });
         deserializerMap.put("timelineType", (n) -> { this.setTimelineType(n.getEnumValue(EventTimelineType::forValue)); });
         deserializerMap.put("toPhoneNumber", (n) -> { this.setToPhoneNumber(n.getStringValue()); });
@@ -671,6 +676,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.summary;
     }
     /**
+     * Gets the tags property value. Tags affected by this event, including their display colors.
+     * @return a {@link java.util.List<TagSummary>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<TagSummary> getTags() {
+        return this.tags;
+    }
+    /**
      * Gets the timelineCategory property value. Timeline category used to group events for display and filtering.
      * @return a {@link String}
      */
@@ -777,6 +790,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
         writer.writeStringValue("summary", this.getSummary());
+        writer.writeCollectionOfObjectValues("tags", this.getTags());
         writer.writeStringValue("timelineCategory", this.getTimelineCategory());
         writer.writeEnumValue("timelineType", this.getTimelineType());
         writer.writeStringValue("toPhoneNumber", this.getToPhoneNumber());
@@ -1107,6 +1121,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setSummary(@jakarta.annotation.Nullable final String value) {
         this.summary = value;
+    }
+    /**
+     * Sets the tags property value. Tags affected by this event, including their display colors.
+     * @param value Value to set for the tags property.
+     */
+    public void setTags(@jakarta.annotation.Nullable final java.util.List<TagSummary> value) {
+        this.tags = value;
     }
     /**
      * Sets the timelineCategory property value. Timeline category used to group events for display and filtering.
