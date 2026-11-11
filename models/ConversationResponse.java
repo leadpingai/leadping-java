@@ -34,6 +34,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String avatarUrl;
     /**
+     * Current manual voice eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when calling; null means eligibility has not been evaluated.
+     */
+    private Boolean canCallNow;
+    /**
+     * Current manual SMS eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when sending; null means eligibility has not been evaluated.
+     */
+    private Boolean canTextNow;
+    /**
      * Consent verification status of the associated lead; not a live call-readiness guarantee.
      */
     private String complianceStatus;
@@ -186,6 +194,22 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.avatarUrl;
     }
     /**
+     * Gets the canCallNow property value. Current manual voice eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when calling; null means eligibility has not been evaluated.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCanCallNow() {
+        return this.canCallNow;
+    }
+    /**
+     * Gets the canTextNow property value. Current manual SMS eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when sending; null means eligibility has not been evaluated.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCanTextNow() {
+        return this.canTextNow;
+    }
+    /**
      * Gets the complianceStatus property value. Consent verification status of the associated lead; not a live call-readiness guarantee.
      * @return a {@link String}
      */
@@ -223,11 +247,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
+        deserializerMap.put("canCallNow", (n) -> { this.setCanCallNow(n.getBooleanValue()); });
+        deserializerMap.put("canTextNow", (n) -> { this.setCanTextNow(n.getBooleanValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(ConversationResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
@@ -424,6 +450,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
         writer.writeStringValue("avatarUrl", this.getAvatarUrl());
+        writer.writeBooleanValue("canCallNow", this.getCanCallNow());
+        writer.writeBooleanValue("canTextNow", this.getCanTextNow());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
@@ -484,6 +512,20 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {
         this.avatarUrl = value;
+    }
+    /**
+     * Sets the canCallNow property value. Current manual voice eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when calling; null means eligibility has not been evaluated.
+     * @param value Value to set for the canCallNow property.
+     */
+    public void setCanCallNow(@jakarta.annotation.Nullable final Boolean value) {
+        this.canCallNow = value;
+    }
+    /**
+     * Sets the canTextNow property value. Current manual SMS eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when sending; null means eligibility has not been evaluated.
+     * @param value Value to set for the canTextNow property.
+     */
+    public void setCanTextNow(@jakarta.annotation.Nullable final Boolean value) {
+        this.canTextNow = value;
     }
     /**
      * Sets the complianceStatus property value. Consent verification status of the associated lead; not a live call-readiness guarantee.
