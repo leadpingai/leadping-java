@@ -17,6 +17,10 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
+     * Customer-safe explanation when calling is unavailable.
+     */
+    private String callBlockedReason;
+    /**
      * Whether the lead can currently be called after evaluating applicable contact hours, suppression, and consent rules.
      */
     private Boolean canCall;
@@ -24,6 +28,10 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      * Whether the lead can currently be texted after evaluating applicable contact hours, suppression, and consent rules.
      */
     private Boolean canText;
+    /**
+     * Customer-safe explanation when texting is unavailable.
+     */
+    private String textBlockedReason;
     /**
      * Instantiates a new {@link LeadContactabilityResponse} and sets the default values.
      */
@@ -49,6 +57,14 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
+     * Gets the callBlockedReason property value. Customer-safe explanation when calling is unavailable.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCallBlockedReason() {
+        return this.callBlockedReason;
+    }
+    /**
      * Gets the canCall property value. Whether the lead can currently be called after evaluating applicable contact hours, suppression, and consent rules.
      * @return a {@link Boolean}
      */
@@ -70,10 +86,20 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
+        deserializerMap.put("callBlockedReason", (n) -> { this.setCallBlockedReason(n.getStringValue()); });
         deserializerMap.put("canCall", (n) -> { this.setCanCall(n.getBooleanValue()); });
         deserializerMap.put("canText", (n) -> { this.setCanText(n.getBooleanValue()); });
+        deserializerMap.put("textBlockedReason", (n) -> { this.setTextBlockedReason(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the textBlockedReason property value. Customer-safe explanation when texting is unavailable.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTextBlockedReason() {
+        return this.textBlockedReason;
     }
     /**
      * Serializes information the current object
@@ -81,8 +107,10 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("callBlockedReason", this.getCallBlockedReason());
         writer.writeBooleanValue("canCall", this.getCanCall());
         writer.writeBooleanValue("canText", this.getCanText());
+        writer.writeStringValue("textBlockedReason", this.getTextBlockedReason());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -91,6 +119,13 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the callBlockedReason property value. Customer-safe explanation when calling is unavailable.
+     * @param value Value to set for the callBlockedReason property.
+     */
+    public void setCallBlockedReason(@jakarta.annotation.Nullable final String value) {
+        this.callBlockedReason = value;
     }
     /**
      * Sets the canCall property value. Whether the lead can currently be called after evaluating applicable contact hours, suppression, and consent rules.
@@ -105,5 +140,12 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     public void setCanText(@jakarta.annotation.Nullable final Boolean value) {
         this.canText = value;
+    }
+    /**
+     * Sets the textBlockedReason property value. Customer-safe explanation when texting is unavailable.
+     * @param value Value to set for the textBlockedReason property.
+     */
+    public void setTextBlockedReason(@jakarta.annotation.Nullable final String value) {
+        this.textBlockedReason = value;
     }
 }
