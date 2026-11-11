@@ -26,6 +26,10 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     private String id;
     /**
+     * UTC timestamp of the user&apos;s most recent activity in Leadping.
+     */
+    private OffsetDateTime lastActiveAt;
+    /**
      * The billing status for this user&apos;s organization license.
      */
     private String licenseBillingStatus;
@@ -87,9 +91,10 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("lastActiveAt", (n) -> { this.setLastActiveAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("licenseBillingStatus", (n) -> { this.setLicenseBillingStatus(n.getStringValue()); });
         deserializerMap.put("licenseRenewalDate", (n) -> { this.setLicenseRenewalDate(n.getOffsetDateTimeValue()); });
         deserializerMap.put("role", (n) -> { this.setRole(n.getEnumValue(OrganizationMemberRole::forValue)); });
@@ -105,6 +110,14 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the lastActiveAt property value. UTC timestamp of the user&apos;s most recent activity in Leadping.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastActiveAt() {
+        return this.lastActiveAt;
     }
     /**
      * Gets the licenseBillingStatus property value. The billing status for this user&apos;s organization license.
@@ -162,6 +175,7 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
         Objects.requireNonNull(writer);
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeOffsetDateTimeValue("lastActiveAt", this.getLastActiveAt());
         writer.writeStringValue("licenseBillingStatus", this.getLicenseBillingStatus());
         writer.writeOffsetDateTimeValue("licenseRenewalDate", this.getLicenseRenewalDate());
         writer.writeEnumValue("role", this.getRole());
@@ -190,6 +204,13 @@ public class OrganizationMemberTableRow implements AdditionalDataHolder, Parsabl
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the lastActiveAt property value. UTC timestamp of the user&apos;s most recent activity in Leadping.
+     * @param value Value to set for the lastActiveAt property.
+     */
+    public void setLastActiveAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastActiveAt = value;
     }
     /**
      * Sets the licenseBillingStatus property value. The billing status for this user&apos;s organization license.
