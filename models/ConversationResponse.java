@@ -34,6 +34,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String avatarUrl;
     /**
+     * Stored compliance status of the associated lead; not a live call-readiness guarantee.
+     */
+    private String complianceStatus;
+    /**
      * Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      */
     private ConversationResponseCurrentLeadStatus currentLeadStatus;
@@ -182,6 +186,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.avatarUrl;
     }
     /**
+     * Gets the complianceStatus property value. Stored compliance status of the associated lead; not a live call-readiness guarantee.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getComplianceStatus() {
+        return this.complianceStatus;
+    }
+    /**
      * Gets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.
      * @return a {@link ConversationResponseCurrentLeadStatus}
      */
@@ -211,11 +223,12 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
+        deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
         deserializerMap.put("currentLeadStatus", (n) -> { this.setCurrentLeadStatus(n.getObjectValue(ConversationResponseCurrentLeadStatus::createFromDiscriminatorValue)); });
         deserializerMap.put("email", (n) -> { this.setEmail(n.getStringValue()); });
         deserializerMap.put("eventVersion", (n) -> { this.setEventVersion(n.getLongValue()); });
@@ -411,6 +424,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
         writer.writeStringValue("avatarUrl", this.getAvatarUrl());
+        writer.writeStringValue("complianceStatus", this.getComplianceStatus());
         writer.writeObjectValue("currentLeadStatus", this.getCurrentLeadStatus());
         writer.writeStringValue("email", this.getEmail());
         writer.writeLongValue("eventVersion", this.getEventVersion());
@@ -470,6 +484,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAvatarUrl(@jakarta.annotation.Nullable final String value) {
         this.avatarUrl = value;
+    }
+    /**
+     * Sets the complianceStatus property value. Stored compliance status of the associated lead; not a live call-readiness guarantee.
+     * @param value Value to set for the complianceStatus property.
+     */
+    public void setComplianceStatus(@jakarta.annotation.Nullable final String value) {
+        this.complianceStatus = value;
     }
     /**
      * Sets the currentLeadStatus property value. Summary schema for Leadping API current lead status change summary data used in dashboards and reports.

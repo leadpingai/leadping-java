@@ -4,6 +4,7 @@ import ai.leadping.openapi.models.OrganizationRequest;
 import ai.leadping.openapi.models.OrganizationResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.organizations.me.invitations.InvitationsRequestBuilder;
+import ai.leadping.openapi.organizations.me.leadassignees.LeadAssigneesRequestBuilder;
 import ai.leadping.openapi.organizations.me.members.MembersRequestBuilder;
 import ai.leadping.openapi.organizations.me.membership.MembershipRequestBuilder;
 import ai.leadping.openapi.organizations.me.onezerodlc.OneZerodlcRequestBuilder;
@@ -33,6 +34,14 @@ public class MeRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public InvitationsRequestBuilder invitations() {
         return new InvitationsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The leadAssignees property
+     * @return a {@link LeadAssigneesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public LeadAssigneesRequestBuilder leadAssignees() {
+        return new LeadAssigneesRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The members property

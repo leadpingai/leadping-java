@@ -27,7 +27,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*}", pathParameters);
     }
     /**
      * Instantiates a new {@link MyRequestBuilder} and sets the default values.
@@ -35,7 +35,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*}", rawUrl);
     }
     /**
      * Lists the current user&apos;s lead conversations with paging and sorting for inbox views, recent follow-up, and communication history.
@@ -119,6 +119,11 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String archiveFilter;
         /**
+         * Whether to include only conversations with contactable leads.
+         */
+        @jakarta.annotation.Nullable
+        public Boolean contactable;
+        /**
          * Extracts the query parameters into a map for the URI template parsing.
          * @return a {@link Map<String, Object>}
          */
@@ -126,6 +131,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         public Map<String, Object> toQueryParameters() {
             final Map<String, Object> allQueryParams = new HashMap();
             allQueryParams.put("archiveFilter", archiveFilter);
+            allQueryParams.put("contactable", contactable);
             return allQueryParams;
         }
     }

@@ -41,6 +41,10 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     private PhoneNumberReadinessState state;
     /**
+     * Hourly local reputation-risk estimate using 24-hour, seven-day, and thirty-day traffic evidence.
+     */
+    private PhoneNumberReadinessTrafficHealth trafficHealth;
+    /**
      * Instantiates a new {@link PhoneNumberReadiness} and sets the default values.
      */
     public PhoneNumberReadiness() {
@@ -86,13 +90,14 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("callStage", (n) -> { this.setCallStage(n.getEnumValue(PhoneNumberReadinessCallStage::forValue)); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("healthScore", (n) -> { this.setHealthScore(n.getIntegerValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberReadinessHealthStatus::forValue)); });
         deserializerMap.put("progressPercent", (n) -> { this.setProgressPercent(n.getIntegerValue()); });
         deserializerMap.put("state", (n) -> { this.setState(n.getEnumValue(PhoneNumberReadinessState::forValue)); });
+        deserializerMap.put("trafficHealth", (n) -> { this.setTrafficHealth(n.getObjectValue(PhoneNumberReadinessTrafficHealth::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -128,6 +133,14 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         return this.state;
     }
     /**
+     * Gets the trafficHealth property value. Hourly local reputation-risk estimate using 24-hour, seven-day, and thirty-day traffic evidence.
+     * @return a {@link PhoneNumberReadinessTrafficHealth}
+     */
+    @jakarta.annotation.Nullable
+    public PhoneNumberReadinessTrafficHealth getTrafficHealth() {
+        return this.trafficHealth;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -139,6 +152,7 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
         writer.writeIntegerValue("progressPercent", this.getProgressPercent());
         writer.writeEnumValue("state", this.getState());
+        writer.writeObjectValue("trafficHealth", this.getTrafficHealth());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -189,5 +203,12 @@ public class PhoneNumberReadiness implements AdditionalDataHolder, Parsable {
      */
     public void setState(@jakarta.annotation.Nullable final PhoneNumberReadinessState value) {
         this.state = value;
+    }
+    /**
+     * Sets the trafficHealth property value. Hourly local reputation-risk estimate using 24-hour, seven-day, and thirty-day traffic evidence.
+     * @param value Value to set for the trafficHealth property.
+     */
+    public void setTrafficHealth(@jakarta.annotation.Nullable final PhoneNumberReadinessTrafficHealth value) {
+        this.trafficHealth = value;
     }
 }

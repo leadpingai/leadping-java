@@ -58,6 +58,10 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isDemo;
     /**
+     * The lastActiveAt property
+     */
+    private OffsetDateTime lastActiveAt;
+    /**
      * The date and time when this user last completed the Leadping sign-in flow.
      */
     private OffsetDateTime lastLoggedInAt;
@@ -199,7 +203,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
         deserializerMap.put("adminDemoPreferences", (n) -> { this.setAdminDemoPreferences(n.getObjectValue(UserResponseAdminDemoPreferences::createFromDiscriminatorValue)); });
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(UserResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(UserResponseBillingState::createFromDiscriminatorValue)); });
@@ -210,6 +214,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
+        deserializerMap.put("lastActiveAt", (n) -> { this.setLastActiveAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastLoggedInAt", (n) -> { this.setLastLoggedInAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("mobileDevicePreferences", (n) -> { this.setMobileDevicePreferences(n.getCollectionOfObjectValues(MobileDevicePreferences::createFromDiscriminatorValue)); });
@@ -249,6 +254,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsDemo() {
         return this.isDemo;
+    }
+    /**
+     * Gets the lastActiveAt property value. The lastActiveAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastActiveAt() {
+        return this.lastActiveAt;
     }
     /**
      * Gets the lastLoggedInAt property value. The date and time when this user last completed the Leadping sign-in flow.
@@ -378,6 +391,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
+        writer.writeOffsetDateTimeValue("lastActiveAt", this.getLastActiveAt());
         writer.writeOffsetDateTimeValue("lastLoggedInAt", this.getLastLoggedInAt());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeCollectionOfObjectValues("mobileDevicePreferences", this.getMobileDevicePreferences());
@@ -470,6 +484,13 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
         this.isDemo = value;
+    }
+    /**
+     * Sets the lastActiveAt property value. The lastActiveAt property
+     * @param value Value to set for the lastActiveAt property.
+     */
+    public void setLastActiveAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastActiveAt = value;
     }
     /**
      * Sets the lastLoggedInAt property value. The date and time when this user last completed the Leadping sign-in flow.
