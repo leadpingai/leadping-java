@@ -34,7 +34,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String avatarUrl;
     /**
-     * Stored compliance status of the associated lead; not a live call-readiness guarantee.
+     * Consent verification status of the associated lead; not a live call-readiness guarantee.
      */
     private String complianceStatus;
     /**
@@ -186,7 +186,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.avatarUrl;
     }
     /**
-     * Gets the complianceStatus property value. Stored compliance status of the associated lead; not a live call-readiness guarantee.
+     * Gets the complianceStatus property value. Consent verification status of the associated lead; not a live call-readiness guarantee.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -486,7 +486,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.avatarUrl = value;
     }
     /**
-     * Sets the complianceStatus property value. Stored compliance status of the associated lead; not a live call-readiness guarantee.
+     * Sets the complianceStatus property value. Consent verification status of the associated lead; not a live call-readiness guarantee.
      * @param value Value to set for the complianceStatus property.
      */
     public void setComplianceStatus(@jakarta.annotation.Nullable final String value) {

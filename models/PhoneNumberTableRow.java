@@ -57,10 +57,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     private String routingSummary;
     /**
-     * Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
-     */
-    private PhoneNumberTableRowSmsRampDirection smsRampDirection;
-    /**
      * Indicates whether SMS messaging is ready for this organization or phone number.
      */
     private Boolean smsReady;
@@ -72,10 +68,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      * Type classification used to route and interpret this phone number table row in the Leadping API.
      */
     private String type;
-    /**
-     * Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
-     */
-    private PhoneNumberTableRowVoiceRampDirection voiceRampDirection;
     /**
      * Indicates whether voice calling is ready for this organization or phone number.
      */
@@ -122,7 +114,7 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(17);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -133,11 +125,9 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
         deserializerMap.put("ownership", (n) -> { this.setOwnership(n.getEnumValue(PhoneNumberOwnership::forValue)); });
         deserializerMap.put("routingSummary", (n) -> { this.setRoutingSummary(n.getStringValue()); });
-        deserializerMap.put("smsRampDirection", (n) -> { this.setSmsRampDirection(n.getEnumValue(PhoneNumberTableRowSmsRampDirection::forValue)); });
         deserializerMap.put("smsReady", (n) -> { this.setSmsReady(n.getBooleanValue()); });
         deserializerMap.put("tenDlcCampaignStatus", (n) -> { this.setTenDlcCampaignStatus(n.getStringValue()); });
         deserializerMap.put("type", (n) -> { this.setType(n.getStringValue()); });
-        deserializerMap.put("voiceRampDirection", (n) -> { this.setVoiceRampDirection(n.getEnumValue(PhoneNumberTableRowVoiceRampDirection::forValue)); });
         deserializerMap.put("voiceReady", (n) -> { this.setVoiceReady(n.getBooleanValue()); });
         deserializerMap.put("warmup", (n) -> { this.setWarmup(n.getObjectValue(PhoneNumberReadiness::createFromDiscriminatorValue)); });
         return deserializerMap;
@@ -215,14 +205,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         return this.routingSummary;
     }
     /**
-     * Gets the smsRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
-     * @return a {@link PhoneNumberTableRowSmsRampDirection}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneNumberTableRowSmsRampDirection getSmsRampDirection() {
-        return this.smsRampDirection;
-    }
-    /**
      * Gets the smsReady property value. Indicates whether SMS messaging is ready for this organization or phone number.
      * @return a {@link Boolean}
      */
@@ -245,14 +227,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getType() {
         return this.type;
-    }
-    /**
-     * Gets the voiceRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
-     * @return a {@link PhoneNumberTableRowVoiceRampDirection}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneNumberTableRowVoiceRampDirection getVoiceRampDirection() {
-        return this.voiceRampDirection;
     }
     /**
      * Gets the voiceReady property value. Indicates whether voice calling is ready for this organization or phone number.
@@ -286,11 +260,9 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("organizationId", this.getOrganizationId());
         writer.writeEnumValue("ownership", this.getOwnership());
         writer.writeStringValue("routingSummary", this.getRoutingSummary());
-        writer.writeEnumValue("smsRampDirection", this.getSmsRampDirection());
         writer.writeBooleanValue("smsReady", this.getSmsReady());
         writer.writeStringValue("tenDlcCampaignStatus", this.getTenDlcCampaignStatus());
         writer.writeStringValue("type", this.getType());
-        writer.writeEnumValue("voiceRampDirection", this.getVoiceRampDirection());
         writer.writeBooleanValue("voiceReady", this.getVoiceReady());
         writer.writeObjectValue("warmup", this.getWarmup());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -373,13 +345,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
         this.routingSummary = value;
     }
     /**
-     * Sets the smsRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
-     * @param value Value to set for the smsRampDirection property.
-     */
-    public void setSmsRampDirection(@jakarta.annotation.Nullable final PhoneNumberTableRowSmsRampDirection value) {
-        this.smsRampDirection = value;
-    }
-    /**
      * Sets the smsReady property value. Indicates whether SMS messaging is ready for this organization or phone number.
      * @param value Value to set for the smsReady property.
      */
@@ -399,13 +364,6 @@ public class PhoneNumberTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setType(@jakarta.annotation.Nullable final String value) {
         this.type = value;
-    }
-    /**
-     * Sets the voiceRampDirection property value. Indicates whether a phone number&apos;s channel capacity is increasing, decreasing, or stable.
-     * @param value Value to set for the voiceRampDirection property.
-     */
-    public void setVoiceRampDirection(@jakarta.annotation.Nullable final PhoneNumberTableRowVoiceRampDirection value) {
-        this.voiceRampDirection = value;
     }
     /**
      * Sets the voiceReady property value. Indicates whether voice calling is ready for this organization or phone number.
