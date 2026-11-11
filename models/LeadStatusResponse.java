@@ -34,6 +34,14 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
+     * Whether this is the default destination for outbound call attempts.
+     */
+    private Boolean isDefaultCalledStatus;
+    /**
+     * Whether this is the built-in initial status for new leads.
+     */
+    private Boolean isInitialStatus;
+    /**
      * Date and time when the lead status was last modified.
      */
     private OffsetDateTime modifiedAt;
@@ -95,11 +103,13 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(LeadStatusCategory::forValue)); });
         deserializerMap.put("color", (n) -> { this.setColor(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
+        deserializerMap.put("isDefaultCalledStatus", (n) -> { this.setIsDefaultCalledStatus(n.getBooleanValue()); });
+        deserializerMap.put("isInitialStatus", (n) -> { this.setIsInitialStatus(n.getBooleanValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("organizationId", (n) -> { this.setOrganizationId(n.getStringValue()); });
@@ -121,6 +131,22 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsArchived() {
         return this.isArchived;
+    }
+    /**
+     * Gets the isDefaultCalledStatus property value. Whether this is the default destination for outbound call attempts.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsDefaultCalledStatus() {
+        return this.isDefaultCalledStatus;
+    }
+    /**
+     * Gets the isInitialStatus property value. Whether this is the built-in initial status for new leads.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsInitialStatus() {
+        return this.isInitialStatus;
     }
     /**
      * Gets the modifiedAt property value. Date and time when the lead status was last modified.
@@ -164,6 +190,8 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("color", this.getColor());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
+        writer.writeBooleanValue("isDefaultCalledStatus", this.getIsDefaultCalledStatus());
+        writer.writeBooleanValue("isInitialStatus", this.getIsInitialStatus());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("organizationId", this.getOrganizationId());
@@ -204,6 +232,20 @@ public class LeadStatusResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsArchived(@jakarta.annotation.Nullable final Boolean value) {
         this.isArchived = value;
+    }
+    /**
+     * Sets the isDefaultCalledStatus property value. Whether this is the default destination for outbound call attempts.
+     * @param value Value to set for the isDefaultCalledStatus property.
+     */
+    public void setIsDefaultCalledStatus(@jakarta.annotation.Nullable final Boolean value) {
+        this.isDefaultCalledStatus = value;
+    }
+    /**
+     * Sets the isInitialStatus property value. Whether this is the built-in initial status for new leads.
+     * @param value Value to set for the isInitialStatus property.
+     */
+    public void setIsInitialStatus(@jakarta.annotation.Nullable final Boolean value) {
+        this.isInitialStatus = value;
     }
     /**
      * Sets the modifiedAt property value. Date and time when the lead status was last modified.

@@ -38,7 +38,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
      */
     private Boolean isCurrent;
     /**
-     * The isDemo property
+     * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
     /**
@@ -166,7 +166,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         return this.isCurrent;
     }
     /**
-     * Gets the isDemo property value. The isDemo property
+     * Gets the isDemo property value. Whether this record belongs to demo data.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -311,7 +311,7 @@ public class OrganizationSwitchOption implements AdditionalDataHolder, Parsable 
         this.isCurrent = value;
     }
     /**
-     * Sets the isDemo property value. The isDemo property
+     * Sets the isDemo property value. Whether this record belongs to demo data.
      * @param value Value to set for the isDemo property.
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {

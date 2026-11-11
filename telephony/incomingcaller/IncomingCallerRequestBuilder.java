@@ -1,5 +1,6 @@
 package ai.leadping.openapi.telephony.incomingcaller;
 
+import ai.leadping.openapi.models.IncomingCallerResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -10,7 +11,6 @@ import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,31 +38,40 @@ public class IncomingCallerRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Finds a lead in the current organization by the caller&apos;s normalized primary phone number. Returns an empty lead identity when no matching lead exists.
-     * @return a {@link InputStream}
+     * @return a {@link IncomingCallerResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public InputStream get() {
+    public IncomingCallerResponse get() {
         return get(null);
     }
     /**
      * Finds a lead in the current organization by the caller&apos;s normalized primary phone number. Returns an empty lead identity when no matching lead exists.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link InputStream}
+     * @return a {@link IncomingCallerResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public InputStream get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+    public IncomingCallerResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, IncomingCallerResponse::createFromDiscriminatorValue);
     }
     /**
      * Finds a lead in the current organization by the caller&apos;s normalized primary phone number. Returns an empty lead identity when no matching lead exists.
@@ -81,7 +90,7 @@ public class IncomingCallerRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, GetRequestConfiguration::new, x -> x.queryParameters);
-        requestInfo.headers.tryAdd("Accept", "application/problem+json");
+        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
         return requestInfo;
     }
     /**

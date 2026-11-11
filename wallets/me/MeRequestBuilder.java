@@ -52,6 +52,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public WalletResponse get() {
@@ -66,6 +67,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public WalletResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -76,6 +78,7 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, WalletResponse::createFromDiscriminatorValue);
     }
     /**

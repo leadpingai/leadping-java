@@ -10,7 +10,6 @@ import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,31 +49,37 @@ public class AvailabilityRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Returns whether the authenticated user can currently receive an incoming call.
-     * @return a {@link InputStream}
+     * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public InputStream get() {
+    public Boolean get() {
         return get(null);
     }
     /**
      * Returns whether the authenticated user can currently receive an incoming call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link InputStream}
+     * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public InputStream get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+    public Boolean get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
      * Returns whether the authenticated user can currently receive an incoming call.
@@ -93,7 +98,7 @@ public class AvailabilityRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, GetRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/problem+json");
+        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
         return requestInfo;
     }
     /**

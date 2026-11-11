@@ -18,15 +18,15 @@ public class AnalyticsCoverage implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The completeFrom property
+     * Earliest UTC timestamp from which evidence is complete, or null when no complete range is known.
      */
     private OffsetDateTime completeFrom;
     /**
-     * The detail property
+     * Explanation of the available evidence and any gaps in coverage.
      */
     private String detail;
     /**
-     * The isPartial property
+     * Whether missing historical evidence may make the reported metrics incomplete.
      */
     private Boolean isPartial;
     /**
@@ -54,7 +54,7 @@ public class AnalyticsCoverage implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the completeFrom property value. The completeFrom property
+     * Gets the completeFrom property value. Earliest UTC timestamp from which evidence is complete, or null when no complete range is known.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -62,7 +62,7 @@ public class AnalyticsCoverage implements AdditionalDataHolder, Parsable {
         return this.completeFrom;
     }
     /**
-     * Gets the detail property value. The detail property
+     * Gets the detail property value. Explanation of the available evidence and any gaps in coverage.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class AnalyticsCoverage implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the isPartial property value. The isPartial property
+     * Gets the isPartial property value. Whether missing historical evidence may make the reported metrics incomplete.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -108,21 +108,21 @@ public class AnalyticsCoverage implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the completeFrom property value. The completeFrom property
+     * Sets the completeFrom property value. Earliest UTC timestamp from which evidence is complete, or null when no complete range is known.
      * @param value Value to set for the completeFrom property.
      */
     public void setCompleteFrom(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.completeFrom = value;
     }
     /**
-     * Sets the detail property value. The detail property
+     * Sets the detail property value. Explanation of the available evidence and any gaps in coverage.
      * @param value Value to set for the detail property.
      */
     public void setDetail(@jakarta.annotation.Nullable final String value) {
         this.detail = value;
     }
     /**
-     * Sets the isPartial property value. The isPartial property
+     * Sets the isPartial property value. Whether missing historical evidence may make the reported metrics incomplete.
      * @param value Value to set for the isPartial property.
      */
     public void setIsPartial(@jakarta.annotation.Nullable final Boolean value) {

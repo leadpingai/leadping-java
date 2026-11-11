@@ -17,11 +17,11 @@ public class AdminDemoPreferences implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The showDemoData property
+     * Whether demo records are included in the administrator&apos;s views.
      */
     private Boolean showDemoData;
     /**
-     * The showDemoMarkers property
+     * Whether demo records display a demo indicator.
      */
     private Boolean showDemoMarkers;
     /**
@@ -60,7 +60,7 @@ public class AdminDemoPreferences implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the showDemoData property value. The showDemoData property
+     * Gets the showDemoData property value. Whether demo records are included in the administrator&apos;s views.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class AdminDemoPreferences implements AdditionalDataHolder, Parsable {
         return this.showDemoData;
     }
     /**
-     * Gets the showDemoMarkers property value. The showDemoMarkers property
+     * Gets the showDemoMarkers property value. Whether demo records display a demo indicator.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class AdminDemoPreferences implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the showDemoData property value. The showDemoData property
+     * Sets the showDemoData property value. Whether demo records are included in the administrator&apos;s views.
      * @param value Value to set for the showDemoData property.
      */
     public void setShowDemoData(@jakarta.annotation.Nullable final Boolean value) {
         this.showDemoData = value;
     }
     /**
-     * Sets the showDemoMarkers property value. The showDemoMarkers property
+     * Sets the showDemoMarkers property value. Whether demo records display a demo indicator.
      * @param value Value to set for the showDemoMarkers property.
      */
     public void setShowDemoMarkers(@jakarta.annotation.Nullable final Boolean value) {

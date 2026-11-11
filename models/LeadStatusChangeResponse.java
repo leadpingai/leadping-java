@@ -74,7 +74,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     private String id;
     /**
-     * The isDemo property
+     * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
     /**
@@ -97,6 +97,10 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      * The display name of the lead associated with this lead status change.
      */
     private String leadName;
+    /**
+     * Configured organization status ID, independent of its display name and history entry ID.
+     */
+    private String leadStatusId;
     /**
      * Unique identifier of the new lead status change associated with this Leadping lead status change.
      */
@@ -271,7 +275,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
@@ -292,6 +296,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         deserializerMap.put("leadEmail", (n) -> { this.setLeadEmail(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
+        deserializerMap.put("leadStatusId", (n) -> { this.setLeadStatusId(n.getStringValue()); });
         deserializerMap.put("newLeadStatusChangeId", (n) -> { this.setNewLeadStatusChangeId(n.getStringValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
         deserializerMap.put("oldLeadStatusChangeId", (n) -> { this.setOldLeadStatusChangeId(n.getStringValue()); });
@@ -333,7 +338,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         return this.id;
     }
     /**
-     * Gets the isDemo property value. The isDemo property
+     * Gets the isDemo property value. Whether this record belongs to demo data.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -379,6 +384,14 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getLeadName() {
         return this.leadName;
+    }
+    /**
+     * Gets the leadStatusId property value. Configured organization status ID, independent of its display name and history entry ID.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadStatusId() {
+        return this.leadStatusId;
     }
     /**
      * Gets the newLeadStatusChangeId property value. Unique identifier of the new lead status change associated with this Leadping lead status change.
@@ -518,6 +531,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         writer.writeStringValue("leadEmail", this.getLeadEmail());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
+        writer.writeStringValue("leadStatusId", this.getLeadStatusId());
         writer.writeStringValue("newLeadStatusChangeId", this.getNewLeadStatusChangeId());
         writer.writeStringValue("notes", this.getNotes());
         writer.writeStringValue("oldLeadStatusChangeId", this.getOldLeadStatusChangeId());
@@ -640,7 +654,7 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
         this.id = value;
     }
     /**
-     * Sets the isDemo property value. The isDemo property
+     * Sets the isDemo property value. Whether this record belongs to demo data.
      * @param value Value to set for the isDemo property.
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
@@ -680,6 +694,13 @@ public class LeadStatusChangeResponse implements AdditionalDataHolder, Parsable 
      */
     public void setLeadName(@jakarta.annotation.Nullable final String value) {
         this.leadName = value;
+    }
+    /**
+     * Sets the leadStatusId property value. Configured organization status ID, independent of its display name and history entry ID.
+     * @param value Value to set for the leadStatusId property.
+     */
+    public void setLeadStatusId(@jakarta.annotation.Nullable final String value) {
+        this.leadStatusId = value;
     }
     /**
      * Sets the newLeadStatusChangeId property value. Unique identifier of the new lead status change associated with this Leadping lead status change.

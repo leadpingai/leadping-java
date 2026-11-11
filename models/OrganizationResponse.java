@@ -30,6 +30,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseAddress address;
     /**
+     * Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
+     */
+    private Boolean automaticallyMarkLeadsCalled;
+    /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
     private Double autoRefillAmount;
@@ -66,6 +70,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String billingTaxId;
     /**
+     * Destination status for outbound call attempts. Null uses the built-in Called status.
+     */
+    private String calledLeadStatusId;
+    /**
      * Describes organization compliance policy data used in Leadping API requests and responses.
      */
     private OrganizationResponseCompliancePolicy compliancePolicy;
@@ -98,7 +106,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The isDemo property
+     * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
     /**
@@ -206,6 +214,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.address;
     }
     /**
+     * Gets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyMarkLeadsCalled() {
+        return this.automaticallyMarkLeadsCalled;
+    }
+    /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
      * @return a {@link Double}
      */
@@ -278,6 +294,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.billingTaxId;
     }
     /**
+     * Gets the calledLeadStatusId property value. Destination status for outbound call attempts. Null uses the built-in Called status.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCalledLeadStatusId() {
+        return this.calledLeadStatusId;
+    }
+    /**
      * Gets the compliancePolicy property value. Describes organization compliance policy data used in Leadping API requests and responses.
      * @return a {@link OrganizationResponseCompliancePolicy}
      */
@@ -339,10 +363,11 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(37);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
+        deserializerMap.put("automaticallyMarkLeadsCalled", (n) -> { this.setAutomaticallyMarkLeadsCalled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
@@ -352,6 +377,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("billingPlan", (n) -> { this.setBillingPlan(n.getEnumValue(OrganizationResponseBillingPlan::forValue)); });
         deserializerMap.put("billingState", (n) -> { this.setBillingState(n.getObjectValue(OrganizationResponseBillingState::createFromDiscriminatorValue)); });
         deserializerMap.put("billingTaxId", (n) -> { this.setBillingTaxId(n.getStringValue()); });
+        deserializerMap.put("calledLeadStatusId", (n) -> { this.setCalledLeadStatusId(n.getStringValue()); });
         deserializerMap.put("compliancePolicy", (n) -> { this.setCompliancePolicy(n.getObjectValue(OrganizationResponseCompliancePolicy::createFromDiscriminatorValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -386,7 +412,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isDemo property value. The isDemo property
+     * Gets the isDemo property value. Whether this record belongs to demo data.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -514,6 +540,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("accountBalance", this.getAccountBalance());
         writer.writeObjectValue("activation", this.getActivation());
         writer.writeObjectValue("address", this.getAddress());
+        writer.writeBooleanValue("automaticallyMarkLeadsCalled", this.getAutomaticallyMarkLeadsCalled());
         writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
         writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
@@ -523,6 +550,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("billingPlan", this.getBillingPlan());
         writer.writeObjectValue("billingState", this.getBillingState());
         writer.writeStringValue("billingTaxId", this.getBillingTaxId());
+        writer.writeStringValue("calledLeadStatusId", this.getCalledLeadStatusId());
         writer.writeObjectValue("compliancePolicy", this.getCompliancePolicy());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
@@ -575,6 +603,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationResponseAddress value) {
         this.address = value;
+    }
+    /**
+     * Sets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
+     * @param value Value to set for the automaticallyMarkLeadsCalled property.
+     */
+    public void setAutomaticallyMarkLeadsCalled(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyMarkLeadsCalled = value;
     }
     /**
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -640,6 +675,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.billingTaxId = value;
     }
     /**
+     * Sets the calledLeadStatusId property value. Destination status for outbound call attempts. Null uses the built-in Called status.
+     * @param value Value to set for the calledLeadStatusId property.
+     */
+    public void setCalledLeadStatusId(@jakarta.annotation.Nullable final String value) {
+        this.calledLeadStatusId = value;
+    }
+    /**
      * Sets the compliancePolicy property value. Describes organization compliance policy data used in Leadping API requests and responses.
      * @param value Value to set for the compliancePolicy property.
      */
@@ -696,7 +738,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the isDemo property value. The isDemo property
+     * Sets the isDemo property value. Whether this record belongs to demo data.
      * @param value Value to set for the isDemo property.
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {

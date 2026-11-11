@@ -39,9 +39,13 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
     /**
      * Validates an export download token and redirects to the generated file when the current-user report is ready.
      * @return a {@link UserDataExportDownloadResponse}
+     * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
      * @throws ProblemDetails When receiving a 410 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportDownloadResponse get() {
@@ -51,17 +55,25 @@ public class DownloadRequestBuilder extends BaseRequestBuilder {
      * Validates an export download token and redirects to the generated file when the current-user report is ready.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserDataExportDownloadResponse}
+     * @throws ProblemDetails When receiving a 400 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
      * @throws ProblemDetails When receiving a 410 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportDownloadResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("409", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("410", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserDataExportDownloadResponse::createFromDiscriminatorValue);
     }
     /**

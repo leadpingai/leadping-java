@@ -54,11 +54,11 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The isDemo property
+     * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
     /**
-     * The lastActiveAt property
+     * UTC timestamp of the user&apos;s most recently recorded activity, when available.
      */
     private OffsetDateTime lastActiveAt;
     /**
@@ -248,7 +248,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isDemo property value. The isDemo property
+     * Gets the isDemo property value. Whether this record belongs to demo data.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -256,7 +256,7 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         return this.isDemo;
     }
     /**
-     * Gets the lastActiveAt property value. The lastActiveAt property
+     * Gets the lastActiveAt property value. UTC timestamp of the user&apos;s most recently recorded activity, when available.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -479,14 +479,14 @@ public class UserResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the isDemo property value. The isDemo property
+     * Sets the isDemo property value. Whether this record belongs to demo data.
      * @param value Value to set for the isDemo property.
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
         this.isDemo = value;
     }
     /**
-     * Sets the lastActiveAt property value. The lastActiveAt property
+     * Sets the lastActiveAt property value. UTC timestamp of the user&apos;s most recently recorded activity, when available.
      * @param value Value to set for the lastActiveAt property.
      */
     public void setLastActiveAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

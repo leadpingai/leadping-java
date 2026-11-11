@@ -18,19 +18,19 @@ public class BlogSocialPost implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The attemptedAt property
+     * UTC timestamp of the publication attempt, or null if no attempt has been recorded.
      */
     private OffsetDateTime attemptedAt;
     /**
-     * The error property
+     * Details of the publication failure, when present.
      */
     private String error;
     /**
-     * The platform property
+     * Social platform supported for publishing a blog article.
      */
     private BlogSocialPlatform platform;
     /**
-     * The postId property
+     * Identifier assigned to the published post by the social platform, when available.
      */
     private String postId;
     /**
@@ -58,7 +58,7 @@ public class BlogSocialPost implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the attemptedAt property value. The attemptedAt property
+     * Gets the attemptedAt property value. UTC timestamp of the publication attempt, or null if no attempt has been recorded.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -66,7 +66,7 @@ public class BlogSocialPost implements AdditionalDataHolder, Parsable {
         return this.attemptedAt;
     }
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. Details of the publication failure, when present.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class BlogSocialPost implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the platform property value. The platform property
+     * Gets the platform property value. Social platform supported for publishing a blog article.
      * @return a {@link BlogSocialPlatform}
      */
     @jakarta.annotation.Nullable
@@ -95,7 +95,7 @@ public class BlogSocialPost implements AdditionalDataHolder, Parsable {
         return this.platform;
     }
     /**
-     * Gets the postId property value. The postId property
+     * Gets the postId property value. Identifier assigned to the published post by the social platform, when available.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -122,28 +122,28 @@ public class BlogSocialPost implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the attemptedAt property value. The attemptedAt property
+     * Sets the attemptedAt property value. UTC timestamp of the publication attempt, or null if no attempt has been recorded.
      * @param value Value to set for the attemptedAt property.
      */
     public void setAttemptedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.attemptedAt = value;
     }
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. Details of the publication failure, when present.
      * @param value Value to set for the error property.
      */
     public void setError(@jakarta.annotation.Nullable final String value) {
         this.error = value;
     }
     /**
-     * Sets the platform property value. The platform property
+     * Sets the platform property value. Social platform supported for publishing a blog article.
      * @param value Value to set for the platform property.
      */
     public void setPlatform(@jakarta.annotation.Nullable final BlogSocialPlatform value) {
         this.platform = value;
     }
     /**
-     * Sets the postId property value. The postId property
+     * Sets the postId property value. Identifier assigned to the published post by the social platform, when available.
      * @param value Value to set for the postId property.
      */
     public void setPostId(@jakarta.annotation.Nullable final String value) {

@@ -50,6 +50,10 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     private String id;
     /**
+     * Configured organization status ID, independent of its display name and history entry ID.
+     */
+    private String leadStatusId;
+    /**
      * Current lead status change outcome assigned to the lead.
      */
     private String outcome;
@@ -131,7 +135,7 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(CurrentLeadStatusSummaryCategory::forValue)); });
         deserializerMap.put("changedAt", (n) -> { this.setChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("changedByAutomationId", (n) -> { this.setChangedByAutomationId(n.getStringValue()); });
@@ -140,6 +144,7 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
         deserializerMap.put("followUpCompletedAt", (n) -> { this.setFollowUpCompletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("followUpDueAt", (n) -> { this.setFollowUpDueAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("leadStatusId", (n) -> { this.setLeadStatusId(n.getStringValue()); });
         deserializerMap.put("outcome", (n) -> { this.setOutcome(n.getStringValue()); });
         deserializerMap.put("revision", (n) -> { this.setRevision(n.getLongValue()); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getEnumValue(CurrentLeadStatusSummarySource::forValue)); });
@@ -168,6 +173,14 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the leadStatusId property value. Configured organization status ID, independent of its display name and history entry ID.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadStatusId() {
+        return this.leadStatusId;
     }
     /**
      * Gets the outcome property value. Current lead status change outcome assigned to the lead.
@@ -207,6 +220,7 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
         writer.writeOffsetDateTimeValue("followUpCompletedAt", this.getFollowUpCompletedAt());
         writer.writeOffsetDateTimeValue("followUpDueAt", this.getFollowUpDueAt());
         writer.writeStringValue("id", this.getId());
+        writer.writeStringValue("leadStatusId", this.getLeadStatusId());
         writer.writeStringValue("outcome", this.getOutcome());
         writer.writeLongValue("revision", this.getRevision());
         writer.writeEnumValue("source", this.getSource());
@@ -274,6 +288,13 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the leadStatusId property value. Configured organization status ID, independent of its display name and history entry ID.
+     * @param value Value to set for the leadStatusId property.
+     */
+    public void setLeadStatusId(@jakarta.annotation.Nullable final String value) {
+        this.leadStatusId = value;
     }
     /**
      * Sets the outcome property value. Current lead status change outcome assigned to the lead.

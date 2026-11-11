@@ -70,7 +70,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isArchived;
     /**
-     * The isDemo property
+     * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
     /**
@@ -290,7 +290,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.isArchived;
     }
     /**
-     * Gets the isDemo property value. The isDemo property
+     * Gets the isDemo property value. Whether this record belongs to demo data.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -535,7 +535,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         this.isArchived = value;
     }
     /**
-     * Sets the isDemo property value. The isDemo property
+     * Sets the isDemo property value. Whether this record belongs to demo data.
      * @param value Value to set for the isDemo property.
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {

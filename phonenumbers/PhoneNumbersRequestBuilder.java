@@ -92,6 +92,8 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
@@ -107,6 +109,8 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
      * @throws ProblemDetails When receiving a 500 status code
      */
@@ -118,6 +122,8 @@ public class PhoneNumbersRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("415", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneNumberResponse::createFromDiscriminatorValue);

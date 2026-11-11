@@ -58,8 +58,10 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * Returns the current user&apos;s profile, roles, organization context, billing state, and compliance settings for portal sessions.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse get() {
@@ -70,16 +72,20 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**
@@ -88,7 +94,13 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
+     * @throws ProblemDetails When receiving a 503 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse put(@jakarta.annotation.Nonnull final UserRequest body) {
@@ -101,7 +113,13 @@ public class MeRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
+     * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
+     * @throws ProblemDetails When receiving a 503 status code
      */
     @jakarta.annotation.Nullable
     public UserResponse put(@jakarta.annotation.Nonnull final UserRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
@@ -110,7 +128,13 @@ public class MeRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("409", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("415", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("503", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserResponse::createFromDiscriminatorValue);
     }
     /**

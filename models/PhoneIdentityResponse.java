@@ -26,7 +26,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The isDemo property
+     * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
     /**
@@ -117,7 +117,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the isDemo property value. The isDemo property
+     * Gets the isDemo property value. Whether this record belongs to demo data.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -220,7 +220,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the isDemo property value. The isDemo property
+     * Sets the isDemo property value. Whether this record belongs to demo data.
      * @param value Value to set for the isDemo property.
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {

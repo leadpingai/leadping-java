@@ -22,11 +22,11 @@ public class LeadFollowUpUpdateRequest implements AdditionalDataHolder, Parsable
      */
     private OffsetDateTime dueAt;
     /**
-     * The expectedRevision property
+     * Revision observed by the client; a mismatch causes a conflict instead of overwriting a newer follow-up.
      */
     private Long expectedRevision;
     /**
-     * The expectedStatusId property
+     * Identifier of the current status observed by the client; a mismatch causes a conflict.
      */
     private String expectedStatusId;
     /**
@@ -62,7 +62,7 @@ public class LeadFollowUpUpdateRequest implements AdditionalDataHolder, Parsable
         return this.dueAt;
     }
     /**
-     * Gets the expectedRevision property value. The expectedRevision property
+     * Gets the expectedRevision property value. Revision observed by the client; a mismatch causes a conflict instead of overwriting a newer follow-up.
      * @return a {@link Long}
      */
     @jakarta.annotation.Nullable
@@ -70,7 +70,7 @@ public class LeadFollowUpUpdateRequest implements AdditionalDataHolder, Parsable
         return this.expectedRevision;
     }
     /**
-     * Gets the expectedStatusId property value. The expectedStatusId property
+     * Gets the expectedStatusId property value. Identifier of the current status observed by the client; a mismatch causes a conflict.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -115,14 +115,14 @@ public class LeadFollowUpUpdateRequest implements AdditionalDataHolder, Parsable
         this.dueAt = value;
     }
     /**
-     * Sets the expectedRevision property value. The expectedRevision property
+     * Sets the expectedRevision property value. Revision observed by the client; a mismatch causes a conflict instead of overwriting a newer follow-up.
      * @param value Value to set for the expectedRevision property.
      */
     public void setExpectedRevision(@jakarta.annotation.Nullable final Long value) {
         this.expectedRevision = value;
     }
     /**
-     * Sets the expectedStatusId property value. The expectedStatusId property
+     * Sets the expectedStatusId property value. Identifier of the current status observed by the client; a mismatch causes a conflict.
      * @param value Value to set for the expectedStatusId property.
      */
     public void setExpectedStatusId(@jakarta.annotation.Nullable final String value) {

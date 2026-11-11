@@ -18,31 +18,31 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The dailyLimit property
+     * Daily usage budget in USD. Null means no daily limit; zero stops new paid usage.
      */
     private Double dailyLimit;
     /**
-     * The dailyResetsAt property
+     * UTC timestamp when the next calendar day begins and daily spending resets.
      */
     private OffsetDateTime dailyResetsAt;
     /**
-     * The dailySpent property
+     * Settled usage spending in USD for the current UTC calendar day.
      */
     private Double dailySpent;
     /**
-     * The monthlyLimit property
+     * Monthly usage budget in USD. Null means no monthly limit; zero stops new paid usage.
      */
     private Double monthlyLimit;
     /**
-     * The monthlyResetsAt property
+     * UTC timestamp when the next calendar month begins and monthly spending resets.
      */
     private OffsetDateTime monthlyResetsAt;
     /**
-     * The monthlySpent property
+     * Settled usage spending in USD for the current UTC calendar month.
      */
     private Double monthlySpent;
     /**
-     * The reserved property
+     * Pending usage reservations in USD.
      */
     private Double reserved;
     /**
@@ -70,7 +70,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the dailyLimit property value. The dailyLimit property
+     * Gets the dailyLimit property value. Daily usage budget in USD. Null means no daily limit; zero stops new paid usage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -78,7 +78,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.dailyLimit;
     }
     /**
-     * Gets the dailyResetsAt property value. The dailyResetsAt property
+     * Gets the dailyResetsAt property value. UTC timestamp when the next calendar day begins and daily spending resets.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -86,7 +86,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.dailyResetsAt;
     }
     /**
-     * Gets the dailySpent property value. The dailySpent property
+     * Gets the dailySpent property value. Settled usage spending in USD for the current UTC calendar day.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -110,7 +110,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the monthlyLimit property value. The monthlyLimit property
+     * Gets the monthlyLimit property value. Monthly usage budget in USD. Null means no monthly limit; zero stops new paid usage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -118,7 +118,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.monthlyLimit;
     }
     /**
-     * Gets the monthlyResetsAt property value. The monthlyResetsAt property
+     * Gets the monthlyResetsAt property value. UTC timestamp when the next calendar month begins and monthly spending resets.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -126,7 +126,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.monthlyResetsAt;
     }
     /**
-     * Gets the monthlySpent property value. The monthlySpent property
+     * Gets the monthlySpent property value. Settled usage spending in USD for the current UTC calendar month.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.monthlySpent;
     }
     /**
-     * Gets the reserved property value. The reserved property
+     * Gets the reserved property value. Pending usage reservations in USD.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -164,49 +164,49 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the dailyLimit property value. The dailyLimit property
+     * Sets the dailyLimit property value. Daily usage budget in USD. Null means no daily limit; zero stops new paid usage.
      * @param value Value to set for the dailyLimit property.
      */
     public void setDailyLimit(@jakarta.annotation.Nullable final Double value) {
         this.dailyLimit = value;
     }
     /**
-     * Sets the dailyResetsAt property value. The dailyResetsAt property
+     * Sets the dailyResetsAt property value. UTC timestamp when the next calendar day begins and daily spending resets.
      * @param value Value to set for the dailyResetsAt property.
      */
     public void setDailyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.dailyResetsAt = value;
     }
     /**
-     * Sets the dailySpent property value. The dailySpent property
+     * Sets the dailySpent property value. Settled usage spending in USD for the current UTC calendar day.
      * @param value Value to set for the dailySpent property.
      */
     public void setDailySpent(@jakarta.annotation.Nullable final Double value) {
         this.dailySpent = value;
     }
     /**
-     * Sets the monthlyLimit property value. The monthlyLimit property
+     * Sets the monthlyLimit property value. Monthly usage budget in USD. Null means no monthly limit; zero stops new paid usage.
      * @param value Value to set for the monthlyLimit property.
      */
     public void setMonthlyLimit(@jakarta.annotation.Nullable final Double value) {
         this.monthlyLimit = value;
     }
     /**
-     * Sets the monthlyResetsAt property value. The monthlyResetsAt property
+     * Sets the monthlyResetsAt property value. UTC timestamp when the next calendar month begins and monthly spending resets.
      * @param value Value to set for the monthlyResetsAt property.
      */
     public void setMonthlyResetsAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.monthlyResetsAt = value;
     }
     /**
-     * Sets the monthlySpent property value. The monthlySpent property
+     * Sets the monthlySpent property value. Settled usage spending in USD for the current UTC calendar month.
      * @param value Value to set for the monthlySpent property.
      */
     public void setMonthlySpent(@jakarta.annotation.Nullable final Double value) {
         this.monthlySpent = value;
     }
     /**
-     * Sets the reserved property value. The reserved property
+     * Sets the reserved property value. Pending usage reservations in USD.
      * @param value Value to set for the reserved property.
      */
     public void setReserved(@jakarta.annotation.Nullable final Double value) {

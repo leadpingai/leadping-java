@@ -41,10 +41,12 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the organization-owned API key without deleting the organization.The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link OrganizationApiKeyRevokeResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationApiKeyRevokeResponse delete() {
@@ -54,28 +56,34 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
      * Deletes the organization-owned API key without deleting the organization.The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyRevokeResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationApiKeyRevokeResponse delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyRevokeResponse::createFromDiscriminatorValue);
     }
     /**
      * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @return a {@link OrganizationApiKeyPreviewResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationApiKeyPreviewResponse get() {
@@ -85,19 +93,23 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
      * The operation enforces organization ownership or platform-admin authorization and returns state suitable for membership, billing, and support workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OrganizationApiKeyPreviewResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
      * @throws ProblemDetails When receiving a 404 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationApiKeyPreviewResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyPreviewResponse::createFromDiscriminatorValue);
     }
     /**
@@ -107,7 +119,11 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationApiKeyIssueResponse post(@jakarta.annotation.Nonnull final OrganizationApiKeyRequest body) {
@@ -121,7 +137,11 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public OrganizationApiKeyIssueResponse post(@jakarta.annotation.Nonnull final OrganizationApiKeyRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -131,7 +151,11 @@ public class ApiKeysItemRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("409", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("415", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, OrganizationApiKeyIssueResponse::createFromDiscriminatorValue);
     }
     /**

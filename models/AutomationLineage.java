@@ -13,7 +13,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationLineage implements AdditionalDataHolder, Parsable {
     /**
-     * The actionId property
+     * Identifier of the action that produced the event, when applicable.
      */
     private String actionId;
     /**
@@ -25,15 +25,15 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> automationIds;
     /**
-     * The rootEventId property
+     * Identifier of the original event that started the automation chain.
      */
     private String rootEventId;
     /**
-     * The runId property
+     * Identifier of the automation run that produced the event.
      */
     private String runId;
     /**
-     * The triggerEventId property
+     * Identifier of the event that directly triggered this run.
      */
     private String triggerEventId;
     /**
@@ -53,7 +53,7 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
         return new AutomationLineage();
     }
     /**
-     * Gets the actionId property value. The actionId property
+     * Gets the actionId property value. Identifier of the action that produced the event, when applicable.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -91,7 +91,7 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the rootEventId property value. The rootEventId property
+     * Gets the rootEventId property value. Identifier of the original event that started the automation chain.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -99,7 +99,7 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
         return this.rootEventId;
     }
     /**
-     * Gets the runId property value. The runId property
+     * Gets the runId property value. Identifier of the automation run that produced the event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,7 +107,7 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
         return this.runId;
     }
     /**
-     * Gets the triggerEventId property value. The triggerEventId property
+     * Gets the triggerEventId property value. Identifier of the event that directly triggered this run.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -128,7 +128,7 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the actionId property value. The actionId property
+     * Sets the actionId property value. Identifier of the action that produced the event, when applicable.
      * @param value Value to set for the actionId property.
      */
     public void setActionId(@jakarta.annotation.Nullable final String value) {
@@ -149,21 +149,21 @@ public class AutomationLineage implements AdditionalDataHolder, Parsable {
         this.automationIds = value;
     }
     /**
-     * Sets the rootEventId property value. The rootEventId property
+     * Sets the rootEventId property value. Identifier of the original event that started the automation chain.
      * @param value Value to set for the rootEventId property.
      */
     public void setRootEventId(@jakarta.annotation.Nullable final String value) {
         this.rootEventId = value;
     }
     /**
-     * Sets the runId property value. The runId property
+     * Sets the runId property value. Identifier of the automation run that produced the event.
      * @param value Value to set for the runId property.
      */
     public void setRunId(@jakarta.annotation.Nullable final String value) {
         this.runId = value;
     }
     /**
-     * Sets the triggerEventId property value. The triggerEventId property
+     * Sets the triggerEventId property value. Identifier of the event that directly triggered this run.
      * @param value Value to set for the triggerEventId property.
      */
     public void setTriggerEventId(@jakarta.annotation.Nullable final String value) {

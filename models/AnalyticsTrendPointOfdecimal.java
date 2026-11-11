@@ -18,7 +18,7 @@ public class AnalyticsTrendPointOfdecimal implements AdditionalDataHolder, Parsa
      */
     private Map<String, Object> additionalData;
     /**
-     * Date and time when this Leadping analytics trend point was end.
+     * Exclusive UTC end of the analytics time bucket.
      */
     private OffsetDateTime endAt;
     /**
@@ -26,7 +26,7 @@ public class AnalyticsTrendPointOfdecimal implements AdditionalDataHolder, Parsa
      */
     private String label;
     /**
-     * Date and time when this Leadping analytics trend point was start.
+     * Inclusive UTC start of the analytics time bucket.
      */
     private OffsetDateTime startAt;
     /**
@@ -58,7 +58,7 @@ public class AnalyticsTrendPointOfdecimal implements AdditionalDataHolder, Parsa
         return this.additionalData;
     }
     /**
-     * Gets the endAt property value. Date and time when this Leadping analytics trend point was end.
+     * Gets the endAt property value. Exclusive UTC end of the analytics time bucket.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class AnalyticsTrendPointOfdecimal implements AdditionalDataHolder, Parsa
         return this.label;
     }
     /**
-     * Gets the startAt property value. Date and time when this Leadping analytics trend point was start.
+     * Gets the startAt property value. Inclusive UTC start of the analytics time bucket.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -122,7 +122,7 @@ public class AnalyticsTrendPointOfdecimal implements AdditionalDataHolder, Parsa
         this.additionalData = value;
     }
     /**
-     * Sets the endAt property value. Date and time when this Leadping analytics trend point was end.
+     * Sets the endAt property value. Exclusive UTC end of the analytics time bucket.
      * @param value Value to set for the endAt property.
      */
     public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
@@ -136,7 +136,7 @@ public class AnalyticsTrendPointOfdecimal implements AdditionalDataHolder, Parsa
         this.label = value;
     }
     /**
-     * Sets the startAt property value. Date and time when this Leadping analytics trend point was start.
+     * Sets the startAt property value. Inclusive UTC start of the analytics time bucket.
      * @param value Value to set for the startAt property.
      */
     public void setStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

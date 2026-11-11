@@ -3,6 +3,9 @@ package ai.leadping.openapi.models;
 import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
+/**
+ * Social platform supported for publishing a blog article.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum BlogSocialPlatform implements ValuedEnum {
     Facebook("facebook"),

@@ -18,27 +18,27 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
      */
     private Map<String, Object> additionalData;
     /**
-     * The endAt property
+     * Exclusive UTC end of the analytics bucket.
      */
     private OffsetDateTime endAt;
     /**
-     * The executions property
+     * Number of automation executions in the bucket.
      */
     private Integer executions;
     /**
-     * The failureCount property
+     * Number of failed automation executions in the bucket.
      */
     private Integer failureCount;
     /**
-     * The label property
+     * Display label identifying the analytics bucket.
      */
     private String label;
     /**
-     * The startAt property
+     * Inclusive UTC start of the analytics bucket.
      */
     private OffsetDateTime startAt;
     /**
-     * The successCount property
+     * Number of successful automation executions in the bucket.
      */
     private Integer successCount;
     /**
@@ -66,7 +66,7 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         return this.additionalData;
     }
     /**
-     * Gets the endAt property value. The endAt property
+     * Gets the endAt property value. Exclusive UTC end of the analytics bucket.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -74,7 +74,7 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         return this.endAt;
     }
     /**
-     * Gets the executions property value. The executions property
+     * Gets the executions property value. Number of automation executions in the bucket.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         return this.executions;
     }
     /**
-     * Gets the failureCount property value. The failureCount property
+     * Gets the failureCount property value. Number of failed automation executions in the bucket.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -105,7 +105,7 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         return deserializerMap;
     }
     /**
-     * Gets the label property value. The label property
+     * Gets the label property value. Display label identifying the analytics bucket.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -113,7 +113,7 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         return this.label;
     }
     /**
-     * Gets the startAt property value. The startAt property
+     * Gets the startAt property value. Inclusive UTC start of the analytics bucket.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         return this.startAt;
     }
     /**
-     * Gets the successCount property value. The successCount property
+     * Gets the successCount property value. Number of successful automation executions in the bucket.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -150,42 +150,42 @@ public class CustomerAutomationHealthPoint implements AdditionalDataHolder, Pars
         this.additionalData = value;
     }
     /**
-     * Sets the endAt property value. The endAt property
+     * Sets the endAt property value. Exclusive UTC end of the analytics bucket.
      * @param value Value to set for the endAt property.
      */
     public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.endAt = value;
     }
     /**
-     * Sets the executions property value. The executions property
+     * Sets the executions property value. Number of automation executions in the bucket.
      * @param value Value to set for the executions property.
      */
     public void setExecutions(@jakarta.annotation.Nullable final Integer value) {
         this.executions = value;
     }
     /**
-     * Sets the failureCount property value. The failureCount property
+     * Sets the failureCount property value. Number of failed automation executions in the bucket.
      * @param value Value to set for the failureCount property.
      */
     public void setFailureCount(@jakarta.annotation.Nullable final Integer value) {
         this.failureCount = value;
     }
     /**
-     * Sets the label property value. The label property
+     * Sets the label property value. Display label identifying the analytics bucket.
      * @param value Value to set for the label property.
      */
     public void setLabel(@jakarta.annotation.Nullable final String value) {
         this.label = value;
     }
     /**
-     * Sets the startAt property value. The startAt property
+     * Sets the startAt property value. Inclusive UTC start of the analytics bucket.
      * @param value Value to set for the startAt property.
      */
     public void setStartAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.startAt = value;
     }
     /**
-     * Sets the successCount property value. The successCount property
+     * Sets the successCount property value. Number of successful automation executions in the bucket.
      * @param value Value to set for the successCount property.
      */
     public void setSuccessCount(@jakarta.annotation.Nullable final Integer value) {

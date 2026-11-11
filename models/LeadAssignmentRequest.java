@@ -17,7 +17,7 @@ public class LeadAssignmentRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The assignedToUserId property
+     * Identifier of the active organization member to assign. Null returns the lead to the unassigned queue.
      */
     private String assignedToUserId;
     /**
@@ -45,7 +45,7 @@ public class LeadAssignmentRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the assignedToUserId property value. The assignedToUserId property
+     * Gets the assignedToUserId property value. Identifier of the active organization member to assign. Null returns the lead to the unassigned queue.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class LeadAssignmentRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the assignedToUserId property value. The assignedToUserId property
+     * Sets the assignedToUserId property value. Identifier of the active organization member to assign. Null returns the lead to the unassigned queue.
      * @param value Value to set for the assignedToUserId property.
      */
     public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {

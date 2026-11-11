@@ -40,7 +40,10 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserDataExportResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 409 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
+     * @throws ProblemDetails When receiving a 502 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportResponse post() {
@@ -52,7 +55,10 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @return a {@link UserDataExportResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 409 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
+     * @throws ProblemDetails When receiving a 502 status code
      */
     @jakarta.annotation.Nullable
     public UserDataExportResponse post(@jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
@@ -60,7 +66,10 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("409", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("502", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, UserDataExportResponse::createFromDiscriminatorValue);
     }
     /**

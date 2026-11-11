@@ -18,23 +18,23 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The callerNumber property
+     * Approved caller ID phone number for this outbound call.
      */
     private String callerNumber;
     /**
-     * The clientState property
+     * Opaque server-issued state to pass unchanged when initiating the approved call.
      */
     private String clientState;
     /**
-     * The destinationNumber property
+     * Approved destination phone number for this outbound call.
      */
     private String destinationNumber;
     /**
-     * The expiresAt property
+     * UTC timestamp after which this call approval is no longer valid.
      */
     private OffsetDateTime expiresAt;
     /**
-     * The maximumDurationSeconds property
+     * Maximum permitted duration of the call, in seconds.
      */
     private Integer maximumDurationSeconds;
     /**
@@ -62,7 +62,7 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the callerNumber property value. The callerNumber property
+     * Gets the callerNumber property value. Approved caller ID phone number for this outbound call.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -70,7 +70,7 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
         return this.callerNumber;
     }
     /**
-     * Gets the clientState property value. The clientState property
+     * Gets the clientState property value. Opaque server-issued state to pass unchanged when initiating the approved call.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -78,7 +78,7 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
         return this.clientState;
     }
     /**
-     * Gets the destinationNumber property value. The destinationNumber property
+     * Gets the destinationNumber property value. Approved destination phone number for this outbound call.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -86,7 +86,7 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
         return this.destinationNumber;
     }
     /**
-     * Gets the expiresAt property value. The expiresAt property
+     * Gets the expiresAt property value. UTC timestamp after which this call approval is no longer valid.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the maximumDurationSeconds property value. The maximumDurationSeconds property
+     * Gets the maximumDurationSeconds property value. Maximum permitted duration of the call, in seconds.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -136,35 +136,35 @@ public class BrowserCallApproval implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the callerNumber property value. The callerNumber property
+     * Sets the callerNumber property value. Approved caller ID phone number for this outbound call.
      * @param value Value to set for the callerNumber property.
      */
     public void setCallerNumber(@jakarta.annotation.Nullable final String value) {
         this.callerNumber = value;
     }
     /**
-     * Sets the clientState property value. The clientState property
+     * Sets the clientState property value. Opaque server-issued state to pass unchanged when initiating the approved call.
      * @param value Value to set for the clientState property.
      */
     public void setClientState(@jakarta.annotation.Nullable final String value) {
         this.clientState = value;
     }
     /**
-     * Sets the destinationNumber property value. The destinationNumber property
+     * Sets the destinationNumber property value. Approved destination phone number for this outbound call.
      * @param value Value to set for the destinationNumber property.
      */
     public void setDestinationNumber(@jakarta.annotation.Nullable final String value) {
         this.destinationNumber = value;
     }
     /**
-     * Sets the expiresAt property value. The expiresAt property
+     * Sets the expiresAt property value. UTC timestamp after which this call approval is no longer valid.
      * @param value Value to set for the expiresAt property.
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.expiresAt = value;
     }
     /**
-     * Sets the maximumDurationSeconds property value. The maximumDurationSeconds property
+     * Sets the maximumDurationSeconds property value. Maximum permitted duration of the call, in seconds.
      * @param value Value to set for the maximumDurationSeconds property.
      */
     public void setMaximumDurationSeconds(@jakarta.annotation.Nullable final Integer value) {

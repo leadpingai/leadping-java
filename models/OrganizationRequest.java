@@ -21,6 +21,14 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private OrganizationRequestAddress address;
     /**
+     * Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
+     */
+    private Boolean automaticallyMarkLeadsCalled;
+    /**
+     * Destination status for outbound call attempts. Null uses the built-in Called status.
+     */
+    private String calledLeadStatusId;
+    /**
      * Human-readable description that explains this organization profile request to API users.
      */
     private String description;
@@ -97,6 +105,22 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.address;
     }
     /**
+     * Gets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyMarkLeadsCalled() {
+        return this.automaticallyMarkLeadsCalled;
+    }
+    /**
+     * Gets the calledLeadStatusId property value. Destination status for outbound call attempts. Null uses the built-in Called status.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCalledLeadStatusId() {
+        return this.calledLeadStatusId;
+    }
+    /**
      * Gets the description property value. Human-readable description that explains this organization profile request to API users.
      * @return a {@link String}
      */
@@ -118,8 +142,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationRequestAddress::createFromDiscriminatorValue)); });
+        deserializerMap.put("automaticallyMarkLeadsCalled", (n) -> { this.setAutomaticallyMarkLeadsCalled(n.getBooleanValue()); });
+        deserializerMap.put("calledLeadStatusId", (n) -> { this.setCalledLeadStatusId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("ein", (n) -> { this.setEin(n.getStringValue()); });
         deserializerMap.put("isYoungerThan90", (n) -> { this.setIsYoungerThan90(n.getBooleanValue()); });
@@ -212,6 +238,8 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("address", this.getAddress());
+        writer.writeBooleanValue("automaticallyMarkLeadsCalled", this.getAutomaticallyMarkLeadsCalled());
+        writer.writeStringValue("calledLeadStatusId", this.getCalledLeadStatusId());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("ein", this.getEin());
         writer.writeBooleanValue("isYoungerThan90", this.getIsYoungerThan90());
@@ -238,6 +266,20 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationRequestAddress value) {
         this.address = value;
+    }
+    /**
+     * Sets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
+     * @param value Value to set for the automaticallyMarkLeadsCalled property.
+     */
+    public void setAutomaticallyMarkLeadsCalled(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyMarkLeadsCalled = value;
+    }
+    /**
+     * Sets the calledLeadStatusId property value. Destination status for outbound call attempts. Null uses the built-in Called status.
+     * @param value Value to set for the calledLeadStatusId property.
+     */
+    public void setCalledLeadStatusId(@jakarta.annotation.Nullable final String value) {
+        this.calledLeadStatusId = value;
     }
     /**
      * Sets the description property value. Human-readable description that explains this organization profile request to API users.

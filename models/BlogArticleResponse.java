@@ -18,23 +18,23 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The authorName property
+     * Public display name of the article author, when provided.
      */
     private String authorName;
     /**
-     * The category property
+     * Editorial category assigned to the article, when present.
      */
     private String category;
     /**
-     * The content property
+     * Saved article body before server-side rendering.
      */
     private String content;
     /**
-     * The contentUpdatedAt property
+     * UTC timestamp of the most recent editorial content update.
      */
     private OffsetDateTime contentUpdatedAt;
     /**
-     * The coverImageAlt property
+     * Alternative text describing the cover image.
      */
     private String coverImageAlt;
     /**
@@ -42,7 +42,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer coverImageHeight;
     /**
-     * The coverImageUrl property
+     * URL of the article&apos;s cover image, when available.
      */
     private String coverImageUrl;
     /**
@@ -50,15 +50,15 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer coverImageWidth;
     /**
-     * The createdAt property
+     * UTC timestamp when the article was created.
      */
     private OffsetDateTime createdAt;
     /**
-     * The excerpt property
+     * Short plain-language preview of the article.
      */
     private String excerpt;
     /**
-     * The id property
+     * Unique Leadping identifier of the blog article.
      */
     private String id;
     /**
@@ -70,35 +70,35 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean imagesProcessing;
     /**
-     * The isFeatured property
+     * Whether the article is selected for featured placement.
      */
     private Boolean isFeatured;
     /**
-     * The isPublished property
+     * Whether the article is currently published and available to public readers.
      */
     private Boolean isPublished;
     /**
-     * The lastPublishedAt property
+     * UTC timestamp when the article last changed from unpublished to published.
      */
     private OffsetDateTime lastPublishedAt;
     /**
-     * The metaDescription property
+     * Optional article description used in search-engine metadata.
      */
     private String metaDescription;
     /**
-     * The modifiedAt property
+     * UTC timestamp when the article was last modified.
      */
     private OffsetDateTime modifiedAt;
     /**
-     * The publishedAt property
+     * UTC publication timestamp shown for the article, when set.
      */
     private OffsetDateTime publishedAt;
     /**
-     * The renderedHtml property
+     * Server-rendered and sanitized HTML for displaying the article.
      */
     private String renderedHtml;
     /**
-     * The seoTitle property
+     * Optional title used in search-engine metadata.
      */
     private String seoTitle;
     /**
@@ -118,19 +118,19 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean shareOnX;
     /**
-     * The slug property
+     * URL slug used to retrieve the published article.
      */
     private String slug;
     /**
-     * The socialPosts property
+     * Publication attempts and provider post identifiers for each social platform.
      */
     private java.util.List<BlogSocialPost> socialPosts;
     /**
-     * The title property
+     * Public title of the article.
      */
     private String title;
     /**
-     * The unpublishedAt property
+     * UTC timestamp when the article last changed from published to unpublished.
      */
     private OffsetDateTime unpublishedAt;
     /**
@@ -158,7 +158,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the authorName property value. The authorName property
+     * Gets the authorName property value. Public display name of the article author, when provided.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -166,7 +166,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.authorName;
     }
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. Editorial category assigned to the article, when present.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -174,7 +174,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.category;
     }
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. Saved article body before server-side rendering.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -182,7 +182,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.content;
     }
     /**
-     * Gets the contentUpdatedAt property value. The contentUpdatedAt property
+     * Gets the contentUpdatedAt property value. UTC timestamp of the most recent editorial content update.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -190,7 +190,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.contentUpdatedAt;
     }
     /**
-     * Gets the coverImageAlt property value. The coverImageAlt property
+     * Gets the coverImageAlt property value. Alternative text describing the cover image.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -206,7 +206,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.coverImageHeight;
     }
     /**
-     * Gets the coverImageUrl property value. The coverImageUrl property
+     * Gets the coverImageUrl property value. URL of the article&apos;s cover image, when available.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -222,7 +222,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.coverImageWidth;
     }
     /**
-     * Gets the createdAt property value. The createdAt property
+     * Gets the createdAt property value. UTC timestamp when the article was created.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -230,7 +230,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.createdAt;
     }
     /**
-     * Gets the excerpt property value. The excerpt property
+     * Gets the excerpt property value. Short plain-language preview of the article.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -276,7 +276,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Unique Leadping identifier of the blog article.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -300,7 +300,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.imagesProcessing;
     }
     /**
-     * Gets the isFeatured property value. The isFeatured property
+     * Gets the isFeatured property value. Whether the article is selected for featured placement.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -308,7 +308,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.isFeatured;
     }
     /**
-     * Gets the isPublished property value. The isPublished property
+     * Gets the isPublished property value. Whether the article is currently published and available to public readers.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -316,7 +316,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.isPublished;
     }
     /**
-     * Gets the lastPublishedAt property value. The lastPublishedAt property
+     * Gets the lastPublishedAt property value. UTC timestamp when the article last changed from unpublished to published.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -324,7 +324,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.lastPublishedAt;
     }
     /**
-     * Gets the metaDescription property value. The metaDescription property
+     * Gets the metaDescription property value. Optional article description used in search-engine metadata.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -332,7 +332,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.metaDescription;
     }
     /**
-     * Gets the modifiedAt property value. The modifiedAt property
+     * Gets the modifiedAt property value. UTC timestamp when the article was last modified.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -340,7 +340,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the publishedAt property value. The publishedAt property
+     * Gets the publishedAt property value. UTC publication timestamp shown for the article, when set.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -348,7 +348,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.publishedAt;
     }
     /**
-     * Gets the renderedHtml property value. The renderedHtml property
+     * Gets the renderedHtml property value. Server-rendered and sanitized HTML for displaying the article.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -356,7 +356,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.renderedHtml;
     }
     /**
-     * Gets the seoTitle property value. The seoTitle property
+     * Gets the seoTitle property value. Optional title used in search-engine metadata.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -396,7 +396,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.shareOnX;
     }
     /**
-     * Gets the slug property value. The slug property
+     * Gets the slug property value. URL slug used to retrieve the published article.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -404,7 +404,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.slug;
     }
     /**
-     * Gets the socialPosts property value. The socialPosts property
+     * Gets the socialPosts property value. Publication attempts and provider post identifiers for each social platform.
      * @return a {@link java.util.List<BlogSocialPost>}
      */
     @jakarta.annotation.Nullable
@@ -412,7 +412,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.socialPosts;
     }
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Public title of the article.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -420,7 +420,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         return this.title;
     }
     /**
-     * Gets the unpublishedAt property value. The unpublishedAt property
+     * Gets the unpublishedAt property value. UTC timestamp when the article last changed from published to unpublished.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -472,35 +472,35 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the authorName property value. The authorName property
+     * Sets the authorName property value. Public display name of the article author, when provided.
      * @param value Value to set for the authorName property.
      */
     public void setAuthorName(@jakarta.annotation.Nullable final String value) {
         this.authorName = value;
     }
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. Editorial category assigned to the article, when present.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final String value) {
         this.category = value;
     }
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. Saved article body before server-side rendering.
      * @param value Value to set for the content property.
      */
     public void setContent(@jakarta.annotation.Nullable final String value) {
         this.content = value;
     }
     /**
-     * Sets the contentUpdatedAt property value. The contentUpdatedAt property
+     * Sets the contentUpdatedAt property value. UTC timestamp of the most recent editorial content update.
      * @param value Value to set for the contentUpdatedAt property.
      */
     public void setContentUpdatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.contentUpdatedAt = value;
     }
     /**
-     * Sets the coverImageAlt property value. The coverImageAlt property
+     * Sets the coverImageAlt property value. Alternative text describing the cover image.
      * @param value Value to set for the coverImageAlt property.
      */
     public void setCoverImageAlt(@jakarta.annotation.Nullable final String value) {
@@ -514,7 +514,7 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.coverImageHeight = value;
     }
     /**
-     * Sets the coverImageUrl property value. The coverImageUrl property
+     * Sets the coverImageUrl property value. URL of the article&apos;s cover image, when available.
      * @param value Value to set for the coverImageUrl property.
      */
     public void setCoverImageUrl(@jakarta.annotation.Nullable final String value) {
@@ -528,21 +528,21 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.coverImageWidth = value;
     }
     /**
-     * Sets the createdAt property value. The createdAt property
+     * Sets the createdAt property value. UTC timestamp when the article was created.
      * @param value Value to set for the createdAt property.
      */
     public void setCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.createdAt = value;
     }
     /**
-     * Sets the excerpt property value. The excerpt property
+     * Sets the excerpt property value. Short plain-language preview of the article.
      * @param value Value to set for the excerpt property.
      */
     public void setExcerpt(@jakarta.annotation.Nullable final String value) {
         this.excerpt = value;
     }
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Unique Leadping identifier of the blog article.
      * @param value Value to set for the id property.
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
@@ -563,56 +563,56 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.imagesProcessing = value;
     }
     /**
-     * Sets the isFeatured property value. The isFeatured property
+     * Sets the isFeatured property value. Whether the article is selected for featured placement.
      * @param value Value to set for the isFeatured property.
      */
     public void setIsFeatured(@jakarta.annotation.Nullable final Boolean value) {
         this.isFeatured = value;
     }
     /**
-     * Sets the isPublished property value. The isPublished property
+     * Sets the isPublished property value. Whether the article is currently published and available to public readers.
      * @param value Value to set for the isPublished property.
      */
     public void setIsPublished(@jakarta.annotation.Nullable final Boolean value) {
         this.isPublished = value;
     }
     /**
-     * Sets the lastPublishedAt property value. The lastPublishedAt property
+     * Sets the lastPublishedAt property value. UTC timestamp when the article last changed from unpublished to published.
      * @param value Value to set for the lastPublishedAt property.
      */
     public void setLastPublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastPublishedAt = value;
     }
     /**
-     * Sets the metaDescription property value. The metaDescription property
+     * Sets the metaDescription property value. Optional article description used in search-engine metadata.
      * @param value Value to set for the metaDescription property.
      */
     public void setMetaDescription(@jakarta.annotation.Nullable final String value) {
         this.metaDescription = value;
     }
     /**
-     * Sets the modifiedAt property value. The modifiedAt property
+     * Sets the modifiedAt property value. UTC timestamp when the article was last modified.
      * @param value Value to set for the modifiedAt property.
      */
     public void setModifiedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.modifiedAt = value;
     }
     /**
-     * Sets the publishedAt property value. The publishedAt property
+     * Sets the publishedAt property value. UTC publication timestamp shown for the article, when set.
      * @param value Value to set for the publishedAt property.
      */
     public void setPublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.publishedAt = value;
     }
     /**
-     * Sets the renderedHtml property value. The renderedHtml property
+     * Sets the renderedHtml property value. Server-rendered and sanitized HTML for displaying the article.
      * @param value Value to set for the renderedHtml property.
      */
     public void setRenderedHtml(@jakarta.annotation.Nullable final String value) {
         this.renderedHtml = value;
     }
     /**
-     * Sets the seoTitle property value. The seoTitle property
+     * Sets the seoTitle property value. Optional title used in search-engine metadata.
      * @param value Value to set for the seoTitle property.
      */
     public void setSeoTitle(@jakarta.annotation.Nullable final String value) {
@@ -647,28 +647,28 @@ public class BlogArticleResponse implements AdditionalDataHolder, Parsable {
         this.shareOnX = value;
     }
     /**
-     * Sets the slug property value. The slug property
+     * Sets the slug property value. URL slug used to retrieve the published article.
      * @param value Value to set for the slug property.
      */
     public void setSlug(@jakarta.annotation.Nullable final String value) {
         this.slug = value;
     }
     /**
-     * Sets the socialPosts property value. The socialPosts property
+     * Sets the socialPosts property value. Publication attempts and provider post identifiers for each social platform.
      * @param value Value to set for the socialPosts property.
      */
     public void setSocialPosts(@jakarta.annotation.Nullable final java.util.List<BlogSocialPost> value) {
         this.socialPosts = value;
     }
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Public title of the article.
      * @param value Value to set for the title property.
      */
     public void setTitle(@jakarta.annotation.Nullable final String value) {
         this.title = value;
     }
     /**
-     * Sets the unpublishedAt property value. The unpublishedAt property
+     * Sets the unpublishedAt property value. UTC timestamp when the article last changed from published to unpublished.
      * @param value Value to set for the unpublishedAt property.
      */
     public void setUnpublishedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

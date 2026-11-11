@@ -54,6 +54,10 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     private String followUpStatus;
     /**
+     * Configured organization status ID, independent of its display name and history entry ID.
+     */
+    private String leadStatusId;
+    /**
      * The operator or customer notes recorded for this lead status change.
      */
     private String notes;
@@ -167,7 +171,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("appointmentEndAt", (n) -> { this.setAppointmentEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("appointmentNotes", (n) -> { this.setAppointmentNotes(n.getStringValue()); });
         deserializerMap.put("appointmentStartAt", (n) -> { this.setAppointmentStartAt(n.getOffsetDateTimeValue()); });
@@ -177,6 +181,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("expectedCurrentStatusId", (n) -> { this.setExpectedCurrentStatusId(n.getStringValue()); });
         deserializerMap.put("expectedRevision", (n) -> { this.setExpectedRevision(n.getLongValue()); });
         deserializerMap.put("followUpStatus", (n) -> { this.setFollowUpStatus(n.getStringValue()); });
+        deserializerMap.put("leadStatusId", (n) -> { this.setLeadStatusId(n.getStringValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
         deserializerMap.put("outcome", (n) -> { this.setOutcome(n.getStringValue()); });
         deserializerMap.put("reason", (n) -> { this.setReason(n.getStringValue()); });
@@ -191,6 +196,14 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getFollowUpStatus() {
         return this.followUpStatus;
+    }
+    /**
+     * Gets the leadStatusId property value. Configured organization status ID, independent of its display name and history entry ID.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadStatusId() {
+        return this.leadStatusId;
     }
     /**
      * Gets the notes property value. The operator or customer notes recorded for this lead status change.
@@ -247,6 +260,7 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("expectedCurrentStatusId", this.getExpectedCurrentStatusId());
         writer.writeLongValue("expectedRevision", this.getExpectedRevision());
         writer.writeStringValue("followUpStatus", this.getFollowUpStatus());
+        writer.writeStringValue("leadStatusId", this.getLeadStatusId());
         writer.writeStringValue("notes", this.getNotes());
         writer.writeStringValue("outcome", this.getOutcome());
         writer.writeStringValue("reason", this.getReason());
@@ -323,6 +337,13 @@ public class LeadStatusChangeRequest implements AdditionalDataHolder, Parsable {
      */
     public void setFollowUpStatus(@jakarta.annotation.Nullable final String value) {
         this.followUpStatus = value;
+    }
+    /**
+     * Sets the leadStatusId property value. Configured organization status ID, independent of its display name and history entry ID.
+     * @param value Value to set for the leadStatusId property.
+     */
+    public void setLeadStatusId(@jakarta.annotation.Nullable final String value) {
+        this.leadStatusId = value;
     }
     /**
      * Sets the notes property value. The operator or customer notes recorded for this lead status change.

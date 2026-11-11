@@ -1,6 +1,7 @@
 package ai.leadping.openapi.leads.item.followup;
 
 import ai.leadping.openapi.models.LeadFollowUpUpdateRequest;
+import ai.leadping.openapi.models.LeadStatusChangeResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -10,7 +11,6 @@ import com.microsoft.kiota.RequestInformation;
 import com.microsoft.kiota.RequestOption;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParsableFactory;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,33 +39,48 @@ public class FollowUpRequestBuilder extends BaseRequestBuilder {
     /**
      * Completes or reschedules a lead&apos;s follow-up using the version observed by the client. Returns a conflict if the follow-up has changed.
      * @param body Completes or reschedules exactly the follow-up version the operator viewed.
-     * @return a {@link InputStream}
+     * @return a {@link LeadStatusChangeResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public InputStream put(@jakarta.annotation.Nonnull final LeadFollowUpUpdateRequest body) {
+    public LeadStatusChangeResponse put(@jakarta.annotation.Nonnull final LeadFollowUpUpdateRequest body) {
         return put(body, null);
     }
     /**
      * Completes or reschedules a lead&apos;s follow-up using the version observed by the client. Returns a conflict if the follow-up has changed.
      * @param body Completes or reschedules exactly the follow-up version the operator viewed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link InputStream}
+     * @return a {@link LeadStatusChangeResponse}
+     * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 404 status code
+     * @throws ProblemDetails When receiving a 409 status code
+     * @throws ProblemDetails When receiving a 415 status code
      * @throws ProblemDetails When receiving a 429 status code
+     * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public InputStream put(@jakarta.annotation.Nonnull final LeadFollowUpUpdateRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
+    public LeadStatusChangeResponse put(@jakarta.annotation.Nonnull final LeadFollowUpUpdateRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("404", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("409", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("415", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
+        errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, LeadStatusChangeResponse::createFromDiscriminatorValue);
     }
     /**
      * Completes or reschedules a lead&apos;s follow-up using the version observed by the client. Returns a conflict if the follow-up has changed.
@@ -87,7 +102,7 @@ public class FollowUpRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.PUT, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PutRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "application/problem+json");
+        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
     }

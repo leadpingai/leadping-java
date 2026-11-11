@@ -17,11 +17,11 @@ public class SpendLimitsRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The dailyLimit property
+     * Daily usage budget in USD for the UTC calendar day. Null removes the limit; zero stops new paid usage.
      */
     private Double dailyLimit;
     /**
-     * The monthlyLimit property
+     * Monthly usage budget in USD for the UTC calendar month. Null removes the limit; zero stops new paid usage.
      */
     private Double monthlyLimit;
     /**
@@ -49,7 +49,7 @@ public class SpendLimitsRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the dailyLimit property value. The dailyLimit property
+     * Gets the dailyLimit property value. Daily usage budget in USD for the UTC calendar day. Null removes the limit; zero stops new paid usage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -68,7 +68,7 @@ public class SpendLimitsRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the monthlyLimit property value. The monthlyLimit property
+     * Gets the monthlyLimit property value. Monthly usage budget in USD for the UTC calendar month. Null removes the limit; zero stops new paid usage.
      * @return a {@link Double}
      */
     @jakarta.annotation.Nullable
@@ -93,14 +93,14 @@ public class SpendLimitsRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the dailyLimit property value. The dailyLimit property
+     * Sets the dailyLimit property value. Daily usage budget in USD for the UTC calendar day. Null removes the limit; zero stops new paid usage.
      * @param value Value to set for the dailyLimit property.
      */
     public void setDailyLimit(@jakarta.annotation.Nullable final Double value) {
         this.dailyLimit = value;
     }
     /**
-     * Sets the monthlyLimit property value. The monthlyLimit property
+     * Sets the monthlyLimit property value. Monthly usage budget in USD for the UTC calendar month. Null removes the limit; zero stops new paid usage.
      * @param value Value to set for the monthlyLimit property.
      */
     public void setMonthlyLimit(@jakarta.annotation.Nullable final Double value) {
