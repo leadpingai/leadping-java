@@ -14,6 +14,7 @@ public enum BillableUnit implements ValuedEnum {
     Mms_message("mms_message"),
     Email_message("email_message"),
     Voice_minute("voice_minute"),
+    Call_attempt("call_attempt"),
     Phone_number_month("phone_number_month"),
     Warmup_sms_segment("warmup_sms_segment"),
     Warmup_voice_minute("warmup_voice_minute"),
@@ -41,6 +42,7 @@ public enum BillableUnit implements ValuedEnum {
             case "mms_message": return Mms_message;
             case "email_message": return Email_message;
             case "voice_minute": return Voice_minute;
+            case "call_attempt": return Call_attempt;
             case "phone_number_month": return Phone_number_month;
             case "warmup_sms_segment": return Warmup_sms_segment;
             case "warmup_voice_minute": return Warmup_voice_minute;
