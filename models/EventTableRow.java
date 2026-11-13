@@ -62,6 +62,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private String cancelReason;
     /**
+     * Whether the current user authored this editable note.
+     */
+    private Boolean canEditNote;
+    /**
      * Compliance action applied to this message, lead, or sender.
      */
     private String complianceAction;
@@ -137,6 +141,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      * UTC timestamp when Leadping will retry this event timeline table row.
      */
     private OffsetDateTime nextRetryAt;
+    /**
+     * Whether the note has been edited.
+     */
+    private Boolean noteEdited;
     /**
      * Phone number ID selected for outbound delivery.
      */
@@ -342,6 +350,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.cancelReason;
     }
     /**
+     * Gets the canEditNote property value. Whether the current user authored this editable note.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCanEditNote() {
+        return this.canEditNote;
+    }
+    /**
      * Gets the complianceAction property value. Compliance action applied to this message, lead, or sender.
      * @return a {@link String}
      */
@@ -443,7 +459,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(53);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(55);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
@@ -455,6 +471,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("canceledAt", (n) -> { this.setCanceledAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("cancelReason", (n) -> { this.setCancelReason(n.getStringValue()); });
+        deserializerMap.put("canEditNote", (n) -> { this.setCanEditNote(n.getBooleanValue()); });
         deserializerMap.put("complianceAction", (n) -> { this.setComplianceAction(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
@@ -474,6 +491,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("nextRetryAt", (n) -> { this.setNextRetryAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("noteEdited", (n) -> { this.setNoteEdited(n.getBooleanValue()); });
         deserializerMap.put("outboundPhoneNumberId", (n) -> { this.setOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("queuedAt", (n) -> { this.setQueuedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("receivedAt", (n) -> { this.setReceivedAt(n.getOffsetDateTimeValue()); });
@@ -554,6 +572,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public OffsetDateTime getNextRetryAt() {
         return this.nextRetryAt;
+    }
+    /**
+     * Gets the noteEdited property value. Whether the note has been edited.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNoteEdited() {
+        return this.noteEdited;
     }
     /**
      * Gets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.
@@ -756,6 +782,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("campaignId", this.getCampaignId());
         writer.writeOffsetDateTimeValue("canceledAt", this.getCanceledAt());
         writer.writeStringValue("cancelReason", this.getCancelReason());
+        writer.writeBooleanValue("canEditNote", this.getCanEditNote());
         writer.writeStringValue("complianceAction", this.getComplianceAction());
         writer.writeStringValue("conversationId", this.getConversationId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
@@ -775,6 +802,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeOffsetDateTimeValue("nextRetryAt", this.getNextRetryAt());
+        writer.writeBooleanValue("noteEdited", this.getNoteEdited());
         writer.writeStringValue("outboundPhoneNumberId", this.getOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("queuedAt", this.getQueuedAt());
         writer.writeOffsetDateTimeValue("receivedAt", this.getReceivedAt());
@@ -883,6 +911,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setCancelReason(@jakarta.annotation.Nullable final String value) {
         this.cancelReason = value;
+    }
+    /**
+     * Sets the canEditNote property value. Whether the current user authored this editable note.
+     * @param value Value to set for the canEditNote property.
+     */
+    public void setCanEditNote(@jakarta.annotation.Nullable final Boolean value) {
+        this.canEditNote = value;
     }
     /**
      * Sets the complianceAction property value. Compliance action applied to this message, lead, or sender.
@@ -1016,6 +1051,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setNextRetryAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.nextRetryAt = value;
+    }
+    /**
+     * Sets the noteEdited property value. Whether the note has been edited.
+     * @param value Value to set for the noteEdited property.
+     */
+    public void setNoteEdited(@jakarta.annotation.Nullable final Boolean value) {
+        this.noteEdited = value;
     }
     /**
      * Sets the outboundPhoneNumberId property value. Phone number ID selected for outbound delivery.

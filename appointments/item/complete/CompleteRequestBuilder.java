@@ -42,6 +42,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 409 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -55,6 +56,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
+     * @throws ProblemDetails When receiving a 409 status code
      * @throws ProblemDetails When receiving a 429 status code
      */
     @jakarta.annotation.Nullable
@@ -64,6 +66,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("401", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("403", ProblemDetails::createFromDiscriminatorValue);
+        errorMapping.put("409", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
@@ -87,7 +90,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
-        requestInfo.headers.tryAdd("Accept", "text/plain;q=0.9");
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
         return requestInfo;
     }

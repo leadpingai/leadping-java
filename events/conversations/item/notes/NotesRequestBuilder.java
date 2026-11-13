@@ -1,5 +1,6 @@
 package ai.leadping.openapi.events.conversations.item.notes;
 
+import ai.leadping.openapi.events.conversations.item.notes.item.WithEventItemRequestBuilder;
 import ai.leadping.openapi.models.CreateNoteRequest;
 import ai.leadping.openapi.models.EventTableRow;
 import ai.leadping.openapi.models.ProblemDetails;
@@ -20,6 +21,18 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class NotesRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Gets an item from the ai.leadping.openapi.events.conversations.item.notes.item collection
+     * @param eventId The note event identifier.
+     * @return a {@link WithEventItemRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public WithEventItemRequestBuilder byEventId(@jakarta.annotation.Nonnull final String eventId) {
+        Objects.requireNonNull(eventId);
+        final HashMap<String, Object> urlTplParams = new HashMap<String, Object>(this.pathParameters);
+        urlTplParams.put("eventId", eventId);
+        return new WithEventItemRequestBuilder(urlTplParams, requestAdapter);
+    }
     /**
      * Instantiates a new {@link NotesRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
