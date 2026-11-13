@@ -19,6 +19,22 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
+     * Email the assigned agent when a callback is due.
+     */
+    private Boolean appointmentReminderEmailEnabled;
+    /**
+     * Send push notifications for due callback appointments.
+     */
+    private Boolean appointmentReminderEnabled;
+    /**
+     * Show callback reminder dialogs in the Portal.
+     */
+    private Boolean appointmentReminderInAppEnabled;
+    /**
+     * Text the assigned agent when a callback is due, subject to SMS consent.
+     */
+    private Boolean appointmentReminderSmsEnabled;
+    /**
      * Indicates whether automation failed email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean automationFailedEmailEnabled;
@@ -83,13 +99,17 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean paymentFailedSmsEnabled;
     /**
-     * Whether push, SMS, and automation alerts wait until the user&apos;s daily quiet hours end.
+     * Whether notification delivery respects the user&apos;s daily quiet hours.
      */
     private Boolean quietHoursEnabled;
     /**
      * The exclusive local end of daily quiet hours.
      */
     private LocalTime quietHoursEnd;
+    /**
+     * Queue notifications until quiet hours end; when false, skip their external delivery.
+     */
+    private Boolean quietHoursQueueEnabled;
     /**
      * The inclusive local start of daily quiet hours.
      */
@@ -167,6 +187,38 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
+     * Gets the appointmentReminderEmailEnabled property value. Email the assigned agent when a callback is due.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAppointmentReminderEmailEnabled() {
+        return this.appointmentReminderEmailEnabled;
+    }
+    /**
+     * Gets the appointmentReminderEnabled property value. Send push notifications for due callback appointments.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAppointmentReminderEnabled() {
+        return this.appointmentReminderEnabled;
+    }
+    /**
+     * Gets the appointmentReminderInAppEnabled property value. Show callback reminder dialogs in the Portal.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAppointmentReminderInAppEnabled() {
+        return this.appointmentReminderInAppEnabled;
+    }
+    /**
+     * Gets the appointmentReminderSmsEnabled property value. Text the assigned agent when a callback is due, subject to SMS consent.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAppointmentReminderSmsEnabled() {
+        return this.appointmentReminderSmsEnabled;
+    }
+    /**
      * Gets the automationFailedEmailEnabled property value. Indicates whether automation failed email functionality is enabled for this Leadping user notification preferences.
      * @return a {@link Boolean}
      */
@@ -212,7 +264,11 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
+        deserializerMap.put("appointmentReminderEmailEnabled", (n) -> { this.setAppointmentReminderEmailEnabled(n.getBooleanValue()); });
+        deserializerMap.put("appointmentReminderEnabled", (n) -> { this.setAppointmentReminderEnabled(n.getBooleanValue()); });
+        deserializerMap.put("appointmentReminderInAppEnabled", (n) -> { this.setAppointmentReminderInAppEnabled(n.getBooleanValue()); });
+        deserializerMap.put("appointmentReminderSmsEnabled", (n) -> { this.setAppointmentReminderSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedEmailEnabled", (n) -> { this.setAutomationFailedEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedEnabled", (n) -> { this.setAutomationFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("automationFailedSmsEnabled", (n) -> { this.setAutomationFailedSmsEnabled(n.getBooleanValue()); });
@@ -231,6 +287,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("paymentFailedSmsEnabled", (n) -> { this.setPaymentFailedSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("quietHoursEnabled", (n) -> { this.setQuietHoursEnabled(n.getBooleanValue()); });
         deserializerMap.put("quietHoursEnd", (n) -> { this.setQuietHoursEnd(n.getLocalTimeValue()); });
+        deserializerMap.put("quietHoursQueueEnabled", (n) -> { this.setQuietHoursQueueEnabled(n.getBooleanValue()); });
         deserializerMap.put("quietHoursStart", (n) -> { this.setQuietHoursStart(n.getLocalTimeValue()); });
         deserializerMap.put("quietHoursTimeZoneId", (n) -> { this.setQuietHoursTimeZoneId(n.getStringValue()); });
         deserializerMap.put("smsConsentCertificate", (n) -> { this.setSmsConsentCertificate(n.getObjectValue(UserNotificationPreferencesSmsConsentCertificate::createFromDiscriminatorValue)); });
@@ -335,7 +392,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.paymentFailedSmsEnabled;
     }
     /**
-     * Gets the quietHoursEnabled property value. Whether push, SMS, and automation alerts wait until the user&apos;s daily quiet hours end.
+     * Gets the quietHoursEnabled property value. Whether notification delivery respects the user&apos;s daily quiet hours.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -349,6 +406,14 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public LocalTime getQuietHoursEnd() {
         return this.quietHoursEnd;
+    }
+    /**
+     * Gets the quietHoursQueueEnabled property value. Queue notifications until quiet hours end; when false, skip their external delivery.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getQuietHoursQueueEnabled() {
+        return this.quietHoursQueueEnabled;
     }
     /**
      * Gets the quietHoursStart property value. The inclusive local start of daily quiet hours.
@@ -460,6 +525,10 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeBooleanValue("appointmentReminderEmailEnabled", this.getAppointmentReminderEmailEnabled());
+        writer.writeBooleanValue("appointmentReminderEnabled", this.getAppointmentReminderEnabled());
+        writer.writeBooleanValue("appointmentReminderInAppEnabled", this.getAppointmentReminderInAppEnabled());
+        writer.writeBooleanValue("appointmentReminderSmsEnabled", this.getAppointmentReminderSmsEnabled());
         writer.writeBooleanValue("automationFailedEmailEnabled", this.getAutomationFailedEmailEnabled());
         writer.writeBooleanValue("automationFailedEnabled", this.getAutomationFailedEnabled());
         writer.writeBooleanValue("automationFailedSmsEnabled", this.getAutomationFailedSmsEnabled());
@@ -478,6 +547,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("paymentFailedSmsEnabled", this.getPaymentFailedSmsEnabled());
         writer.writeBooleanValue("quietHoursEnabled", this.getQuietHoursEnabled());
         writer.writeLocalTimeValue("quietHoursEnd", this.getQuietHoursEnd());
+        writer.writeBooleanValue("quietHoursQueueEnabled", this.getQuietHoursQueueEnabled());
         writer.writeLocalTimeValue("quietHoursStart", this.getQuietHoursStart());
         writer.writeStringValue("quietHoursTimeZoneId", this.getQuietHoursTimeZoneId());
         writer.writeObjectValue("smsConsentCertificate", this.getSmsConsentCertificate());
@@ -499,6 +569,34 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the appointmentReminderEmailEnabled property value. Email the assigned agent when a callback is due.
+     * @param value Value to set for the appointmentReminderEmailEnabled property.
+     */
+    public void setAppointmentReminderEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.appointmentReminderEmailEnabled = value;
+    }
+    /**
+     * Sets the appointmentReminderEnabled property value. Send push notifications for due callback appointments.
+     * @param value Value to set for the appointmentReminderEnabled property.
+     */
+    public void setAppointmentReminderEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.appointmentReminderEnabled = value;
+    }
+    /**
+     * Sets the appointmentReminderInAppEnabled property value. Show callback reminder dialogs in the Portal.
+     * @param value Value to set for the appointmentReminderInAppEnabled property.
+     */
+    public void setAppointmentReminderInAppEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.appointmentReminderInAppEnabled = value;
+    }
+    /**
+     * Sets the appointmentReminderSmsEnabled property value. Text the assigned agent when a callback is due, subject to SMS consent.
+     * @param value Value to set for the appointmentReminderSmsEnabled property.
+     */
+    public void setAppointmentReminderSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.appointmentReminderSmsEnabled = value;
     }
     /**
      * Sets the automationFailedEmailEnabled property value. Indicates whether automation failed email functionality is enabled for this Leadping user notification preferences.
@@ -613,7 +711,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         this.paymentFailedSmsEnabled = value;
     }
     /**
-     * Sets the quietHoursEnabled property value. Whether push, SMS, and automation alerts wait until the user&apos;s daily quiet hours end.
+     * Sets the quietHoursEnabled property value. Whether notification delivery respects the user&apos;s daily quiet hours.
      * @param value Value to set for the quietHoursEnabled property.
      */
     public void setQuietHoursEnabled(@jakarta.annotation.Nullable final Boolean value) {
@@ -625,6 +723,13 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setQuietHoursEnd(@jakarta.annotation.Nullable final LocalTime value) {
         this.quietHoursEnd = value;
+    }
+    /**
+     * Sets the quietHoursQueueEnabled property value. Queue notifications until quiet hours end; when false, skip their external delivery.
+     * @param value Value to set for the quietHoursQueueEnabled property.
+     */
+    public void setQuietHoursQueueEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.quietHoursQueueEnabled = value;
     }
     /**
      * Sets the quietHoursStart property value. The inclusive local start of daily quiet hours.

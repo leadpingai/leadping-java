@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum NotificationType implements ValuedEnum {
+    Appointment("Appointment"),
     General("General"),
     Lead("Lead"),
     Call("Call"),
@@ -30,6 +31,7 @@ public enum NotificationType implements ValuedEnum {
     public static NotificationType forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "Appointment": return Appointment;
             case "General": return General;
             case "Lead": return Lead;
             case "Call": return Call;
