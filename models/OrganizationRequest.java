@@ -21,6 +21,14 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     private OrganizationRequestAddress address;
     /**
+     * Restores the previous status after the last upcoming appointment completes or becomes overdue.
+     */
+    private Boolean automaticallyClearAppointmentSet;
+    /**
+     * Sets the lead to Appointment set when an appointment is created.
+     */
+    private Boolean automaticallyMarkAppointmentSet;
+    /**
      * Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
      */
     private Boolean automaticallyMarkLeadsCalled;
@@ -105,6 +113,22 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
         return this.address;
     }
     /**
+     * Gets the automaticallyClearAppointmentSet property value. Restores the previous status after the last upcoming appointment completes or becomes overdue.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyClearAppointmentSet() {
+        return this.automaticallyClearAppointmentSet;
+    }
+    /**
+     * Gets the automaticallyMarkAppointmentSet property value. Sets the lead to Appointment set when an appointment is created.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyMarkAppointmentSet() {
+        return this.automaticallyMarkAppointmentSet;
+    }
+    /**
      * Gets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
      * @return a {@link Boolean}
      */
@@ -142,8 +166,10 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(16);
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationRequestAddress::createFromDiscriminatorValue)); });
+        deserializerMap.put("automaticallyClearAppointmentSet", (n) -> { this.setAutomaticallyClearAppointmentSet(n.getBooleanValue()); });
+        deserializerMap.put("automaticallyMarkAppointmentSet", (n) -> { this.setAutomaticallyMarkAppointmentSet(n.getBooleanValue()); });
         deserializerMap.put("automaticallyMarkLeadsCalled", (n) -> { this.setAutomaticallyMarkLeadsCalled(n.getBooleanValue()); });
         deserializerMap.put("calledLeadStatusId", (n) -> { this.setCalledLeadStatusId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -238,6 +264,8 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("address", this.getAddress());
+        writer.writeBooleanValue("automaticallyClearAppointmentSet", this.getAutomaticallyClearAppointmentSet());
+        writer.writeBooleanValue("automaticallyMarkAppointmentSet", this.getAutomaticallyMarkAppointmentSet());
         writer.writeBooleanValue("automaticallyMarkLeadsCalled", this.getAutomaticallyMarkLeadsCalled());
         writer.writeStringValue("calledLeadStatusId", this.getCalledLeadStatusId());
         writer.writeStringValue("description", this.getDescription());
@@ -266,6 +294,20 @@ public class OrganizationRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationRequestAddress value) {
         this.address = value;
+    }
+    /**
+     * Sets the automaticallyClearAppointmentSet property value. Restores the previous status after the last upcoming appointment completes or becomes overdue.
+     * @param value Value to set for the automaticallyClearAppointmentSet property.
+     */
+    public void setAutomaticallyClearAppointmentSet(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyClearAppointmentSet = value;
+    }
+    /**
+     * Sets the automaticallyMarkAppointmentSet property value. Sets the lead to Appointment set when an appointment is created.
+     * @param value Value to set for the automaticallyMarkAppointmentSet property.
+     */
+    public void setAutomaticallyMarkAppointmentSet(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyMarkAppointmentSet = value;
     }
     /**
      * Sets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.

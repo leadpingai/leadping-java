@@ -30,6 +30,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private OrganizationResponseAddress address;
     /**
+     * Restores the previous status after the last upcoming appointment completes or becomes overdue.
+     */
+    private Boolean automaticallyClearAppointmentSet;
+    /**
+     * Sets the lead to Appointment set when an appointment is created.
+     */
+    private Boolean automaticallyMarkAppointmentSet;
+    /**
      * Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
      */
     private Boolean automaticallyMarkLeadsCalled;
@@ -214,6 +222,22 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         return this.address;
     }
     /**
+     * Gets the automaticallyClearAppointmentSet property value. Restores the previous status after the last upcoming appointment completes or becomes overdue.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyClearAppointmentSet() {
+        return this.automaticallyClearAppointmentSet;
+    }
+    /**
+     * Gets the automaticallyMarkAppointmentSet property value. Sets the lead to Appointment set when an appointment is created.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyMarkAppointmentSet() {
+        return this.automaticallyMarkAppointmentSet;
+    }
+    /**
      * Gets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
      * @return a {@link Boolean}
      */
@@ -363,10 +387,12 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(37);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
+        deserializerMap.put("automaticallyClearAppointmentSet", (n) -> { this.setAutomaticallyClearAppointmentSet(n.getBooleanValue()); });
+        deserializerMap.put("automaticallyMarkAppointmentSet", (n) -> { this.setAutomaticallyMarkAppointmentSet(n.getBooleanValue()); });
         deserializerMap.put("automaticallyMarkLeadsCalled", (n) -> { this.setAutomaticallyMarkLeadsCalled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
@@ -540,6 +566,8 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeDoubleValue("accountBalance", this.getAccountBalance());
         writer.writeObjectValue("activation", this.getActivation());
         writer.writeObjectValue("address", this.getAddress());
+        writer.writeBooleanValue("automaticallyClearAppointmentSet", this.getAutomaticallyClearAppointmentSet());
+        writer.writeBooleanValue("automaticallyMarkAppointmentSet", this.getAutomaticallyMarkAppointmentSet());
         writer.writeBooleanValue("automaticallyMarkLeadsCalled", this.getAutomaticallyMarkLeadsCalled());
         writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
@@ -603,6 +631,20 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAddress(@jakarta.annotation.Nullable final OrganizationResponseAddress value) {
         this.address = value;
+    }
+    /**
+     * Sets the automaticallyClearAppointmentSet property value. Restores the previous status after the last upcoming appointment completes or becomes overdue.
+     * @param value Value to set for the automaticallyClearAppointmentSet property.
+     */
+    public void setAutomaticallyClearAppointmentSet(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyClearAppointmentSet = value;
+    }
+    /**
+     * Sets the automaticallyMarkAppointmentSet property value. Sets the lead to Appointment set when an appointment is created.
+     * @param value Value to set for the automaticallyMarkAppointmentSet property.
+     */
+    public void setAutomaticallyMarkAppointmentSet(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyMarkAppointmentSet = value;
     }
     /**
      * Sets the automaticallyMarkLeadsCalled property value. Automatically advances new leads after a confirmed outbound call attempt. Enabled by default.
