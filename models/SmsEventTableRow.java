@@ -30,6 +30,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     */
+    private SmsEventTableRowAutomation automation;
+    /**
      * Monetary amount billed for this Leadping communication or transaction.
      */
     private Double billableAmount;
@@ -238,6 +242,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the automation property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     * @return a {@link SmsEventTableRowAutomation}
+     */
+    @jakarta.annotation.Nullable
+    public SmsEventTableRowAutomation getAutomation() {
+        return this.automation;
+    }
+    /**
      * Gets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
      * @return a {@link Double}
      */
@@ -355,10 +367,11 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(43);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
+        deserializerMap.put("automation", (n) -> { this.setAutomation(n.getObjectValue(SmsEventTableRowAutomation::createFromDiscriminatorValue)); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
@@ -618,6 +631,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("actorDisplayName", this.getActorDisplayName());
         writer.writeStringValue("actorLeadId", this.getActorLeadId());
         writer.writeStringValue("actorUserId", this.getActorUserId());
+        writer.writeObjectValue("automation", this.getAutomation());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
         writer.writeOffsetDateTimeValue("blockedAt", this.getBlockedAt());
@@ -687,6 +701,13 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the automation property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
+     * @param value Value to set for the automation property.
+     */
+    public void setAutomation(@jakarta.annotation.Nullable final SmsEventTableRowAutomation value) {
+        this.automation = value;
     }
     /**
      * Sets the billableAmount property value. Monetary amount billed for this Leadping communication or transaction.
