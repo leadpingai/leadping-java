@@ -69,6 +69,10 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private String sourceId;
     /**
+     * Geographic state or region associated with the phone number.
+     */
+    private String state;
+    /**
      * Organization ID used to determine this phone number&apos;s outbound eligibility.
      */
     private String teamId;
@@ -126,7 +130,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(14);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("canSend", (n) -> { this.setCanSend(n.getBooleanValue()); });
         deserializerMap.put("displayNumber", (n) -> { this.setDisplayNumber(n.getStringValue()); });
@@ -140,6 +144,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         deserializerMap.put("reasonLabel", (n) -> { this.setReasonLabel(n.getStringValue()); });
         deserializerMap.put("selectionReason", (n) -> { this.setSelectionReason(n.getEnumValue(OutgoingNumberSelectionReason::forValue)); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
+        deserializerMap.put("state", (n) -> { this.setState(n.getStringValue()); });
         deserializerMap.put("teamId", (n) -> { this.setTeamId(n.getStringValue()); });
         return deserializerMap;
     }
@@ -224,6 +229,14 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.sourceId;
     }
     /**
+     * Gets the state property value. Geographic state or region associated with the phone number.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getState() {
+        return this.state;
+    }
+    /**
      * Gets the teamId property value. Organization ID used to determine this phone number&apos;s outbound eligibility.
      * @return a {@link String}
      */
@@ -250,6 +263,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         writer.writeStringValue("reasonLabel", this.getReasonLabel());
         writer.writeEnumValue("selectionReason", this.getSelectionReason());
         writer.writeStringValue("sourceId", this.getSourceId());
+        writer.writeStringValue("state", this.getState());
         writer.writeStringValue("teamId", this.getTeamId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -350,6 +364,13 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     public void setSourceId(@jakarta.annotation.Nullable final String value) {
         this.sourceId = value;
+    }
+    /**
+     * Sets the state property value. Geographic state or region associated with the phone number.
+     * @param value Value to set for the state property.
+     */
+    public void setState(@jakarta.annotation.Nullable final String value) {
+        this.state = value;
     }
     /**
      * Sets the teamId property value. Organization ID used to determine this phone number&apos;s outbound eligibility.
