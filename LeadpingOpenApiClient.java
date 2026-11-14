@@ -8,6 +8,7 @@ import ai.leadping.openapi.blog.BlogRequestBuilder;
 import ai.leadping.openapi.conversations.ConversationsRequestBuilder;
 import ai.leadping.openapi.events.EventsRequestBuilder;
 import ai.leadping.openapi.feedback.FeedbackRequestBuilder;
+import ai.leadping.openapi.invitations.InvitationsRequestBuilder;
 import ai.leadping.openapi.leads.LeadsRequestBuilder;
 import ai.leadping.openapi.leadstatuschanges.LeadStatusChangesRequestBuilder;
 import ai.leadping.openapi.leadstatuses.LeadStatusesRequestBuilder;
@@ -110,6 +111,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public FeedbackRequestBuilder feedback() {
         return new FeedbackRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The invitations property
+     * @return a {@link InvitationsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public InvitationsRequestBuilder invitations() {
+        return new InvitationsRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The leads property

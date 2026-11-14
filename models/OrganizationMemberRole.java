@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum OrganizationMemberRole implements ValuedEnum {
+    AccountAdmin("Account Admin"),
     Owner("Owner"),
     Admin("Admin"),
     Agent("Agent");
@@ -21,6 +22,7 @@ public enum OrganizationMemberRole implements ValuedEnum {
     public static OrganizationMemberRole forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
+            case "Account Admin": return AccountAdmin;
             case "Owner": return Owner;
             case "Admin": return Admin;
             case "Agent": return Agent;
