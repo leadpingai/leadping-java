@@ -12,6 +12,7 @@ import ai.leadping.openapi.invitations.InvitationsRequestBuilder;
 import ai.leadping.openapi.leads.LeadsRequestBuilder;
 import ai.leadping.openapi.leadstatuschanges.LeadStatusChangesRequestBuilder;
 import ai.leadping.openapi.leadstatuses.LeadStatusesRequestBuilder;
+import ai.leadping.openapi.messagetemplates.MessageTemplatesRequestBuilder;
 import ai.leadping.openapi.notifications.NotificationsRequestBuilder;
 import ai.leadping.openapi.organizations.OrganizationsRequestBuilder;
 import ai.leadping.openapi.outbound.OutboundRequestBuilder;
@@ -143,6 +144,14 @@ public class LeadpingOpenApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public LeadStatusesRequestBuilder leadStatuses() {
         return new LeadStatusesRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The messageTemplates property
+     * @return a {@link MessageTemplatesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public MessageTemplatesRequestBuilder messageTemplates() {
+        return new MessageTemplatesRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The notifications property
