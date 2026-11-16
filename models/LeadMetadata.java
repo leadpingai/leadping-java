@@ -134,6 +134,18 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     private String sellerLeadId;
     /**
+     * Interest expressed in the lead&apos;s first inbound text reply, independent of contact consent.
+     */
+    private LeadMetadataSentiment sentiment;
+    /**
+     * Completion time, including a first reply that has no positive or negative sentiment.
+     */
+    private OffsetDateTime sentimentAnalyzedAt;
+    /**
+     * First inbound SMS selected for sentiment analysis. Later replies cannot replace it.
+     */
+    private String sentimentMessageId;
+    /**
      * Phone number where SMS consent was captured or evaluated.
      */
     private String smsConsentPhoneNumber;
@@ -355,7 +367,7 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(47);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(50);
         deserializerMap.put("assignedPhoneNumberId", (n) -> { this.setAssignedPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("capturedAt", (n) -> { this.setCapturedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("captureIpAddress", (n) -> { this.setCaptureIpAddress(n.getStringValue()); });
@@ -385,6 +397,9 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         deserializerMap.put("pubId", (n) -> { this.setPubId(n.getStringValue()); });
         deserializerMap.put("referrer", (n) -> { this.setReferrer(n.getStringValue()); });
         deserializerMap.put("sellerLeadId", (n) -> { this.setSellerLeadId(n.getStringValue()); });
+        deserializerMap.put("sentiment", (n) -> { this.setSentiment(n.getEnumValue(LeadMetadataSentiment::forValue)); });
+        deserializerMap.put("sentimentAnalyzedAt", (n) -> { this.setSentimentAnalyzedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("sentimentMessageId", (n) -> { this.setSentimentMessageId(n.getStringValue()); });
         deserializerMap.put("smsConsentPhoneNumber", (n) -> { this.setSmsConsentPhoneNumber(n.getStringValue()); });
         deserializerMap.put("smsConsentStatus", (n) -> { this.setSmsConsentStatus(n.getStringValue()); });
         deserializerMap.put("smsHelpRequestedAt", (n) -> { this.setSmsHelpRequestedAt(n.getOffsetDateTimeValue()); });
@@ -516,6 +531,30 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getSellerLeadId() {
         return this.sellerLeadId;
+    }
+    /**
+     * Gets the sentiment property value. Interest expressed in the lead&apos;s first inbound text reply, independent of contact consent.
+     * @return a {@link LeadMetadataSentiment}
+     */
+    @jakarta.annotation.Nullable
+    public LeadMetadataSentiment getSentiment() {
+        return this.sentiment;
+    }
+    /**
+     * Gets the sentimentAnalyzedAt property value. Completion time, including a first reply that has no positive or negative sentiment.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getSentimentAnalyzedAt() {
+        return this.sentimentAnalyzedAt;
+    }
+    /**
+     * Gets the sentimentMessageId property value. First inbound SMS selected for sentiment analysis. Later replies cannot replace it.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getSentimentMessageId() {
+        return this.sentimentMessageId;
     }
     /**
      * Gets the smsConsentPhoneNumber property value. Phone number where SMS consent was captured or evaluated.
@@ -696,6 +735,9 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("pubId", this.getPubId());
         writer.writeStringValue("referrer", this.getReferrer());
         writer.writeStringValue("sellerLeadId", this.getSellerLeadId());
+        writer.writeEnumValue("sentiment", this.getSentiment());
+        writer.writeOffsetDateTimeValue("sentimentAnalyzedAt", this.getSentimentAnalyzedAt());
+        writer.writeStringValue("sentimentMessageId", this.getSentimentMessageId());
         writer.writeStringValue("smsConsentPhoneNumber", this.getSmsConsentPhoneNumber());
         writer.writeStringValue("smsConsentStatus", this.getSmsConsentStatus());
         writer.writeOffsetDateTimeValue("smsHelpRequestedAt", this.getSmsHelpRequestedAt());
@@ -925,6 +967,27 @@ public class LeadMetadata implements AdditionalDataHolder, Parsable {
      */
     public void setSellerLeadId(@jakarta.annotation.Nullable final String value) {
         this.sellerLeadId = value;
+    }
+    /**
+     * Sets the sentiment property value. Interest expressed in the lead&apos;s first inbound text reply, independent of contact consent.
+     * @param value Value to set for the sentiment property.
+     */
+    public void setSentiment(@jakarta.annotation.Nullable final LeadMetadataSentiment value) {
+        this.sentiment = value;
+    }
+    /**
+     * Sets the sentimentAnalyzedAt property value. Completion time, including a first reply that has no positive or negative sentiment.
+     * @param value Value to set for the sentimentAnalyzedAt property.
+     */
+    public void setSentimentAnalyzedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.sentimentAnalyzedAt = value;
+    }
+    /**
+     * Sets the sentimentMessageId property value. First inbound SMS selected for sentiment analysis. Later replies cannot replace it.
+     * @param value Value to set for the sentimentMessageId property.
+     */
+    public void setSentimentMessageId(@jakarta.annotation.Nullable final String value) {
+        this.sentimentMessageId = value;
     }
     /**
      * Sets the smsConsentPhoneNumber property value. Phone number where SMS consent was captured or evaluated.

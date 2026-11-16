@@ -99,6 +99,18 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean paymentFailedSmsEnabled;
     /**
+     * Email alerts when a lead&apos;s first text reply has positive sentiment.
+     */
+    private Boolean positiveSentimentEmailEnabled;
+    /**
+     * Send push alerts when a lead&apos;s first text reply has positive sentiment.
+     */
+    private Boolean positiveSentimentEnabled;
+    /**
+     * Text alerts for positive first replies, subject to notification SMS consent.
+     */
+    private Boolean positiveSentimentSmsEnabled;
+    /**
      * Whether notification delivery respects the user&apos;s daily quiet hours.
      */
     private Boolean quietHoursEnabled;
@@ -264,7 +276,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(36);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
         deserializerMap.put("appointmentReminderEmailEnabled", (n) -> { this.setAppointmentReminderEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEnabled", (n) -> { this.setAppointmentReminderEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderInAppEnabled", (n) -> { this.setAppointmentReminderInAppEnabled(n.getBooleanValue()); });
@@ -285,6 +297,9 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("newLeadSmsEnabled", (n) -> { this.setNewLeadSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedEnabled", (n) -> { this.setPaymentFailedEnabled(n.getBooleanValue()); });
         deserializerMap.put("paymentFailedSmsEnabled", (n) -> { this.setPaymentFailedSmsEnabled(n.getBooleanValue()); });
+        deserializerMap.put("positiveSentimentEmailEnabled", (n) -> { this.setPositiveSentimentEmailEnabled(n.getBooleanValue()); });
+        deserializerMap.put("positiveSentimentEnabled", (n) -> { this.setPositiveSentimentEnabled(n.getBooleanValue()); });
+        deserializerMap.put("positiveSentimentSmsEnabled", (n) -> { this.setPositiveSentimentSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("quietHoursEnabled", (n) -> { this.setQuietHoursEnabled(n.getBooleanValue()); });
         deserializerMap.put("quietHoursEnd", (n) -> { this.setQuietHoursEnd(n.getLocalTimeValue()); });
         deserializerMap.put("quietHoursQueueEnabled", (n) -> { this.setQuietHoursQueueEnabled(n.getBooleanValue()); });
@@ -390,6 +405,30 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public Boolean getPaymentFailedSmsEnabled() {
         return this.paymentFailedSmsEnabled;
+    }
+    /**
+     * Gets the positiveSentimentEmailEnabled property value. Email alerts when a lead&apos;s first text reply has positive sentiment.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getPositiveSentimentEmailEnabled() {
+        return this.positiveSentimentEmailEnabled;
+    }
+    /**
+     * Gets the positiveSentimentEnabled property value. Send push alerts when a lead&apos;s first text reply has positive sentiment.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getPositiveSentimentEnabled() {
+        return this.positiveSentimentEnabled;
+    }
+    /**
+     * Gets the positiveSentimentSmsEnabled property value. Text alerts for positive first replies, subject to notification SMS consent.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getPositiveSentimentSmsEnabled() {
+        return this.positiveSentimentSmsEnabled;
     }
     /**
      * Gets the quietHoursEnabled property value. Whether notification delivery respects the user&apos;s daily quiet hours.
@@ -545,6 +584,9 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("newLeadSmsEnabled", this.getNewLeadSmsEnabled());
         writer.writeBooleanValue("paymentFailedEnabled", this.getPaymentFailedEnabled());
         writer.writeBooleanValue("paymentFailedSmsEnabled", this.getPaymentFailedSmsEnabled());
+        writer.writeBooleanValue("positiveSentimentEmailEnabled", this.getPositiveSentimentEmailEnabled());
+        writer.writeBooleanValue("positiveSentimentEnabled", this.getPositiveSentimentEnabled());
+        writer.writeBooleanValue("positiveSentimentSmsEnabled", this.getPositiveSentimentSmsEnabled());
         writer.writeBooleanValue("quietHoursEnabled", this.getQuietHoursEnabled());
         writer.writeLocalTimeValue("quietHoursEnd", this.getQuietHoursEnd());
         writer.writeBooleanValue("quietHoursQueueEnabled", this.getQuietHoursQueueEnabled());
@@ -709,6 +751,27 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setPaymentFailedSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.paymentFailedSmsEnabled = value;
+    }
+    /**
+     * Sets the positiveSentimentEmailEnabled property value. Email alerts when a lead&apos;s first text reply has positive sentiment.
+     * @param value Value to set for the positiveSentimentEmailEnabled property.
+     */
+    public void setPositiveSentimentEmailEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.positiveSentimentEmailEnabled = value;
+    }
+    /**
+     * Sets the positiveSentimentEnabled property value. Send push alerts when a lead&apos;s first text reply has positive sentiment.
+     * @param value Value to set for the positiveSentimentEnabled property.
+     */
+    public void setPositiveSentimentEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.positiveSentimentEnabled = value;
+    }
+    /**
+     * Sets the positiveSentimentSmsEnabled property value. Text alerts for positive first replies, subject to notification SMS consent.
+     * @param value Value to set for the positiveSentimentSmsEnabled property.
+     */
+    public void setPositiveSentimentSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.positiveSentimentSmsEnabled = value;
     }
     /**
      * Sets the quietHoursEnabled property value. Whether notification delivery respects the user&apos;s daily quiet hours.

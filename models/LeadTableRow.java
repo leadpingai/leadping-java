@@ -106,6 +106,10 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     private String processingStatusReason;
     /**
+     * Interest expressed in the lead&apos;s first inbound text reply, independent of contact consent.
+     */
+    private LeadTableRowSentiment sentiment;
+    /**
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private LeadTableRowSource source;
@@ -235,7 +239,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(27);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -258,6 +262,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("processingStatus", (n) -> { this.setProcessingStatus(n.getEnumValue(LeadTableRowProcessingStatus::forValue)); });
         deserializerMap.put("processingStatusChangedAt", (n) -> { this.setProcessingStatusChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("processingStatusReason", (n) -> { this.setProcessingStatusReason(n.getStringValue()); });
+        deserializerMap.put("sentiment", (n) -> { this.setSentiment(n.getEnumValue(LeadTableRowSentiment::forValue)); });
         deserializerMap.put("source", (n) -> { this.setSource(n.getObjectValue(LeadTableRowSource::createFromDiscriminatorValue)); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getStringValue()); });
         deserializerMap.put("statusTone", (n) -> { this.setStatusTone(n.getStringValue()); });
@@ -362,6 +367,14 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         return this.processingStatusReason;
     }
     /**
+     * Gets the sentiment property value. Interest expressed in the lead&apos;s first inbound text reply, independent of contact consent.
+     * @return a {@link LeadTableRowSentiment}
+     */
+    @jakarta.annotation.Nullable
+    public LeadTableRowSentiment getSentiment() {
+        return this.sentiment;
+    }
+    /**
      * Gets the source property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link LeadTableRowSource}
      */
@@ -429,6 +442,7 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("processingStatus", this.getProcessingStatus());
         writer.writeOffsetDateTimeValue("processingStatusChangedAt", this.getProcessingStatusChangedAt());
         writer.writeStringValue("processingStatusReason", this.getProcessingStatusReason());
+        writer.writeEnumValue("sentiment", this.getSentiment());
         writer.writeObjectValue("source", this.getSource());
         writer.writeStringValue("status", this.getStatus());
         writer.writeStringValue("statusTone", this.getStatusTone());
@@ -596,6 +610,13 @@ public class LeadTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setProcessingStatusReason(@jakarta.annotation.Nullable final String value) {
         this.processingStatusReason = value;
+    }
+    /**
+     * Sets the sentiment property value. Interest expressed in the lead&apos;s first inbound text reply, independent of contact consent.
+     * @param value Value to set for the sentiment property.
+     */
+    public void setSentiment(@jakarta.annotation.Nullable final LeadTableRowSentiment value) {
+        this.sentiment = value;
     }
     /**
      * Sets the source property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
