@@ -17,13 +17,25 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private Map<String, Object> additionalData;
     /**
+     * Explains why outbound calls are unavailable for this sender.
+     */
+    private String callUnavailableReason;
+    /**
      * Messaging campaign identifier associated with this eligible outgoing phone number.
      */
     private String campaignId;
     /**
+     * Whether this sender is ready for outbound calls.
+     */
+    private Boolean canCall;
+    /**
      * Indicates whether Leadping can send outbound messages using this eligible outgoing phone number.
      */
     private Boolean canSend;
+    /**
+     * Whether this sender is ready for outbound texts.
+     */
+    private Boolean canText;
     /**
      * Human-readable phone number shown in Leadping UI and API responses.
      */
@@ -77,6 +89,10 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     private String teamId;
     /**
+     * Explains why outbound texts are unavailable for this sender.
+     */
+    private String textUnavailableReason;
+    /**
      * Instantiates a new {@link EligibleOutgoingNumberResponse} and sets the default values.
      */
     public EligibleOutgoingNumberResponse() {
@@ -101,6 +117,14 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.additionalData;
     }
     /**
+     * Gets the callUnavailableReason property value. Explains why outbound calls are unavailable for this sender.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getCallUnavailableReason() {
+        return this.callUnavailableReason;
+    }
+    /**
      * Gets the campaignId property value. Messaging campaign identifier associated with this eligible outgoing phone number.
      * @return a {@link String}
      */
@@ -109,12 +133,28 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.campaignId;
     }
     /**
+     * Gets the canCall property value. Whether this sender is ready for outbound calls.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCanCall() {
+        return this.canCall;
+    }
+    /**
      * Gets the canSend property value. Indicates whether Leadping can send outbound messages using this eligible outgoing phone number.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
     public Boolean getCanSend() {
         return this.canSend;
+    }
+    /**
+     * Gets the canText property value. Whether this sender is ready for outbound texts.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCanText() {
+        return this.canText;
     }
     /**
      * Gets the displayNumber property value. Human-readable phone number shown in Leadping UI and API responses.
@@ -130,9 +170,12 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(15);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
+        deserializerMap.put("callUnavailableReason", (n) -> { this.setCallUnavailableReason(n.getStringValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
+        deserializerMap.put("canCall", (n) -> { this.setCanCall(n.getBooleanValue()); });
         deserializerMap.put("canSend", (n) -> { this.setCanSend(n.getBooleanValue()); });
+        deserializerMap.put("canText", (n) -> { this.setCanText(n.getBooleanValue()); });
         deserializerMap.put("displayNumber", (n) -> { this.setDisplayNumber(n.getStringValue()); });
         deserializerMap.put("healthLabel", (n) -> { this.setHealthLabel(n.getStringValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(EligibleOutgoingNumberResponseHealthStatus::forValue)); });
@@ -146,6 +189,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
         deserializerMap.put("state", (n) -> { this.setState(n.getStringValue()); });
         deserializerMap.put("teamId", (n) -> { this.setTeamId(n.getStringValue()); });
+        deserializerMap.put("textUnavailableReason", (n) -> { this.setTextUnavailableReason(n.getStringValue()); });
         return deserializerMap;
     }
     /**
@@ -245,13 +289,24 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         return this.teamId;
     }
     /**
+     * Gets the textUnavailableReason property value. Explains why outbound texts are unavailable for this sender.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getTextUnavailableReason() {
+        return this.textUnavailableReason;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("callUnavailableReason", this.getCallUnavailableReason());
         writer.writeStringValue("campaignId", this.getCampaignId());
+        writer.writeBooleanValue("canCall", this.getCanCall());
         writer.writeBooleanValue("canSend", this.getCanSend());
+        writer.writeBooleanValue("canText", this.getCanText());
         writer.writeStringValue("displayNumber", this.getDisplayNumber());
         writer.writeStringValue("healthLabel", this.getHealthLabel());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
@@ -265,6 +320,7 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         writer.writeStringValue("sourceId", this.getSourceId());
         writer.writeStringValue("state", this.getState());
         writer.writeStringValue("teamId", this.getTeamId());
+        writer.writeStringValue("textUnavailableReason", this.getTextUnavailableReason());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -275,6 +331,13 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         this.additionalData = value;
     }
     /**
+     * Sets the callUnavailableReason property value. Explains why outbound calls are unavailable for this sender.
+     * @param value Value to set for the callUnavailableReason property.
+     */
+    public void setCallUnavailableReason(@jakarta.annotation.Nullable final String value) {
+        this.callUnavailableReason = value;
+    }
+    /**
      * Sets the campaignId property value. Messaging campaign identifier associated with this eligible outgoing phone number.
      * @param value Value to set for the campaignId property.
      */
@@ -282,11 +345,25 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
         this.campaignId = value;
     }
     /**
+     * Sets the canCall property value. Whether this sender is ready for outbound calls.
+     * @param value Value to set for the canCall property.
+     */
+    public void setCanCall(@jakarta.annotation.Nullable final Boolean value) {
+        this.canCall = value;
+    }
+    /**
      * Sets the canSend property value. Indicates whether Leadping can send outbound messages using this eligible outgoing phone number.
      * @param value Value to set for the canSend property.
      */
     public void setCanSend(@jakarta.annotation.Nullable final Boolean value) {
         this.canSend = value;
+    }
+    /**
+     * Sets the canText property value. Whether this sender is ready for outbound texts.
+     * @param value Value to set for the canText property.
+     */
+    public void setCanText(@jakarta.annotation.Nullable final Boolean value) {
+        this.canText = value;
     }
     /**
      * Sets the displayNumber property value. Human-readable phone number shown in Leadping UI and API responses.
@@ -378,5 +455,12 @@ public class EligibleOutgoingNumberResponse implements AdditionalDataHolder, Par
      */
     public void setTeamId(@jakarta.annotation.Nullable final String value) {
         this.teamId = value;
+    }
+    /**
+     * Sets the textUnavailableReason property value. Explains why outbound texts are unavailable for this sender.
+     * @param value Value to set for the textUnavailableReason property.
+     */
+    public void setTextUnavailableReason(@jakarta.annotation.Nullable final String value) {
+        this.textUnavailableReason = value;
     }
 }
