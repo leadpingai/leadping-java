@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -44,6 +45,10 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      * Geographic location metadata for the phone number, lead, or lookup result.
      */
     private String location;
+    /**
+     * When local geography resolution completed, including when no geographic match exists. Prevents repeated resolution until an explicit rebuild or new carrier lookup.
+     */
+    private OffsetDateTime resolvedAt;
     /**
      * State, province, or region for the lead or organization postal address.
      */
@@ -126,7 +131,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("canonicalCity", (n) -> { this.setCanonicalCity(n.getStringValue()); });
         deserializerMap.put("canonicalState", (n) -> { this.setCanonicalState(n.getStringValue()); });
         deserializerMap.put("coordinate", (n) -> { this.setCoordinate(n.getObjectValue(PhoneNumberLocationCoordinate::createFromDiscriminatorValue)); });
@@ -134,6 +139,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         deserializerMap.put("countryCode", (n) -> { this.setCountryCode(n.getStringValue()); });
         deserializerMap.put("isCoordinateApproximate", (n) -> { this.setIsCoordinateApproximate(n.getBooleanValue()); });
         deserializerMap.put("location", (n) -> { this.setLocation(n.getStringValue()); });
+        deserializerMap.put("resolvedAt", (n) -> { this.setResolvedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("state", (n) -> { this.setState(n.getStringValue()); });
         deserializerMap.put("timeZoneId", (n) -> { this.setTimeZoneId(n.getStringValue()); });
         deserializerMap.put("timeZoneSource", (n) -> { this.setTimeZoneSource(n.getObjectValue(PhoneNumberLocationTimeZoneSource::createFromDiscriminatorValue)); });
@@ -154,6 +160,14 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getLocation() {
         return this.location;
+    }
+    /**
+     * Gets the resolvedAt property value. When local geography resolution completed, including when no geographic match exists. Prevents repeated resolution until an explicit rebuild or new carrier lookup.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getResolvedAt() {
+        return this.resolvedAt;
     }
     /**
      * Gets the state property value. State, province, or region for the lead or organization postal address.
@@ -192,6 +206,7 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("countryCode", this.getCountryCode());
         writer.writeBooleanValue("isCoordinateApproximate", this.getIsCoordinateApproximate());
         writer.writeStringValue("location", this.getLocation());
+        writer.writeOffsetDateTimeValue("resolvedAt", this.getResolvedAt());
         writer.writeStringValue("state", this.getState());
         writer.writeStringValue("timeZoneId", this.getTimeZoneId());
         writer.writeObjectValue("timeZoneSource", this.getTimeZoneSource());
@@ -252,6 +267,13 @@ public class PhoneNumberLocation implements AdditionalDataHolder, Parsable {
      */
     public void setLocation(@jakarta.annotation.Nullable final String value) {
         this.location = value;
+    }
+    /**
+     * Sets the resolvedAt property value. When local geography resolution completed, including when no geographic match exists. Prevents repeated resolution until an explicit rebuild or new carrier lookup.
+     * @param value Value to set for the resolvedAt property.
+     */
+    public void setResolvedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.resolvedAt = value;
     }
     /**
      * Sets the state property value. State, province, or region for the lead or organization postal address.
