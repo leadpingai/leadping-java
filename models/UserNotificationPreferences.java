@@ -15,6 +15,10 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UserNotificationPreferences implements AdditionalDataHolder, Parsable {
     /**
+     * The accountSmsAlertsEnabled property
+     */
+    private Boolean accountSmsAlertsEnabled;
+    /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     private Map<String, Object> additionalData;
@@ -191,6 +195,14 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return new UserNotificationPreferences();
     }
     /**
+     * Gets the accountSmsAlertsEnabled property value. The accountSmsAlertsEnabled property
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAccountSmsAlertsEnabled() {
+        return this.accountSmsAlertsEnabled;
+    }
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return a {@link Map<String, Object>}
      */
@@ -276,7 +288,8 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
+        deserializerMap.put("accountSmsAlertsEnabled", (n) -> { this.setAccountSmsAlertsEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEmailEnabled", (n) -> { this.setAppointmentReminderEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEnabled", (n) -> { this.setAppointmentReminderEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderInAppEnabled", (n) -> { this.setAppointmentReminderInAppEnabled(n.getBooleanValue()); });
@@ -564,6 +577,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeBooleanValue("accountSmsAlertsEnabled", this.getAccountSmsAlertsEnabled());
         writer.writeBooleanValue("appointmentReminderEmailEnabled", this.getAppointmentReminderEmailEnabled());
         writer.writeBooleanValue("appointmentReminderEnabled", this.getAppointmentReminderEnabled());
         writer.writeBooleanValue("appointmentReminderInAppEnabled", this.getAppointmentReminderInAppEnabled());
@@ -604,6 +618,13 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("unreadSmsSmsEnabled", this.getUnreadSmsSmsEnabled());
         writer.writeBooleanValue("usageLimitHitEnabled", this.getUsageLimitHitEnabled());
         writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the accountSmsAlertsEnabled property value. The accountSmsAlertsEnabled property
+     * @param value Value to set for the accountSmsAlertsEnabled property.
+     */
+    public void setAccountSmsAlertsEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.accountSmsAlertsEnabled = value;
     }
     /**
      * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

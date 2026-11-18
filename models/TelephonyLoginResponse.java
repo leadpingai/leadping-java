@@ -22,7 +22,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
      */
     private String callbackToken;
     /**
-     * UTC timestamp for expires at on this telephony login.
+     * UTC deadline for refreshing this authorized phone login.
      */
     private OffsetDateTime expiresAt;
     /**
@@ -74,7 +74,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         return this.callbackToken;
     }
     /**
-     * Gets the expiresAt property value. UTC timestamp for expires at on this telephony login.
+     * Gets the expiresAt property value. UTC deadline for refreshing this authorized phone login.
      * @return a {@link OffsetDateTime}
      */
     @jakarta.annotation.Nullable
@@ -157,7 +157,7 @@ public class TelephonyLoginResponse implements AdditionalDataHolder, Parsable {
         this.callbackToken = value;
     }
     /**
-     * Sets the expiresAt property value. UTC timestamp for expires at on this telephony login.
+     * Sets the expiresAt property value. UTC deadline for refreshing this authorized phone login.
      * @param value Value to set for the expiresAt property.
      */
     public void setExpiresAt(@jakarta.annotation.Nullable final OffsetDateTime value) {

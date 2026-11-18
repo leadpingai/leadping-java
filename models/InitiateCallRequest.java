@@ -37,7 +37,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
      */
     private Boolean originateFromBrowser;
     /**
-     * Idempotency key used to prevent duplicate outbound delivery.
+     * Reuse this key with the same call inputs when retrying an attempt. A replay returns the existing call without issuing another dial approval.
      */
     private String outboundIdempotencyKey;
     /**
@@ -135,7 +135,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         return this.originateFromBrowser;
     }
     /**
-     * Gets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
+     * Gets the outboundIdempotencyKey property value. Reuse this key with the same call inputs when retrying an attempt. A replay returns the existing call without issuing another dial approval.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -226,7 +226,7 @@ public class InitiateCallRequest implements AdditionalDataHolder, Parsable {
         this.originateFromBrowser = value;
     }
     /**
-     * Sets the outboundIdempotencyKey property value. Idempotency key used to prevent duplicate outbound delivery.
+     * Sets the outboundIdempotencyKey property value. Reuse this key with the same call inputs when retrying an attempt. A replay returns the existing call without issuing another dial approval.
      * @param value Value to set for the outboundIdempotencyKey property.
      */
     public void setOutboundIdempotencyKey(@jakarta.annotation.Nullable final String value) {
