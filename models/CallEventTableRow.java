@@ -90,6 +90,10 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isDemo;
     /**
+     * The leadAvatarUrl property
+     */
+    private String leadAvatarUrl;
+    /**
      * Lead ID associated with this call event.
      */
     private String leadId;
@@ -287,7 +291,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(32);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(33);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
         deserializerMap.put("answeredAt", (n) -> { this.setAnsweredAt(n.getOffsetDateTimeValue()); });
@@ -306,6 +310,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
+        deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadName", (n) -> { this.setLeadName(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
@@ -353,6 +358,14 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsDemo() {
         return this.isDemo;
+    }
+    /**
+     * Gets the leadAvatarUrl property value. The leadAvatarUrl property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadAvatarUrl() {
+        return this.leadAvatarUrl;
     }
     /**
      * Gets the leadId property value. Lead ID associated with this call event.
@@ -490,6 +503,7 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
+        writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadName", this.getLeadName());
         writer.writeStringValue("organization", this.getOrganization());
@@ -638,6 +652,13 @@ public class CallEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
         this.isDemo = value;
+    }
+    /**
+     * Sets the leadAvatarUrl property value. The leadAvatarUrl property
+     * @param value Value to set for the leadAvatarUrl property.
+     */
+    public void setLeadAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.leadAvatarUrl = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with this call event.

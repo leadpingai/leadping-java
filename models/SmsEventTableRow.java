@@ -114,6 +114,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private IdNamePair lead;
     /**
+     * The leadAvatarUrl property
+     */
+    private String leadAvatarUrl;
+    /**
      * Media attached to this SMS/MMS event.
      */
     private java.util.List<MessageMediaAttachment> media;
@@ -367,7 +371,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(44);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
@@ -392,6 +396,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
+        deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getStringValue()); });
         deserializerMap.put("organizationName", (n) -> { this.setOrganizationName(n.getStringValue()); });
@@ -461,6 +466,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public IdNamePair getLead() {
         return this.lead;
+    }
+    /**
+     * Gets the leadAvatarUrl property value. The leadAvatarUrl property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getLeadAvatarUrl() {
+        return this.leadAvatarUrl;
     }
     /**
      * Gets the media property value. Media attached to this SMS/MMS event.
@@ -652,6 +665,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeObjectValue("lead", this.getLead());
+        writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
         writer.writeStringValue("organization", this.getOrganization());
         writer.writeStringValue("organizationName", this.getOrganizationName());
@@ -848,6 +862,13 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLead(@jakarta.annotation.Nullable final IdNamePair value) {
         this.lead = value;
+    }
+    /**
+     * Sets the leadAvatarUrl property value. The leadAvatarUrl property
+     * @param value Value to set for the leadAvatarUrl property.
+     */
+    public void setLeadAvatarUrl(@jakarta.annotation.Nullable final String value) {
+        this.leadAvatarUrl = value;
     }
     /**
      * Sets the media property value. Media attached to this SMS/MMS event.
