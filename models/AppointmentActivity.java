@@ -34,6 +34,10 @@ public class AppointmentActivity implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime at;
     /**
+     * The endAt property
+     */
+    private OffsetDateTime endAt;
+    /**
      * The notes property
      */
     private String notes;
@@ -114,16 +118,25 @@ public class AppointmentActivity implements AdditionalDataHolder, Parsable {
         return this.at;
     }
     /**
+     * Gets the endAt property value. The endAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getEndAt() {
+        return this.endAt;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("actorId", (n) -> { this.setActorId(n.getStringValue()); });
         deserializerMap.put("actorName", (n) -> { this.setActorName(n.getStringValue()); });
         deserializerMap.put("assignedToName", (n) -> { this.setAssignedToName(n.getStringValue()); });
         deserializerMap.put("at", (n) -> { this.setAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("endAt", (n) -> { this.setEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
         deserializerMap.put("reminderAt", (n) -> { this.setReminderAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("revision", (n) -> { this.setRevision(n.getLongValue()); });
@@ -190,6 +203,7 @@ public class AppointmentActivity implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("actorName", this.getActorName());
         writer.writeStringValue("assignedToName", this.getAssignedToName());
         writer.writeOffsetDateTimeValue("at", this.getAt());
+        writer.writeOffsetDateTimeValue("endAt", this.getEndAt());
         writer.writeStringValue("notes", this.getNotes());
         writer.writeOffsetDateTimeValue("reminderAt", this.getReminderAt());
         writer.writeLongValue("revision", this.getRevision());
@@ -232,6 +246,13 @@ public class AppointmentActivity implements AdditionalDataHolder, Parsable {
      */
     public void setAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.at = value;
+    }
+    /**
+     * Sets the endAt property value. The endAt property
+     * @param value Value to set for the endAt property.
+     */
+    public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.endAt = value;
     }
     /**
      * Sets the notes property value. The notes property

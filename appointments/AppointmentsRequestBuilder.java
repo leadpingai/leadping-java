@@ -1,5 +1,6 @@
 package ai.leadping.openapi.appointments;
 
+import ai.leadping.openapi.appointments.bookedtimes.BookedTimesRequestBuilder;
 import ai.leadping.openapi.appointments.item.AppointmentsItemRequestBuilder;
 import ai.leadping.openapi.models.AppointmentRequest;
 import ai.leadping.openapi.models.AppointmentResponse;
@@ -22,6 +23,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AppointmentsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The bookedTimes property
+     * @return a {@link BookedTimesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public BookedTimesRequestBuilder bookedTimes() {
+        return new BookedTimesRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * Gets an item from the ai.leadping.openapi.appointments.item collection
      * @param id The appointment identifier.

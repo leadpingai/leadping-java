@@ -22,6 +22,10 @@ public class AppointmentRequest implements AdditionalDataHolder, Parsable {
      */
     private String assignedToUserId;
     /**
+     * The endAt property
+     */
+    private OffsetDateTime endAt;
+    /**
      * The expectedRevision property
      */
     private Long expectedRevision;
@@ -78,6 +82,14 @@ public class AppointmentRequest implements AdditionalDataHolder, Parsable {
         return this.assignedToUserId;
     }
     /**
+     * Gets the endAt property value. The endAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getEndAt() {
+        return this.endAt;
+    }
+    /**
      * Gets the expectedRevision property value. The expectedRevision property
      * @return a {@link Long}
      */
@@ -91,8 +103,9 @@ public class AppointmentRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
+        deserializerMap.put("endAt", (n) -> { this.setEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("expectedRevision", (n) -> { this.setExpectedRevision(n.getLongValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
@@ -148,6 +161,7 @@ public class AppointmentRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
+        writer.writeOffsetDateTimeValue("endAt", this.getEndAt());
         writer.writeLongValue("expectedRevision", this.getExpectedRevision());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("notes", this.getNotes());
@@ -169,6 +183,13 @@ public class AppointmentRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {
         this.assignedToUserId = value;
+    }
+    /**
+     * Sets the endAt property value. The endAt property
+     * @param value Value to set for the endAt property.
+     */
+    public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.endAt = value;
     }
     /**
      * Sets the expectedRevision property value. The expectedRevision property

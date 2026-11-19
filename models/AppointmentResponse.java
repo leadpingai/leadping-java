@@ -34,6 +34,10 @@ public class AppointmentResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime dismissedAt;
     /**
+     * The endAt property
+     */
+    private OffsetDateTime endAt;
+    /**
      * The history property
      */
     private java.util.List<AppointmentActivity> history;
@@ -166,16 +170,25 @@ public class AppointmentResponse implements AdditionalDataHolder, Parsable {
         return this.dismissedAt;
     }
     /**
+     * Gets the endAt property value. The endAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getEndAt() {
+        return this.endAt;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
         deserializerMap.put("assignedToName", (n) -> { this.setAssignedToName(n.getStringValue()); });
         deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("dismissedAt", (n) -> { this.setDismissedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("endAt", (n) -> { this.setEndAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("history", (n) -> { this.setHistory(n.getCollectionOfObjectValues(AppointmentActivity::createFromDiscriminatorValue)); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -359,6 +372,7 @@ public class AppointmentResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeOffsetDateTimeValue("dismissedAt", this.getDismissedAt());
+        writer.writeOffsetDateTimeValue("endAt", this.getEndAt());
         writer.writeCollectionOfObjectValues("history", this.getHistory());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
@@ -414,6 +428,13 @@ public class AppointmentResponse implements AdditionalDataHolder, Parsable {
      */
     public void setDismissedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.dismissedAt = value;
+    }
+    /**
+     * Sets the endAt property value. The endAt property
+     * @param value Value to set for the endAt property.
+     */
+    public void setEndAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.endAt = value;
     }
     /**
      * Sets the history property value. The history property
