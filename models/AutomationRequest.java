@@ -49,7 +49,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
      */
     private String scope;
     /**
-     * Time zone used by workflow time and day conditions in preview and runtime. Defaults to UTC.
+     * Time zone used by workflow time and day conditions in preview and runtime. New workflows default to the organizations time zone.
      */
     private String timeZoneId;
     /**
@@ -174,7 +174,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         return this.scope;
     }
     /**
-     * Gets the timeZoneId property value. Time zone used by workflow time and day conditions in preview and runtime. Defaults to UTC.
+     * Gets the timeZoneId property value. Time zone used by workflow time and day conditions in preview and runtime. New workflows default to the organizations time zone.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -289,7 +289,7 @@ public class AutomationRequest implements AdditionalDataHolder, Parsable {
         this.scope = value;
     }
     /**
-     * Sets the timeZoneId property value. Time zone used by workflow time and day conditions in preview and runtime. Defaults to UTC.
+     * Sets the timeZoneId property value. Time zone used by workflow time and day conditions in preview and runtime. New workflows default to the organizations time zone.
      * @param value Value to set for the timeZoneId property.
      */
     public void setTimeZoneId(@jakarta.annotation.Nullable final String value) {
