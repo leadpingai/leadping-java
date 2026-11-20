@@ -34,6 +34,10 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Name of the automation when it started.
+     */
+    private String automationName;
+    /**
      * Automation run ID opened from this automation event.
      */
     private String automationRunId;
@@ -294,6 +298,14 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the automationName property value. Name of the automation when it started.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAutomationName() {
+        return this.automationName;
+    }
+    /**
      * Gets the automationRunId property value. Automation run ID opened from this automation event.
      * @return a {@link String}
      */
@@ -459,11 +471,12 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(55);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(56);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorEmail", (n) -> { this.setActorEmail(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
+        deserializerMap.put("automationName", (n) -> { this.setAutomationName(n.getStringValue()); });
         deserializerMap.put("automationRunId", (n) -> { this.setAutomationRunId(n.getStringValue()); });
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
@@ -775,6 +788,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("actorEmail", this.getActorEmail());
         writer.writeStringValue("actorLeadId", this.getActorLeadId());
         writer.writeStringValue("actorUserId", this.getActorUserId());
+        writer.writeStringValue("automationName", this.getAutomationName());
         writer.writeStringValue("automationRunId", this.getAutomationRunId());
         writer.writeDoubleValue("billableAmount", this.getBillableAmount());
         writer.writeStringValue("billingStatus", this.getBillingStatus());
@@ -862,6 +876,13 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the automationName property value. Name of the automation when it started.
+     * @param value Value to set for the automationName property.
+     */
+    public void setAutomationName(@jakarta.annotation.Nullable final String value) {
+        this.automationName = value;
     }
     /**
      * Sets the automationRunId property value. Automation run ID opened from this automation event.
