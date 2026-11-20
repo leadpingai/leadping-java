@@ -30,6 +30,10 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     private PhoneNumberOutboundHealthStatus healthStatus;
     /**
+     * Next time an active reservation starts or expires and may change the reported usage.
+     */
+    private OffsetDateTime nextReservationChangeAt;
+    /**
      * Phone number associated with this Leadping outbound phone number capacity.
      */
     private String phoneNumber;
@@ -191,10 +195,11 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(35);
         deserializerMap.put("capacityAvailable", (n) -> { this.setCapacityAvailable(n.getBooleanValue()); });
         deserializerMap.put("healthReason", (n) -> { this.setHealthReason(n.getStringValue()); });
         deserializerMap.put("healthStatus", (n) -> { this.setHealthStatus(n.getEnumValue(PhoneNumberOutboundHealthStatus::forValue)); });
+        deserializerMap.put("nextReservationChangeAt", (n) -> { this.setNextReservationChangeAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         deserializerMap.put("phoneNumberId", (n) -> { this.setPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("smsApproved", (n) -> { this.setSmsApproved(n.getBooleanValue()); });
@@ -243,6 +248,14 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
     @jakarta.annotation.Nullable
     public PhoneNumberOutboundHealthStatus getHealthStatus() {
         return this.healthStatus;
+    }
+    /**
+     * Gets the nextReservationChangeAt property value. Next time an active reservation starts or expires and may change the reported usage.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getNextReservationChangeAt() {
+        return this.nextReservationChangeAt;
     }
     /**
      * Gets the phoneNumber property value. Phone number associated with this Leadping outbound phone number capacity.
@@ -501,6 +514,7 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("capacityAvailable", this.getCapacityAvailable());
         writer.writeStringValue("healthReason", this.getHealthReason());
         writer.writeEnumValue("healthStatus", this.getHealthStatus());
+        writer.writeOffsetDateTimeValue("nextReservationChangeAt", this.getNextReservationChangeAt());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeStringValue("phoneNumberId", this.getPhoneNumberId());
         writer.writeBooleanValue("smsApproved", this.getSmsApproved());
@@ -561,6 +575,13 @@ public class OutboundPhoneNumberCapacity implements AdditionalDataHolder, Parsab
      */
     public void setHealthStatus(@jakarta.annotation.Nullable final PhoneNumberOutboundHealthStatus value) {
         this.healthStatus = value;
+    }
+    /**
+     * Sets the nextReservationChangeAt property value. Next time an active reservation starts or expires and may change the reported usage.
+     * @param value Value to set for the nextReservationChangeAt property.
+     */
+    public void setNextReservationChangeAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.nextReservationChangeAt = value;
     }
     /**
      * Sets the phoneNumber property value. Phone number associated with this Leadping outbound phone number capacity.
