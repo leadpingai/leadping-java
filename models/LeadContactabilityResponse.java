@@ -29,6 +29,10 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     private Boolean canText;
     /**
+     * Whether the stored phone lookup rules out texting this recipient.
+     */
+    private Boolean smsLineRestricted;
+    /**
      * Customer-safe explanation when texting is unavailable.
      */
     private String textBlockedReason;
@@ -86,12 +90,21 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("callBlockedReason", (n) -> { this.setCallBlockedReason(n.getStringValue()); });
         deserializerMap.put("canCall", (n) -> { this.setCanCall(n.getBooleanValue()); });
         deserializerMap.put("canText", (n) -> { this.setCanText(n.getBooleanValue()); });
+        deserializerMap.put("smsLineRestricted", (n) -> { this.setSmsLineRestricted(n.getBooleanValue()); });
         deserializerMap.put("textBlockedReason", (n) -> { this.setTextBlockedReason(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the smsLineRestricted property value. Whether the stored phone lookup rules out texting this recipient.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsLineRestricted() {
+        return this.smsLineRestricted;
     }
     /**
      * Gets the textBlockedReason property value. Customer-safe explanation when texting is unavailable.
@@ -110,6 +123,7 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
         writer.writeStringValue("callBlockedReason", this.getCallBlockedReason());
         writer.writeBooleanValue("canCall", this.getCanCall());
         writer.writeBooleanValue("canText", this.getCanText());
+        writer.writeBooleanValue("smsLineRestricted", this.getSmsLineRestricted());
         writer.writeStringValue("textBlockedReason", this.getTextBlockedReason());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -140,6 +154,13 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     public void setCanText(@jakarta.annotation.Nullable final Boolean value) {
         this.canText = value;
+    }
+    /**
+     * Sets the smsLineRestricted property value. Whether the stored phone lookup rules out texting this recipient.
+     * @param value Value to set for the smsLineRestricted property.
+     */
+    public void setSmsLineRestricted(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsLineRestricted = value;
     }
     /**
      * Sets the textBlockedReason property value. Customer-safe explanation when texting is unavailable.
