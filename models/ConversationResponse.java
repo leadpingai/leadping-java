@@ -102,6 +102,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String lastSnippet;
     /**
+     * Timestamp of the conversation activity shown in LastSnippet.
+     */
+    private OffsetDateTime lastSnippetAt;
+    /**
      * Lead ID associated with this inbox conversation.
      */
     private String leadId;
@@ -247,7 +251,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(30);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -269,6 +273,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lastInboundSnippet", (n) -> { this.setLastInboundSnippet(n.getStringValue()); });
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("lastSnippet", (n) -> { this.setLastSnippet(n.getStringValue()); });
+        deserializerMap.put("lastSnippetAt", (n) -> { this.setLastSnippetAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadPhoneNumber", (n) -> { this.setLeadPhoneNumber(n.getStringValue()); });
         deserializerMap.put("needsReply", (n) -> { this.setNeedsReply(n.getBooleanValue()); });
@@ -369,6 +374,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.lastSnippet;
     }
     /**
+     * Gets the lastSnippetAt property value. Timestamp of the conversation activity shown in LastSnippet.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastSnippetAt() {
+        return this.lastSnippetAt;
+    }
+    /**
      * Gets the leadId property value. Lead ID associated with this inbox conversation.
      * @return a {@link String}
      */
@@ -467,6 +480,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("lastInboundSnippet", this.getLastInboundSnippet());
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("lastSnippet", this.getLastSnippet());
+        writer.writeOffsetDateTimeValue("lastSnippetAt", this.getLastSnippetAt());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadPhoneNumber", this.getLeadPhoneNumber());
         writer.writeBooleanValue("needsReply", this.getNeedsReply());
@@ -631,6 +645,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLastSnippet(@jakarta.annotation.Nullable final String value) {
         this.lastSnippet = value;
+    }
+    /**
+     * Sets the lastSnippetAt property value. Timestamp of the conversation activity shown in LastSnippet.
+     * @param value Value to set for the lastSnippetAt property.
+     */
+    public void setLastSnippetAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastSnippetAt = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with this inbox conversation.
