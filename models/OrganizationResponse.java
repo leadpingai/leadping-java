@@ -42,6 +42,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean automaticallyMarkLeadsCalled;
     /**
+     * Automatically advances new leads when an outbound message is delivered.
+     */
+    private Boolean automaticallyMarkLeadsMessaged;
+    /**
      * Wallet refill amount charged when automatic refill is triggered.
      */
     private Double autoRefillAmount;
@@ -117,6 +121,10 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
+    /**
+     * Destination status for delivered outbound messages.
+     */
+    private String messagedLeadStatusId;
     /**
      * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
@@ -244,6 +252,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getAutomaticallyMarkLeadsCalled() {
         return this.automaticallyMarkLeadsCalled;
+    }
+    /**
+     * Gets the automaticallyMarkLeadsMessaged property value. Automatically advances new leads when an outbound message is delivered.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getAutomaticallyMarkLeadsMessaged() {
+        return this.automaticallyMarkLeadsMessaged;
     }
     /**
      * Gets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -387,13 +403,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(41);
         deserializerMap.put("accountBalance", (n) -> { this.setAccountBalance(n.getDoubleValue()); });
         deserializerMap.put("activation", (n) -> { this.setActivation(n.getObjectValue(OrganizationResponseActivation::createFromDiscriminatorValue)); });
         deserializerMap.put("address", (n) -> { this.setAddress(n.getObjectValue(OrganizationResponseAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("automaticallyClearAppointmentSet", (n) -> { this.setAutomaticallyClearAppointmentSet(n.getBooleanValue()); });
         deserializerMap.put("automaticallyMarkAppointmentSet", (n) -> { this.setAutomaticallyMarkAppointmentSet(n.getBooleanValue()); });
         deserializerMap.put("automaticallyMarkLeadsCalled", (n) -> { this.setAutomaticallyMarkLeadsCalled(n.getBooleanValue()); });
+        deserializerMap.put("automaticallyMarkLeadsMessaged", (n) -> { this.setAutomaticallyMarkLeadsMessaged(n.getBooleanValue()); });
         deserializerMap.put("autoRefillAmount", (n) -> { this.setAutoRefillAmount(n.getDoubleValue()); });
         deserializerMap.put("autoRefillEnabled", (n) -> { this.setAutoRefillEnabled(n.getBooleanValue()); });
         deserializerMap.put("autoRefillTrigger", (n) -> { this.setAutoRefillTrigger(n.getDoubleValue()); });
@@ -413,6 +430,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
+        deserializerMap.put("messagedLeadStatusId", (n) -> { this.setMessagedLeadStatusId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("phone", (n) -> { this.setPhone(n.getStringValue()); });
@@ -444,6 +462,14 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsDemo() {
         return this.isDemo;
+    }
+    /**
+     * Gets the messagedLeadStatusId property value. Destination status for delivered outbound messages.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getMessagedLeadStatusId() {
+        return this.messagedLeadStatusId;
     }
     /**
      * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
@@ -569,6 +595,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("automaticallyClearAppointmentSet", this.getAutomaticallyClearAppointmentSet());
         writer.writeBooleanValue("automaticallyMarkAppointmentSet", this.getAutomaticallyMarkAppointmentSet());
         writer.writeBooleanValue("automaticallyMarkLeadsCalled", this.getAutomaticallyMarkLeadsCalled());
+        writer.writeBooleanValue("automaticallyMarkLeadsMessaged", this.getAutomaticallyMarkLeadsMessaged());
         writer.writeDoubleValue("autoRefillAmount", this.getAutoRefillAmount());
         writer.writeBooleanValue("autoRefillEnabled", this.getAutoRefillEnabled());
         writer.writeDoubleValue("autoRefillTrigger", this.getAutoRefillTrigger());
@@ -588,6 +615,7 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("enabled", this.getEnabled());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
+        writer.writeStringValue("messagedLeadStatusId", this.getMessagedLeadStatusId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("phone", this.getPhone());
@@ -652,6 +680,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAutomaticallyMarkLeadsCalled(@jakarta.annotation.Nullable final Boolean value) {
         this.automaticallyMarkLeadsCalled = value;
+    }
+    /**
+     * Sets the automaticallyMarkLeadsMessaged property value. Automatically advances new leads when an outbound message is delivered.
+     * @param value Value to set for the automaticallyMarkLeadsMessaged property.
+     */
+    public void setAutomaticallyMarkLeadsMessaged(@jakarta.annotation.Nullable final Boolean value) {
+        this.automaticallyMarkLeadsMessaged = value;
     }
     /**
      * Sets the autoRefillAmount property value. Wallet refill amount charged when automatic refill is triggered.
@@ -785,6 +820,13 @@ public class OrganizationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsDemo(@jakarta.annotation.Nullable final Boolean value) {
         this.isDemo = value;
+    }
+    /**
+     * Sets the messagedLeadStatusId property value. Destination status for delivered outbound messages.
+     * @param value Value to set for the messagedLeadStatusId property.
+     */
+    public void setMessagedLeadStatusId(@jakarta.annotation.Nullable final String value) {
+        this.messagedLeadStatusId = value;
     }
     /**
      * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.

@@ -58,6 +58,10 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private PhoneIdentityResponseProviderEnrichment providerEnrichment;
     /**
+     * Whether Telnyx rejected SMS routing to this destination with error 40001.
+     */
+    private Boolean smsNotRoutable;
+    /**
      * Instantiates a new {@link PhoneIdentityResponse} and sets the default values.
      */
     public PhoneIdentityResponse() {
@@ -95,7 +99,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -106,6 +110,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
         deserializerMap.put("providerEnrichment", (n) -> { this.setProviderEnrichment(n.getObjectValue(PhoneIdentityResponseProviderEnrichment::createFromDiscriminatorValue)); });
+        deserializerMap.put("smsNotRoutable", (n) -> { this.setSmsNotRoutable(n.getBooleanValue()); });
         return deserializerMap;
     }
     /**
@@ -181,6 +186,14 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.providerEnrichment;
     }
     /**
+     * Gets the smsNotRoutable property value. Whether Telnyx rejected SMS routing to this destination with error 40001.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getSmsNotRoutable() {
+        return this.smsNotRoutable;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -196,6 +209,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
         writer.writeObjectValue("providerEnrichment", this.getProviderEnrichment());
+        writer.writeBooleanValue("smsNotRoutable", this.getSmsNotRoutable());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -274,5 +288,12 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     public void setProviderEnrichment(@jakarta.annotation.Nullable final PhoneIdentityResponseProviderEnrichment value) {
         this.providerEnrichment = value;
+    }
+    /**
+     * Sets the smsNotRoutable property value. Whether Telnyx rejected SMS routing to this destination with error 40001.
+     * @param value Value to set for the smsNotRoutable property.
+     */
+    public void setSmsNotRoutable(@jakarta.annotation.Nullable final Boolean value) {
+        this.smsNotRoutable = value;
     }
 }
