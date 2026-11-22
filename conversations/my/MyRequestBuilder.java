@@ -1,6 +1,6 @@
 package ai.leadping.openapi.conversations.my;
 
-import ai.leadping.openapi.models.PagedResultOfConversationResponse;
+import ai.leadping.openapi.models.ConversationPage;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.RequestDataOptions;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -27,7 +27,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,textingAvailable*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,priority*,textingAvailable*}", pathParameters);
     }
     /**
      * Instantiates a new {@link MyRequestBuilder} and sets the default values.
@@ -35,12 +35,12 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,textingAvailable*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,priority*,textingAvailable*}", rawUrl);
     }
     /**
      * Lists the current user&apos;s lead conversations with paging and sorting for inbox views, recent follow-up, and communication history.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
-     * @return a {@link PagedResultOfConversationResponse}
+     * @return a {@link ConversationPage}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -50,14 +50,14 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public PagedResultOfConversationResponse post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
+    public ConversationPage post(@jakarta.annotation.Nonnull final RequestDataOptions body) {
         return post(body, null);
     }
     /**
      * Lists the current user&apos;s lead conversations with paging and sorting for inbox views, recent follow-up, and communication history.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link PagedResultOfConversationResponse}
+     * @return a {@link ConversationPage}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -67,7 +67,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @throws ProblemDetails When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public PagedResultOfConversationResponse post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
+    public ConversationPage post(@jakarta.annotation.Nonnull final RequestDataOptions body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
@@ -78,7 +78,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("415", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("429", ProblemDetails::createFromDiscriminatorValue);
         errorMapping.put("500", ProblemDetails::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, PagedResultOfConversationResponse::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, ConversationPage::createFromDiscriminatorValue);
     }
     /**
      * Lists the current user&apos;s lead conversations with paging and sorting for inbox views, recent follow-up, and communication history.
@@ -130,6 +130,11 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public Boolean contactable;
         /**
+         * Orders the full filtered inbox by the next action before paging.
+         */
+        @jakarta.annotation.Nullable
+        public Boolean priority;
+        /**
          * Whether to include only conversations where texting is available.
          */
         @jakarta.annotation.Nullable
@@ -143,6 +148,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
             final Map<String, Object> allQueryParams = new HashMap();
             allQueryParams.put("archiveFilter", archiveFilter);
             allQueryParams.put("contactable", contactable);
+            allQueryParams.put("priority", priority);
             allQueryParams.put("textingAvailable", textingAvailable);
             return allQueryParams;
         }

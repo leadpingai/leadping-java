@@ -4,6 +4,7 @@ import ai.leadping.openapi.conversations.item.markhandled.MarkHandledRequestBuil
 import ai.leadping.openapi.conversations.item.markread.MarkReadRequestBuilder;
 import ai.leadping.openapi.conversations.item.markreplyneeded.MarkReplyNeededRequestBuilder;
 import ai.leadping.openapi.conversations.item.outboundreadiness.OutboundReadinessRequestBuilder;
+import ai.leadping.openapi.conversations.item.retry.RetryRequestBuilder;
 import ai.leadping.openapi.models.ConversationResponse;
 import ai.leadping.openapi.models.ProblemDetails;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -19,10 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /conversations/{id}
+ * Builds and executes requests for operations under /conversations/{conversation-id}
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class ConversationsItemRequestBuilder extends BaseRequestBuilder {
+public class ConversationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * The markHandled property
      * @return a {@link MarkHandledRequestBuilder}
@@ -56,20 +57,28 @@ public class ConversationsItemRequestBuilder extends BaseRequestBuilder {
         return new OutboundReadinessRequestBuilder(pathParameters, requestAdapter);
     }
     /**
-     * Instantiates a new {@link ConversationsItemRequestBuilder} and sets the default values.
+     * The retry property
+     * @return a {@link RetryRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public RetryRequestBuilder retry() {
+        return new RetryRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * Instantiates a new {@link ConversationItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public ConversationsItemRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}", pathParameters);
+    public ConversationItemRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}", pathParameters);
     }
     /**
-     * Instantiates a new {@link ConversationsItemRequestBuilder} and sets the default values.
+     * Instantiates a new {@link ConversationItemRequestBuilder} and sets the default values.
      * @param rawUrl The raw URL to use for the request builder.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public ConversationsItemRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}", rawUrl);
+    public ConversationItemRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}", rawUrl);
     }
     /**
      * Returns a conversation accessible to the current user, including its current event version for tracking inbox updates.
@@ -131,12 +140,12 @@ public class ConversationsItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
-     * @return a {@link ConversationsItemRequestBuilder}
+     * @return a {@link ConversationItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public ConversationsItemRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+    public ConversationItemRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
         Objects.requireNonNull(rawUrl);
-        return new ConversationsItemRequestBuilder(rawUrl, requestAdapter);
+        return new ConversationItemRequestBuilder(rawUrl, requestAdapter);
     }
     /**
      * Configuration for the request such as headers, query parameters, and middleware options.

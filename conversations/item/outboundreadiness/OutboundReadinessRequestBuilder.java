@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /conversations/{id}/outbound-readiness
+ * Builds and executes requests for operations under /conversations/{conversation-id}/outbound-readiness
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class OutboundReadinessRequestBuilder extends BaseRequestBuilder {
@@ -26,7 +26,7 @@ public class OutboundReadinessRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public OutboundReadinessRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/outbound-readiness{?voice*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/outbound-readiness{?voice*}", pathParameters);
     }
     /**
      * Instantiates a new {@link OutboundReadinessRequestBuilder} and sets the default values.
@@ -34,7 +34,7 @@ public class OutboundReadinessRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public OutboundReadinessRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/outbound-readiness{?voice*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/outbound-readiness{?voice*}", rawUrl);
     }
     /**
      * Checks outbound sender readiness for an accessible conversation without sending a message or placing a call.

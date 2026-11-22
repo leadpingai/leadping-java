@@ -1,6 +1,6 @@
 package ai.leadping.openapi.conversations;
 
-import ai.leadping.openapi.conversations.item.ConversationsItemRequestBuilder;
+import ai.leadping.openapi.conversations.item.ConversationItemRequestBuilder;
 import ai.leadping.openapi.conversations.lead.LeadRequestBuilder;
 import ai.leadping.openapi.conversations.my.MyRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -30,15 +30,15 @@ public class ConversationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the ai.leadping.openapi.conversations.item collection
-     * @param id The ID of the conversation to retrieve.
-     * @return a {@link ConversationsItemRequestBuilder}
+     * @param conversationId The ID of the conversation to retrieve.
+     * @return a {@link ConversationItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
-    public ConversationsItemRequestBuilder byId(@jakarta.annotation.Nonnull final String id) {
-        Objects.requireNonNull(id);
+    public ConversationItemRequestBuilder byConversationId(@jakarta.annotation.Nonnull final String conversationId) {
+        Objects.requireNonNull(conversationId);
         final HashMap<String, Object> urlTplParams = new HashMap<String, Object>(this.pathParameters);
-        urlTplParams.put("id", id);
-        return new ConversationsItemRequestBuilder(urlTplParams, requestAdapter);
+        urlTplParams.put("conversation%2Did", conversationId);
+        return new ConversationItemRequestBuilder(urlTplParams, requestAdapter);
     }
     /**
      * Instantiates a new {@link ConversationsRequestBuilder} and sets the default values.

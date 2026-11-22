@@ -18,6 +18,10 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
+     * The promised callback time, independent of a general follow-up task.
+     */
+    private OffsetDateTime callbackAt;
+    /**
      * Controlled lead status change categories used for reporting, automation, and analytics.
      */
     private CurrentLeadStatusSummaryCategory category;
@@ -90,6 +94,14 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
         return this.additionalData;
     }
     /**
+     * Gets the callbackAt property value. The promised callback time, independent of a general follow-up task.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getCallbackAt() {
+        return this.callbackAt;
+    }
+    /**
      * Gets the category property value. Controlled lead status change categories used for reporting, automation, and analytics.
      * @return a {@link CurrentLeadStatusSummaryCategory}
      */
@@ -135,7 +147,8 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(12);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        deserializerMap.put("callbackAt", (n) -> { this.setCallbackAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("category", (n) -> { this.setCategory(n.getEnumValue(CurrentLeadStatusSummaryCategory::forValue)); });
         deserializerMap.put("changedAt", (n) -> { this.setChangedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("changedByAutomationId", (n) -> { this.setChangedByAutomationId(n.getStringValue()); });
@@ -212,6 +225,7 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeOffsetDateTimeValue("callbackAt", this.getCallbackAt());
         writer.writeEnumValue("category", this.getCategory());
         writer.writeOffsetDateTimeValue("changedAt", this.getChangedAt());
         writer.writeStringValue("changedByAutomationId", this.getChangedByAutomationId());
@@ -232,6 +246,13 @@ public class CurrentLeadStatusSummary implements AdditionalDataHolder, Parsable 
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the callbackAt property value. The promised callback time, independent of a general follow-up task.
+     * @param value Value to set for the callbackAt property.
+     */
+    public void setCallbackAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.callbackAt = value;
     }
     /**
      * Sets the category property value. Controlled lead status change categories used for reporting, automation, and analytics.

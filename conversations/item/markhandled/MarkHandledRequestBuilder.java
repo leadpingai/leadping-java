@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /conversations/{id}/mark-handled
+ * Builds and executes requests for operations under /conversations/{conversation-id}/mark-handled
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MarkHandledRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class MarkHandledRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MarkHandledRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/mark-handled?replyVersion={replyVersion}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/mark-handled?replyVersion={replyVersion}", pathParameters);
     }
     /**
      * Instantiates a new {@link MarkHandledRequestBuilder} and sets the default values.
@@ -33,7 +33,7 @@ public class MarkHandledRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MarkHandledRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/mark-handled?replyVersion={replyVersion}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/mark-handled?replyVersion={replyVersion}", rawUrl);
     }
     /**
      * Clears the reply requirement only at the observed reply version. Returns false if the reply version changed or the conversation is inaccessible.

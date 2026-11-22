@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /conversations/{id}/mark-reply-needed
+ * Builds and executes requests for operations under /conversations/{conversation-id}/mark-reply-needed
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MarkReplyNeededRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class MarkReplyNeededRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MarkReplyNeededRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/mark-reply-needed?replyVersion={replyVersion}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/mark-reply-needed?replyVersion={replyVersion}", pathParameters);
     }
     /**
      * Instantiates a new {@link MarkReplyNeededRequestBuilder} and sets the default values.
@@ -33,7 +33,7 @@ public class MarkReplyNeededRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MarkReplyNeededRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/mark-reply-needed?replyVersion={replyVersion}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/mark-reply-needed?replyVersion={replyVersion}", rawUrl);
     }
     /**
      * Sets the reply requirement only at the observed reply version. Returns false if the reply version changed or the conversation is inaccessible.

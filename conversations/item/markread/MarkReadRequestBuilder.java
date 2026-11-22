@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Builds and executes requests for operations under /conversations/{id}/mark-read
+ * Builds and executes requests for operations under /conversations/{conversation-id}/mark-read
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MarkReadRequestBuilder extends BaseRequestBuilder {
@@ -25,7 +25,7 @@ public class MarkReadRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MarkReadRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/mark-read?eventVersion={eventVersion}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/mark-read?eventVersion={eventVersion}", pathParameters);
     }
     /**
      * Instantiates a new {@link MarkReadRequestBuilder} and sets the default values.
@@ -33,7 +33,7 @@ public class MarkReadRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MarkReadRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/{id}/mark-read?eventVersion={eventVersion}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/mark-read?eventVersion={eventVersion}", rawUrl);
     }
     /**
      * Clears unread state only at the observed event version. Returns false if the conversation changed or is inaccessible.

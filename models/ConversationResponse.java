@@ -34,6 +34,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String avatarUrl;
     /**
+     * Rep-selected time for the next call attempt.
+     */
+    private OffsetDateTime callRetryAt;
+    /**
      * Current manual voice eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when calling; null means eligibility has not been evaluated.
      */
     private Boolean canCallNow;
@@ -65,6 +69,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      * Unique Leadping identifier for this conversation response.
      */
     private String id;
+    /**
+     * The next action for a conversation, in inbox priority order.
+     */
+    private Integer inboxAction;
+    /**
+     * Customer reply time, due time, or request time explaining the action.
+     */
+    private OffsetDateTime inboxActionAt;
     /**
      * Indicates whether the Leadping conversation has been archived.
      */
@@ -198,6 +210,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.avatarUrl;
     }
     /**
+     * Gets the callRetryAt property value. Rep-selected time for the next call attempt.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getCallRetryAt() {
+        return this.callRetryAt;
+    }
+    /**
      * Gets the canCallNow property value. Current manual voice eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when calling; null means eligibility has not been evaluated.
      * @return a {@link Boolean}
      */
@@ -251,11 +271,12 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(31);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
         deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
+        deserializerMap.put("callRetryAt", (n) -> { this.setCallRetryAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("canCallNow", (n) -> { this.setCanCallNow(n.getBooleanValue()); });
         deserializerMap.put("canTextNow", (n) -> { this.setCanTextNow(n.getBooleanValue()); });
         deserializerMap.put("complianceStatus", (n) -> { this.setComplianceStatus(n.getStringValue()); });
@@ -264,6 +285,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("eventVersion", (n) -> { this.setEventVersion(n.getLongValue()); });
         deserializerMap.put("firstName", (n) -> { this.setFirstName(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("inboxAction", (n) -> { this.setInboxAction(n.getIntegerValue()); });
+        deserializerMap.put("inboxActionAt", (n) -> { this.setInboxActionAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isUnread", (n) -> { this.setIsUnread(n.getBooleanValue()); });
@@ -300,6 +323,22 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the inboxAction property value. The next action for a conversation, in inbox priority order.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getInboxAction() {
+        return this.inboxAction;
+    }
+    /**
+     * Gets the inboxActionAt property value. Customer reply time, due time, or request time explaining the action.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getInboxActionAt() {
+        return this.inboxActionAt;
     }
     /**
      * Gets the isArchived property value. Indicates whether the Leadping conversation has been archived.
@@ -463,6 +502,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
         writer.writeStringValue("avatarUrl", this.getAvatarUrl());
+        writer.writeOffsetDateTimeValue("callRetryAt", this.getCallRetryAt());
         writer.writeBooleanValue("canCallNow", this.getCanCallNow());
         writer.writeBooleanValue("canTextNow", this.getCanTextNow());
         writer.writeStringValue("complianceStatus", this.getComplianceStatus());
@@ -471,6 +511,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeLongValue("eventVersion", this.getEventVersion());
         writer.writeStringValue("firstName", this.getFirstName());
         writer.writeStringValue("id", this.getId());
+        writer.writeIntegerValue("inboxAction", this.getInboxAction());
+        writer.writeOffsetDateTimeValue("inboxActionAt", this.getInboxActionAt());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isUnread", this.getIsUnread());
@@ -528,6 +570,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.avatarUrl = value;
     }
     /**
+     * Sets the callRetryAt property value. Rep-selected time for the next call attempt.
+     * @param value Value to set for the callRetryAt property.
+     */
+    public void setCallRetryAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.callRetryAt = value;
+    }
+    /**
      * Sets the canCallNow property value. Current manual voice eligibility, including contact hours. Populated on individual conversation reads. Sender readiness and billing are checked when calling; null means eligibility has not been evaluated.
      * @param value Value to set for the canCallNow property.
      */
@@ -582,6 +631,20 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the inboxAction property value. The next action for a conversation, in inbox priority order.
+     * @param value Value to set for the inboxAction property.
+     */
+    public void setInboxAction(@jakarta.annotation.Nullable final Integer value) {
+        this.inboxAction = value;
+    }
+    /**
+     * Sets the inboxActionAt property value. Customer reply time, due time, or request time explaining the action.
+     * @param value Value to set for the inboxActionAt property.
+     */
+    public void setInboxActionAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.inboxActionAt = value;
     }
     /**
      * Sets the isArchived property value. Indicates whether the Leadping conversation has been archived.

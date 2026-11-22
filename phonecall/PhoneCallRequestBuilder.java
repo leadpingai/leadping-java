@@ -2,6 +2,7 @@ package ai.leadping.openapi.phonecall;
 
 import ai.leadping.openapi.phonecall.initiate.InitiateRequestBuilder;
 import ai.leadping.openapi.phonecall.item.WithCallItemRequestBuilder;
+import ai.leadping.openapi.phonecall.next.NextRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
 import java.util.HashMap;
@@ -18,6 +19,14 @@ public class PhoneCallRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public InitiateRequestBuilder initiate() {
         return new InitiateRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The next property
+     * @return a {@link NextRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public NextRequestBuilder next() {
+        return new NextRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * Gets an item from the ai.leadping.openapi.phoneCall.item collection

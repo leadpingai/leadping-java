@@ -38,6 +38,10 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     private String outboundIdempotencyKey;
     /**
+     * Version of the incoming conversation reply displayed to the agent when composing this response.
+     */
+    private Long replyVersion;
+    /**
      * UTC timestamp when Leadping should send the SMS message.
      */
     private OffsetDateTime scheduledFor;
@@ -103,12 +107,13 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
         deserializerMap.put("conversationId", (n) -> { this.setConversationId(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("mediaUrls", (n) -> { this.setMediaUrls(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("outboundIdempotencyKey", (n) -> { this.setOutboundIdempotencyKey(n.getStringValue()); });
+        deserializerMap.put("replyVersion", (n) -> { this.setReplyVersion(n.getLongValue()); });
         deserializerMap.put("scheduledFor", (n) -> { this.setScheduledFor(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsEventId", (n) -> { this.setSmsEventId(n.getStringValue()); });
         deserializerMap.put("sourceId", (n) -> { this.setSourceId(n.getStringValue()); });
@@ -139,6 +144,14 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getOutboundIdempotencyKey() {
         return this.outboundIdempotencyKey;
+    }
+    /**
+     * Gets the replyVersion property value. Version of the incoming conversation reply displayed to the agent when composing this response.
+     * @return a {@link Long}
+     */
+    @jakarta.annotation.Nullable
+    public Long getReplyVersion() {
+        return this.replyVersion;
     }
     /**
      * Gets the scheduledFor property value. UTC timestamp when Leadping should send the SMS message.
@@ -191,6 +204,7 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeCollectionOfPrimitiveValues("mediaUrls", this.getMediaUrls());
         writer.writeStringValue("outboundIdempotencyKey", this.getOutboundIdempotencyKey());
+        writer.writeLongValue("replyVersion", this.getReplyVersion());
         writer.writeOffsetDateTimeValue("scheduledFor", this.getScheduledFor());
         writer.writeStringValue("smsEventId", this.getSmsEventId());
         writer.writeStringValue("sourceId", this.getSourceId());
@@ -239,6 +253,13 @@ public class SendSmsRequest implements AdditionalDataHolder, Parsable {
      */
     public void setOutboundIdempotencyKey(@jakarta.annotation.Nullable final String value) {
         this.outboundIdempotencyKey = value;
+    }
+    /**
+     * Sets the replyVersion property value. Version of the incoming conversation reply displayed to the agent when composing this response.
+     * @param value Value to set for the replyVersion property.
+     */
+    public void setReplyVersion(@jakarta.annotation.Nullable final Long value) {
+        this.replyVersion = value;
     }
     /**
      * Sets the scheduledFor property value. UTC timestamp when Leadping should send the SMS message.
