@@ -4,6 +4,7 @@ import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
 import com.microsoft.kiota.serialization.SerializationWriter;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,6 +29,10 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      * Whether the lead can currently be texted after evaluating applicable contact hours, suppression, and consent rules.
      */
     private Boolean canText;
+    /**
+     * Next opening or closing of a contact window that can change this result.
+     */
+    private OffsetDateTime nextWindowChangeAt;
     /**
      * Whether the stored phone lookup rules out texting this recipient.
      */
@@ -90,13 +95,22 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("callBlockedReason", (n) -> { this.setCallBlockedReason(n.getStringValue()); });
         deserializerMap.put("canCall", (n) -> { this.setCanCall(n.getBooleanValue()); });
         deserializerMap.put("canText", (n) -> { this.setCanText(n.getBooleanValue()); });
+        deserializerMap.put("nextWindowChangeAt", (n) -> { this.setNextWindowChangeAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("smsLineRestricted", (n) -> { this.setSmsLineRestricted(n.getBooleanValue()); });
         deserializerMap.put("textBlockedReason", (n) -> { this.setTextBlockedReason(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the nextWindowChangeAt property value. Next opening or closing of a contact window that can change this result.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getNextWindowChangeAt() {
+        return this.nextWindowChangeAt;
     }
     /**
      * Gets the smsLineRestricted property value. Whether the stored phone lookup rules out texting this recipient.
@@ -123,6 +137,7 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
         writer.writeStringValue("callBlockedReason", this.getCallBlockedReason());
         writer.writeBooleanValue("canCall", this.getCanCall());
         writer.writeBooleanValue("canText", this.getCanText());
+        writer.writeOffsetDateTimeValue("nextWindowChangeAt", this.getNextWindowChangeAt());
         writer.writeBooleanValue("smsLineRestricted", this.getSmsLineRestricted());
         writer.writeStringValue("textBlockedReason", this.getTextBlockedReason());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -154,6 +169,13 @@ public class LeadContactabilityResponse implements AdditionalDataHolder, Parsabl
      */
     public void setCanText(@jakarta.annotation.Nullable final Boolean value) {
         this.canText = value;
+    }
+    /**
+     * Sets the nextWindowChangeAt property value. Next opening or closing of a contact window that can change this result.
+     * @param value Value to set for the nextWindowChangeAt property.
+     */
+    public void setNextWindowChangeAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.nextWindowChangeAt = value;
     }
     /**
      * Sets the smsLineRestricted property value. Whether the stored phone lookup rules out texting this recipient.

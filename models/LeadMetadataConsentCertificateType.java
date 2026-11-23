@@ -10,6 +10,7 @@ import java.util.Objects;
 public enum LeadMetadataConsentCertificateType implements ValuedEnum {
     TrustedForm("TrustedForm"),
     Leadping("Leadping"),
+    ManualVoice("ManualVoice"),
     Other("Other");
     public final String value;
     LeadMetadataConsentCertificateType(final String value) {
@@ -23,6 +24,7 @@ public enum LeadMetadataConsentCertificateType implements ValuedEnum {
         switch(searchValue) {
             case "TrustedForm": return TrustedForm;
             case "Leadping": return Leadping;
+            case "ManualVoice": return ManualVoice;
             case "Other": return Other;
             default: return null;
         }
