@@ -78,6 +78,10 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
+     * Whether the source covers SMS consent for the current recipient.
+     */
+    private Boolean hasSourceSmsConsent;
+    /**
      * Stable unique identifier of the resource.
      */
     private String id;
@@ -279,7 +283,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(28);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(29);
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archivedByUserId", (n) -> { this.setArchivedByUserId(n.getStringValue()); });
         deserializerMap.put("archiveNote", (n) -> { this.setArchiveNote(n.getStringValue()); });
@@ -295,6 +299,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("deletedAt", (n) -> { this.setDeletedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("deletedByUserId", (n) -> { this.setDeletedByUserId(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
+        deserializerMap.put("hasSourceSmsConsent", (n) -> { this.setHasSourceSmsConsent(n.getBooleanValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("inquiry", (n) -> { this.setInquiry(n.getObjectValue(LeadResponseInquiry::createFromDiscriminatorValue)); });
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
@@ -309,6 +314,14 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("serviceAddress", (n) -> { this.setServiceAddress(n.getObjectValue(LeadResponseServiceAddress::createFromDiscriminatorValue)); });
         deserializerMap.put("tags", (n) -> { this.setTags(n.getCollectionOfObjectValues(TagSummary::createFromDiscriminatorValue)); });
         return deserializerMap;
+    }
+    /**
+     * Gets the hasSourceSmsConsent property value. Whether the source covers SMS consent for the current recipient.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getHasSourceSmsConsent() {
+        return this.hasSourceSmsConsent;
     }
     /**
      * Gets the id property value. Stable unique identifier of the resource.
@@ -435,6 +448,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("deletedAt", this.getDeletedAt());
         writer.writeStringValue("deletedByUserId", this.getDeletedByUserId());
         writer.writeBooleanValue("enabled", this.getEnabled());
+        writer.writeBooleanValue("hasSourceSmsConsent", this.getHasSourceSmsConsent());
         writer.writeStringValue("id", this.getId());
         writer.writeObjectValue("inquiry", this.getInquiry());
         writer.writeBooleanValue("isArchived", this.getIsArchived());
@@ -561,6 +575,13 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.enabled = value;
+    }
+    /**
+     * Sets the hasSourceSmsConsent property value. Whether the source covers SMS consent for the current recipient.
+     * @param value Value to set for the hasSourceSmsConsent property.
+     */
+    public void setHasSourceSmsConsent(@jakarta.annotation.Nullable final Boolean value) {
+        this.hasSourceSmsConsent = value;
     }
     /**
      * Sets the id property value. Stable unique identifier of the resource.
