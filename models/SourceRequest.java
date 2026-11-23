@@ -45,6 +45,10 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
+     * Whether to normalize capitalization in incoming lead names and cities.
+     */
+    private Boolean normalizeIncomingData;
+    /**
      * Indicates whether leads from this source must include a TrustedForm or Leadping Consent certificate for consent proof.
      */
     private Boolean requiresTrustedForm;
@@ -126,7 +130,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("automaticConsentValidation", (n) -> { this.setAutomaticConsentValidation(n.getBooleanValue()); });
         deserializerMap.put("automaticPhoneLookup", (n) -> { this.setAutomaticPhoneLookup(n.getBooleanValue()); });
         deserializerMap.put("dailyLeadLimit", (n) -> { this.setDailyLeadLimit(n.getIntegerValue()); });
@@ -134,6 +138,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("defaultTagNames", (n) -> { this.setDefaultTagNames(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("normalizeIncomingData", (n) -> { this.setNormalizeIncomingData(n.getBooleanValue()); });
         deserializerMap.put("requiresTrustedForm", (n) -> { this.setRequiresTrustedForm(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -144,6 +149,14 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getName() {
         return this.name;
+    }
+    /**
+     * Gets the normalizeIncomingData property value. Whether to normalize capitalization in incoming lead names and cities.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNormalizeIncomingData() {
+        return this.normalizeIncomingData;
     }
     /**
      * Gets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm or Leadping Consent certificate for consent proof.
@@ -166,6 +179,7 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues("defaultTagNames", this.getDefaultTagNames());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("name", this.getName());
+        writer.writeBooleanValue("normalizeIncomingData", this.getNormalizeIncomingData());
         writer.writeBooleanValue("requiresTrustedForm", this.getRequiresTrustedForm());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -224,6 +238,13 @@ public class SourceRequest implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the normalizeIncomingData property value. Whether to normalize capitalization in incoming lead names and cities.
+     * @param value Value to set for the normalizeIncomingData property.
+     */
+    public void setNormalizeIncomingData(@jakarta.annotation.Nullable final Boolean value) {
+        this.normalizeIncomingData = value;
     }
     /**
      * Sets the requiresTrustedForm property value. Indicates whether leads from this source must include a TrustedForm or Leadping Consent certificate for consent proof.

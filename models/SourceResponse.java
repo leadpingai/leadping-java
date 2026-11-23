@@ -102,6 +102,10 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
+     * Whether to normalize capitalization in incoming lead names and cities.
+     */
+    private Boolean normalizeIncomingData;
+    /**
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private SourceResponseOrganization organization;
@@ -255,7 +259,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(24);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
         deserializerMap.put("apiKeyPreview", (n) -> { this.setApiKeyPreview(n.getStringValue()); });
         deserializerMap.put("apiKeyRotatedAt", (n) -> { this.setApiKeyRotatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("automaticConsentValidation", (n) -> { this.setAutomaticConsentValidation(n.getBooleanValue()); });
@@ -277,6 +281,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("modifiedByUser", (n) -> { this.setModifiedByUser(n.getObjectValue(SourceResponseModifiedByUser::createFromDiscriminatorValue)); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
+        deserializerMap.put("normalizeIncomingData", (n) -> { this.setNormalizeIncomingData(n.getBooleanValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(SourceResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("requiresTrustedForm", (n) -> { this.setRequiresTrustedForm(n.getBooleanValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(SourceResponseUser::createFromDiscriminatorValue)); });
@@ -339,6 +344,14 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
+     * Gets the normalizeIncomingData property value. Whether to normalize capitalization in incoming lead names and cities.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getNormalizeIncomingData() {
+        return this.normalizeIncomingData;
+    }
+    /**
      * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      * @return a {@link SourceResponseOrganization}
      */
@@ -389,6 +402,7 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeObjectValue("modifiedByUser", this.getModifiedByUser());
         writer.writeStringValue("name", this.getName());
+        writer.writeBooleanValue("normalizeIncomingData", this.getNormalizeIncomingData());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeBooleanValue("requiresTrustedForm", this.getRequiresTrustedForm());
         writer.writeObjectValue("user", this.getUser());
@@ -547,6 +561,13 @@ public class SourceResponse implements AdditionalDataHolder, Parsable {
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
+    }
+    /**
+     * Sets the normalizeIncomingData property value. Whether to normalize capitalization in incoming lead names and cities.
+     * @param value Value to set for the normalizeIncomingData property.
+     */
+    public void setNormalizeIncomingData(@jakarta.annotation.Nullable final Boolean value) {
+        this.normalizeIncomingData = value;
     }
     /**
      * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.

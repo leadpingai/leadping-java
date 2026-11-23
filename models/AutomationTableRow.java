@@ -22,6 +22,10 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Whether the current user can start this automation for a selected inbox lead.
+     */
+    private Boolean canRunForLead;
+    /**
      * Human-readable summary of the automation condition evaluation.
      */
     private String conditionSummary;
@@ -138,6 +142,14 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
+     * Gets the canRunForLead property value. Whether the current user can start this automation for a selected inbox lead.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getCanRunForLead() {
+        return this.canRunForLead;
+    }
+    /**
      * Gets the conditionSummary property value. Human-readable summary of the automation condition evaluation.
      * @return a {@link String}
      */
@@ -175,8 +187,9 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
         deserializerMap.put("actionSummary", (n) -> { this.setActionSummary(n.getStringValue()); });
+        deserializerMap.put("canRunForLead", (n) -> { this.setCanRunForLead(n.getBooleanValue()); });
         deserializerMap.put("conditionSummary", (n) -> { this.setConditionSummary(n.getStringValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
@@ -343,6 +356,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("actionSummary", this.getActionSummary());
+        writer.writeBooleanValue("canRunForLead", this.getCanRunForLead());
         writer.writeStringValue("conditionSummary", this.getConditionSummary());
         writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
         writer.writeStringValue("description", this.getDescription());
@@ -379,6 +393,13 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the canRunForLead property value. Whether the current user can start this automation for a selected inbox lead.
+     * @param value Value to set for the canRunForLead property.
+     */
+    public void setCanRunForLead(@jakarta.annotation.Nullable final Boolean value) {
+        this.canRunForLead = value;
     }
     /**
      * Sets the conditionSummary property value. Human-readable summary of the automation condition evaluation.

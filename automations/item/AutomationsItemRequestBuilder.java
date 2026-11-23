@@ -1,6 +1,8 @@
 package ai.leadping.openapi.automations.item;
 
+import ai.leadping.openapi.automations.item.leads.LeadsRequestBuilder;
 import ai.leadping.openapi.automations.item.run.RunRequestBuilder;
+import ai.leadping.openapi.automations.item.runforaudience.RunForAudienceRequestBuilder;
 import ai.leadping.openapi.automations.item.runs.RunsRequestBuilder;
 import ai.leadping.openapi.models.AutomationRequest;
 import ai.leadping.openapi.models.AutomationResponse;
@@ -23,12 +25,28 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AutomationsItemRequestBuilder extends BaseRequestBuilder {
     /**
+     * The leads property
+     * @return a {@link LeadsRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public LeadsRequestBuilder leads() {
+        return new LeadsRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The run property
      * @return a {@link RunRequestBuilder}
      */
     @jakarta.annotation.Nonnull
     public RunRequestBuilder run() {
         return new RunRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The runForAudience property
+     * @return a {@link RunForAudienceRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public RunForAudienceRequestBuilder runForAudience() {
+        return new RunForAudienceRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The runs property

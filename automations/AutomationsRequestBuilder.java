@@ -2,6 +2,7 @@ package ai.leadping.openapi.automations;
 
 import ai.leadping.openapi.automations.all.AllRequestBuilder;
 import ai.leadping.openapi.automations.item.AutomationsItemRequestBuilder;
+import ai.leadping.openapi.automations.leadaudience.LeadAudienceRequestBuilder;
 import ai.leadping.openapi.automations.preview.PreviewRequestBuilder;
 import ai.leadping.openapi.models.AutomationRequest;
 import ai.leadping.openapi.models.AutomationResponse;
@@ -30,6 +31,14 @@ public class AutomationsRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public AllRequestBuilder all() {
         return new AllRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * The leadAudience property
+     * @return a {@link LeadAudienceRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public LeadAudienceRequestBuilder leadAudience() {
+        return new LeadAudienceRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * The preview property

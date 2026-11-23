@@ -30,6 +30,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer archiveReason;
     /**
+     * The lead assignee used for inbox audience selection.
+     */
+    private String assignedToUserId;
+    /**
      * Optional profile image URL explicitly associated with the lead.
      */
     private String avatarUrl;
@@ -118,6 +122,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime lastSnippetAt;
     /**
+     * When the associated lead was created.
+     */
+    private OffsetDateTime leadCreatedAt;
+    /**
+     * Whether the associated lead is enabled for selection.
+     */
+    private Boolean leadEnabled;
+    /**
      * Lead ID associated with this inbox conversation.
      */
     private String leadId;
@@ -202,6 +214,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.archiveReason;
     }
     /**
+     * Gets the assignedToUserId property value. The lead assignee used for inbox audience selection.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getAssignedToUserId() {
+        return this.assignedToUserId;
+    }
+    /**
      * Gets the avatarUrl property value. Optional profile image URL explicitly associated with the lead.
      * @return a {@link String}
      */
@@ -271,10 +291,11 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(34);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(37);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
+        deserializerMap.put("assignedToUserId", (n) -> { this.setAssignedToUserId(n.getStringValue()); });
         deserializerMap.put("avatarUrl", (n) -> { this.setAvatarUrl(n.getStringValue()); });
         deserializerMap.put("callRetryAt", (n) -> { this.setCallRetryAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("canCallNow", (n) -> { this.setCanCallNow(n.getBooleanValue()); });
@@ -297,6 +318,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lastName", (n) -> { this.setLastName(n.getStringValue()); });
         deserializerMap.put("lastSnippet", (n) -> { this.setLastSnippet(n.getStringValue()); });
         deserializerMap.put("lastSnippetAt", (n) -> { this.setLastSnippetAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("leadCreatedAt", (n) -> { this.setLeadCreatedAt(n.getOffsetDateTimeValue()); });
+        deserializerMap.put("leadEnabled", (n) -> { this.setLeadEnabled(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("leadPhoneNumber", (n) -> { this.setLeadPhoneNumber(n.getStringValue()); });
         deserializerMap.put("needsReply", (n) -> { this.setNeedsReply(n.getBooleanValue()); });
@@ -421,6 +444,22 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.lastSnippetAt;
     }
     /**
+     * Gets the leadCreatedAt property value. When the associated lead was created.
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLeadCreatedAt() {
+        return this.leadCreatedAt;
+    }
+    /**
+     * Gets the leadEnabled property value. Whether the associated lead is enabled for selection.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getLeadEnabled() {
+        return this.leadEnabled;
+    }
+    /**
      * Gets the leadId property value. Lead ID associated with this inbox conversation.
      * @return a {@link String}
      */
@@ -501,6 +540,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("activeOutboundPhoneNumberId", this.getActiveOutboundPhoneNumberId());
         writer.writeOffsetDateTimeValue("archivedAt", this.getArchivedAt());
         writer.writeIntegerValue("archiveReason", this.getArchiveReason());
+        writer.writeStringValue("assignedToUserId", this.getAssignedToUserId());
         writer.writeStringValue("avatarUrl", this.getAvatarUrl());
         writer.writeOffsetDateTimeValue("callRetryAt", this.getCallRetryAt());
         writer.writeBooleanValue("canCallNow", this.getCanCallNow());
@@ -523,6 +563,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("lastName", this.getLastName());
         writer.writeStringValue("lastSnippet", this.getLastSnippet());
         writer.writeOffsetDateTimeValue("lastSnippetAt", this.getLastSnippetAt());
+        writer.writeOffsetDateTimeValue("leadCreatedAt", this.getLeadCreatedAt());
+        writer.writeBooleanValue("leadEnabled", this.getLeadEnabled());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeStringValue("leadPhoneNumber", this.getLeadPhoneNumber());
         writer.writeBooleanValue("needsReply", this.getNeedsReply());
@@ -561,6 +603,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setArchiveReason(@jakarta.annotation.Nullable final Integer value) {
         this.archiveReason = value;
+    }
+    /**
+     * Sets the assignedToUserId property value. The lead assignee used for inbox audience selection.
+     * @param value Value to set for the assignedToUserId property.
+     */
+    public void setAssignedToUserId(@jakarta.annotation.Nullable final String value) {
+        this.assignedToUserId = value;
     }
     /**
      * Sets the avatarUrl property value. Optional profile image URL explicitly associated with the lead.
@@ -715,6 +764,20 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLastSnippetAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
         this.lastSnippetAt = value;
+    }
+    /**
+     * Sets the leadCreatedAt property value. When the associated lead was created.
+     * @param value Value to set for the leadCreatedAt property.
+     */
+    public void setLeadCreatedAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.leadCreatedAt = value;
+    }
+    /**
+     * Sets the leadEnabled property value. Whether the associated lead is enabled for selection.
+     * @param value Value to set for the leadEnabled property.
+     */
+    public void setLeadEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.leadEnabled = value;
     }
     /**
      * Sets the leadId property value. Lead ID associated with this inbox conversation.
