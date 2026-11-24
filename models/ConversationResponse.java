@@ -74,7 +74,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
-     * The next action for a conversation, in inbox priority order.
+     * The reason a conversation appears in the priority inbox.
      */
     private Integer inboxAction;
     /**
@@ -93,6 +93,10 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      * Indicates whether the current user has unread activity in the conversation.
      */
     private Boolean isUnread;
+    /**
+     * The lastAgentReplyAt property
+     */
+    private OffsetDateTime lastAgentReplyAt;
     /**
      * UTC timestamp when the most recent conversation event occurred.
      */
@@ -153,6 +157,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      * Extends an identifier-and-name resource reference with an optional string value used for display or selection metadata.
      */
     private ConversationResponsePhoneNumber phoneNumber;
+    /**
+     * The priorityLabel property
+     */
+    private String priorityLabel;
+    /**
+     * The priorityPreview property
+     */
+    private String priorityPreview;
     /**
      * Monotonic inbound reply boundary used when marking a conversation handled.
      */
@@ -291,7 +303,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(37);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
         deserializerMap.put("activeOutboundPhoneNumberId", (n) -> { this.setActiveOutboundPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("archivedAt", (n) -> { this.setArchivedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("archiveReason", (n) -> { this.setArchiveReason(n.getIntegerValue()); });
@@ -311,6 +323,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isArchived", (n) -> { this.setIsArchived(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isUnread", (n) -> { this.setIsUnread(n.getBooleanValue()); });
+        deserializerMap.put("lastAgentReplyAt", (n) -> { this.setLastAgentReplyAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastEventAt", (n) -> { this.setLastEventAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("lastEventIsInternalNote", (n) -> { this.setLastEventIsInternalNote(n.getBooleanValue()); });
         deserializerMap.put("lastInboundAt", (n) -> { this.setLastInboundAt(n.getOffsetDateTimeValue()); });
@@ -326,6 +339,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("nextStep", (n) -> { this.setNextStep(n.getStringValue()); });
         deserializerMap.put("outboundPhoneNumberOverrideId", (n) -> { this.setOutboundPhoneNumberOverrideId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getObjectValue(ConversationResponsePhoneNumber::createFromDiscriminatorValue)); });
+        deserializerMap.put("priorityLabel", (n) -> { this.setPriorityLabel(n.getStringValue()); });
+        deserializerMap.put("priorityPreview", (n) -> { this.setPriorityPreview(n.getStringValue()); });
         deserializerMap.put("replyVersion", (n) -> { this.setReplyVersion(n.getLongValue()); });
         deserializerMap.put("status", (n) -> { this.setStatus(n.getEnumValue(ConversationResponseStatus::forValue)); });
         deserializerMap.put("statusReason", (n) -> { this.setStatusReason(n.getStringValue()); });
@@ -348,7 +363,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.id;
     }
     /**
-     * Gets the inboxAction property value. The next action for a conversation, in inbox priority order.
+     * Gets the inboxAction property value. The reason a conversation appears in the priority inbox.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -386,6 +401,14 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsUnread() {
         return this.isUnread;
+    }
+    /**
+     * Gets the lastAgentReplyAt property value. The lastAgentReplyAt property
+     * @return a {@link OffsetDateTime}
+     */
+    @jakarta.annotation.Nullable
+    public OffsetDateTime getLastAgentReplyAt() {
+        return this.lastAgentReplyAt;
     }
     /**
      * Gets the lastEventAt property value. UTC timestamp when the most recent conversation event occurred.
@@ -508,6 +531,22 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         return this.phoneNumber;
     }
     /**
+     * Gets the priorityLabel property value. The priorityLabel property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getPriorityLabel() {
+        return this.priorityLabel;
+    }
+    /**
+     * Gets the priorityPreview property value. The priorityPreview property
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getPriorityPreview() {
+        return this.priorityPreview;
+    }
+    /**
      * Gets the replyVersion property value. Monotonic inbound reply boundary used when marking a conversation handled.
      * @return a {@link Long}
      */
@@ -556,6 +595,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isArchived", this.getIsArchived());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isUnread", this.getIsUnread());
+        writer.writeOffsetDateTimeValue("lastAgentReplyAt", this.getLastAgentReplyAt());
         writer.writeOffsetDateTimeValue("lastEventAt", this.getLastEventAt());
         writer.writeBooleanValue("lastEventIsInternalNote", this.getLastEventIsInternalNote());
         writer.writeOffsetDateTimeValue("lastInboundAt", this.getLastInboundAt());
@@ -571,6 +611,8 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("nextStep", this.getNextStep());
         writer.writeStringValue("outboundPhoneNumberOverrideId", this.getOutboundPhoneNumberOverrideId());
         writer.writeObjectValue("phoneNumber", this.getPhoneNumber());
+        writer.writeStringValue("priorityLabel", this.getPriorityLabel());
+        writer.writeStringValue("priorityPreview", this.getPriorityPreview());
         writer.writeLongValue("replyVersion", this.getReplyVersion());
         writer.writeEnumValue("status", this.getStatus());
         writer.writeStringValue("statusReason", this.getStatusReason());
@@ -682,7 +724,7 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
         this.id = value;
     }
     /**
-     * Sets the inboxAction property value. The next action for a conversation, in inbox priority order.
+     * Sets the inboxAction property value. The reason a conversation appears in the priority inbox.
      * @param value Value to set for the inboxAction property.
      */
     public void setInboxAction(@jakarta.annotation.Nullable final Integer value) {
@@ -715,6 +757,13 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setIsUnread(@jakarta.annotation.Nullable final Boolean value) {
         this.isUnread = value;
+    }
+    /**
+     * Sets the lastAgentReplyAt property value. The lastAgentReplyAt property
+     * @param value Value to set for the lastAgentReplyAt property.
+     */
+    public void setLastAgentReplyAt(@jakarta.annotation.Nullable final OffsetDateTime value) {
+        this.lastAgentReplyAt = value;
     }
     /**
      * Sets the lastEventAt property value. UTC timestamp when the most recent conversation event occurred.
@@ -820,6 +869,20 @@ public class ConversationResponse implements AdditionalDataHolder, Parsable {
      */
     public void setPhoneNumber(@jakarta.annotation.Nullable final ConversationResponsePhoneNumber value) {
         this.phoneNumber = value;
+    }
+    /**
+     * Sets the priorityLabel property value. The priorityLabel property
+     * @param value Value to set for the priorityLabel property.
+     */
+    public void setPriorityLabel(@jakarta.annotation.Nullable final String value) {
+        this.priorityLabel = value;
+    }
+    /**
+     * Sets the priorityPreview property value. The priorityPreview property
+     * @param value Value to set for the priorityPreview property.
+     */
+    public void setPriorityPreview(@jakarta.annotation.Nullable final String value) {
+        this.priorityPreview = value;
     }
     /**
      * Sets the replyVersion property value. Monotonic inbound reply boundary used when marking a conversation handled.

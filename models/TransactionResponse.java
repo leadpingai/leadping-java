@@ -66,6 +66,10 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private TransactionResponseLead lead;
     /**
+     * Identifier of the message associated with an SMS or MMS usage entry.
+     */
+    private String messageEventId;
+    /**
      * UTC timestamp when the resource was last modified, or null when it has not been updated.
      */
     private OffsetDateTime modifiedAt;
@@ -175,7 +179,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionResponseBillableUnit::forValue)); });
         deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
@@ -188,6 +192,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isUsageReservation", (n) -> { this.setIsUsageReservation(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionResponseLead::createFromDiscriminatorValue)); });
+        deserializerMap.put("messageEventId", (n) -> { this.setMessageEventId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
@@ -245,6 +250,14 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public TransactionResponseLead getLead() {
         return this.lead;
+    }
+    /**
+     * Gets the messageEventId property value. Identifier of the message associated with an SMS or MMS usage entry.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getMessageEventId() {
+        return this.messageEventId;
     }
     /**
      * Gets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.
@@ -328,6 +341,7 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isUsageReservation", this.getIsUsageReservation());
         writer.writeObjectValue("lead", this.getLead());
+        writer.writeStringValue("messageEventId", this.getMessageEventId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeStringValue("notes", this.getNotes());
@@ -428,6 +442,13 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     public void setLead(@jakarta.annotation.Nullable final TransactionResponseLead value) {
         this.lead = value;
+    }
+    /**
+     * Sets the messageEventId property value. Identifier of the message associated with an SMS or MMS usage entry.
+     * @param value Value to set for the messageEventId property.
+     */
+    public void setMessageEventId(@jakarta.annotation.Nullable final String value) {
+        this.messageEventId = value;
     }
     /**
      * Sets the modifiedAt property value. UTC timestamp when the resource was last modified, or null when it has not been updated.

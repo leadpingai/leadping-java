@@ -37,6 +37,10 @@ public class ConversationPage implements AdditionalDataHolder, Parsable {
      */
     private String refreshAfter;
     /**
+     * Describes conversation data returned by Leadping.
+     */
+    private ConversationPageSelectedConversation selectedConversation;
+    /**
      * The totalCount property
      */
     private Integer totalCount;
@@ -78,12 +82,13 @@ public class ConversationPage implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
         deserializerMap.put("continuationToken", (n) -> { this.setContinuationToken(n.getStringValue()); });
         deserializerMap.put("items", (n) -> { this.setItems(n.getCollectionOfObjectValues(ConversationResponse::createFromDiscriminatorValue)); });
         deserializerMap.put("needsReplyCount", (n) -> { this.setNeedsReplyCount(n.getIntegerValue()); });
         deserializerMap.put("pageSize", (n) -> { this.setPageSize(n.getIntegerValue()); });
         deserializerMap.put("refreshAfter", (n) -> { this.setRefreshAfter(n.getStringValue()); });
+        deserializerMap.put("selectedConversation", (n) -> { this.setSelectedConversation(n.getObjectValue(ConversationPageSelectedConversation::createFromDiscriminatorValue)); });
         deserializerMap.put("totalCount", (n) -> { this.setTotalCount(n.getIntegerValue()); });
         return deserializerMap;
     }
@@ -120,6 +125,14 @@ public class ConversationPage implements AdditionalDataHolder, Parsable {
         return this.refreshAfter;
     }
     /**
+     * Gets the selectedConversation property value. Describes conversation data returned by Leadping.
+     * @return a {@link ConversationPageSelectedConversation}
+     */
+    @jakarta.annotation.Nullable
+    public ConversationPageSelectedConversation getSelectedConversation() {
+        return this.selectedConversation;
+    }
+    /**
      * Gets the totalCount property value. The totalCount property
      * @return a {@link Integer}
      */
@@ -138,6 +151,7 @@ public class ConversationPage implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("needsReplyCount", this.getNeedsReplyCount());
         writer.writeIntegerValue("pageSize", this.getPageSize());
         writer.writeStringValue("refreshAfter", this.getRefreshAfter());
+        writer.writeObjectValue("selectedConversation", this.getSelectedConversation());
         writer.writeIntegerValue("totalCount", this.getTotalCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -182,6 +196,13 @@ public class ConversationPage implements AdditionalDataHolder, Parsable {
      */
     public void setRefreshAfter(@jakarta.annotation.Nullable final String value) {
         this.refreshAfter = value;
+    }
+    /**
+     * Sets the selectedConversation property value. Describes conversation data returned by Leadping.
+     * @param value Value to set for the selectedConversation property.
+     */
+    public void setSelectedConversation(@jakarta.annotation.Nullable final ConversationPageSelectedConversation value) {
+        this.selectedConversation = value;
     }
     /**
      * Sets the totalCount property value. The totalCount property

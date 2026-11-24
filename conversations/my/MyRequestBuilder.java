@@ -27,7 +27,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,priority*,textingAvailable*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,priority*,selectedConversationId*,textingAvailable*}", pathParameters);
     }
     /**
      * Instantiates a new {@link MyRequestBuilder} and sets the default values.
@@ -35,7 +35,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public MyRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,priority*,textingAvailable*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/conversations/my{?archiveFilter*,contactable*,priority*,selectedConversationId*,textingAvailable*}", rawUrl);
     }
     /**
      * Lists the current user&apos;s lead conversations with paging and sorting for inbox views, recent follow-up, and communication history.
@@ -135,6 +135,11 @@ public class MyRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public Boolean priority;
         /**
+         * Optional selected thread to include when it still matches the priority inbox.
+         */
+        @jakarta.annotation.Nullable
+        public String selectedConversationId;
+        /**
          * Whether to include only conversations where texting is available.
          */
         @jakarta.annotation.Nullable
@@ -149,6 +154,7 @@ public class MyRequestBuilder extends BaseRequestBuilder {
             allQueryParams.put("archiveFilter", archiveFilter);
             allQueryParams.put("contactable", contactable);
             allQueryParams.put("priority", priority);
+            allQueryParams.put("selectedConversationId", selectedConversationId);
             allQueryParams.put("textingAvailable", textingAvailable);
             return allQueryParams;
         }
