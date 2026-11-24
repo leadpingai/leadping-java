@@ -17,6 +17,10 @@ public class ManualDialRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * The outgoing number selected in the dialer.
+     */
+    private String fromPhoneNumberId;
+    /**
      * The destination phone number.
      */
     private String phoneNumber;
@@ -50,9 +54,18 @@ public class ManualDialRequest implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
+        deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("phoneNumber", (n) -> { this.setPhoneNumber(n.getStringValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the fromPhoneNumberId property value. The outgoing number selected in the dialer.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getFromPhoneNumberId() {
+        return this.fromPhoneNumberId;
     }
     /**
      * Gets the phoneNumber property value. The destination phone number.
@@ -68,6 +81,7 @@ public class ManualDialRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("phoneNumber", this.getPhoneNumber());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -77,6 +91,13 @@ public class ManualDialRequest implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the fromPhoneNumberId property value. The outgoing number selected in the dialer.
+     * @param value Value to set for the fromPhoneNumberId property.
+     */
+    public void setFromPhoneNumberId(@jakarta.annotation.Nullable final String value) {
+        this.fromPhoneNumberId = value;
     }
     /**
      * Sets the phoneNumber property value. The destination phone number.
