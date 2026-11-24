@@ -36,7 +36,7 @@ public class CapacityRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/outbound/{phoneNumberId}/capacity", rawUrl);
     }
     /**
-     * Returns the phone number&apos;s outbound sending capacity based on current provider and Leadping state, including throttling and delivery eligibility.The phone number must belong to the current organization.
+     * Check outbound sending capacity for a phone number in your Leadping organization, including current throttling and eligibility for delivery.
      * @return a {@link OutboundPhoneNumberCapacity}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class CapacityRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the phone number&apos;s outbound sending capacity based on current provider and Leadping state, including throttling and delivery eligibility.The phone number must belong to the current organization.
+     * Check outbound sending capacity for a phone number in your Leadping organization, including current throttling and eligibility for delivery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link OutboundPhoneNumberCapacity}
      * @throws ProblemDetails When receiving a 400 status code
@@ -73,7 +73,7 @@ public class CapacityRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, OutboundPhoneNumberCapacity::createFromDiscriminatorValue);
     }
     /**
-     * Returns the phone number&apos;s outbound sending capacity based on current provider and Leadping state, including throttling and delivery eligibility.The phone number must belong to the current organization.
+     * Check outbound sending capacity for a phone number in your Leadping organization, including current throttling and eligibility for delivery.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -81,7 +81,7 @@ public class CapacityRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the phone number&apos;s outbound sending capacity based on current provider and Leadping state, including throttling and delivery eligibility.The phone number must belong to the current organization.
+     * Check outbound sending capacity for a phone number in your Leadping organization, including current throttling and eligibility for delivery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

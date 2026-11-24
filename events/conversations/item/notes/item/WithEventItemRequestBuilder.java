@@ -37,7 +37,7 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/events/conversations/{conversationId}/notes/{eventId}", rawUrl);
     }
     /**
-     * The event table row.
+     * Edit an internal note you authored in Leadping. Submit the revised note text and use the returned event row to display the updated entry in the timeline.
      * @param body Defines the input used for create note.
      * @return a {@link EventTableRow}
      * @throws ProblemDetails When receiving a 400 status code
@@ -51,7 +51,7 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * The event table row.
+     * Edit an internal note you authored in Leadping. Submit the revised note text and use the returned event row to display the updated entry in the timeline.
      * @param body Defines the input used for create note.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link EventTableRow}
@@ -74,7 +74,7 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, EventTableRow::createFromDiscriminatorValue);
     }
     /**
-     * The event table row.
+     * Edit an internal note you authored in Leadping. Submit the revised note text and use the returned event row to display the updated entry in the timeline.
      * @param body Defines the input used for create note.
      * @return a {@link RequestInformation}
      */
@@ -83,7 +83,7 @@ public class WithEventItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * The event table row.
+     * Edit an internal note you authored in Leadping. Submit the revised note text and use the returned event row to display the updated entry in the timeline.
      * @param body Defines the input used for create note.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

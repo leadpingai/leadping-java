@@ -37,7 +37,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments/{id}/complete", rawUrl);
     }
     /**
-     * Marks an appointment as completed using the expected revision to detect concurrent changes.
+     * Mark a callback appointment as completed in Leadping. Supply the expected revision so the API can detect another users changes before recording completion.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Marks an appointment as completed using the expected revision to detect concurrent changes.
+     * Mark a callback appointment as completed in Leadping. Supply the expected revision so the API can detect another users changes before recording completion.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
@@ -71,7 +71,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Marks an appointment as completed using the expected revision to detect concurrent changes.
+     * Mark a callback appointment as completed in Leadping. Supply the expected revision so the API can detect another users changes before recording completion.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class CompleteRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Marks an appointment as completed using the expected revision to detect concurrent changes.
+     * Mark a callback appointment as completed in Leadping. Supply the expected revision so the API can detect another users changes before recording completion.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

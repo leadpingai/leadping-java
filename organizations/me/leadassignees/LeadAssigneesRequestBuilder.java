@@ -36,7 +36,7 @@ public class LeadAssigneesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/organizations/me/lead-assignees", rawUrl);
     }
     /**
-     * Returns distinct users in the current organization, ordered by name, for selecting lead assignees.
+     * Retrieve active users in the current Leadping organization for a lead assignee filter. Each user appears once, and results are ordered by name.
      * @return a {@link java.util.List<IdNamePair>}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -49,7 +49,7 @@ public class LeadAssigneesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns distinct users in the current organization, ordered by name, for selecting lead assignees.
+     * Retrieve active users in the current Leadping organization for a lead assignee filter. Each user appears once, and results are ordered by name.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<IdNamePair>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -70,7 +70,7 @@ public class LeadAssigneesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, IdNamePair::createFromDiscriminatorValue);
     }
     /**
-     * Returns distinct users in the current organization, ordered by name, for selecting lead assignees.
+     * Retrieve active users in the current Leadping organization for a lead assignee filter. Each user appears once, and results are ordered by name.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class LeadAssigneesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns distinct users in the current organization, ordered by name, for selecting lead assignees.
+     * Retrieve active users in the current Leadping organization for a lead assignee filter. Each user appears once, and results are ordered by name.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

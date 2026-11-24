@@ -36,7 +36,7 @@ public class LeadAudienceRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations/lead-audience", rawUrl);
     }
     /**
-     * Counts the active leads selectable by the current user across the organization.
+     * Check how many active leads the signed-in user can select across the organization before queuing a bulk automation run in Leadping.
      * @return a {@link AutomationLeadAudience}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -47,7 +47,7 @@ public class LeadAudienceRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Counts the active leads selectable by the current user across the organization.
+     * Check how many active leads the signed-in user can select across the organization before queuing a bulk automation run in Leadping.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationLeadAudience}
      * @throws ProblemDetails When receiving a 401 status code
@@ -64,7 +64,7 @@ public class LeadAudienceRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationLeadAudience::createFromDiscriminatorValue);
     }
     /**
-     * Counts the active leads selectable by the current user across the organization.
+     * Check how many active leads the signed-in user can select across the organization before queuing a bulk automation run in Leadping.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class LeadAudienceRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Counts the active leads selectable by the current user across the organization.
+     * Check how many active leads the signed-in user can select across the organization before queuing a bulk automation run in Leadping.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -37,7 +37,7 @@ public class BookedTimesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments/booked-times{?appointmentId*,leadId*,ownerId*}", rawUrl);
     }
     /**
-     * Gets occupied appointment times for a lead&apos;s selected assignee.
+     * Look up appointment times already booked for a leads selected assignee in Leadping before choosing a time for a new or rescheduled callback.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -48,7 +48,7 @@ public class BookedTimesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Gets occupied appointment times for a lead&apos;s selected assignee.
+     * Look up appointment times already booked for a leads selected assignee in Leadping before choosing a time for a new or rescheduled callback.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -65,7 +65,7 @@ public class BookedTimesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Gets occupied appointment times for a lead&apos;s selected assignee.
+     * Look up appointment times already booked for a leads selected assignee in Leadping before choosing a time for a new or rescheduled callback.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -73,7 +73,7 @@ public class BookedTimesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Gets occupied appointment times for a lead&apos;s selected assignee.
+     * Look up appointment times already booked for a leads selected assignee in Leadping before choosing a time for a new or rescheduled callback.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -95,7 +95,7 @@ public class BookedTimesRequestBuilder extends BaseRequestBuilder {
         return new BookedTimesRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Gets occupied appointment times for a lead&apos;s selected assignee.
+     * Look up appointment times already booked for a leads selected assignee in Leadping before choosing a time for a new or rescheduled callback.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

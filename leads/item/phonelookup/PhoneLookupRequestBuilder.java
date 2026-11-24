@@ -36,7 +36,7 @@ public class PhoneLookupRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/leads/{%2Did}/phone-lookup", rawUrl);
     }
     /**
-     * Queues a phone identity lookup for a lead visible to the current user and returns the lead after the lookup request is accepted.The lookup runs asynchronously and incurs a charge.
+     * Queue a new, billable phone identity lookup for a lead you can access. The API returns the lead once the request is accepted and runs the lookup asynchronously.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class PhoneLookupRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Queues a phone identity lookup for a lead visible to the current user and returns the lead after the lookup request is accepted.The lookup runs asynchronously and incurs a charge.
+     * Queue a new, billable phone identity lookup for a lead you can access. The API returns the lead once the request is accepted and runs the lookup asynchronously.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link LeadResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -73,7 +73,7 @@ public class PhoneLookupRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, LeadResponse::createFromDiscriminatorValue);
     }
     /**
-     * Queues a phone identity lookup for a lead visible to the current user and returns the lead after the lookup request is accepted.The lookup runs asynchronously and incurs a charge.
+     * Queue a new, billable phone identity lookup for a lead you can access. The API returns the lead once the request is accepted and runs the lookup asynchronously.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -81,7 +81,7 @@ public class PhoneLookupRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Queues a phone identity lookup for a lead visible to the current user and returns the lead after the lookup request is accepted.The lookup runs asynchronously and incurs a charge.
+     * Queue a new, billable phone identity lookup for a lead you can access. The API returns the lead once the request is accepted and runs the lookup asynchronously.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

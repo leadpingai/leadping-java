@@ -37,7 +37,7 @@ public class RetryRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/conversations/{conversation%2Did}/retry", rawUrl);
     }
     /**
-     * Updates the next manual call attempt if the observed retry time is still current.
+     * Set the next manual call time for a Leadping conversation. The update applies only if the retry time still matches the one you last saw.
      * @param body The request body
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class RetryRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Updates the next manual call attempt if the observed retry time is still current.
+     * Set the next manual call time for a Leadping conversation. The update applies only if the retry time still matches the one you last saw.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
@@ -68,7 +68,7 @@ public class RetryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Updates the next manual call attempt if the observed retry time is still current.
+     * Set the next manual call time for a Leadping conversation. The update applies only if the retry time still matches the one you last saw.
      * @param body The request body
      * @return a {@link RequestInformation}
      */
@@ -77,7 +77,7 @@ public class RetryRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Updates the next manual call attempt if the observed retry time is still current.
+     * Set the next manual call time for a Leadping conversation. The update applies only if the retry time still matches the one you last saw.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -38,7 +38,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/next/{requestId}{?texting*}", rawUrl);
     }
     /**
-     * Starts the next eligible call in the rep&apos;s filtered inbox.
+     * Start the next eligible call from a reps Leadping inbox. Supply the inbox filters so the next call comes from the leads in the reps current view.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Starts the next eligible call in the rep&apos;s filtered inbox.
+     * Start the next eligible call from a reps Leadping inbox. Supply the inbox filters so the next call comes from the leads in the reps current view.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
@@ -69,7 +69,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Starts the next eligible call in the rep&apos;s filtered inbox.
+     * Start the next eligible call from a reps Leadping inbox. Supply the inbox filters so the next call comes from the leads in the reps current view.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @return a {@link RequestInformation}
      */
@@ -78,7 +78,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Starts the next eligible call in the rep&apos;s filtered inbox.
+     * Start the next eligible call from a reps Leadping inbox. Supply the inbox filters so the next call comes from the leads in the reps current view.
      * @param body Defines cursor pagination, sorting, search, exact-match filters, and range filters for a structured API query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
@@ -103,7 +103,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return new WithRequestItemRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Starts the next eligible call in the rep&apos;s filtered inbox.
+     * Start the next eligible call from a reps Leadping inbox. Supply the inbox filters so the next call comes from the leads in the reps current view.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class PostQueryParameters implements QueryParameters {

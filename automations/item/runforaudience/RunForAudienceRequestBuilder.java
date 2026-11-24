@@ -36,7 +36,7 @@ public class RunForAudienceRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations/{id}/run-for-audience", rawUrl);
     }
     /**
-     * Queues a bulk run for the authorized lead audience.
+     * Queue a Leadping automation for a group of leads in one request. The bulk run uses the lead audience the current user is authorized to select.
      * @param body Runs an automation for a server-resolved audience, omitting leads the user unchecked.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
@@ -48,7 +48,7 @@ public class RunForAudienceRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Queues a bulk run for the authorized lead audience.
+     * Queue a Leadping automation for a group of leads in one request. The bulk run uses the lead audience the current user is authorized to select.
      * @param body Runs an automation for a server-resolved audience, omitting leads the user unchecked.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
@@ -67,7 +67,7 @@ public class RunForAudienceRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
-     * Queues a bulk run for the authorized lead audience.
+     * Queue a Leadping automation for a group of leads in one request. The bulk run uses the lead audience the current user is authorized to select.
      * @param body Runs an automation for a server-resolved audience, omitting leads the user unchecked.
      * @return a {@link RequestInformation}
      */
@@ -76,7 +76,7 @@ public class RunForAudienceRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Queues a bulk run for the authorized lead audience.
+     * Queue a Leadping automation for a group of leads in one request. The bulk run uses the lead audience the current user is authorized to select.
      * @param body Runs an automation for a server-resolved audience, omitting leads the user unchecked.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

@@ -59,7 +59,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/invitations{?token*}", rawUrl);
     }
     /**
-     * Get
+     * List open, unexpired organization invitations for the signed-in recipients verified email address, or use an invitation token to look up one invite.
      * @return a {@link java.util.List<OrganizationInvitationTableRow>}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -70,7 +70,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Get
+     * List open, unexpired organization invitations for the signed-in recipients verified email address, or use an invitation token to look up one invite.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<OrganizationInvitationTableRow>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -87,7 +87,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, OrganizationInvitationTableRow::createFromDiscriminatorValue);
     }
     /**
-     * Get
+     * List open, unexpired organization invitations for the signed-in recipients verified email address, or use an invitation token to look up one invite.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -95,7 +95,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Get
+     * List open, unexpired organization invitations for the signed-in recipients verified email address, or use an invitation token to look up one invite.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -117,7 +117,7 @@ public class InvitationsRequestBuilder extends BaseRequestBuilder {
         return new InvitationsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Get
+     * List open, unexpired organization invitations for the signed-in recipients verified email address, or use an invitation token to look up one invite.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

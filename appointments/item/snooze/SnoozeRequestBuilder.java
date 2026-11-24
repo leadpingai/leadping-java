@@ -37,7 +37,7 @@ public class SnoozeRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments/{id}/snooze", rawUrl);
     }
     /**
-     * Defers the reminder for ten minutes without moving the appointment, using the expected revision.
+     * Delay a Leadping appointment reminder by ten minutes while keeping the callback time unchanged. Send the expected revision to detect conflicting updates.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class SnoozeRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Defers the reminder for ten minutes without moving the appointment, using the expected revision.
+     * Delay a Leadping appointment reminder by ten minutes while keeping the callback time unchanged. Send the expected revision to detect conflicting updates.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
@@ -71,7 +71,7 @@ public class SnoozeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Defers the reminder for ten minutes without moving the appointment, using the expected revision.
+     * Delay a Leadping appointment reminder by ten minutes while keeping the callback time unchanged. Send the expected revision to detect conflicting updates.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class SnoozeRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Defers the reminder for ten minutes without moving the appointment, using the expected revision.
+     * Delay a Leadping appointment reminder by ten minutes while keeping the callback time unchanged. Send the expected revision to detect conflicting updates.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

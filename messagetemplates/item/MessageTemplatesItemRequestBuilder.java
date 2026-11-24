@@ -37,7 +37,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/message-templates/{id}", rawUrl);
     }
     /**
-     * Permanently deletes an organization template.
+     * Permanently remove a message template from your Leadping organization by ID. To keep the template for later use, disable it with the update endpoint.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -48,7 +48,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return delete(null);
     }
     /**
-     * Permanently deletes an organization template.
+     * Permanently remove a message template from your Leadping organization by ID. To keep the template for later use, disable it with the update endpoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Boolean}
      * @throws ProblemDetails When receiving a 401 status code
@@ -65,7 +65,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Boolean.class);
     }
     /**
-     * Updates an organization template&apos;s name, message, and enabled state.
+     * Update a Leadping message template by ID. Change its name or message text, or enable or disable the template for use in your organization.
      * @param body The editable fields of an organization message template.
      * @return a {@link MessageTemplate}
      * @throws ProblemDetails When receiving a 401 status code
@@ -77,7 +77,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates an organization template&apos;s name, message, and enabled state.
+     * Update a Leadping message template by ID. Change its name or message text, or enable or disable the template for use in your organization.
      * @param body The editable fields of an organization message template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link MessageTemplate}
@@ -96,7 +96,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, MessageTemplate::createFromDiscriminatorValue);
     }
     /**
-     * Permanently deletes an organization template.
+     * Permanently remove a message template from your Leadping organization by ID. To keep the template for later use, disable it with the update endpoint.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -104,7 +104,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * Permanently deletes an organization template.
+     * Permanently remove a message template from your Leadping organization by ID. To keep the template for later use, disable it with the update endpoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -116,7 +116,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates an organization template&apos;s name, message, and enabled state.
+     * Update a Leadping message template by ID. Change its name or message text, or enable or disable the template for use in your organization.
      * @param body The editable fields of an organization message template.
      * @return a {@link RequestInformation}
      */
@@ -125,7 +125,7 @@ public class MessageTemplatesItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates an organization template&apos;s name, message, and enabled state.
+     * Update a Leadping message template by ID. Change its name or message text, or enable or disable the template for use in your organization.
      * @param body The editable fields of an organization message template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

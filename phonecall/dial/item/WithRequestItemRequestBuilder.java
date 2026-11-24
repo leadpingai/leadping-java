@@ -37,7 +37,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/phone-call/dial/{requestId}", rawUrl);
     }
     /**
-     * Calls a number with the browser phone. For a new number, the caller confirms permission for manual voice contact and a lead is created.
+     * Place a call with the Leadping browser phone. For a new number, confirm permission for manual voice contact so Leadping can create the lead.
      * @param body Requests a manual browser call to a number entered by the agent.
      * @return a {@link PhoneCallResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -49,7 +49,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Calls a number with the browser phone. For a new number, the caller confirms permission for manual voice contact and a lead is created.
+     * Place a call with the Leadping browser phone. For a new number, confirm permission for manual voice contact so Leadping can create the lead.
      * @param body Requests a manual browser call to a number entered by the agent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PhoneCallResponse}
@@ -68,7 +68,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, PhoneCallResponse::createFromDiscriminatorValue);
     }
     /**
-     * Calls a number with the browser phone. For a new number, the caller confirms permission for manual voice contact and a lead is created.
+     * Place a call with the Leadping browser phone. For a new number, confirm permission for manual voice contact so Leadping can create the lead.
      * @param body Requests a manual browser call to a number entered by the agent.
      * @return a {@link RequestInformation}
      */
@@ -77,7 +77,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Calls a number with the browser phone. For a new number, the caller confirms permission for manual voice contact and a lead is created.
+     * Place a call with the Leadping browser phone. For a new number, confirm permission for manual voice contact so Leadping can create the lead.
      * @param body Requests a manual browser call to a number entered by the agent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

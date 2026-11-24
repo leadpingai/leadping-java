@@ -73,7 +73,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments/{id}", rawUrl);
     }
     /**
-     * Returns an appointment and its history, subject to lead and organization access.
+     * Retrieve a callback appointment and its history by ID in Leadping. The signed-in user must have access to the associated lead and organization.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -84,7 +84,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns an appointment and its history, subject to lead and organization access.
+     * Retrieve a callback appointment and its history by ID in Leadping. The signed-in user must have access to the associated lead and organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -101,7 +101,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Updates an appointment using the expected revision to detect concurrent changes.
+     * Edit an existing callback appointment in Leadping. Include the revision you last retrieved so the API can detect changes made since you viewed it.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -113,7 +113,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Updates an appointment using the expected revision to detect concurrent changes.
+     * Edit an existing callback appointment in Leadping. Include the revision you last retrieved so the API can detect changes made since you viewed it.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
@@ -132,7 +132,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns an appointment and its history, subject to lead and organization access.
+     * Retrieve a callback appointment and its history by ID in Leadping. The signed-in user must have access to the associated lead and organization.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -140,7 +140,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns an appointment and its history, subject to lead and organization access.
+     * Retrieve a callback appointment and its history by ID in Leadping. The signed-in user must have access to the associated lead and organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -152,7 +152,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Updates an appointment using the expected revision to detect concurrent changes.
+     * Edit an existing callback appointment in Leadping. Include the revision you last retrieved so the API can detect changes made since you viewed it.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @return a {@link RequestInformation}
      */
@@ -161,7 +161,7 @@ public class AppointmentsItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Updates an appointment using the expected revision to detect concurrent changes.
+     * Edit an existing callback appointment in Leadping. Include the revision you last retrieved so the API can detect changes made since you viewed it.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

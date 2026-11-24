@@ -37,7 +37,7 @@ public class DismissRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments/{id}/dismiss", rawUrl);
     }
     /**
-     * Dismisses the reminder without completing the appointment, using the expected revision.
+     * Dismiss a callback reminder in Leadping while leaving the appointment open. Include the expected revision to apply the change to the reminder you reviewed.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class DismissRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Dismisses the reminder without completing the appointment, using the expected revision.
+     * Dismiss a callback reminder in Leadping while leaving the appointment open. Include the expected revision to apply the change to the reminder you reviewed.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
@@ -71,7 +71,7 @@ public class DismissRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Dismisses the reminder without completing the appointment, using the expected revision.
+     * Dismiss a callback reminder in Leadping while leaving the appointment open. Include the expected revision to apply the change to the reminder you reviewed.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class DismissRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Dismisses the reminder without completing the appointment, using the expected revision.
+     * Dismiss a callback reminder in Leadping while leaving the appointment open. Include the expected revision to apply the change to the reminder you reviewed.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

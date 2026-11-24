@@ -36,7 +36,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/invitations/{id}/accept", rawUrl);
     }
     /**
-     * Accept
+     * Accept a pending organization invitation in Leadping. Sign in as the invited recipient and submit the invitation ID to join the organization.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -47,7 +47,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Accept
+     * Accept a pending organization invitation in Leadping. Sign in as the invited recipient and submit the invitation ID to join the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -64,7 +64,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Accept
+     * Accept a pending organization invitation in Leadping. Sign in as the invited recipient and submit the invitation ID to join the organization.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class AcceptRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Accept
+     * Accept a pending organization invitation in Leadping. Sign in as the invited recipient and submit the invitation ID to join the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -37,7 +37,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments/{id}/cancel", rawUrl);
     }
     /**
-     * Cancels an appointment and invalidates unsent reminders using the expected revision.
+     * Cancel a Leadping callback appointment and invalidate reminders that have yet to be sent. Include the expected revision to detect concurrent changes.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -50,7 +50,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Cancels an appointment and invalidates unsent reminders using the expected revision.
+     * Cancel a Leadping callback appointment and invalidate reminders that have yet to be sent. Include the expected revision to detect concurrent changes.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
@@ -71,7 +71,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Cancels an appointment and invalidates unsent reminders using the expected revision.
+     * Cancel a Leadping callback appointment and invalidate reminders that have yet to be sent. Include the expected revision to detect concurrent changes.
      * @param body Protects appointment actions against concurrent edits.
      * @return a {@link RequestInformation}
      */
@@ -80,7 +80,7 @@ public class CancelRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Cancels an appointment and invalidates unsent reminders using the expected revision.
+     * Cancel a Leadping callback appointment and invalidate reminders that have yet to be sent. Include the expected revision to detect concurrent changes.
      * @param body Protects appointment actions against concurrent edits.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

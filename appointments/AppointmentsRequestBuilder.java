@@ -60,7 +60,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/appointments{?adminMode*,dueOnly*,includeClosed*,leadId*}", rawUrl);
     }
     /**
-     * Returns appointments visible to the current user, with optional lead, reminder, and status filters.
+     * List callback appointments the signed-in user can access in Leadping. Filter by lead, reminder, or appointment status to narrow the results.
      * @return a {@link java.util.List<AppointmentResponse>}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -71,7 +71,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns appointments visible to the current user, with optional lead, reminder, and status filters.
+     * List callback appointments the signed-in user can access in Leadping. Filter by lead, reminder, or appointment status to narrow the results.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<AppointmentResponse>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -88,7 +88,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Schedules a callback appointment for a lead and configures its assigned agent and reminder.
+     * Schedule a callback for a lead through the Leadping API. Set the appointment time, assign the agent responsible for the call, and configure its reminder.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @return a {@link AppointmentResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -100,7 +100,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Schedules a callback appointment for a lead and configures its assigned agent and reminder.
+     * Schedule a callback for a lead through the Leadping API. Set the appointment time, assign the agent responsible for the call, and configure its reminder.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AppointmentResponse}
@@ -119,7 +119,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AppointmentResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns appointments visible to the current user, with optional lead, reminder, and status filters.
+     * List callback appointments the signed-in user can access in Leadping. Filter by lead, reminder, or appointment status to narrow the results.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -127,7 +127,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns appointments visible to the current user, with optional lead, reminder, and status filters.
+     * List callback appointments the signed-in user can access in Leadping. Filter by lead, reminder, or appointment status to narrow the results.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -139,7 +139,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Schedules a callback appointment for a lead and configures its assigned agent and reminder.
+     * Schedule a callback for a lead through the Leadping API. Set the appointment time, assign the agent responsible for the call, and configure its reminder.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @return a {@link RequestInformation}
      */
@@ -148,7 +148,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Schedules a callback appointment for a lead and configures its assigned agent and reminder.
+     * Schedule a callback for a lead through the Leadping API. Set the appointment time, assign the agent responsible for the call, and configure its reminder.
      * @param body Creates or reschedules an agent&apos;s callback appointment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
@@ -173,7 +173,7 @@ public class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return new AppointmentsRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * Returns appointments visible to the current user, with optional lead, reminder, and status filters.
+     * List callback appointments the signed-in user can access in Leadping. Filter by lead, reminder, or appointment status to narrow the results.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {

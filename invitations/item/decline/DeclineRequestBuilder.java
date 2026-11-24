@@ -36,7 +36,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/invitations/{id}/decline", rawUrl);
     }
     /**
-     * Decline
+     * Decline a pending Leadping organization invitation by ID while signed in as the recipient. Use this endpoint to turn down the invitation to join.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -47,7 +47,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Decline
+     * Decline a pending Leadping organization invitation by ID while signed in as the recipient. Use this endpoint to turn down the invitation to join.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 401 status code
@@ -64,7 +64,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Decline
+     * Decline a pending Leadping organization invitation by ID while signed in as the recipient. Use this endpoint to turn down the invitation to join.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Decline
+     * Decline a pending Leadping organization invitation by ID while signed in as the recipient. Use this endpoint to turn down the invitation to join.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

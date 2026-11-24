@@ -37,7 +37,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/invitations/decline", rawUrl);
     }
     /**
-     * Decline with token
+     * Decline a Leadping organization invitation without signing in. Submit the token from the invitation link to identify the invite you want to decline.
      * @param body Supplies the secret invitation token from the recipients email link.
      * @return a {@link InputStream}
      * @throws ProblemDetails When receiving a 429 status code
@@ -47,7 +47,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Decline with token
+     * Decline a Leadping organization invitation without signing in. Submit the token from the invitation link to identify the invite you want to decline.
      * @param body Supplies the secret invitation token from the recipients email link.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link InputStream}
@@ -62,7 +62,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitive(requestInfo, errorMapping, InputStream.class);
     }
     /**
-     * Decline with token
+     * Decline a Leadping organization invitation without signing in. Submit the token from the invitation link to identify the invite you want to decline.
      * @param body Supplies the secret invitation token from the recipients email link.
      * @return a {@link RequestInformation}
      */
@@ -71,7 +71,7 @@ public class DeclineRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Decline with token
+     * Decline a Leadping organization invitation without signing in. Submit the token from the invitation link to identify the invite you want to decline.
      * @param body Supplies the secret invitation token from the recipients email link.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

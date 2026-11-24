@@ -50,7 +50,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/message-templates", rawUrl);
     }
     /**
-     * Lists organization templates, including disabled templates.
+     * Retrieve your organizations Leadping message templates in one request. The list includes enabled templates as well as templates that are currently disabled.
      * @return a {@link java.util.List<MessageTemplate>}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -61,7 +61,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Lists organization templates, including disabled templates.
+     * Retrieve your organizations Leadping message templates in one request. The list includes enabled templates as well as templates that are currently disabled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link java.util.List<MessageTemplate>}
      * @throws ProblemDetails When receiving a 401 status code
@@ -78,7 +78,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendCollection(requestInfo, errorMapping, MessageTemplate::createFromDiscriminatorValue);
     }
     /**
-     * Creates a disabled organization template.
+     * Create a reusable message template for your Leadping organization. New templates start disabled, so you can review the message before enabling it.
      * @param body The editable fields of an organization message template.
      * @return a {@link MessageTemplate}
      * @throws ProblemDetails When receiving a 401 status code
@@ -90,7 +90,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return post(body, null);
     }
     /**
-     * Creates a disabled organization template.
+     * Create a reusable message template for your Leadping organization. New templates start disabled, so you can review the message before enabling it.
      * @param body The editable fields of an organization message template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link MessageTemplate}
@@ -109,7 +109,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, MessageTemplate::createFromDiscriminatorValue);
     }
     /**
-     * Lists organization templates, including disabled templates.
+     * Retrieve your organizations Leadping message templates in one request. The list includes enabled templates as well as templates that are currently disabled.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -117,7 +117,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Lists organization templates, including disabled templates.
+     * Retrieve your organizations Leadping message templates in one request. The list includes enabled templates as well as templates that are currently disabled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -129,7 +129,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Creates a disabled organization template.
+     * Create a reusable message template for your Leadping organization. New templates start disabled, so you can review the message before enabling it.
      * @param body The editable fields of an organization message template.
      * @return a {@link RequestInformation}
      */
@@ -138,7 +138,7 @@ public class MessageTemplatesRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * Creates a disabled organization template.
+     * Create a reusable message template for your Leadping organization. New templates start disabled, so you can review the message before enabling it.
      * @param body The editable fields of an organization message template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

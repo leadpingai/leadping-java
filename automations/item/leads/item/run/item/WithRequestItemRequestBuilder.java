@@ -36,7 +36,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/automations/{id}/leads/{leadId}/run/{requestId}", rawUrl);
     }
     /**
-     * Queues a manual automation run for a lead. Reuse the request ID when retrying the same run.
+     * Queue a manual automation for a specific lead in Leadping. Reuse the same request ID if you retry so the retry refers to the original run.
      * @return a {@link AutomationRunRecord}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -47,7 +47,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return post(null);
     }
     /**
-     * Queues a manual automation run for a lead. Reuse the request ID when retrying the same run.
+     * Queue a manual automation for a specific lead in Leadping. Reuse the same request ID if you retry so the retry refers to the original run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link AutomationRunRecord}
      * @throws ProblemDetails When receiving a 401 status code
@@ -64,7 +64,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, AutomationRunRecord::createFromDiscriminatorValue);
     }
     /**
-     * Queues a manual automation run for a lead. Reuse the request ID when retrying the same run.
+     * Queue a manual automation for a specific lead in Leadping. Reuse the same request ID if you retry so the retry refers to the original run.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class WithRequestItemRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(null);
     }
     /**
-     * Queues a manual automation run for a lead. Reuse the request ID when retrying the same run.
+     * Queue a manual automation for a specific lead in Leadping. Reuse the same request ID if you retry so the retry refers to the original run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
