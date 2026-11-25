@@ -54,10 +54,6 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     private String number;
     /**
-     * Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
-     */
-    private PhoneIdentityResponseProviderEnrichment providerEnrichment;
-    /**
      * Whether Telnyx rejected SMS routing to this destination with error 40001.
      */
     private Boolean smsNotRoutable;
@@ -99,7 +95,7 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(11);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(10);
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -109,7 +105,6 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         deserializerMap.put("number", (n) -> { this.setNumber(n.getStringValue()); });
-        deserializerMap.put("providerEnrichment", (n) -> { this.setProviderEnrichment(n.getObjectValue(PhoneIdentityResponseProviderEnrichment::createFromDiscriminatorValue)); });
         deserializerMap.put("smsNotRoutable", (n) -> { this.setSmsNotRoutable(n.getBooleanValue()); });
         return deserializerMap;
     }
@@ -178,14 +173,6 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         return this.number;
     }
     /**
-     * Gets the providerEnrichment property value. Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
-     * @return a {@link PhoneIdentityResponseProviderEnrichment}
-     */
-    @jakarta.annotation.Nullable
-    public PhoneIdentityResponseProviderEnrichment getProviderEnrichment() {
-        return this.providerEnrichment;
-    }
-    /**
      * Gets the smsNotRoutable property value. Whether Telnyx rejected SMS routing to this destination with error 40001.
      * @return a {@link Boolean}
      */
@@ -208,7 +195,6 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
         writer.writeStringValue("name", this.getName());
         writer.writeStringValue("number", this.getNumber());
-        writer.writeObjectValue("providerEnrichment", this.getProviderEnrichment());
         writer.writeBooleanValue("smsNotRoutable", this.getSmsNotRoutable());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -281,13 +267,6 @@ public class PhoneIdentityResponse implements AdditionalDataHolder, Parsable {
      */
     public void setNumber(@jakarta.annotation.Nullable final String value) {
         this.number = value;
-    }
-    /**
-     * Sets the providerEnrichment property value. Lossless provider snapshot retained with a phone identity for replay, audits, and fields added by providers later.
-     * @param value Value to set for the providerEnrichment property.
-     */
-    public void setProviderEnrichment(@jakarta.annotation.Nullable final PhoneIdentityResponseProviderEnrichment value) {
-        this.providerEnrichment = value;
     }
     /**
      * Sets the smsNotRoutable property value. Whether Telnyx rejected SMS routing to this destination with error 40001.

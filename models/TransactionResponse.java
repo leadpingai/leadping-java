@@ -42,10 +42,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private String description;
     /**
-     * Payment gateway fee amount charged for the wallet transaction.
-     */
-    private Double gatewayFeeAmount;
-    /**
      * Payment gateway status returned for this transaction.
      */
     private String gatewayStatus;
@@ -74,10 +70,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     private OffsetDateTime modifiedAt;
     /**
-     * Net monetary amount after fees, credits, or adjustments.
-     */
-    private Double netAmount;
-    /**
      * Additional billing notes that explain the transaction for admins or customers.
      */
     private String notes;
@@ -89,10 +81,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      * Masked or human-readable payment method shown for this transaction.
      */
     private String paymentMethodDisplay;
-    /**
-     * Leadping platform fee amount included in the transaction.
-     */
-    private Double platformFeeAmount;
     /**
      * Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.
      */
@@ -179,14 +167,13 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(21);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(18);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionResponseBillableUnit::forValue)); });
         deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
         deserializerMap.put("billingChannel", (n) -> { this.setBillingChannel(n.getEnumValue(TransactionResponseBillingChannel::forValue)); });
         deserializerMap.put("createdAt", (n) -> { this.setCreatedAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
-        deserializerMap.put("gatewayFeeAmount", (n) -> { this.setGatewayFeeAmount(n.getDoubleValue()); });
         deserializerMap.put("gatewayStatus", (n) -> { this.setGatewayStatus(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -194,22 +181,12 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionResponseLead::createFromDiscriminatorValue)); });
         deserializerMap.put("messageEventId", (n) -> { this.setMessageEventId(n.getStringValue()); });
         deserializerMap.put("modifiedAt", (n) -> { this.setModifiedAt(n.getOffsetDateTimeValue()); });
-        deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("notes", (n) -> { this.setNotes(n.getStringValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(TransactionResponseOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("paymentMethodDisplay", (n) -> { this.setPaymentMethodDisplay(n.getStringValue()); });
-        deserializerMap.put("platformFeeAmount", (n) -> { this.setPlatformFeeAmount(n.getDoubleValue()); });
         deserializerMap.put("transactionStatus", (n) -> { this.setTransactionStatus(n.getEnumValue(TransactionStatus::forValue)); });
         deserializerMap.put("transactionType", (n) -> { this.setTransactionType(n.getEnumValue(TransactionType::forValue)); });
         return deserializerMap;
-    }
-    /**
-     * Gets the gatewayFeeAmount property value. Payment gateway fee amount charged for the wallet transaction.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getGatewayFeeAmount() {
-        return this.gatewayFeeAmount;
     }
     /**
      * Gets the gatewayStatus property value. Payment gateway status returned for this transaction.
@@ -268,14 +245,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         return this.modifiedAt;
     }
     /**
-     * Gets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getNetAmount() {
-        return this.netAmount;
-    }
-    /**
      * Gets the notes property value. Additional billing notes that explain the transaction for admins or customers.
      * @return a {@link String}
      */
@@ -298,14 +267,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getPaymentMethodDisplay() {
         return this.paymentMethodDisplay;
-    }
-    /**
-     * Gets the platformFeeAmount property value. Leadping platform fee amount included in the transaction.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getPlatformFeeAmount() {
-        return this.platformFeeAmount;
     }
     /**
      * Gets the transactionStatus property value. Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.
@@ -335,7 +296,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue("billingChannel", this.getBillingChannel());
         writer.writeOffsetDateTimeValue("createdAt", this.getCreatedAt());
         writer.writeStringValue("description", this.getDescription());
-        writer.writeDoubleValue("gatewayFeeAmount", this.getGatewayFeeAmount());
         writer.writeStringValue("gatewayStatus", this.getGatewayStatus());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
@@ -343,11 +303,9 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("lead", this.getLead());
         writer.writeStringValue("messageEventId", this.getMessageEventId());
         writer.writeOffsetDateTimeValue("modifiedAt", this.getModifiedAt());
-        writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeStringValue("notes", this.getNotes());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("paymentMethodDisplay", this.getPaymentMethodDisplay());
-        writer.writeDoubleValue("platformFeeAmount", this.getPlatformFeeAmount());
         writer.writeEnumValue("transactionStatus", this.getTransactionStatus());
         writer.writeEnumValue("transactionType", this.getTransactionType());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -402,13 +360,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.description = value;
     }
     /**
-     * Sets the gatewayFeeAmount property value. Payment gateway fee amount charged for the wallet transaction.
-     * @param value Value to set for the gatewayFeeAmount property.
-     */
-    public void setGatewayFeeAmount(@jakarta.annotation.Nullable final Double value) {
-        this.gatewayFeeAmount = value;
-    }
-    /**
      * Sets the gatewayStatus property value. Payment gateway status returned for this transaction.
      * @param value Value to set for the gatewayStatus property.
      */
@@ -458,13 +409,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
         this.modifiedAt = value;
     }
     /**
-     * Sets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
-     * @param value Value to set for the netAmount property.
-     */
-    public void setNetAmount(@jakarta.annotation.Nullable final Double value) {
-        this.netAmount = value;
-    }
-    /**
      * Sets the notes property value. Additional billing notes that explain the transaction for admins or customers.
      * @param value Value to set for the notes property.
      */
@@ -484,13 +428,6 @@ public class TransactionResponse implements AdditionalDataHolder, Parsable {
      */
     public void setPaymentMethodDisplay(@jakarta.annotation.Nullable final String value) {
         this.paymentMethodDisplay = value;
-    }
-    /**
-     * Sets the platformFeeAmount property value. Leadping platform fee amount included in the transaction.
-     * @param value Value to set for the platformFeeAmount property.
-     */
-    public void setPlatformFeeAmount(@jakarta.annotation.Nullable final Double value) {
-        this.platformFeeAmount = value;
     }
     /**
      * Sets the transactionStatus property value. Describes the processing and settlement lifecycle of a Leadping wallet or billing transaction.

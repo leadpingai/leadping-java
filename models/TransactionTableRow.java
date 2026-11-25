@@ -58,10 +58,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     private TransactionTableRowLead lead;
     /**
-     * Net monetary amount after fees, credits, or adjustments.
-     */
-    private Double netAmount;
-    /**
      * Provides a compact API reference to another resource using its stable identifier and human-readable display name.
      */
     private TransactionTableRowOrganization organization;
@@ -175,7 +171,7 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(19);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getDoubleValue()); });
         deserializerMap.put("billableUnit", (n) -> { this.setBillableUnit(n.getEnumValue(TransactionTableRowBillableUnit::forValue)); });
         deserializerMap.put("billedAmount", (n) -> { this.setBilledAmount(n.getDoubleValue()); });
@@ -186,7 +182,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("isUsageReservation", (n) -> { this.setIsUsageReservation(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(TransactionTableRowLead::createFromDiscriminatorValue)); });
-        deserializerMap.put("netAmount", (n) -> { this.setNetAmount(n.getDoubleValue()); });
         deserializerMap.put("organization", (n) -> { this.setOrganization(n.getObjectValue(TransactionTableRowOrganization::createFromDiscriminatorValue)); });
         deserializerMap.put("paymentMethodDisplay", (n) -> { this.setPaymentMethodDisplay(n.getStringValue()); });
         deserializerMap.put("pricingVersion", (n) -> { this.setPricingVersion(n.getStringValue()); });
@@ -229,14 +224,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public TransactionTableRowLead getLead() {
         return this.lead;
-    }
-    /**
-     * Gets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
-     * @return a {@link Double}
-     */
-    @jakarta.annotation.Nullable
-    public Double getNetAmount() {
-        return this.netAmount;
     }
     /**
      * Gets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
@@ -326,7 +313,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeBooleanValue("isUsageReservation", this.getIsUsageReservation());
         writer.writeObjectValue("lead", this.getLead());
-        writer.writeDoubleValue("netAmount", this.getNetAmount());
         writer.writeObjectValue("organization", this.getOrganization());
         writer.writeStringValue("paymentMethodDisplay", this.getPaymentMethodDisplay());
         writer.writeStringValue("pricingVersion", this.getPricingVersion());
@@ -414,13 +400,6 @@ public class TransactionTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setLead(@jakarta.annotation.Nullable final TransactionTableRowLead value) {
         this.lead = value;
-    }
-    /**
-     * Sets the netAmount property value. Net monetary amount after fees, credits, or adjustments.
-     * @param value Value to set for the netAmount property.
-     */
-    public void setNetAmount(@jakarta.annotation.Nullable final Double value) {
-        this.netAmount = value;
     }
     /**
      * Sets the organization property value. Provides a compact API reference to another resource using its stable identifier and human-readable display name.
