@@ -3,6 +3,7 @@ package ai.leadping.openapi.suppressions;
 import ai.leadping.openapi.models.ProblemDetails;
 import ai.leadping.openapi.models.SuppressionEntryRequest;
 import ai.leadping.openapi.models.SuppressionEntryResponse;
+import ai.leadping.openapi.suppressions.admin.AdminRequestBuilder;
 import ai.leadping.openapi.suppressions.all.AllRequestBuilder;
 import ai.leadping.openapi.suppressions.check.CheckRequestBuilder;
 import ai.leadping.openapi.suppressions.item.SuppressionsItemRequestBuilder;
@@ -24,6 +25,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuppressionsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The admin property
+     * @return a {@link AdminRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public AdminRequestBuilder admin() {
+        return new AdminRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The all property
      * @return a {@link AllRequestBuilder}

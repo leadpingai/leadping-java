@@ -17,7 +17,7 @@ public class PhoneNumberTrafficHealth implements AdditionalDataHolder, Parsable 
      */
     private Map<String, Object> additionalData;
     /**
-     * The lower evaluated channel score, or null when neither channel has sufficient evidence.
+     * Rounded average of the evaluated SMS and voice scores, or null when neither channel has sufficient evidence.
      */
     private Integer score;
     /**
@@ -55,7 +55,7 @@ public class PhoneNumberTrafficHealth implements AdditionalDataHolder, Parsable 
         return deserializerMap;
     }
     /**
-     * Gets the score property value. The lower evaluated channel score, or null when neither channel has sufficient evidence.
+     * Gets the score property value. Rounded average of the evaluated SMS and voice scores, or null when neither channel has sufficient evidence.
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class PhoneNumberTrafficHealth implements AdditionalDataHolder, Parsable 
         this.additionalData = value;
     }
     /**
-     * Sets the score property value. The lower evaluated channel score, or null when neither channel has sufficient evidence.
+     * Sets the score property value. Rounded average of the evaluated SMS and voice scores, or null when neither channel has sufficient evidence.
      * @param value Value to set for the score property.
      */
     public void setScore(@jakarta.annotation.Nullable final Integer value) {

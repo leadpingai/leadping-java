@@ -179,6 +179,10 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean usageLimitHitEnabled;
     /**
+     * Text organization admins when their prepaid wallet runs out of funds.
+     */
+    private Boolean walletDepletedSmsEnabled;
+    /**
      * Instantiates a new {@link UserNotificationPreferences} and sets the default values.
      */
     public UserNotificationPreferences() {
@@ -288,7 +292,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(41);
         deserializerMap.put("accountSmsAlertsEnabled", (n) -> { this.setAccountSmsAlertsEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEmailEnabled", (n) -> { this.setAppointmentReminderEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEnabled", (n) -> { this.setAppointmentReminderEnabled(n.getBooleanValue()); });
@@ -329,6 +333,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("unreadSmsEnabled", (n) -> { this.setUnreadSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("unreadSmsSmsEnabled", (n) -> { this.setUnreadSmsSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("usageLimitHitEnabled", (n) -> { this.setUsageLimitHitEnabled(n.getBooleanValue()); });
+        deserializerMap.put("walletDepletedSmsEnabled", (n) -> { this.setWalletDepletedSmsEnabled(n.getBooleanValue()); });
         return deserializerMap;
     }
     /**
@@ -572,6 +577,14 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         return this.usageLimitHitEnabled;
     }
     /**
+     * Gets the walletDepletedSmsEnabled property value. Text organization admins when their prepaid wallet runs out of funds.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getWalletDepletedSmsEnabled() {
+        return this.walletDepletedSmsEnabled;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -617,6 +630,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("unreadSmsEnabled", this.getUnreadSmsEnabled());
         writer.writeBooleanValue("unreadSmsSmsEnabled", this.getUnreadSmsSmsEnabled());
         writer.writeBooleanValue("usageLimitHitEnabled", this.getUsageLimitHitEnabled());
+        writer.writeBooleanValue("walletDepletedSmsEnabled", this.getWalletDepletedSmsEnabled());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -905,5 +919,12 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setUsageLimitHitEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.usageLimitHitEnabled = value;
+    }
+    /**
+     * Sets the walletDepletedSmsEnabled property value. Text organization admins when their prepaid wallet runs out of funds.
+     * @param value Value to set for the walletDepletedSmsEnabled property.
+     */
+    public void setWalletDepletedSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.walletDepletedSmsEnabled = value;
     }
 }
