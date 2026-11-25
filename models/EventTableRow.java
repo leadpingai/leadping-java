@@ -34,7 +34,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Name of the automation when it started.
+     * Name of the automation associated with this event.
      */
     private String automationName;
     /**
@@ -298,7 +298,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the automationName property value. Name of the automation when it started.
+     * Gets the automationName property value. Name of the automation associated with this event.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -878,7 +878,7 @@ public class EventTableRow implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the automationName property value. Name of the automation when it started.
+     * Sets the automationName property value. Name of the automation associated with this event.
      * @param value Value to set for the automationName property.
      */
     public void setAutomationName(@jakarta.annotation.Nullable final String value) {

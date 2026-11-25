@@ -59,6 +59,10 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     private Boolean billingSmsEnabled;
     /**
+     * Play a sound in the Portal when an incoming text message arrives.
+     */
+    private Boolean incomingMessageSoundEnabled;
+    /**
      * Indicates whether low wallet balance email functionality is enabled for this Leadping user notification preferences.
      */
     private Boolean lowWalletBalanceEmailEnabled;
@@ -292,7 +296,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(41);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(42);
         deserializerMap.put("accountSmsAlertsEnabled", (n) -> { this.setAccountSmsAlertsEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEmailEnabled", (n) -> { this.setAppointmentReminderEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("appointmentReminderEnabled", (n) -> { this.setAppointmentReminderEnabled(n.getBooleanValue()); });
@@ -303,6 +307,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("automationFailedSmsEnabled", (n) -> { this.setAutomationFailedSmsEnabled(n.getBooleanValue()); });
         deserializerMap.put("billingEmailEnabled", (n) -> { this.setBillingEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("billingSmsEnabled", (n) -> { this.setBillingSmsEnabled(n.getBooleanValue()); });
+        deserializerMap.put("incomingMessageSoundEnabled", (n) -> { this.setIncomingMessageSoundEnabled(n.getBooleanValue()); });
         deserializerMap.put("lowWalletBalanceEmailEnabled", (n) -> { this.setLowWalletBalanceEmailEnabled(n.getBooleanValue()); });
         deserializerMap.put("lowWalletBalanceEnabled", (n) -> { this.setLowWalletBalanceEnabled(n.getBooleanValue()); });
         deserializerMap.put("lowWalletBalanceSmsEnabled", (n) -> { this.setLowWalletBalanceSmsEnabled(n.getBooleanValue()); });
@@ -335,6 +340,14 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         deserializerMap.put("usageLimitHitEnabled", (n) -> { this.setUsageLimitHitEnabled(n.getBooleanValue()); });
         deserializerMap.put("walletDepletedSmsEnabled", (n) -> { this.setWalletDepletedSmsEnabled(n.getBooleanValue()); });
         return deserializerMap;
+    }
+    /**
+     * Gets the incomingMessageSoundEnabled property value. Play a sound in the Portal when an incoming text message arrives.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIncomingMessageSoundEnabled() {
+        return this.incomingMessageSoundEnabled;
     }
     /**
      * Gets the lowWalletBalanceEmailEnabled property value. Indicates whether low wallet balance email functionality is enabled for this Leadping user notification preferences.
@@ -600,6 +613,7 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("automationFailedSmsEnabled", this.getAutomationFailedSmsEnabled());
         writer.writeBooleanValue("billingEmailEnabled", this.getBillingEmailEnabled());
         writer.writeBooleanValue("billingSmsEnabled", this.getBillingSmsEnabled());
+        writer.writeBooleanValue("incomingMessageSoundEnabled", this.getIncomingMessageSoundEnabled());
         writer.writeBooleanValue("lowWalletBalanceEmailEnabled", this.getLowWalletBalanceEmailEnabled());
         writer.writeBooleanValue("lowWalletBalanceEnabled", this.getLowWalletBalanceEnabled());
         writer.writeBooleanValue("lowWalletBalanceSmsEnabled", this.getLowWalletBalanceSmsEnabled());
@@ -709,6 +723,13 @@ public class UserNotificationPreferences implements AdditionalDataHolder, Parsab
      */
     public void setBillingSmsEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.billingSmsEnabled = value;
+    }
+    /**
+     * Sets the incomingMessageSoundEnabled property value. Play a sound in the Portal when an incoming text message arrives.
+     * @param value Value to set for the incomingMessageSoundEnabled property.
+     */
+    public void setIncomingMessageSoundEnabled(@jakarta.annotation.Nullable final Boolean value) {
+        this.incomingMessageSoundEnabled = value;
     }
     /**
      * Sets the lowWalletBalanceEmailEnabled property value. Indicates whether low wallet balance email functionality is enabled for this Leadping user notification preferences.
