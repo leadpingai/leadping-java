@@ -78,7 +78,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
-     * Whether the source covers SMS consent for the current recipient.
+     * Whether the source provides consent for manual quote calls and manual or automated quote texts to this recipient.
      */
     private Boolean hasSourceSmsConsent;
     /**
@@ -316,7 +316,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the hasSourceSmsConsent property value. Whether the source covers SMS consent for the current recipient.
+     * Gets the hasSourceSmsConsent property value. Whether the source provides consent for manual quote calls and manual or automated quote texts to this recipient.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -577,7 +577,7 @@ public class LeadResponse implements AdditionalDataHolder, Parsable {
         this.enabled = value;
     }
     /**
-     * Sets the hasSourceSmsConsent property value. Whether the source covers SMS consent for the current recipient.
+     * Sets the hasSourceSmsConsent property value. Whether the source provides consent for manual quote calls and manual or automated quote texts to this recipient.
      * @param value Value to set for the hasSourceSmsConsent property.
      */
     public void setHasSourceSmsConsent(@jakarta.annotation.Nullable final Boolean value) {
