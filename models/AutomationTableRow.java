@@ -42,6 +42,10 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean enabled;
     /**
+     * Distinct leads with an unfinished workflow in this automation.
+     */
+    private Integer enrolledLeadCount;
+    /**
      * Human-readable health summary for this automation table row.
      */
     private String healthSummary;
@@ -109,6 +113,10 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      * Visibility level that controls who can see this automation table row.
      */
     private String visibility;
+    /**
+     * Enrolled leads with at least one waiting or scheduled workflow.
+     */
+    private Integer waitingLeadCount;
     /**
      * Instantiates a new {@link AutomationTableRow} and sets the default values.
      */
@@ -182,18 +190,27 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.enabled;
     }
     /**
+     * Gets the enrolledLeadCount property value. Distinct leads with an unfinished workflow in this automation.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getEnrolledLeadCount() {
+        return this.enrolledLeadCount;
+    }
+    /**
      * The deserialization information for the current model
      * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(23);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(25);
         deserializerMap.put("actionSummary", (n) -> { this.setActionSummary(n.getStringValue()); });
         deserializerMap.put("canRunForLead", (n) -> { this.setCanRunForLead(n.getBooleanValue()); });
         deserializerMap.put("conditionSummary", (n) -> { this.setConditionSummary(n.getStringValue()); });
         deserializerMap.put("createdByUserId", (n) -> { this.setCreatedByUserId(n.getStringValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("enabled", (n) -> { this.setEnabled(n.getBooleanValue()); });
+        deserializerMap.put("enrolledLeadCount", (n) -> { this.setEnrolledLeadCount(n.getIntegerValue()); });
         deserializerMap.put("healthSummary", (n) -> { this.setHealthSummary(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
@@ -211,6 +228,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("triggerType", (n) -> { this.setTriggerType(n.getStringValue()); });
         deserializerMap.put("user", (n) -> { this.setUser(n.getObjectValue(AutomationTableRowUser::createFromDiscriminatorValue)); });
         deserializerMap.put("visibility", (n) -> { this.setVisibility(n.getStringValue()); });
+        deserializerMap.put("waitingLeadCount", (n) -> { this.setWaitingLeadCount(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
@@ -350,6 +368,14 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         return this.visibility;
     }
     /**
+     * Gets the waitingLeadCount property value. Enrolled leads with at least one waiting or scheduled workflow.
+     * @return a {@link Integer}
+     */
+    @jakarta.annotation.Nullable
+    public Integer getWaitingLeadCount() {
+        return this.waitingLeadCount;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -361,6 +387,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("createdByUserId", this.getCreatedByUserId());
         writer.writeStringValue("description", this.getDescription());
         writer.writeBooleanValue("enabled", this.getEnabled());
+        writer.writeIntegerValue("enrolledLeadCount", this.getEnrolledLeadCount());
         writer.writeStringValue("healthSummary", this.getHealthSummary());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
@@ -378,6 +405,7 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("triggerType", this.getTriggerType());
         writer.writeObjectValue("user", this.getUser());
         writer.writeStringValue("visibility", this.getVisibility());
+        writer.writeIntegerValue("waitingLeadCount", this.getWaitingLeadCount());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -428,6 +456,13 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setEnabled(@jakarta.annotation.Nullable final Boolean value) {
         this.enabled = value;
+    }
+    /**
+     * Sets the enrolledLeadCount property value. Distinct leads with an unfinished workflow in this automation.
+     * @param value Value to set for the enrolledLeadCount property.
+     */
+    public void setEnrolledLeadCount(@jakarta.annotation.Nullable final Integer value) {
+        this.enrolledLeadCount = value;
     }
     /**
      * Sets the healthSummary property value. Human-readable health summary for this automation table row.
@@ -547,5 +582,12 @@ public class AutomationTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setVisibility(@jakarta.annotation.Nullable final String value) {
         this.visibility = value;
+    }
+    /**
+     * Sets the waitingLeadCount property value. Enrolled leads with at least one waiting or scheduled workflow.
+     * @param value Value to set for the waitingLeadCount property.
+     */
+    public void setWaitingLeadCount(@jakarta.annotation.Nullable final Integer value) {
+        this.waitingLeadCount = value;
     }
 }
