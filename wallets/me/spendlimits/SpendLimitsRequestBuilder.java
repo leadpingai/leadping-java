@@ -37,7 +37,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/wallets/me/spend-limits", rawUrl);
     }
     /**
-     * Returns the current organization&apos;s daily and monthly usage limits in USD and its progress for the current UTC periods.
+     * Returns organization and channel budgets and usage in the current UTC periods.
      * @return a {@link SpendLimitsResponse}
      * @throws ProblemDetails When receiving a 401 status code
      * @throws ProblemDetails When receiving a 403 status code
@@ -50,7 +50,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return get(null);
     }
     /**
-     * Returns the current organization&apos;s daily and monthly usage limits in USD and its progress for the current UTC periods.
+     * Returns organization and channel budgets and usage in the current UTC periods.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SpendLimitsResponse}
      * @throws ProblemDetails When receiving a 401 status code
@@ -71,7 +71,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SpendLimitsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Set daily and monthly usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
+     * Set organization and channel usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
      * @param body Organization usage budgets in USD. Null removes a limit; zero stops new paid usage.
      * @return a {@link SpendLimitsResponse}
      * @throws ProblemDetails When receiving a 400 status code
@@ -87,7 +87,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return put(body, null);
     }
     /**
-     * Set daily and monthly usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
+     * Set organization and channel usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
      * @param body Organization usage budgets in USD. Null removes a limit; zero stops new paid usage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SpendLimitsResponse}
@@ -114,7 +114,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.send(requestInfo, errorMapping, SpendLimitsResponse::createFromDiscriminatorValue);
     }
     /**
-     * Returns the current organization&apos;s daily and monthly usage limits in USD and its progress for the current UTC periods.
+     * Returns organization and channel budgets and usage in the current UTC periods.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -122,7 +122,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * Returns the current organization&apos;s daily and monthly usage limits in USD and its progress for the current UTC periods.
+     * Returns organization and channel budgets and usage in the current UTC periods.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -134,7 +134,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * Set daily and monthly usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
+     * Set organization and channel usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
      * @param body Organization usage budgets in USD. Null removes a limit; zero stops new paid usage.
      * @return a {@link RequestInformation}
      */
@@ -143,7 +143,7 @@ public class SpendLimitsRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * Set daily and monthly usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
+     * Set organization and channel usage budgets in USD for your Leadping organization. Use null to remove a limit or zero to stop new paid usage.
      * @param body Organization usage budgets in USD. Null removes a limit; zero stops new paid usage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}

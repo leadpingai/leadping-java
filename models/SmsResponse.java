@@ -86,6 +86,10 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     private String id;
     /**
+     * Whether the scheduled send is waiting for spending capacity to reset.
+     */
+    private Boolean isBudgetDelayed;
+    /**
      * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
@@ -315,7 +319,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(39);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(40);
         deserializerMap.put("billableAmount", (n) -> { this.setBillableAmount(n.getDoubleValue()); });
         deserializerMap.put("billingStatus", (n) -> { this.setBillingStatus(n.getStringValue()); });
         deserializerMap.put("blockedAt", (n) -> { this.setBlockedAt(n.getOffsetDateTimeValue()); });
@@ -333,6 +337,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumber", (n) -> { this.setFromPhoneNumber(n.getStringValue()); });
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
+        deserializerMap.put("isBudgetDelayed", (n) -> { this.setIsBudgetDelayed(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("leadId", (n) -> { this.setLeadId(n.getStringValue()); });
         deserializerMap.put("media", (n) -> { this.setMedia(n.getCollectionOfObjectValues(MessageMediaAttachment::createFromDiscriminatorValue)); });
@@ -380,6 +385,14 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public String getId() {
         return this.id;
+    }
+    /**
+     * Gets the isBudgetDelayed property value. Whether the scheduled send is waiting for spending capacity to reset.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsBudgetDelayed() {
+        return this.isBudgetDelayed;
     }
     /**
      * Gets the isDemo property value. Whether this record belongs to demo data.
@@ -580,6 +593,7 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumber", this.getFromPhoneNumber());
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
+        writer.writeBooleanValue("isBudgetDelayed", this.getIsBudgetDelayed());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeStringValue("leadId", this.getLeadId());
         writer.writeCollectionOfObjectValues("media", this.getMedia());
@@ -729,6 +743,13 @@ public class SmsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setId(@jakarta.annotation.Nullable final String value) {
         this.id = value;
+    }
+    /**
+     * Sets the isBudgetDelayed property value. Whether the scheduled send is waiting for spending capacity to reset.
+     * @param value Value to set for the isBudgetDelayed property.
+     */
+    public void setIsBudgetDelayed(@jakarta.annotation.Nullable final Boolean value) {
+        this.isBudgetDelayed = value;
     }
     /**
      * Sets the isDemo property value. Whether this record belongs to demo data.

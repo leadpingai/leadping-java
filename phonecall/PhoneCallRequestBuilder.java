@@ -1,5 +1,6 @@
 package ai.leadping.openapi.phonecall;
 
+import ai.leadping.openapi.phonecall.budget.BudgetRequestBuilder;
 import ai.leadping.openapi.phonecall.dial.DialRequestBuilder;
 import ai.leadping.openapi.phonecall.initiate.InitiateRequestBuilder;
 import ai.leadping.openapi.phonecall.item.WithCallItemRequestBuilder;
@@ -13,6 +14,14 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PhoneCallRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The budget property
+     * @return a {@link BudgetRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public BudgetRequestBuilder budget() {
+        return new BudgetRequestBuilder(pathParameters, requestAdapter);
+    }
     /**
      * The dial property
      * @return a {@link DialRequestBuilder}

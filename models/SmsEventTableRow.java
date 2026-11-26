@@ -106,6 +106,10 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     private Boolean isAutomated;
     /**
+     * Whether the scheduled send is waiting for spending capacity to reset.
+     */
+    private Boolean isBudgetDelayed;
+    /**
      * Whether this record belongs to demo data.
      */
     private Boolean isDemo;
@@ -371,7 +375,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(45);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(46);
         deserializerMap.put("actorDisplayName", (n) -> { this.setActorDisplayName(n.getStringValue()); });
         deserializerMap.put("actorLeadId", (n) -> { this.setActorLeadId(n.getStringValue()); });
         deserializerMap.put("actorUserId", (n) -> { this.setActorUserId(n.getStringValue()); });
@@ -394,6 +398,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         deserializerMap.put("fromPhoneNumberId", (n) -> { this.setFromPhoneNumberId(n.getStringValue()); });
         deserializerMap.put("id", (n) -> { this.setId(n.getStringValue()); });
         deserializerMap.put("isAutomated", (n) -> { this.setIsAutomated(n.getBooleanValue()); });
+        deserializerMap.put("isBudgetDelayed", (n) -> { this.setIsBudgetDelayed(n.getBooleanValue()); });
         deserializerMap.put("isDemo", (n) -> { this.setIsDemo(n.getBooleanValue()); });
         deserializerMap.put("lead", (n) -> { this.setLead(n.getObjectValue(IdNamePair::createFromDiscriminatorValue)); });
         deserializerMap.put("leadAvatarUrl", (n) -> { this.setLeadAvatarUrl(n.getStringValue()); });
@@ -450,6 +455,14 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nullable
     public Boolean getIsAutomated() {
         return this.isAutomated;
+    }
+    /**
+     * Gets the isBudgetDelayed property value. Whether the scheduled send is waiting for spending capacity to reset.
+     * @return a {@link Boolean}
+     */
+    @jakarta.annotation.Nullable
+    public Boolean getIsBudgetDelayed() {
+        return this.isBudgetDelayed;
     }
     /**
      * Gets the isDemo property value. Whether this record belongs to demo data.
@@ -663,6 +676,7 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("fromPhoneNumberId", this.getFromPhoneNumberId());
         writer.writeStringValue("id", this.getId());
         writer.writeBooleanValue("isAutomated", this.getIsAutomated());
+        writer.writeBooleanValue("isBudgetDelayed", this.getIsBudgetDelayed());
         writer.writeBooleanValue("isDemo", this.getIsDemo());
         writer.writeObjectValue("lead", this.getLead());
         writer.writeStringValue("leadAvatarUrl", this.getLeadAvatarUrl());
@@ -848,6 +862,13 @@ public class SmsEventTableRow implements AdditionalDataHolder, Parsable {
      */
     public void setIsAutomated(@jakarta.annotation.Nullable final Boolean value) {
         this.isAutomated = value;
+    }
+    /**
+     * Sets the isBudgetDelayed property value. Whether the scheduled send is waiting for spending capacity to reset.
+     * @param value Value to set for the isBudgetDelayed property.
+     */
+    public void setIsBudgetDelayed(@jakarta.annotation.Nullable final Boolean value) {
+        this.isBudgetDelayed = value;
     }
     /**
      * Sets the isDemo property value. Whether this record belongs to demo data.

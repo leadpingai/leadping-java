@@ -18,6 +18,18 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
+     * Optional calling budget in USD.
+     */
+    private Double callingLimit;
+    /**
+     * Calendar period for an organization channel budget, in UTC.
+     */
+    private SpendPeriod callingPeriod;
+    /**
+     * Settled calling charges this period plus pending calling reservations.
+     */
+    private Double callingUsed;
+    /**
      * Daily usage budget in USD. Null means no daily limit; zero stops new paid usage.
      */
     private Double dailyLimit;
@@ -46,6 +58,18 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
      */
     private Double reserved;
     /**
+     * Optional texting budget in USD.
+     */
+    private Double textingLimit;
+    /**
+     * Calendar period for an organization channel budget, in UTC.
+     */
+    private SpendPeriod textingPeriod;
+    /**
+     * Settled texting charges this period plus pending texting reservations.
+     */
+    private Double textingUsed;
+    /**
      * Instantiates a new {@link SpendLimitsResponse} and sets the default values.
      */
     public SpendLimitsResponse() {
@@ -68,6 +92,30 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, Object> getAdditionalData() {
         return this.additionalData;
+    }
+    /**
+     * Gets the callingLimit property value. Optional calling budget in USD.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getCallingLimit() {
+        return this.callingLimit;
+    }
+    /**
+     * Gets the callingPeriod property value. Calendar period for an organization channel budget, in UTC.
+     * @return a {@link SpendPeriod}
+     */
+    @jakarta.annotation.Nullable
+    public SpendPeriod getCallingPeriod() {
+        return this.callingPeriod;
+    }
+    /**
+     * Gets the callingUsed property value. Settled calling charges this period plus pending calling reservations.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getCallingUsed() {
+        return this.callingUsed;
     }
     /**
      * Gets the dailyLimit property value. Daily usage budget in USD. Null means no daily limit; zero stops new paid usage.
@@ -99,7 +147,10 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(7);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
+        deserializerMap.put("callingLimit", (n) -> { this.setCallingLimit(n.getDoubleValue()); });
+        deserializerMap.put("callingPeriod", (n) -> { this.setCallingPeriod(n.getEnumValue(SpendPeriod::forValue)); });
+        deserializerMap.put("callingUsed", (n) -> { this.setCallingUsed(n.getDoubleValue()); });
         deserializerMap.put("dailyLimit", (n) -> { this.setDailyLimit(n.getDoubleValue()); });
         deserializerMap.put("dailyResetsAt", (n) -> { this.setDailyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("dailySpent", (n) -> { this.setDailySpent(n.getDoubleValue()); });
@@ -107,6 +158,9 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("monthlyResetsAt", (n) -> { this.setMonthlyResetsAt(n.getOffsetDateTimeValue()); });
         deserializerMap.put("monthlySpent", (n) -> { this.setMonthlySpent(n.getDoubleValue()); });
         deserializerMap.put("reserved", (n) -> { this.setReserved(n.getDoubleValue()); });
+        deserializerMap.put("textingLimit", (n) -> { this.setTextingLimit(n.getDoubleValue()); });
+        deserializerMap.put("textingPeriod", (n) -> { this.setTextingPeriod(n.getEnumValue(SpendPeriod::forValue)); });
+        deserializerMap.put("textingUsed", (n) -> { this.setTextingUsed(n.getDoubleValue()); });
         return deserializerMap;
     }
     /**
@@ -142,11 +196,38 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         return this.reserved;
     }
     /**
+     * Gets the textingLimit property value. Optional texting budget in USD.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getTextingLimit() {
+        return this.textingLimit;
+    }
+    /**
+     * Gets the textingPeriod property value. Calendar period for an organization channel budget, in UTC.
+     * @return a {@link SpendPeriod}
+     */
+    @jakarta.annotation.Nullable
+    public SpendPeriod getTextingPeriod() {
+        return this.textingPeriod;
+    }
+    /**
+     * Gets the textingUsed property value. Settled texting charges this period plus pending texting reservations.
+     * @return a {@link Double}
+     */
+    @jakarta.annotation.Nullable
+    public Double getTextingUsed() {
+        return this.textingUsed;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
+        writer.writeDoubleValue("callingLimit", this.getCallingLimit());
+        writer.writeEnumValue("callingPeriod", this.getCallingPeriod());
+        writer.writeDoubleValue("callingUsed", this.getCallingUsed());
         writer.writeDoubleValue("dailyLimit", this.getDailyLimit());
         writer.writeOffsetDateTimeValue("dailyResetsAt", this.getDailyResetsAt());
         writer.writeDoubleValue("dailySpent", this.getDailySpent());
@@ -154,6 +235,9 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
         writer.writeOffsetDateTimeValue("monthlyResetsAt", this.getMonthlyResetsAt());
         writer.writeDoubleValue("monthlySpent", this.getMonthlySpent());
         writer.writeDoubleValue("reserved", this.getReserved());
+        writer.writeDoubleValue("textingLimit", this.getTextingLimit());
+        writer.writeEnumValue("textingPeriod", this.getTextingPeriod());
+        writer.writeDoubleValue("textingUsed", this.getTextingUsed());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -162,6 +246,27 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
         this.additionalData = value;
+    }
+    /**
+     * Sets the callingLimit property value. Optional calling budget in USD.
+     * @param value Value to set for the callingLimit property.
+     */
+    public void setCallingLimit(@jakarta.annotation.Nullable final Double value) {
+        this.callingLimit = value;
+    }
+    /**
+     * Sets the callingPeriod property value. Calendar period for an organization channel budget, in UTC.
+     * @param value Value to set for the callingPeriod property.
+     */
+    public void setCallingPeriod(@jakarta.annotation.Nullable final SpendPeriod value) {
+        this.callingPeriod = value;
+    }
+    /**
+     * Sets the callingUsed property value. Settled calling charges this period plus pending calling reservations.
+     * @param value Value to set for the callingUsed property.
+     */
+    public void setCallingUsed(@jakarta.annotation.Nullable final Double value) {
+        this.callingUsed = value;
     }
     /**
      * Sets the dailyLimit property value. Daily usage budget in USD. Null means no daily limit; zero stops new paid usage.
@@ -211,5 +316,26 @@ public class SpendLimitsResponse implements AdditionalDataHolder, Parsable {
      */
     public void setReserved(@jakarta.annotation.Nullable final Double value) {
         this.reserved = value;
+    }
+    /**
+     * Sets the textingLimit property value. Optional texting budget in USD.
+     * @param value Value to set for the textingLimit property.
+     */
+    public void setTextingLimit(@jakarta.annotation.Nullable final Double value) {
+        this.textingLimit = value;
+    }
+    /**
+     * Sets the textingPeriod property value. Calendar period for an organization channel budget, in UTC.
+     * @param value Value to set for the textingPeriod property.
+     */
+    public void setTextingPeriod(@jakarta.annotation.Nullable final SpendPeriod value) {
+        this.textingPeriod = value;
+    }
+    /**
+     * Sets the textingUsed property value. Settled texting charges this period plus pending texting reservations.
+     * @param value Value to set for the textingUsed property.
+     */
+    public void setTextingUsed(@jakarta.annotation.Nullable final Double value) {
+        this.textingUsed = value;
     }
 }
